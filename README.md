@@ -1,0 +1,214 @@
+# Austronesian Sound Correspondence Dictionary — data
+
+The repository is the system of record. You enter what a source says into five CSV tables in `cldf/`, and `build.py` checks it, derives everything else, and writes one JSON file per lect for the site.
+
+```
+cldf/
+  cldf-metadata.json     CSVW/CLDF description of the five tables
+  sources.csv            citations
+  lects.csv              languages, dialects, proto-languages
+  phonemes.csv           hand-entered phonemes only (sourced / manual-add / suppressed)
+  correspondences.csv    proto-phoneme > reflex / environment, one row each
+  notation_map.csv       each author's symbol for each proto-phoneme
+build.py                 validator + derivation (Python 3.9+, standard library only)
+tests/                   constraint tests + a FICTIONAL example dataset
+build/                   output (generated; don't edit)
+```
+
+```bash
+python3 build.py --check
+```
+
+```bash
+python3 build.py
+```
+
+```bash
+python3 -m unittest discover tests
+```
+
+`tests/fixtures/example/` is a small, made-up dataset (Proto-Example-A, Examplese, …) that covers every row type. Copy its rows when you're unsure of a format. **None of it is real data.**
+
+---
+
+## Entry order (source-first)
+
+1. **`sources.csv`**: add the citation before you use its id.
+2. **`lects.csv`**: add the lect, with its nearest reconstructed ancestor in `parent_id`. That ancestor has to be entered first and needs phonemes.
+3. **`phonemes.csv`**: enter the inventory, but only if the source gives one.
+4. **`correspondences.csv`**: for each phoneme of the parent, add one row per reflex × environment, and include the gaps (typed blanks).
+5. **`notation_map.csv`**: if the lect is a proto-language, give every phoneme at least a `canonical` row.
+6. Run `python3 build.py`. Fix all errors, then read the notes it prints (unentered proto-phonemes, possible allophones).
+
+Nothing is entered from memory. If the claim isn't in a source you have open, use `disputed` with a note, or leave it out.
+
+---
+
+## Conventions
+
+- **UTF-8, NFC.** The build rejects text that isn't NFC. Most editors save NFC; a combining diacritic pasted from a PDF may not be.
+- **No `*` anywhere.** Proto-symbols are stored bare (`R`, not `*R`), and the site adds the asterisk.
+- **Phoneme key = (lect, symbol).** The build derives the id `<lect_id>:<symbol>` (e.g. `pmp:R`, `mala1479:r`), which also appears in the pivot URL `/lects/?reflex=pmp:R`. Phoneme URLs use `_` for `*` (`/lects/pmp/_R/`).
+- **Lect ids** are the Glottocode where one exists (`mala1479`). Proto-languages get a short lowercase slug (`pan`, `pmp`, `pwmp`, `pcemp`, `poc`).
+- **`ipa`** holds the IPA symbol for attested lects. For proto-languages it holds the site's canonical symbol (which can be non-IPA, e.g. `C`, `S`, `N`). The source's own spelling goes in `source_symbol`.
+- **Lists:** `alt_names` are separated by `;`, and `subgroup_path` by `>` (`PAN > PMP > PWMP`).
+
+---
+
+## Tables
+
+### `sources.csv`
+
+| column | required | values |
+|---|---|---|
+| `id` | yes | lowercase slug, e.g. `blust2009`, `ross1995` |
+| `author`, `year`, `title` | yes | |
+| `url_or_doi` | | |
+| `kind` | yes | `grammar` · `comparative` · `dictionary` · `database` |
+| `notes` | | |
+
+### `lects.csv`
+
+| column | required | values |
+|---|---|---|
+| `id` | yes | Glottocode, or a slug for proto-languages |
+| `name` | yes | the name used on the site |
+| `alt_names` | | `;`-separated, searchable |
+| `type` | yes | `language` · `dialect` · `proto-language` |
+| `glottocode`, `iso639_3` | | the build warns if an attested lect has no Glottocode |
+| `parent_id` | | nearest reconstructed ancestor the source uses; **must be a proto-language**. Empty only for the root (PAN). |
+| `subgroup_path` | | established subgroups only, `>`-separated; disputed ⇒ stop at the lowest secure node |
+| `region`, `orthography_note`, `notes` | | |
+
+`inventory_status` is not a column. The build derives it from `phonemes.csv`, so no one can promote a generated inventory to "sourced" by editing a label:
+
+| phoneme rows for the lect | status |
+|---|---|
+| any `origin=sourced` | `sourced` |
+| only `manual-add` / `suppressed` | `edited` (generated, plus a displayed diff) |
+| none | `reverse-generated` (distinct reflexes in `correspondences.csv`) |
+
+### `phonemes.csv`
+
+One row per phoneme that a source states or that you corrected by hand. Generated phonemes are never stored here.
+
+| column | required | values |
+|---|---|---|
+| `lect_id`, `ipa` | yes | |
+| `source_symbol` | | the source's own spelling |
+| `class` | yes | `C` · `V` · `tone` · `other` |
+| `place` | | C: `bilabial labiodental labial-velar dental alveolar postalveolar alveolo-palatal retroflex palatal velar uvular pharyngeal glottal` · V (backness): `front central back` |
+| `manner` | | C: `plosive prenasalized-plosive implosive affricate prenasalized-affricate nasal trill prenasalized-trill tap fricative lateral-fricative approximant lateral-approximant` · V (height): `close near-close close-mid mid open-mid near-open open` |
+| `voicing` | | `voiced` · `voiceless` |
+| `rounding` | | `rounded` · `unrounded` (vowels) |
+| `origin` | yes | `sourced` (needs `source_id`) · `manual-add` (needs `reason`) · `suppressed` (needs `reason`; hides a generated phoneme) |
+| `source_id`, `page`, `reason`, `notes` | | |
+
+A lect's rows are either all `sourced` or all `manual-add`/`suppressed`, never a mix. Leave place/manner blank when the phonetics of a proto-phoneme are unknown.
+
+### `correspondences.csv`
+
+One proto-segment → one reflex, in one daughter, in one environment. The parent lect is not a column: it is always the daughter's `parent_id`.
+
+| column | required | values |
+|---|---|---|
+| `id` | | leave blank and the build assigns a stable hash; set it yourself only if you need to refer to the row |
+| `child_lect_id` | yes | the daughter |
+| `parent_phoneme` | yes | symbol in the parent's inventory (`R`, not `*R`) |
+| `child_phoneme` | | the reflex in IPA; **blank only for a typed blank** |
+| `environment` | yes | `elsewhere` · `#_` · `_#` · `V_V` · `_i` · `C_` … or free text; never blank |
+| `status` | with a reflex | `regular` · `sporadic` · `loan-stratum` · `disputed` |
+| `blank_type` | with no reflex | `not-attested` · `lexeme-replaced` · `irregular` · `loan` · `disputed` |
+| `evidence_count` | | integer: number of supporting cognate sets |
+| `source_id` | yes | |
+| `page` | strongly advised | the build warns if missing |
+| `notes` | | |
+
+How to enter the common cases:
+
+```csv
+id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes
+,pxb,t,t,elsewhere,regular,,25,example2026,20,
+,pxb,C,t,elsewhere,regular,,12,example2026,20,merger: two parents → same child
+,samp1234,p,p,elsewhere,regular,,10,example2026,61,
+,samp1234,p,ɸ,_u,regular,,3,example2026,61,conditioned split: same parent, two rows
+,exam1234,h,,_#,,not-attested,,example2026,46,typed blank
+```
+
+A parent phoneme with no row at all for a daughter is reported as **unentered**, which is not the same as `not-attested`.
+
+### `notation_map.csv`
+
+| column | required | values |
+|---|---|---|
+| `lect_id`, `phoneme` | yes | a proto-phoneme already in that lect's inventory (sourced or generated) |
+| `system` | yes | `canonical` (the site's own symbol), `Blust`, `Wolff`, `Ross`, `Zorc`, … |
+| `symbol` | yes | that system's spelling, without `*` (`t₂`) |
+| `source_id`, `page`, `notes` | | |
+
+Every proto-phoneme needs at least one row, and the build fails otherwise.
+
+---
+
+## What the build checks
+
+**Errors** (the build fails):
+
+- a header doesn't match
+- text isn't NFC, or a symbol contains `*`
+- an id is a duplicate, or a reference to a lect or source is unknown
+- `parent_id` points to something that isn't a proto-language, or the parent chain loops
+- a correspondence has no environment or no source
+- a blank has no type, or a row has both a reflex and a blank type
+- a status or blank type is outside the vocabulary
+- `parent_phoneme` isn't in the parent's inventory, or the parent has no phonemes at all
+- one lect mixes sourced and manual phoneme rows
+- a `manual-add`/`suppressed` row has no reason
+- a proto-phoneme has no `notation_map` row
+- the root proto-language has no sourced inventory
+
+**Warnings:**
+
+- a citation has no page
+- a reflex isn't in the lect's sourced inventory, or points at a suppressed phoneme
+- an attested lect has no Glottocode, or its id isn't its Glottocode
+- a `manual-add` row duplicates a generated phoneme
+
+**Notes:**
+
+- unentered proto-phonemes per daughter
+- generated phonemes sharing place + manner (possible allophones)
+- free-text environments
+
+## Output
+
+`build/data/<lect_id>.json` contains:
+
+- the basic information block
+- the derived inventory status, and coverage (phonemes with a sourced descent ÷ inventory size)
+- every phoneme with its `notation`, upward `ancestry` (all chains, oldest first; a merger gives several chains) and flattened `descendants` (each with a `via` path, which is what the pivoted index reads)
+- the inventory diff for edited inventories
+
+`build/data/index.json` feeds page 1, and `build/data/sources.json` feeds the bibliography. `build/report.txt` keeps the last report.
+
+The viewer in `site/` (plain HTML/JS, no dependencies) is copied into `build/` and renders the three page types from that JSON with hash routes (`#/lects/`, `#/lects/<id>/`, `#/lects/<id>/<phoneme>/`, `#/lects/?reflex=pmp:R`). To preview with the fictional data:
+
+```bash
+python3 build.py --data tests/fixtures/example && python3 -m http.server 8765 --directory build
+```
+
+Then open http://localhost:8765.
+
+## Decisions still open (from the design doc)
+
+- Which proto-languages go in the first release. The schema takes any number; add them as `proto-language` rows.
+- Canonical notation. Whatever you choose goes in the `canonical` system of `notation_map.csv` and in `phonemes.ipa` for proto-lects; other authors' symbols are extra rows.
+- The first batch of lects and the source for each.
+
+## Deviations from the design doc, and why
+
+- `correspondences` uses `child_lect_id` + `parent_phoneme` + `child_phoneme` instead of `parent_phoneme_id`/`child_phoneme_id`. A typed blank has no child phoneme, so the daughter has to be named separately anyway. The build still derives both ids exactly as the doc describes.
+- Generated phonemes are not stored. Only `manual-add` and `suppressed` rows are, so rerunning the build can't overwrite hand edits.
+- `inventory_status` is derived rather than entered (see above).
+- A `rounding` column was added so vowels can be charted.
+- `pycldf` isn't required yet; the build uses only the standard library. `cldf-metadata.json` is in place so `pycldf`/`cldf validate` can read the dataset later, and ABVD/ACD `forms`/`cognates` tables can be added beside it.

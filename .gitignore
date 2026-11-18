@@ -1,0 +1,7 @@
+build/
+__pycache__/
+.claude/
+.DS_Store
+# unrelated files that live in this folder
+tools_3_5_1.tar.xz
+*.zip

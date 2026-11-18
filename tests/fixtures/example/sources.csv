@@ -1,0 +1,2 @@
+id,author,year,title,url_or_doi,kind,notes
+example2026,"Nobody, A.",2026,FICTIONAL test fixture — not real data,,comparative,Used only by tests/test_build.py
