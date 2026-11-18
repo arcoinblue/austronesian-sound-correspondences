@@ -1,1 +1,39 @@
 lect_id,ipa,source_symbol,class,place,manner,voicing,rounding,origin,source_id,page,reason,notes
+pan,p,p,C,bilabial,plosive,voiceless,,sourced,shibata2025,150,,
+pan,t,t,C,dental,plosive,voiceless,,sourced,shibata2025,150,,
+pan,C,ʈ,C,retroflex,plosive,voiceless,,sourced,shibata2025,150,,"The source considers both [ʈ] and an affricate [ʈ͡ʂ] (Tables 6.3, 6.4, pp. 138-139)."
+pan,k,k,C,velar,plosive,voiceless,,sourced,shibata2025,150,,
+pan,q,q,C,uvular,plosive,voiceless,,sourced,shibata2025,150,,
+pan,s,s,C,dental,fricative,voiceless,,sourced,shibata2025,150,,
+pan,S,ʂ,C,retroflex,fricative,voiceless,,sourced,shibata2025,150,,"Ross's (2015) x, tentatively kept by the source as a separate velar fricative, falls under S in the ACD orthography (Table 6.14, p. 151)."
+pan,h,ħ,C,pharyngeal,fricative,voiceless,,sourced,shibata2025,150,,
+pan,b,b,C,bilabial,plosive,voiced,,sourced,shibata2025,150,,
+pan,z,d,C,dental,plosive,voiced,,sourced,shibata2025,150,,
+pan,d,ɖ,C,retroflex,plosive,voiced,,sourced,shibata2025,150,,
+pan,g,g,C,velar,plosive,voiced,,sourced,shibata2025,150,,In parentheses in Table 6.13: weakly supported.
+pan,j,ʝ,C,palatal,fricative,voiced,,sourced,shibata2025,150,,Phonetic value tentative (p. 149).
+pan,m,m,C,bilabial,nasal,voiced,,sourced,shibata2025,150,,
+pan,n,n,C,dental,nasal,voiced,,sourced,shibata2025,150,,
+pan,ŋ,ŋ,C,velar,nasal,voiced,,sourced,shibata2025,150,,
+pan,N,l,C,dental,lateral-approximant,voiced,,sourced,shibata2025,150,,
+pan,l,ɭ,C,retroflex,lateral-approximant,voiced,,sourced,shibata2025,150,,
+pan,R,r,C,,trill,voiced,,sourced,shibata2025,150,,Place of articulation deliberately left open by the source (p. 149).
+pan,w,w,C,bilabial,approximant,voiced,,sourced,shibata2025,150,,Listed as a glide in the bilabial column of Table 6.13.
+pan,y,j,C,palatal,approximant,voiced,,sourced,shibata2025,150,,Listed as a glide in Table 6.13.
+pan,a,a,V,,,,,sourced,shibata2025,49,,ACD symbol; the source does not discuss vowel quality.
+pan,i,i,V,,,,,sourced,shibata2025,49,,ACD symbol; the source does not discuss vowel quality.
+pan,e,e,V,,,,,sourced,shibata2025,49,,ACD symbol; e is the ACD symbol for the schwa (p. 57). The source does not discuss vowel quality.
+pan,u,u,V,,,,,sourced,shibata2025,49,,ACD symbol; the source does not discuss vowel quality.
+pata,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+psed,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+kava1241,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+pbun,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+thao1240,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+sais1237,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+kulo1237,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+tsou1248,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+kana1286,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+saar1237,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+pruk,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+ppuy,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+ppai,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,

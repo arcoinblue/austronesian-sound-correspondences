@@ -1,1 +1,409 @@
 id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes
+,pata,p,p,elsewhere,regular,,,shibata2025,52,
+,pata,t,t̪,elsewhere,regular,,,shibata2025,52,
+,pata,C,t͡s,elsewhere,regular,,,shibata2025,52,
+,pata,C,t̪,_#,regular,,,shibata2025,51,Merger with t word-finally.
+,pata,k,k,elsewhere,regular,,,shibata2025,52,
+,pata,q,q,elsewhere,regular,,,shibata2025,52,
+,pata,s,ħ,elsewhere,regular,,,shibata2025,52,
+,pata,S,s,elsewhere,regular,,,shibata2025,52,
+,pata,S,ħ,elsewhere,sporadic,,,shibata2025,51,Occasionally merged with ħ; examples omitted by the source.
+,pata,h,ħ,elsewhere,regular,,,shibata2025,52,
+,pata,b,b,elsewhere,regular,,,shibata2025,52,
+,pata,z,r,elsewhere,regular,,,shibata2025,52,
+,pata,d,r,elsewhere,regular,,,shibata2025,52,
+,pata,g,k,elsewhere,regular,,,shibata2025,52,Single etymon: gaRaŋ 'crab'.
+,pata,m,m,elsewhere,regular,,,shibata2025,52,
+,pata,n,n,elsewhere,regular,,,shibata2025,52,
+,pata,ŋ,ŋ,elsewhere,regular,,,shibata2025,52,
+,pata,j,g,elsewhere,regular,,,shibata2025,52,
+,pata,j,s,i_a,regular,,,shibata2025,51,pijax > pisaʔ.
+,pata,j,∅,V_V,sporadic,,,shibata2025,51,"Deleted word-medially in some forms, as with g in male-register forms: bajaq > baq."
+,pata,N,l,elsewhere,regular,,,shibata2025,52,
+,pata,l,ɹ,elsewhere,regular,,,shibata2025,52,
+,pata,R,g,elsewhere,regular,,,shibata2025,52,
+,pata,R,s,i_a,regular,,,shibata2025,51,siRa > ħisaʔ.
+,pata,R,∅,V_V,sporadic,,,shibata2025,51,Deleted word-medially in some forms: k<um>aRaC > k<um>at̪.
+,pata,w,w,elsewhere,regular,,,shibata2025,52,
+,pata,y,j,elsewhere,regular,,,shibata2025,52,
+,pata,a,a,elsewhere,regular,,,shibata2025,52,
+,pata,e,ə,elsewhere,regular,,,shibata2025,52,
+,pata,e,u,elsewhere,regular,,,shibata2025,52,Second reflex in Table 3.2 (dakeS > rakus); conditioning not stated.
+,pata,i,i,elsewhere,regular,,,shibata2025,52,
+,pata,u,u,elsewhere,regular,,,shibata2025,52,
+,psed,p,p,elsewhere,regular,,,shibata2025,55,
+,psed,p,k,_#,regular,,,shibata2025,54,Labials merge into velars word-finally.
+,psed,t,t,elsewhere,regular,,,shibata2025,55,
+,psed,t,t͡s,_#,regular,,,shibata2025,54,Merger with C word-finally.
+,psed,C,t͡s,elsewhere,regular,,,shibata2025,55,
+,psed,k,k,elsewhere,regular,,,shibata2025,55,
+,psed,q,q,elsewhere,disputed,,,shibata2025,55,"q in many examples; these may be borrowed, since most are also found in Atayal (Song 2024b, cited p. 54 n. 5)."
+,psed,q,∅,elsewhere,disputed,,,shibata2025,55,"Deleted in other examples; more probably the regular reflex (Song 2024b, cited p. 54 n. 5)."
+,psed,s,ħ,elsewhere,regular,,,shibata2025,55,
+,psed,S,s,elsewhere,regular,,,shibata2025,55,
+,psed,h,ħ,elsewhere,regular,,,shibata2025,55,
+,psed,b,b,elsewhere,regular,,,shibata2025,55,
+,psed,b,k,_#,regular,,,shibata2025,54,Labials merge into velars word-finally.
+,psed,z,d,elsewhere,disputed,,,shibata2025,55,"One uncertain example, marked ? in the source: tuzuq > tədu-liŋ 'finger'. No word-final z attested (p. 54)."
+,psed,d,d,elsewhere,regular,,,shibata2025,55,
+,psed,d,t͡s,_#,regular,,,shibata2025,55,
+,psed,g,k,elsewhere,regular,,,shibata2025,55,Single etymon: gaRaŋ 'crab'.
+,psed,m,m,elsewhere,regular,,,shibata2025,55,
+,psed,m,ŋ,_#,regular,,,shibata2025,54,Labials merge into velars word-finally.
+,psed,n,n,elsewhere,regular,,,shibata2025,55,
+,psed,ŋ,ŋ,elsewhere,regular,,,shibata2025,55,
+,psed,j,j,elsewhere,regular,,,shibata2025,55,
+,psed,N,l,elsewhere,regular,,,shibata2025,55,
+,psed,l,ɾ,elsewhere,regular,,,shibata2025,55,
+,psed,R,g,elsewhere,regular,,,shibata2025,55,"Split into g and ɾ, apparently unconditioned (Song 2024a, cited p. 54)."
+,psed,R,ɾ,elsewhere,regular,,,shibata2025,55,"Split into g and ɾ, apparently unconditioned (Song 2024a, cited p. 54)."
+,psed,w,w,elsewhere,regular,,,shibata2025,55,
+,psed,w,g,elsewhere,regular,,,shibata2025,55,Second reflex in Table 3.4 (keRiw > kəɾig); conditioning not stated.
+,psed,y,j,elsewhere,regular,,,shibata2025,55,
+,psed,a,a,elsewhere,regular,,,shibata2025,55,
+,psed,e,ə,elsewhere,regular,,,shibata2025,55,
+,psed,e,u,in the final syllable,regular,,,shibata2025,54,Merger with u in the final syllable.
+,psed,i,i,elsewhere,regular,,,shibata2025,55,
+,psed,u,u,elsewhere,regular,,,shibata2025,55,
+,kava1241,p,p,elsewhere,regular,,,shibata2025,71,
+,kava1241,t,t̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,C,t̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,k,k,elsewhere,regular,,,shibata2025,71,
+,kava1241,k,q,in a word with a reflex of R,regular,,,shibata2025,71,Shared with Basay (Tseng 2022); q also appears in other words without this condition.
+,kava1241,q,∅,elsewhere,regular,,,shibata2025,70,Leaves a trace on an adjacent a.
+,kava1241,s,s̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,S,s̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,h,∅,elsewhere,regular,,,shibata2025,71,
+,kava1241,b,β,elsewhere,regular,,,shibata2025,71,
+,kava1241,z,ʐ,elsewhere,regular,,,shibata2025,71,
+,kava1241,d,ʐ,elsewhere,regular,,,shibata2025,71,
+,kava1241,g,,elsewhere,,not-attested,,shibata2025,70,No reliable reconstructions with g are reflected in Kavalan.
+,kava1241,m,m,elsewhere,regular,,,shibata2025,71,
+,kava1241,n,n̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,ŋ,ŋ,elsewhere,regular,,,shibata2025,71,
+,kava1241,j,n̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,N,n̪,elsewhere,regular,,,shibata2025,71,
+,kava1241,l,ɾ,elsewhere,regular,,,shibata2025,71,
+,kava1241,l,ʁ,elsewhere,sporadic,,,shibata2025,71,Some examples; may be partly environmental (Tseng 2022).
+,kava1241,R,ʁ,elsewhere,regular,,,shibata2025,71,
+,kava1241,R,ɾ,elsewhere,sporadic,,,shibata2025,71,Some examples; may be partly environmental (Tseng 2022).
+,kava1241,w,w,elsewhere,regular,,,shibata2025,71,
+,kava1241,y,j,elsewhere,regular,,,shibata2025,71,
+,kava1241,a,a,elsewhere,regular,,,shibata2025,71,
+,kava1241,a,i,#q_ or _q#,regular,,,shibata2025,70,In words that began with qa- or ended in -aq (Tseng 2022); possibly also before final h.
+,kava1241,e,ə,elsewhere,regular,,,shibata2025,71,
+,kava1241,i,i,elsewhere,regular,,,shibata2025,71,
+,kava1241,u,u,elsewhere,regular,,,shibata2025,71,
+,pami,p,p,elsewhere,regular,,,shibata2025,75,
+,pami,t,t,elsewhere,regular,,,shibata2025,75,
+,pami,C,t,elsewhere,regular,,,shibata2025,75,
+,pami,k,k,elsewhere,regular,,,shibata2025,75,
+,pami,q,ʡ,elsewhere,regular,,,shibata2025,75,
+,pami,s,t͡s,elsewhere,regular,,,shibata2025,75,
+,pami,S,s,elsewhere,regular,,,shibata2025,75,
+,pami,h,ħ,elsewhere,regular,,,shibata2025,75,
+,pami,b,b,elsewhere,regular,,,shibata2025,75,
+,pami,z,d,elsewhere,regular,,,shibata2025,75,
+,pami,d,d,elsewhere,regular,,,shibata2025,75,
+,pami,g,k,elsewhere,regular,,,shibata2025,75,Single etymon: gaRaŋ 'crab'.
+,pami,m,m,elsewhere,regular,,,shibata2025,75,
+,pami,n,n,elsewhere,regular,,,shibata2025,75,
+,pami,ŋ,ŋ,elsewhere,regular,,,shibata2025,75,
+,pami,j,n,elsewhere,regular,,,shibata2025,75,
+,pami,N,ɮ,elsewhere,regular,,,shibata2025,75,
+,pami,l,ɾ,elsewhere,regular,,,shibata2025,75,
+,pami,R,ɾ,elsewhere,regular,,,shibata2025,75,
+,pami,w,w,elsewhere,regular,,,shibata2025,75,
+,pami,y,j,elsewhere,regular,,,shibata2025,75,
+,pami,a,a,elsewhere,regular,,,shibata2025,75,
+,pami,e,ə,elsewhere,regular,,,shibata2025,75,
+,pami,i,i,elsewhere,regular,,,shibata2025,75,
+,pami,u,u,elsewhere,regular,,,shibata2025,75,
+,pbun,p,p,elsewhere,regular,,,shibata2025,58,
+,pbun,t,t,elsewhere,regular,,,shibata2025,58,
+,pbun,C,t,elsewhere,regular,,,shibata2025,58,
+,pbun,k,k,elsewhere,regular,,,shibata2025,58,
+,pbun,q,q,elsewhere,regular,,,shibata2025,58,
+,pbun,s,t͡s,elsewhere,regular,,,shibata2025,58,
+,pbun,S,s,elsewhere,regular,,,shibata2025,58,
+,pbun,h,∅,elsewhere,regular,,,shibata2025,58,
+,pbun,b,ʔb,elsewhere,regular,,,shibata2025,58,
+,pbun,z,ʔd,elsewhere,regular,,,shibata2025,58,
+,pbun,d,ʔd,elsewhere,regular,,,shibata2025,58,
+,pbun,g,k,elsewhere,regular,,,shibata2025,58,Single etymon: gaRaŋ 'crab'.
+,pbun,m,m,elsewhere,regular,,,shibata2025,58,
+,pbun,n,n,elsewhere,regular,,,shibata2025,58,
+,pbun,ŋ,ŋ,elsewhere,regular,,,shibata2025,58,
+,pbun,j,∅,elsewhere,regular,,,shibata2025,58,
+,pbun,N,n,elsewhere,regular,,,shibata2025,58,
+,pbun,l,h,#_,regular,,,shibata2025,58,
+,pbun,l,∅,elsewhere,regular,,,shibata2025,58,Deleted in non-initial positions.
+,pbun,R,l,elsewhere,regular,,,shibata2025,58,
+,pbun,w,v,elsewhere,regular,,,shibata2025,58,
+,pbun,y,ð,elsewhere,regular,,,shibata2025,58,
+,pbun,a,a,elsewhere,regular,,,shibata2025,58,
+,pbun,e,u,elsewhere,regular,,,shibata2025,57,Merges with a or u; conditioning unclear.
+,pbun,e,a,elsewhere,regular,,,shibata2025,57,Merges with a or u; conditioning unclear.
+,pbun,i,i,elsewhere,regular,,,shibata2025,58,
+,pbun,u,u,elsewhere,regular,,,shibata2025,58,
+,thao1240,p,p,elsewhere,regular,,,shibata2025,61,
+,thao1240,t,t̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,C,θ,elsewhere,regular,,,shibata2025,61,
+,thao1240,k,k,elsewhere,regular,,,shibata2025,61,
+,thao1240,q,q,elsewhere,regular,,,shibata2025,61,
+,thao1240,s,t̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,S,ʃ,elsewhere,regular,,,shibata2025,60,"Fricatives assimilate when two or more occur in a word, e.g. Sidi > s̪is̪i."
+,thao1240,h,∅,elsewhere,regular,,,shibata2025,61,
+,thao1240,b,ɸ,elsewhere,regular,,,shibata2025,61,ɸ~f in the source.
+,thao1240,z,s̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,d,s̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,d,t̪,before a following ʃ,sporadic,,,shibata2025,60,"Possible dissimilation in two examples (duSa > t̪uʃa, qudaS > qut̪aʃ), after Blust (2003)."
+,thao1240,g,k,elsewhere,disputed,,,shibata2025,61,Single etymon: gaRaŋ 'crab'. Blust (2003) states that Thao has no clear reflex of g (p. 60).
+,thao1240,m,m,elsewhere,regular,,,shibata2025,61,
+,thao1240,n,n̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,ŋ,n̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,j,ð,elsewhere,regular,,,shibata2025,61,
+,thao1240,N,ð,elsewhere,regular,,,shibata2025,61,
+,thao1240,l,ɾ̪,elsewhere,regular,,,shibata2025,61,ɾ̪~r̪ in the source.
+,thao1240,R,ɬ̪,elsewhere,regular,,,shibata2025,61,
+,thao1240,w,w,elsewhere,regular,,,shibata2025,61,
+,thao1240,y,j,elsewhere,regular,,,shibata2025,61,
+,thao1240,a,a,elsewhere,regular,,,shibata2025,61,
+,thao1240,e,i,elsewhere,regular,,,shibata2025,61,Penultimate e is regularly deleted (p. 60).
+,thao1240,e,u,_[labial],regular,,,shibata2025,60,Also occasionally by assimilation to u in the following syllable.
+,thao1240,e,a,when q follows anywhere in the word,regular,,,shibata2025,60,
+,thao1240,i,i,elsewhere,regular,,,shibata2025,61,
+,thao1240,u,u,elsewhere,regular,,,shibata2025,61,
+,sais1237,p,p,elsewhere,regular,,,shibata2025,65,
+,sais1237,t,t̪,elsewhere,regular,,,shibata2025,65,
+,sais1237,C,θ,elsewhere,regular,,,shibata2025,65,
+,sais1237,k,k,elsewhere,regular,,,shibata2025,65,
+,sais1237,q,ʔ,elsewhere,regular,,,shibata2025,65,
+,sais1237,s,h,elsewhere,regular,,,shibata2025,65,
+,sais1237,S,ʃ,elsewhere,regular,,,shibata2025,65,
+,sais1237,h,h,elsewhere,regular,,,shibata2025,65,
+,sais1237,b,β,elsewhere,regular,,,shibata2025,65,
+,sais1237,z,ʐ,elsewhere,regular,,,shibata2025,65,
+,sais1237,d,ʐ,elsewhere,regular,,,shibata2025,65,
+,sais1237,g,k,elsewhere,regular,,,shibata2025,65,Single etymon: gaRaŋ 'crab'.
+,sais1237,m,m,elsewhere,regular,,,shibata2025,65,
+,sais1237,n,n̪,elsewhere,regular,,,shibata2025,65,
+,sais1237,ŋ,ŋ,elsewhere,regular,,,shibata2025,65,
+,sais1237,j,ð,elsewhere,regular,,,shibata2025,65,
+,sais1237,N,l̪,elsewhere,regular,,,shibata2025,65,
+,sais1237,l,ɾ,elsewhere,regular,,,shibata2025,65,
+,sais1237,R,ɾ,elsewhere,regular,,,shibata2025,65,
+,sais1237,w,w,elsewhere,regular,,,shibata2025,65,
+,sais1237,y,j,elsewhere,regular,,,shibata2025,65,
+,sais1237,a,a,elsewhere,regular,,,shibata2025,65,
+,sais1237,a,æ,"in the presence of q, s or h",regular,,,shibata2025,65,Fronting.
+,sais1237,e,ə,elsewhere,regular,,,shibata2025,65,
+,sais1237,e,i,"in the presence of q, s or h",regular,,,shibata2025,65,Fronting; merger with i.
+,sais1237,e,∅,elsewhere,regular,,,shibata2025,65,Third reflex in Table 3.10 (bineSiq > βinʃiʔ); conditioning not stated.
+,sais1237,i,i,elsewhere,regular,,,shibata2025,65,
+,sais1237,u,o,elsewhere,regular,,,shibata2025,65,
+,sais1237,u,œ,"in the presence of q, s or h",regular,,,shibata2025,65,Fronting.
+,kulo1237,p,p,elsewhere,regular,,,shibata2025,69,
+,kulo1237,t,t̪,elsewhere,regular,,,shibata2025,69,
+,kulo1237,C,s,elsewhere,regular,,,shibata2025,69,
+,kulo1237,k,k,elsewhere,regular,,,shibata2025,69,
+,kulo1237,q,∅,elsewhere,regular,,,shibata2025,69,
+,kulo1237,s,d͡z,elsewhere,regular,,,shibata2025,69,
+,kulo1237,s,t,_#,regular,,,shibata2025,69,
+,kulo1237,S,s,elsewhere,regular,,,shibata2025,69,
+,kulo1237,h,ħ,elsewhere,regular,,,shibata2025,69,
+,kulo1237,b,b,elsewhere,regular,,,shibata2025,69,
+,kulo1237,b,p,_#,regular,,,shibata2025,69,
+,kulo1237,z,d,elsewhere,regular,,,shibata2025,69,
+,kulo1237,z,t,_#,regular,,,shibata2025,69,
+,kulo1237,d,d,elsewhere,regular,,,shibata2025,69,
+,kulo1237,d,t,_#,regular,,,shibata2025,69,
+,kulo1237,g,k,elsewhere,regular,,,shibata2025,69,
+,kulo1237,m,m,elsewhere,regular,,,shibata2025,69,
+,kulo1237,n,n̪,elsewhere,regular,,,shibata2025,69,
+,kulo1237,ŋ,ŋ,elsewhere,regular,,,shibata2025,69,
+,kulo1237,j,d͡z,elsewhere,regular,,,shibata2025,69,Word-medial; the source lists no initial reflex.
+,kulo1237,j,t,_#,regular,,,shibata2025,69,
+,kulo1237,N,l̪,elsewhere,regular,,,shibata2025,69,
+,kulo1237,l,ɾ,elsewhere,regular,,,shibata2025,69,
+,kulo1237,R,x,elsewhere,regular,,,shibata2025,69,
+,kulo1237,w,w,elsewhere,regular,,,shibata2025,69,
+,kulo1237,y,j,elsewhere,regular,,,shibata2025,69,
+,kulo1237,a,a,elsewhere,regular,,,shibata2025,69,
+,kulo1237,e,ə,elsewhere,regular,,,shibata2025,69,"Limited examples of i or a as well (Blust 1999b, cited p. 68)."
+,kulo1237,e,u,next to a labial consonant or a syllable with a rounded vowel,regular,,,shibata2025,68,After Blust (1999b).
+,kulo1237,i,i,elsewhere,regular,,,shibata2025,69,
+,kulo1237,u,u,elsewhere,regular,,,shibata2025,69,
+,tsou1248,p,p,elsewhere,regular,,,shibata2025,78,
+,tsou1248,t,t,elsewhere,regular,,,shibata2025,78,
+,tsou1248,C,t͡s,elsewhere,regular,,,shibata2025,78,
+,tsou1248,k,ʔ,elsewhere,regular,,,shibata2025,78,
+,tsou1248,q,∅,elsewhere,regular,,,shibata2025,78,
+,tsou1248,s,s,elsewhere,regular,,,shibata2025,78,
+,tsou1248,S,s,elsewhere,regular,,,shibata2025,78,
+,tsou1248,h,∅,elsewhere,regular,,,shibata2025,78,
+,tsou1248,b,f,elsewhere,regular,,,shibata2025,78,
+,tsou1248,z,t͡s,elsewhere,regular,,,shibata2025,78,
+,tsou1248,d,t͡s,elsewhere,regular,,,shibata2025,78,
+,tsou1248,g,,elsewhere,,not-attested,,shibata2025,97,No reflex listed (Table 3.32).
+,tsou1248,m,m,elsewhere,regular,,,shibata2025,78,
+,tsou1248,n,n,elsewhere,regular,,,shibata2025,78,
+,tsou1248,ŋ,ŋ,elsewhere,regular,,,shibata2025,78,
+,tsou1248,j,∅,elsewhere,regular,,,shibata2025,78,
+,tsou1248,N,x,elsewhere,regular,,,shibata2025,78,
+,tsou1248,N,k,adjacent to another fricative,regular,,,shibata2025,77,Dissimilation.
+,tsou1248,l,ɹ,elsewhere,regular,,,shibata2025,78,
+,tsou1248,R,ɹ,elsewhere,regular,,,shibata2025,78,
+,tsou1248,w,v,elsewhere,regular,,,shibata2025,78,
+,tsou1248,w,∅,_#,regular,,,shibata2025,77,Deleted word-finally.
+,tsou1248,y,z,elsewhere,regular,,,shibata2025,78,"Written z in Table 3.18; the phoneme is transcribed zʲ in the inventory (Table 3.17, p. 76)."
+,tsou1248,y,i,_#,regular,,,shibata2025,78,As in maCay > mt͡soi.
+,tsou1248,a,a,elsewhere,regular,,,shibata2025,78,
+,tsou1248,a,o,"in the historic final syllable, or adjacent to w",regular,,,shibata2025,77,
+,tsou1248,e,ɨ,elsewhere,regular,,,shibata2025,78,
+,tsou1248,i,i,elsewhere,regular,,,shibata2025,78,"A few examples of e, environment unclear (p. 77)."
+,tsou1248,u,u,elsewhere,regular,,,shibata2025,78,
+,kana1286,p,p,elsewhere,regular,,,shibata2025,80,
+,kana1286,t,t,elsewhere,regular,,,shibata2025,80,
+,kana1286,C,t͡sʲ,elsewhere,regular,,,shibata2025,80,
+,kana1286,k,k,elsewhere,regular,,,shibata2025,80,
+,kana1286,q,ʔ,elsewhere,regular,,,shibata2025,80,
+,kana1286,s,∅,elsewhere,regular,,,shibata2025,82,
+,kana1286,S,sʲ,elsewhere,regular,,,shibata2025,80,
+,kana1286,h,∅,elsewhere,regular,,,shibata2025,80,
+,kana1286,b,β,elsewhere,regular,,,shibata2025,80,
+,kana1286,z,t͡sʲ,elsewhere,regular,,,shibata2025,80,
+,kana1286,d,t͡sʲ,elsewhere,regular,,,shibata2025,80,
+,kana1286,g,,elsewhere,,not-attested,,shibata2025,97,No reflex listed (Table 3.32).
+,kana1286,m,m,elsewhere,regular,,,shibata2025,80,
+,kana1286,n,n,elsewhere,regular,,,shibata2025,80,
+,kana1286,ŋ,ŋ,elsewhere,regular,,,shibata2025,80,
+,kana1286,j,ɾ,elsewhere,regular,,,shibata2025,80,
+,kana1286,N,n,elsewhere,regular,,,shibata2025,80,
+,kana1286,N,ŋ,elsewhere,sporadic,,,shibata2025,81,"Sporadic after the merger of n and N: qaNiC > ʔaŋít͡sʲi, daNi > maká-t͡sʲaŋi."
+,kana1286,l,∅,elsewhere,regular,,,shibata2025,82,
+,kana1286,l,ɾ,elsewhere,loan-stratum,,,shibata2025,82,"ɾ in a few forms that the source treats as borrowings (telu > tuː́ɾu, lima > ɾiː́ma)."
+,kana1286,R,r,elsewhere,regular,,,shibata2025,80,
+,kana1286,w,∅,elsewhere,regular,,,shibata2025,80,
+,kana1286,w,u,a_#,regular,,,shibata2025,81,Diphthong -aw kept as -au.
+,kana1286,y,ɾ,elsewhere,regular,,,shibata2025,80,Including -uy > -uɾu.
+,kana1286,y,i,a_#,regular,,,shibata2025,81,Diphthong -ay kept as -ai.
+,kana1286,a,a,elsewhere,regular,,,shibata2025,80,
+,kana1286,e,ɨ,elsewhere,regular,,,shibata2025,80,
+,kana1286,e,u,when u follows in the next syllable,regular,,,shibata2025,81,Assimilation.
+,kana1286,i,i,elsewhere,regular,,,shibata2025,80,
+,kana1286,u,u,elsewhere,regular,,,shibata2025,80,
+,kana1286,u,ɨ,when e follows in the next syllable,regular,,,shibata2025,81,Assimilation.
+,saar1237,p,p,elsewhere,regular,,,shibata2025,84,
+,saar1237,t,t,elsewhere,regular,,,shibata2025,84,
+,saar1237,C,t͡s,elsewhere,regular,,,shibata2025,84,
+,saar1237,k,k,elsewhere,regular,,,shibata2025,84,
+,saar1237,q,∅,elsewhere,regular,,,shibata2025,86,
+,saar1237,q,ʔ,elsewhere,loan-stratum,,,shibata2025,86,"ʔ in forms the source treats as borrowings, mostly from Kanakanavu."
+,saar1237,s,∅,elsewhere,regular,,,shibata2025,84,Apparent s reflexes are treated as borrowings (p. 87).
+,saar1237,S,∅,elsewhere,regular,,,shibata2025,84,Apparent s reflexes are treated as borrowings (p. 87).
+,saar1237,h,∅,elsewhere,regular,,,shibata2025,84,
+,saar1237,b,β,elsewhere,regular,,,shibata2025,84,
+,saar1237,z,s,elsewhere,regular,,,shibata2025,84,
+,saar1237,d,s,elsewhere,regular,,,shibata2025,84,
+,saar1237,g,,elsewhere,,not-attested,,shibata2025,97,No reflex listed (Table 3.32).
+,saar1237,m,m,elsewhere,regular,,,shibata2025,84,
+,saar1237,n,n,elsewhere,regular,,,shibata2025,84,
+,saar1237,n,∅,_#,regular,,,shibata2025,84,
+,saar1237,ŋ,ŋ,elsewhere,regular,,,shibata2025,84,
+,saar1237,j,ɬ,elsewhere,regular,,,shibata2025,84,
+,saar1237,N,ɬ,elsewhere,regular,,,shibata2025,84,
+,saar1237,l,ɾ,elsewhere,regular,,,shibata2025,84,
+,saar1237,R,r,elsewhere,regular,,,shibata2025,84,
+,saar1237,w,∅,elsewhere,regular,,,shibata2025,84,
+,saar1237,w,u,a_#,regular,,,shibata2025,85,Diphthong -aw probably monophthongized to -u.
+,saar1237,y,ɬ,elsewhere,regular,,,shibata2025,84,
+,saar1237,y,i,a_#,regular,,,shibata2025,85,Diphthong -ay probably monophthongized to -i.
+,saar1237,a,a,elsewhere,regular,,,shibata2025,84,
+,saar1237,e,ɨ,elsewhere,regular,,,shibata2025,84,
+,saar1237,e,u,when u follows in the next syllable,regular,,,shibata2025,84,Assimilation.
+,saar1237,i,i,elsewhere,regular,,,shibata2025,84,
+,saar1237,u,u,elsewhere,regular,,,shibata2025,84,
+,saar1237,u,ɨ,when e follows in the next syllable,regular,,,shibata2025,84,Assimilation.
+,pruk,p,p,elsewhere,regular,,,shibata2025,90,
+,pruk,t,t̪,elsewhere,regular,,,shibata2025,90,
+,pruk,C,t͡s,elsewhere,regular,,,shibata2025,90,
+,pruk,k,k,elsewhere,regular,,,shibata2025,90,
+,pruk,q,∅,elsewhere,regular,,,shibata2025,90,
+,pruk,s,θ,elsewhere,regular,,,shibata2025,90,Apparent s reflexes are problematic (p. 89).
+,pruk,S,s,elsewhere,regular,,,shibata2025,90,
+,pruk,h,∅,elsewhere,regular,,,shibata2025,90,
+,pruk,b,b,elsewhere,regular,,,shibata2025,90,
+,pruk,z,d̪,elsewhere,regular,,,shibata2025,90,Word-initial voiced coronal obstruents correspond irregularly (ch. 4).
+,pruk,d,ɖ,elsewhere,regular,,,shibata2025,90,Word-initial voiced coronal obstruents correspond irregularly (ch. 4).
+,pruk,g,k,elsewhere,disputed,,,shibata2025,90,"Marked ? in the source: gaRaŋ 'crab' > kaʔaŋə 'fish', with a semantic shift."
+,pruk,m,m,elsewhere,regular,,,shibata2025,90,
+,pruk,n,n,elsewhere,regular,,,shibata2025,90,
+,pruk,ŋ,ŋ,elsewhere,regular,,,shibata2025,90,
+,pruk,j,g,elsewhere,regular,,,shibata2025,90,
+,pruk,N,l,elsewhere,regular,,,shibata2025,90,
+,pruk,l,ɭ,elsewhere,regular,,,shibata2025,90,
+,pruk,R,ʔ,elsewhere,regular,,,shibata2025,90,
+,pruk,R,r,elsewhere,disputed,,,shibata2025,89,"r in three examples (e.g. wiRi > viri); origin unclear, possibly loans."
+,pruk,w,v,elsewhere,regular,,,shibata2025,90,
+,pruk,w,w,_#,regular,,,shibata2025,90,
+,pruk,y,j,elsewhere,regular,,,shibata2025,90,
+,pruk,a,a,elsewhere,regular,,,shibata2025,90,
+,pruk,e,ə,elsewhere,regular,,,shibata2025,90,
+,pruk,i,i,elsewhere,regular,,,shibata2025,90,
+,pruk,u,o,elsewhere,regular,,,shibata2025,90,
+,ppuy,p,p,elsewhere,regular,,,shibata2025,93,
+,ppuy,t,t̪,elsewhere,regular,,,shibata2025,93,
+,ppuy,C,ʈ,elsewhere,regular,,,shibata2025,93,
+,ppuy,k,k,elsewhere,regular,,,shibata2025,93,
+,ppuy,q,ħ,elsewhere,regular,,,shibata2025,93,
+,ppuy,s,s,elsewhere,regular,,,shibata2025,93,
+,ppuy,S,∅,elsewhere,regular,,,shibata2025,93,
+,ppuy,h,∅,elsewhere,regular,,,shibata2025,93,
+,ppuy,b,b,elsewhere,regular,,,shibata2025,93,
+,ppuy,z,d̪,elsewhere,regular,,,shibata2025,93,Word-initial voiced coronal obstruents correspond irregularly (ch. 4).
+,ppuy,d,ɖ,elsewhere,regular,,,shibata2025,93,Word-initial voiced coronal obstruents correspond irregularly (ch. 4).
+,ppuy,g,g,elsewhere,regular,,,shibata2025,93,
+,ppuy,m,m,elsewhere,regular,,,shibata2025,93,
+,ppuy,n,n,elsewhere,regular,,,shibata2025,93,
+,ppuy,ŋ,ŋ,elsewhere,regular,,,shibata2025,93,
+,ppuy,j,d̪,elsewhere,regular,,,shibata2025,93,
+,ppuy,N,l̪,elsewhere,regular,,,shibata2025,93,
+,ppuy,N,n,elsewhere,sporadic,,,shibata2025,92,"In some examples, at least partly when ɭ is the onset of the same syllable (Teng and Ross 2010): bulaN > buɭan."
+,ppuy,l,ɭ,elsewhere,regular,,,shibata2025,93,
+,ppuy,R,r,elsewhere,regular,,,shibata2025,93,
+,ppuy,w,w,elsewhere,regular,,,shibata2025,93,
+,ppuy,y,j,elsewhere,regular,,,shibata2025,93,
+,ppuy,a,a,elsewhere,regular,,,shibata2025,93,
+,ppuy,e,ə,elsewhere,regular,,,shibata2025,93,
+,ppuy,i,i,elsewhere,regular,,,shibata2025,93,
+,ppuy,u,u,elsewhere,regular,,,shibata2025,93,
+,ppai,p,p,elsewhere,regular,,,shibata2025,96,
+,ppai,t,c,elsewhere,regular,,,shibata2025,96,
+,ppai,C,t͡s,elsewhere,regular,,,shibata2025,96,
+,ppai,k,k,elsewhere,regular,,,shibata2025,96,
+,ppai,q,q,elsewhere,regular,,,shibata2025,96,
+,ppai,s,t,elsewhere,regular,,,shibata2025,96,
+,ppai,S,ʂ,elsewhere,regular,,,shibata2025,96,
+,ppai,h,∅,elsewhere,regular,,,shibata2025,96,
+,ppai,b,v,elsewhere,regular,,,shibata2025,96,
+,ppai,z,ɟ,elsewhere,regular,,,shibata2025,96,Word-initial voiced coronal obstruents correspond irregularly (ch. 4).
+,ppai,d,ɖ͡ʐ,elsewhere,regular,,,shibata2025,96,Word-initial voiced coronal obstruents correspond irregularly (ch. 4).
+,ppai,d,ɖ,elsewhere,loan-stratum,,,shibata2025,95,ɖ is most likely a phoneme borrowed from Rukai.
+,ppai,g,g,elsewhere,regular,,,shibata2025,96,Single etymon: gaRaŋ 'crab'.
+,ppai,m,m,elsewhere,regular,,,shibata2025,96,
+,ppai,n,n,elsewhere,regular,,,shibata2025,96,
+,ppai,ŋ,ŋ,elsewhere,regular,,,shibata2025,96,
+,ppai,j,d,elsewhere,regular,,,shibata2025,96,
+,ppai,N,ʎ,elsewhere,regular,,,shibata2025,96,
+,ppai,l,ɭ,elsewhere,regular,,,shibata2025,96,
+,ppai,R,∅,elsewhere,regular,,,shibata2025,96,
+,ppai,R,r,elsewhere,loan-stratum,,,shibata2025,95,"r in fewer examples (ka-wiRi > kaviri), treated as borrowings of unknown source."
+,ppai,w,∅,#_,regular,,,shibata2025,96,
+,ppai,w,v,V_V,regular,,,shibata2025,96,
+,ppai,w,w,_#,regular,,,shibata2025,96,
+,ppai,y,j,elsewhere,regular,,,shibata2025,96,
+,ppai,a,a,elsewhere,regular,,,shibata2025,96,
+,ppai,e,ə,elsewhere,regular,,,shibata2025,96,
+,ppai,i,i,elsewhere,regular,,,shibata2025,96,
+,ppai,u,u,elsewhere,regular,,,shibata2025,96,

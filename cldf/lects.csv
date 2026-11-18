@@ -1,1 +1,16 @@
 id,name,alt_names,type,glottocode,iso639_3,parent_id,subgroup_path,region,orthography_note,notes
+pan,Proto-Austronesian,PAn;PAN,proto-language,,,,PAN,,,"Inventory follows the ACD orthography (Blust et al. 2023) used in the source, ch. 3 (p. 49); phonetic values are Shibata's reconstruction (Table 6.13, p. 150). c, D, ñ and r of the ACD are not addressed by the source (p. 49)."
+pata,Proto-Atayal,PAta,proto-language,,,pan,PAN,Northern Taiwan,,"Reconstruction after Goderich (2020) and Li (1981), as given in the source (section 3.1)."
+psed,Proto-Seediq,PSed,proto-language,,,pan,PAN,Northeastern and central Taiwan,,Preliminary reconstruction by the source from Li (1981) and Ogawa and Asai (1935) (section 3.2).
+kava1241,Kavalan,Kav,language,kava1241,ckv,pan,PAN,Northeastern Taiwan,,"Phonology after Li and Tsuchida (2006), as given in the source (section 3.7)."
+pami,Proto-Amis,PAmi;Proto-Amis-Sakizaya,proto-language,,,pan,PAN,Eastern coast of Taiwan,,"Reconstruction after Lin (2022), who calls it Proto-Amis-Sakizaya (section 3.8)."
+pbun,Proto-Bunun,PBun,proto-language,,,pan,PAN,Central Taiwan,,"Reconstruction after Li (1988), as given in the source (section 3.3)."
+thao1240,Thao,Tha,language,thao1240,ssf,pan,PAN,Central Taiwan (Sun Moon Lake),,"Phonology and reflexes after Blust (2003), as summarized in the source (section 3.4)."
+sais1237,Saisiyat,Sai,language,sais1237,xsy,pan,PAN,Northern Taiwan,,Examples and reflexes are from the Taai dialect data of Li (1978) (section 3.5).
+kulo1237,Pazeh,Paz;Pazih;Pazeh-Kaxabu,language,kulo1237,pzh,pan,PAN,Western plains of Taiwan; Puli basin,,"Auran (Pazeh) dialect, after Blust (1999b) and Li and Tsuchida (2001) (section 3.6)."
+tsou1248,Tsou,Tso,language,tsou1248,tsu,pan,PAN,Central Taiwan,,"Duhtu dialect, after Tsuchida (1976) (section 3.9)."
+kana1286,Kanakanavu,Knv;Kanakanabu,language,kana1286,xnb,pan,PAN,Central mountains of Taiwan,,"After Tsuchida (1976), as given in the source (section 3.10)."
+saar1237,Saaroa,SaR;Hla'alua,language,saar1237,sxr,pan,PAN,Central and southern mountains of Taiwan,,"After Tsuchida (1976), as given in the source (section 3.11)."
+pruk,Proto-Rukai,PRuK,proto-language,,,pan,PAN,Southern Taiwan,,"Reconstruction after Li (1977), with the source's changes (section 3.12)."
+ppuy,Proto-Puyuma,PPuy,proto-language,,,pan,PAN,Southeastern coast of Taiwan,,"Reconstruction after Yeh (2024), as given in the source (section 3.13)."
+ppai,Proto-Paiwan,PPai,proto-language,,,pan,PAN,Southern Taiwan,,"Reconstruction adapted from Chuang (2024), with the source's symbols (section 3.14)."
