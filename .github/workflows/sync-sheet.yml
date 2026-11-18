@@ -1,0 +1,49 @@
+name: Sync from Google Sheets
+
+# Copies the data-entry Google Sheet into cldf/*.csv. If the data passes
+# build.py's checks and anything changed, commits it and redeploys the site.
+# If a check fails, nothing is committed and the run fails with the error list.
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sheet-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      SHEET_ID: ${{ vars.SHEET_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl==3.1.5
+      - name: Download the sheet into cldf/
+        run: python tools/sync_sheet.py "$SHEET_ID" --out cldf
+      - name: Check the data
+        run: python build.py --check
+      - name: Commit and redeploy if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- cldf; then
+            echo "No changes in the sheet."
+            exit 0
+          fi
+          git diff --stat -- cldf
+          git config user.name "sheet-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cldf
+          git commit -m "Sync data from Google Sheets"
+          git push
+          gh workflow run pages.yml --ref main

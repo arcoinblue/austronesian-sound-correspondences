@@ -123,3 +123,26 @@ class TestConstraints(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+try:
+    import openpyxl  # noqa: F401
+    HAVE_OPENPYXL = True
+except ImportError:
+    HAVE_OPENPYXL = False
+
+
+@unittest.skipUnless(HAVE_OPENPYXL, "openpyxl not installed")
+class TestSheetRoundTrip(unittest.TestCase):
+    def test_fixture_survives_workbook_round_trip(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            py = sys.executable
+            subprocess.run([py, str(ROOT / "tools/make_sheet_template.py"), "--from", str(FIXTURE),
+                            str(d / "x.xlsx")], check=True, capture_output=True)
+            subprocess.run([py, str(ROOT / "tools/sync_sheet.py"), "--xlsx", str(d / "x.xlsx"),
+                            "--out", str(d / "out")], check=True, capture_output=True)
+            for f in FIXTURE.glob("*.csv"):
+                self.assertEqual(f.read_text(encoding="utf-8"),
+                                 (d / "out" / f.name).read_text(encoding="utf-8"), f.name)

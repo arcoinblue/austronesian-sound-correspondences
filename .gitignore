@@ -5,3 +5,4 @@ __pycache__/
 # unrelated files that live in this folder
 tools_3_5_1.tar.xz
 *.zip
+.venv/

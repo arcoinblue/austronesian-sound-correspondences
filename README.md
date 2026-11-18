@@ -199,6 +199,17 @@ python3 build.py --data tests/fixtures/example && python3 -m http.server 8765 --
 
 Then open http://localhost:8765.
 
+## Editing in Google Sheets
+
+The data is entered in the Google Sheet [Austronesian Sound Correspondences — data](https://docs.google.com/spreadsheets/d/1mzL8wYSb73PeuJShX-Xor7y6iIFDS991F9CV2AZD7mk/edit). It has one tab per table, with the same headers, dropdowns for every fixed vocabulary, and every cell set to plain text. **The sheet is the source of truth: direct edits to `cldf/*.csv` are overwritten by the next sync.**
+
+- `.github/workflows/sync-sheet.yml` runs every hour, or immediately from **Actions → Sync from Google Sheets → Run workflow**.
+- It downloads the sheet (`tools/sync_sheet.py`), runs `build.py --check`, and, if the data passes and anything changed, commits `cldf/` and redeploys the site.
+- If a check fails, nothing is committed and the run fails. Errors read `tab.csv:ROW`, where ROW is the row in that tab of the sheet.
+- The sheet must stay shared as "anyone with the link can view". Its id is stored in the repository variable `SHEET_ID` (Settings → Secrets and variables → Actions → Variables).
+- `tools/make_sheet_template.py` regenerates the workbook (tabs, dropdowns, help tab) from `build.py`'s vocabularies, should the schema change. Re-upload it, or copy the changed dropdowns by hand.
+- GitHub pauses hourly schedules in repositories with no activity for 60 days. If that happens, re-enable the workflow in the Actions tab.
+
 ## Publishing
 
 Every push to `main` runs `.github/workflows/pages.yml`: the tests run, then `build.py` builds from `cldf/`, and the result is deployed to https://arcoinblue.github.io/austronesian-sound-correspondences/. If the data has an error, the build fails and the previous site stays up; the error list is in the Actions log. Pull requests run the same checks without deploying.
