@@ -199,6 +199,10 @@ python3 build.py --data tests/fixtures/example && python3 -m http.server 8765 --
 
 Then open http://localhost:8765.
 
+## Publishing
+
+Every push to `main` runs `.github/workflows/pages.yml`: the tests run, then `build.py` builds from `cldf/`, and the result is deployed to https://arcoinblue.github.io/austronesian-sound-correspondences/. If the data has an error, the build fails and the previous site stays up; the error list is in the Actions log. Pull requests run the same checks without deploying.
+
 ## Decisions still open (from the design doc)
 
 - Which proto-languages go in the first release. The schema takes any number; add them as `proto-language` rows.

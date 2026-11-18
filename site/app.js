@@ -125,7 +125,7 @@ async function pageIndex(params) {
       for (const g of Object.keys(groups).sort())
         body += `<tr class="group"><td colspan="6">${esc(g)}</td></tr>` + sortLects(groups[g]).map(row).join("");
     }
-    app.querySelector("#t").innerHTML = head + (body || `<tr><td colspan="6" class="muted">No lects match.</td></tr>`);
+    app.querySelector("#t").innerHTML = head + (body || `<tr><td colspan="6" class="muted">${INDEX.lects.length ? "No lects match." : "No lects entered yet. Add rows to cldf/lects.csv."}</td></tr>`);
   };
   app.querySelector("#q").addEventListener("input", e => { state.q = e.target.value; draw(); });
   app.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
