@@ -89,3 +89,18 @@ input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--l
   main, .top, .foot { padding-left: 16px; padding-right: 16px; }
   input[type=search] { min-width: 0; width: 100%; }
 }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); margin: 14px 0 10px; }
+.tabs button { font: inherit; font-size: 14px; padding: 6px 14px; border: 0; border-bottom: 2px solid transparent;
+  background: none; color: var(--muted); cursor: pointer; margin-bottom: -1px; }
+.tabs button.on { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+.sys { font-size: 10.5px; color: var(--muted); vertical-align: super; margin-left: 2px; }
+.via { color: var(--muted); }
+.vianote { font-size: 12px; }
+.unclassified { margin-top: 8px; }
+.chart td a.o-generated.hand { border-bottom: 3px double var(--warn); }
+.b-placed-by-hand { background: var(--warn-soft); color: var(--warn); }
+.descentbox tr.deep { display: none; }
+.descentbox.all tr.deep { display: table-row; }
+button.more { font: inherit; font-size: 13px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--accent); cursor: pointer; margin-left: 6px; }

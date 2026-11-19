@@ -1,24 +1,64 @@
 {
-  "@context": ["http://www.w3.org/ns/csvw", {"@language": "en"}],
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "en"
+    }
+  ],
   "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#Generic",
   "dc:title": "Austronesian Sound Correspondence Dictionary",
   "dc:description": "Sourced proto-phoneme > reflex correspondences for Austronesian lects and proto-languages. Phoneme keys are (lect_id, symbol); the build derives the phoneme id '<lect_id>:<symbol>'.",
-  "dialect": {"commentPrefix": null},
+  "dialect": {
+    "commentPrefix": null
+  },
   "tables": [
     {
       "url": "sources.csv",
       "dc:description": "One citation. Must exist before its id is used anywhere else.",
       "tableSchema": {
         "columns": [
-          {"name": "id", "required": true, "datatype": {"base": "string", "format": "[a-z0-9][a-z0-9_-]*"}},
-          {"name": "author", "required": true},
-          {"name": "year", "required": true},
-          {"name": "title", "required": true},
-          {"name": "url_or_doi"},
-          {"name": "kind", "required": true, "datatype": {"base": "string", "format": "grammar|comparative|dictionary|database"}},
-          {"name": "notes"}
+          {
+            "name": "id",
+            "required": true,
+            "datatype": {
+              "base": "string",
+              "format": "[a-z0-9][a-z0-9_-]*"
+            }
+          },
+          {
+            "name": "author",
+            "required": true
+          },
+          {
+            "name": "year",
+            "required": true
+          },
+          {
+            "name": "title",
+            "required": true
+          },
+          {
+            "name": "url_or_doi"
+          },
+          {
+            "name": "kind",
+            "required": true,
+            "datatype": {
+              "base": "string",
+              "format": "grammar|comparative|dictionary|database"
+            }
+          },
+          {
+            "name": "notes"
+          },
+          {
+            "name": "year_suffix",
+            "datatype": "string"
+          }
         ],
-        "primaryKey": ["id"]
+        "primaryKey": [
+          "id"
+        ]
       }
     },
     {
@@ -26,21 +66,82 @@
       "dc:description": "A language, dialect or proto-language. inventory_status is derived by the build, not entered.",
       "tableSchema": {
         "columns": [
-          {"name": "id", "required": true, "datatype": {"base": "string", "format": "[a-z0-9][a-z0-9_-]*"}},
-          {"name": "name", "required": true},
-          {"name": "alt_names", "separator": ";"},
-          {"name": "type", "required": true, "datatype": {"base": "string", "format": "language|dialect|proto-language"}},
-          {"name": "glottocode", "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#glottocode", "datatype": {"base": "string", "format": "[a-z0-9]{4}[0-9]{4}"}},
-          {"name": "iso639_3", "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#iso639P3code", "datatype": {"base": "string", "format": "[a-z]{3}"}},
-          {"name": "parent_id"},
-          {"name": "subgroup_path", "separator": ">"},
-          {"name": "region"},
-          {"name": "orthography_note"},
-          {"name": "notes"}
+          {
+            "name": "id",
+            "required": true,
+            "datatype": {
+              "base": "string",
+              "format": "[a-z0-9][a-z0-9_-]*"
+            }
+          },
+          {
+            "name": "name",
+            "required": true
+          },
+          {
+            "name": "alt_names",
+            "separator": ";"
+          },
+          {
+            "name": "type",
+            "required": true,
+            "datatype": {
+              "base": "string",
+              "format": "language|dialect|proto-language"
+            }
+          },
+          {
+            "name": "glottocode",
+            "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#glottocode",
+            "datatype": {
+              "base": "string",
+              "format": "[a-z0-9]{4}[0-9]{4}"
+            }
+          },
+          {
+            "name": "iso639_3",
+            "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#iso639P3code",
+            "datatype": {
+              "base": "string",
+              "format": "[a-z]{3}"
+            }
+          },
+          {
+            "name": "parent_id"
+          },
+          {
+            "name": "subgroup_path",
+            "separator": ">"
+          },
+          {
+            "name": "region"
+          },
+          {
+            "name": "orthography_note"
+          },
+          {
+            "name": "notes"
+          },
+          {
+            "name": "default_system",
+            "datatype": "string"
+          }
         ],
-        "primaryKey": ["id"],
+        "primaryKey": [
+          "id"
+        ],
         "foreignKeys": [
-          {"columnReference": ["parent_id"], "reference": {"resource": "lects.csv", "columnReference": ["id"]}}
+          {
+            "columnReference": [
+              "parent_id"
+            ],
+            "reference": {
+              "resource": "lects.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          }
         ]
       }
     },
@@ -49,24 +150,97 @@
       "dc:description": "Hand-entered phoneme rows: origin = sourced | manual-add | suppressed. Generated rows are produced by the build and never stored here.",
       "tableSchema": {
         "columns": [
-          {"name": "lect_id", "required": true},
-          {"name": "ipa", "required": true},
-          {"name": "source_symbol"},
-          {"name": "class", "required": true, "datatype": {"base": "string", "format": "C|V|tone|other"}},
-          {"name": "place"},
-          {"name": "manner"},
-          {"name": "voicing"},
-          {"name": "rounding"},
-          {"name": "origin", "required": true, "datatype": {"base": "string", "format": "sourced|manual-add|suppressed"}},
-          {"name": "source_id"},
-          {"name": "page"},
-          {"name": "reason"},
-          {"name": "notes"}
+          {
+            "name": "lect_id",
+            "required": true
+          },
+          {
+            "name": "ipa",
+            "required": true
+          },
+          {
+            "name": "source_symbol"
+          },
+          {
+            "name": "class",
+            "required": true,
+            "datatype": {
+              "base": "string",
+              "format": "C|V|tone|other"
+            }
+          },
+          {
+            "name": "place"
+          },
+          {
+            "name": "manner"
+          },
+          {
+            "name": "voicing"
+          },
+          {
+            "name": "rounding"
+          },
+          {
+            "name": "origin",
+            "required": true,
+            "datatype": {
+              "base": "string",
+              "format": "sourced|manual-add|suppressed"
+            }
+          },
+          {
+            "name": "source_id"
+          },
+          {
+            "name": "page"
+          },
+          {
+            "name": "reason"
+          },
+          {
+            "name": "notes"
+          },
+          {
+            "name": "via_source_id",
+            "datatype": "string"
+          },
+          {
+            "name": "via_page",
+            "datatype": "string"
+          },
+          {
+            "name": "via_note",
+            "datatype": "string"
+          }
         ],
-        "primaryKey": ["lect_id", "ipa"],
+        "primaryKey": [
+          "lect_id",
+          "ipa"
+        ],
         "foreignKeys": [
-          {"columnReference": ["lect_id"], "reference": {"resource": "lects.csv", "columnReference": ["id"]}},
-          {"columnReference": ["source_id"], "reference": {"resource": "sources.csv", "columnReference": ["id"]}}
+          {
+            "columnReference": [
+              "lect_id"
+            ],
+            "reference": {
+              "resource": "lects.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          },
+          {
+            "columnReference": [
+              "source_id"
+            ],
+            "reference": {
+              "resource": "sources.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          }
         ]
       }
     },
@@ -75,21 +249,95 @@
       "dc:description": "One proto-segment > one reflex in one daughter, in one environment. The parent lect is the daughter's parent_id.",
       "tableSchema": {
         "columns": [
-          {"name": "id"},
-          {"name": "child_lect_id", "required": true},
-          {"name": "parent_phoneme", "required": true},
-          {"name": "child_phoneme"},
-          {"name": "environment", "required": true},
-          {"name": "status", "datatype": {"base": "string", "format": "regular|sporadic|loan-stratum|disputed"}},
-          {"name": "blank_type", "datatype": {"base": "string", "format": "not-attested|lexeme-replaced|irregular|loan|disputed"}},
-          {"name": "evidence_count", "datatype": {"base": "integer", "minimum": 0}},
-          {"name": "source_id", "required": true},
-          {"name": "page"},
-          {"name": "notes"}
+          {
+            "name": "id"
+          },
+          {
+            "name": "child_lect_id",
+            "required": true
+          },
+          {
+            "name": "parent_phoneme",
+            "required": true
+          },
+          {
+            "name": "child_phoneme"
+          },
+          {
+            "name": "environment",
+            "required": true
+          },
+          {
+            "name": "status",
+            "datatype": {
+              "base": "string",
+              "format": "regular|sporadic|loan-stratum|disputed"
+            }
+          },
+          {
+            "name": "blank_type",
+            "datatype": {
+              "base": "string",
+              "format": "not-attested|lexeme-replaced|irregular|loan|disputed"
+            }
+          },
+          {
+            "name": "evidence_count",
+            "datatype": {
+              "base": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "source_id",
+            "required": true
+          },
+          {
+            "name": "page"
+          },
+          {
+            "name": "notes"
+          },
+          {
+            "name": "system",
+            "datatype": "string"
+          },
+          {
+            "name": "via_source_id",
+            "datatype": "string"
+          },
+          {
+            "name": "via_page",
+            "datatype": "string"
+          },
+          {
+            "name": "via_note",
+            "datatype": "string"
+          }
         ],
         "foreignKeys": [
-          {"columnReference": ["child_lect_id"], "reference": {"resource": "lects.csv", "columnReference": ["id"]}},
-          {"columnReference": ["source_id"], "reference": {"resource": "sources.csv", "columnReference": ["id"]}}
+          {
+            "columnReference": [
+              "child_lect_id"
+            ],
+            "reference": {
+              "resource": "lects.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          },
+          {
+            "columnReference": [
+              "source_id"
+            ],
+            "reference": {
+              "resource": "sources.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          }
         ]
       }
     },
@@ -98,18 +346,84 @@
       "dc:description": "One author's symbol for one proto-phoneme. Every proto-phoneme needs at least one row.",
       "tableSchema": {
         "columns": [
-          {"name": "lect_id", "required": true},
-          {"name": "phoneme", "required": true},
-          {"name": "system", "required": true},
-          {"name": "symbol", "required": true},
-          {"name": "source_id"},
-          {"name": "page"},
-          {"name": "notes"}
+          {
+            "name": "lect_id",
+            "required": true
+          },
+          {
+            "name": "phoneme",
+            "required": true
+          },
+          {
+            "name": "system",
+            "required": true
+          },
+          {
+            "name": "symbol",
+            "required": true
+          },
+          {
+            "name": "source_id"
+          },
+          {
+            "name": "page"
+          },
+          {
+            "name": "notes"
+          },
+          {
+            "name": "place",
+            "datatype": "string"
+          },
+          {
+            "name": "manner",
+            "datatype": "string"
+          },
+          {
+            "name": "voicing",
+            "datatype": "string"
+          },
+          {
+            "name": "via_source_id",
+            "datatype": "string"
+          },
+          {
+            "name": "via_page",
+            "datatype": "string"
+          },
+          {
+            "name": "via_note",
+            "datatype": "string"
+          }
         ],
-        "primaryKey": ["lect_id", "phoneme", "system"],
+        "primaryKey": [
+          "lect_id",
+          "phoneme",
+          "system"
+        ],
         "foreignKeys": [
-          {"columnReference": ["lect_id"], "reference": {"resource": "lects.csv", "columnReference": ["id"]}},
-          {"columnReference": ["source_id"], "reference": {"resource": "sources.csv", "columnReference": ["id"]}}
+          {
+            "columnReference": [
+              "lect_id"
+            ],
+            "reference": {
+              "resource": "lects.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          },
+          {
+            "columnReference": [
+              "source_id"
+            ],
+            "reference": {
+              "resource": "sources.csv",
+              "columnReference": [
+                "id"
+              ]
+            }
+          }
         ]
       }
     }

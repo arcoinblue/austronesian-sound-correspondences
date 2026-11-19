@@ -1,290 +1,363 @@
-lect_id,phoneme,system,symbol,source_id,page,notes
-pan,p,canonical,p,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,t,canonical,t,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,C,canonical,C,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,k,canonical,k,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,q,canonical,q,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,s,canonical,s,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,S,canonical,S,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,h,canonical,h,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,b,canonical,b,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,z,canonical,z,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,d,canonical,d,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,g,canonical,g,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,j,canonical,j,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,m,canonical,m,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,n,canonical,n,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,ŋ,canonical,ŋ,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,N,canonical,N,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,l,canonical,l,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,R,canonical,R,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,w,canonical,w,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,y,canonical,y,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,a,canonical,a,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,i,canonical,i,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,e,canonical,e,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,u,canonical,u,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3."
-pan,p,Shibata,p,shibata2025,151,
-pan,t,Shibata,t,shibata2025,151,
-pan,C,Shibata,ʈ,shibata2025,151,
-pan,k,Shibata,k,shibata2025,151,
-pan,q,Shibata,q,shibata2025,151,
-pan,s,Shibata,s,shibata2025,151,
-pan,S,Shibata,ʂ,shibata2025,151,
-pan,h,Shibata,ħ,shibata2025,151,
-pan,b,Shibata,b,shibata2025,151,
-pan,z,Shibata,d,shibata2025,151,
-pan,d,Shibata,ɖ,shibata2025,151,
-pan,g,Shibata,g,shibata2025,151,In parentheses in the source: weakly supported.
-pan,j,Shibata,ʝ,shibata2025,151,
-pan,m,Shibata,m,shibata2025,151,
-pan,n,Shibata,n,shibata2025,151,
-pan,ŋ,Shibata,ŋ,shibata2025,151,
-pan,N,Shibata,l,shibata2025,151,
-pan,l,Shibata,ɭ,shibata2025,151,
-pan,R,Shibata,r,shibata2025,151,
-pan,w,Shibata,w,shibata2025,151,
-pan,y,Shibata,j,shibata2025,151,
-pan,S,Shibata,x,shibata2025,151,"In parentheses in the source: tentative velar fricative (Ross 2015 x), written S by Blust."
-pata,p,canonical,p,shibata2025,52,Symbol as written in the source.
-pata,t̪,canonical,t̪,shibata2025,52,Symbol as written in the source.
-pata,t͡s,canonical,t͡s,shibata2025,52,Symbol as written in the source.
-pata,k,canonical,k,shibata2025,52,Symbol as written in the source.
-pata,q,canonical,q,shibata2025,52,Symbol as written in the source.
-pata,ħ,canonical,ħ,shibata2025,52,Symbol as written in the source.
-pata,s,canonical,s,shibata2025,52,Symbol as written in the source.
-pata,b,canonical,b,shibata2025,52,Symbol as written in the source.
-pata,r,canonical,r,shibata2025,52,Symbol as written in the source.
-pata,m,canonical,m,shibata2025,52,Symbol as written in the source.
-pata,n,canonical,n,shibata2025,52,Symbol as written in the source.
-pata,ŋ,canonical,ŋ,shibata2025,52,Symbol as written in the source.
-pata,g,canonical,g,shibata2025,52,Symbol as written in the source.
-pata,l,canonical,l,shibata2025,52,Symbol as written in the source.
-pata,ɹ,canonical,ɹ,shibata2025,52,Symbol as written in the source.
-pata,w,canonical,w,shibata2025,52,Symbol as written in the source.
-pata,j,canonical,j,shibata2025,52,Symbol as written in the source.
-pata,a,canonical,a,shibata2025,52,Symbol as written in the source.
-pata,ə,canonical,ə,shibata2025,52,Symbol as written in the source.
-pata,u,canonical,u,shibata2025,52,Symbol as written in the source.
-pata,i,canonical,i,shibata2025,52,Symbol as written in the source.
-psed,p,canonical,p,shibata2025,55,Symbol as written in the source.
-psed,k,canonical,k,shibata2025,55,Symbol as written in the source.
-psed,t,canonical,t,shibata2025,55,Symbol as written in the source.
-psed,t͡s,canonical,t͡s,shibata2025,55,Symbol as written in the source.
-psed,q,canonical,q,shibata2025,55,Symbol as written in the source.
-psed,ħ,canonical,ħ,shibata2025,55,Symbol as written in the source.
-psed,s,canonical,s,shibata2025,55,Symbol as written in the source.
-psed,b,canonical,b,shibata2025,55,Symbol as written in the source.
-psed,d,canonical,d,shibata2025,55,Symbol as written in the source.
-psed,m,canonical,m,shibata2025,55,Symbol as written in the source.
-psed,ŋ,canonical,ŋ,shibata2025,55,Symbol as written in the source.
-psed,n,canonical,n,shibata2025,55,Symbol as written in the source.
-psed,j,canonical,j,shibata2025,55,Symbol as written in the source.
-psed,l,canonical,l,shibata2025,55,Symbol as written in the source.
-psed,ɾ,canonical,ɾ,shibata2025,55,Symbol as written in the source.
-psed,g,canonical,g,shibata2025,55,Symbol as written in the source.
-psed,w,canonical,w,shibata2025,55,Symbol as written in the source.
-psed,a,canonical,a,shibata2025,55,Symbol as written in the source.
-psed,ə,canonical,ə,shibata2025,55,Symbol as written in the source.
-psed,u,canonical,u,shibata2025,55,Symbol as written in the source.
-psed,i,canonical,i,shibata2025,55,Symbol as written in the source.
-pami,p,canonical,p,shibata2025,75,Symbol as written in the source.
-pami,t,canonical,t,shibata2025,75,Symbol as written in the source.
-pami,k,canonical,k,shibata2025,75,Symbol as written in the source.
-pami,ʡ,canonical,ʡ,shibata2025,75,Symbol as written in the source.
-pami,t͡s,canonical,t͡s,shibata2025,75,Symbol as written in the source.
-pami,s,canonical,s,shibata2025,75,Symbol as written in the source.
-pami,ħ,canonical,ħ,shibata2025,75,Symbol as written in the source.
-pami,b,canonical,b,shibata2025,75,Symbol as written in the source.
-pami,d,canonical,d,shibata2025,75,Symbol as written in the source.
-pami,m,canonical,m,shibata2025,75,Symbol as written in the source.
-pami,n,canonical,n,shibata2025,75,Symbol as written in the source.
-pami,ŋ,canonical,ŋ,shibata2025,75,Symbol as written in the source.
-pami,ɮ,canonical,ɮ,shibata2025,75,Symbol as written in the source.
-pami,ɾ,canonical,ɾ,shibata2025,75,Symbol as written in the source.
-pami,w,canonical,w,shibata2025,75,Symbol as written in the source.
-pami,j,canonical,j,shibata2025,75,Symbol as written in the source.
-pami,a,canonical,a,shibata2025,75,Symbol as written in the source.
-pami,ə,canonical,ə,shibata2025,75,Symbol as written in the source.
-pami,i,canonical,i,shibata2025,75,Symbol as written in the source.
-pami,u,canonical,u,shibata2025,75,Symbol as written in the source.
-pbun,p,canonical,p,shibata2025,58,Symbol as written in the source.
-pbun,t,canonical,t,shibata2025,58,Symbol as written in the source.
-pbun,k,canonical,k,shibata2025,58,Symbol as written in the source.
-pbun,q,canonical,q,shibata2025,58,Symbol as written in the source.
-pbun,t͡s,canonical,t͡s,shibata2025,58,Symbol as written in the source.
-pbun,s,canonical,s,shibata2025,58,Symbol as written in the source.
-pbun,ʔb,canonical,ʔb,shibata2025,58,Symbol as written in the source.
-pbun,ʔd,canonical,ʔd,shibata2025,58,Symbol as written in the source.
-pbun,m,canonical,m,shibata2025,58,Symbol as written in the source.
-pbun,n,canonical,n,shibata2025,58,Symbol as written in the source.
-pbun,ŋ,canonical,ŋ,shibata2025,58,Symbol as written in the source.
-pbun,h,canonical,h,shibata2025,58,Symbol as written in the source.
-pbun,l,canonical,l,shibata2025,58,Symbol as written in the source.
-pbun,v,canonical,v,shibata2025,58,Symbol as written in the source.
-pbun,ð,canonical,ð,shibata2025,58,Symbol as written in the source.
-pbun,a,canonical,a,shibata2025,58,Symbol as written in the source.
-pbun,u,canonical,u,shibata2025,58,Symbol as written in the source.
-pbun,i,canonical,i,shibata2025,58,Symbol as written in the source.
-pruk,p,canonical,p,shibata2025,90,Symbol as written in the source.
-pruk,t̪,canonical,t̪,shibata2025,90,Symbol as written in the source.
-pruk,t͡s,canonical,t͡s,shibata2025,90,Symbol as written in the source.
-pruk,k,canonical,k,shibata2025,90,Symbol as written in the source.
-pruk,θ,canonical,θ,shibata2025,90,Symbol as written in the source.
-pruk,s,canonical,s,shibata2025,90,Symbol as written in the source.
-pruk,b,canonical,b,shibata2025,90,Symbol as written in the source.
-pruk,d̪,canonical,d̪,shibata2025,90,Symbol as written in the source.
-pruk,ɖ,canonical,ɖ,shibata2025,90,Symbol as written in the source.
-pruk,m,canonical,m,shibata2025,90,Symbol as written in the source.
-pruk,n,canonical,n,shibata2025,90,Symbol as written in the source.
-pruk,ŋ,canonical,ŋ,shibata2025,90,Symbol as written in the source.
-pruk,g,canonical,g,shibata2025,90,Symbol as written in the source.
-pruk,l,canonical,l,shibata2025,90,Symbol as written in the source.
-pruk,ɭ,canonical,ɭ,shibata2025,90,Symbol as written in the source.
-pruk,ʔ,canonical,ʔ,shibata2025,90,Symbol as written in the source.
-pruk,r,canonical,r,shibata2025,90,Symbol as written in the source.
-pruk,v,canonical,v,shibata2025,90,Symbol as written in the source.
-pruk,w,canonical,w,shibata2025,90,Symbol as written in the source.
-pruk,j,canonical,j,shibata2025,90,Symbol as written in the source.
-pruk,a,canonical,a,shibata2025,90,Symbol as written in the source.
-pruk,ə,canonical,ə,shibata2025,90,Symbol as written in the source.
-pruk,i,canonical,i,shibata2025,90,Symbol as written in the source.
-pruk,o,canonical,o,shibata2025,90,Symbol as written in the source.
-ppuy,p,canonical,p,shibata2025,93,Symbol as written in the source.
-ppuy,t̪,canonical,t̪,shibata2025,93,Symbol as written in the source.
-ppuy,ʈ,canonical,ʈ,shibata2025,93,Symbol as written in the source.
-ppuy,k,canonical,k,shibata2025,93,Symbol as written in the source.
-ppuy,ħ,canonical,ħ,shibata2025,93,Symbol as written in the source.
-ppuy,s,canonical,s,shibata2025,93,Symbol as written in the source.
-ppuy,b,canonical,b,shibata2025,93,Symbol as written in the source.
-ppuy,d̪,canonical,d̪,shibata2025,93,Symbol as written in the source.
-ppuy,ɖ,canonical,ɖ,shibata2025,93,Symbol as written in the source.
-ppuy,g,canonical,g,shibata2025,93,Symbol as written in the source.
-ppuy,m,canonical,m,shibata2025,93,Symbol as written in the source.
-ppuy,n,canonical,n,shibata2025,93,Symbol as written in the source.
-ppuy,ŋ,canonical,ŋ,shibata2025,93,Symbol as written in the source.
-ppuy,l̪,canonical,l̪,shibata2025,93,Symbol as written in the source.
-ppuy,ɭ,canonical,ɭ,shibata2025,93,Symbol as written in the source.
-ppuy,r,canonical,r,shibata2025,93,Symbol as written in the source.
-ppuy,w,canonical,w,shibata2025,93,Symbol as written in the source.
-ppuy,j,canonical,j,shibata2025,93,Symbol as written in the source.
-ppuy,a,canonical,a,shibata2025,93,Symbol as written in the source.
-ppuy,ə,canonical,ə,shibata2025,93,Symbol as written in the source.
-ppuy,i,canonical,i,shibata2025,93,Symbol as written in the source.
-ppuy,u,canonical,u,shibata2025,93,Symbol as written in the source.
-ppai,p,canonical,p,shibata2025,96,Symbol as written in the source.
-ppai,c,canonical,c,shibata2025,96,Symbol as written in the source.
-ppai,t͡s,canonical,t͡s,shibata2025,96,Symbol as written in the source.
-ppai,k,canonical,k,shibata2025,96,Symbol as written in the source.
-ppai,q,canonical,q,shibata2025,96,Symbol as written in the source.
-ppai,t,canonical,t,shibata2025,96,Symbol as written in the source.
-ppai,ʂ,canonical,ʂ,shibata2025,96,Symbol as written in the source.
-ppai,v,canonical,v,shibata2025,96,Symbol as written in the source.
-ppai,ɟ,canonical,ɟ,shibata2025,96,Symbol as written in the source.
-ppai,ɖ͡ʐ,canonical,ɖ͡ʐ,shibata2025,96,Symbol as written in the source.
-ppai,ɖ,canonical,ɖ,shibata2025,96,Symbol as written in the source.
-ppai,g,canonical,g,shibata2025,96,Symbol as written in the source.
-ppai,m,canonical,m,shibata2025,96,Symbol as written in the source.
-ppai,n,canonical,n,shibata2025,96,Symbol as written in the source.
-ppai,ŋ,canonical,ŋ,shibata2025,96,Symbol as written in the source.
-ppai,d,canonical,d,shibata2025,96,Symbol as written in the source.
-ppai,ʎ,canonical,ʎ,shibata2025,96,Symbol as written in the source.
-ppai,ɭ,canonical,ɭ,shibata2025,96,Symbol as written in the source.
-ppai,r,canonical,r,shibata2025,96,Symbol as written in the source.
-ppai,w,canonical,w,shibata2025,96,Symbol as written in the source.
-ppai,j,canonical,j,shibata2025,96,Symbol as written in the source.
-ppai,a,canonical,a,shibata2025,96,Symbol as written in the source.
-ppai,ə,canonical,ə,shibata2025,96,Symbol as written in the source.
-ppai,i,canonical,i,shibata2025,96,Symbol as written in the source.
-ppai,u,canonical,u,shibata2025,96,Symbol as written in the source.
-pata,ʔ,canonical,ʔ,shibata2025,50,Symbol as written in the source.
-pata,x,canonical,x,shibata2025,50,Symbol as written in the source.
-psed,ʔ,canonical,ʔ,shibata2025,53,Symbol as written in the source.
-pbun,ʔ,canonical,ʔ,shibata2025,56,Symbol as written in the source.
-pan,r,canonical,r,ross2023,30,
-pan,ñ,canonical,ñ,ross2023,30,
-pan,N,Ross,L,ross2023,30,Table 1.4 writes PAn L where the ACD has N. The equivalence is inferred from the reflexes; this excerpt does not state it.
-pmp,p,canonical,p,ross2023,30,Symbol as written in the source.
-pmp,b,canonical,b,ross2023,30,Symbol as written in the source.
-pmp,t,canonical,t,ross2023,30,Symbol as written in the source.
-pmp,d,canonical,d,ross2023,30,Symbol as written in the source.
-pmp,r,canonical,r,ross2023,30,Symbol as written in the source.
-pmp,s,canonical,s,ross2023,30,Symbol as written in the source.
-pmp,z,canonical,z,ross2023,30,Symbol as written in the source.
-pmp,j,canonical,j,ross2023,30,Symbol as written in the source.
-pmp,k,canonical,k,ross2023,30,Symbol as written in the source.
-pmp,g,canonical,g,ross2023,30,Symbol as written in the source.
-pmp,m,canonical,m,ross2023,30,Symbol as written in the source.
-pmp,n,canonical,n,ross2023,30,Symbol as written in the source.
-pmp,ñ,canonical,ñ,ross2023,30,Symbol as written in the source.
-pmp,ŋ,canonical,ŋ,ross2023,30,Symbol as written in the source.
-pmp,w,canonical,w,ross2023,30,Symbol as written in the source.
-pmp,y,canonical,y,ross2023,30,Symbol as written in the source.
-pmp,l,canonical,l,ross2023,30,Symbol as written in the source.
-pmp,q,canonical,q,ross2023,30,Symbol as written in the source.
-pmp,R,canonical,R,ross2023,30,Symbol as written in the source.
-pmp,h,canonical,h,ross2023,30,Symbol as written in the source.
-pmp,i,canonical,i,ross2023,30,Symbol as written in the source.
-pmp,e,canonical,e,ross2023,30,Symbol as written in the source.
-pmp,a,canonical,a,ross2023,30,Symbol as written in the source.
-pmp,u,canonical,u,ross2023,30,Symbol as written in the source.
-poc,pʷ,canonical,pʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,bʷ,canonical,bʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,mʷ,canonical,mʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,w,canonical,w,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,p,canonical,p,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,b,canonical,b,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,m,canonical,m,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,t,canonical,t,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,d,canonical,d,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,r,canonical,r,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,dr,canonical,dr,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,n,canonical,n,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,s,canonical,s,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,l,canonical,l,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,c,canonical,c,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,j,canonical,j,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,ñ,canonical,ñ,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,y,canonical,y,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,k,canonical,k,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,g,canonical,g,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,ŋ,canonical,ŋ,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,kʷ,canonical,kʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,q,canonical,q,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,R,canonical,R,ross2023,27,"Orthography of Ross (1988, 1989)."
-poc,i,canonical,i,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,e,canonical,e,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,a,canonical,a,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,o,canonical,o,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,u,canonical,u,ross2023,26,"Orthography of Ross (1988, 1989)."
-poc,p,Grace,p,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,b,Grace,mp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,bʷ,Grace,ŋp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
-poc,bʷ,Grace,mpw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
-poc,t,Grace,t,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,d,Grace,nt,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,r,Grace,d,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
-poc,r,Grace,r,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
-poc,dr,Grace,nd,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,s,Grace,s,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,j,Grace,nj,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,c,Grace,j,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,k,Grace,k,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,g,Grace,ŋk,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,m,Grace,m,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,mʷ,Grace,ŋm,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
-poc,mʷ,Grace,mw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
-poc,n,Grace,n,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,ñ,Grace,ñ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,ŋ,Grace,ŋ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,w,Grace,w,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,y,Grace,y,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,l,Grace,l,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,q,Grace,q,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,R,Grace,R,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,i,Grace,i,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,e,Grace,e,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,a,Grace,a,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,o,Grace,o,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,u,Grace,u,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
-poc,dr,Ross,nr,ross2023,27,Variant spelling in Table 1.3.
+lect_id,phoneme,system,symbol,source_id,page,notes,place,manner,voicing,via_source_id,via_page,via_note
+pan,p,canonical,p,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,t,canonical,t,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,C,canonical,C,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,k,canonical,k,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,q,canonical,q,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,s,canonical,s,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,S,canonical,S,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,h,canonical,h,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,b,canonical,b,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,z,canonical,z,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,d,canonical,d,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,g,canonical,g,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,j,canonical,j,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,m,canonical,m,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,n,canonical,n,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,ŋ,canonical,ŋ,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,N,canonical,N,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,l,canonical,l,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,R,canonical,R,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,w,canonical,w,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,y,canonical,y,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,a,canonical,a,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,i,canonical,i,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,e,canonical,e,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,u,canonical,u,shibata2025,49,"ACD orthography (Blust et al. 2023), which the source uses in ch. 3.",,,,,,
+pan,p,Shibata,p,shibata2025,151,,,,,,,
+pan,t,Shibata,t,shibata2025,151,,,,,,,
+pan,C,Shibata,ʈ,shibata2025,151,,,,,,,
+pan,k,Shibata,k,shibata2025,151,,,,,,,
+pan,q,Shibata,q,shibata2025,151,,,,,,,
+pan,s,Shibata,s,shibata2025,151,,,,,,,
+pan,S,Shibata,ʂ,shibata2025,151,,,,,,,
+pan,h,Shibata,ħ,shibata2025,151,,,,,,,
+pan,b,Shibata,b,shibata2025,151,,,,,,,
+pan,z,Shibata,d,shibata2025,151,,,,,,,
+pan,d,Shibata,ɖ,shibata2025,151,,,,,,,
+pan,g,Shibata,g,shibata2025,151,In parentheses in the source: weakly supported.,,,,,,
+pan,j,Shibata,ʝ,shibata2025,151,,,,,,,
+pan,m,Shibata,m,shibata2025,151,,,,,,,
+pan,n,Shibata,n,shibata2025,151,,,,,,,
+pan,ŋ,Shibata,ŋ,shibata2025,151,,,,,,,
+pan,N,Shibata,l,shibata2025,151,,,,,,,
+pan,l,Shibata,ɭ,shibata2025,151,,,,,,,
+pan,R,Shibata,r,shibata2025,151,,,,,,,
+pan,w,Shibata,w,shibata2025,151,,,,,,,
+pan,y,Shibata,j,shibata2025,151,,,,,,,
+pan,S,Shibata,x,shibata2025,151,"In parentheses in the source: tentative velar fricative (Ross 2015 x), written S by Blust.",,,,,,
+pata,p,canonical,p,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,t̪,canonical,t̪,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,t͡s,canonical,t͡s,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,k,canonical,k,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,q,canonical,q,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,ħ,canonical,ħ,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,s,canonical,s,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,b,canonical,b,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,r,canonical,r,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,m,canonical,m,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,n,canonical,n,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,ŋ,canonical,ŋ,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,g,canonical,g,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,l,canonical,l,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,ɹ,canonical,ɹ,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,w,canonical,w,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,j,canonical,j,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,a,canonical,a,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,ə,canonical,ə,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,u,canonical,u,shibata2025,52,Symbol as written in the source.,,,,,,
+pata,i,canonical,i,shibata2025,52,Symbol as written in the source.,,,,,,
+psed,p,canonical,p,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,k,canonical,k,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,t,canonical,t,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,t͡s,canonical,t͡s,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,q,canonical,q,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,ħ,canonical,ħ,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,s,canonical,s,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,b,canonical,b,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,d,canonical,d,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,m,canonical,m,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,ŋ,canonical,ŋ,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,n,canonical,n,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,j,canonical,j,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,l,canonical,l,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,ɾ,canonical,ɾ,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,g,canonical,g,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,w,canonical,w,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,a,canonical,a,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,ə,canonical,ə,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,u,canonical,u,shibata2025,55,Symbol as written in the source.,,,,,,
+psed,i,canonical,i,shibata2025,55,Symbol as written in the source.,,,,,,
+pami,p,canonical,p,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,t,canonical,t,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,k,canonical,k,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,ʡ,canonical,ʡ,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,t͡s,canonical,t͡s,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,s,canonical,s,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,ħ,canonical,ħ,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,b,canonical,b,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,d,canonical,d,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,m,canonical,m,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,n,canonical,n,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,ŋ,canonical,ŋ,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,ɮ,canonical,ɮ,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,ɾ,canonical,ɾ,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,w,canonical,w,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,j,canonical,j,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,a,canonical,a,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,ə,canonical,ə,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,i,canonical,i,shibata2025,75,Symbol as written in the source.,,,,,,
+pami,u,canonical,u,shibata2025,75,Symbol as written in the source.,,,,,,
+pbun,p,canonical,p,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,t,canonical,t,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,k,canonical,k,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,q,canonical,q,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,t͡s,canonical,t͡s,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,s,canonical,s,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,ʔb,canonical,ʔb,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,ʔd,canonical,ʔd,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,m,canonical,m,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,n,canonical,n,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,ŋ,canonical,ŋ,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,h,canonical,h,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,l,canonical,l,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,v,canonical,v,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,ð,canonical,ð,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,a,canonical,a,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,u,canonical,u,shibata2025,58,Symbol as written in the source.,,,,,,
+pbun,i,canonical,i,shibata2025,58,Symbol as written in the source.,,,,,,
+pruk,p,canonical,p,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,t̪,canonical,t̪,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,t͡s,canonical,t͡s,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,k,canonical,k,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,θ,canonical,θ,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,s,canonical,s,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,b,canonical,b,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,d̪,canonical,d̪,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,ɖ,canonical,ɖ,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,m,canonical,m,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,n,canonical,n,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,ŋ,canonical,ŋ,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,g,canonical,g,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,l,canonical,l,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,ɭ,canonical,ɭ,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,ʔ,canonical,ʔ,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,r,canonical,r,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,v,canonical,v,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,w,canonical,w,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,j,canonical,j,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,a,canonical,a,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,ə,canonical,ə,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,i,canonical,i,shibata2025,90,Symbol as written in the source.,,,,,,
+pruk,o,canonical,o,shibata2025,90,Symbol as written in the source.,,,,,,
+ppuy,p,canonical,p,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,t̪,canonical,t̪,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,ʈ,canonical,ʈ,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,k,canonical,k,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,ħ,canonical,ħ,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,s,canonical,s,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,b,canonical,b,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,d̪,canonical,d̪,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,ɖ,canonical,ɖ,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,g,canonical,g,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,m,canonical,m,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,n,canonical,n,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,ŋ,canonical,ŋ,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,l̪,canonical,l̪,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,ɭ,canonical,ɭ,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,r,canonical,r,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,w,canonical,w,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,j,canonical,j,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,a,canonical,a,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,ə,canonical,ə,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,i,canonical,i,shibata2025,93,Symbol as written in the source.,,,,,,
+ppuy,u,canonical,u,shibata2025,93,Symbol as written in the source.,,,,,,
+ppai,p,canonical,p,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,c,canonical,c,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,t͡s,canonical,t͡s,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,k,canonical,k,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,q,canonical,q,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,t,canonical,t,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ʂ,canonical,ʂ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,v,canonical,v,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ɟ,canonical,ɟ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ɖ͡ʐ,canonical,ɖ͡ʐ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ɖ,canonical,ɖ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,g,canonical,g,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,m,canonical,m,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,n,canonical,n,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ŋ,canonical,ŋ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,d,canonical,d,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ʎ,canonical,ʎ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ɭ,canonical,ɭ,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,r,canonical,r,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,w,canonical,w,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,j,canonical,j,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,a,canonical,a,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,ə,canonical,ə,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,i,canonical,i,shibata2025,96,Symbol as written in the source.,,,,,,
+ppai,u,canonical,u,shibata2025,96,Symbol as written in the source.,,,,,,
+pata,ʔ,canonical,ʔ,shibata2025,50,Symbol as written in the source.,,,,,,
+pata,x,canonical,x,shibata2025,50,Symbol as written in the source.,,,,,,
+psed,ʔ,canonical,ʔ,shibata2025,53,Symbol as written in the source.,,,,,,
+pbun,ʔ,canonical,ʔ,shibata2025,56,Symbol as written in the source.,,,,,,
+pan,r,canonical,r,ross2023,30,,,,,,,
+pan,ñ,canonical,ñ,ross2023,30,,,,,,,
+pan,N,Ross,L,ross2023,30,"Table 1.4 of Ross et al. (2023) writes PAn L where the ACD has N. The equivalence is confirmed by Shibata (2025: 151, Table 6.14). Phonetic value in Ross (2015): step 1 [l, ɬ], alveolar lateral; step 2 [ʎ, ɬ], palatal lateral; Ross (1992): dental lateral, possibly fricative (Shibata 2025: 38, 41-42).",,,,,,
+pmp,p,canonical,p,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,b,canonical,b,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,t,canonical,t,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,d,canonical,d,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,r,canonical,r,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,s,canonical,s,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,z,canonical,z,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,j,canonical,j,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,k,canonical,k,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,g,canonical,g,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,m,canonical,m,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,n,canonical,n,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,ñ,canonical,ñ,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,ŋ,canonical,ŋ,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,w,canonical,w,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,y,canonical,y,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,l,canonical,l,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,q,canonical,q,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,R,canonical,R,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,h,canonical,h,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,i,canonical,i,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,e,canonical,e,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,a,canonical,a,ross2023,30,Symbol as written in the source.,,,,,,
+pmp,u,canonical,u,ross2023,30,Symbol as written in the source.,,,,,,
+poc,pʷ,canonical,pʷ,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,bʷ,canonical,bʷ,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,mʷ,canonical,mʷ,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,w,canonical,w,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,p,canonical,p,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,b,canonical,b,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,m,canonical,m,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,t,canonical,t,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,d,canonical,d,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,r,canonical,r,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,dr,canonical,dr,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,n,canonical,n,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,s,canonical,s,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,l,canonical,l,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,c,canonical,c,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,j,canonical,j,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,ñ,canonical,ñ,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,y,canonical,y,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,k,canonical,k,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,g,canonical,g,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,ŋ,canonical,ŋ,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,kʷ,canonical,kʷ,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,q,canonical,q,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,R,canonical,R,ross2023,27,"Orthography of Ross (1988, 1989).",,,,,,
+poc,i,canonical,i,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,e,canonical,e,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,a,canonical,a,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,o,canonical,o,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,u,canonical,u,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
+poc,p,Grace,p,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,b,Grace,mp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,bʷ,Grace,ŋp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
+poc,bʷ,Grace,mpw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
+poc,t,Grace,t,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,d,Grace,nt,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,r,Grace,d,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
+poc,r,Grace,r,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
+poc,dr,Grace,nd,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,s,Grace,s,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,j,Grace,nj,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,c,Grace,j,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,k,Grace,k,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,g,Grace,ŋk,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,m,Grace,m,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,mʷ,Grace,ŋm,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
+poc,mʷ,Grace,mw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
+poc,n,Grace,n,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,ñ,Grace,ñ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,ŋ,Grace,ŋ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,w,Grace,w,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,y,Grace,y,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,l,Grace,l,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,q,Grace,q,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,R,Grace,R,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,i,Grace,i,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,e,Grace,e,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,a,Grace,a,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,o,Grace,o,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,u,Grace,u,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,dr,Ross,nr,ross2023,27,Variant spelling in Table 1.3.,,,,,,
+pan,c,canonical,c,shibata2025,49,ACD orthography (Blust et al. 2023).,,,,,,
+pan,D,canonical,D,shibata2025,49,ACD orthography (Blust et al. 2023).,,,,,,
+pan,p,Blust,p,shibata2025,30,"Phonetic value: voiceless bilabial stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,t,Blust,t,shibata2025,30,"Phonetic value: voiceless dental stop (""postdental"") (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,k,Blust,k,shibata2025,30,"Phonetic value: voiceless velar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,q,Blust,q,shibata2025,30,"Phonetic value: voiceless uvular stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,b,Blust,b,shibata2025,30,"Phonetic value: voiced bilabial stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,d,Blust,d,shibata2025,30,"Phonetic value: voiced alveolar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,D,Blust,D,shibata2025,30,"Phonetic value: [ɖ], voiced retroflex stop; word-final only (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,j,Blust,j,shibata2025,30,"Phonetic value: [gʲ], voiced palatalized velar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,g,Blust,g,shibata2025,30,"Phonetic value: voiced velar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,C,Blust,C,shibata2025,30,"Phonetic value: [t͡s], voiceless alveolar affricate (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,c,Blust,c,shibata2025,30,"Phonetic value: [c͡ç], voiceless palatal affricate (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,z,Blust,z,shibata2025,30,"Phonetic value: [ɟ͡ʝ], voiced palatal affricate (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,S,Blust,S,shibata2025,30,"Phonetic value: [s], voiceless alveolar fricative (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,s,Blust,s,shibata2025,30,"Phonetic value: [ç], voiceless palatal fricative (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,h,Blust,h,shibata2025,30,"Phonetic value: voiceless glottal fricative (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,m,Blust,m,shibata2025,30,"Phonetic value: bilabial nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,n,Blust,n,shibata2025,30,"Phonetic value: alveolar nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,ñ,Blust,ñ,shibata2025,30,"Phonetic value: [ɲ], palatal nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,ŋ,Blust,ŋ,shibata2025,30,"Phonetic value: velar nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,l,Blust,l,shibata2025,30,"Phonetic value: alveolar lateral (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,N,Blust,N,shibata2025,30,"Phonetic value: [ʎ], palatal lateral (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,r,Blust,r,shibata2025,30,"Phonetic value: [ɾ], alveolar rhotic (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,R,Blust,R,shibata2025,30,"Phonetic value: [r], alveolar rhotic; alternatively uvular [ʀ] (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,w,Blust,w,shibata2025,30,"Phonetic value: bilabial glide (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,y,Blust,y,shibata2025,30,"Phonetic value: [j], palatal glide (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
+pan,p,Ross,p,shibata2025,41,"Phonetic value: voiceless bilabial stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,t,Ross,t,shibata2025,41,"Phonetic value: step 1: voiceless dental stop; step 2: [c], voiceless palatal stop. Ross (1992): t [t̪]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,C,Ross,C,shibata2025,41,"Phonetic value: [t͡s], voiceless alveolar affricate. Ross (1992): [t͡s or ʈ͡ʂ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,k,Ross,k,shibata2025,41,"Phonetic value: voiceless velar stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,q,Ross,q,shibata2025,41,"Phonetic value: voiceless stop, uvular and pharyngeal column. Ross (1992): q [ḵ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,b,Ross,b,shibata2025,41,"Phonetic value: [b, β], voiced bilabial stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,z,Ross,z,shibata2025,41,"Phonetic value: [d͡z], voiced alveolar affricate. One of two Ross phonemes matched with Blust's z in Table 6.14. Equals Z [ɟ] of Ross (1992) (Table 2.13). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,z,Ross,d,shibata2025,41,"Phonetic value: step 1: voiced alveolar stop; step 2: [ɟ], voiced palatal stop. Matched with both Blust's z and Blust's d in Table 6.14. Equals d1 [d] of Ross (1992). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,d,Ross,d,shibata2025,41,"Phonetic value: step 1: voiced alveolar stop; step 2: [ɟ], voiced palatal stop. One of three Ross phonemes matched with Blust's d in Table 6.14; also matched with Blust's z. Equals d1 [d] of Ross (1992). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,d,Ross,Z,shibata2025,41,"Phonetic value: step 1: [ɟ], voiced palatal stop; step 2: [ɟʝ], voiced palatal affricate. One of three Ross phonemes matched with Blust's d. Equals d2 [d͡z or ɖ͡ʐ] of Ross (1992). Reflexes differ from d and D in Paiwan and elsewhere (Table 2.13, p. 39). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,d,Ross,D,shibata2025,41,"Phonetic value: [ɖ], voiced laminal post-alveolar stop. One of three Ross phonemes matched with Blust's d. Equals d3 [ɖ] of Ross (1992). Not Blust's word-final D. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,g,Ross,g,shibata2025,41,"Phonetic value: voiced velar stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,s,Ross,s,shibata2025,41,"Phonetic value: step 1: [c], voiceless palatal stop; step 2: [t], voiceless alveolar stop. One of two Ross phonemes matched with Blust's s. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,s,Ross,θ,shibata2025,41,"Phonetic value: voiceless dental or interdental fricative; a sibilant added in Ross (2015). One of two Ross phonemes matched with Blust's s. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,S,Ross,S,shibata2025,41,"Phonetic value: [ʂ, ʃ], voiceless laminal post-alveolar fricative. One of two Ross phonemes matched with Blust's S. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,S,Ross,x,shibata2025,41,"Phonetic value: [s], voiceless alveolar fricative; a sibilant added in Ross (2015). One of two Ross phonemes matched with Blust's S. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,h,Ross,ħ,shibata2025,41,"Phonetic value: [ħ], voiceless fricative, uvular and pharyngeal column; written h [ħ] in Tables 2.14-2.15 and ħ in Table 6.14. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,j,Ross,j,shibata2025,41,"Phonetic value: step 1: [ʝ, ɣʲ], voiced palatal fricative; step 2: [z], voiced alveolar fricative. Ross (1992): [ɣ, ɣʲ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,m,Ross,m,shibata2025,41,"Phonetic value: bilabial nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,n,Ross,n,shibata2025,41,"Phonetic value: alveolar nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,ñ,Ross,ñ,shibata2025,41,"Phonetic value: [ɲ], palatal nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,ŋ,Ross,ŋ,shibata2025,41,"Phonetic value: velar nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,l,Ross,l,shibata2025,41,"Phonetic value: [ɭ, ɽ], laminal post-alveolar (retroflex) lateral or flap; the same in Ross (1992). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,R,Ross,R,shibata2025,41,"Phonetic value: [r, ʀ], trill. Ross (1992): [ʀ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,w,Ross,w,shibata2025,41,"Phonetic value: glide; given in Table 6.14, not in the step 1 and step 2 tables. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,y,Ross,y,shibata2025,41,"Phonetic value: glide; given in Table 6.14, not in the step 1 and step 2 tables. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
+pan,p,Wolff,p,shibata2025,42,"Phonetic value: voiceless labial stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,t,Wolff,t,shibata2025,42,"Phonetic value: voiceless alveolar (""apico-alveolar"") stop. Wolff has one phoneme t for Blust's t and C; [t] and [t͡s] are allophones conditioned by stress, and the Formosan t/C contrast is a later development (p. 43) (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,C,Wolff,t,shibata2025,42,"Phonetic value: the [t͡s] allophone of Wolff's single phoneme t; see pan:t (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,k,Wolff,k,shibata2025,42,"Phonetic value: voiceless velar stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,q,Wolff,q,shibata2025,42,"Phonetic value: voiceless post-velar stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,b,Wolff,b,shibata2025,42,"Phonetic value: voiced labial stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,z,Wolff,j,shibata2025,42,"Phonetic value: voiced dental (""apico-dental"") stop, very far front, with palatal coarticulation (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,d,Wolff,d,shibata2025,42,"Phonetic value: voiced alveolar (""apico-alveolar"") stop. Equivalence from the text (p. 43); the Wolff cell is empty in Table 6.14 (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,s,Wolff,c,shibata2025,42,"Phonetic value: voiceless dental (""apico-dental"") stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,S,Wolff,s,shibata2025,42,"Phonetic value: voiceless fricative, between the dental and alveolar columns of Table 2.16 (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,h,Wolff,h,shibata2025,42,"Phonetic value: voiceless pharyngeal fricative (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,j,Wolff,g,shibata2025,42,"Phonetic value: voiced velar stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,m,Wolff,m,shibata2025,42,"Phonetic value: labial nasal (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,n,Wolff,n,shibata2025,42,"Phonetic value: nasal (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,ŋ,Wolff,ŋ,shibata2025,42,"Phonetic value: velar nasal (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,N,Wolff,ɬ,shibata2025,42,"Phonetic value: voiced dental (""apico-dental"") lateral (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,l,Wolff,l,shibata2025,42,"Phonetic value: voiced alveolar (""apico-alveolar"") lateral (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,R,Wolff,ɣ,shibata2025,42,"Phonetic value: voiced fricative (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,w,Wolff,w,shibata2025,42,"Phonetic value: glide (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,y,Wolff,y,shibata2025,42,"Phonetic value: glide (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,

@@ -34,19 +34,28 @@ async function json(path) {
 }
 const lectData = id => json(`data/${encodeURIComponent(id)}.json`);
 
+// A phoneme id is "lect:symbol", or "lect:symbol@System" for a phoneme of a
+// reconstruction system other than the lect's default one.
 function splitPid(pid) { const i = pid.indexOf(":"); return [pid.slice(0, i), pid.slice(i + 1)]; }
+function parsePid(pid) {
+  const [lect, rest] = splitPid(pid);
+  const at = rest.lastIndexOf("@");
+  return at > 0 ? { lect, s: rest.slice(0, at), system: rest.slice(at + 1) } : { lect, s: rest, system: null };
+}
 function isProto(lectId) { return LECTS[lectId]?.type === "proto-language"; }
 function sym(pid) {
-  const [l, s] = splitPid(pid);
-  return isProto(l) ? `*${s}` : s;
+  const { lect, s } = parsePid(pid);
+  return isProto(lect) ? `*${s}` : s;
 }
 function urlId(lectId, s) {
   return encodeURIComponent(isProto(lectId) ? "_" + s : s);
 }
 function phLink(pid, text) {
-  const [l, s] = splitPid(pid);
+  const { lect, s, system } = parsePid(pid);
   if (s === "∅") return `<span class="ipa" title="zero reflex (deletion)">∅</span>`;
-  return `<a class="ipa" href="#/lects/${esc(l)}/${urlId(l, s)}/">${esc(text ?? sym(pid))}</a>`;
+  const tail = system ? "@" + encodeURIComponent(system) : "";
+  return `<a class="ipa" href="#/lects/${esc(lect)}/${urlId(lect, s)}${tail}/">${esc(text ?? sym(pid))}</a>`
+    + (system ? `<span class="sys">${esc(system)}</span>` : "");
 }
 function lectLink(id) {
   return `<a href="#/lects/${esc(id)}/">${esc(LECTS[id]?.name || id)}</a>`;
@@ -54,8 +63,20 @@ function lectLink(id) {
 function srcLink(id, page) {
   if (!id) return "";
   const s = SOURCES[id];
-  const name = s ? `${esc(s.author.split(",")[0])} ${esc(s.year)}` : esc(id);
+  const name = s ? esc(s.label || `${s.author.split(",")[0]} ${s.year}`) : esc(id);
   return `<a href="#/sources/${esc(id)}/">${name}</a>${page ? `: ${esc(page)}` : ""}`;
+}
+// A citation, direct ("Li 1981: 240") or indirect ("Li 1981, via Shibata 2025: 55").
+// What the secondary source changed is on hover and marked with a dagger.
+function cite(r) {
+  const orig = srcLink(r.source_id, r.page);
+  if (!r.via_source_id) return orig;
+  return `${orig}<span class="via">, via ${srcLink(r.via_source_id, r.via_page)}${r.via_note
+    ? `<span class="vianote" title="${esc(r.via_note)}"> † ${esc(r.via_note)}</span>` : ""}</span>`;
+}
+function tabsHtml(names, on) {
+  return `<div class="tabs" role="tablist">${names.map(n =>
+    `<button role="tab" data-tab="${esc(n.key)}" class="${n.key === on ? "on" : ""}">${esc(n.label)}</button>`).join("")}</div>`;
 }
 function ancestorsOf(id) {
   const out = []; let cur = LECTS[id]?.parent_id;
@@ -140,8 +161,11 @@ async function pageIndex(params) {
 // ------------------------------------------------------------------ page 3
 
 function cellLink(L, p) {
-  const title = [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`, p.origin !== "sourced" && p.reason].filter(Boolean).join(" · ");
-  return `<a class="o-${esc(p.origin)}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc(title)}">${esc(isProto(L) ? "*" + p.ipa : p.ipa)}</a>`;
+  const title = p.system ? `${p.system} reconstruction`
+    : [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`,
+       p.origin === "generated" && `chart position: ${p.placement === "hand" ? "set by hand" : "inferred from the symbol"}`,
+       p.origin !== "sourced" && p.reason].filter(Boolean).join(" · ");
+  return `<a class="o-${esc(p.origin || "sourced")}${p.placement === "hand" && p.origin === "generated" ? " hand" : ""}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc(title)}">${esc(isProto(L) ? "*" + p.ipa : p.ipa)}</a>`;
 }
 
 function consonantChart(L, cons) {
@@ -164,7 +188,7 @@ function consonantChart(L, cons) {
     html += "</table></div>";
   }
   if (unplaced.length)
-    html += `<p><span class="muted">Phonetic value not specified:</span> ${unplaced.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>`;
+    html += `<p class="unclassified"><span class="muted">Unclassified consonants:</span> ${unplaced.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>`;
   return html;
 }
 
@@ -187,15 +211,23 @@ function vowelChart(L, vs) {
     html += "</table>";
   }
   if (unplaced.length)
-    html += `<p><span class="muted">Unplaced:</span> ${unplaced.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>`;
+    html += `<p class="unclassified"><span class="muted">Unclassified vowels:</span> ${unplaced.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>`;
   return html;
+}
+
+function inventoryHtml(L, phonemes) {
+  const C = phonemes.filter(p => p.class === "C");
+  const V = phonemes.filter(p => p.class === "V");
+  const O = phonemes.filter(p => p.class !== "C" && p.class !== "V");
+  return `${C.length ? `<h2>Consonants</h2>${consonantChart(L, C)}` : ""}
+    ${V.length ? `<h2>Vowels</h2>${vowelChart(L, V)}` : ""}
+    ${O.length ? `<h2>Other</h2><p>${O.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}`;
 }
 
 async function pageLect(L) {
   const d = await lectData(L);
-  const C = d.phonemes.filter(p => p.class === "C");
-  const V = d.phonemes.filter(p => p.class === "V");
-  const O = d.phonemes.filter(p => p.class !== "C" && p.class !== "V");
+  const systemTabs = [{ key: "", label: d.default_system || "Default" },
+    ...d.systems.map(x => ({ key: x.name, label: x.name }))];
   const ancestors = d.ancestors.map(lectLink).join(" › ");
   const statusNote = {
     "reverse-generated": "No source gives this inventory. It is the set of distinct reflexes in the correspondence data, and may miss loan phonemes or include allophones.",
@@ -222,15 +254,21 @@ async function pageLect(L) {
       ${d.notes ? `<dt>Notes</dt><dd>${esc(d.notes)}</dd>` : ""}
     </dl>
     ${statusNote ? `<div class="notice">${esc(statusNote)}</div>` : ""}
-    ${C.length ? `<h2>Consonants</h2>${consonantChart(L, C)}` : ""}
-    ${V.length ? `<h2>Vowels</h2>${vowelChart(L, V)}` : ""}
-    ${O.length ? `<h2>Other</h2><p>${O.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}
+    ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
+    <div id="inv">${inventoryHtml(L, d.phonemes)}</div>
     ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
-      ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated; solid = added by hand (hover for the reason)." : ""}</p>` : ""}
+      ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated, placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}</p>` : ""}
     ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
       <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
-      ${d.inventory_diff.map(x => `<tr><td>${badge(x.op === "add" ? "manual-add" : "suppressed")}</td>
+      ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
         <td class="ipa">${esc(x.ipa)}</td><td>${esc(x.reason)}</td><td>${srcLink(x.source_id)}</td></tr>`).join("")}</table>` : ""}`;
+  app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
+    app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+    const sys = d.systems.find(x => x.name === b.dataset.tab);
+    app.querySelector("#inv").innerHTML = sys
+      ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol opens the matching ${esc(d.default_system || "default")} phoneme with this system's tab.</p>` + inventoryHtml(L, sys.phonemes)
+      : inventoryHtml(L, d.phonemes);
+  }));
 }
 
 // ------------------------------------------------------------------ page 2
@@ -250,6 +288,7 @@ function ancestryHtml(chains, herePid) {
       const [cl] = splitPid(e.child);
       if (i === 0) {
         const pl = e.fusion ? splitPid(e.fusion.members[0])[0] : splitPid(e.parent)[0];
+        
         nodes[pl] = e.fusion
           ? `<span class="cluster">${e.fusion.members.map(m => phLink(m)).join('<span class="plus">+</span>')}</span>`
           : nodeSym(e.parent, herePid);
@@ -258,7 +297,7 @@ function ancestryHtml(chains, herePid) {
       const meta = [e.fusion ? "fusion" : esc(e.environment), e.status && e.status !== "regular" ? label(e.status) : "",
         e.evidence_count != null ? `n=${e.evidence_count}` : ""].filter(Boolean).join(" · ");
       arrows[cl] = `<span class="glyph" title="${e.fusion ? "the cluster fuses into one segment" : ""}">${e.fusion ? "↘↙" : "↓"}</span>
-        <span class="meta">${meta}<br>${srcLink(e.source_id, e.page)}</span>`;
+        <span class="meta">${meta}<br>${cite(e)}</span>`;
     });
     return { nodes, arrows };
   });
@@ -273,6 +312,40 @@ function ancestryHtml(chains, herePid) {
 function nodeSym(pid, herePid) {
   return pid === herePid ? `<span class="ipa here">${esc(sym(pid))}</span>` : phLink(pid);
 }
+// Descent rows. Past the first level of the tree a row is listed only where
+// sources or reconstructions disagree about that stage; the button shows the rest.
+function descentHtml(rows, daughters) {
+  if (!rows.length) return `<p class="muted">${daughters ? "No descendant reflexes entered." : "No daughter lects in the database."}</p>`;
+  const tr = r => `<tr class="${r.via.length ? "dim" : ""}${r.via.length && !r.conflict ? " deep" : ""}">
+      <td>${lectLink(r.child_lect_id)}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
+      <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
+      <td>${envHtml(r)}</td>
+      <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
+      <td>${r.evidence_count ?? ""}</td>
+      <td>${cite(r)}</td>
+      <td>${esc(r.notes)}</td></tr>`;
+  const hidden = rows.filter(r => r.via.length && !r.conflict).length;
+  const shownDeep = rows.filter(r => r.via.length && r.conflict).length;
+  return `<div class="descentbox">
+    ${hidden || shownDeep ? `<p class="muted">Reflexes one level down the tree.${shownDeep ? ` ${shownDeep} deeper row(s) are listed because sources or reconstructions disagree there.` : ""}
+      ${hidden ? `<button class="more" data-n="${hidden}">Show ${hidden} deeper row(s)</button>` : ""}</p>` : ""}
+    <div class="scroll"><table><tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${rows.map(tr).join("")}</table></div></div>`;
+}
+function describe(p) {
+  return label([p.voicing, p.rounding, p.place, p.manner].filter(Boolean).join(" "));
+}
+function systemPanel(sys, sps, d) {
+  return sps.map(sp => `
+    <h3><span class="ipa">${esc(isProto(d.id) ? "*" + sp.ipa : sp.ipa)}</span> in ${esc(sys)}'s reconstruction</h3>
+    <dl class="info">
+      ${describe(sp) ? `<dt>Description</dt><dd>${describe(sp)}</dd>` : ""}
+      ${sp.counterparts.length > 1 ? `<dt>Also matches</dt><dd>${sp.counterparts.map(c => phLink(c)).join(", ")} <span class="muted">in the ${esc(d.default_system || "default")} system</span></dd>` : ""}
+      ${sp.rows.map(r => `<dt>Source</dt><dd>${cite(r) || '<span class="muted">none</span>'}${r.notes ? `<br><span class="muted">${esc(r.notes)}</span>` : ""}</dd>`).join("")}
+    </dl>
+    <h3>Descent</h3>
+    ${sp.descendants.length ? descentHtml(sp.descendants, true)
+      : `<p class="muted">No separate descent is entered for ${esc(sys)}'s ${esc(sym(sp.id))}; its reflexes are those under the ${esc(d.default_system || "default")} tab.</p>`}`).join("");
+}
 function envHtml(r) {
   if (!r.fusion) return `<code>${esc(r.environment)}</code>`;
   return `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`;
@@ -280,19 +353,33 @@ function envHtml(r) {
 
 async function pagePhoneme(L, uid) {
   const d = await lectData(L);
-  const ph = d.phonemes.find(p => p.url_id === uid || p.url_id === encodeURIComponent(decodeURIComponent(uid)));
-  if (!ph) throw new Error(`No phoneme ${decodeURIComponent(uid)} in ${L}`);
+  // "_D@Ross" asks for Ross's *D: open its default counterpart with Ross's tab.
+  const raw = decodeURIComponent(uid);
+  const at = raw.lastIndexOf("@");
+  let wantSystem = "", key = raw;
+  if (at > 0) { wantSystem = raw.slice(at + 1); key = raw.slice(0, at); }
+  const bare = isProto(L) ? key.replace(/^_/, "") : key;
+  let ph;
+  if (wantSystem) {
+    const sp = d.systems.find(x => x.name === wantSystem)?.phonemes.find(p => p.ipa === bare);
+    if (!sp) throw new Error(`No ${wantSystem} phoneme ${bare} in ${L}`);
+    // Prefer the counterpart written with the same symbol (Ross's *d opens *d, not *z).
+    ph = d.phonemes.find(p => sp.counterparts.includes(p.id) && p.ipa === sp.ipa)
+      || d.phonemes.find(p => p.id === sp.counterparts[0]);
+    if (!ph) {   // no counterpart in the default system: a page of its own
+      app.innerHTML = `<div class="crumb"><a href="#/lects/">Lects</a> › ${lectLink(L)}</div>
+        <h1><span class="ipa">${esc(sym(sp.id))}</span> <span class="muted" style="font-size:16px">in ${lectLink(L)}, ${esc(wantSystem)}</span></h1>
+        <p class="muted">No counterpart in the ${esc(d.default_system || "default")} system.</p>${systemPanel(wantSystem, [sp], d)}`;
+      wireMore();
+      return;
+    }
+  } else ph = d.phonemes.find(p => p.ipa === bare);
+  if (!ph) throw new Error(`No phoneme ${raw} in ${L}`);
+  const bySystem = d.systems.map(x => ({ name: x.name, sps: x.phonemes.filter(p => p.counterparts.includes(ph.id)) }))
+    .filter(x => x.sps.length);
+  const tabs = [{ key: "", label: d.default_system || "Default" }, ...bySystem.map(x => ({ key: x.name, label: x.name }))];
   const proto = isProto(L);
   const ancestorPids = [...new Set(ph.ancestry.flatMap(c => c.flatMap(e => e.parent ? [e.parent] : e.fusion.members)))];
-
-  const descRows = ph.descendants.map(r => `<tr class="${r.via.length ? "dim" : ""}">
-      <td>${lectLink(r.child_lect_id)}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
-      <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td>${envHtml(r)}</td>
-      <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
-      <td>${r.evidence_count ?? ""}</td>
-      <td>${srcLink(r.source_id, r.page)}</td>
-      <td>${esc(r.notes)}</td></tr>`).join("");
 
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a> › ${lectLink(L)}</div>
@@ -300,14 +387,17 @@ async function pagePhoneme(L, uid) {
       <span class="muted" style="font-size:16px">in ${lectLink(L)}</span> ${badge(ph.origin)}</h1>
     <dl class="info">
       ${ph.source_symbol && ph.source_symbol !== ph.ipa ? `<dt>Source symbol</dt><dd class="ipa">${esc(ph.source_symbol)}</dd>` : ""}
-      ${[ph.voicing, ph.rounding, ph.place, ph.manner].some(Boolean) ? `<dt>Description</dt><dd>${label([ph.voicing, ph.rounding, ph.place, ph.manner].filter(Boolean).join(" "))}</dd>` : ""}
-      ${ph.source_id ? `<dt>Inventory source</dt><dd>${srcLink(ph.source_id, ph.page)}</dd>` : ""}
+      ${describe(ph) ? `<dt>Description</dt><dd>${describe(ph)}${ph.origin === "generated" ? ` <span class="muted">(${ph.placement === "hand" ? "set by hand" : "inferred from the symbol"})</span>` : ""}</dd>` : ""}
+      ${ph.source_id ? `<dt>Inventory source</dt><dd>${cite(ph)}</dd>` : ""}
       ${ph.reason ? `<dt>Reason</dt><dd>${esc(ph.reason)}</dd>` : ""}
       ${ph.notes ? `<dt>Notes</dt><dd>${esc(ph.notes)}</dd>` : ""}
     </dl>
+    ${bySystem.length ? tabsHtml(tabs, wantSystem) : ""}
+    ${bySystem.map(x => `<div class="panel" data-panel="${esc(x.name)}"${x.name === wantSystem ? "" : " hidden"}>${systemPanel(x.name, x.sps, d)}</div>`).join("")}
+    <div class="panel" data-panel=""${wantSystem ? " hidden" : ""}>
     ${ph.notation.length ? `<h3>Notation by reconstruction system</h3>
       <table style="width:auto"><tr><th>System</th><th>Symbol</th><th>Source</th></tr>
-      ${ph.notation.map(n => `<tr><td>${esc(n.system)}</td><td class="ipa">*${esc(n.symbol)}</td><td>${srcLink(n.source_id, n.page)}</td></tr>`).join("")}</table>` : ""}
+      ${ph.notation.map(n => `<tr><td>${esc(n.system)}</td><td class="ipa">*${esc(n.symbol)}</td><td>${cite(n)}</td></tr>`).join("")}</table>` : ""}
 
     <h2>Ancestry</h2>
     ${ph.ancestry.length
@@ -318,10 +408,21 @@ async function pagePhoneme(L, uid) {
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
 
     <h2>Descent</h2>
-    ${ph.descendants.length ? `
-      <p><a href="#/lects/?reflex=${encodeURIComponent(ph.id)}">Open as a table of all lects →</a></p>
-      <div class="scroll"><table><tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${descRows}</table></div>`
-      : `<p class="muted">${d.daughters.length ? "No descendant reflexes entered." : "No daughter lects in the database."}</p>`}`;
+    ${ph.descendants.length ? `<p><a href="#/lects/?reflex=${encodeURIComponent(ph.id)}">Open as a table of all lects →</a></p>` : ""}
+    ${descentHtml(ph.descendants, d.daughters.length)}
+    </div>`;
+  app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
+    app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+    app.querySelectorAll(".panel").forEach(x => { x.hidden = x.dataset.panel !== b.dataset.tab; });
+  }));
+  wireMore();
+}
+function wireMore() {
+  app.querySelectorAll("button.more").forEach(b => b.addEventListener("click", () => {
+    const box = b.closest(".descentbox");
+    const open = box.classList.toggle("all");
+    b.textContent = open ? "Hide deeper rows" : `Show ${b.dataset.n} deeper row(s)`;
+  }));
 }
 
 // ------------------------------------------------------------------ sources
@@ -332,7 +433,7 @@ function pageSources(id) {
   app.innerHTML = `<div class="crumb"><a href="#/sources/">Sources</a></div><h1>${id ? esc(id) : "Sources"}</h1>
     <table><tr><th>Id</th><th>Citation</th><th>Kind</th><th>Notes</th></tr>
     ${list.map(s => `<tr><td><a href="#/sources/${esc(s.id)}/">${esc(s.id)}</a></td>
-      <td>${esc(s.author)} (${esc(s.year)}). <i>${esc(s.title)}</i>.${s.url_or_doi ? ` <a href="${esc(/^10\./.test(s.url_or_doi) ? "https://doi.org/" + s.url_or_doi : s.url_or_doi)}" target="_blank" rel="noopener">${esc(s.url_or_doi)}</a>` : ""}</td>
+      <td><b>${esc(s.label)}</b><br>${esc(s.author)} (${esc(s.year)}${esc(s.year_suffix || "")}). <i>${esc(s.title)}</i>.${s.url_or_doi ? ` <a href="${esc(/^10\./.test(s.url_or_doi) ? "https://doi.org/" + s.url_or_doi : s.url_or_doi)}" target="_blank" rel="noopener">${esc(s.url_or_doi)}</a>` : ""}</td>
       <td>${esc(s.kind)}</td><td>${esc(s.notes)}</td></tr>`).join("")}</table>`;
 }
 

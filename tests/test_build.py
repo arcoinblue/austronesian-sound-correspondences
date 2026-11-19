@@ -84,7 +84,7 @@ class TestConstraints(unittest.TestCase):
                          "must be a proto-language")
 
     def test_proto_phoneme_needs_notation(self):
-        self.assertError(run(replace("notation_map.csv", "pxa,q,canonical,q,,,\n", "")),
+        self.assertError(run(replace("notation_map.csv", "pxa,q,canonical,q,,,,,,,,,\n", "")),
                          "has no notation_map row")
 
     def test_no_asterisks(self):
@@ -179,6 +179,70 @@ class TestSheetRoundTrip(unittest.TestCase):
         self.assertEqual(rep.errors, [])
         self.assertEqual(D["inventory"]["exam1234"]["kʷ"]["place"], "labialized-velar")
         self.assertEqual(D["inventory"]["exam1234"]["k"]["place"], "velar")
+
+    def assertHasError(self, rep, text):
+        self.assertTrue(any(text in e for e in rep.errors), rep.errors)
+
+    def test_citation_labels(self):
+        self.assertEqual(build.citation_label("Blust, Robert", "1999", "b"), "Blust 1999b")
+        self.assertEqual(build.citation_label("Li, Paul Jen-kuei; Tsuchida, Shigeru", "2006"), "Li & Tsuchida 2006")
+        self.assertEqual(build.citation_label("Ross, Malcolm; Pawley, Andrew; Osmond, Meredith", "2023"),
+                         "Ross et al. 2023")
+
+    def test_symbol_inference_reads_through_diacritics(self):
+        self.assertEqual(build.ipa_features("t̪ʰ")[:3], ("C", "dental", "plosive"))
+        self.assertEqual(build.ipa_features("kʷ")[:3], ("C", "velar", "plosive"))
+        self.assertEqual(build.ipa_features("n̥")[3], "voiceless")
+        self.assertEqual(build.ipa_features("X")[0], "other")
+
+    def test_override_places_a_generated_phoneme(self):
+        # pxb's inventory is generated. A hand row moves one of its phonemes.
+        rep, D = run(derived=True)
+        sym = next(iter(D["inventory"]["pxb"]))
+        rep, D = run(append("phonemes.csv", f"pxb,{sym},,C,uvular,trill,voiced,,override,,,the source describes it so,"),
+                     derived=True)
+        self.assertEqual(rep.errors, [])
+        ph = D["inventory"]["pxb"][sym]
+        self.assertEqual((ph["origin"], ph["placement"], ph["place"], ph["manner"]),
+                         ("generated", "hand", "uvular", "trill"))
+
+    def test_unknown_generated_symbol_takes_its_class_from_the_parent(self):
+        rep, D = run(lambda d: [append("correspondences.csv", ",pxb,t,T,_#,regular,,2,example2026,20,")(d),
+                                 append("notation_map.csv", "pxb,T,canonical,T,,,")(d)], derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(D["inventory"]["pxb"]["T"]["class"], "C")
+        self.assertEqual(D["inventory"]["pxb"]["T"]["place"], "")
+
+    def test_indirect_citation(self):
+        ok = append("correspondences.csv",
+                    ",exam1234,p,f,_u,regular,,2,example2026,,,,example2026x,12,respelled")
+        self.assertHasError(run(ok), "via_source_id 'example2026x' is not in sources.csv")
+        self.assertHasError(run(append("correspondences.csv", ",exam1234,p,f,_u,regular,,2,example2026,9,,,,12,")),
+                         "need a via_source_id")
+
+    def test_two_systems_can_share_a_symbol(self):
+        def m(d):
+            append("notation_map.csv", "pxa,t,Alpha,D,,,,alveolar,plosive,voiced,,,")(d)
+            append("notation_map.csv", "pxa,k,Beta,D,,,,velar,plosive,voiced,,,")(d)
+            append("correspondences.csv", ",pxb,D,t,elsewhere,regular,,2,example2026,20,,Alpha,,,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        a, b = D["sysph"]["pxa"]["Alpha"]["D"], D["sysph"]["pxa"]["Beta"]["D"]
+        self.assertNotEqual(a["id"], b["id"])
+        self.assertEqual((a["place"], b["place"]), ("alveolar", "velar"))
+        self.assertEqual(len([r for r in build.descendants(a["id"], D) if not r["via"]]), 1)
+        self.assertEqual(build.descendants(b["id"], D), [])
+        # A second reconstruction's descent makes that stage a conflict.
+        self.assertIn(("pxb", "pxa:t"), D["conflicts"])
+        self.assertHasError(run(append("correspondences.csv", ",pxb,Q,t,elsewhere,regular,,2,example2026,20,,Alpha,,,")),
+                         "is not in notation_map")
+
+    def test_tables_without_the_newer_columns_still_load(self):
+        def m(d):
+            p = d / "sources.csv"
+            lines = p.read_text(encoding="utf-8").splitlines()
+            p.write_text("\n".join(l.rsplit(",", 1)[0] for l in lines) + "\n", encoding="utf-8")
+        self.assertEqual(run(m).errors, [])
 
     def test_fixture_survives_workbook_round_trip(self):
         import subprocess

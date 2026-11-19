@@ -13,7 +13,8 @@ Row numbers are kept: CSV row N is sheet row N, so build.py errors such as
 are kept as empty records (build.py skips them); trailing blank rows are cut.
 
 Needs openpyxl. Exits non-zero, writing nothing, if a tab is missing or its
-header row differs from the schema.
+header row differs from the schema (columns in build.OPTIONAL_COLUMNS may be
+absent; they are written blank).
 """
 import argparse
 import csv
@@ -76,14 +77,22 @@ def main():
         header = (rows[0] if rows else [])
         while header and header[-1] == "":
             header = header[:-1]
-        if header != cols:
-            problems.append(f"tab '{tab}': row 1 must be exactly {','.join(cols)}; found {','.join(header)}")
+        # Newer optional columns may be absent from an older sheet; they are
+        # written out blank so the CSV always has the full header.
+        absent = [c for c in build.OPTIONAL_COLUMNS.get(tab, []) if c not in header]
+        if header != [c for c in cols if c not in absent]:
+            want = ",".join(c for c in cols if c not in absent)
+            problems.append(f"tab '{tab}': row 1 must be exactly {want} "
+                            f"(optional, in this order: {','.join(build.OPTIONAL_COLUMNS.get(tab, []))}); "
+                            f"found {','.join(header)}")
             continue
-        body = [(r + [""] * len(cols))[:len(cols)] for r in rows[1:]]
+        n = len(header)
+        body = [dict(zip(header, (r + [""] * n)[:n])) for r in rows[1:]]
+        body = [[row.get(c, "") for c in cols] for row in body]
         while body and not any(body[-1]):
             body.pop()
         for i, r in enumerate(rows[1:len(body) + 1], start=2):
-            if any(v for v in r[len(cols):]):
+            if any(v for v in r[n:]):
                 problems.append(f"{tab}.csv:{i}: text to the right of the last column is ignored")
         out[tab] = [cols] + body
 

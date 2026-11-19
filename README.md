@@ -66,6 +66,21 @@ Nothing is entered from memory. If the claim isn't in a source you have open, us
 | `url_or_doi` | | |
 | `kind` | yes | `grammar` · `comparative` · `dictionary` · `database` |
 | `notes` | | |
+| `year_suffix` | | one lowercase letter when the same author has two works in a year: `b` for Blust (1999b). `year` stays `1999`. |
+
+The site builds the citation label from `author` (`Surname, Given; Surname, Given; …`) and the year: one author gives `Blust 1999b`, two give `Li & Tsuchida 2006`, three or more give `Ross et al. 2023`.
+
+**Columns added later** (`year_suffix` here, and the ones marked *optional column* below) sit at the right-hand end of each table. A sheet or CSV that does not have them yet still loads.
+
+**Indirect citation.** `phonemes`, `correspondences` and `notation_map` each end with three optional columns:
+
+| column | values |
+|---|---|
+| `via_source_id` | the work you actually read the claim in, when that is not the original |
+| `via_page` | the page in that work |
+| `via_note` | what that work changed (respelled symbols, a merged category, …) |
+
+`source_id` and `page` are then the original work. The site shows `Li 1981, via Shibata 2025: 55 † note`. Leave all three blank for a direct citation. Two secondary works reporting the same original claim are two rows, each with its own `via_note`.
 
 ### `lects.csv`
 
@@ -78,6 +93,7 @@ Nothing is entered from memory. If the claim isn't in a source you have open, us
 | `glottocode`, `iso639_3` | | the build warns if an attested lect has no Glottocode |
 | `parent_id` | | nearest reconstructed ancestor the source uses; **must be a proto-language**. Empty only for the root (PAN). |
 | `subgroup_path` | | established subgroups only, `>`-separated; disputed ⇒ stop at the lowest secure node |
+| `default_system` | | *optional column.* The reconstruction system the lect's `phonemes` rows follow, e.g. `Shibata` for PAn. It names the first tab on the site; other systems come from `notation_map`. |
 | `region`, `orthography_note`, `notes` | | |
 
 `inventory_status` is not a column. The build derives it from `phonemes.csv`, so no one can promote a generated inventory to "sourced" by editing a label:
@@ -101,12 +117,14 @@ One row per phoneme that a source states or that you corrected by hand. Generate
 | `manner` | | C: `plosive prenasalized-plosive implosive affricate prenasalized-affricate nasal trill prenasalized-trill tap fricative lateral-fricative approximant lateral-approximant` · V (height): `close near-close close-mid mid open-mid near-open open` |
 | `voicing` | | `voiced` · `voiceless` |
 | `rounding` | | `rounded` · `unrounded` (vowels) |
-| `origin` | yes | `sourced` (needs `source_id`) · `manual-add` (needs `reason`) · `suppressed` (needs `reason`; hides a generated phoneme) |
+| `origin` | yes | `sourced` (needs `source_id`) · `manual-add` (needs `reason`) · `suppressed` (needs `reason`; hides a generated phoneme) · `override` (needs `reason`; sets the chart position of a generated phoneme) |
 | `source_id`, `page`, `reason`, `notes` | | |
 
 **Labialised series.** A consonant whose symbol contains `ʷ` (`pʷ`, `kʷ`) is put in its own chart column, `labialized-<place>`, next to the plain place; enter the plain place (`bilabial`, `velar`) and the build does the rest. To put a symbol without `ʷ` in that column (POc `w`, which the source lists with the labialised bilabials), write the place out: `labialized-bilabial`.
 
-A lect's rows are either all `sourced` or all `manual-add`/`suppressed`, never a mix. Leave place/manner blank when the phonetics of a proto-phoneme are unknown.
+**Chart position of generated phonemes.** A generated phoneme is placed from its symbol. The build reads through length, aspiration and secondary-articulation marks, so `t̪ʰ` is a dental plosive and `n̥` a voiceless nasal. Where that is wrong or impossible, add a row with origin `override`, a `reason`, and the class, place, manner or voicing you want; blank cells keep the inferred value. (A `manual-add` row for a phoneme that is already generated does the same.) A symbol the build cannot read is still put with the consonants or the vowels, according to the proto-phonemes it continues, and is listed under the chart as *unclassified consonants* or *unclassified vowels*.
+
+A lect's rows are either all `sourced` or all `manual-add`/`suppressed`/`override`, never a mix. Leave place/manner blank when the phonetics of a proto-phoneme are unknown.
 
 ### `correspondences.csv`
 
@@ -123,8 +141,9 @@ One proto-segment → one reflex, in one daughter, in one environment. The paren
 | `blank_type` | with no reflex | `not-attested` · `lexeme-replaced` · `irregular` · `loan` · `disputed` |
 | `evidence_count` | | integer: number of supporting cognate sets |
 | `source_id` | yes | |
-| `page` | strongly advised | the build warns if missing |
+| `page` | strongly advised | the build warns if missing (unless `via_page` is given) |
 | `notes` | | |
+| `system` | | *optional column.* Set it when `parent_phoneme` is a phoneme of another reconstruction system (`Ross`, with `parent_phoneme` `Z`). Blank means the parent's default inventory. |
 
 How to enter the common cases:
 
@@ -146,6 +165,8 @@ poc-mb-b-C,poc,b,b,m+_,regular,,7,ross2023,35,
 
 The build pairs the rows. The reflex's ancestry then shows one line of descent that starts at the cluster (*m + *b ↘↙ *b), and each member's descent lists the reflex as "*m + *b fuse". This is different from a segment that only changes next to another one, which is one ordinary row with a conditioning environment (`N_`, no `+`): there the neighbour survives as its own segment. If only one of the two rows is present the build warns and treats it as an ordinary conditioned change.
 
+**Reflex depth.** A phoneme page lists reflexes one level down the tree. A deeper row is listed straight away only where the record disagrees about that stage: a `disputed` row, rows from more than one source, or a separate descent entered for another system's phoneme. The rest are behind a "show deeper rows" button.
+
 A parent phoneme with no row at all for a daughter is reported as **unentered**, which is not the same as `not-attested`.
 
 ### `notation_map.csv`
@@ -156,8 +177,13 @@ A parent phoneme with no row at all for a daughter is reported as **unentered**,
 | `system` | yes | `canonical` (the site's own symbol), `Blust`, `Wolff`, `Ross`, `Zorc`, … |
 | `symbol` | yes | that system's spelling, without `*` (`t₂`) |
 | `source_id`, `page`, `notes` | | |
+| `place`, `manner`, `voicing` | | *optional columns.* The phonetic value this system gives the phoneme, in the same vocabulary as `phonemes.csv` |
 
 Every proto-phoneme needs at least one row, and the build fails otherwise.
+
+**Reconstruction systems.** `phonemes.csv` holds the lect's default system (`lects.default_system`). Every other system's phonemes come from this table: a row with system `Ross` and symbol `D` defines Ross's \*D, keyed by lect, system and symbol, so it is a different phoneme from Blust's \*D. The `phoneme` column says which default phoneme it corresponds to; one system phoneme can be listed against several, and `phoneme` may be blank if it has no counterpart. `canonical` and the default system's own name are spellings only and define no phonemes.
+
+On the site each proto-phoneme page has one tab per system. A system's tab shows its symbol and phonetic value. It shows its own reflexes only if `correspondences` has rows with that `system`; otherwise the reflexes are the default ones.
 
 ---
 

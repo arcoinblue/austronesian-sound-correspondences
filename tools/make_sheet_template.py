@@ -35,7 +35,7 @@ LISTS = {
     "manner": sorted(build.MANNERS_C) + list(build.MANNERS_V),
     "voicing": sorted(build.VOICING),
     "rounding": sorted(build.ROUNDING),
-    "origin": ["sourced", "manual-add", "suppressed"],
+    "origin": ["sourced", "manual-add", "suppressed", "override"],
     "status": ["regular", "sporadic", "loan-stratum", "disputed"],
     "blank_type": ["not-attested", "lexeme-replaced", "irregular", "loan", "disputed"],
     "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"],
@@ -60,9 +60,14 @@ VALIDATION = {
     ("correspondences", "source_id"): "sources",
     ("notation_map", "lect_id"): "lects",
     ("notation_map", "source_id"): "sources",
+    ("notation_map", "voicing"): "voicing",
+    ("phonemes", "via_source_id"): "sources",
+    ("correspondences", "via_source_id"): "sources",
+    ("notation_map", "via_source_id"): "sources",
 }
 # Suggestions only: free text is allowed (environment can be any condition).
-SOFT = {("correspondences", "environment"): "environment"}
+SOFT = {("correspondences", "environment"): "environment",
+        ("notation_map", "place"): "place", ("notation_map", "manner"): "manner"}
 
 REQUIRED = {
     "sources": {"id", "author", "year", "title", "kind"},
@@ -82,6 +87,8 @@ HELP = [
     ("A correspondence with no reflex must have a blank_type. Environment is never blank: use 'elsewhere'.", False),
     ("A cluster that fuses into one reflex (mb > b) is two rows with the same reflex: parent m, environment _+b; parent b, environment m+_.", False),
     ("Every phoneme of a proto-language needs a notation_map row (system = canonical at least).", False),
+    ("Indirect citation: source_id is the original work; via_source_id and via_page say where you read it; via_note says what that work changed.", False),
+    ("Another reconstruction system's phoneme is a notation_map row (system, symbol, its own place/manner/voicing). To give it its own reflexes, add correspondences rows with that system.", False),
     ("", False),
     ("Publishing: GitHub copies this sheet every hour (or when you press 'Run workflow' on the 'Sync from Google Sheets' action).", False),
     ("If the data passes every check, the site updates. If not, nothing changes and the run fails, listing errors as tab.csv:ROW, where ROW is the row number in this sheet.", False),

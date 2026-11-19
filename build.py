@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parent
 LECT_TYPES = {"language", "dialect", "proto-language"}
 SOURCE_KINDS = {"grammar", "comparative", "dictionary", "database"}
 PHONEME_CLASSES = {"C", "V", "tone", "other"}
-PHONEME_ORIGINS_ENTERED = {"sourced", "manual-add", "suppressed"}
+PHONEME_ORIGINS_ENTERED = {"sourced", "manual-add", "suppressed", "override"}
 CORR_STATUS = {"regular", "sporadic", "loan-stratum", "disputed"}
 BLANK_TYPES = {"not-attested", "lexeme-replaced", "irregular", "loan", "disputed"}
 
@@ -131,27 +131,62 @@ FUSION_FIRST = re.compile(r"^_\+(.+)$")    # this segment comes first; group = t
 FUSION_SECOND = re.compile(r"^(.+)\+_$")   # this segment comes second; group = the first
 
 
+MODIFIERS = "ːʰʼˀ"            # length, aspiration, glottalisation: no change of chart cell
+SECONDARY = "ʷʲˤˠ"            # secondary articulations (ʷ picks the labialised column later)
+DENTAL, VOICELESS_RINGS = "\u032a", "\u0325\u030a"
+
+
 def ipa_features(sym: str):
-    """Look up a symbol, tolerating a length mark."""
-    base = sym.rstrip("ː")
+    """Place a symbol in the chart, reading through diacritics where it is safe.
+
+    t̪ʰ is a dental plosive, kʷ a velar one (moved to the labialised column
+    by the caller), n̥ a voiceless nasal. An unknown base gives class "other".
+    """
+    if sym in IPA:
+        return IPA[sym]
+    base = "".join(ch for ch in sym if ch not in MODIFIERS)
     if base in IPA:
         return IPA[base]
+    core = "".join(ch for ch in base if ch not in SECONDARY)
+    if core in IPA:
+        return IPA[core]
+    decomposed = unicodedata.normalize("NFD", core)
+    plain = unicodedata.normalize("NFC", "".join(ch for ch in decomposed if not unicodedata.combining(ch)))
+    if plain in IPA:
+        cls, place, manner, voicing, rnd = IPA[plain]
+        if DENTAL in decomposed and place == "alveolar":
+            place = "dental"
+        if cls == "C" and any(ch in decomposed for ch in VOICELESS_RINGS):
+            voicing = "voiceless"
+        return (cls, place, manner, voicing, rnd)
     return ("other", "", "", "", "")
 
 
 # ---------------------------------------------------------------- loading
 
+VIA = ["via_source_id", "via_page", "via_note"]
 TABLES = {
-    "sources": ["id", "author", "year", "title", "url_or_doi", "kind", "notes"],
+    "sources": ["id", "author", "year", "title", "url_or_doi", "kind", "notes", "year_suffix"],
     "lects": ["id", "name", "alt_names", "type", "glottocode", "iso639_3",
-              "parent_id", "subgroup_path", "region", "orthography_note", "notes"],
+              "parent_id", "subgroup_path", "region", "orthography_note", "notes", "default_system"],
     "phonemes": ["lect_id", "ipa", "source_symbol", "class", "place", "manner",
-                 "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"],
+                 "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA,
     "correspondences": ["id", "child_lect_id", "parent_phoneme", "child_phoneme",
                         "environment", "status", "blank_type", "evidence_count",
-                        "source_id", "page", "notes"],
-    "notation_map": ["lect_id", "phoneme", "system", "symbol", "source_id", "page", "notes"],
+                        "source_id", "page", "notes", "system"] + VIA,
+    "notation_map": ["lect_id", "phoneme", "system", "symbol", "source_id", "page", "notes",
+                     "place", "manner", "voicing"] + VIA,
 }
+# Columns added after the first release. A table without them still loads
+# (they read as blank), so an older sheet or CSV keeps working.
+OPTIONAL_COLUMNS = {
+    "sources": ["year_suffix"],
+    "lects": ["default_system"],
+    "phonemes": VIA,
+    "correspondences": ["system"] + VIA,
+    "notation_map": ["place", "manner", "voicing"] + VIA,
+}
+CANONICAL = "canonical"   # notation system that only spells the site's own symbols
 
 # Columns whose values are phoneme symbols and must be NFC with no '*'.
 SYMBOL_COLUMNS = {
@@ -199,8 +234,9 @@ def load(data_dir: Path, rep: Report):
             raw = raw[1:]
         reader = csv.DictReader(raw.splitlines())
         header = reader.fieldnames or []
-        if header != cols:
-            missing = [c for c in cols if c not in header]
+        absent = [c for c in OPTIONAL_COLUMNS.get(name, []) if c not in header]
+        if header != [c for c in cols if c not in absent]:
+            missing = [c for c in cols if c not in header and c not in absent]
             extra = [c for c in header if c not in cols]
             if missing or extra:
                 rep.error(f"{name}.csv", f"header mismatch; missing {missing}, unexpected {extra}")
@@ -209,6 +245,8 @@ def load(data_dir: Path, rep: Report):
                 rep.warn(f"{name}.csv", "columns are in a different order from the documented schema")
         for i, row in enumerate(reader, start=2):
             row = {k: (v or "").strip() for k, v in row.items() if k is not None}
+            for c in absent:
+                row[c] = ""
             if not any(row.values()):
                 continue
             where = f"{name}.csv:{i}"
@@ -226,8 +264,24 @@ def load(data_dir: Path, rep: Report):
 
 # ---------------------------------------------------------------- validation
 
-def pid(lect_id, sym):
-    return f"{lect_id}:{sym}"
+def pid(lect_id, sym, system=None):
+    """Phoneme key. A phoneme of a non-default reconstruction system is
+    lect:symbol@System, so Blust's *D and Ross's *D are different phonemes."""
+    return f"{lect_id}:{sym}@{system}" if system else f"{lect_id}:{sym}"
+
+
+def citation_label(author, year, suffix=""):
+    """'Blust 1999b', 'Li & Tsuchida 2006', 'Ross et al. 2023' from 'Surname, Given; ...'."""
+    names = [a.split(",")[0].strip() for a in author.split(";") if a.strip()]
+    if not names:
+        who = ""
+    elif len(names) == 1:
+        who = names[0]
+    elif len(names) == 2:
+        who = f"{names[0]} & {names[1]}"
+    else:
+        who = f"{names[0]} et al."
+    return f"{who} {year}{suffix}".strip()
 
 
 def validate_and_derive(t, rep: Report):
@@ -243,7 +297,24 @@ def validate_and_derive(t, rep: Report):
                 rep.error(w, f"'{col}' is required")
         if r["kind"] and r["kind"] not in SOURCE_KINDS:
             rep.error(w, f"kind {r['kind']!r} not in {sorted(SOURCE_KINDS)}")
+        if r["year_suffix"] and not re.fullmatch(r"[a-z]", r["year_suffix"]):
+            rep.error(w, f"year_suffix {r['year_suffix']!r} must be one lowercase letter (the b of 1999b)")
+        r["label"] = citation_label(r["author"], r["year"], r["year_suffix"])
         sources[r["id"]] = r
+
+    def check_via(w, r):
+        """An indirect citation: source_id is the original, via_* the work it was read in."""
+        if r["via_source_id"]:
+            if r["via_source_id"] not in sources:
+                rep.error(w, f"via_source_id {r['via_source_id']!r} is not in sources.csv")
+            elif r["via_source_id"] == r["source_id"]:
+                rep.warn(w, "via_source_id is the same as source_id; leave it blank for a direct citation")
+        elif r["via_page"] or r["via_note"]:
+            rep.error(w, "via_page / via_note need a via_source_id")
+
+    def via_of(r):
+        return {"via_source_id": r.get("via_source_id", ""), "via_page": r.get("via_page", ""),
+                "via_note": r.get("via_note", "")}
 
     def check_source(w, sid, required=True):
         if not sid:
@@ -310,7 +381,7 @@ def validate_and_derive(t, rep: Report):
             continue
         if s in entered[L]:
             rep.error(w, f"duplicate phoneme {L}:{s}")
-        if r["class"] not in PHONEME_CLASSES:
+        if r["class"] not in PHONEME_CLASSES and not (r["origin"] == "override" and not r["class"]):
             rep.error(w, f"class {r['class']!r} not in {sorted(PHONEME_CLASSES)}")
         if r["origin"] not in PHONEME_ORIGINS_ENTERED:
             rep.error(w, f"origin {r['origin']!r} must be one of {sorted(PHONEME_ORIGINS_ENTERED)} "
@@ -321,6 +392,7 @@ def validate_and_derive(t, rep: Report):
             check_source(w, r["source_id"], required=False)
             if not r["reason"]:
                 rep.error(w, f"origin={r['origin']} requires a reason")
+        check_via(w, r)
         if r["class"] == "C":
             if r["place"] and r["place"] not in PLACES_C:
                 rep.error(w, f"consonant place {r['place']!r} not in vocabulary")
@@ -342,7 +414,7 @@ def validate_and_derive(t, rep: Report):
         origins = {r["origin"] for s, r in rows.items() if not (s == ZERO and r["origin"] == "suppressed")}
         if "sourced" in origins and origins - {"sourced"}:
             rep.error(f"phonemes.csv ({L})",
-                      "a sourced inventory cannot also have manual-add/suppressed rows; "
+                      "a sourced inventory cannot also have manual-add/suppressed/override rows; "
                       "either the source gives the inventory or it is generated")
 
     # --- correspondences (first pass: shape)
@@ -363,8 +435,13 @@ def validate_and_derive(t, rep: Report):
         if not r["environment"]:
             rep.error(w, "environment is required (use 'elsewhere' for the default)")
         check_source(w, r["source_id"])
-        if not r["page"]:
+        check_via(w, r)
+        if not r["page"] and not r["via_page"]:
             rep.warn(w, "no page number for the citation")
+        # A row about another reconstruction system's proto-phoneme. Blank, the
+        # parent's default system and "canonical" all mean the default inventory.
+        if r["system"] in (CANONICAL, lects[P]["default_system"]):
+            r["system"] = ""
         if r["child_phoneme"]:
             if r["blank_type"]:
                 rep.error(w, "has both a child_phoneme and a blank_type; use one")
@@ -385,10 +462,12 @@ def validate_and_derive(t, rep: Report):
         if env and env not in ENV_SHORTHANDS and "_" not in env:
             rep.note(w, f"environment {env!r} is free text (no '_' slot)")
         r["parent_lect_id"] = P
-        r["parent_phoneme_id"] = pid(P, r["parent_phoneme"])
+        r["parent_phoneme_id"] = pid(P, r["parent_phoneme"], r["system"])
         r["child_phoneme_id"] = pid(L, r["child_phoneme"]) if r["child_phoneme"] else None
         if not r["id"]:
-            key = "|".join([L, r["parent_phoneme"], r["child_phoneme"], env, r["source_id"], r["page"]])
+            key = "|".join([L, r["parent_phoneme"], r["child_phoneme"], env, r["source_id"], r["page"]]
+                           + ([r["system"]] if r["system"] else [])
+                           + ([r["via_source_id"], r["via_page"]] if r["via_source_id"] else []))
             r["id"] = "c" + hashlib.sha1(key.encode()).hexdigest()[:10]
         corrs.append(r)
 
@@ -413,9 +492,21 @@ def validate_and_derive(t, rep: Report):
                                                 row["voicing"], row["rounding"])
         else:
             cls, place, manner, voicing, rnd = ipa_features(s)
+            if cls == "other":
+                # Not a symbol the chart knows: at least say consonant or vowel,
+                # from what it continues, so it lands in the right unclassified group.
+                P = lects[L]["parent_id"]
+                votes = [inventory[P][r["parent_phoneme"]]["class"] for r in corrs
+                         if r["child_lect_id"] == L and r["child_phoneme"] == s and not r["system"]
+                         and r["parent_phoneme"] in inventory.get(P, {})]
+                votes = [v for v in votes if v in ("C", "V")]
+                if votes:
+                    cls = max(set(votes), key=votes.count)
         if cls == "C" and place in PLACES_C_PLAIN and LABIAL_MARK in s:
             place = LABIALIZED + place
         return {
+            "placement": "source" if origin == "sourced" else ("hand" if row is not None else "inferred"),
+            **via_of(row or {}),
             "id": pid(L, s), "lect_id": L, "ipa": s,
             "url_id": phoneme_url_id(s, lects[L]["type"]),
             "source_symbol": (row or {}).get("source_symbol", ""),
@@ -444,9 +535,21 @@ def validate_and_derive(t, rep: Report):
                 inv[s] = phoneme_record(L, s, None, "generated")
             suppressed = []
             for s, row in rows.items():
-                if row["origin"] == "manual-add":
-                    if s in inv:
-                        rep.warn(row["_where"], f"manual-add {L}:{s} is already generated; row is redundant")
+                if row["origin"] == "override" or (row["origin"] == "manual-add" and s in inv):
+                    # A hand placement of a generated phoneme: the row's class,
+                    # place, manner, voicing and rounding replace the inferred ones.
+                    if s not in inv:
+                        rep.warn(row["_where"], f"override {L}:{s} is not a generated phoneme; row ignored")
+                        continue
+                    rec = inv[s]
+                    for k in ("class", "place", "manner", "voicing", "rounding"):
+                        if row[k]:
+                            rec[k] = row[k]
+                    if rec["class"] == "C" and rec["place"] in PLACES_C_PLAIN and LABIAL_MARK in s:
+                        rec["place"] = LABIALIZED + rec["place"]
+                    rec.update(placement="hand", reason=row["reason"], source_id=row["source_id"],
+                               page=row["page"], notes=row["notes"], **via_of(row))
+                elif row["origin"] == "manual-add":
                     inv[s] = phoneme_record(L, s, row, "manual-add")
                 elif row["origin"] == "suppressed":
                     if s == ZERO:
@@ -465,7 +568,9 @@ def validate_and_derive(t, rep: Report):
     # --- correspondences (second pass: referential integrity)
     for r in corrs:
         w, L, P = r["_where"], r["child_lect_id"], r["parent_lect_id"]
-        if not inventory.get(P):
+        if r["system"]:
+            pass  # checked against the system's phonemes once notation_map is read
+        elif not inventory.get(P):
             rep.error(w, f"ancestor {P} has no phoneme rows; enter its inventory first")
         elif r["parent_phoneme"] not in inventory[P]:
             rep.error(w, f"parent phoneme {P}:{r['parent_phoneme']} is not in {P}'s inventory")
@@ -481,7 +586,7 @@ def validate_and_derive(t, rep: Report):
     halves = {}  # (child lect, first, second, reflex) -> {"first": row, "second": row}
     for r in corrs:
         r["fusion"] = None
-        if not r["child_phoneme"]:
+        if not r["child_phoneme"] or r["system"]:
             continue
         inv_p = inventory.get(r["parent_lect_id"]) or {}
         m1, m2 = FUSION_FIRST.match(r["environment"]), FUSION_SECOND.match(r["environment"])
@@ -517,8 +622,9 @@ def validate_and_derive(t, rep: Report):
         if rec["type"] == "proto-language" and not rec["parent_id"] and inv_status[L] != "sourced":
             rep.error(rec["_where"], f"root proto-language {L} needs a sourced inventory")
 
-    # --- notation map
+    # --- notation map, and the phonemes of every non-default reconstruction system
     notation = defaultdict(list)
+    sysph = defaultdict(lambda: defaultdict(dict))   # lect -> system -> symbol -> record
     for r in t["notation_map"]:
         w = r["_where"]
         L = r["lect_id"]
@@ -527,20 +633,71 @@ def validate_and_derive(t, rep: Report):
             continue
         if lects[L]["type"] != "proto-language":
             rep.warn(w, f"{L} is not a proto-language; notation_map is for proto-phonemes")
-        if r["phoneme"] not in inventory.get(L, {}):
-            rep.error(w, f"phoneme {L}:{r['phoneme']} is not in {L}'s inventory")
         for col in ("system", "symbol"):
             if not r[col]:
                 rep.error(w, f"'{col}' is required")
+        S = r["system"]
+        own = S and S not in (CANONICAL, lects[L]["default_system"])   # another system's phoneme
+        if r["phoneme"]:
+            if r["phoneme"] not in inventory.get(L, {}):
+                rep.error(w, f"phoneme {L}:{r['phoneme']} is not in {L}'s inventory")
+        elif not own:
+            rep.error(w, "'phoneme' is required (it may be blank only for a phoneme of another "
+                         "reconstruction system that has no counterpart in the default one)")
+        if r["place"] and r["place"] not in PLACES_C | PLACES_V:
+            rep.error(w, f"place {r['place']!r} not in vocabulary")
+        if r["manner"] and r["manner"] not in MANNERS_C | MANNERS_V:
+            rep.error(w, f"manner {r['manner']!r} not in vocabulary")
+        if r["voicing"] and r["voicing"] not in VOICING:
+            rep.error(w, f"voicing {r['voicing']!r} not in {sorted(VOICING)}")
         check_source(w, r["source_id"], required=False)
-        notation[pid(L, r["phoneme"])].append(
-            {"system": r["system"], "symbol": r["symbol"], "source_id": r["source_id"], "page": r["page"]})
+        check_via(w, r)
+        entry = {"system": S, "symbol": r["symbol"], "source_id": r["source_id"], "page": r["page"],
+                 "notes": r["notes"], "place": r["place"], "manner": r["manner"], "voicing": r["voicing"],
+                 **via_of(r)}
+        if r["phoneme"]:
+            notation[pid(L, r["phoneme"])].append(entry)
+        if not own or not r["symbol"]:
+            continue
+        rec = sysph[L][S].setdefault(r["symbol"], {
+            "id": pid(L, r["symbol"], S), "lect_id": L, "system": S, "ipa": r["symbol"],
+            "url_id": phoneme_url_id(r["symbol"], lects[L]["type"]) + "@" + quote(S, safe=""),
+            "class": "", "place": "", "manner": "", "voicing": "", "counterparts": [], "rows": []})
+        for k in ("place", "manner", "voicing"):
+            if r[k] and rec[k] and r[k] != rec[k]:
+                rep.warn(w, f"{S} {L}:{r['symbol']} has {k} {rec[k]!r} on another row and {r[k]!r} here; "
+                            "the first is used")
+            rec[k] = rec[k] or r[k]
+        if r["phoneme"] and pid(L, r["phoneme"]) not in rec["counterparts"]:
+            rec["counterparts"].append(pid(L, r["phoneme"]))
+        rec["rows"].append({**entry, "phoneme": r["phoneme"]})
+    for L, systems in sysph.items():
+        for S, phs in systems.items():
+            for sym, rec in phs.items():
+                # Consonant or vowel: from the features, else from the default
+                # phoneme it corresponds to, else from the symbol.
+                if rec["place"] in PLACES_V or rec["manner"] in MANNERS_V:
+                    rec["class"] = "V"
+                elif rec["place"] or rec["manner"] or rec["voicing"]:
+                    rec["class"] = "C"
+                else:
+                    classes = [inventory[L][c.split(":", 1)[1]]["class"] for c in rec["counterparts"]
+                               if c.split(":", 1)[1] in inventory.get(L, {})]
+                    rec["class"] = classes[0] if classes else ipa_features(sym)[0]
+                if rec["class"] == "C" and rec["place"] in PLACES_C_PLAIN and LABIAL_MARK in sym:
+                    rec["place"] = LABIALIZED + rec["place"]
     for L, inv in inventory.items():
         if lects[L]["type"] != "proto-language":
             continue
         for s in inv:
             if not notation.get(pid(L, s)):
                 rep.error(f"notation_map.csv ({L})", f"proto-phoneme {L}:{s} has no notation_map row")
+
+    # --- correspondences stated for another system's proto-phoneme
+    for r in corrs:
+        if r["system"] and r["parent_phoneme"] not in sysph[r["parent_lect_id"]].get(r["system"], {}):
+            rep.error(r["_where"], f"{r['system']} phoneme {r['parent_lect_id']}:{r['parent_phoneme']} is not in "
+                                   f"notation_map (add a row with system {r['system']}, symbol {r['parent_phoneme']})")
 
     # --- build reports
     by_parent = defaultdict(list)   # parent_phoneme_id -> rows
@@ -550,7 +707,8 @@ def validate_and_derive(t, rep: Report):
         by_parent[r["parent_phoneme_id"]].append(r)
         if r["child_phoneme_id"]:
             by_child[r["child_phoneme_id"]].append(r)
-        entered_pairs[r["child_lect_id"]].add(r["parent_phoneme"])
+        if not r["system"]:
+            entered_pairs[r["child_lect_id"]].add(r["parent_phoneme"])
 
     for L, rec in lects.items():
         P = rec["parent_id"]
@@ -574,7 +732,29 @@ def validate_and_derive(t, rep: Report):
     return {
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,
+        "sysph": sysph, "conflicts": find_conflicts(corrs, sysph),
     }
+
+
+def find_conflicts(corrs, sysph):
+    """(child lect, default parent phoneme id) pairs where the record disagrees
+    with itself: a disputed row, rows from more than one source, or a separate
+    descent stated for another reconstruction system's phoneme."""
+    groups = defaultdict(list)
+    for r in corrs:
+        if not r["system"]:
+            groups[(r["child_lect_id"], r["parent_phoneme_id"])].append(r)
+    out = set()
+    for key, rows in groups.items():
+        cites = {(r["source_id"], r["via_source_id"]) for r in rows}
+        if len(cites) > 1 or any("disputed" in (r["status"], r["blank_type"]) for r in rows):
+            out.add(key)
+    for r in corrs:
+        if r["system"]:
+            rec = sysph[r["parent_lect_id"]][r["system"]].get(r["parent_phoneme"])
+            for c in (rec or {}).get("counterparts", []):
+                out.add((r["child_lect_id"], c))
+    return out
 
 
 # ---------------------------------------------------------------- derivation
@@ -596,6 +776,9 @@ def edge(r, include_child=True):
         "page": r["page"],
         "notes": r["notes"],
         "fusion": r.get("fusion"),
+        "system": r.get("system") or None,
+        "via_source_id": r.get("via_source_id", ""), "via_page": r.get("via_page", ""),
+        "via_note": r.get("via_note", ""),
     }
     if include_child:
         e["child_lect_id"] = r["child_lect_id"]
@@ -636,6 +819,9 @@ def descendants(phoneme_id, D, path=(), depth=0):
     for r in D["by_parent"].get(phoneme_id, []):
         row = edge(r)
         row["via"] = list(path)
+        # Beyond the first level, a row is shown by default only where sources
+        # or reconstructions disagree about this stage.
+        row["conflict"] = (r["child_lect_id"], r["parent_phoneme_id"]) in D["conflicts"]
         out.append(row)
         if r["child_phoneme_id"]:
             out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1))
@@ -675,6 +861,15 @@ def lect_json(L, D):
         ph["ancestry"] = [c for c in ancestry(ph["id"], D) if c]
         ph["descendants"] = descendants(ph["id"], D)
         phonemes.append(ph)
+    default = rec["default_system"]
+    systems = []
+    for S, phs in D["sysph"].get(L, {}).items():
+        out = []
+        for sp in phs.values():
+            sp = dict(sp)
+            sp["descendants"] = descendants(sp["id"], D)   # empty: descent is the default phoneme's
+            out.append(sp)
+        systems.append({"name": S, "phonemes": out})
     return {
         "id": L,
         "name": rec["name"],
@@ -688,6 +883,8 @@ def lect_json(L, D):
         "region": rec["region"],
         "orthography_note": rec["orthography_note"],
         "notes": rec["notes"],
+        "default_system": default or None,
+        "systems": systems,
         "inventory_status": status,
         "index_status": index_status,
         "coverage": cov,
@@ -697,6 +894,9 @@ def lect_json(L, D):
         "inventory_diff": [
             {"op": "add", "ipa": p["ipa"], "reason": p["reason"], "source_id": p["source_id"]}
             for p in inv.values() if p["origin"] == "manual-add"
+        ] + [
+            {"op": "place", "ipa": p["ipa"], "reason": p["reason"], "source_id": p["source_id"]}
+            for p in inv.values() if p["origin"] == "generated" and p["placement"] == "hand"
         ] + [
             {"op": "suppress", "ipa": p["ipa"], "reason": p["reason"], "source_id": p["source_id"]}
             for p in rec.get("_suppressed", [])
