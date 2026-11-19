@@ -104,6 +104,8 @@ One row per phoneme that a source states or that you corrected by hand. Generate
 | `origin` | yes | `sourced` (needs `source_id`) · `manual-add` (needs `reason`) · `suppressed` (needs `reason`; hides a generated phoneme) |
 | `source_id`, `page`, `reason`, `notes` | | |
 
+**Labialised series.** A consonant whose symbol contains `ʷ` (`pʷ`, `kʷ`) is put in its own chart column, `labialized-<place>`, next to the plain place; enter the plain place (`bilabial`, `velar`) and the build does the rest. To put a symbol without `ʷ` in that column (POc `w`, which the source lists with the labialised bilabials), write the place out: `labialized-bilabial`.
+
 A lect's rows are either all `sourced` or all `manual-add`/`suppressed`, never a mix. Leave place/manner blank when the phonetics of a proto-phoneme are unknown.
 
 ### `correspondences.csv`
@@ -134,6 +136,15 @@ id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evid
 ,samp1234,p,ɸ,_u,regular,,3,example2026,61,conditioned split: same parent, two rows
 ,exam1234,h,,_#,,not-attested,,example2026,46,typed blank
 ```
+
+**Fusion of a cluster.** When two parent segments fuse into one reflex (PMP *mb* > POc *b*), enter two rows, one under each member, with the same `child_phoneme`. The first member's row has environment `_+Y`, the second member's row has `X+_`:
+
+```csv
+poc-mb-b-N,poc,m,b,_+b,regular,,7,ross2023,35,
+poc-mb-b-C,poc,b,b,m+_,regular,,7,ross2023,35,
+```
+
+The build pairs the rows. The reflex's ancestry then shows one line of descent that starts at the cluster (*m + *b ↘↙ *b), and each member's descent lists the reflex as "*m + *b fuse". This is different from a segment that only changes next to another one, which is one ordinary row with a conditioning environment (`N_`, no `+`): there the neighbour survives as its own segment. If only one of the two rows is present the build warns and treats it as an ordinary conditioned change.
 
 A parent phoneme with no row at all for a daughter is reported as **unentered**, which is not the same as `not-attested`.
 

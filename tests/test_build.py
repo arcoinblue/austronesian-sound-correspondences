@@ -13,7 +13,7 @@ import build  # noqa: E402
 FIXTURE = ROOT / "tests" / "fixtures" / "example"
 
 
-def run(mutate=None):
+def run(mutate=None, derived=False):
     """Copy the fixture, apply mutate(dir), validate, return the Report."""
     with tempfile.TemporaryDirectory() as d:
         d = Path(d)
@@ -23,9 +23,10 @@ def run(mutate=None):
             mutate(d)
         rep = build.Report()
         tables = build.load(d, rep)
+        D = None
         if not rep.fatal:
-            build.validate_and_derive(tables, rep)
-        return rep
+            D = build.validate_and_derive(tables, rep)
+        return (rep, D) if derived else rep
 
 
 def append(name, line):
@@ -143,6 +144,42 @@ except ImportError:
 
 @unittest.skipUnless(HAVE_OPENPYXL, "openpyxl not installed")
 class TestSheetRoundTrip(unittest.TestCase):
+    def test_fusion_rows_pair_into_one_line_of_descent(self):
+        def m(d):
+            append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)
+            append("correspondences.csv", "fz-N,exam1234,k,ᵐb,_+p,regular,,3,example2026,45,")(d)
+            append("correspondences.csv", "fz-C,exam1234,p,ᵐb,k+_,regular,,3,example2026,45,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertFalse([w for w in rep.warnings if "fusion" in w])
+        chains = build.ancestry("exam1234:ᵐb", D)
+        self.assertEqual(len(chains), 1)
+        self.assertIsNone(chains[0][0]["parent"])
+        parent = D["lects"]["exam1234"]["parent_id"]
+        self.assertEqual(chains[0][0]["fusion"]["members"], [f"{parent}:k", f"{parent}:p"])
+        # Each member still lists the reflex in its own descent.
+        for s in ("k", "p"):
+            rows = [r for r in build.descendants(f"{parent}:{s}", D) if r["child"] == "exam1234:ᵐb"]
+            self.assertEqual(len(rows), 1)
+            self.assertTrue(rows[0]["fusion"])
+
+    def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
+        def m(d):
+            append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)
+            append("correspondences.csv", "fz-C,exam1234,p,ᵐb,k+_,regular,,3,example2026,45,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertTrue([w for w in rep.warnings if "half of the fusion" in w])
+        chains = build.ancestry("exam1234:ᵐb", D)
+        self.assertTrue(all(e["parent"] for c in chains for e in c))
+
+    def test_labialised_consonant_gets_its_own_place(self):
+        rep, D = run(append("phonemes.csv", "exam1234,kʷ,,C,velar,plosive,voiceless,,sourced,example2026,1,,"),
+                     derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(D["inventory"]["exam1234"]["kʷ"]["place"], "labialized-velar")
+        self.assertEqual(D["inventory"]["exam1234"]["k"]["place"], "velar")
+
     def test_fixture_survives_workbook_round_trip(self):
         import subprocess
         with tempfile.TemporaryDirectory() as d:

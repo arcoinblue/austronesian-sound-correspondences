@@ -80,6 +80,7 @@ HELP = [
     ("Order: add the source, then the lect (its parent proto-language first), then phonemes, then correspondences, then notation.", False),
     ("Never type * in a symbol: write R, not *R. The site adds the asterisk.", False),
     ("A correspondence with no reflex must have a blank_type. Environment is never blank: use 'elsewhere'.", False),
+    ("A cluster that fuses into one reflex (mb > b) is two rows with the same reflex: parent m, environment _+b; parent b, environment m+_.", False),
     ("Every phoneme of a proto-language needs a notation_map row (system = canonical at least).", False),
     ("", False),
     ("Publishing: GitHub copies this sheet every hour (or when you press 'Run workflow' on the 'Sync from Google Sheets' action).", False),

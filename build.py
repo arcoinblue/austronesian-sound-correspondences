@@ -34,11 +34,15 @@ PHONEME_ORIGINS_ENTERED = {"sourced", "manual-add", "suppressed"}
 CORR_STATUS = {"regular", "sporadic", "loan-stratum", "disputed"}
 BLANK_TYPES = {"not-attested", "lexeme-replaced", "irregular", "loan", "disputed"}
 
-PLACES_C = {
+PLACES_C_PLAIN = [
     "bilabial", "labiodental", "labial-velar", "dental", "alveolar",
     "postalveolar", "alveolo-palatal", "retroflex", "palatal", "velar",
     "uvular", "pharyngeal", "glottal",
-}
+]
+# A labialised series gets its own chart column, right after the plain place.
+LABIALIZED = "labialized-"
+LABIAL_MARK = "ʷ"
+PLACES_C = set(PLACES_C_PLAIN) | {LABIALIZED + p for p in PLACES_C_PLAIN}
 MANNERS_C = {
     "plosive", "prenasalized-plosive", "implosive", "affricate",
     "prenasalized-affricate", "nasal", "trill", "prenasalized-trill", "tap",
@@ -120,6 +124,11 @@ _v("ɒ", "back", "open", "rounded")
 
 
 ZERO = "∅"  # a zero reflex (regular deletion); never a phoneme of the lect
+
+# Fusion of a cluster X+Y into one reflex R is entered as two rows, one under
+# each member:  parent X, environment "_+Y"  and  parent Y, environment "X+_".
+FUSION_FIRST = re.compile(r"^_\+(.+)$")    # this segment comes first; group = the second
+FUSION_SECOND = re.compile(r"^(.+)\+_$")   # this segment comes second; group = the first
 
 
 def ipa_features(sym: str):
@@ -404,6 +413,8 @@ def validate_and_derive(t, rep: Report):
                                                 row["voicing"], row["rounding"])
         else:
             cls, place, manner, voicing, rnd = ipa_features(s)
+        if cls == "C" and place in PLACES_C_PLAIN and LABIAL_MARK in s:
+            place = LABIALIZED + place
         return {
             "id": pid(L, s), "lect_id": L, "ipa": s,
             "url_id": phoneme_url_id(s, lects[L]["type"]),
@@ -465,6 +476,42 @@ def validate_and_derive(t, rep: Report):
                 and r["child_phoneme"] not in inventory[L]:
             rep.warn(w, f"reflex {L}:{r['child_phoneme']} was suppressed from {L}'s inventory; "
                         "this row still points at it")
+
+    # --- fusions: pair the two rows of a cluster X+Y > R
+    halves = {}  # (child lect, first, second, reflex) -> {"first": row, "second": row}
+    for r in corrs:
+        r["fusion"] = None
+        if not r["child_phoneme"]:
+            continue
+        inv_p = inventory.get(r["parent_lect_id"]) or {}
+        m1, m2 = FUSION_FIRST.match(r["environment"]), FUSION_SECOND.match(r["environment"])
+        if m1 and m1.group(1) in inv_p:
+            key, role = (r["child_lect_id"], r["parent_phoneme"], m1.group(1), r["child_phoneme"]), "first"
+        elif m2 and m2.group(1) in inv_p:
+            key, role = (r["child_lect_id"], m2.group(1), r["parent_phoneme"], r["child_phoneme"]), "second"
+        else:
+            continue
+        slot = halves.setdefault(key, {})
+        if role in slot:
+            rep.warn(r["_where"], f"repeats the fusion row at {slot[role]['_where']}; ignored for the diagram")
+            continue
+        slot[role] = r
+    for (L, a, b, R), slot in halves.items():
+        P = lects[L]["parent_id"]
+        if len(slot) < 2:
+            r = next(iter(slot.values()))
+            other = (f"parent_phoneme {b}, environment {a}+_" if "first" in slot
+                     else f"parent_phoneme {a}, environment _+{b}")
+            rep.warn(r["_where"], f"looks like half of the fusion {P}:{a}+{b} > {L}:{R}, but the other row "
+                                  f"({other}, child_phoneme {R}) is missing; shown as an ordinary conditioned change")
+            continue
+        for role, r in slot.items():
+            partner = slot["second" if role == "first" else "first"]
+            r["fusion"] = {"members": [pid(P, a), pid(P, b)], "role": role,
+                           "partner_correspondence_id": partner["id"]}
+        if slot["first"]["evidence_count"] != slot["second"]["evidence_count"]:
+            rep.warn(slot["second"]["_where"], f"the two rows of the fusion {P}:{a}+{b} > {L}:{R} "
+                                               "have different evidence_count values")
 
     for L, rec in ((L, lects[L]) for L in lects):
         if rec["type"] == "proto-language" and not rec["parent_id"] and inv_status[L] != "sourced":
@@ -548,6 +595,7 @@ def edge(r, include_child=True):
         "source_id": r["source_id"],
         "page": r["page"],
         "notes": r["notes"],
+        "fusion": r.get("fusion"),
     }
     if include_child:
         e["child_lect_id"] = r["child_lect_id"]
@@ -556,7 +604,11 @@ def edge(r, include_child=True):
 
 
 def ancestry(phoneme_id, D, depth=0):
-    """All upward chains, oldest first. Each chain is a list of edges."""
+    """All upward chains, oldest first. Each chain is a list of edges.
+
+    A fused cluster gives one chain, not two, and the chain starts at the
+    cluster: its edge has parent None and fusion.members naming both segments.
+    """
     if depth > 50:
         return [[]]
     rows = D["by_child"].get(phoneme_id, [])
@@ -564,6 +616,13 @@ def ancestry(phoneme_id, D, depth=0):
         return [[]]
     chains = []
     for r in rows:
+        if r.get("fusion"):
+            if r["fusion"]["role"] == "second":
+                e = edge(r)
+                e["parent"] = None
+                e["environment"] = "fusion"
+                chains.append([e])
+            continue
         for up in ancestry(r["parent_phoneme_id"], D, depth + 1):
             chains.append(up + [edge(r)])
     return chains

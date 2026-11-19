@@ -10,8 +10,10 @@ const app = document.getElementById("app");
 const cache = {};
 let INDEX, SOURCES, LECTS;
 
+// A labialised series (pʷ bʷ mʷ, kʷ) has its own column, right after the plain place.
 const PLACES = ["bilabial", "labiodental", "labial-velar", "dental", "alveolar", "postalveolar",
-  "alveolo-palatal", "retroflex", "palatal", "velar", "uvular", "pharyngeal", "glottal"];
+  "alveolo-palatal", "retroflex", "palatal", "velar", "uvular", "pharyngeal", "glottal"]
+  .flatMap(p => [p, "labialized-" + p]);
 const MANNERS = ["plosive", "prenasalized-plosive", "implosive", "affricate", "prenasalized-affricate",
   "nasal", "trill", "prenasalized-trill", "tap", "fricative", "lateral-fricative", "approximant",
   "lateral-approximant"];
@@ -109,7 +111,7 @@ async function pageIndex(params) {
       if (pivot) {
         const rs = pivot.byLect[l.id] || [];
         mid = rs.length ? rs.map(r => r.child
-          ? `${phLink(r.child)} <span class="muted">/ ${esc(r.environment)}</span>${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}`
+          ? `${phLink(r.child)} <span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span>${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}`
           : `<span class="blank">${label(r.blank_type)}</span> <span class="muted">/ ${esc(r.environment)}</span>`).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = coverage(l.coverage);
@@ -233,20 +235,47 @@ async function pageLect(L) {
 
 // ------------------------------------------------------------------ page 2
 
-function chainHtml(chain, herePid) {
-  let html = `<div class="chain">`;
-  chain.forEach((e, i) => {
-    if (i === 0) html += node(e.parent, herePid);
-    const meta = [esc(e.environment), e.status ? label(e.status) : "",
-      e.evidence_count != null ? `n=${e.evidence_count}` : ""].filter(Boolean).join(" · ");
-    html += `<span class="arrow"><span>${meta}</span><span class="glyph">→</span><span>${srcLink(e.source_id, e.page)}</span></span>`;
-    html += node(e.child, herePid);
-  });
-  return html + "</div>";
+// One column per line of descent, one row per stage (oldest at the top).
+// A fused cluster is one column that starts at the cluster: "*m + *b" with
+// converging arrows down to the single reflex.
+function fusionLabel(f) {
+  return f.members.map(m => `<span class="ipa">${esc(sym(m))}</span>`).join(" + ");
 }
-function node(pid, herePid) {
-  const [l] = splitPid(pid);
-  return `<span class="node${pid === herePid ? " here" : ""}"><span class="sym">${pid === herePid ? esc(sym(pid)) : phLink(pid)}</span><span class="lect">${esc(LECTS[l]?.name || l)}</span></span>`;
+function ancestryHtml(chains, herePid) {
+  const [hereLect] = splitPid(herePid);
+  const stages = [...ancestorsOf(hereLect), hereLect];
+  const cols = chains.map(chain => {
+    const nodes = {}, arrows = {};   // keyed by lect id; arrows keyed by the child's lect
+    chain.forEach((e, i) => {
+      const [cl] = splitPid(e.child);
+      if (i === 0) {
+        const pl = e.fusion ? splitPid(e.fusion.members[0])[0] : splitPid(e.parent)[0];
+        nodes[pl] = e.fusion
+          ? `<span class="cluster">${e.fusion.members.map(m => phLink(m)).join('<span class="plus">+</span>')}</span>`
+          : nodeSym(e.parent, herePid);
+      }
+      nodes[cl] = nodeSym(e.child, herePid);
+      const meta = [e.fusion ? "fusion" : esc(e.environment), e.status && e.status !== "regular" ? label(e.status) : "",
+        e.evidence_count != null ? `n=${e.evidence_count}` : ""].filter(Boolean).join(" · ");
+      arrows[cl] = `<span class="glyph" title="${e.fusion ? "the cluster fuses into one segment" : ""}">${e.fusion ? "↘↙" : "↓"}</span>
+        <span class="meta">${meta}<br>${srcLink(e.source_id, e.page)}</span>`;
+    });
+    return { nodes, arrows };
+  });
+  const used = stages.filter(l => cols.some(c => c.nodes[l]));
+  let html = `<div class="scroll"><table class="descent">`;
+  used.forEach((l, i) => {
+    if (i > 0) html += `<tr class="arrows"><th></th>${cols.map(c => `<td>${c.arrows[l] || ""}</td>`).join("")}</tr>`;
+    html += `<tr class="stage"><th>${lectLink(l)}</th>${cols.map(c => `<td>${c.nodes[l] || ""}</td>`).join("")}</tr>`;
+  });
+  return html + "</table></div>";
+}
+function nodeSym(pid, herePid) {
+  return pid === herePid ? `<span class="ipa here">${esc(sym(pid))}</span>` : phLink(pid);
+}
+function envHtml(r) {
+  if (!r.fusion) return `<code>${esc(r.environment)}</code>`;
+  return `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`;
 }
 
 async function pagePhoneme(L, uid) {
@@ -254,12 +283,12 @@ async function pagePhoneme(L, uid) {
   const ph = d.phonemes.find(p => p.url_id === uid || p.url_id === encodeURIComponent(decodeURIComponent(uid)));
   if (!ph) throw new Error(`No phoneme ${decodeURIComponent(uid)} in ${L}`);
   const proto = isProto(L);
-  const ancestorPids = [...new Set(ph.ancestry.flatMap(c => c.map(e => e.parent)))];
+  const ancestorPids = [...new Set(ph.ancestry.flatMap(c => c.flatMap(e => e.parent ? [e.parent] : e.fusion.members)))];
 
   const descRows = ph.descendants.map(r => `<tr class="${r.via.length ? "dim" : ""}">
       <td>${lectLink(r.child_lect_id)}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
       <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td><code>${esc(r.environment)}</code></td>
+      <td>${envHtml(r)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${r.evidence_count ?? ""}</td>
       <td>${srcLink(r.source_id, r.page)}</td>
@@ -282,8 +311,8 @@ async function pagePhoneme(L, uid) {
 
     <h2>Ancestry</h2>
     ${ph.ancestry.length
-      ? (ph.ancestry.length > 1 ? `<p class="muted">${ph.ancestry.length} chains: this phoneme continues more than one ancestor segment.</p>` : "")
-        + ph.ancestry.map(c => chainHtml(c, ph.id)).join("")
+      ? (ph.ancestry.length > 1 ? `<p class="muted">${ph.ancestry.length} lines of descent, one per column.${ph.ancestry.some(c => c[0].fusion) ? " ↘↙ marks a cluster of two segments that fused into one." : ""}</p>` : "")
+        + ancestryHtml(ph.ancestry, ph.id)
       : `<p class="muted">${d.parent_id ? "No correspondence entered for this phoneme yet." : "Root proto-language: no ancestor."}</p>`}
     ${ancestorPids.length ? `<p>Same ancestor across the family: ${ancestorPids.map(p =>
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
