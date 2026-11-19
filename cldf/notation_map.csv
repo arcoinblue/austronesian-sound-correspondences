@@ -201,3 +201,90 @@ pata,ʔ,canonical,ʔ,shibata2025,50,Symbol as written in the source.
 pata,x,canonical,x,shibata2025,50,Symbol as written in the source.
 psed,ʔ,canonical,ʔ,shibata2025,53,Symbol as written in the source.
 pbun,ʔ,canonical,ʔ,shibata2025,56,Symbol as written in the source.
+pan,r,canonical,r,ross2023,30,
+pan,ñ,canonical,ñ,ross2023,30,
+pan,N,Ross,L,ross2023,30,Table 1.4 writes PAn L where the ACD has N. The equivalence is inferred from the reflexes; this excerpt does not state it.
+pmp,p,canonical,p,ross2023,30,Symbol as written in the source.
+pmp,b,canonical,b,ross2023,30,Symbol as written in the source.
+pmp,t,canonical,t,ross2023,30,Symbol as written in the source.
+pmp,d,canonical,d,ross2023,30,Symbol as written in the source.
+pmp,r,canonical,r,ross2023,30,Symbol as written in the source.
+pmp,s,canonical,s,ross2023,30,Symbol as written in the source.
+pmp,z,canonical,z,ross2023,30,Symbol as written in the source.
+pmp,j,canonical,j,ross2023,30,Symbol as written in the source.
+pmp,k,canonical,k,ross2023,30,Symbol as written in the source.
+pmp,g,canonical,g,ross2023,30,Symbol as written in the source.
+pmp,m,canonical,m,ross2023,30,Symbol as written in the source.
+pmp,n,canonical,n,ross2023,30,Symbol as written in the source.
+pmp,ñ,canonical,ñ,ross2023,30,Symbol as written in the source.
+pmp,ŋ,canonical,ŋ,ross2023,30,Symbol as written in the source.
+pmp,w,canonical,w,ross2023,30,Symbol as written in the source.
+pmp,y,canonical,y,ross2023,30,Symbol as written in the source.
+pmp,l,canonical,l,ross2023,30,Symbol as written in the source.
+pmp,q,canonical,q,ross2023,30,Symbol as written in the source.
+pmp,R,canonical,R,ross2023,30,Symbol as written in the source.
+pmp,h,canonical,h,ross2023,30,Symbol as written in the source.
+pmp,i,canonical,i,ross2023,30,Symbol as written in the source.
+pmp,e,canonical,e,ross2023,30,Symbol as written in the source.
+pmp,a,canonical,a,ross2023,30,Symbol as written in the source.
+pmp,u,canonical,u,ross2023,30,Symbol as written in the source.
+poc,pʷ,canonical,pʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,bʷ,canonical,bʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,mʷ,canonical,mʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,w,canonical,w,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,p,canonical,p,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,b,canonical,b,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,m,canonical,m,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,t,canonical,t,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,d,canonical,d,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,r,canonical,r,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,dr,canonical,dr,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,n,canonical,n,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,s,canonical,s,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,l,canonical,l,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,c,canonical,c,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,j,canonical,j,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,ñ,canonical,ñ,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,y,canonical,y,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,k,canonical,k,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,g,canonical,g,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,ŋ,canonical,ŋ,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,kʷ,canonical,kʷ,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,q,canonical,q,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,R,canonical,R,ross2023,27,"Orthography of Ross (1988, 1989)."
+poc,i,canonical,i,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,e,canonical,e,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,a,canonical,a,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,o,canonical,o,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,u,canonical,u,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,p,Grace,p,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,b,Grace,mp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,bʷ,Grace,ŋp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
+poc,bʷ,Grace,mpw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
+poc,t,Grace,t,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,d,Grace,nt,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,r,Grace,d,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
+poc,r,Grace,r,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
+poc,dr,Grace,nd,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,s,Grace,s,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,j,Grace,nj,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,c,Grace,j,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,k,Grace,k,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,g,Grace,ŋk,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,m,Grace,m,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,mʷ,Grace,ŋm,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
+poc,mʷ,Grace,mw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.
+poc,n,Grace,n,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,ñ,Grace,ñ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,ŋ,Grace,ŋ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,w,Grace,w,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,y,Grace,y,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,l,Grace,l,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,q,Grace,q,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,R,Grace,R,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,i,Grace,i,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,e,Grace,e,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,a,Grace,a,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,o,Grace,o,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,u,Grace,u,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).
+poc,dr,Ross,nr,ross2023,27,Variant spelling in Table 1.3.

@@ -334,3 +334,58 @@ ppai,a,,V,central,open,,unrounded,sourced,shibata2025,96,,The source gives a con
 ppai,i,,V,front,close,,unrounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
 ppai,u,,V,back,close,,rounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
 ppai,ə,,V,central,mid,,unrounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
+pan,r,r,C,,,,,sourced,ross2023,30,,Listed as a PAn protophoneme in Table 1.4; not treated by Shibata (2025).
+pan,ñ,ñ,C,,,,,sourced,ross2023,30,,Listed as a PAn protophoneme in Table 1.4; not treated by Shibata (2025).
+pmp,p,p,C,,,voiceless,,sourced,ross2023,30,,
+pmp,b,b,C,,,voiced,,sourced,ross2023,30,,
+pmp,t,t,C,dental,,,,sourced,ross2023,30,,"Dental (pp. 30, 36)."
+pmp,d,d,C,alveolar,,,,sourced,ross2023,30,,"Alveolar (pp. 30, 36)."
+pmp,r,r,C,,,,,sourced,ross2023,30,,
+pmp,s,s,C,,,voiceless,,sourced,ross2023,30,,
+pmp,z,z,C,,,voiced,,sourced,ross2023,30,,
+pmp,j,j,C,,,,,sourced,ross2023,30,,Occurs only medially in the source's data.
+pmp,k,k,C,,,voiceless,,sourced,ross2023,30,,
+pmp,g,g,C,,,voiced,,sourced,ross2023,30,,
+pmp,m,m,C,,,,,sourced,ross2023,30,,
+pmp,n,n,C,,,,,sourced,ross2023,30,,
+pmp,ñ,ñ,C,,,,,sourced,ross2023,30,,
+pmp,ŋ,ŋ,C,,,,,sourced,ross2023,30,,
+pmp,w,w,C,,,,,sourced,ross2023,30,,
+pmp,y,y,C,,,,,sourced,ross2023,30,,
+pmp,l,l,C,,,,,sourced,ross2023,30,,
+pmp,q,q,C,,,,,sourced,ross2023,30,,
+pmp,R,R,C,,,,,sourced,ross2023,30,,
+pmp,h,h,C,,,,,sourced,ross2023,30,,Reflex of PAn S.
+pmp,i,i,V,,,,,sourced,ross2023,30,,
+pmp,e,e,V,,,,,sourced,ross2023,30,,Phonetically [ə].
+pmp,a,a,V,,,,,sourced,ross2023,30,,
+pmp,u,u,V,,,,,sourced,ross2023,30,,
+poc,pʷ,pʷ,C,bilabial,plosive,voiceless,,sourced,ross2023,26,,"Labialised bilabial in Table 1.2. No PMP source: the labiovelars are a POc innovation, some in loans from Papuan languages (pp. 30-32)."
+poc,bʷ,bʷ,C,bilabial,plosive,voiced,,sourced,ross2023,26,,"Labialised bilabial in Table 1.2. No PMP source: the labiovelars are a POc innovation, some in loans from Papuan languages (pp. 30-32)."
+poc,mʷ,mʷ,C,bilabial,nasal,voiced,,sourced,ross2023,26,,"Labialised bilabial in Table 1.2. No PMP source: the labiovelars are a POc innovation, some in loans from Papuan languages (pp. 30-32)."
+poc,w,w,C,bilabial,approximant,voiced,,sourced,ross2023,26,,Labialised bilabial in Table 1.2.
+poc,p,p,C,bilabial,plosive,voiceless,,sourced,ross2023,26,,
+poc,b,b,C,bilabial,plosive,voiced,,sourced,ross2023,26,,
+poc,m,m,C,bilabial,nasal,voiced,,sourced,ross2023,26,,
+poc,t,t,C,dental,plosive,voiceless,,sourced,ross2023,26,,
+poc,d,d,C,alveolar,plosive,voiced,,sourced,ross2023,26,,
+poc,r,r,C,alveolar,trill,voiced,,sourced,ross2023,26,,
+poc,dr,dr,C,alveolar,prenasalized-trill,voiced,,sourced,ross2023,26,,Phonetically [ⁿdr]; also written nr (Table 1.3; p. 37 n. 33).
+poc,n,n,C,alveolar,nasal,voiced,,sourced,ross2023,26,,
+poc,s,s,C,alveolar,fricative,voiceless,,sourced,ross2023,26,,
+poc,l,l,C,alveolar,lateral-approximant,voiced,,sourced,ross2023,26,,
+poc,c,c,C,palatal,plosive,voiceless,,sourced,ross2023,26,,
+poc,j,j,C,palatal,plosive,voiced,,sourced,ross2023,26,,
+poc,ñ,ñ,C,palatal,nasal,voiced,,sourced,ross2023,26,,
+poc,y,y,C,palatal,approximant,voiced,,sourced,ross2023,26,,
+poc,k,k,C,velar,plosive,voiceless,,sourced,ross2023,26,,
+poc,g,g,C,velar,plosive,voiced,,sourced,ross2023,26,,
+poc,ŋ,ŋ,C,velar,nasal,voiced,,sourced,ross2023,26,,
+poc,kʷ,kʷ,C,velar,plosive,voiceless,,sourced,ross2023,26,,"Labialised velar in Table 1.2. No PMP source: the labiovelars are a POc innovation, some in loans from Papuan languages (pp. 30-32)."
+poc,q,q,C,uvular,plosive,voiceless,,sourced,ross2023,26,,
+poc,R,R,C,,,,,sourced,ross2023,27,,Listed in Tables 1.3 and 1.4 but absent from the consonant chart (Table 1.2); no phonetic value given.
+poc,i,i,V,,,,,sourced,ross2023,26,,
+poc,e,e,V,,,,,sourced,ross2023,26,,
+poc,a,a,V,,,,,sourced,ross2023,26,,
+poc,o,o,V,,,,,sourced,ross2023,26,,
+poc,u,u,V,,,,,sourced,ross2023,26,,

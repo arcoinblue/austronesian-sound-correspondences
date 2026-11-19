@@ -407,3 +407,82 @@ id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evid
 ,ppai,e,ə,elsewhere,regular,,,shibata2025,96,"Chuang (2024), quoted from Shibata (2025: 96)."
 ,ppai,i,i,elsewhere,regular,,,shibata2025,96,"Chuang (2024), quoted from Shibata (2025: 96)."
 ,ppai,u,u,elsewhere,regular,,,shibata2025,96,"Chuang (2024), quoted from Shibata (2025: 96)."
+,pmp,p,p,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,b,b,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,t,t,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,C,t,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,d,d,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,r,r,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,s,s,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,z,z,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,j,j,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,k,k,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,g,g,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,m,m,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,n,n,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,N,l,#_,regular,,,ross2023,30,"Written L in Table 1.4 (L- > l, -L(-) > n); taken here to be ACD N."
+,pmp,N,n,elsewhere,regular,,,ross2023,30,"Written L in Table 1.4 (L- > l, -L(-) > n); taken here to be ACD N. Medial and final."
+,pmp,ñ,ñ,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,ŋ,ŋ,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,w,w,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,y,y,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,l,l,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,q,q,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,R,R,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,S,h,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,a,a,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,i,i,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,u,u,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference.
+,pmp,e,e,elsewhere,regular,,,ross2023,30,PAn is shown in Table 1.4 for reference. Phonetically [ə].
+,poc,p,p,elsewhere,regular,,82,ross2023,34,82 of 94. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,p,b,elsewhere,regular,,12,ross2023,34,12 of 94. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,b,p,elsewhere,regular,,101,ross2023,34,101 of 128. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,b,b,elsewhere,regular,,27,ross2023,34,27 of 128. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,t,t,elsewhere,regular,,129,ross2023,35,All 129 instances; t did not take part in the merger and split.
+,poc,d,r,elsewhere,regular,,33,ross2023,37,33 of 40 instances; merges with the reflex of PMP r.
+,poc,d,dr,elsewhere,regular,,7,ross2023,37,"7 of 40 instances; the split is in prenasalisation, not voicing."
+,poc,r,r,elsewhere,regular,,27,ross2023,37,All 27 instances.
+,poc,s,s,elsewhere,regular,,69,ross2023,34,69 of 75. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,s,j,elsewhere,regular,,6,ross2023,34,6 of 75. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,z,s,elsewhere,regular,,10,ross2023,34,10 of 14. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,z,j,elsewhere,regular,,4,ross2023,34,4 of 14. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database. Unconditioned split after the Proto X merger.
+,poc,j,c,elsewhere,regular,,13,ross2023,34,13 of 17 medial instances. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database.
+,poc,j,j,elsewhere,regular,,4,ross2023,34,4 of 17 medial instances. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database.
+,poc,k,k,elsewhere,regular,,91,ross2023,34,91 of 93. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database.
+,poc,k,g,elsewhere,disputed,,2,ross2023,35,2 of 93 instances; the source says it is unclear whether Proto X k split at all.
+,poc,g,k,elsewhere,regular,,8,ross2023,34,All 8 instances; no PMP g is reflected as POc g. Table 1.6: instances among 429 initial and medial PMP obstruents in the 729-etymon database.
+,poc,p,p,N_,regular,,2,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,p,b,N_,regular,,2,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ᵐb."
+,poc,b,p,N_,regular,,5,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,b,b,N_,regular,,7,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ᵐb."
+,poc,k,k,N_,regular,,8,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,k,g,N_,regular,,5,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ᵑg."
+,poc,g,g,N_,regular,,2,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ᵑg."
+,poc,t,t,N_,regular,,3,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,t,d,N_,regular,,3,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ⁿd."
+,poc,d,r,N_,regular,,1,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,d,dr,N_,regular,,2,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ⁿr."
+,poc,s,s,N_,regular,,1,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,s,j,N_,regular,,1,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances. The source reconstructs this outcome as early POc prenasalised ñj."
+,poc,z,s,N_,regular,,1,ross2023,35,"Table 1.7: PMP nasal + obstruent cluster (always medial), by count of instances."
+,poc,m,m,elsewhere,regular,,,ross2023,30,
+,poc,n,n,elsewhere,regular,,,ross2023,30,
+,poc,ñ,ñ,elsewhere,regular,,,ross2023,30,
+,poc,ŋ,ŋ,elsewhere,regular,,,ross2023,30,
+,poc,w,w,elsewhere,regular,,,ross2023,30,
+,poc,y,y,elsewhere,regular,,,ross2023,30,
+,poc,l,l,elsewhere,regular,,,ross2023,30,
+,poc,q,q,elsewhere,regular,,,ross2023,30,
+,poc,R,R,elsewhere,regular,,,ross2023,30,
+,poc,h,∅,elsewhere,regular,,,ross2023,30,PAn S > PMP h > POc zero.
+,poc,w,∅,a_#,regular,,,ross2023,32,PMP -aw > POc -o.
+,poc,y,∅,a_#,regular,,,ross2023,32,PMP -ay > POc -e.
+,poc,y,∅,u_,regular,,,ross2023,32,PMP -uy(-) > POc i; word-medial in one known case (kamuihu > kamiu).
+,poc,i,i,elsewhere,regular,,,ross2023,30,
+,poc,u,u,elsewhere,regular,,,ross2023,30,
+,poc,a,a,elsewhere,regular,,,ross2023,30,
+,poc,u,i,_y,regular,,,ross2023,32,PMP -uy(-) > POc i.
+,poc,a,o,_w#,regular,,,ross2023,32,PMP -aw > POc -o.
+,poc,a,e,_y#,regular,,,ross2023,32,PMP -ay > POc -e.
+,poc,e,o,elsewhere,regular,,,ross2023,32,PMP e [ə] > POc o.
+,poc,e,∅,penultimate syllable of some trisyllabic roots,sporadic,,,ross2023,32,"Lost together with one consonant of the resulting cluster (e.g. tuqelan > tuqan); conditioning unclear, as other trisyllables keep it (baqeRu > paqoRu)."
