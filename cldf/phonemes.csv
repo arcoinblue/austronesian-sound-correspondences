@@ -387,3 +387,55 @@ poc,e,e,V,front,close-mid,,unrounded,sourced,ross2023,26,,Chart position read fr
 poc,a,a,V,central,open,,unrounded,sourced,ross2023,26,,Chart position read from the symbol; the source does not describe the vowel.,,,
 poc,o,o,V,back,close-mid,,rounded,sourced,ross2023,26,,Chart position read from the symbol; the source does not describe the vowel.,,,
 poc,u,u,V,back,close,,rounded,sourced,ross2023,26,,Chart position read from the symbol; the source does not describe the vowel.,,,
+pmc,p,p,C,,,,,sourced,bender2003a,4,,,,,
+pmc,pʷ,pʷ,C,,,,,sourced,bender2003a,4,,"Labiovelar; written with a prime (p′, m′) by Marck (1977, 1994) and Jackson (1983) (p. 2).",,,
+pmc,f,f,C,,,,,sourced,bender2003a,4,,,,,
+pmc,m,m,C,,,,,sourced,bender2003a,4,,,,,
+pmc,mʷ,mʷ,C,,,,,sourced,bender2003a,4,,"Labiovelar; written with a prime (p′, m′) by Marck (1977, 1994) and Jackson (1983) (p. 2).",,,
+pmc,k,k,C,,,,,sourced,bender2003a,4,,,,,
+pmc,x,x,C,,,,,sourced,bender2003a,4,,,,,
+pmc,ŋ,ŋ,C,velar,nasal,,,sourced,bender2003a,4,,Velar nasal (p. 2).,,,
+pmc,y,y,C,,,,,sourced,bender2003a,4,,Added by Bender et al. to the orthography of Jackson (1986) (p. 3).,,,
+pmc,w,w,C,,,,,sourced,bender2003a,4,,,,,
+pmc,t,t,C,,,,,sourced,bender2003a,5,,,,,
+pmc,T,T,C,unknown,unknown,,,sourced,bender2003a,5,,"See Jackson (1983: 326; 1986: 203) and Goodenough (1992: 112, fn. 5) (Table 3, note 4). The POc cell of Table 3 is blank for it. Blumenfeld (2022b: 711) calls it possibly not reconstructable outside PPC.",,,
+pmc,s,s,C,,,,,sourced,bender2003a,5,,"Written d by Jackson (1986) (p. 3). One of the Micronesian ""palatals"" (Blumenfeld 2022b: 686).",,,
+pmc,S,S,C,unknown,unknown,,,sourced,bender2003a,5,,"Written z by Jackson (1986) (p. 3). Kept apart from *s only by Kosraean, which deletes it (Blumenfeld 2022b: 706).",,,
+pmc,Z,Z,C,unknown,unknown,,,sourced,bender2003a,5,,"Added by Bender et al. (p. 3); used in only two etyma, *kiaZo and *laZe (Table 3, note 2). Blumenfeld (2022b: 708) doubts that it is needed and keeps it for continuity.",,,
+pmc,c,c,C,,,,,sourced,bender2003a,5,,,,,
+pmc,r,r,C,,,,,sourced,bender2003a,5,,,,,
+pmc,l,l,C,,,,,sourced,bender2003a,5,,,,,
+pmc,n,n,C,,,,,sourced,bender2003a,5,,,,,
+pmc,ñ,ñ,C,palatal,nasal,,,sourced,bender2003a,5,,Palatal nasal (p. 2).,,,
+pmc,i,i,V,front,close,,unrounded,sourced,blumenfeld2022b,712,,Vowel as used in the tables of vowel changes of Blumenfeld (2022b); Bender et al. (2003a: 1-9) list no vowels. Chart position read from the symbol.,,,
+pmc,e,e,V,front,close-mid,,unrounded,sourced,blumenfeld2022b,712,,Vowel as used in the tables of vowel changes of Blumenfeld (2022b); Bender et al. (2003a: 1-9) list no vowels. Chart position read from the symbol.,,,
+pmc,a,a,V,central,open,,unrounded,sourced,blumenfeld2022b,712,,Vowel as used in the tables of vowel changes of Blumenfeld (2022b); Bender et al. (2003a: 1-9) list no vowels. Chart position read from the symbol.,,,
+pmc,o,o,V,back,close-mid,,rounded,sourced,blumenfeld2022b,712,,Vowel as used in the tables of vowel changes of Blumenfeld (2022b); Bender et al. (2003a: 1-9) list no vowels. Chart position read from the symbol.,,,
+pmc,u,u,V,back,close,,rounded,sourced,blumenfeld2022b,712,,Vowel as used in the tables of vowel changes of Blumenfeld (2022b); Bender et al. (2003a: 1-9) list no vowels. Chart position read from the symbol.,,,
+naur1243,pʷ,pʷ,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,p,p,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,t,t,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,k,k,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,kʷ,kʷ,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,bʷ,bʷ,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,b,b,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,d,d,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,ɡ,ɡ,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,mʷ,mʷ,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,m,m,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,n,n,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,ŋ,ŋ,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,ř,ř,C,,,,,sourced,blumenfeld2022a,,,"Rhotic distinguished from r by a higher degree of constriction and frication (p. 684, citing Hughes 2020b: 92ff.).",blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,r,r,C,,,,,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,j,j,C,,,,,sourced,blumenfeld2022a,,,Glide.,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,i̯,i̯,C,,,,,sourced,blumenfeld2022a,,,"Semivowel, distinct from the glide j and in complementary distribution with the vowel i (p. 684).",blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,w,w,C,,,,,sourced,blumenfeld2022a,,,Glide.,blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,u̯,u̯,C,,,,,sourced,blumenfeld2022a,,,"Semivowel, distinct from the glide w and in complementary distribution with the vowel u (p. 684).",blumenfeld2022b,685,"Table 1 of the diachronic paper, ""following the proposals in the synchronic description""; closely related proposals are in Hughes (2020b)."
+naur1243,i,i,V,front,close,,unrounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,ɨ,ɨ,V,central,close,,unrounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,u,u,V,back,close,,rounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,e,e,V,front,close-mid,,unrounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,ʌ,ʌ,V,central,mid,,unrounded,sourced,blumenfeld2022a,,,Placed between e and o in Table 2.,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,o,o,V,back,close-mid,,rounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,æ,æ,V,front,near-open,,unrounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
+naur1243,ɑ,ɑ,V,back,open,,unrounded,sourced,blumenfeld2022a,,,,blumenfeld2022b,685,Table 2 of the diachronic paper. Chart position read from the symbol and the layout of the table (three rows: i ɨ u / e ʌ o / æ ɑ).
