@@ -100,6 +100,15 @@ class TestConstraints(unittest.TestCase):
                                     "exam1234,ŋ,,C,velar,nasal,voiced,,manual-add,,,why,")),
                          "cannot also have manual-add")
 
+    def test_zero_reflex_is_never_a_phoneme(self):
+        # A ∅ reflex in a sourced lect, plus a leftover suppressed ∅ row: no
+        # mixing error, no "not in inventory" warning, and no ∅ phoneme.
+        rep = run(lambda d: [
+            append("correspondences.csv", ",exam1234,p,∅,_#,regular,,3,example2026,45,")(d),
+            append("phonemes.csv", "exam1234,∅,,other,,,,,suppressed,,,zero reflex,")(d)])
+        self.assertEqual(rep.errors, [])
+        self.assertFalse(any("∅" in w for w in rep.warnings), rep.warnings)
+
     def test_manual_rows_need_reason(self):
         self.assertError(run(append("phonemes.csv", "samp1234,ŋ,,C,velar,nasal,voiced,,manual-add,,,,")),
                          "requires a reason")

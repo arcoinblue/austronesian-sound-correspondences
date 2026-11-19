@@ -43,6 +43,7 @@ function urlId(lectId, s) {
 }
 function phLink(pid, text) {
   const [l, s] = splitPid(pid);
+  if (s === "∅") return `<span class="ipa" title="zero reflex (deletion)">∅</span>`;
   return `<a class="ipa" href="#/lects/${esc(l)}/${urlId(l, s)}/">${esc(text ?? sym(pid))}</a>`;
 }
 function lectLink(id) {
@@ -137,7 +138,7 @@ async function pageIndex(params) {
 // ------------------------------------------------------------------ page 3
 
 function cellLink(L, p) {
-  const title = [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`].filter(Boolean).join(" · ");
+  const title = [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`, p.origin !== "sourced" && p.reason].filter(Boolean).join(" · ");
   return `<a class="o-${esc(p.origin)}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc(title)}">${esc(isProto(L) ? "*" + p.ipa : p.ipa)}</a>`;
 }
 
@@ -223,7 +224,7 @@ async function pageLect(L) {
     ${V.length ? `<h2>Vowels</h2>${vowelChart(L, V)}` : ""}
     ${O.length ? `<h2>Other</h2><p>${O.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}
     ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
-      ${d.inventory_status !== "sourced" ? "Dotted underline = generated; solid = added by hand." : ""}</p>` : ""}
+      ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated; solid = added by hand (hover for the reason)." : ""}</p>` : ""}
     ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
       <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
       ${d.inventory_diff.map(x => `<tr><td>${badge(x.op === "add" ? "manual-add" : "suppressed")}</td>

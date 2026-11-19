@@ -119,6 +119,9 @@ _v("a", "central", "open", "unrounded"); _v("ɑ", "back", "open", "unrounded")
 _v("ɒ", "back", "open", "rounded")
 
 
+ZERO = "∅"  # a zero reflex (regular deletion); never a phoneme of the lect
+
+
 def ipa_features(sym: str):
     """Look up a symbol, tolerating a length mark."""
     base = sym.rstrip("ː")
@@ -326,7 +329,8 @@ def validate_and_derive(t, rep: Report):
         entered[L][s] = r
 
     for L, rows in entered.items():
-        origins = {r["origin"] for r in rows.values()}
+        # A suppressed ∅ row is harmless anywhere: ∅ is never a phoneme.
+        origins = {r["origin"] for s, r in rows.items() if not (s == ZERO and r["origin"] == "suppressed")}
         if "sourced" in origins and origins - {"sourced"}:
             rep.error(f"phonemes.csv ({L})",
                       "a sourced inventory cannot also have manual-add/suppressed rows; "
@@ -391,7 +395,7 @@ def validate_and_derive(t, rep: Report):
     inv_status = {}
     reflexes_by_lect = defaultdict(dict)  # lect -> sym -> first row seen
     for r in corrs:
-        if r["child_phoneme"]:
+        if r["child_phoneme"] and r["child_phoneme"] != ZERO:
             reflexes_by_lect[r["child_lect_id"]].setdefault(r["child_phoneme"], r)
 
     def phoneme_record(L, s, row, origin):
@@ -417,9 +421,12 @@ def validate_and_derive(t, rep: Report):
         origins = {r["origin"] for r in rows.values()}
         inv = {}
         if "sourced" in origins:
+            # The source's list is the inventory (a suppressed ∅ row is skipped).
             inv_status[L] = "sourced"
             for s, row in rows.items():
-                inv[s] = phoneme_record(L, s, row, "sourced")
+                if row["origin"] == "sourced":
+                    inv[s] = phoneme_record(L, s, row, "sourced")
+            lects[L]["_suppressed"] = []
         else:
             generated = reflexes_by_lect.get(L, {})
             for s in generated:
@@ -431,6 +438,8 @@ def validate_and_derive(t, rep: Report):
                         rep.warn(row["_where"], f"manual-add {L}:{s} is already generated; row is redundant")
                     inv[s] = phoneme_record(L, s, row, "manual-add")
                 elif row["origin"] == "suppressed":
+                    if s == ZERO:
+                        continue  # ∅ is never generated; the row is harmless
                     if s not in inv:
                         rep.warn(row["_where"], f"suppressed {L}:{s} is not a generated phoneme")
                     else:
@@ -449,9 +458,11 @@ def validate_and_derive(t, rep: Report):
             rep.error(w, f"ancestor {P} has no phoneme rows; enter its inventory first")
         elif r["parent_phoneme"] not in inventory[P]:
             rep.error(w, f"parent phoneme {P}:{r['parent_phoneme']} is not in {P}'s inventory")
-        if r["child_phoneme"] and inv_status[L] == "sourced" and r["child_phoneme"] not in inventory[L]:
+        if r["child_phoneme"] and r["child_phoneme"] != ZERO and inv_status[L] == "sourced" \
+                and r["child_phoneme"] not in inventory[L]:
             rep.warn(w, f"reflex {L}:{r['child_phoneme']} is not in {L}'s sourced inventory")
-        if r["child_phoneme"] and inv_status[L] == "edited" and r["child_phoneme"] not in inventory[L]:
+        if r["child_phoneme"] and r["child_phoneme"] != ZERO and inv_status[L] == "edited" \
+                and r["child_phoneme"] not in inventory[L]:
             rep.warn(w, f"reflex {L}:{r['child_phoneme']} was suppressed from {L}'s inventory; "
                         "this row still points at it")
 
