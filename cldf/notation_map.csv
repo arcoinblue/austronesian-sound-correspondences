@@ -201,9 +201,7 @@ pata,ʔ,canonical,ʔ,shibata2025,50,Symbol as written in the source.,,,,,,
 pata,x,canonical,x,shibata2025,50,Symbol as written in the source.,,,,,,
 psed,ʔ,canonical,ʔ,shibata2025,53,Symbol as written in the source.,,,,,,
 pbun,ʔ,canonical,ʔ,shibata2025,56,Symbol as written in the source.,,,,,,
-pan,r,canonical,r,ross2023,30,,,,,,,
-pan,ñ,canonical,ñ,ross2023,30,,,,,,,
-pan,N,Ross,L,ross2023,30,"Table 1.4 of Ross et al. (2023) writes PAn L where the ACD has N. The equivalence is confirmed by Shibata (2025: 151, Table 6.14). Phonetic value in Ross (2015): step 1 [l, ɬ], alveolar lateral; step 2 [ʎ, ɬ], palatal lateral; Ross (1992): dental lateral, possibly fricative (Shibata 2025: 38, 41-42).",,,,,,
+pan,N,Ross,L,ross2023,30,"Table 1.4 of Ross et al. (2023) writes PAn L where the ACD has N. The equivalence is confirmed by Shibata (2025: 151, Table 6.14). Phonetic value in Ross (2015): step 1 [l, ɬ], alveolar lateral; step 2 [ʎ, ɬ], palatal lateral; Ross (1992): dental lateral, possibly fricative (Shibata 2025: 38, 41-42).",alveolar,lateral-approximant,voiced,,,
 pmp,p,canonical,p,ross2023,30,Symbol as written in the source.,,,,,,
 pmp,b,canonical,b,ross2023,30,Symbol as written in the source.,,,,,,
 pmp,t,canonical,t,ross2023,30,Symbol as written in the source.,,,,,,
@@ -257,107 +255,115 @@ poc,e,canonical,e,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
 poc,a,canonical,a,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
 poc,o,canonical,o,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
 poc,u,canonical,u,ross2023,26,"Orthography of Ross (1988, 1989).",,,,,,
-poc,p,Grace,p,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,b,Grace,mp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,bʷ,Grace,ŋp,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
-poc,bʷ,Grace,mpw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
-poc,t,Grace,t,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,d,Grace,nt,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,r,Grace,d,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
-poc,r,Grace,r,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
-poc,dr,Grace,nd,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,s,Grace,s,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,j,Grace,nj,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,c,Grace,j,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,k,Grace,k,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,g,Grace,ŋk,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,m,Grace,m,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,mʷ,Grace,ŋm,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
-poc,mʷ,Grace,mw,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,,,
-poc,n,Grace,n,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,ñ,Grace,ñ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,ŋ,Grace,ŋ,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,w,Grace,w,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,y,Grace,y,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,l,Grace,l,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,q,Grace,q,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,R,Grace,R,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,i,Grace,i,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,e,Grace,e,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,a,Grace,a,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,o,Grace,o,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
-poc,u,Grace,u,ross2023,27,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,,,
+poc,p,Grace,p,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,b,Grace,mp,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,bʷ,Grace,ŋp,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,bʷ,Grace,mpw,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,t,Grace,t,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,d,Grace,nt,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,r,Grace,d,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,r,Grace,r,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,dr,Grace,nd,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,s,Grace,s,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,j,Grace,nj,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,c,Grace,j,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,k,Grace,k,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,g,Grace,ŋk,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,m,Grace,m,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,mʷ,Grace,ŋm,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,mʷ,Grace,mw,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969); one of two variants.,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,n,Grace,n,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,ñ,Grace,ñ,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,ŋ,Grace,ŋ,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,w,Grace,w,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,y,Grace,y,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,l,Grace,l,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,q,Grace,q,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,R,Grace,R,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,i,Grace,i,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,e,Grace,e,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,a,Grace,a,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,o,Grace,o,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
+poc,u,Grace,u,grace1969,,Orthography of Biggs (1965) as applied to POc by Grace (1969).,,,,ross2023,27,Ross et al. give the orthography after Biggs (1965) and Grace (1969) with its variants.
 poc,dr,Ross,nr,ross2023,27,Variant spelling in Table 1.3.,,,,,,
-pan,c,canonical,c,shibata2025,49,ACD orthography (Blust et al. 2023).,,,,,,
-pan,D,canonical,D,shibata2025,49,ACD orthography (Blust et al. 2023).,,,,,,
-pan,p,Blust,p,shibata2025,30,"Phonetic value: voiceless bilabial stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,t,Blust,t,shibata2025,30,"Phonetic value: voiceless dental stop (""postdental"") (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,k,Blust,k,shibata2025,30,"Phonetic value: voiceless velar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,q,Blust,q,shibata2025,30,"Phonetic value: voiceless uvular stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,b,Blust,b,shibata2025,30,"Phonetic value: voiced bilabial stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,d,Blust,d,shibata2025,30,"Phonetic value: voiced alveolar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,D,Blust,D,shibata2025,30,"Phonetic value: [ɖ], voiced retroflex stop; word-final only (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,j,Blust,j,shibata2025,30,"Phonetic value: [gʲ], voiced palatalized velar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,g,Blust,g,shibata2025,30,"Phonetic value: voiced velar stop (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,C,Blust,C,shibata2025,30,"Phonetic value: [t͡s], voiceless alveolar affricate (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,c,Blust,c,shibata2025,30,"Phonetic value: [c͡ç], voiceless palatal affricate (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,z,Blust,z,shibata2025,30,"Phonetic value: [ɟ͡ʝ], voiced palatal affricate (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,S,Blust,S,shibata2025,30,"Phonetic value: [s], voiceless alveolar fricative (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,s,Blust,s,shibata2025,30,"Phonetic value: [ç], voiceless palatal fricative (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,h,Blust,h,shibata2025,30,"Phonetic value: voiceless glottal fricative (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,m,Blust,m,shibata2025,30,"Phonetic value: bilabial nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,n,Blust,n,shibata2025,30,"Phonetic value: alveolar nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,ñ,Blust,ñ,shibata2025,30,"Phonetic value: [ɲ], palatal nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,ŋ,Blust,ŋ,shibata2025,30,"Phonetic value: velar nasal (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,l,Blust,l,shibata2025,30,"Phonetic value: alveolar lateral (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,N,Blust,N,shibata2025,30,"Phonetic value: [ʎ], palatal lateral (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,r,Blust,r,shibata2025,30,"Phonetic value: [ɾ], alveolar rhotic (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,R,Blust,R,shibata2025,30,"Phonetic value: [r], alveolar rhotic; alternatively uvular [ʀ] (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,w,Blust,w,shibata2025,30,"Phonetic value: bilabial glide (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,y,Blust,y,shibata2025,30,"Phonetic value: [j], palatal glide (Table 2.8). Blust (2013), quoted from Shibata (2025: 30).",,,,,,
-pan,p,Ross,p,shibata2025,41,"Phonetic value: voiceless bilabial stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,t,Ross,t,shibata2025,41,"Phonetic value: step 1: voiceless dental stop; step 2: [c], voiceless palatal stop. Ross (1992): t [t̪]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,C,Ross,C,shibata2025,41,"Phonetic value: [t͡s], voiceless alveolar affricate. Ross (1992): [t͡s or ʈ͡ʂ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,k,Ross,k,shibata2025,41,"Phonetic value: voiceless velar stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,q,Ross,q,shibata2025,41,"Phonetic value: voiceless stop, uvular and pharyngeal column. Ross (1992): q [ḵ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,b,Ross,b,shibata2025,41,"Phonetic value: [b, β], voiced bilabial stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,z,Ross,z,shibata2025,41,"Phonetic value: [d͡z], voiced alveolar affricate. One of two Ross phonemes matched with Blust's z in Table 6.14. Equals Z [ɟ] of Ross (1992) (Table 2.13). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,z,Ross,d,shibata2025,41,"Phonetic value: step 1: voiced alveolar stop; step 2: [ɟ], voiced palatal stop. Matched with both Blust's z and Blust's d in Table 6.14. Equals d1 [d] of Ross (1992). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,d,Ross,d,shibata2025,41,"Phonetic value: step 1: voiced alveolar stop; step 2: [ɟ], voiced palatal stop. One of three Ross phonemes matched with Blust's d in Table 6.14; also matched with Blust's z. Equals d1 [d] of Ross (1992). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,d,Ross,Z,shibata2025,41,"Phonetic value: step 1: [ɟ], voiced palatal stop; step 2: [ɟʝ], voiced palatal affricate. One of three Ross phonemes matched with Blust's d. Equals d2 [d͡z or ɖ͡ʐ] of Ross (1992). Reflexes differ from d and D in Paiwan and elsewhere (Table 2.13, p. 39). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,d,Ross,D,shibata2025,41,"Phonetic value: [ɖ], voiced laminal post-alveolar stop. One of three Ross phonemes matched with Blust's d. Equals d3 [ɖ] of Ross (1992). Not Blust's word-final D. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,g,Ross,g,shibata2025,41,"Phonetic value: voiced velar stop. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,s,Ross,s,shibata2025,41,"Phonetic value: step 1: [c], voiceless palatal stop; step 2: [t], voiceless alveolar stop. One of two Ross phonemes matched with Blust's s. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,s,Ross,θ,shibata2025,41,"Phonetic value: voiceless dental or interdental fricative; a sibilant added in Ross (2015). One of two Ross phonemes matched with Blust's s. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,S,Ross,S,shibata2025,41,"Phonetic value: [ʂ, ʃ], voiceless laminal post-alveolar fricative. One of two Ross phonemes matched with Blust's S. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,S,Ross,x,shibata2025,41,"Phonetic value: [s], voiceless alveolar fricative; a sibilant added in Ross (2015). One of two Ross phonemes matched with Blust's S. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,h,Ross,ħ,shibata2025,41,"Phonetic value: [ħ], voiceless fricative, uvular and pharyngeal column; written h [ħ] in Tables 2.14-2.15 and ħ in Table 6.14. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,j,Ross,j,shibata2025,41,"Phonetic value: step 1: [ʝ, ɣʲ], voiced palatal fricative; step 2: [z], voiced alveolar fricative. Ross (1992): [ɣ, ɣʲ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,m,Ross,m,shibata2025,41,"Phonetic value: bilabial nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,n,Ross,n,shibata2025,41,"Phonetic value: alveolar nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,ñ,Ross,ñ,shibata2025,41,"Phonetic value: [ɲ], palatal nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,ŋ,Ross,ŋ,shibata2025,41,"Phonetic value: velar nasal. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,l,Ross,l,shibata2025,41,"Phonetic value: [ɭ, ɽ], laminal post-alveolar (retroflex) lateral or flap; the same in Ross (1992). Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,R,Ross,R,shibata2025,41,"Phonetic value: [r, ʀ], trill. Ross (1992): [ʀ]. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,w,Ross,w,shibata2025,41,"Phonetic value: glide; given in Table 6.14, not in the step 1 and step 2 tables. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,y,Ross,y,shibata2025,41,"Phonetic value: glide; given in Table 6.14, not in the step 1 and step 2 tables. Ross (2015), quoted from Shibata (2025: 41-42, 151).",,,,,,
-pan,p,Wolff,p,shibata2025,42,"Phonetic value: voiceless labial stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,t,Wolff,t,shibata2025,42,"Phonetic value: voiceless alveolar (""apico-alveolar"") stop. Wolff has one phoneme t for Blust's t and C; [t] and [t͡s] are allophones conditioned by stress, and the Formosan t/C contrast is a later development (p. 43) (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,C,Wolff,t,shibata2025,42,"Phonetic value: the [t͡s] allophone of Wolff's single phoneme t; see pan:t (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,k,Wolff,k,shibata2025,42,"Phonetic value: voiceless velar stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,q,Wolff,q,shibata2025,42,"Phonetic value: voiceless post-velar stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,b,Wolff,b,shibata2025,42,"Phonetic value: voiced labial stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,z,Wolff,j,shibata2025,42,"Phonetic value: voiced dental (""apico-dental"") stop, very far front, with palatal coarticulation (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,d,Wolff,d,shibata2025,42,"Phonetic value: voiced alveolar (""apico-alveolar"") stop. Equivalence from the text (p. 43); the Wolff cell is empty in Table 6.14 (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,s,Wolff,c,shibata2025,42,"Phonetic value: voiceless dental (""apico-dental"") stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,S,Wolff,s,shibata2025,42,"Phonetic value: voiceless fricative, between the dental and alveolar columns of Table 2.16 (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,h,Wolff,h,shibata2025,42,"Phonetic value: voiceless pharyngeal fricative (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,j,Wolff,g,shibata2025,42,"Phonetic value: voiced velar stop (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,m,Wolff,m,shibata2025,42,"Phonetic value: labial nasal (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,n,Wolff,n,shibata2025,42,"Phonetic value: nasal (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,ŋ,Wolff,ŋ,shibata2025,42,"Phonetic value: velar nasal (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,N,Wolff,ɬ,shibata2025,42,"Phonetic value: voiced dental (""apico-dental"") lateral (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,l,Wolff,l,shibata2025,42,"Phonetic value: voiced alveolar (""apico-alveolar"") lateral (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,R,Wolff,ɣ,shibata2025,42,"Phonetic value: voiced fricative (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,w,Wolff,w,shibata2025,42,"Phonetic value: glide (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
-pan,y,Wolff,y,shibata2025,42,"Phonetic value: glide (Table 2.16). Wolff (2010), quoted from Shibata (2025: 42-43, 151).",,,,,,
+pan,p,Blust,p,blust2013,,Phonetic value: voiceless bilabial stop (Table 2.8).,bilabial,plosive,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,t,Blust,t,blust2013,,"Phonetic value: voiceless dental stop (""postdental"") (Table 2.8).",dental,plosive,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,k,Blust,k,blust2013,,Phonetic value: voiceless velar stop (Table 2.8).,velar,plosive,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,q,Blust,q,blust2013,,Phonetic value: voiceless uvular stop (Table 2.8).,uvular,plosive,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,b,Blust,b,blust2013,,Phonetic value: voiced bilabial stop (Table 2.8).,bilabial,plosive,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,d,Blust,d,blust2013,,Phonetic value: voiced alveolar stop (Table 2.8).,alveolar,plosive,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,d,Blust,D,blust2013,,"Blust (2013) only: voiced retroflex stop [ɖ] (Table 2.8), word-final only, in three PAn roots (ikuD, NataD, SateD). Other systems: Shibata disregards it, since no Formosan language reflects it differently from d (pp. 30-31); Ross (2015) finds it too weakly supported (p. 39); it is absent from the tables for Ross (1992) and Wolff (2010). Not the same as the D of Ross (2015), which is one of three phonemes corresponding to Blust's d. Not a phoneme of Shibata's system.",retroflex,plosive,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,j,Blust,j,blust2013,,"Phonetic value: [gʲ], voiced palatalized velar stop (Table 2.8).",velar,plosive,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,g,Blust,g,blust2013,,Phonetic value: voiced velar stop (Table 2.8).,velar,plosive,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,C,Blust,C,blust2013,,"Phonetic value: [t͡s], voiceless alveolar affricate (Table 2.8).",alveolar,affricate,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,s,Blust,c,blust2013,,"Blust (2013) only: voiceless palatal affricate [c͡ç] (Table 2.8, p. 30), in four PAn reconstructions (lecik, pacek, peceq, qapucuk). Other systems: Shibata does not treat it as a PAn phoneme, since Amis, Puyuma and Paiwan reflect it exactly as s and its distribution in western Indonesia can be explained by borrowing (pp. 31, 49); Ross (2015) finds it too weakly supported (p. 39); it is absent from the tables for Ross (1992) and Wolff (2010). Wolff's own symbol c stands for Blust's s. Not a phoneme of Shibata's system.",palatal,affricate,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,z,Blust,z,blust2013,,"Phonetic value: [ɟ͡ʝ], voiced palatal affricate (Table 2.8).",palatal,affricate,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,S,Blust,S,blust2013,,"Phonetic value: [s], voiceless alveolar fricative (Table 2.8).",alveolar,fricative,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,s,Blust,s,blust2013,,"Phonetic value: [ç], voiceless palatal fricative (Table 2.8).",palatal,fricative,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,h,Blust,h,blust2013,,Phonetic value: voiceless glottal fricative (Table 2.8).,glottal,fricative,voiceless,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,m,Blust,m,blust2013,,Phonetic value: bilabial nasal (Table 2.8).,bilabial,nasal,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,n,Blust,n,blust2013,,Phonetic value: alveolar nasal (Table 2.8).,alveolar,nasal,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,N,Blust,ñ,blust2013,,"Also listed as a PAn protophoneme by Ross et al. (2023: 30). Blust (2013): palatal nasal [ɲ] (Table 2.8, p. 30); kept by Ross (2015) (Tables 2.14-2.15). Shibata rejects it for PAn: in Formosan languages about half of the etyma show the reflex of N and the other half the reflex of n, so they are reconstructed with N and n instead (pp. 32-33, after Sagart 2015). Absent from the tables for Ross (1992) and Wolff (2010). Not a phoneme of Shibata's system.",palatal,nasal,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,n,Blust,ñ,blust2013,,"Also listed as a PAn protophoneme by Ross et al. (2023: 30). Blust (2013): palatal nasal [ɲ] (Table 2.8, p. 30); kept by Ross (2015) (Tables 2.14-2.15). Shibata rejects it for PAn: in Formosan languages about half of the etyma show the reflex of N and the other half the reflex of n, so they are reconstructed with N and n instead (pp. 32-33, after Sagart 2015). Absent from the tables for Ross (1992) and Wolff (2010). Not a phoneme of Shibata's system.",palatal,nasal,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,ŋ,Blust,ŋ,blust2013,,Phonetic value: velar nasal (Table 2.8).,velar,nasal,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,l,Blust,l,blust2013,,Phonetic value: alveolar lateral (Table 2.8).,alveolar,lateral-approximant,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,N,Blust,N,blust2013,,"Phonetic value: [ʎ], palatal lateral (Table 2.8).",palatal,lateral-approximant,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,,Blust,r,blust2013,,"Also listed as a PAn protophoneme by Ross et al. (2023: 30). Blust (2013): [ɾ] (Table 2.8, p. 30). Ross (1992) merges it with his d1, with which it is in complementary distribution (p. 37); Ross (2015) separates them again and finds r too weakly supported (p. 39). Not addressed in Shibata's own reconstruction (p. 49). Absent from the table for Wolff (2010). Not the same as Shibata's own symbol r, which stands for Blust's R. Not a phoneme of Shibata's system.",alveolar,tap,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,R,Blust,R,blust2013,,"Phonetic value: [r], alveolar rhotic; alternatively uvular [ʀ] (Table 2.8).",alveolar,trill,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,w,Blust,w,blust2013,,Phonetic value: bilabial glide (Table 2.8).,bilabial,approximant,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,y,Blust,y,blust2013,,"Phonetic value: [j], palatal glide (Table 2.8).",palatal,approximant,voiced,shibata2025,30,Table 2.8 is Shibata's compilation from Blust's phonetic descriptions.
+pan,p,Ross,p,ross2015,24,Step 1 value entered in the columns. voiceless bilabial stop.,bilabial,plosive,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,t,Ross,t,ross2015,24,"Step 1 value entered in the columns. step 1: voiceless dental stop; step 2: [c], voiceless palatal stop. Ross (1992): t [t̪].",dental,plosive,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,C,Ross,C,ross2015,24,"Step 1 value entered in the columns. [t͡s], voiceless alveolar affricate. Ross (1992): [t͡s or ʈ͡ʂ].",alveolar,affricate,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,k,Ross,k,ross2015,24,Step 1 value entered in the columns. voiceless velar stop.,velar,plosive,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,q,Ross,q,ross2015,24,"Step 1 value entered in the columns. voiceless stop, uvular and pharyngeal column. Ross (1992): q [ḵ].",uvular,plosive,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,b,Ross,b,ross2015,24,"Step 1 value entered in the columns. [b, β], voiced bilabial stop.",bilabial,plosive,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,z,Ross,z,ross2015,24,"Step 1 value entered in the columns. [d͡z], voiced alveolar affricate. One of two Ross phonemes matched with Blust's z in Table 6.14. Equals Z [ɟ] of Ross (1992) (Table 2.13).",alveolar,affricate,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,z,Ross,d,ross2015,24,"Step 1 value entered in the columns. step 1: voiced alveolar stop; step 2: [ɟ], voiced palatal stop. Matched with both Blust's z and Blust's d in Table 6.14. Equals d1 [d] of Ross (1992).",alveolar,plosive,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,d,Ross,d,ross2015,24,"Step 1 value entered in the columns. step 1: voiced alveolar stop; step 2: [ɟ], voiced palatal stop. One of three Ross phonemes matched with Blust's d in Table 6.14; also matched with Blust's z. Equals d1 [d] of Ross (1992).",alveolar,plosive,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,d,Ross,Z,ross2015,24,"Step 1 value entered in the columns. step 1: [ɟ], voiced palatal stop; step 2: [ɟʝ], voiced palatal affricate. One of three Ross phonemes matched with Blust's d. Equals d2 [d͡z or ɖ͡ʐ] of Ross (1992). Reflexes differ from d and D in Paiwan and elsewhere (Table 2.13, p. 39).",palatal,plosive,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,d,Ross,D,ross2015,24,"Step 1 value entered in the columns. [ɖ], voiced laminal post-alveolar stop. One of three Ross phonemes matched with Blust's d. Equals d3 [ɖ] of Ross (1992). Not Blust's word-final D.",postalveolar,plosive,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,g,Ross,g,ross2015,24,Step 1 value entered in the columns. voiced velar stop.,velar,plosive,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,s,Ross,s,ross2015,24,"Step 1 value entered in the columns. step 1: [c], voiceless palatal stop; step 2: [t], voiceless alveolar stop. One of two Ross phonemes matched with Blust's s.",palatal,plosive,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,s,Ross,θ,ross2015,24,Step 1 value entered in the columns. voiceless dental or interdental fricative; a sibilant added in Ross (2015). One of two Ross phonemes matched with Blust's s.,dental,fricative,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,S,Ross,S,ross2015,24,"Step 1 value entered in the columns. [ʂ, ʃ], voiceless laminal post-alveolar fricative. One of two Ross phonemes matched with Blust's S.",postalveolar,fricative,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,S,Ross,x,ross2015,24,"Step 1 value entered in the columns. [s], voiceless alveolar fricative; a sibilant added in Ross (2015). One of two Ross phonemes matched with Blust's S.",alveolar,fricative,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,h,Ross,ħ,ross2015,24,"Step 1 value entered in the columns. [ħ], voiceless fricative, uvular and pharyngeal column; written h [ħ] in Tables 2.14-2.15 and ħ in Table 6.14.",pharyngeal,fricative,voiceless,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,j,Ross,j,ross2015,24,"Step 1 value entered in the columns. step 1: [ʝ, ɣʲ], voiced palatal fricative; step 2: [z], voiced alveolar fricative. Ross (1992): [ɣ, ɣʲ].",palatal,fricative,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,m,Ross,m,ross2015,24,Step 1 value entered in the columns. bilabial nasal.,bilabial,nasal,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,n,Ross,n,ross2015,24,Step 1 value entered in the columns. alveolar nasal.,alveolar,nasal,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,N,Ross,ñ,ross2015,24,"Step 1 value entered in the columns. [ɲ], palatal nasal. Matched here with N and n because Shibata assigns the ñ etyma to those two (pp. 32-33).",palatal,nasal,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,n,Ross,ñ,ross2015,24,"Step 1 value entered in the columns. [ɲ], palatal nasal. Matched here with N and n because Shibata assigns the ñ etyma to those two (pp. 32-33).",palatal,nasal,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,ŋ,Ross,ŋ,ross2015,24,Step 1 value entered in the columns. velar nasal.,velar,nasal,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,l,Ross,l,ross2015,24,"Step 1 value entered in the columns. [ɭ, ɽ], laminal post-alveolar (retroflex) lateral or flap; the same in Ross (1992).",postalveolar,lateral-approximant,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,R,Ross,R,ross2015,24,"Step 1 value entered in the columns. [r, ʀ], trill. Ross (1992): [ʀ].",uvular,trill,voiced,shibata2025,41,Step 2 values and Ross (1992) equivalents are in the notes; the match with the ACD symbol follows Shibata's Table 6.14 (p. 151).
+pan,w,Ross,w,ross2015,,"Phonetic value: glide; given in Table 6.14, not in the step 1 and step 2 tables.",,,,shibata2025,151,
+pan,y,Ross,y,ross2015,,"Phonetic value: glide; given in Table 6.14, not in the step 1 and step 2 tables.",,,,shibata2025,151,
+pan,p,Wolff,p,wolff2010,,Phonetic value: voiceless labial stop (Table 2.16).,bilabial,plosive,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,t,Wolff,t,wolff2010,,"Phonetic value: voiceless alveolar (""apico-alveolar"") stop. Wolff has one phoneme t for Blust's t and C; [t] and [t͡s] are allophones conditioned by stress, and the Formosan t/C contrast is a later development (p. 43) (Table 2.16).",alveolar,plosive,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,C,Wolff,t,wolff2010,,Phonetic value: the [t͡s] allophone of Wolff's single phoneme t; see pan:t (Table 2.16).,alveolar,plosive,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,k,Wolff,k,wolff2010,,Phonetic value: voiceless velar stop (Table 2.16).,velar,plosive,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,q,Wolff,q,wolff2010,,Phonetic value: voiceless post-velar stop (Table 2.16).,uvular,plosive,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,b,Wolff,b,wolff2010,,Phonetic value: voiced labial stop (Table 2.16).,bilabial,plosive,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,z,Wolff,j,wolff2010,,"Phonetic value: voiced dental (""apico-dental"") stop, very far front, with palatal coarticulation (Table 2.16).",dental,plosive,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,d,Wolff,d,wolff2010,,"Phonetic value: voiced alveolar (""apico-alveolar"") stop. Equivalence from the text (p. 43); the Wolff cell is empty in Table 6.14 (Table 2.16).",alveolar,plosive,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,s,Wolff,c,wolff2010,,"Phonetic value: voiceless dental (""apico-dental"") stop (Table 2.16).",dental,plosive,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,S,Wolff,s,wolff2010,,"Phonetic value: voiceless fricative, between the dental and alveolar columns of Table 2.16 (Table 2.16).",,fricative,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,h,Wolff,h,wolff2010,,Phonetic value: voiceless pharyngeal fricative (Table 2.16).,pharyngeal,fricative,voiceless,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,j,Wolff,g,wolff2010,,Phonetic value: voiced velar stop (Table 2.16).,velar,plosive,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,m,Wolff,m,wolff2010,,Phonetic value: labial nasal (Table 2.16).,bilabial,nasal,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,n,Wolff,n,wolff2010,,Phonetic value: nasal (Table 2.16).,alveolar,nasal,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,ŋ,Wolff,ŋ,wolff2010,,Phonetic value: velar nasal (Table 2.16).,velar,nasal,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,N,Wolff,ɬ,wolff2010,,"Phonetic value: voiced dental (""apico-dental"") lateral (Table 2.16).",dental,lateral-fricative,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,l,Wolff,l,wolff2010,,"Phonetic value: voiced alveolar (""apico-alveolar"") lateral (Table 2.16).",alveolar,lateral-approximant,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,R,Wolff,ɣ,wolff2010,,Phonetic value: voiced fricative (Table 2.16).,uvular,fricative,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,w,Wolff,w,wolff2010,,Phonetic value: glide (Table 2.16).,bilabial,approximant,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,y,Wolff,y,wolff2010,,Phonetic value: glide (Table 2.16).,palatal,approximant,voiced,shibata2025,42,Table 2.16 is Shibata's compilation from Wolff's descriptions; the match with the ACD symbol follows Table 6.14 (p. 151).
+pan,a,Blust,a,blustetal2023,,ACD symbol. Chart position read from the symbol; neither source describes the vowel.,central,open,,shibata2025,49,
+pan,i,Blust,i,blustetal2023,,ACD symbol. Chart position read from the symbol; neither source describes the vowel.,front,close,,shibata2025,49,
+pan,u,Blust,u,blustetal2023,,ACD symbol. Chart position read from the symbol; neither source describes the vowel.,back,close,,shibata2025,49,
+pan,e,Blust,e,blustetal2023,,ACD symbol for the schwa (Shibata 2025: 57).,central,mid,,shibata2025,49,
+pan,a,Ross,a,ross2023,30,PAn/PMP vowel in Table 1.4 of Ross et al. (2023). Chart position read from the symbol.,central,open,,,,
+pan,i,Ross,i,ross2023,30,PAn/PMP vowel in Table 1.4 of Ross et al. (2023). Chart position read from the symbol.,front,close,,,,
+pan,u,Ross,u,ross2023,30,PAn/PMP vowel in Table 1.4 of Ross et al. (2023). Chart position read from the symbol.,back,close,,,,
+pan,e,Ross,e,ross2023,30,Written e [ə] in Table 1.4 of Ross et al. (2023).,central,mid,,,,
