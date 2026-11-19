@@ -37,3 +37,300 @@ saar1237,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is n
 pruk,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
 ppuy,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
 ppai,∅,,other,,,,,suppressed,,,∅ marks deletion (a zero reflex); it is not a phoneme of the lect.,
+pata,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,k,,C,velar,plosive,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,q,,C,uvular,plosive,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,b,b~β,C,bilabial,plosive,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,g,g~ɣ,C,velar,plosive,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,t͡s,t̪͡s̪~t͡ʃ,C,alveolar,affricate,voiceless,,sourced,shibata2025,50,,Table 3.1. Written t͡s in the correspondence table; the inventory gives t̪͡s̪~t͡ʃ. In the source table this cell spans the Alveolar and Palato-Alveolar columns.
+pata,s,s~ʃ,C,alveolar,fricative,voiceless,,sourced,shibata2025,50,,Table 3.1. In the source table this cell spans the Alveolar and Palato-Alveolar columns.
+pata,x,,C,velar,fricative,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,ħ,,C,pharyngeal,fricative,voiceless,,sourced,shibata2025,50,,Table 3.1.
+pata,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,50,,Table 3.1. In the source table this cell spans the Dental and Alveolar columns.
+pata,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,l,l~ɮ,C,alveolar,lateral-approximant,voiced,,sourced,shibata2025,50,,Table 3.1. In the source table this cell spans the Dental and Alveolar columns.
+pata,r,,C,alveolar,trill,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,ɹ,,C,alveolar,approximant,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,j,,C,palatal,approximant,voiced,,sourced,shibata2025,50,,Table 3.1.
+pata,a,,V,central,open,,unrounded,sourced,shibata2025,52,,The source gives a consonant inventory only (Table 3.1); this vowel is a reflex in Table 3.2.
+pata,i,,V,front,close,,unrounded,sourced,shibata2025,52,,The source gives a consonant inventory only (Table 3.1); this vowel is a reflex in Table 3.2.
+pata,u,,V,back,close,,rounded,sourced,shibata2025,52,,The source gives a consonant inventory only (Table 3.1); this vowel is a reflex in Table 3.2.
+pata,ə,,V,central,mid,,unrounded,sourced,shibata2025,52,,The source gives a consonant inventory only (Table 3.1); this vowel is a reflex in Table 3.2.
+psed,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,53,,Table 3.3.
+psed,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,53,,Table 3.3. In the source table this cell spans the Dental and Alveolar columns.
+psed,k,,C,velar,plosive,voiceless,,sourced,shibata2025,53,,Table 3.3.
+psed,q,,C,uvular,plosive,voiceless,,sourced,shibata2025,53,,Table 3.3.
+psed,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,53,,Table 3.3.
+psed,b,,C,bilabial,plosive,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,d,,C,alveolar,plosive,voiced,,sourced,shibata2025,53,,Table 3.3. In the source table this cell spans the Dental and Alveolar columns.
+psed,g,,C,velar,plosive,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,t͡s,,C,alveolar,affricate,voiceless,,sourced,shibata2025,53,,Table 3.3. In the source table this cell spans the Alveolar and Palato-Alveolar columns.
+psed,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,53,,Table 3.3. In the source table this cell spans the Alveolar and Palato-Alveolar columns.
+psed,ħ,,C,pharyngeal,fricative,voiceless,,sourced,shibata2025,53,,Table 3.3.
+psed,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,53,,Table 3.3. In the source table this cell spans the Dental and Alveolar columns.
+psed,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,l,l~ɮ,C,alveolar,lateral-approximant,voiced,,sourced,shibata2025,53,,Table 3.3. In the source table this cell spans the Dental and Alveolar columns.
+psed,ɾ,,C,alveolar,tap,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,j,,C,palatal,approximant,voiced,,sourced,shibata2025,53,,Table 3.3.
+psed,a,,V,central,open,,unrounded,sourced,shibata2025,55,,The source gives a consonant inventory only (Table 3.3); this vowel is a reflex in Table 3.4.
+psed,i,,V,front,close,,unrounded,sourced,shibata2025,55,,The source gives a consonant inventory only (Table 3.3); this vowel is a reflex in Table 3.4.
+psed,u,,V,back,close,,rounded,sourced,shibata2025,55,,The source gives a consonant inventory only (Table 3.3); this vowel is a reflex in Table 3.4.
+psed,ə,,V,central,mid,,unrounded,sourced,shibata2025,55,,The source gives a consonant inventory only (Table 3.3); this vowel is a reflex in Table 3.4.
+pbun,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,56,,Table 3.5.
+pbun,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,56,,Table 3.5. In the source table this cell spans the Dental and Alveolar columns.
+pbun,k,,C,velar,plosive,voiceless,,sourced,shibata2025,56,,Table 3.5.
+pbun,q,,C,uvular,plosive,voiceless,,sourced,shibata2025,56,,Table 3.5.
+pbun,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,56,,Table 3.5.
+pbun,ʔb,,C,bilabial,plosive,voiced,,sourced,shibata2025,56,,Table 3.5. Preglottalized voiced stop (the source's description).
+pbun,ʔd,,C,alveolar,plosive,voiced,,sourced,shibata2025,56,,Table 3.5. Preglottalized voiced stop (the source's description).
+pbun,t͡s,,C,alveolar,affricate,voiceless,,sourced,shibata2025,56,,Table 3.5. In the source table this cell spans the Dental and Alveolar columns.
+pbun,s,s~ʃ,C,alveolar,fricative,voiceless,,sourced,shibata2025,56,,Table 3.5. In the source table this cell spans the Alveolar and Palatal columns.
+pbun,h,,C,glottal,fricative,voiceless,,sourced,shibata2025,56,,Table 3.5.
+pbun,v,,C,labiodental,fricative,voiced,,sourced,shibata2025,56,,Table 3.5.
+pbun,ð,,C,dental,fricative,voiced,,sourced,shibata2025,56,,Table 3.5.
+pbun,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,56,,Table 3.5.
+pbun,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,56,,Table 3.5. In the source table this cell spans the Dental and Alveolar columns.
+pbun,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,56,,Table 3.5.
+pbun,l,,C,alveolar,lateral-approximant,voiced,,sourced,shibata2025,56,,Table 3.5. In the source table this cell spans the Dental and Alveolar columns.
+pbun,a,,V,central,open,,unrounded,sourced,shibata2025,56,,Vowel system stated in the text of section 3.3.
+pbun,i,,V,front,close,,unrounded,sourced,shibata2025,56,,Vowel system stated in the text of section 3.3.
+pbun,u,,V,back,close,,rounded,sourced,shibata2025,56,,Vowel system stated in the text of section 3.3.
+thao1240,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,k,,C,velar,plosive,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,q,,C,uvular,plosive,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ʔb,,C,bilabial,plosive,voiced,,sourced,shibata2025,59,,Table 3.7. Preglottalized voiced stop (the source's description).
+thao1240,ʔd,,C,alveolar,plosive,voiced,,sourced,shibata2025,59,,Table 3.7. Preglottalized voiced stop (the source's description).
+thao1240,ɸ,ɸ~f,C,bilabial,fricative,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,θ,,C,dental,fricative,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,s̪,,C,dental,fricative,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ʃ,,C,postalveolar,fricative,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,h,,C,glottal,fricative,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ð,,C,dental,fricative,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,n̪,,C,dental,nasal,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ɬ̪,,C,dental,lateral-fricative,voiceless,,sourced,shibata2025,59,,Table 3.7.
+thao1240,l̪,,C,dental,lateral-approximant,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,ɾ̪,ɾ̪~r̪,C,dental,tap,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,j,,C,palatal,approximant,voiced,,sourced,shibata2025,59,,Table 3.7.
+thao1240,a,,V,central,open,,unrounded,sourced,shibata2025,60,,Vowel system stated in the text of section 3.4.
+thao1240,i,,V,front,close,,unrounded,sourced,shibata2025,60,,Vowel system stated in the text of section 3.4.
+thao1240,u,,V,back,close,,rounded,sourced,shibata2025,60,,Vowel system stated in the text of section 3.4.
+sais1237,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,k,,C,velar,plosive,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,θ,θ~s̪,C,dental,fricative,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,ʃ,,C,postalveolar,fricative,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,h,,C,glottal,fricative,voiceless,,sourced,shibata2025,63,,Table 3.9.
+sais1237,β,,C,bilabial,fricative,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,ð,ð~z̪,C,dental,fricative,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,ʐ,ʐ~r,C,retroflex,fricative,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,n̪,,C,dental,nasal,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,l̪,l̪~l,C,dental,lateral-approximant,voiced,,sourced,shibata2025,63,,Table 3.9. In the source table this cell spans the Dental and Alveolar columns.
+sais1237,ɾ,ɾ~ɭ,C,alveolar,tap,voiced,,sourced,shibata2025,63,,Table 3.9. In the source table this cell spans the Alveolar and Retroflex columns.
+sais1237,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,j,,C,palatal,approximant,voiced,,sourced,shibata2025,63,,Table 3.9.
+sais1237,a,,V,central,open,,unrounded,sourced,shibata2025,64,,Vowel system stated in the text of section 3.5.
+sais1237,i,,V,front,close,,unrounded,sourced,shibata2025,64,,Vowel system stated in the text of section 3.5.
+sais1237,ə,,V,central,mid,,unrounded,sourced,shibata2025,64,,Vowel system stated in the text of section 3.5.
+sais1237,o,,V,back,close-mid,,rounded,sourced,shibata2025,64,,Vowel system stated in the text of section 3.5.
+sais1237,æ,,V,front,near-open,,unrounded,sourced,shibata2025,64,,Vowel system stated in the text of section 3.5.
+sais1237,œ,,V,front,open-mid,,rounded,sourced,shibata2025,64,,Vowel system stated in the text of section 3.5.
+kulo1237,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,k,,C,velar,plosive,voiceless,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,b,,C,bilabial,plosive,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,d,,C,alveolar,plosive,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,g,,C,velar,plosive,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,67,,Table 3.11. In the source table this cell spans the Dental and Alveolar columns.
+kulo1237,x,,C,velar,fricative,voiceless,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,ħ,,C,pharyngeal,fricative,voiceless,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,d͡z,,C,alveolar,affricate,voiced,,sourced,shibata2025,67,,Table 3.11. In the source table this cell spans the Dental and Alveolar columns.
+kulo1237,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,n̪,,C,dental,nasal,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,l̪,,C,dental,lateral-approximant,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,ɾ,ɾ~ɽ,C,alveolar,tap,voiced,,sourced,shibata2025,67,,Table 3.11. In the source table this cell spans the Dental and Alveolar columns.
+kulo1237,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,j,,C,palatal,approximant,voiced,,sourced,shibata2025,67,,Table 3.11.
+kulo1237,a,,V,central,open,,unrounded,sourced,shibata2025,69,,The source gives a consonant inventory only (Table 3.11); this vowel is a reflex in Table 3.12.
+kulo1237,i,,V,front,close,,unrounded,sourced,shibata2025,69,,The source gives a consonant inventory only (Table 3.11); this vowel is a reflex in Table 3.12.
+kulo1237,u,,V,back,close,,rounded,sourced,shibata2025,69,,The source gives a consonant inventory only (Table 3.11); this vowel is a reflex in Table 3.12.
+kulo1237,ə,,V,central,mid,,unrounded,sourced,shibata2025,69,,The source gives a consonant inventory only (Table 3.11); this vowel is a reflex in Table 3.12.
+kava1241,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,70,,Table 3.13.
+kava1241,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,70,,Table 3.13.
+kava1241,k,,C,velar,plosive,voiceless,,sourced,shibata2025,70,,Table 3.13.
+kava1241,q,,C,uvular,plosive,voiceless,,sourced,shibata2025,70,,Table 3.13.
+kava1241,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,70,,Table 3.13.
+kava1241,s̪,,C,dental,fricative,voiceless,,sourced,shibata2025,70,,Table 3.13.
+kava1241,β,,C,bilabial,fricative,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,ʐ,,C,retroflex,fricative,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,ʁ,,C,uvular,fricative,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,n̪,,C,dental,nasal,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,ɮ̪,ɮ̪~ð,C,dental,lateral-fricative,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,ɾ,ɾ~ɹ,C,alveolar,tap,voiced,,sourced,shibata2025,70,,Table 3.13. In the source table this cell spans the Dental and Retroflex columns.
+kava1241,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,j,,C,palatal,approximant,voiced,,sourced,shibata2025,70,,Table 3.13.
+kava1241,a,,V,central,open,,unrounded,sourced,shibata2025,71,,The source gives a consonant inventory only (Table 3.13); this vowel is a reflex in Table 3.14.
+kava1241,i,,V,front,close,,unrounded,sourced,shibata2025,71,,The source gives a consonant inventory only (Table 3.13); this vowel is a reflex in Table 3.14.
+kava1241,u,,V,back,close,,rounded,sourced,shibata2025,71,,The source gives a consonant inventory only (Table 3.13); this vowel is a reflex in Table 3.14.
+kava1241,ə,,V,central,mid,,unrounded,sourced,shibata2025,71,,The source gives a consonant inventory only (Table 3.13); this vowel is a reflex in Table 3.14.
+pami,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,73,,Table 3.15.
+pami,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,k,,C,velar,plosive,voiceless,,sourced,shibata2025,73,,Table 3.15.
+pami,ʡ,,C,pharyngeal,plosive,voiceless,,sourced,shibata2025,73,,Table 3.15. The source table places it in a Pharyngeal/Epiglottal column.
+pami,b,,C,bilabial,plosive,voiced,,sourced,shibata2025,73,,Table 3.15.
+pami,d,,C,alveolar,plosive,voiced,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,t͡s,,C,alveolar,affricate,voiceless,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,ħ,,C,pharyngeal,fricative,voiceless,,sourced,shibata2025,73,,Table 3.15.
+pami,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,73,,Table 3.15.
+pami,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,73,,Table 3.15.
+pami,ɮ,,C,alveolar,lateral-fricative,voiced,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,ɾ,ɾ~ɺ,C,alveolar,tap,voiced,,sourced,shibata2025,73,,Table 3.15. The source table has a single Dental/Alveolar column.
+pami,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,73,,Table 3.15.
+pami,j,,C,palatal,approximant,voiced,,sourced,shibata2025,73,,Table 3.15.
+pami,a,,V,central,open,,unrounded,sourced,shibata2025,75,,The source gives a consonant inventory only (Table 3.15); this vowel is a reflex in Table 3.16.
+pami,i,,V,front,close,,unrounded,sourced,shibata2025,75,,The source gives a consonant inventory only (Table 3.15); this vowel is a reflex in Table 3.16.
+pami,u,,V,back,close,,rounded,sourced,shibata2025,75,,The source gives a consonant inventory only (Table 3.15); this vowel is a reflex in Table 3.16.
+pami,ə,,V,central,mid,,unrounded,sourced,shibata2025,75,,The source gives a consonant inventory only (Table 3.15); this vowel is a reflex in Table 3.16.
+tsou1248,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,76,,Table 3.17. The source table has a single Dental/Alveolar column.
+tsou1248,k,,C,velar,plosive,voiceless,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,ʔb,,C,bilabial,plosive,voiced,,sourced,shibata2025,76,,Table 3.17. Preglottalized voiced stop (the source's description).
+tsou1248,ʔd,,C,alveolar,plosive,voiced,,sourced,shibata2025,76,,Table 3.17. Preglottalized voiced stop (the source's description). The source table has a single Dental/Alveolar column.
+tsou1248,t͡s,,C,alveolar,affricate,voiceless,,sourced,shibata2025,76,,Table 3.17. The source table has a single Dental/Alveolar column.
+tsou1248,f,,C,labiodental,fricative,voiceless,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,76,,Table 3.17. The source table has a single Dental/Alveolar column.
+tsou1248,x,,C,velar,fricative,voiceless,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,v,,C,labiodental,fricative,voiced,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,z,zʲ,C,alveolo-palatal,fricative,voiced,,sourced,shibata2025,76,,Table 3.17. Written z in the correspondence table; the inventory gives zʲ. In the source table this cell spans the Dental/Alveolar and Palatal columns.
+tsou1248,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,76,,Table 3.17. The source table has a single Dental/Alveolar column.
+tsou1248,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,76,,Table 3.17.
+tsou1248,ɹ,,C,alveolar,approximant,voiced,,sourced,shibata2025,76,,Table 3.17. The source table has a single Dental/Alveolar column.
+tsou1248,a,,V,central,open,,unrounded,sourced,shibata2025,78,,The source gives a consonant inventory only (Table 3.17); this vowel is a reflex in Table 3.18.
+tsou1248,i,,V,front,close,,unrounded,sourced,shibata2025,78,,The source gives a consonant inventory only (Table 3.17); this vowel is a reflex in Table 3.18.
+tsou1248,u,,V,back,close,,rounded,sourced,shibata2025,78,,The source gives a consonant inventory only (Table 3.17); this vowel is a reflex in Table 3.18.
+tsou1248,o,,V,back,close-mid,,rounded,sourced,shibata2025,78,,The source gives a consonant inventory only (Table 3.17); this vowel is a reflex in Table 3.18.
+tsou1248,ɨ,,V,central,close,,unrounded,sourced,shibata2025,78,,The source gives a consonant inventory only (Table 3.17); this vowel is a reflex in Table 3.18.
+kana1286,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,79,,Table 3.19.
+kana1286,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,79,,Table 3.19. The source table has a single Dental/Alveolar column.
+kana1286,k,,C,velar,plosive,voiceless,,sourced,shibata2025,79,,Table 3.19.
+kana1286,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,79,,Table 3.19.
+kana1286,t͡sʲ,,C,alveolo-palatal,affricate,voiceless,,sourced,shibata2025,79,,Table 3.19. In the source table this cell spans the Dental/Alveolar and Palatal columns.
+kana1286,sʲ,,C,alveolo-palatal,fricative,voiceless,,sourced,shibata2025,79,,Table 3.19. In the source table this cell spans the Dental/Alveolar and Palatal columns.
+kana1286,β,,C,bilabial,fricative,voiced,,sourced,shibata2025,79,,Table 3.19.
+kana1286,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,79,,Table 3.19.
+kana1286,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,79,,Table 3.19. The source table has a single Dental/Alveolar column.
+kana1286,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,79,,Table 3.19.
+kana1286,ɾ,,C,alveolar,tap,voiced,,sourced,shibata2025,79,,Table 3.19. The source table has a single Dental/Alveolar column.
+kana1286,r,,C,alveolar,trill,voiced,,sourced,shibata2025,79,,Table 3.19. The source table has a single Dental/Alveolar column.
+kana1286,a,,V,central,open,,unrounded,sourced,shibata2025,80,,The source gives a consonant inventory only (Table 3.19); this vowel is a reflex in Table 3.20.
+kana1286,i,,V,front,close,,unrounded,sourced,shibata2025,80,,The source gives a consonant inventory only (Table 3.19); this vowel is a reflex in Table 3.20.
+kana1286,u,,V,back,close,,rounded,sourced,shibata2025,80,,The source gives a consonant inventory only (Table 3.19); this vowel is a reflex in Table 3.20.
+kana1286,ɨ,,V,central,close,,unrounded,sourced,shibata2025,80,,The source gives a consonant inventory only (Table 3.19); this vowel is a reflex in Table 3.20.
+saar1237,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,83,,Table 3.22.
+saar1237,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,k,,C,velar,plosive,voiceless,,sourced,shibata2025,83,,Table 3.22.
+saar1237,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,83,,Table 3.22.
+saar1237,t͡s,,C,alveolar,affricate,voiceless,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,β,,C,bilabial,fricative,voiced,,sourced,shibata2025,83,,Table 3.22.
+saar1237,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,83,,Table 3.22.
+saar1237,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,83,,Table 3.22.
+saar1237,ɬ,,C,alveolar,lateral-fricative,voiceless,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,ɾ,,C,alveolar,tap,voiced,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,r,,C,alveolar,trill,voiced,,sourced,shibata2025,83,,Table 3.22. The source table has a single Dental/Alveolar column.
+saar1237,a,,V,central,open,,unrounded,sourced,shibata2025,84,,The source gives a consonant inventory only (Table 3.22); this vowel is a reflex in Table 3.23.
+saar1237,i,,V,front,close,,unrounded,sourced,shibata2025,84,,The source gives a consonant inventory only (Table 3.22); this vowel is a reflex in Table 3.23.
+saar1237,u,,V,back,close,,rounded,sourced,shibata2025,84,,The source gives a consonant inventory only (Table 3.22); this vowel is a reflex in Table 3.23.
+saar1237,ɨ,,V,central,close,,unrounded,sourced,shibata2025,84,,The source gives a consonant inventory only (Table 3.22); this vowel is a reflex in Table 3.23.
+pruk,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,89,,Table 3.26.
+pruk,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,89,,Table 3.26.
+pruk,k,,C,velar,plosive,voiceless,,sourced,shibata2025,89,,Table 3.26.
+pruk,ʔ,,C,glottal,plosive,voiceless,,sourced,shibata2025,89,,Table 3.26.
+pruk,b,,C,bilabial,plosive,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,d̪,,C,dental,plosive,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,ɖ,,C,retroflex,plosive,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,g,,C,velar,plosive,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,t͡s,,C,alveolar,affricate,voiceless,,sourced,shibata2025,89,,Table 3.26. In the source table this cell spans the Dental and Alveolar columns.
+pruk,θ,,C,dental,fricative,voiceless,,sourced,shibata2025,89,,Table 3.26.
+pruk,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,89,,Table 3.26.
+pruk,v,,C,labiodental,fricative,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,n,,C,dental,nasal,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,l,,C,alveolar,lateral-approximant,voiced,,sourced,shibata2025,89,,Table 3.26. In the source table this cell spans the Dental and Alveolar columns.
+pruk,ɭ,,C,retroflex,lateral-approximant,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,r,r~ʐ,C,alveolar,trill,voiced,,sourced,shibata2025,89,,Table 3.26. Written r in the correspondence table; the inventory gives r~ʐ.
+pruk,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,j,,C,palatal,approximant,voiced,,sourced,shibata2025,89,,Table 3.26.
+pruk,a,,V,central,open,,unrounded,sourced,shibata2025,90,,The source gives a consonant inventory only (Table 3.26); this vowel is a reflex in Table 3.27.
+pruk,i,,V,front,close,,unrounded,sourced,shibata2025,90,,The source gives a consonant inventory only (Table 3.26); this vowel is a reflex in Table 3.27.
+pruk,o,,V,back,close-mid,,rounded,sourced,shibata2025,90,,The source gives a consonant inventory only (Table 3.26); this vowel is a reflex in Table 3.27.
+pruk,ə,,V,central,mid,,unrounded,sourced,shibata2025,90,,The source gives a consonant inventory only (Table 3.26); this vowel is a reflex in Table 3.27.
+ppuy,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,92,,Table 3.28.
+ppuy,t̪,,C,dental,plosive,voiceless,,sourced,shibata2025,92,,Table 3.28.
+ppuy,ʈ,,C,retroflex,plosive,voiceless,,sourced,shibata2025,92,,Table 3.28.
+ppuy,k,,C,velar,plosive,voiceless,,sourced,shibata2025,92,,Table 3.28.
+ppuy,b,,C,bilabial,plosive,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,d̪,,C,dental,plosive,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,ɖ,,C,retroflex,plosive,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,g,,C,velar,plosive,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,s,,C,alveolar,fricative,voiceless,,sourced,shibata2025,92,,Table 3.28.
+ppuy,ħ,,C,pharyngeal,fricative,voiceless,,sourced,shibata2025,92,,Table 3.28.
+ppuy,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,l̪,,C,dental,lateral-approximant,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,ɭ,,C,retroflex,lateral-approximant,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,r,,C,alveolar,trill,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,j,,C,palatal,approximant,voiced,,sourced,shibata2025,92,,Table 3.28.
+ppuy,a,,V,central,open,,unrounded,sourced,shibata2025,93,,The source gives a consonant inventory only (Table 3.28); this vowel is a reflex in Table 3.29.
+ppuy,i,,V,front,close,,unrounded,sourced,shibata2025,93,,The source gives a consonant inventory only (Table 3.28); this vowel is a reflex in Table 3.29.
+ppuy,u,,V,back,close,,rounded,sourced,shibata2025,93,,The source gives a consonant inventory only (Table 3.28); this vowel is a reflex in Table 3.29.
+ppuy,ə,,V,central,mid,,unrounded,sourced,shibata2025,93,,The source gives a consonant inventory only (Table 3.28); this vowel is a reflex in Table 3.29.
+ppai,p,,C,bilabial,plosive,voiceless,,sourced,shibata2025,94,,Table 3.30.
+ppai,t,,C,alveolar,plosive,voiceless,,sourced,shibata2025,94,,Table 3.30. In the source table this cell spans the Dental and Alveolar columns.
+ppai,c,,C,palatal,plosive,voiceless,,sourced,shibata2025,94,,Table 3.30.
+ppai,k,,C,velar,plosive,voiceless,,sourced,shibata2025,94,,Table 3.30.
+ppai,q,,C,uvular,plosive,voiceless,,sourced,shibata2025,94,,Table 3.30.
+ppai,v,b,C,labiodental,fricative,voiced,,sourced,shibata2025,94,,"Table 3.30. Table 3.30 has b in the voiced-stop row; Table 3.31 and the text (p. 95) write *v, the reflex of PAn *b."
+ppai,d,,C,alveolar,plosive,voiced,,sourced,shibata2025,94,,Table 3.30. In the source table this cell spans the Dental and Alveolar columns.
+ppai,ɖ,,C,retroflex,plosive,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,ɟ,,C,palatal,plosive,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,g,,C,velar,plosive,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,t͡s,t͡s~ʈ͡ʂ,C,alveolar,affricate,voiceless,,sourced,shibata2025,94,,Table 3.30. Written t͡s in the correspondence table; the inventory gives t͡s~ʈ͡ʂ. In the source table this cell spans the Alveolar and Retroflex columns.
+ppai,ɖ͡ʐ,d͡z~ɖ͡ʐ,C,retroflex,affricate,voiced,,sourced,shibata2025,94,,Table 3.30. Written ɖ͡ʐ in the correspondence table; the inventory gives d͡z~ɖ͡ʐ. In the source table this cell spans the Alveolar and Retroflex columns.
+ppai,ʂ,s~ʂ,C,retroflex,fricative,voiceless,,sourced,shibata2025,94,,Table 3.30. Written ʂ in the correspondence table; the inventory gives s~ʂ. In the source table this cell spans the Alveolar and Retroflex columns.
+ppai,m,,C,bilabial,nasal,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,n,,C,alveolar,nasal,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,ŋ,,C,velar,nasal,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,ɭ,,C,retroflex,lateral-approximant,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,ʎ,,C,palatal,lateral-approximant,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,r,,C,alveolar,trill,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,w,,C,labial-velar,approximant,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,j,,C,palatal,approximant,voiced,,sourced,shibata2025,94,,Table 3.30.
+ppai,a,,V,central,open,,unrounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
+ppai,i,,V,front,close,,unrounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
+ppai,u,,V,back,close,,rounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
+ppai,ə,,V,central,mid,,unrounded,sourced,shibata2025,96,,The source gives a consonant inventory only (Table 3.30); this vowel is a reflex in Table 3.31.
