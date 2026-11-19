@@ -1,5 +1,5 @@
 id,name,alt_names,type,glottocode,iso639_3,parent_id,subgroup_path,region,orthography_note,notes,default_system
-pan,Proto-Austronesian,PAn;PAN,proto-language,aust1307,,,PAN,,,"Inventory follows the ACD orthography (Blust et al. 2023) used in the source, ch. 3 (p. 49); phonetic values are Shibata's reconstruction (Table 6.13, p. 150). c, D, ñ and r of the ACD are not addressed by the source (p. 49).",
+pan,Proto-Austronesian,PAn;PAN,proto-language,aust1307,,,PAN,,,"Inventory follows the ACD orthography (Blust et al. 2023) used in the source, ch. 3 (p. 49); phonetic values are Shibata's reconstruction (Table 6.13, p. 150). c, D, ñ and r of the ACD are not addressed by the source (p. 49).",Shibata
 pata,Proto-Atayal,PAta,proto-language,atay1247,tay,pan,PAN,Northern Taiwan,,"Reconstruction after Goderich (2020) and Li (1981), as given in the source (section 3.1).",
 psed,Proto-Seediq,PSed,proto-language,taro1264,trv,pan,PAN,Northeastern and central Taiwan,,Preliminary reconstruction by the source from Li (1981) and Ogawa & Asai (1935) (section 3.2).,
 kava1241,Kavalan,Kav,language,kava1241,ckv,pan,PAN,Northeastern Taiwan,,"Phonology after Li & Tsuchida (2006), as given in the source (section 3.7).",
