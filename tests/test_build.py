@@ -244,6 +244,48 @@ class TestSheetRoundTrip(unittest.TestCase):
             p.write_text("\n".join(l.rsplit(",", 1)[0] for l in lines) + "\n", encoding="utf-8")
         self.assertEqual(run(m).errors, [])
 
+    def test_sourced_row_with_blank_features_is_inferred_but_unknown_is_kept(self):
+        def m(d):
+            append("phonemes.csv", "exam1234,ɣ,,C,,,,,sourced,example2026,1,,")(d)
+            append("phonemes.csv", "exam1234,ʀ,,C,unknown,trill,,,sourced,example2026,1,,")(d)
+            append("phonemes.csv", "exam1234,ɸ,,C,,fricative,,,sourced,example2026,1,,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        inv = D["inventory"]["exam1234"]
+        self.assertEqual((inv["ɣ"]["place"], inv["ɣ"]["manner"], inv["ɣ"]["placement"]),
+                         ("velar", "fricative", "inferred"))
+        self.assertEqual((inv["ʀ"]["place"], inv["ʀ"]["placement"]), ("unknown", "source"))
+        self.assertEqual((inv["ɸ"]["place"], inv["ɸ"]["inferred_fields"][0]), ("bilabial", "place"))
+
+    def test_proto_orthography_is_read_before_ipa(self):
+        self.assertEqual(build.symbol_features("y", proto=True)[:3], ("C", "palatal", "approximant"))
+        self.assertEqual(build.symbol_features("y", proto=False)[0], "V")
+        self.assertEqual(build.symbol_features("e", proto=True)[1:3], ("central", "mid"))
+
+    def test_listed_systems_are_tabs_and_the_rest_are_spellings(self):
+        def m(d):
+            replace("lects.csv", "fictional root,,", "fictional root,,Beta;Alpha")(d)
+            append("notation_map.csv", "pxa,t,Alpha,T,,,,,,,,,")(d)
+            append("notation_map.csv", "pxa,t,Beta,t,,,,,,,,,")(d)
+            append("notation_map.csv", "pxa,k,Beta,∅,,,,,,,,,")(d)
+            append("notation_map.csv", "pxa,t,Gamma,tt,,,,,,,,,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(sorted(D["sysph"]["pxa"]), ["Alpha", "Beta"])       # Gamma is a spelling only
+        self.assertEqual(build.lect_json("pxa", D)["tab_order"][1:], ["Beta", "Alpha"])
+        self.assertEqual(D["inventory"]["pxa"]["k"]["absent_from"], ["Beta"])
+        # Alpha's T has no features of its own: it takes those of the phoneme it matches.
+        T = D["sysph"]["pxa"]["Alpha"]["T"]
+        self.assertEqual((T["place"], T["placement"]), (D["inventory"]["pxa"]["t"]["place"], "inferred"))
+        self.assertTrue(any("has consonants but no vowel rows" in w for w in rep.warnings))
+
+    def test_citation_checks(self):
+        rep = run(lambda d: [
+            append("sources.csv", "idle2000,\"Idle, A.\",2000,Never used,,grammar,,")(d),
+            append("correspondences.csv", ",exam1234,p,f,_u,regular,,2,example2026,9,quoted from Idle (2000),,,,")(d)])
+        self.assertTrue(any("idle2000 is never cited" in w for w in rep.warnings))
+        self.assertTrue(any("via_source_id is empty" in w for w in rep.warnings))
+
     def test_fixture_survives_workbook_round_trip(self):
         import subprocess
         with tempfile.TemporaryDirectory() as d:

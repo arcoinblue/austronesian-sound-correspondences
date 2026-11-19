@@ -125,6 +125,10 @@
           {
             "name": "default_system",
             "datatype": "string"
+          },
+          {
+            "name": "systems",
+            "datatype": "string"
           }
         ],
         "primaryKey": [

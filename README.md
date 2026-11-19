@@ -94,6 +94,7 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `parent_id` | | nearest reconstructed ancestor the source uses; **must be a proto-language**. Empty only for the root (PAN). |
 | `subgroup_path` | | established subgroups only, `>`-separated; disputed ⇒ stop at the lowest secure node |
 | `default_system` | | *optional column.* The reconstruction system the lect's `phonemes` rows follow, e.g. `Shibata` for PAn. It names the first tab on the site; other systems come from `notation_map`. |
+| `systems` | | *optional column.* The lect's reconstruction systems, `;`-separated, in tab order: `Shibata;Blust;Ross;Wolff`. Any other system in `notation_map` is then a spelling only (Grace's POc orthography): it appears in the notation table and gets no tab. Blank: every system in `notation_map` gets a tab, in the order first seen. |
 | `region`, `orthography_note`, `notes` | | |
 
 `inventory_status` is not a column. The build derives it from `phonemes.csv`, so no one can promote a generated inventory to "sourced" by editing a label:
@@ -121,6 +122,8 @@ One row per phoneme that a source states or that you corrected by hand. Generate
 | `source_id`, `page`, `reason`, `notes` | | |
 
 **Labialised series.** A consonant whose symbol contains `ʷ` (`pʷ`, `kʷ`) is put in its own chart column, `labialized-<place>`, next to the plain place; enter the plain place (`bilabial`, `velar`) and the build does the rest. To put a symbol without `ʷ` in that column (POc `w`, which the source lists with the labialised bilabials), write the place out: `labialized-bilabial`.
+
+**Blank and unknown features.** If a sourced row leaves place or manner blank, the build fills it from the symbol and the site shows the phoneme in grey italics, with "inferred from the symbol" on hover. In a proto-language the reconstruction orthography is read first (`y` palatal glide, `e` schwa, `c z j ñ N C S R` with the ACD values), then IPA. Write `unknown` where the source deliberately leaves the value open (place of PAn \*R): it is never inferred. A phoneme with only a place or only a manner sits in an *unspecified* row or column of the chart; with neither, it is listed as unclassified.
 
 **Chart position of generated phonemes.** A generated phoneme is placed from its symbol. The build reads through length, aspiration and secondary-articulation marks, so `t̪ʰ` is a dental plosive and `n̥` a voiceless nasal. Where that is wrong or impossible, add a row with origin `override`, a `reason`, and the class, place, manner or voicing you want; blank cells keep the inferred value. (A `manual-add` row for a phoneme that is already generated does the same.) A symbol the build cannot read is still put with the consonants or the vowels, according to the proto-phonemes it continues, and is listed under the chart as *unclassified consonants* or *unclassified vowels*.
 
@@ -183,6 +186,8 @@ Every proto-phoneme needs at least one row, and the build fails otherwise.
 
 **Reconstruction systems.** `phonemes.csv` holds the lect's default system (`lects.default_system`). Every other system's phonemes come from this table: a row with system `Ross` and symbol `D` defines Ross's \*D, keyed by lect, system and symbol, so it is a different phoneme from Blust's \*D. The `phoneme` column says which default phoneme it corresponds to; one system phoneme can be listed against several, and `phoneme` may be blank if it has no counterpart. `canonical` and the default system's own name are spellings only and define no phonemes.
 
+A system phoneme with blank place or manner is filled the same way: from a distinctive IPA symbol (`θ`), else from the default phoneme it matches, else from the symbol tables. To say that a system does not have one of the default phonemes at all, add a row with symbol `∅`. With the default system's own name, that removes the phoneme from the default tab's chart; its page stays, for the systems that do reconstruct it.
+
 On the site each proto-phoneme page has one tab per system. A system's tab shows its symbol and phonetic value. It shows its own reflexes only if `correspondences` has rows with that `system`; otherwise the reflexes are the default ones.
 
 ---
@@ -216,6 +221,8 @@ On the site each proto-phoneme page has one tab per system. A system's tab shows
 - unentered proto-phonemes per daughter
 - generated phonemes sharing place + manner (possible allophones)
 - free-text environments
+
+Warnings added for citations and systems: a source that no phoneme, correspondence or notation row cites; a `notes` cell that says "quoted from" or "via" while `via_source_id` is empty; a system phoneme with no place or manner that cannot be inferred; a system with consonants but no vowel rows.
 
 ## Output
 
