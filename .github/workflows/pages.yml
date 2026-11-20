@@ -26,6 +26,8 @@ jobs:
       - run: pip install openpyxl==3.1.5
       - name: Test constraints
         run: python -m unittest discover tests
+      - name: Check batches in data/incoming against the sheet
+        run: python tools/batches.py check
       - name: Validate and build from cldf/
         run: python build.py --out build
       - name: Show build report

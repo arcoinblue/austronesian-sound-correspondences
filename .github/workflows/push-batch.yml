@@ -1,0 +1,91 @@
+name: Add batch to Google Sheets
+
+# A merged pull request with data/incoming/<batch-id>/ adds its new rows to the
+# sheet (tools/batches.py apply), syncs the sheet back into cldf/, checks that
+# every row arrived unchanged, moves the batch to data/batches/ and redeploys.
+# The sheet stays the only source of truth; nothing here edits existing rows.
+#
+# Run it by hand with mode "auth-check" to test the service account: it signs
+# in, reads the sheet and rewrites one header cell with its own value.
+
+on:
+  push:
+    branches: [main]
+    paths: ["data/incoming/**"]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "apply: add data/incoming batches to the sheet; auth-check: test the service account only"
+        type: choice
+        options: [apply, auth-check]
+        default: apply
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sheet-sync          # never at the same time as the hourly sync
+  cancel-in-progress: false
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    env:
+      SHEET_ID: ${{ vars.SHEET_ID }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl==3.1.5 google-auth==2.38.0 requests==2.32.3
+
+      - name: Test the service account
+        if: inputs.mode == 'auth-check'
+        run: python tools/batches.py auth-check
+
+      - name: Sync the sheet first (the batch is checked against it)
+        if: inputs.mode != 'auth-check'
+        run: python tools/sync_sheet.py "$SHEET_ID" --out cldf
+
+      - name: Check the batches against the sheet
+        if: inputs.mode != 'auth-check'
+        run: python tools/batches.py check
+
+      - name: Append the new rows to the sheet
+        if: inputs.mode != 'auth-check'
+        run: python tools/batches.py apply
+
+      - name: Sync back and verify every row arrived
+        if: inputs.mode != 'auth-check'
+        run: |
+          for i in 1 2 3 4; do
+            python tools/sync_sheet.py "$SHEET_ID" --out cldf
+            if python tools/batches.py verify; then exit 0; fi
+            echo "Not all rows visible in the export yet; retrying in 20 s."
+            sleep 20
+          done
+          exit 1
+
+      - name: Check the data
+        if: inputs.mode != 'auth-check'
+        run: python build.py --check --quiet
+
+      - name: Record the batch, commit and redeploy
+        if: inputs.mode != 'auth-check'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/batches.py archive
+          git config user.name "sheet-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A cldf data
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git commit -m "Add batch to the sheet: $(ls data/batches -t | head -1)"
+          git pull --rebase origin main
+          git push
+          gh workflow run pages.yml --ref main
