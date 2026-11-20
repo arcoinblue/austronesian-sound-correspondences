@@ -498,6 +498,57 @@ def validate_and_derive(t, rep: Report):
             out.append(r)
         return out
 
+    def ancestors(L):
+        seen, P = [], lects[L]["parent_id"]
+        while P in lects and P not in seen:
+            seen.append(P)
+            P = lects[P]["parent_id"]
+        return seen
+
+    def vowel_default(L, P, rows):
+        """Implied V > V rows for a lect whose sourced vowels are a bare five- or four-vowel system and
+        whose rows state no vowel change (decision vowel-default): i e a o u under POc takes its parent's
+        five vowels unchanged, i e/ə a u under PMP (or PAN) its parent's four, the schwa matched by place
+        and height, whatever symbol each uses for it."""
+        if P not in inventory or inv_status.get(L) != "sourced":
+            return []
+        vow = {s: rec for s, rec in inventory[L].items() if rec["class"] == "V"}
+        pv = {s: rec for s, rec in inventory[P].items() if rec["class"] == "V"}
+        up = set(ancestors(L))
+
+        def schwa(recs):
+            hits = [s for s, rec in recs.items() if rec["place"] == "central" and "mid" in rec["manner"]]
+            return hits[0] if len(hits) == 1 else None
+
+        if set(vow) == set("ieaou") and set(pv) == set("ieaou") and VOWEL_DEFAULT_POC in up:
+            pairs, kind = {s: s for s in "ieaou"}, "five-vowel system i e a o u below POc"
+        elif len(vow) == 4 and len(pv) == 4 and up & VOWEL_DEFAULT_PMP and set("iau") <= set(vow) \
+                and set("iau") <= set(pv) and schwa(vow) and schwa(pv):
+            pairs, kind = {**{s: s for s in "iau"}, schwa(pv): schwa(vow)}, "four-vowel system i ə a u below PMP"
+        else:
+            return []
+        if any(r["child_lect_id"] == L and not r["system"] and r["parent_phoneme"] in pv for r in corrs):
+            return []   # the source states something about the vowels: no default
+        cites = Counter((rows[s]["source_id"], rows[s]["page"]) for s in vow if s in rows).most_common(1)
+        source_id, page = cites[0][0] if cites else ("", "")
+        out = []
+        for ps, cs in pairs.items():
+            r = {c: "" for c in TABLES["correspondences"]}
+            r.update(child_lect_id=L, parent_phoneme=ps, child_phoneme=cs, environment="elsewhere",
+                     status="regular", source_id=source_id, page=page, derivation="implied-retention",
+                     decision=VOWEL_DEFAULT_DECISION if VOWEL_DEFAULT_DECISION in decisions else "",
+                     notes=f"Not stated: a {kind} with no stated vowel change is taken to keep "
+                           f"{P}'s vowels unchanged until a source says otherwise (decision vowel-default).",
+                     _where=f"lects.csv ({L}, vowel default)")
+            r["parent_lect_id"] = P
+            r["parent_phoneme_id"] = pid(P, ps)
+            r["child_phoneme_id"] = pid(L, cs)
+            r["id"] = "i" + hashlib.sha1(f"{L}|{ps}|vowel-default".encode()).hexdigest()[:10]
+            if r["decision"]:
+                decisions[r["decision"]]["rows"].append(r["id"])
+            out.append(r)
+        return out
+
     implied_rows = []   # every row the build adds for `inherit` (implied and stated retentions)
     for L in order:
         rows = entered.get(L, {})
@@ -557,6 +608,10 @@ def validate_and_derive(t, rep: Report):
             inv_status[L] = "edited" if rows else ("reverse-generated" if inv else "empty")
             lects[L]["_suppressed"] = suppressed
         inventory[L] = inv
+        for r in vowel_default(L, P, rows):
+            corrs.append(r)
+            implied_rows.append(r)
+            unchanged.add((L, r["child_phoneme"]))
 
     # --- correspondences (second pass: referential integrity)
     for g in {g for r in lects.values() for g in r["overlap_list"]}:

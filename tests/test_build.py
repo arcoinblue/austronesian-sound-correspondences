@@ -664,3 +664,42 @@ class TestSiteFiles(unittest.TestCase):
         rep, D = run(derived=True)
         rows = build.site_files(D)["index.json"]["lects"]
         self.assertTrue(all(set(r) <= set(build.INDEX_FIELDS) | {"overlap_groups"} for r in rows))
+
+
+class TestVowelDefault(unittest.TestCase):
+    """The user's rule of 20 Nov 2026 (decision vowel-default), tried on the fixture with Proto-Example-A
+    standing in for PMP: a sourced i ə a u system with no vowel rows keeps the parent's vowels."""
+
+    def setUp(self):
+        import asc.validate as v
+        self._old = v.VOWEL_DEFAULT_PMP
+        v.VOWEL_DEFAULT_PMP = {"pxa"}
+
+    def tearDown(self):
+        import asc.validate as v
+        v.VOWEL_DEFAULT_PMP = self._old
+
+    def lect(self, extra_rows=()):
+        def m(d):
+            append("lects.csv", "four1234,Fourish,,language,,,pxa,PXA,,,test lect,,,,,,,,,,,,,")(d)
+            for s, place, manner, rnd in (("a", "central", "open", "unrounded"), ("i", "front", "close", "unrounded"),
+                                          ("u", "back", "close", "rounded"), ("e", "central", "mid", "unrounded"),
+                                          ("p", "bilabial", "plosive", "")):
+                cls = "C" if s == "p" else "V"
+                append("phonemes.csv", f"four1234,{s},{s},{cls},{place},{manner},{'voiceless' if cls == 'C' else ''},"
+                                       f"{rnd},sourced,example2026,7,,,,,,")(d)
+            for line in extra_rows:
+                append("correspondences.csv", line)(d)
+        return run(m, derived=True)
+
+    def test_four_vowels_keep_the_parent_vowels(self):
+        rep, D = self.lect()
+        self.assertEqual(rep.errors, [])
+        got = {(r["parent_phoneme"], r["child_phoneme"]) for r in D["corrs"]
+               if r["child_lect_id"] == "four1234" and r["derivation"] == "implied-retention"}
+        self.assertEqual(got, {("a", "a"), ("i", "i"), ("u", "u"), ("ə", "e")})
+
+    def test_a_stated_vowel_change_turns_it_off(self):
+        rep, D = self.lect(["v1,four1234,a,e,_#,regular,,,example2026,7,,,,,,,,,,,,,,,,"])
+        self.assertFalse([r for r in D["corrs"] if r["child_lect_id"] == "four1234"
+                          and r["derivation"] == "implied-retention"])

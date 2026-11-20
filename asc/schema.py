@@ -80,6 +80,12 @@ DERIVATIONS = {"as-stated", "composed", "implied-retention", "stated-retention"}
 #                      stated-retention, cited to inherit_source_id/inherit_page.
 INHERIT = {"assumed-unchanged", "stated-unchanged"}
 RETENTION_OF = {"assumed-unchanged": "implied-retention", "stated-unchanged": "stated-retention"}
+# The user's rule of 20 Nov 2026: a lect whose sourced vowels are i e a o u (below POc) or
+# i ə a u (below PMP or PAN), and whose rows state no vowel change, keeps its parent's vowels
+# until a source says otherwise. The rows are implied retentions (asc.validate.vowel_default).
+VOWEL_DEFAULT_POC = "poc"
+VOWEL_DEFAULT_PMP = {"pmp", "pan"}
+VOWEL_DEFAULT_DECISION = "vowel-default"
 CORR_EXTRA = ["conditioning", "evidence_total", "derivation", "variety", "stratum", "lexical_scope",
               "examples", "source_form", "as_printed", "locator", "decision"]
 # as_printed: the source's statement as printed ("*b > **β, **b"), kept out of notes.
