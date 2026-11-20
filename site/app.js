@@ -27,6 +27,24 @@ const label = s => esc(String(s || "").replace(/-/g, " "));
 const statusLabel = s => s === "loan-stratum" ? "borrowed" : String(s || "").replace(/-/g, " ");
 const badge = s => s ? `<span class="badge b-${esc(s)}">${esc(statusLabel(s))}</span>` : "";
 
+// A long note is cut at a word boundary and opened with a "more" button.
+function fold(text, limit = 180) {
+  const t = String(text ?? "");
+  if (t.length <= limit + 40) return esc(t);
+  let cut = t.lastIndexOf(" ", limit);
+  if (cut < limit * 0.6) cut = limit;
+  return `<span class="fold"><span class="short">${esc(t.slice(0, cut))}… </span><span class="full" hidden>${esc(t)} </span><button type="button" class="foldbtn" aria-expanded="false">more</button></span>`;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest(".foldbtn");
+  if (!b) return;
+  const box = b.parentElement, openNow = b.getAttribute("aria-expanded") === "true";
+  box.querySelector(".short").hidden = !openNow;
+  box.querySelector(".full").hidden = openNow;
+  b.setAttribute("aria-expanded", String(!openNow));
+  b.textContent = openNow ? "more" : "less";
+});
+
 async function json(path) {
   if (!cache[path]) cache[path] = fetch(path).then(r => {
     if (!r.ok) throw new Error(`${path}: ${r.status}`);
@@ -44,7 +62,9 @@ function parsePid(pid) {
   const at = rest.lastIndexOf("@");
   return at > 0 ? { lect, s: rest.slice(0, at), system: rest.slice(at + 1) } : { lect, s: rest, system: null };
 }
-function isProto(lectId) { return LECTS[lectId]?.type === "proto-language"; }
+// Reconstructed lects (a proto-language, or an earlier stage of one language) have starred symbols.
+const RECONSTRUCTED = ["proto-language", "earlier-stage"];
+function isProto(lectId) { return RECONSTRUCTED.includes(LECTS[lectId]?.type); }
 function sym(pid) {
   const { lect, s } = parsePid(pid);
   return isProto(lect) ? `*${s}` : s;
@@ -74,7 +94,7 @@ function cite(r) {
   const orig = srcLink(r.source_id, r.page);
   if (!r.via_source_id) return orig;
   return `${orig}<span class="via">, via ${srcLink(r.via_source_id, r.via_page)}${r.via_note
-    ? `<span class="vianote" title="${esc(r.via_note)}"> † ${esc(r.via_note)}</span>` : ""}</span>`;
+    ? `<span class="vianote"> † ${fold(r.via_note, 90)}</span>` : ""}</span>`;
 }
 function tabsHtml(names, on) {
   return `<div class="tabs" role="tablist">${names.map(n =>
@@ -122,7 +142,7 @@ async function pageIndex(params) {
     ${pivot ? `<div class="crumb"><a href="#/lects/">All lects</a> › reflexes of ${phLink(reflex)}</div>
       <h1>Reflexes of <span class="ipa">${esc(sym(reflex))}</span> <span class="muted" style="font-size:16px">${esc(LECTS[pivot.lect].name)}</span></h1>
       <p class="muted">Each descendant lect's reflex, through every intermediate stage. Lects outside ${esc(LECTS[pivot.lect].name)} are hidden.</p>`
-      : `<h1>Lects</h1><p class="muted">Every language and proto-language in the database, each under its nearest ancestor. Click an arrow to open or close a branch.</p>`}
+      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one.</p>`}
     <div class="controls">
       <input type="search" id="q" placeholder="Filter names and alternate names" aria-label="Filter">
       <span class="seg" role="group" aria-label="View">
@@ -165,12 +185,17 @@ async function pageIndex(params) {
       const walk = (pid, depth) => {
         for (const l of kids[pid] || []) {
           if (q && !has(l)) continue;
-          const k = kids[l.id], isOpen = q ? true : open.has(l.id);
+          // A proto-language with daughters heads a group, named after the clade
+          // (Malayo-Polynesian, not Proto-Malayo-Polynesian). An earlier stage of
+          // one language (Pre-Gayo) heads none: its daughter simply follows it.
+          const k = kids[l.id], group = k && l.type !== "earlier-stage";
+          const isOpen = !group || q ? true : open.has(l.id);
+          const clade = group ? (l.clade || l.name) : "";
           shown++;
-          body += `<tr class="${l.type === "proto-language" ? "proto" : ""}${q && !hit(l) ? " dim" : ""}">
-            <td style="padding-left:${10 + depth * 22}px">${k
-              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(l.name)}">${isOpen ? "▾" : "▸"}</button>`
-              : `<span class="twist"></span>`}${lectLink(l.id)}${k && !isOpen ? ` <span class="muted count">${size(l.id)} lect${size(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
+          body += `<tr class="${q && !hit(l) ? "dim" : ""}">
+            <td style="padding-left:${10 + depth * 22}px">${group
+              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button><b class="clade">${esc(clade)}</b> <span class="muted">·</span> `
+              : `<span class="twist"></span>`}${lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${size(l.id)} lect${size(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
           if (k && isOpen) walk(l.id, depth + 1);
         }
       };
@@ -295,8 +320,8 @@ async function pageLect(L) {
       <dt>Coverage</dt><dd>${d.coverage ? `${d.coverage.with_descent} of ${d.coverage.inventory_size} phonemes have a sourced descent` : "root proto-language"}</dd>
       <dt>Inventory source</dt><dd>${d.inventory_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
       <dt>Correspondences</dt><dd>${d.correspondence_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
-      ${d.orthography_note ? `<dt>Orthography</dt><dd>${esc(d.orthography_note)}</dd>` : ""}
-      ${d.notes ? `<dt>Notes</dt><dd>${esc(d.notes)}</dd>` : ""}
+      ${d.orthography_note ? `<dt>Orthography</dt><dd>${fold(d.orthography_note, 320)}</dd>` : ""}
+      ${d.notes ? `<dt>Notes</dt><dd>${fold(d.notes, 320)}</dd>` : ""}
     </dl>
     ${statusNote ? `<div class="notice">${esc(statusNote)}</div>` : ""}
     ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
@@ -307,7 +332,7 @@ async function pageLect(L) {
     ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
       <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
       ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
-        <td class="ipa">${esc(x.ipa)}</td><td>${esc(x.reason)}</td><td>${srcLink(x.source_id)}</td></tr>`).join("")}</table>` : ""}`;
+        <td class="ipa">${esc(x.ipa)}</td><td>${fold(x.reason)}</td><td>${srcLink(x.source_id)}</td></tr>`).join("")}</table>` : ""}`;
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
     app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
     const sys = d.systems.find(x => x.name === b.dataset.tab);
@@ -335,51 +360,142 @@ function ancestryHtml(g, herePid) {
     (kids[e.parent] ||= new Set()).add(e.child);
     (pairs[e.parent + "\u0001" + e.child] ||= []).push(e);
   }
-  // Order each row by where its reflexes sit in the row below; fusion partners stay side by side.
-  const x = {}, rows = {};
-  for (let i = stages.length - 1; i >= 0; i--) {
-    const ns = g.nodes.filter(n => lectOf(n) === stages[i]);
-    const key = n => { const k = [...(kids[n] || [])].filter(c => c in x).map(c => x[c]);
-      return k.length ? k.reduce((a, b) => a + b, 0) / k.length : 0; };
-    const partner = n => { const f = g.edges.find(e => e.parent === n && e.fusion); return f ? f.fusion.members.indexOf(n) : 0; };
-    ns.sort((a, b) => key(a) - key(b) || partner(a) - partner(b) || a.localeCompare(b));
-    rows[stages[i]] = ns;
-    ns.forEach((n, j) => { x[n] = j - (ns.length - 1) / 2; });
+  // Layout. Rows are stages; within a row the order is found by sweeping up
+  // and down the diagram so that lines cross as little as possible, and each
+  // node is then set as nearly as it can be above its reflexes.
+  const up = {}, down = {};
+  for (const e of g.edges) { (down[e.parent] ||= new Set()).add(e.child); (up[e.child] ||= new Set()).add(e.parent); }
+  const rows = {}, x = {};
+  for (const l of stages) rows[l] = g.nodes.filter(n => lectOf(n) === l);
+  for (const l of stages) rows[l].forEach((n, j) => { x[n] = j; });
+  const mean = (n, nb) => { const k = [...(nb[n] || [])].filter(c => c in x).map(c => x[c]);
+    return k.length ? k.reduce((p, q) => p + q, 0) / k.length : null; };
+  const partner = n => { const f = g.edges.find(e => e.parent === n && e.fusion); return f ? f.fusion.members.indexOf(n) : 0; };
+  const sweep = (l, nb) => {
+    const key = {};
+    rows[l].forEach(n => { key[n] = mean(n, nb) ?? x[n]; });
+    rows[l].sort((p, q) => key[p] - key[q] || partner(p) - partner(q) || x[p] - x[q]);
+    rows[l].forEach((n, j) => { x[n] = j; });
+  };
+  for (let pass = 0; pass < 4; pass++) {
+    for (let i = stages.length - 2; i >= 0; i--) sweep(stages[i], down);
+    for (let i = 1; i < stages.length; i++) sweep(stages[i], up);
   }
+  // Positions in column units: bottom row evenly, each row above over its reflexes, at least one column apart.
+  const place = (l, nb) => {
+    const want = rows[l].map((n, j) => mean(n, nb) ?? j);
+    const pos = [];
+    want.forEach((w, j) => { pos.push(j ? Math.max(w, pos[j - 1] + 1) : w); });
+    const shift = pos.reduce((p, q, j) => p + (q - want[j]), 0) / (pos.length || 1);
+    rows[l].forEach((n, j) => { x[n] = pos[j] - shift; });
+  };
+  const last = stages[stages.length - 1];
+  rows[last].forEach((n, j) => { x[n] = j; });
+  for (let i = stages.length - 2; i >= 0; i--) place(stages[i], down);
+  const minX = Math.min(...Object.values(x)), maxX = Math.max(...Object.values(x));
   const widest = Math.max(...stages.map(l => rows[l].length));
-  const COL = widest > 6 ? 62 : 84, ROW = 74, LEFT = 150, TOP = 22;
-  const W = LEFT + Math.max(widest, 2) * COL + 20, H = TOP + (stages.length - 1) * ROW + 26;
-  const px = n => LEFT + (Math.max(widest, 2) * COL) / 2 + x[n] * COL;
+  const fanIn = Math.max(1, ...Object.values(up).map(u => u.size));
+  const COL = widest > 7 ? 78 : 100, ROW = 100 + Math.min(fanIn, 6) * 8, LEFT = 170, TOP = 24;
+  const W = LEFT + (maxX - minX) * COL + 70, H = TOP + (stages.length - 1) * ROW + 28;
+  const px = n => LEFT + 20 + (x[n] - minX) * COL;
   const py = n => TOP + stages.indexOf(lectOf(n)) * ROW;
-  const short = t => t.length > 14 ? t.slice(0, 13) + "…" : t;
-  let lines = "", labels = "", plus = "";
-  // A fusion: both members run to a "+" junction, and one line goes on to the reflex.
+
+  // Everything drawn so far that a label must stay clear of.
+  const boxes = [], curves = [];
+  const hits = (p, q) => p.x0 < q.x1 && q.x0 < p.x1 && p.y0 < q.y1 && q.y0 < p.y1;
+  for (const n of g.nodes) if (n in x) {
+    const w = sym(n).length * 12 + 14;
+    boxes.push({ x0: px(n) - w / 2, x1: px(n) + w / 2, y0: py(n) - 22, y1: py(n) + 10 });
+  }
+  const bez = (p0, p3) => { const ym = (p0[1] + p3[1]) / 2; return [p0, [p0[0], ym], [p3[0], ym], p3]; };
+  const at = (c, t) => { const u = 1 - t; return [0, 1].map(i =>
+    u * u * u * c[0][i] + 3 * u * u * t * c[1][i] + 3 * u * t * t * c[2][i] + t * t * t * c[3][i]); };
+  const path = (c, cls, tip) => { curves.push(c);
+    return `<path d="M${c[0]} C${c[1]} ${c[2]} ${c[3]}" class="${cls}"><title>${esc(tip)}</title></path>`; };
+  let lines = "", plus = "";
+  const wanted = [];   // labels to place once every line is known
+  // Segments first, drawing second: a node with several lines gives each its
+  // own port, ordered by where the line goes, so that lines fan out instead
+  // of lying on top of each other.
+  const segs = [];
   const fusions = {};
   for (const e of g.edges) if (e.fusion) fusions[e.fusion.members.join("\u0001") + "\u0001" + e.child] = e;
+  const taken = [];
   for (const e of Object.values(fusions)) {
     const [m1, m2] = e.fusion.members;
     if (!(m1 in x) || !(m2 in x) || !(e.child in x)) continue;
-    const y1 = py(m1) + 9, y2 = py(e.child) - 21, xc = px(e.child);
-    let jx = ((px(m1) + px(m2)) / 2 + xc) / 2;
-    const jy = y1 + (y2 - y1) * 0.45;
-    // Keep the junction off a plain line that runs straight down to the same reflex.
-    const straight = g.edges.find(q => !q.fusion && q.child === e.child && q.parent in x && Math.abs(px(q.parent) - jx) < 12 && Math.abs(xc - jx) < 12);
-    if (straight) jx += (px(m1) + px(m2)) / 2 < px(straight.parent) ? -16 : 16;
+    const y1 = py(m1) + 10, y2 = py(e.child) - 24;
+    // The "+" junction sits under its two members, clear of other junctions in the same band.
+    let jx = (px(m1) + px(m2)) / 2 * 0.7 + px(e.child) * 0.3;
+    const jy = y1 + (y2 - y1) * 0.42, band = lectOf(e.child);
+    while (taken.some(t => t.band === band && Math.abs(t.jx - jx) < 24)) jx += 24;
+    taken.push({ band, jx });
     const tip = `${sym(m1)} + ${sym(m2)} > ${sym(e.child)} (fusion)`;
-    lines += [m1, m2].map(m => `<line x1="${px(m)}" y1="${y1}" x2="${jx}" y2="${jy}"><title>${esc(tip)}</title></line>`).join("")
-      + `<line x1="${jx}" y1="${jy}" x2="${xc}" y2="${y2}"><title>${esc(tip)}</title></line>`;
-    plus += `<circle class="join" cx="${jx}" cy="${jy}" r="7"/><text class="plus" x="${jx}" y="${jy + 4.5}"><title>${esc(tip)}</title>+</text>`;
+    segs.push({ from: m1, toPt: [jx, jy - 8], tip }, { from: m2, toPt: [jx, jy - 8], tip }, { fromPt: [jx, jy + 8], to: e.child, tip });
+    plus += `<circle class="join" cx="${jx}" cy="${jy}" r="8"/><text class="plus" x="${jx}" y="${jy + 4.5}"><title>${esc(tip)}</title>+</text>`;
+    boxes.push({ x0: jx - 10, x1: jx + 10, y0: jy - 10, y1: jy + 10 });
   }
   for (const k of Object.keys(pairs)) {
     const es = pairs[k].filter(q => !q.fusion), e = es[0];
     if (!e || !(e.parent in x) || !(e.child in x)) continue;
-    const x1 = px(e.parent), y1 = py(e.parent) + 9, x2 = px(e.child), y2 = py(e.child) - 21;
     const odd = es.every(q => q.status && q.status !== "regular");
     const tip = es.map(q => `${sym(q.parent)} > ${sym(q.child)} / ${q.environment}${q.status && q.status !== "regular" ? " (" + statusLabel(q.status) + ")" : ""}`).join("\n");
-    lines += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="${odd ? "odd" : ""}"><title>${esc(tip)}</title></line>`;
     const envs = [...new Set(es.filter(q => q.environment !== "elsewhere").map(q => q.environment))];
-    if (envs.length && es.length === envs.length)
-      labels += `<text class="env" x="${(x1 + x2) / 2 + 5}" y="${(y1 + y2) / 2 + 3}"><title>${esc(tip)}</title>${esc(short(envs.join(", ")))}</text>`;
+    segs.push({ from: e.parent, to: e.child, tip, cls: odd ? "odd" : "",
+      label: envs.length && es.length === envs.length ? envs.join(", ") : "" });
+  }
+  const farX = (sg, end) => end === "from" ? (sg.to ? px(sg.to) : sg.toPt[0]) : (sg.from ? px(sg.from) : sg.fromPt[0]);
+  const port = {};
+  for (const end of ["from", "to"]) {
+    const by = {};
+    for (const sg of segs) if (sg[end]) (by[sg[end]] ||= []).push(sg);
+    for (const list of Object.values(by)) {
+      list.sort((p, q) => farX(p, end) - farX(q, end));
+      const step = list.length > 1 ? Math.min(13, 44 / (list.length - 1)) : 0;
+      list.forEach((sg, i) => { sg[end + "Dx"] = (i - (list.length - 1) / 2) * step; });
+    }
+  }
+  for (const sg of segs) {
+    const p0 = sg.from ? [px(sg.from) + sg.fromDx, py(sg.from) + 10] : sg.fromPt;
+    const p3 = sg.to ? [px(sg.to) + sg.toDx, py(sg.to) - 24] : sg.toPt;
+    const c = bez(p0, p3);
+    lines += path(c, sg.cls || "", sg.tip);
+    if (sg.label) wanted.push({ c, tip: sg.tip, text: sg.label });
+  }
+  // A label sits on its own line, on a patch of background, at the first spot
+  // along the line that is clear of nodes, junctions, other labels and other
+  // lines. Short labels are placed first; one with no clear spot is left to
+  // the table below.
+  let labels = "", unplaced = 0;
+  const keyed = [];   // conditions too long for their line: a number on the line, the text under the diagram
+  const findSpot = (c, bw, bh) => {
+    for (const t of [0.3, 0.4, 0.22, 0.5, 0.6, 0.7, 0.15, 0.8]) {
+      const [cx, cy] = at(c, t);
+      const box = { x0: cx - bw / 2, x1: cx + bw / 2, y0: cy - bh / 2, y1: cy + bh / 2 };
+      if (box.x0 < LEFT - 30 || box.x1 > W) continue;
+      if (boxes.some(b => hits(box, b))) continue;
+      const crossed = curves.some(o => o !== c && [...Array(21).keys()].some(i => {
+        const [qx, qy] = at(o, i / 20); return qx > box.x0 - 2 && qx < box.x1 + 2 && qy > box.y0 - 2 && qy < box.y1 + 2; }));
+      if (!crossed) return { cx, cy, box };
+    }
+    return null;
+  };
+  const chip = (spot, bw, bh, text, tip) => { boxes.push(spot.box);
+    return `<g><title>${esc(tip)}</title><rect class="envbg" x="${spot.box.x0}" y="${spot.box.y0}" width="${bw}" height="${bh}" rx="3"/>
+      <text class="env" x="${spot.cx}" y="${spot.cy + 3.5}">${esc(text)}</text></g>`; };
+  wanted.sort((p, q) => p.text.length - q.text.length);
+  const later = [];
+  for (const w of wanted) {
+    const bw = w.text.length * 5.9 + 10;
+    const spot = w.text.length <= 26 ? findSpot(w.c, bw, 15) : null;
+    if (spot) labels += chip(spot, bw, 15, w.text, w.tip); else later.push(w);
+  }
+  for (const w of later) {
+    const n = String(keyed.length + 1), bw = n.length * 6 + 10;
+    const spot = findSpot(w.c, bw, 15);
+    if (!spot) { unplaced++; continue; }
+    labels += chip(spot, bw, 15, n, w.tip);
+    keyed.push(w.text);
   }
   const node = n => {
     const { lect, s, system } = parsePid(n);
@@ -388,7 +504,9 @@ function ancestryHtml(g, herePid) {
   };
   const svg = `<svg class="anc" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Ancestry diagram">
     ${stages.map((l, i) => `<a href="#/lects/${esc(l)}/"><text class="stage" x="0" y="${TOP + i * ROW}">${esc(LECTS[l]?.name || l)}</text></a>`).join("")}
-    ${lines}${labels}${plus}${g.nodes.filter(n => n in x).map(node).join("")}</svg>`;
+    ${lines}${labels}${plus}${g.nodes.filter(n => n in x).map(node).join("")}</svg>
+    ${keyed.length ? `<p class="anckey">${keyed.map((t, i) => `<span><b>${i + 1}</b> ${esc(t)}</span>`).join("")}</p>` : ""}
+    ${unplaced ? `<p class="muted" style="font-size:12.5px;margin:0">${unplaced} condition${unplaced === 1 ? " has" : "s have"} no room in the diagram; hover a line, or see the steps below.</p>` : ""}`;
   const order = e => stages.indexOf(lectOf(e.child)) * 1000 + (x[e.child] ?? 0) * 10 + (x[e.parent] ?? 0);
   const steps = g.edges.slice().sort((a, b) => order(a) - order(b)).map(e => `<tr>
       <td>${lectLink(lectOf(e.child))}</td>
@@ -406,15 +524,18 @@ function nodeSym(pid, herePid) {
 // sources or reconstructions disagree about that stage; the button shows the rest.
 function descentHtml(rows, daughters) {
   if (!rows.length) return `<p class="muted">${daughters ? "No descendant reflexes entered." : "No daughter lects in the database."}</p>`;
+  // Below a competing reconstruction nothing is listed: those reflexes are on its own pages.
+  rows = rows.filter(r => !r.beyond_competing);
   const tr = r => `<tr class="${r.via.length ? "dim" : ""}${r.via.length && !r.conflict ? " deep" : ""}">
-      <td>${lectLink(r.child_lect_id)}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
+      <td>${lectLink(r.child_lect_id)}${r.competing ? ` <span class="badge b-disputed" title="One of two or more competing reconstructions of this stage; its own reflexes are on its pages">competing</span>` : ""}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
       <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
       <td>${envHtml(r)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${r.evidence_count ?? ""}</td>
       <td>${cite(r)}</td>
-      <td>${esc(r.notes)}</td></tr>`;
+      <td>${fold(r.notes, 140)}</td></tr>`;
   const hidden = rows.filter(r => r.via.length && !r.conflict).length;
+  if (!rows.length) return `<p class="muted">The reflexes below this stage are on the pages of its competing reconstructions.</p>`;
   const shownDeep = rows.filter(r => r.via.length && r.conflict).length;
   return `<div class="descentbox">
     ${hidden || shownDeep ? `<p class="muted">Reflexes one level down the tree.${shownDeep ? ` ${shownDeep} deeper row(s) are listed because sources or reconstructions disagree there.` : ""}
@@ -430,7 +551,7 @@ function systemPanel(sys, sps, d) {
     <dl class="info">
       ${describe(sp) ? `<dt>Description</dt><dd>${describe(sp)}${inferredNote(sp) ? ` <span class="muted">(${esc(inferredNote(sp))})</span>` : ""}</dd>` : ""}
       ${sp.counterparts.length > 1 ? `<dt>Also matches</dt><dd>${sp.counterparts.map(c => phLink(c)).join(", ")} <span class="muted">in the ${esc(d.default_label)} system</span></dd>` : ""}
-      ${sp.rows.map(r => `<dt>Source</dt><dd>${cite(r) || '<span class="muted">none</span>'}${r.notes ? `<br><span class="muted">${esc(r.notes)}</span>` : ""}</dd>`).join("")}
+      ${sp.rows.map(r => `<dt>Source</dt><dd>${cite(r) || '<span class="muted">none</span>'}${r.notes ? `<br><span class="muted">${fold(r.notes)}</span>` : ""}</dd>`).join("")}
     </dl>
     <h3>Descent</h3>
     ${sp.descendants.length ? descentHtml(sp.descendants, true)
@@ -467,8 +588,19 @@ async function pagePhoneme(L, uid) {
   if (!ph) throw new Error(`No phoneme ${raw} in ${L}`);
   const bySystem = d.systems.map(x => ({ name: x.name, absent: ph.absent_from.includes(x.name),
     sps: x.phonemes.filter(p => p.counterparts.includes(ph.id)) })).filter(x => x.sps.length || x.absent);
-  const tabs = systemTabsOf(d, bySystem.map(x => x.name));
   bySystem.sort((a, b) => d.tab_order.indexOf(a.name) - d.tab_order.indexOf(b.name));
+  // A system gets a tab only where its phoneme has a descent of its own. One
+  // that differs in spelling or phonetic value is explained on this page.
+  const tabbed = bySystem.filter(x => x.sps.some(sp => sp.separate));
+  const inline = bySystem.filter(x => !tabbed.includes(x));
+  if (wantSystem && !tabbed.some(x => x.name === wantSystem)) wantSystem = "";
+  const tabs = systemTabsOf(d, tabbed.map(x => x.name));
+  const otherSystems = inline.length ? `<h3>In other reconstructions</h3><table class="othersys"><tr><th>System</th><th>Symbol</th><th>Value</th><th>Source and explanation</th></tr>
+    ${inline.map(x => x.sps.length ? x.sps.map(sp => `<tr><td>${esc(x.name)}</td><td class="ipa">${esc(sym(sp.id))}</td>
+        <td>${describe(sp) || '<span class="muted">not stated</span>'}${inferredNote(sp) ? ` <span class="muted">(${esc(inferredNote(sp))})</span>` : ""}${sp.counterparts.length > 1 ? `<br><span class="muted">also matches ${sp.counterparts.filter(c => c !== ph.id).map(c => phLink(c)).join(", ")}</span>` : ""}</td>
+        <td>${sp.rows.map(r => `${cite(r) || ""}${r.notes ? `<br><span class="muted">${fold(r.notes)}</span>` : ""}`).join("<br>")}</td></tr>`).join("")
+      : `<tr><td>${esc(x.name)}</td><td colspan="3" class="muted">not a phoneme in this system</td></tr>`).join("")}</table>
+    <p class="muted" style="font-size:12.5px">Same descent as ${esc(sym(ph.id))}: these systems differ in spelling or phonetic value only.</p>` : "";
   const proto = isProto(L);
   const ancestorPids = ph.ancestry_graph.nodes.filter(n => n !== ph.id);
 
@@ -480,16 +612,18 @@ async function pagePhoneme(L, uid) {
       ${ph.source_symbol && ph.source_symbol !== ph.ipa ? `<dt>Source symbol</dt><dd class="ipa">${esc(ph.source_symbol)}</dd>` : ""}
       ${describe(ph) ? `<dt>Description</dt><dd>${describe(ph)}${ph.origin === "generated" ? ` <span class="muted">(${ph.placement === "hand" ? "set by hand" : "inferred from the symbol"})</span>` : inferredNote(ph) ? ` <span class="muted">(${esc(inferredNote(ph))})</span>` : ""}</dd>` : ""}
       ${ph.source_id ? `<dt>Inventory source</dt><dd>${cite(ph)}</dd>` : ""}
-      ${ph.reason ? `<dt>Reason</dt><dd>${esc(ph.reason)}</dd>` : ""}
-      ${ph.notes ? `<dt>Notes</dt><dd>${esc(ph.notes)}</dd>` : ""}
+      ${ph.reason ? `<dt>Reason</dt><dd>${fold(ph.reason, 320)}</dd>` : ""}
+      ${ph.notes ? `<dt>Notes</dt><dd>${fold(ph.notes, 320)}</dd>` : ""}
     </dl>
-    ${bySystem.length ? tabsHtml(tabs, wantSystem) : ""}
-    ${bySystem.map(x => `<div class="panel" data-panel="${esc(x.name)}"${x.name === wantSystem ? "" : " hidden"}>${x.absent ? `<div class="notice">${esc(x.name)}'s reconstruction has no ${esc(sym(ph.id))}.</div>` : ""}${systemPanel(x.name, x.sps, d)}</div>`).join("")}
+    ${tabbed.length ? tabsHtml(tabs, wantSystem) : ""}
+    ${tabbed.map(x => `<div class="panel" data-panel="${esc(x.name)}"${x.name === wantSystem ? "" : " hidden"}>${x.absent ? `<div class="notice">${esc(x.name)}'s reconstruction has no ${esc(sym(ph.id))}.</div>` : ""}${systemPanel(x.name, x.sps, d)}</div>`).join("")}
     <div class="panel" data-panel=""${wantSystem ? " hidden" : ""}>
     ${inDefault(d, ph) ? "" : `<div class="notice">${esc(d.default_label)}'s reconstruction has no ${esc(sym(ph.id))}. It is kept here because other systems reconstruct it.</div>`}
     ${ph.notation.length ? `<h3>Notation by reconstruction system</h3>
       <table style="width:auto"><tr><th>System</th><th>Symbol</th><th>Source</th></tr>
       ${ph.notation.map(n => `<tr><td>${esc(n.system)}</td><td class="ipa">${n.symbol === "∅" ? '<span class="muted" style="font-family:inherit">not a phoneme in this system</span>' : "*" + esc(n.symbol)}</td><td>${cite(n)}</td></tr>`).join("")}</table>` : ""}
+
+    ${otherSystems}
 
     <h2>Ancestry</h2>
     ${ph.ancestry_graph.edges.length
@@ -538,12 +672,16 @@ function pageSources(id) {
   const list = id ? [SOURCES[id]].filter(Boolean) : Object.values(SOURCES);
   if (id && !list.length) throw new Error(`No source ${id}`);
   const idle = list.filter(s => s.cited_by && !(s.cited_by.phonemes + s.cited_by.correspondences + s.cited_by.notation + s.cited_by.relays.length)).length;
+  // A reference list: by first author's surname, then year.
+  list.sort((p, q) => p.author.localeCompare(q.author) || String(p.year + (p.year_suffix || "")).localeCompare(q.year + (q.year_suffix || "")));
+  // The reference as the build wrote it, in the Unified Style Sheet for Linguistics.
+  const ref = s => (s.reference || []).map(([t, i]) => i ? `<i>${esc(t)}</i>` : esc(t)).join("")
+    + (s.url_or_doi ? ` <a href="${esc(/^10\./.test(s.url_or_doi) ? "https://doi.org/" + s.url_or_doi : s.url_or_doi)}" target="_blank" rel="noopener">${esc(s.url_or_doi)}</a>` : "");
   app.innerHTML = `<div class="crumb"><a href="#/sources/">Sources</a></div><h1>${id ? esc(SOURCES[id].label || id) : "Sources"}</h1>
     ${!id && idle ? `<p class="muted">${idle} of ${list.length} sources are not cited by any row yet.</p>` : ""}
-    <div class="scroll"><table><tr><th>Id</th><th>Citation</th><th>Kind</th><th>Cited by</th><th>Notes</th></tr>
-    ${list.map(s => `<tr><td><a href="#/sources/${esc(s.id)}/">${esc(s.id)}</a></td>
-      <td><b>${esc(s.label)}</b><br>${esc(s.author)} (${esc(s.year)}${esc(s.year_suffix || "")}). <i>${esc(s.title)}</i>.${s.url_or_doi ? ` <a href="${esc(/^10\./.test(s.url_or_doi) ? "https://doi.org/" + s.url_or_doi : s.url_or_doi)}" target="_blank" rel="noopener">${esc(s.url_or_doi)}</a>` : ""}</td>
-      <td>${esc(s.kind)}</td><td>${citedBy(s)}</td><td>${esc(s.notes)}</td></tr>`).join("")}</table></div>`;
+    <div class="scroll"><table class="refs"><tr><th>Reference</th><th>Kind</th><th>Cited by</th><th>Notes</th></tr>
+    ${list.map(s => `<tr><td class="ref" id="${esc(s.id)}">${ref(s)}<br><a class="muted refid" href="#/sources/${esc(s.id)}/">${esc(s.id)}</a></td>
+      <td>${esc(s.kind)}</td><td>${citedBy(s)}</td><td>${fold(s.notes, 140)}</td></tr>`).join("")}</table></div>`;
 }
 
 // ------------------------------------------------------------------ router

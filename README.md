@@ -67,6 +67,16 @@ Nothing is entered from memory. If the claim isn't in a source you have open, us
 | `kind` | yes | `grammar` · `comparative` · `dictionary` · `database` |
 | `notes` | | |
 | `year_suffix` | | one lowercase letter when the same author has two works in a year: `b` for Blust (1999b). `year` stays `1999`. |
+| `pub_type` | | *optional column.* `book` · `article` · `chapter` · `thesis` · `presentation` · `dataset` · `other` |
+| `container_title` | | the journal (article), the edited volume (chapter), or "Paper presented at …" (presentation) |
+| `editors` | | of the volume, given name first, `;`-separated: `Ray Harlow; Robin Hooper` |
+| `volume`, `issue`, `pages` | | `59`, `1/2`, `297-346` |
+| `place`, `publisher` | | for a thesis the publisher is the degree line: `National Tsing Hua University dissertation` |
+| `series`, `edition` | | `Pacific Linguistics C-98`; `2nd edn.` |
+
+**Reference list.** The Sources page prints each work in the form of the [Unified Style Sheet for Linguistics](https://langsci-press.org/unifiedstylesheet): `Lee, Kee-dong & Judith W. Wang. 1984. Kosraean reflexes of Proto-Oceanic phonemes. In Byron W. Bender (ed.), *Studies in Micronesian linguistics* (Pacific Linguistics C-80), 403-442. Canberra: The Australian National University.` The first author is surname-first and the others given-name-first, joined by commas and `&`; the year has no brackets; only titles of books, dissertations and edited volumes and names of journals are italic. A row with no `pub_type` prints author, year and title only, with nothing in italics. Titles are stored as they should print (sentence case; journal names with capitals).
+
+`tools/split_source_notes.py` moves publication details that still sit at the start of `notes` into these columns (`--write` to save; without it, a preview). It skips rows that already have a `pub_type` and lists the ones it cannot read.
 
 The site builds the citation label from `author` (`Surname, Given; Surname, Given; …`) and the year: one author gives `Blust 1999b`, two give `Li & Tsuchida 2006`, three or more give `Ross et al. 2023`.
 
@@ -89,13 +99,17 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `id` | yes | Glottocode, or a slug for proto-languages |
 | `name` | yes | the name used on the site |
 | `alt_names` | | `;`-separated, searchable |
-| `type` | yes | `language` · `dialect` · `proto-language` |
+| `type` | yes | `language` · `dialect` · `proto-language` · `earlier-stage` (an earlier state of one language, reached by internal reconstruction or inferred from a proto-language: Pre-Gayo). Both reconstructed types can be a parent and have starred symbols. |
 | `glottocode`, `iso639_3` | | the build warns if an attested lect has no Glottocode |
-| `parent_id` | | nearest reconstructed ancestor the source uses; **must be a proto-language**. Empty only for the root (PAN). |
+| `parent_id` | | nearest reconstructed ancestor the source uses; **must be a proto-language or an earlier-stage**. Empty only for the root (PAN). |
 | `subgroup_path` | | established subgroups only, `>`-separated; disputed ⇒ stop at the lowest secure node |
 | `default_system` | | *optional column.* The reconstruction system the lect's `phonemes` rows follow, e.g. `Shibata` for PAn. It names the first tab on the site; other systems come from `notation_map`. |
 | `systems` | | *optional column.* The lect's reconstruction systems, `;`-separated, in tab order: `Shibata;Blust;Ross;Wolff`. Any other system in `notation_map` is then a spelling only (Grace's POc orthography): it appears in the notation table and gets no tab. Blank: every system in `notation_map` gets a tab, in the order first seen. |
+| `clade` | | *optional column.* The group a proto-language is the ancestor of, used as the heading in the lect tree. Blank: the name without `Proto-` (Proto-Malayo-Polynesian heads *Malayo-Polynesian*). An earlier-stage heads no group. |
+| `competes_with` | | *optional column.* Id(s) of other lects that reconstruct the same node, `;`-separated; one direction is enough. See *Competing reconstructions*. |
 | `region`, `orthography_note`, `notes` | | |
+
+**Names.** A proto-language is `Proto-X`, with the hyphen even where the source writes "Proto X"; an earlier stage is `Pre-X`. The build warns otherwise.
 
 `inventory_status` is not a column. The build derives it from `phonemes.csv`, so no one can promote a generated inventory to "sourced" by editing a label:
 
@@ -177,6 +191,10 @@ The build pairs the rows. In the reflex's ancestry diagram the two members run t
 
 **Ancestry diagram.** A phoneme page draws its ancestry as a node diagram: one row per stage, every ancestor phoneme once, a line per correspondence (dashed if never regular), with the steps, conditions and sources in a table underneath.
 
+**Competing reconstructions.** Where two lects B1 and B2 reconstruct the same stage under A (set `competes_with` on one of them), A's reflex list shows the reflexes in both, marked *competing*, and nothing below either: C's reflexes are on the pages of B1 and B2 only, also when "show deeper rows" is on. The table of all lects still lists everything.
+
+**One page per proto-phoneme.** A phoneme of another reconstruction system gets a tab of its own only if its descent differs, that is, if `correspondences` has rows with that `system` for it, or if nothing in the default inventory matches it. A system phoneme that differs only in spelling or phonetic value is shown on the default phoneme's page, under *In other reconstructions*, with its value, source and explanation.
+
 **Reflex depth.** A phoneme page lists reflexes one level down the tree. A deeper row is listed straight away only where the record disagrees about that stage: a `disputed` row, rows from more than one source, or a separate descent entered for another system's phoneme. The rest are behind a "show deeper rows" button.
 
 A parent phoneme with no row at all for a daughter is reported as **unentered**, which is not the same as `not-attested`.
@@ -232,6 +250,8 @@ On the site each proto-phoneme page has one tab per system. A system's tab shows
 - free-text environments
 
 Warnings added for citations and systems: a source that no phoneme, correspondence or notation row cites; a `notes` cell that says "quoted from" or "via" while `via_source_id` is empty; a system phoneme with no place or manner that cannot be inferred; a system with consonants but no vowel rows.
+
+Also warned about: a proto-language not named `Proto-X` or an earlier stage not named `Pre-X`; and a work cited by author and year in any notes column (`Jackson (1983: 326)`, `Lee & Wang 1984`) that has no `sources` row, once per work, with the row where it is first mentioned.
 
 ## Output
 

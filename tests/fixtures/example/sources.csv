@@ -1,2 +1,2 @@
-id,author,year,title,url_or_doi,kind,notes,year_suffix
-example2026,"Nobody, A.",2026,FICTIONAL test fixture — not real data,,comparative,Used only by tests/test_build.py,
+id,author,year,title,url_or_doi,kind,notes,year_suffix,pub_type,container_title,editors,volume,issue,pages,place,publisher,series,edition
+example2026,"Nobody, A.",2026,FICTIONAL test fixture — not real data,,comparative,Used only by tests/test_build.py,,,,,,,,,,,

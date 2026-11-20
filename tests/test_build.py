@@ -194,6 +194,61 @@ class TestSheetRoundTrip(unittest.TestCase):
         self.assertEqual((inv["y"]["place"], inv["y"]["manner"]), ("palatal", "approximant"))
         self.assertEqual((inv["j"]["place"], inv["j"]["manner"]), ("palatal", "affricate"))
 
+    def test_reference_follows_the_unified_style_sheet(self):
+        base = dict.fromkeys(build.TABLES["sources"], "")
+        art = {**base, "author": "Lee, Kee-dong; Wang, Judith W.", "year": "1984", "title": "Kosraean reflexes",
+               "pub_type": "chapter", "editors": "Byron W. Bender", "container_title": "Studies in Micronesian linguistics",
+               "series": "Pacific Linguistics C-80", "pages": "403-442", "place": "Canberra", "publisher": "ANU"}
+        segs = build.reference(art)
+        self.assertEqual("".join(t for t, _ in segs),
+                         "Lee, Kee-dong & Judith W. Wang. 1984. Kosraean reflexes. In Byron W. Bender (ed.), "
+                         "Studies in Micronesian linguistics (Pacific Linguistics C-80), 403-442. Canberra: ANU.")
+        self.assertEqual([t for t, i in segs if i], ["Studies in Micronesian linguistics"])
+        jour = {**base, "author": "Murray, Robert W.; Vennemann, Theo", "year": "1983", "title": "Sound change",
+                "pub_type": "article", "container_title": "Language", "volume": "59", "issue": "3", "pages": "514-528"}
+        segs = build.reference(jour)
+        self.assertEqual("".join(t for t, _ in segs),
+                         "Murray, Robert W. & Theo Vennemann. 1983. Sound change. Language 59(3). 514-528.")
+        self.assertEqual([t for t, i in segs if i], ["Language"])
+        book = {**base, "author": "Blust, Robert", "year": "2013", "title": "The Austronesian languages",
+                "pub_type": "book", "edition": "2nd edn.", "place": "Canberra", "publisher": "APL"}
+        segs = build.reference(book)
+        self.assertEqual("".join(t for t, _ in segs), "Blust, Robert. 2013. The Austronesian languages, 2nd edn. Canberra: APL.")
+        self.assertEqual([t for t, i in segs if i], ["The Austronesian languages"])
+        # Nothing is italic until the type of publication is known.
+        self.assertFalse([t for t, i in build.reference({**base, "author": "X, Y", "year": "2000", "title": "T"}) if i])
+
+    def test_earlier_stage_can_be_a_parent_and_is_named_pre(self):
+        rep, D = run(replace("lects.csv", "pxb,Proto-Example-B,", "pxb,Pre-Example-B,"), derived=True)
+        self.assertTrue([w for w in rep.warnings if "Proto-X" in w])
+        def m(d):
+            replace("lects.csv", "pxb,Proto-Example-B,", "pxb,Pre-Example-B,")(d)
+            replace("lects.csv", "Pre-Example-B,,proto-language", "Pre-Example-B,,earlier-stage")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertFalse([w for w in rep.warnings if "Proto-X" in w or "Pre-X" in w])
+        self.assertEqual(D["lects"]["pxb"]["clade_label"], "")
+        self.assertEqual(D["lects"]["pxa"]["clade_label"], D["lects"]["pxa"]["name"].replace("Proto-", ""))
+
+    def test_works_cited_in_notes_need_a_source(self):
+        found = build.cited_works("See Jackson (1983: 326; 1986) and Lee & Wang (1984); Basay (Tseng 2022: 71); "
+                                  "Blust's (1999) view; Hughes (2020a, b); p. 1999; Table 3 (2003)")
+        self.assertEqual(found, [("Jackson", "1983", ""), ("Jackson", "1986", ""), ("Lee & Wang", "1984", ""),
+                                 ("Tseng", "2022", ""), ("Blust", "1999", ""), ("Hughes", "2020", "a"),
+                                 ("Hughes", "2020", "b")])
+        rep = run()
+        self.assertFalse([w for w in rep.warnings if "cited in notes" in w])
+
+    def test_rows_below_a_competing_reconstruction_are_marked(self):
+        rep, D = run(derived=True)
+        parent = D["lects"]["exam1234"]["parent_id"]
+        D["competing"] = {parent}
+        top = D["lects"][parent]["parent_id"]
+        sym = next(iter(D["inventory"][top]))
+        rows = build.descendants(f"{top}:{sym}", D)
+        self.assertTrue(any(r["competing"] for r in rows if r["child_lect_id"] == parent))
+        self.assertTrue(all(r["beyond_competing"] for r in rows if r["via"]))
+
     def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
         def m(d):
             append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)

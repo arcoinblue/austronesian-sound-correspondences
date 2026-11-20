@@ -27,7 +27,13 @@ ROOT = Path(__file__).resolve().parent
 
 # ---------------------------------------------------------------- vocabularies
 
-LECT_TYPES = {"language", "dialect", "proto-language"}
+LECT_TYPES = {"language", "dialect", "proto-language", "earlier-stage"}
+# Reconstructed lects: a proto-language (ancestor of a group) and an earlier
+# stage of one language (Pre-Gayo). Both can be a parent, and their symbols are starred.
+RECONSTRUCTED = {"proto-language", "earlier-stage"}
+PUB_TYPES = {"book", "article", "chapter", "thesis", "presentation", "dataset", "other"}
+PUB_COLUMNS = ["pub_type", "container_title", "editors", "volume", "issue", "pages",
+               "place", "publisher", "series", "edition"]
 SOURCE_KINDS = {"grammar", "comparative", "dictionary", "database"}
 PHONEME_CLASSES = {"C", "V", "tone", "other"}
 PHONEME_ORIGINS_ENTERED = {"sourced", "manual-add", "suppressed", "override"}
@@ -214,10 +220,10 @@ def fill_blanks(rec, feats):
 
 
 TABLES = {
-    "sources": ["id", "author", "year", "title", "url_or_doi", "kind", "notes", "year_suffix"],
+    "sources": ["id", "author", "year", "title", "url_or_doi", "kind", "notes", "year_suffix"] + PUB_COLUMNS,
     "lects": ["id", "name", "alt_names", "type", "glottocode", "iso639_3",
               "parent_id", "subgroup_path", "region", "orthography_note", "notes", "default_system",
-              "systems"],
+              "systems", "clade", "competes_with"],
     "phonemes": ["lect_id", "ipa", "source_symbol", "class", "place", "manner",
                  "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA
                 + ["status"],
@@ -230,8 +236,8 @@ TABLES = {
 # Columns added after the first release. A table without them still loads
 # (they read as blank), so an older sheet or CSV keeps working.
 OPTIONAL_COLUMNS = {
-    "sources": ["year_suffix"],
-    "lects": ["default_system", "systems"],
+    "sources": ["year_suffix"] + PUB_COLUMNS,
+    "lects": ["default_system", "systems", "clade", "competes_with"],
     "phonemes": VIA + ["status"],
     "correspondences": ["system"] + VIA,
     "notation_map": ["place", "manner", "voicing"] + VIA,
@@ -334,6 +340,88 @@ def citation_label(author, year, suffix=""):
     return f"{who} {year}{suffix}".strip()
 
 
+def _people(names, surname_first=True):
+    """'Lee, Kee-dong & Judith W. Wang': the first name surname-first, the rest given-first."""
+    out = []
+    for i, n in enumerate(names):
+        if "," in n and not (surname_first and i == 0):
+            parts = [x.strip() for x in n.split(",")]
+            # 'Stewart, Thomas W., Jr.' keeps its suffix after the given name
+            n = " ".join([parts[1], parts[0]] + parts[2:])
+        out.append(n.strip())
+    if len(out) <= 1:
+        return "".join(out)
+    return ", ".join(out[:-1]) + " & " + out[-1]
+
+
+def reference(r):
+    """A source as a reference in the Unified Style Sheet for Linguistics.
+
+    Returns segments [text, italic]. Italic: titles of books, dissertations and
+    edited volumes, and journal names; nothing else. Without a pub_type only
+    author, year and title are known, and the title is left upright.
+    """
+    seg = []
+    def add(text, italic=False):
+        if text:
+            seg.append([text, italic])
+    def stop(text):   # close a component, without doubling ?, ! or .
+        return text if text.endswith(("?", "!", ".")) else text + "."
+    authors = [a.strip() for a in r["author"].split(";") if a.strip()]
+    eds = [a.strip() for a in r["editors"].split(";") if a.strip()]
+    kind = r["pub_type"]
+    add(stop(_people(authors)) + " " + r["year"] + r["year_suffix"] + ". ")
+    title, cont = r["title"], r["container_title"]
+    pub = ": ".join(x for x in (r["place"], r["publisher"]) if x)
+    series = f" ({r['series']})" if r["series"] else ""
+    if kind == "article":
+        add(stop(title) + " ")
+        add(cont, True)
+        vol = r["volume"] + (f"({r['issue']})" if r["issue"] else "")
+        tail = " ".join(x for x in (vol and stop(vol), r["pages"] and stop(r["pages"])) if x)
+        add((" " + tail) if tail else ".")
+    elif kind == "chapter":
+        add(stop(title) + " In " + (f"{_people(eds, False)} ({'eds.' if len(eds) > 1 else 'ed.'}), " if eds else ""))
+        add(cont, True)
+        add((f", vol. {r['volume']}" if r["volume"] else "") + series + (f", {r['pages']}" if r["pages"] else "") + "."
+            + (f" {stop(pub)}" if pub else ""))
+    elif kind in ("book", "thesis"):
+        add(title, True)
+        tail = (f", {r['edition']}" if r["edition"] else "") + series
+        add((stop(tail) if tail else "" if title.endswith(("?", "!")) else ".") + (f" {stop(pub)}" if pub else ""))
+    else:   # presentation, dataset, other, or not yet classified
+        add(stop(title))
+        rest = " ".join(stop(x) for x in (cont, pub) if x)
+        add((" " + rest) if rest else "")
+    return seg   # the site appends the URL or DOI as a link
+
+
+# 'Jackson (1983: 326; 1986: 203)', 'Lee & Wang (1984)', 'Bender et al. (2003a: 4)', 'Hughes 2020b: 200'
+_NAME = r"(?:(?:van den|van der|van|de|von|den) )?[A-Z][\w‘-]+"
+# Narrative 'Name (1983: 326; 1986)' (the bracket must open with a year), or bare 'Name 2020b'.
+CITED = re.compile(rf"\b({_NAME}(?: (?:&|and) {_NAME}| et al\.)?)(?:['’]s)?,? "
+                   rf"(\((?=(?:1[5-9]|20)\d\d)[^()]*\)|(?:1[5-9]|20)\d\d[a-z]?\b)")
+YEAR = re.compile(r"(?<![\d:\-–] )(?<![\d\-–])\b((?:1[5-9]|20)\d\d)([a-z])?(?:\s*\[\d{4}\])?((?:, [a-z]\b)*)(?![\d\-–])")
+NOT_AUTHORS = {"Table", "Tables", "Figure", "Section", "Appendix", "January", "February", "March", "April", "May", "June",
+               "July", "August", "September", "October", "November", "December", "Chapter", "In", "See", "Since", "Volume",
+               "Proto", "Taipei", "Canberra", "Hsinchu", "Honolulu", "Tokyo", "Leiden", "Berlin", "Auckland"}
+
+
+def cited_works(text, not_authors=frozenset()):
+    """(author label, year, suffix) for each work a note cites by author and year."""
+    out = []
+    for m in CITED.finditer(text):
+        who = re.sub(r" and ", " & ", m.group(1))
+        words = {who.split()[0], who.split()[-1], who}
+        if words & NOT_AUTHORS or words & not_authors or re.fullmatch(r"P[A-Za-z]{1,4}", who):
+            continue
+        for y in YEAR.finditer(m.group(2)):
+            out.append((who, y.group(1), y.group(2) or ""))
+            for extra in re.findall(r"[a-z]", y.group(3)):
+                out.append((who, y.group(1), extra))
+    return out
+
+
 def validate_and_derive(t, rep: Report):
     sources = {}
     for r in t["sources"]:
@@ -349,7 +437,12 @@ def validate_and_derive(t, rep: Report):
             rep.error(w, f"kind {r['kind']!r} not in {sorted(SOURCE_KINDS)}")
         if r["year_suffix"] and not re.fullmatch(r"[a-z]", r["year_suffix"]):
             rep.error(w, f"year_suffix {r['year_suffix']!r} must be one lowercase letter (the b of 1999b)")
+        if r["pub_type"] and r["pub_type"] not in PUB_TYPES:
+            rep.error(w, f"pub_type {r['pub_type']!r} not in {sorted(PUB_TYPES)}")
+        if r["pub_type"] in ("article", "chapter") and not r["container_title"]:
+            rep.warn(w, f"pub_type {r['pub_type']} needs a container_title (the journal or the volume)")
         r["label"] = citation_label(r["author"], r["year"], r["year_suffix"])
+        r["reference"] = reference(r)
         sources[r["id"]] = r
 
     def check_via(w, r):
@@ -389,9 +482,9 @@ def validate_and_derive(t, rep: Report):
         if r["glottocode"]:
             if not GLOTTOCODE_RE.match(r["glottocode"]):
                 rep.error(w, f"glottocode {r['glottocode']!r} is malformed")
-            elif r["id"] != r["glottocode"] and r["type"] != "proto-language":
+            elif r["id"] != r["glottocode"] and r["type"] not in RECONSTRUCTED:
                 rep.warn(w, f"lect id should be its Glottocode ({r['glottocode']})")
-        elif r["type"] != "proto-language":
+        elif r["type"] not in RECONSTRUCTED:
             rep.warn(w, "no glottocode")
         if r["iso639_3"] and not ISO_RE.match(r["iso639_3"]):
             rep.error(w, f"iso639_3 {r['iso639_3']!r} is malformed")
@@ -400,6 +493,20 @@ def validate_and_derive(t, rep: Report):
         # Reconstruction systems, in tab order. Blank: every system in
         # notation_map counts as one. Listed: the others are spellings only.
         r["systems_list"] = [a.strip() for a in r["systems"].split(";") if a.strip()]
+        # Names: Proto-X for a proto-language (with the hyphen, whatever the source writes), Pre-X for an earlier stage.
+        if r["type"] == "proto-language" and not re.match(r"Proto-\S", r["name"]):
+            rep.warn(w, f"proto-language name {r['name']!r} should have the form Proto-X")
+        elif r["type"] == "earlier-stage" and not re.match(r"Pre-\S", r["name"]):
+            rep.warn(w, f"earlier-stage name {r['name']!r} should have the form Pre-X")
+        elif r["type"] in ("language", "dialect") and re.match(r"(Proto|Pre)[- ]", r["name"]):
+            rep.warn(w, f"{r['name']!r} looks reconstructed but its type is {r['type']}; "
+                        "use proto-language (Proto-X) or earlier-stage (Pre-X)")
+        # The group a proto-language is the ancestor of: 'clade', or the name without Proto-.
+        # An earlier stage of one language heads no group.
+        r["clade_label"] = r["clade"] or (re.sub(r"^Proto-", "", r["name"]) if r["type"] == "proto-language" else "")
+        if r["clade"] and r["type"] != "proto-language":
+            rep.warn(w, "clade is for proto-languages; ignored here")
+            r["clade_label"] = ""
         if CANONICAL in r["systems_list"]:
             rep.error(w, f"'{CANONICAL}' is a spelling, not a reconstruction system; remove it from systems")
         lects[r["id"]] = r
@@ -410,10 +517,21 @@ def validate_and_derive(t, rep: Report):
         if p:
             if p not in lects:
                 rep.error(w, f"parent_id {p!r} is not a lect")
-            elif lects[p]["type"] != "proto-language":
-                rep.error(w, f"parent_id {p!r} is a {lects[p]['type']}, must be a proto-language")
-        elif r["type"] != "proto-language":
+            elif lects[p]["type"] not in RECONSTRUCTED:
+                rep.error(w, f"parent_id {p!r} is a {lects[p]['type']}, must be a proto-language or an earlier-stage")
+        elif r["type"] not in RECONSTRUCTED:
             rep.warn(w, "attested lect with no parent_id: nothing can be stated about its history")
+        # Competing reconstructions of the same node: both are listed under the
+        # parent, and nothing below either of them is.
+        r["competes_list"] = [a.strip() for a in r["competes_with"].split(";") if a.strip()]
+        for c in r["competes_list"]:
+            if c not in lects:
+                rep.error(w, f"competes_with {c!r} is not a lect")
+            elif c == r["id"]:
+                rep.error(w, "a lect cannot compete with itself")
+            elif lects[c]["parent_id"] != p:
+                rep.warn(w, f"competes_with {c!r} has a different parent_id; competing reconstructions "
+                            "should stand under the same parent")
         # cycle check
         seen, cur = {r["id"]}, p
         while cur and cur in lects:
@@ -574,7 +692,7 @@ def validate_and_derive(t, rep: Report):
                         row["voicing"], row["rounding"])
             if s in symbols_of[P]:
                 return reading(P, s, seen + (L,))
-        return symbol_features(s, lects[L]["type"] == "proto-language")
+        return symbol_features(s, lects[L]["type"] in RECONSTRUCTED)
 
     def phoneme_record(L, s, row, origin):
         inferred = []
@@ -729,7 +847,7 @@ def validate_and_derive(t, rep: Report):
         if L not in lects:
             rep.error(w, f"lect_id {L!r} is not in lects.csv")
             continue
-        if lects[L]["type"] != "proto-language":
+        if lects[L]["type"] not in RECONSTRUCTED:
             rep.warn(w, f"{L} is not a proto-language; notation_map is for proto-phonemes")
         for col in ("system", "symbol"):
             if not r[col]:
@@ -816,7 +934,7 @@ def validate_and_derive(t, rep: Report):
             if "C" in classes and "V" not in classes:
                 rep.warn(f"notation_map.csv ({L})", f"system {S} has consonants but no vowel rows")
     for L, inv in inventory.items():
-        if lects[L]["type"] != "proto-language":
+        if lects[L]["type"] not in RECONSTRUCTED:
             continue
         for s in inv:
             if not notation.get(pid(L, s)):
@@ -870,6 +988,29 @@ def validate_and_derive(t, rep: Report):
             "relays": [{"source_id": k, "rows": v} for k, v in sorted(c["relays"].items())],
         }
 
+    # --- works cited in running text (notes) need a sources row
+    labels = defaultdict(set)   # 'Lee & Wang' -> {'1984', '2022a', ...}
+    for sr in sources.values():
+        who = sr["label"].rsplit(" ", 1)[0]
+        labels[who].add(sr["year"] + sr["year_suffix"])
+        labels[who].add(sr["year"])
+    missing_works = {}
+    lect_words = frozenset(w for r in lects.values() for n in [r["name"]] + r["alt_names_list"]
+                           for w in [n] + n.replace("-", " ").split())
+    text_cols = ("notes", "orthography_note", "reason", "via_note")
+    for table in ("sources", "lects", "phonemes", "correspondences", "notation_map"):
+        for r in t[table]:
+            for col in text_cols:
+                for who, year, suffix in cited_works(r.get(col, "") or "", lect_words):
+                    known = labels.get(who) or next((v for k, v in labels.items() if k.endswith(" " + who)), set())
+                    if year + suffix in known or (not suffix and any(k.startswith(year) for k in known)):
+                        continue
+                    entry = missing_works.setdefault((who, year + suffix), [r["_where"], 0])
+                    entry[1] += 1
+    for (who, year), (where, n) in sorted(missing_works.items()):
+        rep.warn(where, f"{who} ({year}) is cited in notes but has no sources row"
+                        + (f" ({n} mentions; this is the first)" if n > 1 else ""))
+
     # --- build reports
     by_parent = defaultdict(list)   # parent_phoneme_id -> rows
     by_child = defaultdict(list)    # child_phoneme_id -> rows
@@ -904,6 +1045,8 @@ def validate_and_derive(t, rep: Report):
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,
         "sysph": sysph, "conflicts": find_conflicts(corrs, sysph),
+        "competing": {L for L, r in lects.items() if r["competes_list"]}
+                     | {c for r in lects.values() for c in r["competes_list"]},
     }
 
 
@@ -931,7 +1074,7 @@ def find_conflicts(corrs, sysph):
 # ---------------------------------------------------------------- derivation
 
 def phoneme_url_id(sym, lect_type):
-    s = ("_" + sym) if lect_type == "proto-language" else sym
+    s = ("_" + sym) if lect_type in RECONSTRUCTED else sym
     return quote(s, safe="_")
 
 
@@ -1001,8 +1144,12 @@ def ancestry_graph(phoneme_id, D):
     return {"nodes": nodes, "edges": edges}
 
 
-def descendants(phoneme_id, D, path=(), depth=0):
-    """Flattened downward rows, each with the path of intermediate phonemes."""
+def descendants(phoneme_id, D, path=(), depth=0, beyond=False):
+    """Flattened downward rows, each with the path of intermediate phonemes.
+
+    A row into a competing reconstruction is marked 'competing'. Rows below
+    one are marked 'beyond_competing': they belong on that reconstruction's own
+    pages and are left out of the ancestor's reflex list."""
     out = []
     if depth > 50:
         return out
@@ -1012,9 +1159,12 @@ def descendants(phoneme_id, D, path=(), depth=0):
         # Beyond the first level, a row is shown by default only where sources
         # or reconstructions disagree about this stage.
         row["conflict"] = (r["child_lect_id"], r["parent_phoneme_id"]) in D["conflicts"]
+        row["competing"] = r["child_lect_id"] in D["competing"]
+        row["beyond_competing"] = beyond
         out.append(row)
         if r["child_phoneme_id"]:
-            out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1))
+            out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1,
+                                   beyond or row["competing"]))
     return out
 
 
@@ -1061,6 +1211,10 @@ def lect_json(L, D):
         for sp in phs.values():
             sp = dict(sp)
             sp["descendants"] = descendants(sp["id"], D)   # empty: descent is the default phoneme's
+            # A page of its own only where the descent differs (it has reflex
+            # rows of its own) or nothing in the default inventory matches it.
+            # Otherwise it is a spelling or phonetic value, explained on the default page.
+            sp["separate"] = bool(sp["descendants"]) or not sp["counterparts"]
             out.append(sp)
         systems.append({"name": S, "phonemes": out})
     return {
@@ -1073,6 +1227,8 @@ def lect_json(L, D):
         "parent_id": rec["parent_id"] or None,
         "ancestors": lect_chain(L, D["lects"]),
         "subgroup_path": rec["subgroup_list"],
+        "clade": rec["clade_label"],
+        "competes_with": sorted(set(rec["competes_list"]) | {k for k, v in D["lects"].items() if L in v["competes_list"]}),
         "region": rec["region"],
         "orthography_note": rec["orthography_note"],
         "notes": rec["notes"],
@@ -1109,7 +1265,7 @@ def index_json(D):
     for L in D["lects"]:
         j = lect_json(L, D)
         rows.append({k: j[k] for k in ("id", "name", "alt_names", "type", "glottocode",
-                                        "parent_id", "subgroup_path", "coverage", "index_status")})
+                                        "parent_id", "subgroup_path", "clade", "competes_with", "coverage", "index_status")})
     return {"lects": rows}
 
 

@@ -113,19 +113,31 @@ svg.anc a text.node { fill: var(--accent); }
 svg.anc text.node.here { font-weight: 700; }
 svg.anc text.stage { font-size: 12.5px; fill: var(--muted); }
 svg.anc a text.stage { fill: var(--accent); }
-svg.anc text.env { font-size: 10.5px; fill: var(--muted); }
+svg.anc text.env { font-size: 10.5px; fill: var(--fg); text-anchor: middle; }
+svg.anc rect.envbg { fill: var(--bg); stroke: var(--line); stroke-width: 0.8; }
 svg.anc text.plus { font-size: 13px; fill: var(--fg); text-anchor: middle; }
 svg.anc circle.join { fill: var(--bg); stroke: var(--muted); stroke-width: 1.3; }
 svg.anc tspan.sys { font-size: 10px; fill: var(--muted); font-family: inherit; }
-svg.anc line { stroke: var(--muted); stroke-width: 1.3; }
-svg.anc line.odd { stroke-dasharray: 4 3; }
+svg.anc path { stroke: var(--muted); stroke-width: 1.3; fill: none; }
+svg.anc path.odd { stroke-dasharray: 4 3; }
+svg.anc path:hover { stroke: var(--accent); stroke-width: 2.2; }
 details.steps { margin: 2px 0 12px; }
 details.steps summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .steps .here { color: var(--accent); font-weight: 700; }
 
-table.lects tr.proto td:first-child a { font-weight: 600; }
+table.lects b.clade { font-weight: 600; }
 table.lects .twist { display: inline-block; width: 20px; padding: 0; border: 0; background: none; font: inherit;
   color: var(--muted); cursor: pointer; text-align: left; font-size: 15px; line-height: 1; }
 table.lects button.twist:hover { color: var(--fg); }
 table.lects .count { font-size: 12px; margin-left: 6px; }
 .controls #count { font-size: 13px; margin-left: auto; }
+
+.foldbtn { font: inherit; font-size: 12px; padding: 0 6px; border: 1px solid var(--line); border-radius: 5px;
+  background: var(--bg); color: var(--accent); cursor: pointer; white-space: nowrap; }
+.foldbtn:hover { background: var(--accent-soft); }
+.anckey { font-size: 12.5px; color: var(--muted); margin: 0 0 4px; display: flex; flex-wrap: wrap; gap: 2px 16px; }
+.anckey b { color: var(--fg); font-weight: 600; margin-right: 3px; }
+
+table.refs td.ref { max-width: 520px; line-height: 1.5; padding-left: 2em; text-indent: -1.4em; }
+table.refs .refid { font-size: 12px; }
+table.othersys { width: auto; margin: 4px 0; }

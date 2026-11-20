@@ -38,6 +38,7 @@ LISTS = {
     "origin": ["sourced", "manual-add", "suppressed", "override"],
     "status": ["regular", "sporadic", "loan-stratum", "disputed"],
     "phoneme_status": sorted(build.PHONEME_STATUS),
+    "pub_type": sorted(build.PUB_TYPES),
     "blank_type": ["not-attested", "lexeme-replaced", "irregular", "loan", "disputed"],
     "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"],
 }
@@ -45,6 +46,8 @@ LISTS = {
 # (tab, column) -> list name, or "lects"/"sources" for an id from that tab.
 VALIDATION = {
     ("sources", "kind"): "source_kind",
+    ("sources", "pub_type"): "pub_type",
+    ("lects", "competes_with"): "lects",
     ("lects", "type"): "lect_type",
     ("lects", "parent_id"): "lects",
     ("phonemes", "lect_id"): "lects",

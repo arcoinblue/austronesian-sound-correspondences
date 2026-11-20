@@ -54,6 +54,46 @@
           {
             "name": "year_suffix",
             "datatype": "string"
+          },
+          {
+            "name": "pub_type",
+            "datatype": "string"
+          },
+          {
+            "name": "container_title",
+            "datatype": "string"
+          },
+          {
+            "name": "editors",
+            "datatype": "string"
+          },
+          {
+            "name": "volume",
+            "datatype": "string"
+          },
+          {
+            "name": "issue",
+            "datatype": "string"
+          },
+          {
+            "name": "pages",
+            "datatype": "string"
+          },
+          {
+            "name": "place",
+            "datatype": "string"
+          },
+          {
+            "name": "publisher",
+            "datatype": "string"
+          },
+          {
+            "name": "series",
+            "datatype": "string"
+          },
+          {
+            "name": "edition",
+            "datatype": "string"
           }
         ],
         "primaryKey": [
@@ -128,6 +168,14 @@
           },
           {
             "name": "systems",
+            "datatype": "string"
+          },
+          {
+            "name": "clade",
+            "datatype": "string"
+          },
+          {
+            "name": "competes_with",
             "datatype": "string"
           }
         ],
