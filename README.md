@@ -1,6 +1,6 @@
 # Austronesian Sound Correspondence Dictionary — data
 
-The repository is the system of record. You enter what a source says into five CSV tables in `cldf/`, and `build.py` checks it, derives everything else, and writes one JSON file per lect for the site.
+The data is entered in the Google Sheet (see *Editing in Google Sheets*), which is synced into five CSV tables in `cldf/`, plus a `decisions` table. `build.py` checks them, derives everything else, and writes one JSON file per lect for the site. `STATUS.md` says where things stand: table sizes, check results, open decisions, and what is still to enter or to code.
 
 ```
 cldf/
@@ -10,6 +10,7 @@ cldf/
   phonemes.csv           hand-entered phonemes only (sourced / manual-add / suppressed)
   correspondences.csv    proto-phoneme > reflex / environment, one row each
   notation_map.csv       each author's symbol for each proto-phoneme
+  decisions.csv          readings taken during entry that wait for confirmation
 build.py                 validator + derivation (Python 3.9+, standard library only)
 tests/                   constraint tests + a FICTIONAL example dataset
 build/                   output (generated; don't edit)
@@ -36,7 +37,7 @@ python3 -m unittest discover tests
 1. **`sources.csv`**: add the citation before you use its id.
 2. **`lects.csv`**: add the lect, with its nearest reconstructed ancestor in `parent_id`. That ancestor has to be entered first and needs phonemes.
 3. **`phonemes.csv`**: enter the inventory, but only if the source gives one.
-4. **`correspondences.csv`**: for each phoneme of the parent, add one row per reflex × environment, and include the gaps (typed blanks).
+4. **`correspondences.csv`**: for each phoneme of the parent, add one row per reflex × environment, and include the gaps (typed blanks). Where the source lists only changes, or only the nontrivial correspondences, set the lect's `inherit` instead of typing the X > X rows.
 5. **`notation_map.csv`**: if the lect is a proto-language, add one default `canonical` row (phoneme and symbol blank) citing where its spelling comes from, plus a row for each phoneme the source spells differently.
 6. Run `python3 build.py`. Fix all errors, then read the notes it prints (unentered proto-phonemes, possible allophones).
 
@@ -108,8 +109,10 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `clade` | | *optional column.* The group a proto-language is the ancestor of, used as the heading in the lect tree. Blank: the name without `Proto-` (Proto-Malayo-Polynesian heads *Malayo-Polynesian*). An earlier-stage heads no group. |
 | `competes_with` | | *optional column.* Id(s) of other lects that reconstruct the same node, `;`-separated; one direction is enough. See *Competing reconstructions*. |
 | `latitude`, `longitude` | | *optional columns.* Decimal degrees, south and west negative (`-8.38`, `118.18`). The lect page links them to a map. `tools/extract_coordinates.py` moves "coordinates -8.38, 118.18" out of `notes` into these columns. |
-| `changes_only` | | *optional column.* `TRUE` when the source lists only the changes into this lect (a classification tree such as Grimes & Edwards 2026). The build then carries the parent's inventory down: a parent phoneme the source does not mention is retained, and one it mentions only under conditions is retained elsewhere. These rows are marked *implied* and shown in grey; they never count as stated. |
+| `inherit` | | *optional column.* What happens to a parent phoneme for which the lect has no row; the build then generates the X > X rows instead of their being typed. Blank: nothing (the phoneme is reported as unentered). `assumed-unchanged`: the source lists only the changes into this lect (a classification tree such as Grimes & Edwards 2026), so retention is our inference. A parent phoneme with no row is retained, and one with only conditioned rows is retained elsewhere. The rows are `implied-retention`, shown in grey, and never count as stated. `stated-unchanged`: the source says that what it does not list is unchanged (it tabulates only the nontrivial correspondences, as Billings & McDonnell 2024). A parent phoneme with no row, or only sporadic or borrowed ones, is retained; conditioned rows get no complement, because such a source states its conditions in full. The rows are `stated-retention`, count as stated, and are marked "unchanged per source". An explicit row always wins. (This column was `changes_only`, `TRUE` = `assumed-unchanged`.) |
 | `language_id` | | *optional column.* For a dialect: the language it belongs to. The dialect's page says "Dialect of …" and the language's page lists its dialects. |
+| `inherit_source_id`, `inherit_page` | | *optional columns.* The citation of the generated rows: where the source says (or shows) that the rest is unchanged. Blank: the source and page the lect's own rows cite most. Give them for `stated-unchanged`. |
+| `inherit_note` | | *optional column.* The note of the generated rows (`Unchanged: not among the nontrivial sets of Table 3 (p. 119).`). Blank: a standard note. |
 | `alt_parents` | | *optional column.* Other classifications, `parent_id:source_id`, `;`-separated: `pef:chen2022`. The tree and the correspondences follow `parent_id`; the lect page lists the other hypotheses and the proposed parent lists the lect under "Daughters in other classifications". |
 | `overlap_groups` | | *optional column.* Names of subgroups that cut across the tree, `;`-separated (`Wetar-Galolen`). They are labels, not nodes: a lect can be in several, its `parent_id` stays what the tree says, and the changes that define the group are entered on each member. The lect page lists the other members, and the lect filter finds the name. |
 | `region`, `orthography_note`, `notes` | | |
@@ -170,10 +173,11 @@ One proto-segment → one reflex, in one daughter, in one environment. The paren
 | `locator` | | *optional column.* Where on the page: `Table 18`, `fig. 4`, `§4.8.3`, `tree`. Shown after the page number. Keep `page` a page number. |
 | `conditioning` | | *optional column.* `stated` (the environment is the condition) · `unknown` (the source gives no condition; environment `conditions unknown`, set automatically) · `lexical` (in some words only; say which in `lexical_scope`) |
 | `evidence_total` | | *optional column.* N where the source gives "n of N": `evidence_count` 12, `evidence_total` 94. Shown as "12 of 94". |
-| `derivation` | | *optional column.* `as-stated` (blank) · `composed` (restated against an intermediate node from the source's statements) · `implied-retention` (the build adds these for `changes_only` lects; enter it by hand only for a retention you infer) |
+| `derivation` | | *optional column.* `as-stated` (blank) · `composed` (restated against an intermediate node from the source's statements) · `implied-retention` and `stated-retention` (the build adds these for lects with `inherit`; enter them by hand only for a single retention, inferred or stated) |
 | `variety`, `stratum`, `lexical_scope` | | *optional columns.* What used to go into `environment` but is not a phonological condition: `Southern dialect`, `older generations`; `Kiribati loans`, `Northern stratum`; `*kəmpuŋ`, `two etyma`. |
 | `examples` | | *optional column.* Cognate-set ids (ACD) or example forms as printed, `;`-separated. |
 | `source_form` | | *optional column.* The reflex as printed, when `child_phoneme` is its IPA (printed `ʤ`, stored `d͡ʒ`). |
+| `decision` | | *optional column.* The `id` of a `decisions` row when the row depends on a reading that waits for confirmation. |
 | `system` | | *optional column.* Set it when `parent_phoneme` is a phoneme of another reconstruction system (`Ross`, with `parent_phoneme` `Z`). Blank means the parent's default inventory. |
 
 How to enter the common cases:
@@ -241,13 +245,28 @@ poc,,canonical,,ross2023,26,"Orthography of Ross (1988, 1989)."
 poc,R,canonical,R,ross2023,27,"Orthography of Ross (1988, 1989)."
 ```
 
-The build gives every phoneme of the lect without a `canonical` row of its own a row with the default's citation (implied phonemes of a changes-only lect get none, as before). Enter a phoneme's own row only where the spelling or the citation differs; it wins over the default. `tools/migrate_v2.py` collapsed the per-phoneme rows into defaults (see *Layout v2* below).
+The build gives every phoneme of the lect without a `canonical` row of its own a row with the default's citation (implied phonemes of an assumed-unchanged lect get none). Enter a phoneme's own row only where the spelling or the citation differs; it wins over the default. `tools/migrate_v2.py` collapsed the per-phoneme rows into defaults (see *Layout v2* below).
 
 **Reconstruction systems.** `phonemes.csv` holds the lect's default system (`lects.default_system`). Every other system's phonemes come from this table: a row with system `Ross` and symbol `D` defines Ross's \*D, keyed by lect, system and symbol, so it is a different phoneme from Blust's \*D. The `phoneme` column says which default phoneme it corresponds to; one system phoneme can be listed against several, and `phoneme` may be blank if it has no counterpart. `canonical` and the default system's own name are spellings only and define no phonemes.
 
 A system phoneme with blank place or manner is filled the same way: from a distinctive IPA symbol (`θ`), else from the default phoneme it matches, else from the symbol tables. To say that a system does not have one of the default phonemes at all, add a row with symbol `∅`. With the default system's own name, that removes the phoneme from the default tab's chart; its page stays, for the systems that do reconstruct it.
 
 On the site each proto-phoneme page has one tab per system. A system's tab shows its symbol and phonetic value. It shows its own reflexes only if `correspondences` has rows with that `system`; otherwise the reflexes are the default ones.
+
+### `decisions.csv`
+
+A reading taken during data entry that the user has still to confirm: how a table was read, a classification chosen, a code corrected. One row per decision; rows of `correspondences` that depend on it name it in `decision`. The open ones are listed in `STATUS.md` and in the build's notes. To settle one, change its `status` in the sheet (and the rows, if the other reading wins).
+
+| column | required | values |
+|---|---|---|
+| `id` | yes | lowercase slug, e.g. `ge-helong-d` |
+| `batch` | | the batch or source it came from |
+| `question` | yes | what had to be decided |
+| `chosen_reading` | | what was entered |
+| `alternatives` | | the other reading(s) |
+| `status` | yes | `open` · `confirmed` · `reverted` |
+| `source_id`, `page` | | where the question arises |
+| `notes` | | |
 
 ---
 
@@ -261,6 +280,19 @@ Defaults the build fills in, so they are not typed row by row (restructuring pla
 - Correspondence `id`s are frozen: every row has one, and a new row should get one (the build's report gives the hash it would use).
 
 `tools/migrate_v2.py` rewrites tables to this layout and `--reverse` writes every default out again. Both layouts build the same site data; `tests/test_migration.py` checks that on the repository's tables. Row provenance is described by `derivation` (as-stated · composed · implied-retention), so there is no separate `basis` column.
+
+## Layout v3 (November 2026)
+
+Restructuring plan, phase 3:
+
+- `lects.changes_only` became `inherit` (`TRUE` = `assumed-unchanged`), with `inherit_source_id`, `inherit_page`, `inherit_note`.
+- 854 explicit X > X rows that said only "unchanged" are generated instead: 575 Grimes & Edwards identity rows at intermediate nodes (implied retentions) and 279 Billings & McDonnell rows "not among the nontrivial sets" (17 lects set to `stated-unchanged`). 32 such rows stay, because another row covers the same phoneme. The removed rows are kept in `data/migrations/v3_removed_correspondences.csv`.
+- The `decisions` table, seeded with the open items of the handoffs, and `correspondences.decision`.
+- `STATUS.md`, whose first part the build writes (`python3 build.py --check --status STATUS.md`).
+
+`tools/migrate_v3.py` does the rewrite; `tests/test_migration_v3.py` checks that the build generates every removed row unchanged (lect, phonemes, environment, status, source, page) and that putting them back changes nothing the build derives.
+
+A migration reaches the sheet through **Actions → Apply a migration to the sheet** (`sheet-apply.yml`, `tools/sheet_apply.py`): run it with `dry-run` to see the plan, then with `apply` and the number of rows to delete. It renames and adds columns, creates missing tabs, changes cells and deletes rows (each deleted correspondence must be in the archive file), never adds or reorders rows, and fails unless a sync afterwards finds the sheet equal to `cldf/`.
 
 ## What the build checks
 
@@ -317,10 +349,10 @@ Then open http://localhost:8765.
 
 ## Editing in Google Sheets
 
-The data is entered in the Google Sheet [Austronesian Sound Correspondences — data](https://docs.google.com/spreadsheets/d/1mzL8wYSb73PeuJShX-Xor7y6iIFDS991F9CV2AZD7mk/edit). It has one tab per table, with the same headers, dropdowns for every fixed vocabulary, and every cell set to plain text. **The sheet is the source of truth: direct edits to `cldf/*.csv` are overwritten by the next sync.**
+The data is entered in the Google Sheet [Austronesian Sound Correspondences — data](https://docs.google.com/spreadsheets/d/1mzL8wYSb73PeuJShX-Xor7y6iIFDS991F9CV2AZD7mk/edit). It has one tab per table (`sources`, `lects`, `phonemes`, `correspondences`, `notation_map`, `decisions`), with the same headers, dropdowns for every fixed vocabulary, and every cell set to plain text. **The sheet is the source of truth: direct edits to `cldf/*.csv` are overwritten by the next sync.**
 
 - `.github/workflows/sync-sheet.yml` runs every hour, or immediately from **Actions → Sync from Google Sheets → Run workflow**.
-- It downloads the sheet (`tools/sync_sheet.py`), runs `build.py --check`, and, if the data passes and anything changed, commits `cldf/` and redeploys the site.
+- It downloads the sheet (`tools/sync_sheet.py`), runs `build.py --check --status STATUS.md`, and, if the data passes and anything changed, commits `cldf/` and `STATUS.md` and redeploys the site.
 - If a check fails, nothing is committed and the run fails. Errors read `tab.csv:ROW`, where ROW is the row in that tab of the sheet.
 - The sheet must stay shared as "anyone with the link can view". Its id is stored in the repository variable `SHEET_ID` (Settings → Secrets and variables → Actions → Variables).
 - `tools/make_sheet_template.py` regenerates the workbook (tabs, dropdowns, help tab) from `build.py`'s vocabularies, should the schema change. Re-upload it, or copy the changed dropdowns by hand.
@@ -332,8 +364,8 @@ The data is entered in the Google Sheet [Austronesian Sound Correspondences — 
 
 Hand edits and a few new rows go straight into the sheet. A larger addition (one source read into many rows) goes through a pull request, and a workflow appends the rows to the sheet; the sheet stays the source of truth and the only place rows are changed.
 
-1. Make a folder `data/incoming/<batch-id>/` (lowercase, e.g. `lobel2013`). Put in it one CSV per table you add to (`sources.csv`, `lects.csv`, `phonemes.csv`, `correspondences.csv`, `notation_map.csv`), each with a header row of that table's columns, any order, unused columns left out, **new rows only**. Every correspondence needs an `id`. Add `BATCH.md`: source and pages read, scope, method, decisions taken, what was not entered.
-2. Open a pull request. CI runs `python tools/batches.py check`: it checks the batch against `cldf/` (the sheet at the last sync), runs all of `build.py`'s checks on the combined data with errors pointing at `data/incoming/<batch-id>/<table>.csv:LINE`, and refuses a row whose key is already in the sheet with different content. Keys: `id` (sources, lects, correspondences), `lect_id`+`ipa` (phonemes), `lect_id`+`phoneme`+`system`+`symbol` (notation_map).
+1. Make a folder `data/incoming/<batch-id>/` (lowercase, e.g. `lobel2013`). Put in it one CSV per table you add to (`sources.csv`, `lects.csv`, `phonemes.csv`, `correspondences.csv`, `notation_map.csv`, `decisions.csv`), each with a header row of that table's columns, any order, unused columns left out, **new rows only**. Every correspondence needs an `id`. Add `BATCH.md`: source and pages read, scope, method, what was not entered. Readings that need the user's confirmation go into `decisions.csv` (and the rows that depend on them name it in `decision`); what is left to enter goes into `STATUS.md`.
+2. Open a pull request. CI runs `python tools/batches.py check`: it checks the batch against `cldf/` (the sheet at the last sync), runs all of `build.py`'s checks on the combined data with errors pointing at `data/incoming/<batch-id>/<table>.csv:LINE`, and refuses a row whose key is already in the sheet with different content. Keys: `id` (sources, lects, correspondences, decisions), `lect_id`+`ipa` (phonemes), `lect_id`+`phoneme`+`system`+`symbol` (notation_map).
 3. Merge. **Actions → Add batch to Google Sheets** (`push-batch.yml`) then syncs the sheet, checks again, appends the new rows below the last row of each tab (values written as plain text, exactly as in the CSV), syncs back, verifies that every row arrived unchanged, moves the folder to `data/batches/<batch-id>/` with the sheet rows noted in `BATCH.md`, commits and redeploys.
 
 Running it again adds nothing: rows whose key is already in the sheet with the same content are skipped. If something in the sheet changed in between, so that the rows below the data are not empty or a key now has different content, the run stops before writing anything.

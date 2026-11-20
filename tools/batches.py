@@ -3,7 +3,7 @@
 
 A batch is a folder data/incoming/<batch-id>/ holding BATCH.md and one CSV per
 table it adds to (sources.csv, lects.csv, phonemes.csv, correspondences.csv,
-notation_map.csv). Each CSV has a header row with columns of that table, in any
+notation_map.csv, decisions.csv). Each CSV has a header row with columns of that table, in any
 order; columns left out are blank. Only new rows go in a batch: changes to rows
 already in the sheet are made in the sheet.
 
@@ -14,7 +14,7 @@ already in the sheet are made in the sheet.
     python tools/batches.py auth-check --sheet ID
 
 A row is identified by its key: sources.id, lects.id, correspondences.id,
-phonemes lect_id+ipa, notation_map lect_id+phoneme+system+symbol. A key already in
+decisions.id, phonemes lect_id+ipa, notation_map lect_id+phoneme+system+symbol. A key already in
 the sheet with the same content is skipped, so applying twice adds nothing; a key
 already there with different content stops the run, before anything is written.
 
@@ -49,6 +49,7 @@ KEYS = {
     "phonemes": ["lect_id", "ipa"],
     "correspondences": ["id"],
     "notation_map": ["lect_id", "phoneme", "system", "symbol"],
+    "decisions": ["id"],
 }
 SHEETS_API = "https://sheets.googleapis.com/v4/spreadsheets"
 
@@ -67,7 +68,10 @@ def show_key(table, k):
 
 
 def read_records(path):
-    """CSV records as lists (blank records kept, as the sync keeps blank sheet rows)."""
+    """CSV records as lists (blank records kept, as the sync keeps blank sheet rows).
+    A table that may be missing (build.OPTIONAL_TABLES) reads as empty."""
+    if not path.exists() and path.stem in build.OPTIONAL_TABLES:
+        return list(build.TABLES[path.stem]), []
     rows = list(csv.reader(io.StringIO(path.read_text(encoding="utf-8"))))
     return rows[0], rows[1:]
 

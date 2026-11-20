@@ -70,7 +70,7 @@ jobs:
 
       - name: Check the data
         if: inputs.mode != 'auth-check'
-        run: python build.py --check --quiet
+        run: python build.py --check --quiet --status STATUS.md
 
       - name: Record the batch, commit and redeploy
         if: inputs.mode != 'auth-check'
@@ -80,7 +80,7 @@ jobs:
           python tools/batches.py archive
           git config user.name "sheet-sync[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A cldf data
+          git add -A cldf data STATUS.md
           if git diff --cached --quiet; then
             echo "Nothing to commit."
             exit 0

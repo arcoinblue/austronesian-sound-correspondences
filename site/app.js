@@ -339,6 +339,10 @@ async function pageLect(L) {
     : d.index_status === "empty" ? `No correspondences entered: the sources used give no data for ${d.name}.`
     : changesView ? `The source gives only the changes that define ${d.name}, so its inventory is not known. The table lists those changes; it is not a phoneme inventory.`
     : statusNote;
+  // A source that says what it does not list is unchanged (it tabulates only the nontrivial sets).
+  const inheritNote = d.inherit === "stated-unchanged"
+    ? `${SOURCES[d.inherit_source_id]?.label || "The source"}${d.inherit_page ? ": " + d.inherit_page : ""} lists only the correspondences that are not identities, so a phoneme of ${LECTS[d.parent_id]?.name || "its parent"} with no other row here is unchanged. Those rows are marked "unchanged per source".`
+    : "";
   const changesTable = d.changes.length ? `<h2>Changes defining this ${proto ? "node" : "lect"}</h2>
     <div class="scroll"><table><tr><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
     ${d.changes.map(r => `<tr><td>${r.parent ? phLink(r.parent) : ""} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
@@ -371,6 +375,7 @@ async function pageLect(L) {
       ${d.notes ? `<dt>Notes</dt><dd>${fold(d.notes, 320)}</dd>` : ""}
     </dl>
     ${note ? `<div class="notice">${esc(note)}</div>` : ""}
+    ${inheritNote ? `<div class="notice">${esc(inheritNote)}</div>` : ""}
     ${changesView && !d.changes_only ? changesTable : ""}
     ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
     ${changesView && !d.changes_only ? "" : `<div id="inv">${inventoryHtml(L, own)}</div>`}
@@ -627,7 +632,8 @@ function envHtml(r) {
     r.lexical_scope && `<span class="tag" title="lexically restricted">${esc(r.lexical_scope)}</span>`,
     r.conditioning === "lexical" && !r.lexical_scope && `<span class="tag">lexically restricted</span>`,
     r.derivation === "composed" && `<span class="tag der" title="composed from the source's statements against an earlier stage; see notes">composed</span>`,
-    r.derivation === "implied-retention" && `<span class="tag der" title="not mentioned by a changes-only source">implied</span>`,
+    r.derivation === "implied-retention" && `<span class="tag der" title="not mentioned by a source that lists only the changes: taken as retained">implied</span>`,
+    r.derivation === "stated-retention" && `<span class="tag der" title="the source says that what it does not list is unchanged">unchanged per source</span>`,
     r.source_form && `<span class="muted" title="as printed in the source">printed ${esc(r.source_form)}</span>`,
   ].filter(Boolean);
   return env + (tags.length ? " " + tags.join(" ") : "");

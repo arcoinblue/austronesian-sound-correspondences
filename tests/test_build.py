@@ -286,10 +286,10 @@ class TestSheetRoundTrip(unittest.TestCase):
         def m2(d):
             path = d / "lects.csv"
             rows = list(csv.reader(path.open(encoding="utf-8")))
-            col = rows[0].index("changes_only")
+            col = rows[0].index("inherit")
             for r in rows[1:]:
                 if r[0] == "pxb":
-                    r[col] = "TRUE"
+                    r[col] = "assumed-unchanged"
             with path.open("w", encoding="utf-8", newline="") as f:
                 csv.writer(f, lineterminator="\n").writerows(rows)
             # The source mentions only *s (> h) and *q (before i): the rest is implied.
@@ -508,11 +508,113 @@ class TestV2Layout(unittest.TestCase):
         def m(d):
             p = d / "correspondences.csv"
             lines = p.read_text(encoding="utf-8").splitlines()
-            self.assertTrue(lines[0].endswith(",as_printed,locator") and lines[1].endswith(",,"))
-            lines[1] = lines[1][:-2] + ",*p > p,Table 3"
+            self.assertTrue(lines[0].endswith(",as_printed,locator,decision") and lines[1].endswith(",,,"))
+            lines[1] = lines[1][:-3] + ",*p > p,Table 3,"
             p.write_text("\n".join(lines) + "\n", encoding="utf-8")
         rep, D = run(m, derived=True)
         self.assertEqual(rep.errors, [])
         e = build.edge(D["corrs"][0])
         self.assertEqual((e["as_printed"], e["locator"]), ("*p > p", "Table 3"))
         self.assertEqual(build.note_with_printed("*p > p", "Split."), "As printed: *p > p. Split.")
+
+
+def set_cells(name, key_col, key, **cells):
+    """Set columns of the row whose key_col is key (a mutate step for run())."""
+    def m(d):
+        path = d / name
+        with path.open(encoding="utf-8") as f:
+            rows = list(csv.reader(f))
+        for r in rows[1:]:
+            if r[rows[0].index(key_col)] == key:
+                for c, v in cells.items():
+                    r[rows[0].index(c)] = v
+        with path.open("w", encoding="utf-8", newline="") as f:
+            csv.writer(f, lineterminator="\n").writerows(rows)
+    return m
+
+
+def drop_rows(name, pred):
+    def m(d):
+        path = d / name
+        with path.open(encoding="utf-8") as f:
+            rows = list(csv.reader(f))
+        h = rows[0]
+        keep = [h] + [r for r in rows[1:] if not pred(dict(zip(h, r)))]
+        with path.open("w", encoding="utf-8", newline="") as f:
+            csv.writer(f, lineterminator="\n").writerows(keep)
+    return m
+
+
+class TestV3Layout(unittest.TestCase):
+    """inherit, generated retentions and decisions (restructuring plan, phase 3)."""
+
+    def stated(self, *extra):
+        """samp1234 as stated-unchanged: its p, t, k, a, i, u rows go; R keeps only a sporadic row."""
+        ident = lambda r: r["child_lect_id"] == "samp1234" and r["parent_phoneme"] in "p t k a i u".split() \
+            and r["child_phoneme"] == r["parent_phoneme"] and r["environment"] == "elsewhere"
+        return lambda d: [drop_rows("correspondences.csv", ident)(d),
+                          set_cells("lects.csv", "id", "samp1234", inherit="stated-unchanged",
+                                    inherit_source_id="example2026", inherit_page="60",
+                                    inherit_note="Unchanged: not among the nontrivial sets of Table 9.")(d)] \
+            + [f(d) for f in extra]
+
+    def test_stated_unchanged_generates_the_identities(self):
+        rep, D = run(self.stated(), derived=True)
+        self.assertEqual(rep.errors, [])
+        gen = {r["parent_phoneme"]: r for r in D["corrs"]
+               if r["child_lect_id"] == "samp1234" and r["derivation"] == "stated-retention"}
+        # p keeps a conditioned row (p > ɸ / _u), and stated-unchanged adds no complement
+        # to conditioned rows. R has only a sporadic row; ə had no row at all.
+        self.assertEqual(set(gen), {"t", "k", "a", "i", "u", "R", "ə"})
+        r = gen["t"]
+        self.assertEqual((r["child_phoneme"], r["environment"], r["status"], r["source_id"], r["page"]),
+                         ("t", "elsewhere", "regular", "example2026", "60"))
+        self.assertEqual(r["notes"], "Unchanged: not among the nontrivial sets of Table 9.")
+        # Stated retentions count as stated, are not implied, and are not hidden deeper down.
+        cov = build.coverage("samp1234", D)
+        self.assertEqual(cov["implied"], 0)
+        self.assertFalse(D["inventory"]["samp1234"]["t"]["implied"])
+        deep = [x for x in build.descendants("pxa:t", D) if x["child"] == "samp1234:t"]
+        self.assertTrue(deep and deep[0]["derivation"] == "stated-retention")
+        j = build.lect_json("samp1234", D)
+        self.assertEqual((j["inherit"], j["inherit_source_id"], j["inherit_page"]),
+                         ("stated-unchanged", "example2026", "60"))
+        self.assertFalse(j["changes_only"])
+
+    def test_assumed_unchanged_gives_implied_rows_and_a_complement(self):
+        only_s_q = lambda r: r["child_lect_id"] == "pxb" and r["parent_phoneme"] not in ("s", "q")
+        rep, D = run(lambda d: [drop_rows("correspondences.csv", only_s_q)(d),
+                                set_cells("correspondences.csv", "parent_phoneme", "q", environment="_i")(d),
+                                set_cells("lects.csv", "id", "pxb", inherit="assumed-unchanged")(d)],
+                     derived=True)
+        self.assertEqual(rep.errors, [])
+        gen = [r for r in D["corrs"] if r["child_lect_id"] == "pxb" and r["derivation"] == "implied-retention"]
+        self.assertIn("q", {r["parent_phoneme"] for r in gen})          # retained elsewhere
+        self.assertNotIn("s", {r["parent_phoneme"] for r in gen})
+        self.assertTrue(all(r["source_id"] == "example2026" for r in gen))
+
+    def test_inherit_values_are_checked(self):
+        self.assertTrue(run(set_cells("lects.csv", "id", "pxb", inherit="TRUE")).errors)
+        self.assertTrue(run(set_cells("lects.csv", "id", "pxb", inherit="assumed-unchanged",
+                                      inherit_source_id="nobody1999")).errors)
+        w = run(set_cells("lects.csv", "id", "pxb", inherit_note="orphan")).warnings
+        self.assertTrue(any("apply only when inherit is set" in x for x in w))
+        w = run(set_cells("lects.csv", "id", "samp1234", inherit="stated-unchanged")).warnings
+        self.assertTrue(any("give inherit_source_id and inherit_page" in x for x in w))
+
+    def test_decisions_are_checked_and_listed(self):
+        rep, D = run(derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(len(D["decisions"]["example-merger"]["rows"]), 1)
+        self.assertTrue(any("open decision example-merger" in n for n in rep.notes))
+        edge = [build.edge(r) for r in D["corrs"] if r["decision"]]
+        self.assertEqual(edge[0]["decision"], "example-merger")
+        bad = run(set_cells("correspondences.csv", "decision", "example-merger", decision="nope"))
+        self.assertTrue(any("decision 'nope' is not in decisions.csv" in e for e in bad.errors))
+        bad = run(set_cells("decisions.csv", "id", "example-merger", status="maybe"))
+        self.assertTrue(any("status 'maybe'" in e for e in bad.errors))
+
+    def test_decisions_table_may_be_missing(self):
+        rep = run(lambda d: [(d / "decisions.csv").unlink(),
+                             set_cells("correspondences.csv", "decision", "example-merger", decision="")(d)])
+        self.assertEqual(rep.errors, [])

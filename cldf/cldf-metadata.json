@@ -191,7 +191,7 @@
             "datatype": "string"
           },
           {
-            "name": "changes_only",
+            "name": "inherit",
             "datatype": "string"
           },
           {
@@ -200,6 +200,18 @@
           },
           {
             "name": "alt_parents",
+            "datatype": "string"
+          },
+          {
+            "name": "inherit_source_id",
+            "datatype": "string"
+          },
+          {
+            "name": "inherit_page",
+            "datatype": "string"
+          },
+          {
+            "name": "inherit_note",
             "datatype": "string"
           }
         ],
@@ -433,6 +445,10 @@
           {
             "name": "locator",
             "datatype": "string"
+          },
+          {
+            "name": "decision",
+            "datatype": "string"
           }
         ],
         "foreignKeys": [
@@ -544,6 +560,53 @@
               ]
             }
           }
+        ]
+      }
+    },
+    {
+      "url": "decisions.csv",
+      "dc:description": "Readings taken during data entry that wait for (or have) the user's confirmation; correspondences.decision points here.",
+      "tableSchema": {
+        "columns": [
+          {
+            "name": "id",
+            "datatype": "string"
+          },
+          {
+            "name": "batch",
+            "datatype": "string"
+          },
+          {
+            "name": "question",
+            "datatype": "string"
+          },
+          {
+            "name": "chosen_reading",
+            "datatype": "string"
+          },
+          {
+            "name": "alternatives",
+            "datatype": "string"
+          },
+          {
+            "name": "status",
+            "datatype": "string"
+          },
+          {
+            "name": "source_id",
+            "datatype": "string"
+          },
+          {
+            "name": "page",
+            "datatype": "string"
+          },
+          {
+            "name": "notes",
+            "datatype": "string"
+          }
+        ],
+        "primaryKey": [
+          "id"
         ]
       }
     }
