@@ -144,3 +144,14 @@ The generator is `tools/batch_scripts/blust_histphon/build.py`. There is one mod
   - The vowel-harmony constraints as synchronic rules (§4.2.1.7).
   - The ordering relations (§4.3).
   - The 12 exceptions to height harmony (p. 21).
+
+
+## Applied
+
+2026-11-20 14:35 UTC, by the push-batch workflow.
+- sources: sheet rows 84-91
+- lects: sheet rows 682-687
+- phonemes: sheet rows 737-902
+- correspondences: sheet rows 5429-5805
+- notation_map: sheet rows 439-440
+- decisions: sheet rows 61-67

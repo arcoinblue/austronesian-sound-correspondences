@@ -8,23 +8,23 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 82 |  |
-| lects | 680 | 126 dialect, 30 earlier-stage, 326 language, 198 proto-language |
-| phonemes | 735 |  |
-| correspondences | 5427 | plus 6147 implied and 1536 stated retentions generated from lects.inherit |
-| notation_map | 437 |  |
-| decisions | 59 | 59 open |
+| sources | 90 |  |
+| lects | 686 | 126 dialect, 30 earlier-stage, 330 language, 200 proto-language |
+| phonemes | 901 |  |
+| correspondences | 5804 | plus 6154 implied and 1555 stated retentions generated from lects.inherit |
+| notation_map | 439 |  |
+| decisions | 66 | 66 open |
 
-Lects by `inherit`: (blank) 254, assumed-unchanged 308, stated-unchanged 118.
-Inventories: edited 24, empty 154, reverse-generated 472, sourced 30.
+Lects by `inherit`: (blank) 257, assumed-unchanged 309, stated-unchanged 120.
+Inventories: edited 24, empty 154, reverse-generated 472, sourced 36.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 156 warning(s), 580 note(s).
+`build.py --check`: 0 error(s), 155 warning(s), 603 note(s).
 
 | Warnings | Count |
 |---|---|
-| a work cited in notes has no sources row | 61 |
+| a work cited in notes has no sources row | 60 |
 | no glottocode | 56 |
 | a source is never cited | 28 |
 | an attested lect has symbols that are not IPA | 8 |
@@ -59,7 +59,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ge-uncertain` | Hukumina and Salas ("classification uncertain"). | Under PMP. |  |
 | `ge-celebic` | Grimes & Edwards's Celebic changes. | Not re-entered on pcel (Zobel's). |  |
 | `ge-iso` | ISO codes that differ between the tree and appendix A: Ngadha nxq/nxg, Baikeno bxq/bkx, Taliabu tly/tlv. | Ngadha nxg and Baikeno bkx (13:40); Taliabu still to settle. |  |
-| `ge-identity-conflicts` | Four identity rows were added at a node because a daughter states a change from that phoneme, but the node itself states a change for it: Proto-Nuclear Rote *d… | Both kept: the stated change and the identity, as two elsewhere reflexes. | 4 |
+| `ge-identity-conflicts` | Four identity rows were added at a node because a daughter states a change from that phoneme, but the node itself states a change for it: Proto-Nuclear Rote *d… | Both kept: the stated change and the identity, as two elsewhere reflexes. | 5 |
 | `pocr-parents` | Parents of PNCV, PNC and the Vanikoro languages (Teanu, Lovono, Tanema). | Directly under POc (PEOc, Proto-Southern Oceanic and a Temotu node are not entered). |  |
 | `pocr-glottocodes` | Glottocodes for Löyöp and Mwerlap, which have no Glottolog languoid under those names. | From the language metadata of Ross et al. (2023): Löyöp = leha1244 (urr), as listed (p. 625); Mwerlap = Merlav merl1237 (mrm) (p. 626), identified by the name … |  |
 | `pocr-volow` | Volow: Glottolog has it as a dialect of Mwotlap. | Entered as a language. |  |
@@ -95,6 +95,13 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ren-bel` | Table 2.2 has rows Bel and Ren; Table 1.6 has only 'Ren Rennellese and Bellona'. | Ren on Rennellese (renn1242, Rennell-Bellona) and Bel on Bellona (Glottolog dialect mung1270, alternative name Mungiki). |  |
 | `tok-placement` | Where does Tokelauan go? | Under Proto-Ellicean Outlier, as Table 2.2 lists it (pp. 23-24). Marck also suggests a Samoan-Tokelauan subgroup from four shared sporadic vowel changes (§5.8,… |  |
 | `wilson-nodes` | How are Wilson's (2021) proto-languages entered? | As nodes under Marck's PNP and PEP, with stated-unchanged inventories where Wilson says so (PCNO-EPN, PEPND, PFEPN, PEPNP; p. 44) and assumed-unchanged for PSS… |  |
+| `pns-node` | Are Proto-North Sarawak and Proto-Kenyah entered as nodes, when decision smith-higher-order holds Smith's North Sarawak back? | Yes, under PMP, from Blust (2007: 6-8), at the user's request (20 Nov 2026). Blust's PNS rests on a phonological innovation, the split of the voiced obstruents… |  |
+| `blust-unconditioned` | Blust gives several reflexes of one phoneme with counts and no condition (Dobel Table 4; Chamorro final *k, 9:6). How are they entered? | The most frequent reflex is regular 'elsewhere' (or in the environment Blust gives); each other reflex attested twice or more is regular with environment 'cond… |  |
+| `dobel-composed` | Blust (2014) states Dobel against PMP; Dobel is under four Grimes & Edwards (2026) nodes. How are his rows entered? | Each is restated against the Proto-Dobel-Koba phoneme the Grimes & Edwards rows give for that PMP phoneme (derivation composed, Blust's statement in as_printed… | 38 |
+| `cha-k` | Chamorro k: Blust says b, d, k and r occur only in loanwords (2000: 84), but lists six native words with final *k > k (p. 94). | k entered as a native phoneme; b, d and r as marginal (loans only). | 1 |
+| `cha-y` | Chamorro y: Topping's y is [dz], and Blust respells final -ai, -ao, -ui as -ay, -aw, -uy, taking [dz] and final [j] as one phoneme (2000: 85). | One phoneme d͡z (printed y); PMP *y > d͡z in all positions, final *-ay included. | 1 |
+| `kiput-collapsed` | Blust (2002) derives Kiput from PNS through 36 ordered changes (Table 17, p. 420). How are they entered? | As PNS segment > Kiput segment rows, as Blust's own summary of shifts, splits and mergers does (§3.3, pp. 423-427); each row's notes name the changes that prod… |  |
+| `pal-vowels` | Palauan vowel reflexes depend on pre-Palauan penultimate stress, which shifted under suffixation (Blust 2009: 310). | Entered with the set terms 'stressed syllable' (unchanged; *e > e or o) and 'unstressed syllable' (ə), and _# (lost). The stress is that of the pre-Palauan wor… |  |
 
 <!-- END GENERATED -->
 
