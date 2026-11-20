@@ -1,0 +1,2 @@
+id,author,year,title,kind,notes,pages
+zz-pipeline-test,"Test, Pipeline",2026,Batch workflow test row (to be removed),comparative,"Added by the push-batch workflow test; delete this row.",1-2
