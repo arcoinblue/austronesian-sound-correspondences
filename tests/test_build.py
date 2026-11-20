@@ -703,3 +703,28 @@ class TestVowelDefault(unittest.TestCase):
         rep, D = self.lect(["v1,four1234,a,e,_#,regular,,,example2026,7,,,,,,,,,,,,,,,,"])
         self.assertFalse([r for r in D["corrs"] if r["child_lect_id"] == "four1234"
                           and r["derivation"] == "implied-retention"])
+
+
+class TestStampIndex(unittest.TestCase):
+    """index.html links the viewer's files with a content hash, and carries a build stamp."""
+
+    def test_links_and_build_stamp(self):
+        from asc.export import stamp_index
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            (d / "js").mkdir()
+            (d / "js" / "a.js").write_text("one", encoding="utf-8")
+            (d / "style.css").write_text("x{}", encoding="utf-8")
+            (d / "index.html").write_text('<head><link rel="stylesheet" href="style.css"></head>'
+                                          '<script src="js/a.js"></script>', encoding="utf-8")
+            stamp_index(d, {"index.json": {"lects": []}, "sources.json": {}})
+            first = (d / "index.html").read_text(encoding="utf-8")
+            self.assertRegex(first, r'href="style\.css\?v=[0-9a-f]{10}"')
+            self.assertRegex(first, r'src="js/a\.js\?v=[0-9a-f]{10}"')
+            self.assertIn('<meta name="asc-build" content="', first)
+            # A changed file gets a new stamp.
+            (d / "js" / "a.js").write_text("two", encoding="utf-8")
+            (d / "index.html").write_text('<head></head><script src="js/a.js"></script>', encoding="utf-8")
+            stamp_index(d, {"index.json": {"lects": []}, "sources.json": {}})
+            self.assertNotEqual(first.split("a.js?v=")[1][:10],
+                                (d / "index.html").read_text(encoding="utf-8").split("a.js?v=")[1][:10])

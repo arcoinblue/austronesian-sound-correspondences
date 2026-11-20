@@ -1,6 +1,12 @@
 "use strict";
 // Page 1: the lect list (#/lects/), and the same list pivoted on a proto-phoneme (#/lects/?reflex=pmp:R).
 
+// How each list was left (the full list, and each reflex table): open groups,
+// filter, the "hide empty" box. Kept while the site is open, so coming back
+// from a lect finds the list as it was; the full list's open groups are also
+// kept across visits.
+const LIST_STATE = {};
+
 async function pageIndex(params) {
   const reflex = params.get("reflex");
   let pivot = null;
@@ -21,7 +27,13 @@ async function pageIndex(params) {
   // Lects that other classifications put under each node.
   const altKids = {};
   for (const l of INDEX.lects) for (const a of l.alt_parents || []) (altKids[a.parent_id] ||= []).push({ lect: l, source_id: a.source_id });
-  const state = { q: "", view: "tree", hideEmpty: true };
+  const key = reflex || "";
+  const mem = LIST_STATE[key] ||= { q: "", hideEmpty: true, open: null };
+  if (!mem.open && !pivot) try {
+    const saved = JSON.parse(localStorage.getItem("asc-open") || "null");
+    if (Array.isArray(saved)) mem.open = new Set(saved);
+  } catch (e) {}
+  const state = { q: mem.q, view: "tree", hideEmpty: mem.hideEmpty };
   try { state.view = localStorage.getItem("asc-view") === "flat" ? "flat" : "tree"; } catch (e) {}
 
   // The tree: daughters under their nearest ancestor. In a reflex table the
@@ -35,9 +47,17 @@ async function pageIndex(params) {
     k.sort((x, y) => (kids[y.id] ? 1 : 0) - (kids[x.id] ? 1 : 0) || x.name.localeCompare(y.name));
   const size = id => (kids[id] || []).reduce((n, k) => n + 1 + size(k.id), 0);
   // Open to start with: the top two levels; everything in a reflex table.
-  const open = new Set();
-  for (const r of kids[""] || []) { open.add(r.id); for (const k of kids[r.id] || []) open.add(k.id); }
-  if (pivot) pool.forEach(l => open.add(l.id));
+  const open = mem.open ||= new Set();
+  if (!open.size) {
+    for (const r of kids[""] || []) { open.add(r.id); for (const k of kids[r.id] || []) open.add(k.id); }
+    if (pivot) pool.forEach(l => open.add(l.id));
+  }
+  const remember = () => {
+    mem.q = state.q; mem.hideEmpty = state.hideEmpty;
+    if (!pivot) try { localStorage.setItem("asc-open", JSON.stringify([...open])); } catch (e) {}
+  };
+  // The clades above a lect, shown when the pointer rests on its name.
+  const pathOf = l => ancestorsOf(l.id).map(a => LECTS[a]?.clade || LECTS[a]?.name || a).join(" › ");
 
   app.innerHTML = `
     ${pivot ? `<div class="crumb"><a href="#/lects/">All lects</a> › reflexes of ${phLink(reflex)}</div>
@@ -75,7 +95,7 @@ async function pageIndex(params) {
           : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
-      return `<td>${label(l.type)}</td>
+      return `<td class="nw">${label(l.type)}</td>
         <td>${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
         ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td>${mid}</td>`;
     };
@@ -96,16 +116,20 @@ async function pageIndex(params) {
           const k = kids[l.id], group = k && l.type !== "earlier-stage";
           const isOpen = !group || q ? true : open.has(l.id);
           const clade = group ? (l.clade || l.name) : "";
+          // The daughter of an earlier stage (Pre-Gayo > Gayo) follows it at the same depth.
+          const afterStage = LECTS[l.parent_id]?.type === "earlier-stage" && inPool.has(l.parent_id);
           shown++;
           body += `<tr class="${q && !hit(l) ? "dim" : ""}">
-            <td style="padding-left:${10 + depth * 22}px">${group
-              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button><b class="clade">${esc(clade)}</b> <span class="muted">·</span> `
-              : `<span class="twist"></span>`}${lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${size(l.id)} lect${size(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
-          if (k && isOpen) walk(l.id, depth + 1);
+            <td class="nm" style="--d:${depth}" title="${esc(pathOf(l))}">${afterStage ? `<span class="twist after">↳</span>` : ""}${group
+              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${l.name === "Proto-" + clade
+                ? `<a class="clade" href="#/lects/${esc(l.id)}/" title="${esc(l.name)}">${esc(clade)}</a>`
+                : `<b class="clade">${esc(clade)}</b> <span class="muted">·</span> ${lectLink(l.id)}`}`
+              : (afterStage ? "" : `<span class="twist"></span>`) + lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${size(l.id)} lect${size(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
+          if (k && isOpen) walk(l.id, l.type === "earlier-stage" ? depth : depth + 1);
           // Lects that another classification puts here: listed, dimmed, with the work that proposes it.
           if (isOpen && altKids[l.id] && !q) for (const a of altKids[l.id]) {
             if (pivot && !pivot.alt.has(a.lect.id)) continue;
-            body += `<tr class="dim alt"><td style="padding-left:${10 + (depth + 1) * 22}px"><span class="twist"></span>${lectLink(a.lect.id)}
+            body += `<tr class="dim alt"><td class="nm" style="--d:${depth + 1}"><span class="twist"></span>${lectLink(a.lect.id)}
               <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">in another classification (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
           }
         }
@@ -114,15 +138,18 @@ async function pageIndex(params) {
       // In a reflex table, lects that another classification puts directly under the pivot's lect.
       if (pivot && !q) for (const a of altKids[pivot.lect] || []) {
         shown++;
-        body += `<tr class="alt"><td style="padding-left:10px"><span class="twist"></span>${lectLink(a.lect.id)}
+        body += `<tr class="alt"><td class="nm" style="--d:0"><span class="twist"></span>${lectLink(a.lect.id)}
           <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">in another classification (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
       }
     }
     const cols = tree ? 4 : 5;
     const hidden = state.hideEmpty && !pivot ? pool.filter(l => !hasData(l)).length : 0;
     app.querySelector("#count").textContent = pool.length ? `${shown} of ${pool.length} shown${hidden ? ` (${hidden} with no data hidden)` : ""}` : "";
+    remember();
     app.querySelector("#t").innerHTML = head + (body || `<tr><td colspan="${cols}" class="muted">${INDEX.lects.length ? "No lects match." : "No lects entered yet. Add rows to cldf/lects.csv."}</td></tr>`);
   };
+  app.querySelector("#q").value = state.q;
+  app.querySelector("#hideempty").checked = state.hideEmpty;
   app.querySelector("#q").addEventListener("input", e => { state.q = e.target.value; draw(); });
   app.querySelector("#hideempty").addEventListener("change", e => { state.hideEmpty = e.target.checked; draw(); });
   app.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {

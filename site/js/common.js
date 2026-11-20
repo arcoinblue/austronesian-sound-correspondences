@@ -51,8 +51,11 @@ document.addEventListener("click", e => {
   b.textContent = openNow ? "more" : "less";
 });
 
+// The build stamp (written into index.html by build.py) makes a browser fetch
+// the data again after each deploy instead of using its cached copy.
+const BUILD = document.querySelector('meta[name="asc-build"]')?.content || "";
 async function json(path) {
-  if (!cache[path]) cache[path] = fetch(path).then(r => {
+  if (!cache[path]) cache[path] = fetch(BUILD ? `${path}?v=${BUILD}` : path).then(r => {
     if (!r.ok) throw new Error(`${path}: ${r.status}`);
     return r.json();
   });
