@@ -728,3 +728,19 @@ class TestStampIndex(unittest.TestCase):
             stamp_index(d, {"index.json": {"lects": []}, "sources.json": {}})
             self.assertNotEqual(first.split("a.js?v=")[1][:10],
                                 (d / "index.html").read_text(encoding="utf-8").split("a.js?v=")[1][:10])
+
+
+class TestLatinG(unittest.TestCase):
+    """/g/ is written ɡ (U+0261) in every symbol column, proto-languages included."""
+
+    def test_latin_g_in_a_reflex(self):
+        rep = run(append("correspondences.csv", ",samp1234,ə,g,elsewhere,regular,,,example2026,1,"))
+        self.assertTrue(any("Latin g" in e for e in rep.errors), rep.errors)
+
+    def test_latin_g_in_an_environment(self):
+        rep = run(append("correspondences.csv", ",samp1234,ə,a,_g,regular,,,example2026,1,"))
+        self.assertTrue(any("environment _g" in e for e in rep.errors), rep.errors)
+
+    def test_g_in_a_word_is_fine(self):
+        rep = run(append("correspondences.csv", ",samp1234,ə,a,before a high vowel,regular,,,example2026,1,"))
+        self.assertFalse(any("Latin g" in e for e in rep.errors), rep.errors)

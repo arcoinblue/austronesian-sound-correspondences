@@ -22,7 +22,24 @@ def site_files(D):
         out.update(files)
     out["index.json"] = index_json(D, lites)
     out["sources.json"] = sources_json(D)
+    out["segments.json"] = segments_json(D, lites)
     return out
+
+
+def segments_json(D, lites):
+    """Every lect's inventory as its page shows it (the default system's
+    phonemes), for the Segments page: [ipa, url id, class, place, manner,
+    voicing, rounding, flags], flags "i" implied, "m" marginal or doubtful."""
+    out = []
+    for L in D["lects"]:
+        lite = lites[L]
+        ds = lite.get("default_system")
+        rows = [[p["ipa"], p["url_id"], p["class"], p["place"], p["manner"], p["voicing"], p["rounding"],
+                 ("i" if p.get("implied") else "") + ("m" if p.get("status") else "")]
+                for p in lite["phonemes"] if not (ds and ds in p.get("absent_from", []))]
+        if rows:
+            out.append({"l": L, "st": lite.get("inventory_status", ""), "p": rows})
+    return {"lects": out}
 
 
 def write_site(D, out_dir, site_dir):
