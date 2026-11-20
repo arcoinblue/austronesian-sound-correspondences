@@ -391,7 +391,7 @@ def validate_and_derive(t, rep: Report):
             row = entered.get(P, {}).get(s)
             if row and row["origin"] != "suppressed" and row["class"] in ("C", "V") \
                     and row["place"] not in ("", UNKNOWN) and row["manner"] not in ("", UNKNOWN):
-                return (row["class"], row["place"].replace(LABIALIZED, ""), row["manner"],
+                return (row["class"], row["place"].replace(LABIALIZED, "").replace(VELARIZED, ""), row["manner"],
                         row["voicing"], row["rounding"])
             if s in symbols_of[P]:
                 return reading(P, s, seen + (L,))
@@ -417,8 +417,8 @@ def validate_and_derive(t, rep: Report):
                 votes = [v for v in votes if v in ("C", "V")]
                 if votes:
                     cls = max(set(votes), key=votes.count)
-        if cls == "C" and place in PLACES_C_PLAIN and LABIAL_MARK in s:
-            place = LABIALIZED + place
+        if cls == "C":
+            place = secondary_column(place, s)
         return {
             "placement": ("inferred" if row is None or {"place", "manner"} & set(inferred)
                           else "source" if origin == "sourced" else "hand"),
@@ -538,8 +538,8 @@ def validate_and_derive(t, rep: Report):
                     for k in ("class", "place", "manner", "voicing", "rounding"):
                         if row[k]:
                             rec[k] = row[k]
-                    if rec["class"] == "C" and rec["place"] in PLACES_C_PLAIN and LABIAL_MARK in s:
-                        rec["place"] = LABIALIZED + rec["place"]
+                    if rec["class"] == "C":
+                        rec["place"] = secondary_column(rec["place"], s)
                     rec.update(placement="hand", reason=row["reason"], source_id=row["source_id"],
                                page=row["page"], notes=row["notes"], **via_of(row))
                 elif row["origin"] == "manual-add":
@@ -734,8 +734,8 @@ def validate_and_derive(t, rep: Report):
                 rec["inferred_fields"] = filled
                 if {"place", "manner"} & set(filled):
                     rec["placement"] = "inferred"
-                if rec["class"] == "C" and rec["place"] in PLACES_C_PLAIN and LABIAL_MARK in sym:
-                    rec["place"] = LABIALIZED + rec["place"]
+                if rec["class"] == "C":
+                    rec["place"] = secondary_column(rec["place"], sym)
                 if not (rec["place"] or rec["manner"]):
                     rep.warn(f"notation_map.csv ({L})", f"{S} phoneme {L}:{sym} has no place or manner, "
                                                         "and none could be inferred; it is listed as unclassified")
