@@ -249,6 +249,34 @@ class TestSheetRoundTrip(unittest.TestCase):
         self.assertTrue(any(r["competing"] for r in rows if r["child_lect_id"] == parent))
         self.assertTrue(all(r["beyond_competing"] for r in rows if r["via"]))
 
+    def test_inserted_sound_has_no_parent_phoneme(self):
+        def m(d):
+            append("correspondences.csv", "ins1,exam1234,∅,ʔ,_#,regular,,4,example2026,45,paragogic")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        parent = D["lects"]["exam1234"]["parent_id"]
+        g = build.ancestry_graph("exam1234:ʔ", D)
+        self.assertIn(f"{parent}:∅", [e["parent"] for e in g["edges"]])
+        self.assertEqual([e["child"] for e in build.lect_json(parent, D)["insertions"]], ["exam1234:ʔ"])
+        # ∅ is not a proto-phoneme, so it is not reported as unentered anywhere.
+        self.assertFalse([n for n in rep.notes if "*∅" in n])
+        self.assertTrue(run(append("correspondences.csv", "ins2,exam1234,∅,∅,_#,regular,,,example2026,45,")).errors)
+
+    def test_coordinates_overlap_groups_and_syllable_terms(self):
+        def m(d):
+            replace("lects.csv", "exam1234,Examplese,Exampli;Examp,language,exam1234,xex,pxb,PXA > PXB,Nowhere,<y> = /j/,sourced inventory,,,,,,,",
+                    "exam1234,Examplese,Exampli;Examp,language,exam1234,xex,pxb,PXA > PXB,Nowhere,<y> = /j/,sourced inventory,,,,,-8.57,126.02,East-West")(d)
+            replace("lects.csv", "samp1234,Samplish,,language,samp1234,,pxb,PXA > PXB,Nowhere,,edited inventory,,,,,,,",
+                    "samp1234,Samplish,,language,samp1234,,pxb,PXA > PXB,Nowhere,,edited inventory,,,,,,,East-West")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        j = build.lect_json("exam1234", D)
+        self.assertEqual(j["coordinates"], [-8.57, 126.02])
+        self.assertEqual(j["overlap_groups"], [{"name": "East-West", "members": ["samp1234"]}])
+        bad = run(replace("lects.csv", "sourced inventory,,,,,,,", "sourced inventory,,,,,95,10,"))
+        self.assertTrue([e for e in bad.errors if "latitude" in e])
+        self.assertIn("final syllable", build.ENV_SYLLABLES)
+
     def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
         def m(d):
             append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)

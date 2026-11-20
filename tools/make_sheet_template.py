@@ -40,7 +40,8 @@ LISTS = {
     "phoneme_status": sorted(build.PHONEME_STATUS),
     "pub_type": sorted(build.PUB_TYPES),
     "blank_type": ["not-attested", "lexeme-replaced", "irregular", "loan", "disputed"],
-    "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"],
+    "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"]
+                   + sorted(build.ENV_SYLLABLES),
 }
 
 # (tab, column) -> list name, or "lects"/"sources" for an id from that tab.

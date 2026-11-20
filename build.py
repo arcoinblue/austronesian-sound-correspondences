@@ -63,6 +63,11 @@ MANNERS_V = {"close", "near-close", "close-mid", "mid", "open-mid", "near-open",
 ROUNDING = {"rounded", "unrounded"}
 
 ENV_SHORTHANDS = {"elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"}
+# Set terms for a position counted in syllables, where a segment slot cannot say it
+# (a source's σσ# with one σ underlined). Use these words, not a paraphrase.
+ENV_SYLLABLES = {"final syllable", "penultimate syllable", "antepenultimate syllable", "initial syllable",
+                 "non-final syllable", "stressed syllable", "unstressed syllable",
+                 "pretonic syllable", "posttonic syllable"}
 
 GLOTTOCODE_RE = re.compile(r"^[a-z0-9]{4}[0-9]{4}$")
 ISO_RE = re.compile(r"^[a-z]{3}$")
@@ -223,7 +228,7 @@ TABLES = {
     "sources": ["id", "author", "year", "title", "url_or_doi", "kind", "notes", "year_suffix"] + PUB_COLUMNS,
     "lects": ["id", "name", "alt_names", "type", "glottocode", "iso639_3",
               "parent_id", "subgroup_path", "region", "orthography_note", "notes", "default_system",
-              "systems", "clade", "competes_with"],
+              "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups"],
     "phonemes": ["lect_id", "ipa", "source_symbol", "class", "place", "manner",
                  "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA
                 + ["status"],
@@ -237,7 +242,7 @@ TABLES = {
 # (they read as blank), so an older sheet or CSV keeps working.
 OPTIONAL_COLUMNS = {
     "sources": ["year_suffix"] + PUB_COLUMNS,
-    "lects": ["default_system", "systems", "clade", "competes_with"],
+    "lects": ["default_system", "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups"],
     "phonemes": VIA + ["status"],
     "correspondences": ["system"] + VIA,
     "notation_map": ["place", "manner", "voicing"] + VIA,
@@ -507,6 +512,19 @@ def validate_and_derive(t, rep: Report):
         if r["clade"] and r["type"] != "proto-language":
             rep.warn(w, "clade is for proto-languages; ignored here")
             r["clade_label"] = ""
+        # Where the lect is spoken, in decimal degrees (south and west negative).
+        r["coordinates"] = None
+        if r["latitude"] or r["longitude"]:
+            try:
+                lat, lon = float(r["latitude"]), float(r["longitude"])
+                if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+                    raise ValueError
+                r["coordinates"] = [lat, lon]
+            except ValueError:
+                rep.error(w, f"latitude {r['latitude']!r} and longitude {r['longitude']!r} must both be decimal "
+                             "degrees, within -90..90 and -180..180")
+        # Subgroups that cut across the tree (a lect can be in several): names only, not nodes.
+        r["overlap_list"] = [a.strip() for a in r["overlap_groups"].split(";") if a.strip()]
         if CANONICAL in r["systems_list"]:
             rep.error(w, f"'{CANONICAL}' is a spelling, not a reconstruction system; remove it from systems")
         lects[r["id"]] = r
@@ -617,6 +635,10 @@ def validate_and_derive(t, rep: Report):
         # parent's default system and "canonical" all mean the default inventory.
         if r["system"] in (CANONICAL, lects[P]["default_system"]):
             r["system"] = ""
+        if r["parent_phoneme"] == ZERO and r["child_phoneme"] in ("", ZERO):
+            rep.error(w, f"an inserted sound (parent_phoneme {ZERO}) needs the sound in child_phoneme")
+        if r["parent_phoneme"] == ZERO and r["system"]:
+            rep.error(w, f"an inserted sound (parent_phoneme {ZERO}) belongs to no reconstruction system; leave system blank")
         if r["child_phoneme"]:
             if r["blank_type"]:
                 rep.error(w, "has both a child_phoneme and a blank_type; use one")
@@ -634,7 +656,7 @@ def validate_and_derive(t, rep: Report):
             if not r["evidence_count"].isdigit():
                 rep.error(w, f"evidence_count {r['evidence_count']!r} must be a non-negative integer")
         env = r["environment"]
-        if env and env not in ENV_SHORTHANDS and "_" not in env:
+        if env and env not in ENV_SHORTHANDS and env not in ENV_SYLLABLES and "_" not in env:
             rep.note(w, f"environment {env!r} is free text (no '_' slot)")
         r["parent_lect_id"] = P
         r["parent_phoneme_id"] = pid(P, r["parent_phoneme"], r["system"])
@@ -782,12 +804,20 @@ def validate_and_derive(t, rep: Report):
         inventory[L] = inv
 
     # --- correspondences (second pass: referential integrity)
+    for g in {g for r in lects.values() for g in r["overlap_list"]}:
+        members = [L for L, r in lects.items() if g in r["overlap_list"]]
+        if len(members) == 1:
+            rep.warn(lects[members[0]]["_where"], f"overlapping subgroup {g!r} has only one member; check the spelling")
+        if any(r["clade_label"] == g for r in lects.values()):
+            rep.warn(lects[members[0]]["_where"], f"overlapping subgroup {g!r} has the name of a clade in the tree")
     for r in corrs:
         w, L, P = r["_where"], r["child_lect_id"], r["parent_lect_id"]
         if r["system"]:
             pass  # checked against the system's phonemes once notation_map is read
         elif not inventory.get(P):
             rep.error(w, f"ancestor {P} has no phoneme rows; enter its inventory first")
+        elif r["parent_phoneme"] == ZERO:
+            pass  # an inserted sound: nothing in the parent corresponds to it
         elif r["parent_phoneme"] not in inventory[P]:
             rep.error(w, f"parent phoneme {P}:{r['parent_phoneme']} is not in {P}'s inventory")
         if r["child_phoneme"] and r["child_phoneme"] != ZERO and inv_status[L] == "sourced" \
@@ -1019,7 +1049,7 @@ def validate_and_derive(t, rep: Report):
         by_parent[r["parent_phoneme_id"]].append(r)
         if r["child_phoneme_id"]:
             by_child[r["child_phoneme_id"]].append(r)
-        if not r["system"]:
+        if not r["system"] and r["parent_phoneme"] != ZERO:
             entered_pairs[r["child_lect_id"]].add(r["parent_phoneme"])
 
     for L, rec in lects.items():
@@ -1045,6 +1075,8 @@ def validate_and_derive(t, rep: Report):
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,
         "sysph": sysph, "conflicts": find_conflicts(corrs, sysph),
+        "overlap": {g: sorted(L for L, r in lects.items() if g in r["overlap_list"])
+                    for g in {g for r in lects.values() for g in r["overlap_list"]}},
         "competing": {L for L, r in lects.items() if r["competes_list"]}
                      | {c for r in lects.values() for c in r["competes_list"]},
     }
@@ -1257,6 +1289,11 @@ def lect_json(L, D):
             for p in rec.get("_suppressed", [])
         ],
         "daughters": sorted(k for k, v in D["lects"].items() if v["parent_id"] == L),
+        "coordinates": rec["coordinates"],
+        # Each overlapping subgroup with its other members.
+        "overlap_groups": [{"name": g, "members": [m for m in D["overlap"][g] if m != L]} for g in rec["overlap_list"]],
+        # Sounds inserted in the daughters: they have no phoneme here to descend from.
+        "insertions": [edge(r) for r in D["by_parent"].get(pid(L, ZERO), [])],
     }
 
 
@@ -1265,7 +1302,9 @@ def index_json(D):
     for L in D["lects"]:
         j = lect_json(L, D)
         rows.append({k: j[k] for k in ("id", "name", "alt_names", "type", "glottocode",
-                                        "parent_id", "subgroup_path", "clade", "competes_with", "coverage", "index_status")})
+                                        "parent_id", "subgroup_path", "clade", "competes_with", "coverage", "index_status",
+                                        "coordinates")})
+        rows[-1]["overlap_groups"] = [g["name"] for g in j["overlap_groups"]]
     return {"lects": rows}
 
 

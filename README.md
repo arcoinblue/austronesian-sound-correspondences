@@ -107,6 +107,8 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `systems` | | *optional column.* The lect's reconstruction systems, `;`-separated, in tab order: `Shibata;Blust;Ross;Wolff`. Any other system in `notation_map` is then a spelling only (Grace's POc orthography): it appears in the notation table and gets no tab. Blank: every system in `notation_map` gets a tab, in the order first seen. |
 | `clade` | | *optional column.* The group a proto-language is the ancestor of, used as the heading in the lect tree. Blank: the name without `Proto-` (Proto-Malayo-Polynesian heads *Malayo-Polynesian*). An earlier-stage heads no group. |
 | `competes_with` | | *optional column.* Id(s) of other lects that reconstruct the same node, `;`-separated; one direction is enough. See *Competing reconstructions*. |
+| `latitude`, `longitude` | | *optional columns.* Decimal degrees, south and west negative (`-8.38`, `118.18`). The lect page links them to a map. `tools/extract_coordinates.py` moves "coordinates -8.38, 118.18" out of `notes` into these columns. |
+| `overlap_groups` | | *optional column.* Names of subgroups that cut across the tree, `;`-separated (`Wetar-Galolen`). They are labels, not nodes: a lect can be in several, its `parent_id` stays what the tree says, and the changes that define the group are entered on each member. The lect page lists the other members, and the lect filter finds the name. |
 | `region`, `orthography_note`, `notes` | | |
 
 **Names.** A proto-language is `Proto-X`, with the hyphen even where the source writes "Proto X"; an earlier stage is `Pre-X`. The build warns otherwise.
@@ -182,6 +184,10 @@ poc-mb-b-C,poc,b,b,m+_,regular,,7,ross2023,35,
 ```
 
 The build pairs the rows. In the reflex's ancestry diagram the two members run to a "+" junction and one line goes on to the reflex, and each member's descent lists the reflex as "*m + *b fuse". A vowel and a glide that fuse are entered the same way (PMP *-aw* > POc *-o*: `a > o / _+w` and `w > o / a+_`). This is different from a segment that only changes next to another one, which is one ordinary row with a conditioning environment (`N_`, no `+`): there the neighbour survives as its own segment. If only one of the two rows is present the build warns and treats it as an ordinary conditioned change.
+
+**Inserted sounds.** A sound with nothing behind it in the parent (an epenthetic vowel, a glide before an initial vowel, a paragogic consonant) is a row with `parent_phoneme` `∅` and the sound in `child_phoneme`, with the environment it appears in: `∅ > ə / C_#`. Its ancestry starts from ∅, and the parent's page lists it under *Sounds inserted in daughter lects*. Leave `system` blank.
+
+**Syllable positions.** Where a condition counts syllables and no segment slot can say it (a source's σσ# with one σ marked), use one of these set terms as the environment: `final syllable` · `penultimate syllable` · `antepenultimate syllable` · `initial syllable` · `non-final syllable` · `stressed syllable` · `unstressed syllable` · `pretonic syllable` · `posttonic syllable`. Any other environment without a `_` slot is reported as free text.
 
 **Loss of a nasal before a consonant.** Where a nasal + consonant cluster is reflected exactly like the plain consonant (PMP *mp* > POc *p*), enter the loss of the nasal: parent the nasal, `child_phoneme` `∅`, environment `_p`, status `sporadic` unless it is the regular outcome, and the number of instances in `evidence_count`. The consonant needs no row of its own for the cluster.
 

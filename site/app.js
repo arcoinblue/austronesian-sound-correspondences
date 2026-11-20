@@ -67,6 +67,7 @@ const RECONSTRUCTED = ["proto-language", "earlier-stage"];
 function isProto(lectId) { return RECONSTRUCTED.includes(LECTS[lectId]?.type); }
 function sym(pid) {
   const { lect, s } = parsePid(pid);
+  if (s === "∅") return "∅";   // nothing: the source of an inserted sound, or a deletion
   return isProto(lect) ? `*${s}` : s;
 }
 function urlId(lectId, s) {
@@ -158,7 +159,7 @@ async function pageIndex(params) {
     const tree = state.view === "tree";
     app.querySelector(".treeonly").hidden = !tree;
     const q = state.q.toLowerCase();
-    const hit = l => !q || [l.name, ...l.alt_names].some(n => n.toLowerCase().includes(q));
+    const hit = l => !q || [l.name, ...l.alt_names, ...(l.overlap_groups || [])].some(n => n.toLowerCase().includes(q));
     const head = `<tr><th>Name</th><th>Type</th><th>Glottocode</th>${tree ? "" : "<th>Nearest ancestor</th>"}
       <th>${pivot ? "Reflex" : "Coverage"}</th></tr>`;
     const cells = l => {
@@ -316,7 +317,10 @@ async function pageLect(L) {
       ${d.subgroup_path.length ? `<dt>Subgroup</dt><dd>${esc(d.subgroup_path.join(" > "))}</dd>` : ""}
       <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
+      ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
+        <br><span class="muted" style="font-size:12.5px">Overlapping subgroups: they cut across the tree and are not nodes of it.</span></dd>` : ""}
       ${d.region ? `<dt>Region</dt><dd>${esc(d.region)}</dd>` : ""}
+      ${d.coordinates ? `<dt>Coordinates</dt><dd><a href="https://www.openstreetmap.org/?mlat=${d.coordinates[0]}&mlon=${d.coordinates[1]}#map=8/${d.coordinates[0]}/${d.coordinates[1]}" target="_blank" rel="noopener">${d.coordinates[0]}, ${d.coordinates[1]}</a></dd>` : ""}
       <dt>Coverage</dt><dd>${d.coverage ? `${d.coverage.with_descent} of ${d.coverage.inventory_size} phonemes have a sourced descent` : "root proto-language"}</dd>
       <dt>Inventory source</dt><dd>${d.inventory_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
       <dt>Correspondences</dt><dd>${d.correspondence_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
@@ -329,6 +333,11 @@ async function pageLect(L) {
     ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
       ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated, placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}
       ${d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote)) ? "Grey italic = the source gives no place or manner, so the position is read off the symbol." : ""}</p>` : ""}
+    ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
+      <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
+      <div class="scroll"><table><tr><th>Daughter lect</th><th>Inserted</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
+      ${d.insertions.map(r => `<tr><td>${lectLink(r.child_lect_id)}</td><td>${phLink(r.child)}</td><td>${envHtml(r)}</td><td>${badge(r.status)}</td>
+        <td>${r.evidence_count ?? ""}</td><td>${cite(r)}</td><td>${fold(r.notes, 140)}</td></tr>`).join("")}</table></div>` : ""}
     ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
       <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
       ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
@@ -500,6 +509,7 @@ function ancestryHtml(g, herePid) {
   const node = n => {
     const { lect, s, system } = parsePid(n);
     const t = `<text class="node${n === herePid ? " here" : ""}" x="${px(n)}" y="${py(n)}">${esc(sym(n))}${system ? `<tspan class="sys" dy="-7">${esc(system)}</tspan>` : ""}</text>`;
+    if (s === "∅") return `<g><title>Nothing in ${esc(LECTS[lect]?.name || lect)}: the sound was inserted</title>${t}</g>`;
     return n === herePid ? t : `<a href="#/lects/${esc(lect)}/${urlId(lect, s)}${system ? "@" + encodeURIComponent(system) : ""}/">${t}</a>`;
   };
   const svg = `<svg class="anc" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Ancestry diagram">
@@ -602,7 +612,7 @@ async function pagePhoneme(L, uid) {
       : `<tr><td>${esc(x.name)}</td><td colspan="3" class="muted">not a phoneme in this system</td></tr>`).join("")}</table>
     <p class="muted" style="font-size:12.5px">Same descent as ${esc(sym(ph.id))}: these systems differ in spelling or phonetic value only.</p>` : "";
   const proto = isProto(L);
-  const ancestorPids = ph.ancestry_graph.nodes.filter(n => n !== ph.id);
+  const ancestorPids = ph.ancestry_graph.nodes.filter(n => n !== ph.id && !n.endsWith(":∅"));
 
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a> › ${lectLink(L)}</div>

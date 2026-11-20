@@ -177,6 +177,18 @@
           {
             "name": "competes_with",
             "datatype": "string"
+          },
+          {
+            "name": "latitude",
+            "datatype": "string"
+          },
+          {
+            "name": "longitude",
+            "datatype": "string"
+          },
+          {
+            "name": "overlap_groups",
+            "datatype": "string"
           }
         ],
         "primaryKey": [
