@@ -216,6 +216,10 @@
           {
             "name": "via_note",
             "datatype": "string"
+          },
+          {
+            "name": "status",
+            "datatype": "string"
           }
         ],
         "primaryKey": [

@@ -163,6 +163,37 @@ class TestSheetRoundTrip(unittest.TestCase):
             self.assertEqual(len(rows), 1)
             self.assertTrue(rows[0]["fusion"])
 
+    def test_ancestry_graph_draws_each_ancestor_once(self):
+        def m(d):
+            append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)
+            append("correspondences.csv", "fz-N,exam1234,k,ᵐb,_+p,regular,,3,example2026,45,")(d)
+            append("correspondences.csv", "fz-C,exam1234,p,ᵐb,k+_,regular,,3,example2026,45,")(d)
+        rep, D = run(m, derived=True)
+        g = build.ancestry_graph("exam1234:ᵐb", D)
+        self.assertEqual(len(g["nodes"]), len(set(g["nodes"])))
+        parent = D["lects"]["exam1234"]["parent_id"]
+        fused = [e for e in g["edges"] if e["fusion"] and e["child"] == "exam1234:ᵐb"]
+        self.assertEqual(sorted(e["parent"] for e in fused), [f"{parent}:k", f"{parent}:p"])
+        # The members' own ancestors are in the graph too.
+        self.assertTrue(any(e["child"] == f"{parent}:k" for e in g["edges"]))
+
+    def test_phoneme_status_is_checked_and_kept(self):
+        row = "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,,,,,"
+        rep, D = run(append("phonemes.csv", row + "marginal"), derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(D["inventory"]["exam1234"]["ᵐb"]["status"], "marginal")
+        self.assertTrue([e for e in run(append("phonemes.csv", row + "rare")).errors if "status" in e])
+
+    def test_y_and_j_together_are_glide_and_palatal_obstruent(self):
+        def m(d):
+            append("phonemes.csv", "exam1234,y,,C,,,,,sourced,example2026,1,,")(d)
+            append("phonemes.csv", "exam1234,j,,C,,,,,sourced,example2026,1,,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        inv = D["inventory"]["exam1234"]
+        self.assertEqual((inv["y"]["place"], inv["y"]["manner"]), ("palatal", "approximant"))
+        self.assertEqual((inv["j"]["place"], inv["j"]["manner"]), ("palatal", "affricate"))
+
     def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
         def m(d):
             append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)

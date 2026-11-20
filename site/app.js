@@ -23,7 +23,9 @@ const HEIGHTS = ["close", "near-close", "close-mid", "mid", "open-mid", "near-op
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const label = s => esc(String(s || "").replace(/-/g, " "));
-const badge = s => s ? `<span class="badge b-${esc(s)}">${label(s)}</span>` : "";
+// A correspondence found only in loanwords is stored as loan-stratum and shown as "borrowed".
+const statusLabel = s => s === "loan-stratum" ? "borrowed" : String(s || "").replace(/-/g, " ");
+const badge = s => s ? `<span class="badge b-${esc(s)}">${esc(statusLabel(s))}</span>` : "";
 
 async function json(path) {
   if (!cache[path]) cache[path] = fetch(path).then(r => {
@@ -145,7 +147,10 @@ async function pageIndex(params) {
       body = rows.slice().sort((a, b) => a.name.localeCompare(b.name)).map(row).join("");
     } else {
       const groups = {};
-      for (const l of rows) (groups[l.subgroup_path.join(" › ") || "Unclassified"] ||= []).push(l);
+      // A root proto-language heads the table; it is not filed under its own name.
+      const roots = rows.filter(l => !l.parent_id);
+      body += sortLects(roots).map(row).join("");
+      for (const l of rows) if (!roots.includes(l)) (groups[l.subgroup_path.join(" › ") || "Unclassified"] ||= []).push(l);
       for (const g of Object.keys(groups).sort())
         body += `<tr class="group"><td colspan="6">${esc(g)}</td></tr>` + sortLects(groups[g]).map(row).join("");
     }
@@ -164,9 +169,10 @@ function cellLink(L, p) {
   const title = p.system ? `${p.system} reconstruction`
     : [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`,
        p.origin === "generated" && `chart position: ${p.placement === "hand" ? "set by hand" : "inferred from the symbol"}`,
-       p.origin !== "sourced" && p.reason].filter(Boolean).join(" · ");
+       p.origin !== "sourced" && p.reason,
+       p.status === "marginal" && "marginal phoneme", p.status === "dubious" && "doubtful proto-phoneme"].filter(Boolean).join(" · ");
   const guess = inferredNote(p);
-  return `<a class="o-${esc(p.origin || "sourced")}${p.placement === "hand" && p.origin === "generated" ? " hand" : ""}${guess && p.origin !== "generated" ? " inferred" : ""}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc([title, p.origin !== "generated" && guess].filter(Boolean).join(" · "))}">${esc(isProto(L) ? "*" + p.ipa : p.ipa)}</a>`;
+  return `<a class="o-${esc(p.origin || "sourced")}${p.placement === "hand" && p.origin === "generated" ? " hand" : ""}${guess && p.origin !== "generated" ? " inferred" : ""}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc([title, p.origin !== "generated" && guess].filter(Boolean).join(" · "))}">${p.status ? "(" : ""}${esc(isProto(L) ? "*" + p.ipa : p.ipa)}${p.status ? ")" : ""}</a>`;
 }
 // What the build filled in because the source did not state it.
 function inferredNote(p) {
@@ -281,42 +287,86 @@ async function pageLect(L) {
 
 // ------------------------------------------------------------------ page 2
 
-// One column per line of descent, one row per stage (oldest at the top).
-// A fused cluster is one column that starts at the cluster: "*m + *b" with
-// converging arrows down to the single reflex.
+// The ancestry as a node diagram: one row per stage (oldest at the top), each
+// ancestor phoneme drawn once, a line per correspondence. Lines that meet show
+// a merger, lines that part a split; the two members of a fused cluster are
+// joined by "+" and converge on the reflex.
 function fusionLabel(f) {
   return f.members.map(m => `<span class="ipa">${esc(sym(m))}</span>`).join(" + ");
 }
-function ancestryHtml(chains, herePid) {
+function ancestryHtml(g, herePid) {
   const [hereLect] = splitPid(herePid);
-  const stages = [...ancestorsOf(hereLect), hereLect];
-  const cols = chains.map(chain => {
-    const nodes = {}, arrows = {};   // keyed by lect id; arrows keyed by the child's lect
-    chain.forEach((e, i) => {
-      const [cl] = splitPid(e.child);
-      if (i === 0) {
-        const pl = e.fusion ? splitPid(e.fusion.members[0])[0] : splitPid(e.parent)[0];
-        
-        nodes[pl] = e.fusion
-          ? `<span class="cluster">${e.fusion.members.map(m => phLink(m)).join('<span class="plus">+</span>')}</span>`
-          : nodeSym(e.parent, herePid);
-      }
-      nodes[cl] = nodeSym(e.child, herePid);
-      const meta = [e.fusion ? "fusion" : esc(e.environment), e.status && e.status !== "regular" ? label(e.status) : "",
-        e.evidence_count != null ? `n=${e.evidence_count}` : ""].filter(Boolean).join(" · ");
-      arrows[cl] = `<span class="glyph" title="${e.fusion ? "the cluster fuses into one segment" : ""}">${e.fusion ? "↘↙" : "↓"}</span>
-        <span class="meta">${meta}<br>${cite(e)}</span>`;
-    });
-    return { nodes, arrows };
-  });
-  const used = stages.filter(l => cols.some(c => c.nodes[l]));
-  let html = `<div class="scroll"><table class="descent">`;
-  used.forEach((l, i) => {
-    if (i > 0) html += `<tr class="arrows"><th></th>${cols.map(c => `<td>${c.arrows[l] || ""}</td>`).join("")}</tr>`;
-    html += `<tr class="stage"><th>${lectLink(l)}</th>${cols.map(c => `<td>${c.nodes[l] || ""}</td>`).join("")}</tr>`;
-  });
-  return html + "</table></div>";
+  const lectOf = p => splitPid(p)[0];
+  const stages = [...ancestorsOf(hereLect), hereLect].filter(l => g.nodes.some(n => lectOf(n) === l));
+  const kids = {}, pairs = {};
+  for (const e of g.edges) {
+    (kids[e.parent] ||= new Set()).add(e.child);
+    (pairs[e.parent + "\u0001" + e.child] ||= []).push(e);
+  }
+  // Order each row by where its reflexes sit in the row below; fusion partners stay side by side.
+  const x = {}, rows = {};
+  for (let i = stages.length - 1; i >= 0; i--) {
+    const ns = g.nodes.filter(n => lectOf(n) === stages[i]);
+    const key = n => { const k = [...(kids[n] || [])].filter(c => c in x).map(c => x[c]);
+      return k.length ? k.reduce((a, b) => a + b, 0) / k.length : 0; };
+    const partner = n => { const f = g.edges.find(e => e.parent === n && e.fusion); return f ? f.fusion.members.indexOf(n) : 0; };
+    ns.sort((a, b) => key(a) - key(b) || partner(a) - partner(b) || a.localeCompare(b));
+    rows[stages[i]] = ns;
+    ns.forEach((n, j) => { x[n] = j - (ns.length - 1) / 2; });
+  }
+  const widest = Math.max(...stages.map(l => rows[l].length));
+  const COL = widest > 6 ? 62 : 84, ROW = 74, LEFT = 150, TOP = 22;
+  const W = LEFT + Math.max(widest, 2) * COL + 20, H = TOP + (stages.length - 1) * ROW + 26;
+  const px = n => LEFT + (Math.max(widest, 2) * COL) / 2 + x[n] * COL;
+  const py = n => TOP + stages.indexOf(lectOf(n)) * ROW;
+  const short = t => t.length > 14 ? t.slice(0, 13) + "…" : t;
+  let lines = "", labels = "", plus = "";
+  // A fusion: both members run to a "+" junction, and one line goes on to the reflex.
+  const fusions = {};
+  for (const e of g.edges) if (e.fusion) fusions[e.fusion.members.join("\u0001") + "\u0001" + e.child] = e;
+  for (const e of Object.values(fusions)) {
+    const [m1, m2] = e.fusion.members;
+    if (!(m1 in x) || !(m2 in x) || !(e.child in x)) continue;
+    const y1 = py(m1) + 9, y2 = py(e.child) - 21, xc = px(e.child);
+    let jx = ((px(m1) + px(m2)) / 2 + xc) / 2;
+    const jy = y1 + (y2 - y1) * 0.45;
+    // Keep the junction off a plain line that runs straight down to the same reflex.
+    const straight = g.edges.find(q => !q.fusion && q.child === e.child && q.parent in x && Math.abs(px(q.parent) - jx) < 12 && Math.abs(xc - jx) < 12);
+    if (straight) jx += (px(m1) + px(m2)) / 2 < px(straight.parent) ? -16 : 16;
+    const tip = `${sym(m1)} + ${sym(m2)} > ${sym(e.child)} (fusion)`;
+    lines += [m1, m2].map(m => `<line x1="${px(m)}" y1="${y1}" x2="${jx}" y2="${jy}"><title>${esc(tip)}</title></line>`).join("")
+      + `<line x1="${jx}" y1="${jy}" x2="${xc}" y2="${y2}"><title>${esc(tip)}</title></line>`;
+    plus += `<circle class="join" cx="${jx}" cy="${jy}" r="7"/><text class="plus" x="${jx}" y="${jy + 4.5}"><title>${esc(tip)}</title>+</text>`;
+  }
+  for (const k of Object.keys(pairs)) {
+    const es = pairs[k].filter(q => !q.fusion), e = es[0];
+    if (!e || !(e.parent in x) || !(e.child in x)) continue;
+    const x1 = px(e.parent), y1 = py(e.parent) + 9, x2 = px(e.child), y2 = py(e.child) - 21;
+    const odd = es.every(q => q.status && q.status !== "regular");
+    const tip = es.map(q => `${sym(q.parent)} > ${sym(q.child)} / ${q.environment}${q.status && q.status !== "regular" ? " (" + statusLabel(q.status) + ")" : ""}`).join("\n");
+    lines += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="${odd ? "odd" : ""}"><title>${esc(tip)}</title></line>`;
+    const envs = [...new Set(es.filter(q => q.environment !== "elsewhere").map(q => q.environment))];
+    if (envs.length && es.length === envs.length)
+      labels += `<text class="env" x="${(x1 + x2) / 2 + 5}" y="${(y1 + y2) / 2 + 3}"><title>${esc(tip)}</title>${esc(short(envs.join(", ")))}</text>`;
+  }
+  const node = n => {
+    const { lect, s, system } = parsePid(n);
+    const t = `<text class="node${n === herePid ? " here" : ""}" x="${px(n)}" y="${py(n)}">${esc(sym(n))}${system ? `<tspan class="sys" dy="-7">${esc(system)}</tspan>` : ""}</text>`;
+    return n === herePid ? t : `<a href="#/lects/${esc(lect)}/${urlId(lect, s)}${system ? "@" + encodeURIComponent(system) : ""}/">${t}</a>`;
+  };
+  const svg = `<svg class="anc" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Ancestry diagram">
+    ${stages.map((l, i) => `<a href="#/lects/${esc(l)}/"><text class="stage" x="0" y="${TOP + i * ROW}">${esc(LECTS[l]?.name || l)}</text></a>`).join("")}
+    ${lines}${labels}${plus}${g.nodes.filter(n => n in x).map(node).join("")}</svg>`;
+  const order = e => stages.indexOf(lectOf(e.child)) * 1000 + (x[e.child] ?? 0) * 10 + (x[e.parent] ?? 0);
+  const steps = g.edges.slice().sort((a, b) => order(a) - order(b)).map(e => `<tr>
+      <td>${lectLink(lectOf(e.child))}</td>
+      <td>${phLink(e.parent)} &gt; ${e.child === herePid ? `<span class="ipa here">${esc(sym(e.child))}</span>` : phLink(e.child)}</td>
+      <td>${envHtml(e)}</td><td>${badge(e.status)}</td><td>${e.evidence_count ?? ""}</td><td>${cite(e)}</td></tr>`).join("");
+  return `<div class="scroll">${svg}</div>
+    <details class="steps"${g.edges.length <= 6 ? " open" : ""}><summary>${g.edges.length} step${g.edges.length === 1 ? "" : "s"} with conditions and sources</summary>
+    <div class="scroll"><table><tr><th>Into</th><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th></tr>${steps}</table></div></details>`;
 }
+function fusionText(f) { return f.members.map(sym).join(" + ") + " fuse"; }
 function nodeSym(pid, herePid) {
   return pid === herePid ? `<span class="ipa here">${esc(sym(pid))}</span>` : phLink(pid);
 }
@@ -388,12 +438,12 @@ async function pagePhoneme(L, uid) {
   const tabs = systemTabsOf(d, bySystem.map(x => x.name));
   bySystem.sort((a, b) => d.tab_order.indexOf(a.name) - d.tab_order.indexOf(b.name));
   const proto = isProto(L);
-  const ancestorPids = [...new Set(ph.ancestry.flatMap(c => c.flatMap(e => e.parent ? [e.parent] : e.fusion.members)))];
+  const ancestorPids = ph.ancestry_graph.nodes.filter(n => n !== ph.id);
 
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a> › ${lectLink(L)}</div>
     <h1><span class="ipa">${esc(proto ? "*" + ph.ipa : "/" + ph.ipa + "/")}</span>
-      <span class="muted" style="font-size:16px">in ${lectLink(L)}</span> ${badge(ph.origin)}</h1>
+      <span class="muted" style="font-size:16px">in ${lectLink(L)}</span> ${badge(ph.origin)}${ph.status ? " " + badge(ph.status) : ""}</h1>
     <dl class="info">
       ${ph.source_symbol && ph.source_symbol !== ph.ipa ? `<dt>Source symbol</dt><dd class="ipa">${esc(ph.source_symbol)}</dd>` : ""}
       ${describe(ph) ? `<dt>Description</dt><dd>${describe(ph)}${ph.origin === "generated" ? ` <span class="muted">(${ph.placement === "hand" ? "set by hand" : "inferred from the symbol"})</span>` : inferredNote(ph) ? ` <span class="muted">(${esc(inferredNote(ph))})</span>` : ""}</dd>` : ""}
@@ -410,9 +460,8 @@ async function pagePhoneme(L, uid) {
       ${ph.notation.map(n => `<tr><td>${esc(n.system)}</td><td class="ipa">${n.symbol === "∅" ? '<span class="muted" style="font-family:inherit">not a phoneme in this system</span>' : "*" + esc(n.symbol)}</td><td>${cite(n)}</td></tr>`).join("")}</table>` : ""}
 
     <h2>Ancestry</h2>
-    ${ph.ancestry.length
-      ? (ph.ancestry.length > 1 ? `<p class="muted">${ph.ancestry.length} lines of descent, one per column.${ph.ancestry.some(c => c[0].fusion) ? " ↘↙ marks a cluster of two segments that fused into one." : ""}</p>` : "")
-        + ancestryHtml(ph.ancestry, ph.id)
+    ${ph.ancestry_graph.edges.length
+      ? ancestryHtml(ph.ancestry_graph, ph.id)
       : `<p class="muted">${d.parent_id ? "No correspondence entered for this phoneme yet." : "Root proto-language: no ancestor."}</p>`}
     ${ancestorPids.length ? `<p>Same ancestor across the family: ${ancestorPids.map(p =>
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}

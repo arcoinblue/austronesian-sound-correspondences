@@ -6,3 +6,4 @@ __pycache__/
 tools_3_5_1.tar.xz
 *.zip
 .venv/
+staged/

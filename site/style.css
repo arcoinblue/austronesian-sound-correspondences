@@ -105,3 +105,20 @@ input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--l
 button.more { font: inherit; font-size: 13px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 6px;
   background: var(--bg); color: var(--accent); cursor: pointer; margin-left: 6px; }
 .chart a.inferred { font-style: italic; color: var(--muted); }
+
+svg.anc { display: block; margin: 8px 0 6px; max-width: none; }
+svg.anc text { fill: var(--fg); }
+svg.anc text.node { font-family: var(--ipa); font-size: 20px; text-anchor: middle; }
+svg.anc a text.node { fill: var(--accent); }
+svg.anc text.node.here { font-weight: 700; }
+svg.anc text.stage { font-size: 12.5px; fill: var(--muted); }
+svg.anc a text.stage { fill: var(--accent); }
+svg.anc text.env { font-size: 10.5px; fill: var(--muted); }
+svg.anc text.plus { font-size: 13px; fill: var(--fg); text-anchor: middle; }
+svg.anc circle.join { fill: var(--bg); stroke: var(--muted); stroke-width: 1.3; }
+svg.anc tspan.sys { font-size: 10px; fill: var(--muted); font-family: inherit; }
+svg.anc line { stroke: var(--muted); stroke-width: 1.3; }
+svg.anc line.odd { stroke-dasharray: 4 3; }
+details.steps { margin: 2px 0 12px; }
+details.steps summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.steps .here { color: var(--accent); font-weight: 700; }

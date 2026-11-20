@@ -120,10 +120,11 @@ One row per phoneme that a source states or that you corrected by hand. Generate
 | `rounding` | | `rounded` · `unrounded` (vowels) |
 | `origin` | yes | `sourced` (needs `source_id`) · `manual-add` (needs `reason`) · `suppressed` (needs `reason`; hides a generated phoneme) · `override` (needs `reason`; sets the chart position of a generated phoneme) |
 | `source_id`, `page`, `reason`, `notes` | | |
+| `status` | | *optional last column.* `marginal` (a marginal phoneme of an attested lect: loans only, or an allophone the source lists) · `dubious` (a doubtful proto-phoneme). The inventory shows it in parentheses. |
 
 **Labialised series.** A consonant whose symbol contains `ʷ` (`pʷ`, `kʷ`) is put in its own chart column, `labialized-<place>`, next to the plain place; enter the plain place (`bilabial`, `velar`) and the build does the rest. To put a symbol without `ʷ` in that column (POc `w`, which the source lists with the labialised bilabials), write the place out: `labialized-bilabial`.
 
-**Blank and unknown features.** If a sourced row leaves place or manner blank, the build fills it from the symbol and the site shows the phoneme in grey italics, with "inferred from the symbol" on hover. In a proto-language the reconstruction orthography is read first (`y` palatal glide, `e` schwa, `c z j ñ N C S R` with the ACD values), then IPA. Write `unknown` where the source deliberately leaves the value open (place of PAn \*R): it is never inferred. A phoneme with only a place or only a manner sits in an *unspecified* row or column of the chart; with neither, it is listed as unclassified.
+**Blank and unknown features.** If a sourced row leaves place or manner blank, the build fills it from the symbol and the site shows the phoneme in grey italics, with "inferred from the symbol" on hover. In a proto-language the reconstruction orthography is read first (`y` palatal glide, `e` schwa, `c z j ñ N C S R` with the ACD values), then IPA. Two readings come before these tables. Where a lect writes both `y` and `j`, `y` is the palatal glide and `j` a palatal (or palatalised coronal) stop or affricate, in proto-languages and attested languages alike. And a letter that is not plain IPA and is continued unchanged from the parent is read as the parent reads it, so the `y` of the Micronesian languages is the glide of PMc \*y. Write `unknown` where the source deliberately leaves the value open (place of PAn \*R): it is never inferred. A phoneme with only a place or only a manner sits in an *unspecified* row or column of the chart; with neither, it is listed as unclassified.
 
 **Chart position of generated phonemes.** A generated phoneme is placed from its symbol. The build reads through length, aspiration and secondary-articulation marks, so `t̪ʰ` is a dental plosive and `n̥` a voiceless nasal. Where that is wrong or impossible, add a row with origin `override`, a `reason`, and the class, place, manner or voicing you want; blank cells keep the inferred value. (A `manual-add` row for a phoneme that is already generated does the same.) A symbol the build cannot read is still put with the consonants or the vowels, according to the proto-phonemes it continues, and is listed under the chart as *unclassified consonants* or *unclassified vowels*.
 
@@ -166,7 +167,15 @@ poc-mb-b-N,poc,m,b,_+b,regular,,7,ross2023,35,
 poc-mb-b-C,poc,b,b,m+_,regular,,7,ross2023,35,
 ```
 
-The build pairs the rows. The reflex's ancestry then shows one line of descent that starts at the cluster (*m + *b ↘↙ *b), and each member's descent lists the reflex as "*m + *b fuse". This is different from a segment that only changes next to another one, which is one ordinary row with a conditioning environment (`N_`, no `+`): there the neighbour survives as its own segment. If only one of the two rows is present the build warns and treats it as an ordinary conditioned change.
+The build pairs the rows. In the reflex's ancestry diagram the two members run to a "+" junction and one line goes on to the reflex, and each member's descent lists the reflex as "*m + *b fuse". A vowel and a glide that fuse are entered the same way (PMP *-aw* > POc *-o*: `a > o / _+w` and `w > o / a+_`). This is different from a segment that only changes next to another one, which is one ordinary row with a conditioning environment (`N_`, no `+`): there the neighbour survives as its own segment. If only one of the two rows is present the build warns and treats it as an ordinary conditioned change.
+
+**Loss of a nasal before a consonant.** Where a nasal + consonant cluster is reflected exactly like the plain consonant (PMP *mp* > POc *p*), enter the loss of the nasal: parent the nasal, `child_phoneme` `∅`, environment `_p`, status `sporadic` unless it is the regular outcome, and the number of instances in `evidence_count`. The consonant needs no row of its own for the cluster.
+
+**Borrowed correspondences.** Status `loan-stratum` (shown as *borrowed*) is for a correspondence found only in loanwords or suspected loans; say in `notes` what the source says. If only some of the examples are loans, keep the normal status and mention the loans in `notes`.
+
+**Stating reflexes against the immediate ancestor.** A source may tabulate every language against the top proto-language (Bender et al. 2003 against PMc). Where the same table also gives the intermediate proto-languages, the rows are composed and entered step by step (PMc > PCMc > PWMc > PPC > PCK > Chuukese), and each row's notes keep the statement as printed.
+
+**Ancestry diagram.** A phoneme page draws its ancestry as a node diagram: one row per stage, every ancestor phoneme once, a line per correspondence (dashed if never regular), with the steps, conditions and sources in a table underneath.
 
 **Reflex depth.** A phoneme page lists reflexes one level down the tree. A deeper row is listed straight away only where the record disagrees about that stage: a `disputed` row, rows from more than one source, or a separate descent entered for another system's phoneme. The rest are behind a "show deeper rows" button.
 
@@ -252,6 +261,7 @@ The data is entered in the Google Sheet [Austronesian Sound Correspondences — 
 - If a check fails, nothing is committed and the run fails. Errors read `tab.csv:ROW`, where ROW is the row in that tab of the sheet.
 - The sheet must stay shared as "anyone with the link can view". Its id is stored in the repository variable `SHEET_ID` (Settings → Secrets and variables → Actions → Variables).
 - `tools/make_sheet_template.py` regenerates the workbook (tabs, dropdowns, help tab) from `build.py`'s vocabularies, should the schema change. Re-upload it, or copy the changed dropdowns by hand.
+- GitHub often delays or skips scheduled runs, so "every hour" is a best case. Run the workflow by hand when an edit should appear at once.
 - GitHub pauses hourly schedules in repositories with no activity for 60 days. If that happens, re-enable the workflow in the Actions tab.
 
 ## Publishing

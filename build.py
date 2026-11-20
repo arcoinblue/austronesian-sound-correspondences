@@ -31,6 +31,9 @@ LECT_TYPES = {"language", "dialect", "proto-language"}
 SOURCE_KINDS = {"grammar", "comparative", "dictionary", "database"}
 PHONEME_CLASSES = {"C", "V", "tone", "other"}
 PHONEME_ORIGINS_ENTERED = {"sourced", "manual-add", "suppressed", "override"}
+# A marginal phoneme of an attested lect (loans only, an allophone the source
+# lists) or a doubtful proto-phoneme: shown in parentheses in the inventory.
+PHONEME_STATUS = {"marginal", "dubious"}
 CORR_STATUS = {"regular", "sporadic", "loan-stratum", "disputed"}
 BLANK_TYPES = {"not-attested", "lexeme-replaced", "irregular", "loan", "disputed"}
 
@@ -144,6 +147,13 @@ PROTO_ORTHO = {
 
 # Fusion of a cluster X+Y into one reflex R is entered as two rows, one under
 # each member:  parent X, environment "_+Y"  and  parent Y, environment "X+_".
+# Where a lect writes both y and j, y is the palatal glide and j a palatal
+# (or palatalised coronal) stop or affricate, whatever the IPA table says.
+YJ_PAIR = {
+    "y": ("C", "palatal", "approximant", "voiced", ""),
+    "j": ("C", "palatal", "affricate", "", ""),
+}
+
 FUSION_FIRST = re.compile(r"^_\+(.+)$")    # this segment comes first; group = the second
 FUSION_SECOND = re.compile(r"^(.+)\+_$")   # this segment comes second; group = the first
 
@@ -209,7 +219,8 @@ TABLES = {
               "parent_id", "subgroup_path", "region", "orthography_note", "notes", "default_system",
               "systems"],
     "phonemes": ["lect_id", "ipa", "source_symbol", "class", "place", "manner",
-                 "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA,
+                 "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA
+                + ["status"],
     "correspondences": ["id", "child_lect_id", "parent_phoneme", "child_phoneme",
                         "environment", "status", "blank_type", "evidence_count",
                         "source_id", "page", "notes", "system"] + VIA,
@@ -221,7 +232,7 @@ TABLES = {
 OPTIONAL_COLUMNS = {
     "sources": ["year_suffix"],
     "lects": ["default_system", "systems"],
-    "phonemes": VIA,
+    "phonemes": VIA + ["status"],
     "correspondences": ["system"] + VIA,
     "notation_map": ["place", "manner", "voicing"] + VIA,
 }
@@ -437,6 +448,8 @@ def validate_and_derive(t, rep: Report):
             if not r["reason"]:
                 rep.error(w, f"origin={r['origin']} requires a reason")
         check_via(w, r)
+        if r["status"] and r["status"] not in PHONEME_STATUS:
+            rep.error(w, f"status {r['status']!r} must be blank or one of {sorted(PHONEME_STATUS)}")
         if r["class"] == "C":
             if r["place"] and r["place"] not in PLACES_C | {UNKNOWN}:
                 rep.error(w, f"consonant place {r['place']!r} not in vocabulary")
@@ -530,17 +543,49 @@ def validate_and_derive(t, rep: Report):
         if r["child_phoneme"] and r["child_phoneme"] != ZERO:
             reflexes_by_lect[r["child_lect_id"]].setdefault(r["child_phoneme"], r)
 
+    symbols_of = defaultdict(set)   # every symbol a lect is written with
+    for L, rows in entered.items():
+        symbols_of[L] |= {s for s, r in rows.items() if r["origin"] != "suppressed"}
+    unchanged = set()               # (lect, symbol) continued unchanged from the parent
+    for r in corrs:
+        if r["child_phoneme"]:
+            symbols_of[r["child_lect_id"]].add(r["child_phoneme"])
+            if r["child_phoneme"] == r["parent_phoneme"] and not r["system"]:
+                unchanged.add((r["child_lect_id"], r["child_phoneme"]))
+
+    def reading(L, s, seen=()):
+        """Features for a symbol the lect's rows do not describe.
+
+        1. y and j, where the lect writes both (YJ_PAIR).
+        2. A letter that is not plain IPA and is continued unchanged from the
+           parent is read as the parent reads it (PMc *y > Chuukese y).
+        3. The reconstruction orthography, in a proto-language.
+        4. The IPA table.
+        """
+        if s in YJ_PAIR and set(YJ_PAIR) <= symbols_of[L]:
+            return YJ_PAIR[s]
+        P = lects[L]["parent_id"]
+        if (s in PROTO_ORTHO or ipa_features(s)[0] == "other") and (L, s) in unchanged \
+                and P and L not in seen:
+            row = entered.get(P, {}).get(s)
+            if row and row["origin"] != "suppressed" and row["class"] in ("C", "V") \
+                    and row["place"] not in ("", UNKNOWN) and row["manner"] not in ("", UNKNOWN):
+                return (row["class"], row["place"].replace(LABIALIZED, ""), row["manner"],
+                        row["voicing"], row["rounding"])
+            if s in symbols_of[P]:
+                return reading(P, s, seen + (L,))
+        return symbol_features(s, lects[L]["type"] == "proto-language")
+
     def phoneme_record(L, s, row, origin):
-        proto = lects[L]["type"] == "proto-language"
         inferred = []
         if row is not None:
             got = {"class": row["class"], "place": row["place"], "manner": row["manner"],
                    "voicing": row["voicing"], "rounding": row["rounding"]}
             # The source gave no place or manner: read them off the symbol.
-            inferred = fill_blanks(got, symbol_features(s, proto))
+            inferred = fill_blanks(got, reading(L, s))
             cls, place, manner, voicing, rnd = (got[k] for k in ("class", "place", "manner", "voicing", "rounding"))
         else:
-            cls, place, manner, voicing, rnd = symbol_features(s, proto)
+            cls, place, manner, voicing, rnd = reading(L, s)
             if cls == "other":
                 # Not a symbol the chart knows: at least say consonant or vowel,
                 # from what it continues, so it lands in the right unclassified group.
@@ -568,6 +613,7 @@ def validate_and_derive(t, rep: Report):
             "page": (row or {}).get("page", ""),
             "reason": (row or {}).get("reason", ""),
             "notes": (row or {}).get("notes", ""),
+            "status": (row or {}).get("status", ""),
         }
 
     for L in lects:
@@ -936,6 +982,25 @@ def ancestry(phoneme_id, D, depth=0):
     return chains
 
 
+def ancestry_graph(phoneme_id, D):
+    """The ancestry as one graph: every ancestor phoneme once, however many
+    lines of descent pass through it, and one edge per correspondence row.
+    Both rows of a fusion are edges, so the two members converge on the reflex."""
+    nodes, edges, seen, todo = [phoneme_id], [], set(), [phoneme_id]
+    while todo:
+        cur = todo.pop()
+        for r in D["by_child"].get(cur, []):
+            if r["id"] in seen:
+                continue
+            seen.add(r["id"])
+            edges.append(edge(r))
+            parent = r["parent_phoneme_id"]
+            if parent not in nodes:
+                nodes.append(parent)
+                todo.append(parent)
+    return {"nodes": nodes, "edges": edges}
+
+
 def descendants(phoneme_id, D, path=(), depth=0):
     """Flattened downward rows, each with the path of intermediate phonemes."""
     out = []
@@ -983,7 +1048,7 @@ def lect_json(L, D):
     for s, ph in inv.items():
         ph = dict(ph)
         ph["notation"] = D["notation"].get(ph["id"], [])
-        ph["ancestry"] = [c for c in ancestry(ph["id"], D) if c]
+        ph["ancestry_graph"] = ancestry_graph(ph["id"], D)
         ph["descendants"] = descendants(ph["id"], D)
         phonemes.append(ph)
     default = rec["default_system"]

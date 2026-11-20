@@ -37,6 +37,7 @@ LISTS = {
     "rounding": sorted(build.ROUNDING),
     "origin": ["sourced", "manual-add", "suppressed", "override"],
     "status": ["regular", "sporadic", "loan-stratum", "disputed"],
+    "phoneme_status": sorted(build.PHONEME_STATUS),
     "blank_type": ["not-attested", "lexeme-replaced", "irregular", "loan", "disputed"],
     "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"],
 }
@@ -54,6 +55,7 @@ VALIDATION = {
     ("phonemes", "rounding"): "rounding",
     ("phonemes", "origin"): "origin",
     ("phonemes", "source_id"): "sources",
+    ("phonemes", "status"): "phoneme_status",
     ("correspondences", "child_lect_id"): "lects",
     ("correspondences", "status"): "status",
     ("correspondences", "blank_type"): "blank_type",
