@@ -32,6 +32,8 @@ jobs:
         run: python tools/sync_sheet.py "$SHEET_ID" --out cldf
       - name: Check the data
         run: python build.py --check
+      - name: Check Glottocodes and ISO codes against Glottolog
+        run: python tools/check_glottolog.py
       - name: Commit and redeploy if changed
         env:
           GH_TOKEN: ${{ github.token }}

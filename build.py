@@ -19,7 +19,7 @@ import json
 import re
 import sys
 import unicodedata
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.parse import quote
 
@@ -65,6 +65,18 @@ ROUNDING = {"rounded", "unrounded"}
 ENV_SHORTHANDS = {"elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"}
 # Set terms for a position counted in syllables, where a segment slot cannot say it
 # (a source's σσ# with one σ underlined). Use these words, not a paraphrase.
+# Conditioning: how much the source says about when a reflex occurs.
+CONDITIONING = {"stated", "unknown", "lexical"}
+# The one environment value for "the source gives no conditions".
+ENV_UNKNOWN = "conditions unknown"
+ENV_UNKNOWN_SPELLINGS = {"not stated", "conditions unclear", "in part of the vocabulary", "unknown",
+                         "elsewhere, without obvious conditioning", "no conditions", "conditions not stated"}
+# Where a row comes from: as the source states it, composed from several of its
+# statements (restated against an intermediate node), or an implied retention
+# (a changes-only source lists only what changed; the build adds these).
+DERIVATIONS = {"as-stated", "composed", "implied-retention"}
+CORR_EXTRA = ["conditioning", "evidence_total", "derivation", "variety", "stratum", "lexical_scope",
+              "examples", "source_form"]
 ENV_SYLLABLES = {"final syllable", "penultimate syllable", "antepenultimate syllable", "initial syllable",
                  "non-final syllable", "stressed syllable", "unstressed syllable",
                  "pretonic syllable", "posttonic syllable"}
@@ -228,13 +240,14 @@ TABLES = {
     "sources": ["id", "author", "year", "title", "url_or_doi", "kind", "notes", "year_suffix"] + PUB_COLUMNS,
     "lects": ["id", "name", "alt_names", "type", "glottocode", "iso639_3",
               "parent_id", "subgroup_path", "region", "orthography_note", "notes", "default_system",
-              "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups"],
+              "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups",
+              "changes_only", "language_id", "alt_parents"],
     "phonemes": ["lect_id", "ipa", "source_symbol", "class", "place", "manner",
                  "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA
                 + ["status"],
     "correspondences": ["id", "child_lect_id", "parent_phoneme", "child_phoneme",
                         "environment", "status", "blank_type", "evidence_count",
-                        "source_id", "page", "notes", "system"] + VIA,
+                        "source_id", "page", "notes", "system"] + VIA + CORR_EXTRA,
     "notation_map": ["lect_id", "phoneme", "system", "symbol", "source_id", "page", "notes",
                      "place", "manner", "voicing"] + VIA,
 }
@@ -242,9 +255,10 @@ TABLES = {
 # (they read as blank), so an older sheet or CSV keeps working.
 OPTIONAL_COLUMNS = {
     "sources": ["year_suffix"] + PUB_COLUMNS,
-    "lects": ["default_system", "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups"],
+    "lects": ["default_system", "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups",
+              "changes_only", "language_id", "alt_parents"],
     "phonemes": VIA + ["status"],
-    "correspondences": ["system"] + VIA,
+    "correspondences": ["system"] + VIA + CORR_EXTRA,
     "notation_map": ["place", "manner", "voicing"] + VIA,
 }
 CANONICAL = "canonical"   # notation system that only spells the site's own symbols
@@ -412,6 +426,24 @@ NOT_AUTHORS = {"Table", "Tables", "Figure", "Section", "Appendix", "January", "F
                "Proto", "Taipei", "Canberra", "Hsinchu", "Honolulu", "Tokyo", "Leiden", "Berlin", "Auckland"}
 
 
+# Symbols that are not IPA, for attested lects (proto-languages keep their
+# reconstruction orthography): a letter -> the IPA it usually stands for.
+NON_IPA = [
+    (re.compile(r"g"), "ɡ (U+0261), not Latin g"),
+    (re.compile(r"^y|(?<=[aeiouəɨ])y|y(?=[aeiouəɨ])|^y$"), "j for the palatal glide"),
+    (re.compile(r"ñ"), "ɲ"),
+    (re.compile(r"[ʤʧʦʣʨʥ]"), "a tie bar (d͡ʒ t͡ʃ t͡s d͡z), not the old ligature"),
+    (re.compile(r"(?<!͡)(?:tʃ|dʒ|ts|dz|tɕ|dʑ)"), "a tie bar for an affricate (t͡ʃ d͡ʒ t͡s d͡z)"),
+    (re.compile(r"[ļņřŕļ̧]|n̦|l̦"), "IPA diacritics (the cedilla and caron are a comparative transcription)"),
+    (re.compile(r"^(?:sh|ch|gh|th|ng|ny|kh|dh)$"), "one IPA letter, not a digraph"),
+]
+
+
+def non_ipa(sym):
+    """The advice for each non-IPA spelling in an attested lect's symbol."""
+    return [why for pat, why in NON_IPA if pat.search(sym)]
+
+
 def cited_works(text, not_authors=frozenset()):
     """(author label, year, suffix) for each work a note cites by author and year."""
     out = []
@@ -523,6 +555,15 @@ def validate_and_derive(t, rep: Report):
             except ValueError:
                 rep.error(w, f"latitude {r['latitude']!r} and longitude {r['longitude']!r} must both be decimal "
                              "degrees, within -90..90 and -180..180")
+        # A source that lists only the changes into this lect: everything else is retained.
+        if r["changes_only"].strip().upper() not in ("", "TRUE", "FALSE", "YES", "NO"):
+            rep.error(w, f"changes_only {r['changes_only']!r} must be TRUE or blank")
+        r["changes_only_flag"] = r["changes_only"].strip().upper() in ("TRUE", "YES")
+        # Other classifications: 'pef:chen2022; ...' (parent id, the source that proposes it).
+        r["alt_parent_list"] = []
+        for item in (a.strip() for a in r["alt_parents"].split(";") if a.strip()):
+            par, _, src = item.partition(":")
+            r["alt_parent_list"].append({"parent_id": par.strip(), "source_id": src.strip()})
         # Subgroups that cut across the tree (a lect can be in several): names only, not nodes.
         r["overlap_list"] = [a.strip() for a in r["overlap_groups"].split(";") if a.strip()]
         if CANONICAL in r["systems_list"]:
@@ -539,6 +580,24 @@ def validate_and_derive(t, rep: Report):
                 rep.error(w, f"parent_id {p!r} is a {lects[p]['type']}, must be a proto-language or an earlier-stage")
         elif r["type"] not in RECONSTRUCTED:
             rep.warn(w, "attested lect with no parent_id: nothing can be stated about its history")
+        for a in r["alt_parent_list"]:
+            if a["parent_id"] not in lects:
+                rep.error(w, f"alt_parents names {a['parent_id']!r}, which is not a lect")
+            elif lects[a["parent_id"]]["type"] not in RECONSTRUCTED:
+                rep.error(w, f"alt_parents {a['parent_id']!r} is a {lects[a['parent_id']]['type']}, must be reconstructed")
+            elif a["parent_id"] == p:
+                rep.warn(w, f"alt_parents repeats parent_id {p!r}")
+            if not a["source_id"]:
+                rep.error(w, f"alt_parents {a['parent_id']!r} needs the source that proposes it ('{a['parent_id']}:source_id')")
+            elif a["source_id"] not in sources:
+                rep.error(w, f"alt_parents source {a['source_id']!r} is not in sources.csv")
+        if r["language_id"]:
+            if r["type"] != "dialect":
+                rep.warn(w, "language_id is for dialects; ignored")
+            elif r["language_id"] not in lects:
+                rep.error(w, f"language_id {r['language_id']!r} is not a lect")
+            elif lects[r["language_id"]]["type"] != "language":
+                rep.error(w, f"language_id {r['language_id']!r} is a {lects[r['language_id']]['type']}, must be a language")
         # Competing reconstructions of the same node: both are listed under the
         # parent, and nothing below either of them is.
         r["competes_list"] = [a.strip() for a in r["competes_with"].split(";") if a.strip()]
@@ -655,8 +714,29 @@ def validate_and_derive(t, rep: Report):
         if r["evidence_count"]:
             if not r["evidence_count"].isdigit():
                 rep.error(w, f"evidence_count {r['evidence_count']!r} must be a non-negative integer")
+        if r["evidence_total"]:
+            if not r["evidence_total"].isdigit():
+                rep.error(w, f"evidence_total {r['evidence_total']!r} must be a non-negative integer")
+            elif r["evidence_count"].isdigit() and int(r["evidence_count"]) > int(r["evidence_total"]):
+                rep.error(w, f"evidence_count {r['evidence_count']} is more than evidence_total {r['evidence_total']}")
+            elif not r["evidence_count"]:
+                rep.warn(w, "evidence_total without evidence_count: give n with N")
+        if r["evidence_count"] == "0" and r["child_phoneme"]:
+            rep.warn(w, "a reflex with evidence_count 0 has no examples; make it a typed blank or delete it")
+        if r["conditioning"] and r["conditioning"] not in CONDITIONING:
+            rep.error(w, f"conditioning {r['conditioning']!r} not in {sorted(CONDITIONING)}")
+        if r["derivation"] and r["derivation"] not in DERIVATIONS:
+            rep.error(w, f"derivation {r['derivation']!r} not in {sorted(DERIVATIONS)}")
+        if r["environment"].strip().lower() in ENV_UNKNOWN_SPELLINGS:
+            rep.warn(w, f"environment {r['environment']!r}: write {ENV_UNKNOWN!r} (and conditioning 'unknown')")
+        if r["environment"] == ENV_UNKNOWN and not r["conditioning"]:
+            r["conditioning"] = "unknown"
+        if r["lexical_scope"] and not r["conditioning"]:
+            r["conditioning"] = "lexical"
+        if not r["derivation"]:
+            r["derivation"] = "as-stated"
         env = r["environment"]
-        if env and env not in ENV_SHORTHANDS and env not in ENV_SYLLABLES and "_" not in env:
+        if env and env not in ENV_SHORTHANDS and env not in ENV_SYLLABLES and env != ENV_UNKNOWN and "_" not in env:
             rep.note(w, f"environment {env!r} is free text (no '_' slot)")
         r["parent_lect_id"] = P
         r["parent_phoneme_id"] = pid(P, r["parent_phoneme"], r["system"])
@@ -666,6 +746,7 @@ def validate_and_derive(t, rep: Report):
                            + ([r["system"]] if r["system"] else [])
                            + ([r["via_source_id"], r["via_page"]] if r["via_source_id"] else []))
             r["id"] = "c" + hashlib.sha1(key.encode()).hexdigest()[:10]
+            rep.note(w, f"no id: fill in {r['id']} so links to this row survive edits")
         corrs.append(r)
 
     seen_ids = {}
@@ -754,11 +835,58 @@ def validate_and_derive(t, rep: Report):
             "reason": (row or {}).get("reason", ""),
             "notes": (row or {}).get("notes", ""),
             "status": (row or {}).get("status", ""),
+            "implied": False,
         }
 
+    # Parents before daughters, so a changes-only lect can carry its parent's inventory down.
+    order, placed = [], set()
+    def visit(L, stack=()):
+        if L in placed or L in stack:
+            return
+        P = lects[L]["parent_id"]
+        if P in lects:
+            visit(P, stack + (L,))
+        placed.add(L)
+        order.append(L)
     for L in lects:
+        visit(L)
+
+    implied_rows = []
+    for L in order:
         rows = entered.get(L, {})
         origins = {r["origin"] for r in rows.values()}
+        P = lects[L]["parent_id"]
+        if lects[L]["changes_only_flag"] and P in inventory and "sourced" not in origins:
+            # The source lists only what changed into L. Every parent phoneme it
+            # does not mention is retained, and one it mentions only under a
+            # condition is retained elsewhere. These rows are the build's, marked implied.
+            mine = [r for r in corrs if r["child_lect_id"] == L and not r["system"]]
+            src = Counter(r["source_id"] for r in mine).most_common(1)
+            by_sym = defaultdict(list)
+            for r in mine:
+                by_sym[r["parent_phoneme"]].append(r)
+            for sym in inventory[P]:
+                stated = by_sym.get(sym, [])
+                if stated and any(r["environment"] in ("elsewhere", ENV_UNKNOWN, "unconditioned")
+                                  or r["conditioning"] in ("unknown", "lexical") or not r["child_phoneme"]
+                                  for r in stated):
+                    continue
+                r = {c: "" for c in TABLES["correspondences"]}
+                r.update(child_lect_id=L, parent_phoneme=sym, child_phoneme=sym, environment="elsewhere",
+                         status="regular", source_id=src[0][0] if src else "", derivation="implied-retention",
+                         conditioning="", _where=f"lects.csv ({L}, changes_only)",
+                         notes=("Retained elsewhere: the source states this phoneme's development only under the "
+                                "conditions in the rows above.") if stated else
+                               "Not mentioned by the source, which lists only the changes into this node: retained.")
+                r["parent_lect_id"] = P
+                r["parent_phoneme_id"] = pid(P, sym)
+                r["child_phoneme_id"] = pid(L, sym)
+                r["id"] = "i" + hashlib.sha1(f"{L}|{sym}|implied".encode()).hexdigest()[:10]
+                corrs.append(r)
+                implied_rows.append(r)
+                reflexes_by_lect[L].setdefault(sym, r)
+                symbols_of[L].add(sym)
+                unchanged.add((L, sym))
         inv = {}
         if "sourced" in origins:
             # The source's list is the inventory (a suppressed ∅ row is skipped).
@@ -771,6 +899,9 @@ def validate_and_derive(t, rep: Report):
             generated = reflexes_by_lect.get(L, {})
             for s in generated:
                 inv[s] = phoneme_record(L, s, None, "generated")
+                # Only implied by a changes-only source: shown, but not as a stated phoneme.
+                inv[s]["implied"] = all(r.get("derivation") == "implied-retention"
+                                        for r in corrs if r["child_lect_id"] == L and r["child_phoneme"] == s)
             suppressed = []
             for s, row in rows.items():
                 if row["origin"] == "override" or (row["origin"] == "manual-add" and s in inv):
@@ -864,6 +995,7 @@ def validate_and_derive(t, rep: Report):
             rep.warn(slot["second"]["_where"], f"the two rows of the fusion {P}:{a}+{b} > {L}:{R} "
                                                "have different evidence_count values")
 
+    implied_ids = {r["id"] for r in implied_rows}
     for L, rec in ((L, lects[L]) for L in lects):
         if rec["type"] == "proto-language" and not rec["parent_id"] and inv_status[L] != "sourced":
             rep.error(rec["_where"], f"root proto-language {L} needs a sourced inventory")
@@ -946,11 +1078,8 @@ def validate_and_derive(t, rep: Report):
                 filled = []
                 if not sym.isascii():
                     filled += fill_blanks(rec, ipa_features(sym))
-                mate = next((m for m in mates if m["ipa"] == sym), mates[0] if len(mates) == 1 else None)
-                if mate:
-                    filled += fill_blanks(rec, tuple(
-                        mate[k].replace(LABIALIZED, "") if k == "place" else mate[k]
-                        for k in ("class", "place", "manner", "voicing", "rounding")))
+                # Read only from this system's own symbol: the default phoneme's value
+                # is another author's and is not inherited.
                 filled += fill_blanks(rec, symbol_features(sym, True))
                 rec["inferred_fields"] = filled
                 if {"place", "manner"} & set(filled):
@@ -962,12 +1091,14 @@ def validate_and_derive(t, rep: Report):
                                                         "and none could be inferred; it is listed as unclassified")
             classes = {rec["class"] for rec in phs.values()}
             if "C" in classes and "V" not in classes:
-                rep.warn(f"notation_map.csv ({L})", f"system {S} has consonants but no vowel rows")
+                # A source may compare consonants only (Wolff's table has no vowels): say so, don't warn.
+                rep.note(f"notation_map.csv ({L})", f"system {S} has consonants but no vowel rows; "
+                                                    "the site says its vowels are not compared")
     for L, inv in inventory.items():
         if lects[L]["type"] not in RECONSTRUCTED:
             continue
         for s in inv:
-            if not notation.get(pid(L, s)):
+            if not notation.get(pid(L, s)) and not inv[s].get("implied"):
                 rep.error(f"notation_map.csv ({L})", f"proto-phoneme {L}:{s} has no notation_map row")
 
     # --- correspondences stated for another system's proto-phoneme
@@ -1018,6 +1149,22 @@ def validate_and_derive(t, rep: Report):
             "relays": [{"source_id": k, "rows": v} for k, v in sorted(c["relays"].items())],
         }
 
+    # --- attested lects are transcribed in IPA; the printed form goes in source_symbol / source_form
+    odd = defaultdict(lambda: defaultdict(set))
+    for r in t["phonemes"]:
+        if r["lect_id"] in lects and lects[r["lect_id"]]["type"] in ("language", "dialect"):
+            for why in non_ipa(r["ipa"]):
+                odd[r["lect_id"]][why].add(r["ipa"])
+    for r in t["correspondences"]:
+        if r["child_lect_id"] in lects and lects[r["child_lect_id"]]["type"] in ("language", "dialect") \
+                and r["child_phoneme"]:
+            for why in non_ipa(r["child_phoneme"]):
+                odd[r["child_lect_id"]][why].add(r["child_phoneme"])
+    for L, whys in sorted(odd.items()):
+        rep.warn(lects[L]["_where"], f"{lects[L]['name']} has symbols that are not IPA: "
+                 + "; ".join(f"{' '.join(sorted(v))} (use {why})" for why, v in whys.items())
+                 + ". Keep the printed form in source_symbol / source_form.")
+
     # --- works cited in running text (notes) need a sources row
     labels = defaultdict(set)   # 'Lee & Wang' -> {'1984', '2022a', ...}
     for sr in sources.values():
@@ -1049,7 +1196,7 @@ def validate_and_derive(t, rep: Report):
         by_parent[r["parent_phoneme_id"]].append(r)
         if r["child_phoneme_id"]:
             by_child[r["child_phoneme_id"]].append(r)
-        if not r["system"] and r["parent_phoneme"] != ZERO:
+        if not r["system"] and r["parent_phoneme"] != ZERO and r["derivation"] != "implied-retention":
             entered_pairs[r["child_lect_id"]].add(r["parent_phoneme"])
 
     for L, rec in lects.items():
@@ -1057,6 +1204,8 @@ def validate_and_derive(t, rep: Report):
         if not P or P not in inventory:
             continue
         missing = [s for s in inventory[P] if s not in entered_pairs.get(L, set())]
+        if rec["changes_only_flag"]:
+            continue   # the rest is implied retention
         if missing and entered_pairs.get(L):
             rep.note(f"{L}", f"unentered proto-phonemes of {P}: {' '.join('*' + m for m in missing)}")
         elif missing and inventory[P]:
@@ -1074,7 +1223,7 @@ def validate_and_derive(t, rep: Report):
     return {
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,
-        "sysph": sysph, "conflicts": find_conflicts(corrs, sysph),
+        "sysph": sysph, "conflicts": find_conflicts(corrs, sysph), "entered_pairs": entered_pairs,
         "overlap": {g: sorted(L for L, r in lects.items() if g in r["overlap_list"])
                     for g in {g for r in lects.values() for g in r["overlap_list"]}},
         "competing": {L for L, r in lects.items() if r["competes_list"]}
@@ -1125,11 +1274,17 @@ def edge(r, include_child=True):
         "system": r.get("system") or None,
         "via_source_id": r.get("via_source_id", ""), "via_page": r.get("via_page", ""),
         "via_note": r.get("via_note", ""),
+        **{k: r.get(k, "") for k in ("conditioning", "variety", "stratum", "lexical_scope", "examples", "source_form")},
+        "evidence_total": int(r["evidence_total"]) if r.get("evidence_total", "").isdigit() else None,
+        "derivation": r.get("derivation") or "as-stated",
     }
     if include_child:
         e["child_lect_id"] = r["child_lect_id"]
         e["child"] = r["child_phoneme_id"]
-    return e
+    # Empty fields are left out: the files list thousands of rows.
+    return {k: v for k, v in e.items()
+            if not (v is None or v is False or v == "" or (k == "derivation" and v == "as-stated"))
+            or k in ("parent", "child")}
 
 
 def ancestry(phoneme_id, D, depth=0):
@@ -1191,12 +1346,17 @@ def descendants(phoneme_id, D, path=(), depth=0, beyond=False):
         # Beyond the first level, a row is shown by default only where sources
         # or reconstructions disagree about this stage.
         row["conflict"] = (r["child_lect_id"], r["parent_phoneme_id"]) in D["conflicts"]
-        row["competing"] = r["child_lect_id"] in D["competing"]
-        row["beyond_competing"] = beyond
-        out.append(row)
+        if r["child_lect_id"] in D["competing"]:
+            row["competing"] = True
+        if beyond:
+            row["beyond_competing"] = True
+        # An implied retention is listed one level down only; deeper, it would
+        # repeat the same "unchanged" for every node of a changes-only tree.
+        if not (path and row.get("derivation") == "implied-retention"):
+            out.append(row)
         if r["child_phoneme_id"]:
             out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1,
-                                   beyond or row["competing"]))
+                                   beyond or row.get("competing", False)))
     return out
 
 
@@ -1209,11 +1369,31 @@ def lect_chain(L, lects):
 
 
 def coverage(L, D):
-    inv = D["inventory"][L]
-    if not D["lects"][L]["parent_id"]:
+    """How much of the parent's inventory has an outcome in L.
+
+    stated: parent phonemes with a row from the source (or composed from its rows);
+    implied: retentions the build added for a changes-only source;
+    parent_size: the parent's inventory. None for a root."""
+    P = D["lects"][L]["parent_id"]
+    if not P or P not in D["inventory"]:
         return None
-    covered = sum(1 for s in inv if D["by_child"].get(pid(L, s)))
-    return {"with_descent": covered, "inventory_size": len(inv)}
+    par = D["inventory"][P]
+    stated = D["entered_pairs"].get(L, set()) & set(par)
+    implied = {r["parent_phoneme"] for r in D["corrs"]
+               if r["child_lect_id"] == L and r["derivation"] == "implied-retention"} - stated
+    return {"stated": len(stated), "implied": len(implied), "parent_size": len(par)}
+
+
+def data_status(L, D):
+    """What the lect page and the index say about the data behind a lect."""
+    rows = [r for r in D["corrs"] if r["child_lect_id"] == L]
+    if D["inv_status"][L] == "sourced":
+        return "sourced"
+    if D["lects"][L]["changes_only_flag"]:
+        return "changes-only"
+    if not rows and D["lects"][L]["parent_id"]:
+        return "empty"
+    return "generated"
 
 
 def lect_json(L, D):
@@ -1221,9 +1401,7 @@ def lect_json(L, D):
     inv = D["inventory"][L]
     status = D["inv_status"][L]
     cov = coverage(L, D)
-    index_status = status
-    if cov and cov["inventory_size"] and cov["with_descent"] < cov["inventory_size"] and status == "sourced":
-        index_status = "partial"
+    index_status = data_status(L, D)
     used_sources = sorted({p["source_id"] for p in inv.values() if p["source_id"]})
     corr_sources = sorted({r["source_id"] for r in D["corrs"] if r["child_lect_id"] == L})
     phonemes = []
@@ -1290,6 +1468,16 @@ def lect_json(L, D):
         ],
         "daughters": sorted(k for k, v in D["lects"].items() if v["parent_id"] == L),
         "coordinates": rec["coordinates"],
+        "changes_only": rec["changes_only_flag"],
+        "language_id": rec["language_id"] or None,
+        "dialects": sorted(k for k, v in D["lects"].items() if v["language_id"] == L and v["type"] == "dialect"),
+        "alt_parents": rec["alt_parent_list"],
+        "alt_daughters": sorted(({"lect_id": k, "source_id": a["source_id"]} for k, v in D["lects"].items()
+                                 for a in v["alt_parent_list"] if a["parent_id"] == L), key=lambda x: x["lect_id"]),
+        # The rows into this lect as the source states them: the changes that define it.
+        "changes": [edge(r) for r in D["corrs"] if r["child_lect_id"] == L
+                    and r["derivation"] != "implied-retention"
+                    and (r["child_phoneme"] != r["parent_phoneme"] or r["environment"] != "elsewhere")],
         # Each overlapping subgroup with its other members.
         "overlap_groups": [{"name": g, "members": [m for m in D["overlap"][g] if m != L]} for g in rec["overlap_list"]],
         # Sounds inserted in the daughters: they have no phoneme here to descend from.
@@ -1303,7 +1491,7 @@ def index_json(D):
         j = lect_json(L, D)
         rows.append({k: j[k] for k in ("id", "name", "alt_names", "type", "glottocode",
                                         "parent_id", "subgroup_path", "clade", "competes_with", "coverage", "index_status",
-                                        "coordinates")})
+                                        "coordinates", "language_id", "changes_only")})
         rows[-1]["overlap_groups"] = [g["name"] for g in j["overlap_groups"]]
     return {"lects": rows}
 

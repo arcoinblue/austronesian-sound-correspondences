@@ -3,6 +3,7 @@ import shutil
 import sys
 import tempfile
 import unicodedata
+import csv
 import unittest
 from pathlib import Path
 
@@ -172,7 +173,7 @@ class TestSheetRoundTrip(unittest.TestCase):
         g = build.ancestry_graph("exam1234:ᵐb", D)
         self.assertEqual(len(g["nodes"]), len(set(g["nodes"])))
         parent = D["lects"]["exam1234"]["parent_id"]
-        fused = [e for e in g["edges"] if e["fusion"] and e["child"] == "exam1234:ᵐb"]
+        fused = [e for e in g["edges"] if e.get("fusion") and e["child"] == "exam1234:ᵐb"]
         self.assertEqual(sorted(e["parent"] for e in fused), [f"{parent}:k", f"{parent}:p"])
         # The members' own ancestors are in the graph too.
         self.assertTrue(any(e["child"] == f"{parent}:k" for e in g["edges"]))
@@ -246,8 +247,8 @@ class TestSheetRoundTrip(unittest.TestCase):
         top = D["lects"][parent]["parent_id"]
         sym = next(iter(D["inventory"][top]))
         rows = build.descendants(f"{top}:{sym}", D)
-        self.assertTrue(any(r["competing"] for r in rows if r["child_lect_id"] == parent))
-        self.assertTrue(all(r["beyond_competing"] for r in rows if r["via"]))
+        self.assertTrue(any(r.get("competing") for r in rows if r["child_lect_id"] == parent))
+        self.assertTrue(all(r.get("beyond_competing") for r in rows if r["via"]))
 
     def test_inserted_sound_has_no_parent_phoneme(self):
         def m(d):
@@ -276,6 +277,59 @@ class TestSheetRoundTrip(unittest.TestCase):
         bad = run(replace("lects.csv", "sourced inventory,,,,,,,", "sourced inventory,,,,,95,10,"))
         self.assertTrue([e for e in bad.errors if "latitude" in e])
         self.assertIn("final syllable", build.ENV_SYLLABLES)
+
+    def test_changes_only_carries_the_parent_inventory_down(self):
+        def m(d):
+            replace("lects.csv", "samp1234,Samplish,,language,samp1234,,pxb,", "samp1234,Samplish,,language,samp1234,,pxb,")(d)
+        rep, D = run(derived=True)
+        base = {r["parent_phoneme"] for r in D["corrs"] if r["child_lect_id"] == "pxb"}
+        def m2(d):
+            path = d / "lects.csv"
+            rows = list(csv.reader(path.open(encoding="utf-8")))
+            col = rows[0].index("changes_only")
+            for r in rows[1:]:
+                if r[0] == "pxb":
+                    r[col] = "TRUE"
+            with path.open("w", encoding="utf-8", newline="") as f:
+                csv.writer(f, lineterminator="\n").writerows(rows)
+            # The source mentions only *s (> h) and *q (before i): the rest is implied.
+            path = d / "correspondences.csv"
+            rows = list(csv.reader(path.open(encoding="utf-8")))
+            keep = [rows[0]] + [r for r in rows[1:] if r[1] != "pxb" or r[2] in ("s", "q")]
+            for r in keep[1:]:
+                if r[1] == "pxb" and r[2] == "q":
+                    r[4] = "_i"
+            with path.open("w", encoding="utf-8", newline="") as f:
+                csv.writer(f, lineterminator="\n").writerows(keep)
+        rep, D = run(m2, derived=True)
+        self.assertEqual(rep.errors, [])
+        implied = [r for r in D["corrs"] if r["child_lect_id"] == "pxb" and r["derivation"] == "implied-retention"]
+        self.assertTrue(implied)
+        par = set(D["inventory"]["pxa"])
+        self.assertEqual({r["parent_phoneme"] for r in implied}, set(D["inventory"]["pxa"]) - {"s"})
+        # q is stated only before i, so it is retained elsewhere.
+        self.assertIn("q", {r["parent_phoneme"] for r in implied})
+        cov = build.coverage("pxb", D)
+        self.assertEqual(cov["stated"] + cov["implied"], cov["parent_size"])
+        self.assertEqual(build.lect_json("pxb", D)["index_status"], "changes-only")
+
+    def test_new_row_fields_are_checked(self):
+        line = "x1,exam1234,k,k,elsewhere,regular,,12,example2026,45,,,,,,{}"
+        ok = run(append("correspondences.csv", line.format(",94,composed,Southern dialect,,,,")))
+        self.assertFalse([e for e in ok.errors if "x1" in e or "correspondences.csv" in e and "evidence" in e])
+        self.assertTrue(run(append("correspondences.csv", line.format(",5,,,,,,"))).errors)
+        self.assertTrue(run(append("correspondences.csv", line.format("maybe,,,,,,,"))).errors)
+        warn = run(append("correspondences.csv", "x2,exam1234,k,k,not stated,regular,,,example2026,45,"))
+        self.assertTrue([w for w in warn.warnings if "conditions unknown" in w])
+
+    def test_non_ipa_symbols_in_attested_lects(self):
+        self.assertTrue(build.non_ipa("g"))
+        self.assertTrue(build.non_ipa("ʤ"))
+        self.assertTrue(build.non_ipa("dʒ"))
+        self.assertTrue(build.non_ipa("y"))
+        self.assertFalse(build.non_ipa("d͡ʒ"))
+        self.assertFalse(build.non_ipa("ɡ"))
+        self.assertFalse(build.non_ipa("j"))
 
     def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
         def m(d):
@@ -388,10 +442,11 @@ class TestSheetRoundTrip(unittest.TestCase):
         self.assertEqual(sorted(D["sysph"]["pxa"]), ["Alpha", "Beta"])       # Gamma is a spelling only
         self.assertEqual(build.lect_json("pxa", D)["tab_order"][1:], ["Beta", "Alpha"])
         self.assertEqual(D["inventory"]["pxa"]["k"]["absent_from"], ["Beta"])
-        # Alpha's T has no features of its own: it takes those of the phoneme it matches.
+        # Alpha's T has no features of its own. It does not take those of the phoneme
+        # it matches, which are another author's: it is shown as not stated.
         T = D["sysph"]["pxa"]["Alpha"]["T"]
-        self.assertEqual((T["place"], T["placement"]), (D["inventory"]["pxa"]["t"]["place"], "inferred"))
-        self.assertTrue(any("has consonants but no vowel rows" in w for w in rep.warnings))
+        self.assertEqual(T["place"], "")
+        self.assertTrue(any("has consonants but no vowel rows" in n for n in rep.notes))
 
     def test_citation_checks(self):
         rep = run(lambda d: [

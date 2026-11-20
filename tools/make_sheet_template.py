@@ -39,9 +39,12 @@ LISTS = {
     "status": ["regular", "sporadic", "loan-stratum", "disputed"],
     "phoneme_status": sorted(build.PHONEME_STATUS),
     "pub_type": sorted(build.PUB_TYPES),
+    "conditioning": sorted(build.CONDITIONING),
+    "derivation": sorted(build.DERIVATIONS),
+    "changes_only": ["TRUE"],
     "blank_type": ["not-attested", "lexeme-replaced", "irregular", "loan", "disputed"],
     "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"]
-                   + sorted(build.ENV_SYLLABLES),
+                   + sorted(build.ENV_SYLLABLES) + [build.ENV_UNKNOWN],
 }
 
 # (tab, column) -> list name, or "lects"/"sources" for an id from that tab.
@@ -49,6 +52,10 @@ VALIDATION = {
     ("sources", "kind"): "source_kind",
     ("sources", "pub_type"): "pub_type",
     ("lects", "competes_with"): "lects",
+    ("lects", "changes_only"): "changes_only",
+    ("lects", "language_id"): "lects",
+    ("correspondences", "conditioning"): "conditioning",
+    ("correspondences", "derivation"): "derivation",
     ("lects", "type"): "lect_type",
     ("lects", "parent_id"): "lects",
     ("phonemes", "lect_id"): "lects",

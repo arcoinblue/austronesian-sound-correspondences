@@ -108,6 +108,9 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `clade` | | *optional column.* The group a proto-language is the ancestor of, used as the heading in the lect tree. Blank: the name without `Proto-` (Proto-Malayo-Polynesian heads *Malayo-Polynesian*). An earlier-stage heads no group. |
 | `competes_with` | | *optional column.* Id(s) of other lects that reconstruct the same node, `;`-separated; one direction is enough. See *Competing reconstructions*. |
 | `latitude`, `longitude` | | *optional columns.* Decimal degrees, south and west negative (`-8.38`, `118.18`). The lect page links them to a map. `tools/extract_coordinates.py` moves "coordinates -8.38, 118.18" out of `notes` into these columns. |
+| `changes_only` | | *optional column.* `TRUE` when the source lists only the changes into this lect (a classification tree such as Grimes & Edwards 2026). The build then carries the parent's inventory down: a parent phoneme the source does not mention is retained, and one it mentions only under conditions is retained elsewhere. These rows are marked *implied* and shown in grey; they never count as stated. |
+| `language_id` | | *optional column.* For a dialect: the language it belongs to. The dialect's page says "Dialect of …" and the language's page lists its dialects. |
+| `alt_parents` | | *optional column.* Other classifications, `parent_id:source_id`, `;`-separated: `pef:chen2022`. The tree and the correspondences follow `parent_id`; the lect page lists the other hypotheses and the proposed parent lists the lect under "Daughters in other classifications". |
 | `overlap_groups` | | *optional column.* Names of subgroups that cut across the tree, `;`-separated (`Wetar-Galolen`). They are labels, not nodes: a lect can be in several, its `parent_id` stays what the tree says, and the changes that define the group are entered on each member. The lect page lists the other members, and the lect filter finds the name. |
 | `region`, `orthography_note`, `notes` | | |
 
@@ -163,6 +166,12 @@ One proto-segment → one reflex, in one daughter, in one environment. The paren
 | `source_id` | yes | |
 | `page` | strongly advised | the build warns if missing (unless `via_page` is given) |
 | `notes` | | |
+| `conditioning` | | *optional column.* `stated` (the environment is the condition) · `unknown` (the source gives no condition; environment `conditions unknown`, set automatically) · `lexical` (in some words only; say which in `lexical_scope`) |
+| `evidence_total` | | *optional column.* N where the source gives "n of N": `evidence_count` 12, `evidence_total` 94. Shown as "12 of 94". |
+| `derivation` | | *optional column.* `as-stated` (blank) · `composed` (restated against an intermediate node from the source's statements) · `implied-retention` (the build adds these for `changes_only` lects; enter it by hand only for a retention you infer) |
+| `variety`, `stratum`, `lexical_scope` | | *optional columns.* What used to go into `environment` but is not a phonological condition: `Southern dialect`, `older generations`; `Kiribati loans`, `Northern stratum`; `*kəmpuŋ`, `two etyma`. |
+| `examples` | | *optional column.* Cognate-set ids (ACD) or example forms as printed, `;`-separated. |
+| `source_form` | | *optional column.* The reflex as printed, when `child_phoneme` is its IPA (printed `ʤ`, stored `d͡ʒ`). |
 | `system` | | *optional column.* Set it when `parent_phoneme` is a phoneme of another reconstruction system (`Ross`, with `parent_phoneme` `Z`). Blank means the parent's default inventory. |
 
 How to enter the common cases:
@@ -184,6 +193,12 @@ poc-mb-b-C,poc,b,b,m+_,regular,,7,ross2023,35,
 ```
 
 The build pairs the rows. In the reflex's ancestry diagram the two members run to a "+" junction and one line goes on to the reflex, and each member's descent lists the reflex as "*m + *b fuse". A vowel and a glide that fuse are entered the same way (PMP *-aw* > POc *-o*: `a > o / _+w` and `w > o / a+_`). This is different from a segment that only changes next to another one, which is one ordinary row with a conditioning environment (`N_`, no `+`): there the neighbour survives as its own segment. If only one of the two rows is present the build warns and treats it as an ordinary conditioned change.
+
+**IPA in attested lects.** `phonemes.ipa` and `child_phoneme` hold IPA for languages and dialects: `ɡ` (not Latin g), `j` for the palatal glide, `ɲ`, affricates with a tie bar (`t͡ʃ d͡ʒ t͡s d͡z`). The printed form goes in `source_symbol` / `source_form`. The build warns about Latin g, y, ñ, the old ligatures ʤ ʧ, untied affricates, digraphs and cedilla/caron letters. Proto-languages keep their reconstruction orthography (`*y`, `*ñ`, `*j`).
+
+**Unknown conditioning** is written one way: environment `conditions unknown`. "not stated", "conditions unclear" and similar spellings are warned about.
+
+**Stable ids.** Every correspondence row has an `id`. One left blank gets a hash of its content, which changes when the row is edited; fill it in (the build's report gives the value) so links to the row keep working.
 
 **Inserted sounds.** A sound with nothing behind it in the parent (an epenthetic vowel, a glide before an initial vowel, a paragogic consonant) is a row with `parent_phoneme` `∅` and the sound in `child_phoneme`, with the environment it appears in: `∅ > ə / C_#`. Its ancestry starts from ∅, and the parent's page lists it under *Sounds inserted in daughter lects*. Leave `system` blank.
 
@@ -287,6 +302,7 @@ The data is entered in the Google Sheet [Austronesian Sound Correspondences — 
 - If a check fails, nothing is committed and the run fails. Errors read `tab.csv:ROW`, where ROW is the row in that tab of the sheet.
 - The sheet must stay shared as "anyone with the link can view". Its id is stored in the repository variable `SHEET_ID` (Settings → Secrets and variables → Actions → Variables).
 - `tools/make_sheet_template.py` regenerates the workbook (tabs, dropdowns, help tab) from `build.py`'s vocabularies, should the schema change. Re-upload it, or copy the changed dropdowns by hand.
+- The sync also checks every Glottocode and ISO code against a pinned Glottolog release (`tools/check_glottolog.py`): a code Glottolog does not have, or an ISO code that belongs to a different languoid, stops the sync.
 - GitHub often delays or skips scheduled runs, so "every hour" is a best case. Run the workflow by hand when an edit should appear at once.
 - GitHub pauses hourly schedules in repositories with no activity for 60 days. If that happens, re-enable the workflow in the Actions tab.
 

@@ -189,6 +189,18 @@
           {
             "name": "overlap_groups",
             "datatype": "string"
+          },
+          {
+            "name": "changes_only",
+            "datatype": "string"
+          },
+          {
+            "name": "language_id",
+            "datatype": "string"
+          },
+          {
+            "name": "alt_parents",
+            "datatype": "string"
           }
         ],
         "primaryKey": [
@@ -380,6 +392,38 @@
           },
           {
             "name": "via_note",
+            "datatype": "string"
+          },
+          {
+            "name": "conditioning",
+            "datatype": "string"
+          },
+          {
+            "name": "evidence_total",
+            "datatype": "string"
+          },
+          {
+            "name": "derivation",
+            "datatype": "string"
+          },
+          {
+            "name": "variety",
+            "datatype": "string"
+          },
+          {
+            "name": "stratum",
+            "datatype": "string"
+          },
+          {
+            "name": "lexical_scope",
+            "datatype": "string"
+          },
+          {
+            "name": "examples",
+            "datatype": "string"
+          },
+          {
+            "name": "source_form",
             "datatype": "string"
           }
         ],

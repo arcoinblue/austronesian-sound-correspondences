@@ -106,7 +106,21 @@ function ancestorsOf(id) {
   while (cur && LECTS[cur] && !out.includes(cur)) { out.unshift(cur); cur = LECTS[cur].parent_id; }
   return out;
 }
-function coverage(c) { return c ? `${c.with_descent}/${c.inventory_size}` : `<span class="muted">root</span>`; }
+// How many of the parent's phonemes have an outcome here: stated by the source, or
+// implied (a changes-only source does not mention what stays the same).
+function coverage(c) {
+  if (!c) return `<span class="muted">root</span>`;
+  if (!c.stated && !c.implied) return `<span class="muted" title="no correspondences entered">no data</span>`;
+  return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes have an outcome stated by the source${c.implied ? `; ${c.implied} more are implied retentions` : ""}">${c.stated}/${c.parent_size}${c.implied ? ` <span class="muted">+${c.implied} implied</span>` : ""}</span>`;
+}
+function coverageText(d) {
+  const c = d.coverage;
+  if (!c) return "root proto-language";
+  const P = LECTS[d.parent_id]?.name || d.parent_id;
+  if (!c.stated && !c.implied) return `no correspondences entered (the sources used give no data for ${esc(d.name)})`;
+  return `${c.stated} of the ${c.parent_size} phonemes of ${esc(P)} have an outcome stated by the source`
+    + (c.implied ? `; the other ${c.implied} are taken as retained, because the source lists only the changes` : "");
+}
 
 // ------------------------------------------------------------------ page 1
 
@@ -121,7 +135,7 @@ async function pageIndex(params) {
     pivot = { lect: pl, ph, byLect: {} };
     for (const r of ph.descendants) (pivot.byLect[r.child_lect_id] ||= []).push(r);
   }
-  const state = { q: "", view: "tree" };
+  const state = { q: "", view: "tree", hideEmpty: true };
   try { state.view = localStorage.getItem("asc-view") === "flat" ? "flat" : "tree"; } catch (e) {}
 
   // The tree: daughters under their nearest ancestor. In a reflex table the
@@ -150,6 +164,7 @@ async function pageIndex(params) {
         <button data-v="tree">Tree</button><button data-v="flat">A–Z</button>
       </span>
       <span class="treeonly"><button class="more" id="openall">Expand all</button> <button class="more" id="closeall">Collapse</button></span>
+      <label class="muted" style="font-size:13px"><input type="checkbox" id="hideempty" checked> Hide lects with no data</label>
       <span class="muted" id="count"></span>
     </div>
     <div class="scroll"><table id="t" class="lects"></table></div>`;
@@ -160,6 +175,9 @@ async function pageIndex(params) {
     app.querySelector(".treeonly").hidden = !tree;
     const q = state.q.toLowerCase();
     const hit = l => !q || [l.name, ...l.alt_names, ...(l.overlap_groups || [])].some(n => n.toLowerCase().includes(q));
+    // A lect with no rows and no daughters with rows says nothing yet.
+    const hasData = l => l.index_status !== "empty" || (kids[l.id] || []).some(hasData);
+    const visible = l => !(state.hideEmpty && !pivot && !hasData(l));
     const head = `<tr><th>Name</th><th>Type</th><th>Glottocode</th>${tree ? "" : "<th>Nearest ancestor</th>"}
       <th>${pivot ? "Reflex" : "Coverage"}</th></tr>`;
     const cells = l => {
@@ -170,14 +188,14 @@ async function pageIndex(params) {
           ? `${phLink(r.child)} <span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> ${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}`
           : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
           : `<span class="blank">unentered</span>`;
-      } else mid = coverage(l.coverage);
+      } else mid = coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
       return `<td>${label(l.type)}</td>
         <td>${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
         ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td>${mid}</td>`;
     };
     let body = "", shown = 0;
     if (!tree) {
-      const rows = pool.filter(hit).sort((a, b) => a.name.localeCompare(b.name));
+      const rows = pool.filter(l => hit(l) && visible(l)).sort((a, b) => a.name.localeCompare(b.name));
       shown = rows.length;
       body = rows.map(l => `<tr><td>${lectLink(l.id)}</td>${cells(l)}</tr>`).join("");
     } else {
@@ -185,7 +203,7 @@ async function pageIndex(params) {
       const has = l => hit(l) || (kids[l.id] || []).some(has);
       const walk = (pid, depth) => {
         for (const l of kids[pid] || []) {
-          if (q && !has(l)) continue;
+          if ((q && !has(l)) || !visible(l)) continue;
           // A proto-language with daughters heads a group, named after the clade
           // (Malayo-Polynesian, not Proto-Malayo-Polynesian). An earlier stage of
           // one language (Pre-Gayo) heads none: its daughter simply follows it.
@@ -203,10 +221,12 @@ async function pageIndex(params) {
       walk("", 0);
     }
     const cols = tree ? 4 : 5;
-    app.querySelector("#count").textContent = pool.length ? `${shown} of ${pool.length} shown` : "";
+    const hidden = state.hideEmpty && !pivot ? pool.filter(l => !hasData(l)).length : 0;
+    app.querySelector("#count").textContent = pool.length ? `${shown} of ${pool.length} shown${hidden ? ` (${hidden} with no data hidden)` : ""}` : "";
     app.querySelector("#t").innerHTML = head + (body || `<tr><td colspan="${cols}" class="muted">${INDEX.lects.length ? "No lects match." : "No lects entered yet. Add rows to cldf/lects.csv."}</td></tr>`);
   };
   app.querySelector("#q").addEventListener("input", e => { state.q = e.target.value; draw(); });
+  app.querySelector("#hideempty").addEventListener("change", e => { state.hideEmpty = e.target.checked; draw(); });
   app.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
     state.view = b.dataset.v; try { localStorage.setItem("asc-view", state.view); } catch (e) {} draw();
   }));
@@ -228,9 +248,10 @@ function cellLink(L, p) {
     : [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`,
        p.origin === "generated" && `chart position: ${p.placement === "hand" ? "set by hand" : "inferred from the symbol"}`,
        p.origin !== "sourced" && p.reason,
-       p.status === "marginal" && "marginal phoneme", p.status === "dubious" && "doubtful proto-phoneme"].filter(Boolean).join(" · ");
+       p.status === "marginal" && "marginal phoneme", p.status === "dubious" && "doubtful proto-phoneme",
+       p.implied && "implied: carried down unchanged, not mentioned by the source"].filter(Boolean).join(" · ");
   const guess = inferredNote(p);
-  return `<a class="o-${esc(p.origin || "sourced")}${p.placement === "hand" && p.origin === "generated" ? " hand" : ""}${guess && p.origin !== "generated" ? " inferred" : ""}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc([title, p.origin !== "generated" && guess].filter(Boolean).join(" · "))}">${p.status ? "(" : ""}${esc(isProto(L) ? "*" + p.ipa : p.ipa)}${p.status ? ")" : ""}</a>`;
+  return `<a class="o-${esc(p.origin || "sourced")}${p.placement === "hand" && p.origin === "generated" ? " hand" : ""}${guess && p.origin !== "generated" ? " inferred" : ""}${p.implied ? " implied" : ""}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc([title, p.origin !== "generated" && guess].filter(Boolean).join(" · "))}">${p.status ? "(" : ""}${esc(isProto(L) ? "*" + p.ipa : p.ipa)}${p.status ? ")" : ""}</a>`;
 }
 // What the build filled in because the source did not state it.
 function inferredNote(p) {
@@ -305,10 +326,22 @@ async function pageLect(L) {
     "edited": "Reverse-generated from the correspondence data, then corrected by hand. Every change is listed below.",
     "empty": "No inventory yet: no source gives one and no correspondences have been entered.",
   }[d.inventory_status];
+  const proto = isProto(L);
+  // A node defined by a few changes is not an inventory: show the changes instead of a chart.
+  const changesView = d.changes_only || (proto && d.inventory_status !== "sourced" && own.length <= 2 && d.changes.length);
+  const note = d.changes_only
+    ? `The source lists only the changes that define ${d.name}. The phonemes of ${LECTS[d.parent_id]?.name || "its parent"} that it does not mention are taken as retained; they are shown in grey and marked implied.`
+    : d.index_status === "empty" ? `No correspondences entered: the sources used give no data for ${d.name}.`
+    : changesView ? `The source gives only the changes that define ${d.name}, so its inventory is not known. The table lists those changes; it is not a phoneme inventory.`
+    : statusNote;
+  const changesTable = d.changes.length ? `<h2>Changes defining this ${proto ? "node" : "lect"}</h2>
+    <div class="scroll"><table><tr><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
+    ${d.changes.map(r => `<tr><td>${r.parent ? phLink(r.parent) : ""} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
+      <td>${envHtml(r)}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${fold(r.notes, 140)}</td></tr>`).join("")}</table></div>` : "";
 
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a>${ancestors ? " › " + ancestors : ""}</div>
-    <h1>${esc(d.name)} ${badge(d.inventory_status)}</h1>
+    <h1>${esc(d.name)} ${badge(d.index_status === "changes-only" ? "changes-only" : d.inventory_status)}</h1>
     <dl class="info">
       ${d.alt_names.length ? `<dt>Also</dt><dd>${esc(d.alt_names.join(", "))}</dd>` : ""}
       <dt>Type</dt><dd>${label(d.type)}</dd>
@@ -316,28 +349,35 @@ async function pageLect(L) {
       ${d.iso639_3 ? `<dt>ISO 639-3</dt><dd>${esc(d.iso639_3)}</dd>` : ""}
       ${d.subgroup_path.length ? `<dt>Subgroup</dt><dd>${esc(d.subgroup_path.join(" > "))}</dd>` : ""}
       <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
+      ${d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
+      ${d.dialects.length ? `<dt>Dialects</dt><dd>${d.dialects.map(lectLink).join(", ")}</dd>` : ""}
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
+      ${d.alt_parents.length ? `<dt>Other classifications</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
+        <br><span class="muted" style="font-size:12.5px">The tree and the correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
+      ${d.alt_daughters.length ? `<dt>Daughters in other classifications</dt><dd>${d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join(", ")}</dd>` : ""}
       ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
         <br><span class="muted" style="font-size:12.5px">Overlapping subgroups: they cut across the tree and are not nodes of it.</span></dd>` : ""}
       ${d.region ? `<dt>Region</dt><dd>${esc(d.region)}</dd>` : ""}
       ${d.coordinates ? `<dt>Coordinates</dt><dd><a href="https://www.openstreetmap.org/?mlat=${d.coordinates[0]}&mlon=${d.coordinates[1]}#map=8/${d.coordinates[0]}/${d.coordinates[1]}" target="_blank" rel="noopener">${d.coordinates[0]}, ${d.coordinates[1]}</a></dd>` : ""}
-      <dt>Coverage</dt><dd>${d.coverage ? `${d.coverage.with_descent} of ${d.coverage.inventory_size} phonemes have a sourced descent` : "root proto-language"}</dd>
+      <dt>Coverage</dt><dd>${coverageText(d)}</dd>
       <dt>Inventory source</dt><dd>${d.inventory_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
       <dt>Correspondences</dt><dd>${d.correspondence_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
       ${d.orthography_note ? `<dt>Orthography</dt><dd>${fold(d.orthography_note, 320)}</dd>` : ""}
       ${d.notes ? `<dt>Notes</dt><dd>${fold(d.notes, 320)}</dd>` : ""}
     </dl>
-    ${statusNote ? `<div class="notice">${esc(statusNote)}</div>` : ""}
+    ${note ? `<div class="notice">${esc(note)}</div>` : ""}
+    ${changesView && !d.changes_only ? changesTable : ""}
     ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
-    <div id="inv">${inventoryHtml(L, own)}</div>
+    ${changesView && !d.changes_only ? "" : `<div id="inv">${inventoryHtml(L, own)}</div>`}
     ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
       ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated, placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}
       ${d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote)) ? "Grey italic = the source gives no place or manner, so the position is read off the symbol." : ""}</p>` : ""}
+    ${d.changes_only ? changesTable : ""}
     ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
       <div class="scroll"><table><tr><th>Daughter lect</th><th>Inserted</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
       ${d.insertions.map(r => `<tr><td>${lectLink(r.child_lect_id)}</td><td>${phLink(r.child)}</td><td>${envHtml(r)}</td><td>${badge(r.status)}</td>
-        <td>${r.evidence_count ?? ""}</td><td>${cite(r)}</td><td>${fold(r.notes, 140)}</td></tr>`).join("")}</table></div>` : ""}
+        <td>${evidence(r)}</td><td>${cite(r)}</td><td>${fold(r.notes, 140)}</td></tr>`).join("")}</table></div>` : ""}
     ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
       <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
       ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
@@ -346,7 +386,9 @@ async function pageLect(L) {
     app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
     const sys = d.systems.find(x => x.name === b.dataset.tab);
     app.querySelector("#inv").innerHTML = sys
-      ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol opens the matching ${esc(d.default_label)} phoneme with this system's tab.</p>` + inventoryHtml(L, sys.phonemes)
+      ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol opens the matching ${esc(d.default_label)} phoneme with this system's tab.</p>`
+        + (sys.phonemes.some(p => p.class === "V") ? "" : `<div class="notice">${esc(sys.name)}'s reconstruction is compared for consonants only: the source gives no vowels for it.</div>`)
+        + inventoryHtml(L, sys.phonemes)
       : inventoryHtml(L, own);
   }));
 }
@@ -448,9 +490,10 @@ function ancestryHtml(g, herePid) {
     const es = pairs[k].filter(q => !q.fusion), e = es[0];
     if (!e || !(e.parent in x) || !(e.child in x)) continue;
     const odd = es.every(q => q.status && q.status !== "regular");
+    const imp = es.every(q => q.derivation === "implied-retention");
     const tip = es.map(q => `${sym(q.parent)} > ${sym(q.child)} / ${q.environment}${q.status && q.status !== "regular" ? " (" + statusLabel(q.status) + ")" : ""}`).join("\n");
     const envs = [...new Set(es.filter(q => q.environment !== "elsewhere").map(q => q.environment))];
-    segs.push({ from: e.parent, to: e.child, tip, cls: odd ? "odd" : "",
+    segs.push({ from: e.parent, to: e.child, tip: tip + (imp ? " (implied: not mentioned by a changes-only source)" : ""), cls: imp ? "imp" : odd ? "odd" : "",
       label: envs.length && es.length === envs.length ? envs.join(", ") : "" });
   }
   const farX = (sg, end) => end === "from" ? (sg.to ? px(sg.to) : sg.toPt[0]) : (sg.from ? px(sg.from) : sg.fromPt[0]);
@@ -521,7 +564,7 @@ function ancestryHtml(g, herePid) {
   const steps = g.edges.slice().sort((a, b) => order(a) - order(b)).map(e => `<tr>
       <td>${lectLink(lectOf(e.child))}</td>
       <td>${phLink(e.parent)} &gt; ${e.child === herePid ? `<span class="ipa here">${esc(sym(e.child))}</span>` : phLink(e.child)}</td>
-      <td>${envHtml(e)}</td><td>${badge(e.status)}</td><td>${e.evidence_count ?? ""}</td><td>${cite(e)}</td></tr>`).join("");
+      <td>${envHtml(e)}</td><td>${badge(e.status)}</td><td>${evidence(e)}</td><td>${cite(e)}</td></tr>`).join("");
   return `<div class="scroll">${svg}</div>
     <details class="steps"${g.edges.length <= 6 ? " open" : ""}><summary>${g.edges.length} step${g.edges.length === 1 ? "" : "s"} with conditions and sources</summary>
     <div class="scroll"><table><tr><th>Into</th><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th></tr>${steps}</table></div></details>`;
@@ -536,15 +579,17 @@ function descentHtml(rows, daughters) {
   if (!rows.length) return `<p class="muted">${daughters ? "No descendant reflexes entered." : "No daughter lects in the database."}</p>`;
   // Below a competing reconstruction nothing is listed: those reflexes are on its own pages.
   rows = rows.filter(r => !r.beyond_competing);
-  const tr = r => `<tr class="${r.via.length ? "dim" : ""}${r.via.length && !r.conflict ? " deep" : ""}">
+  // Implied retentions (a changes-only source's silence) sit with the deeper rows.
+  const deep = r => (r.via.length && !r.conflict) || r.derivation === "implied-retention";
+  const tr = r => `<tr class="${r.via.length || r.derivation === "implied-retention" ? "dim" : ""}${deep(r) ? " deep" : ""}">
       <td>${lectLink(r.child_lect_id)}${r.competing ? ` <span class="badge b-disputed" title="One of two or more competing reconstructions of this stage; its own reflexes are on its pages">competing</span>` : ""}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
       <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
       <td>${envHtml(r)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
-      <td>${r.evidence_count ?? ""}</td>
+      <td>${evidence(r)}</td>
       <td>${cite(r)}</td>
       <td>${fold(r.notes, 140)}</td></tr>`;
-  const hidden = rows.filter(r => r.via.length && !r.conflict).length;
+  const hidden = rows.filter(deep).length;
   if (!rows.length) return `<p class="muted">The reflexes below this stage are on the pages of its competing reconstructions.</p>`;
   const shownDeep = rows.filter(r => r.via.length && r.conflict).length;
   return `<div class="descentbox">
@@ -568,8 +613,24 @@ function systemPanel(sys, sps, d) {
       : `<p class="muted">No separate descent is entered for ${esc(sys)}'s ${esc(sym(sp.id))}; its reflexes are those under the ${esc(d.default_label)} tab.</p>`}`).join("");
 }
 function envHtml(r) {
-  if (!r.fusion) return `<code>${esc(r.environment)}</code>`;
-  return `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`;
+  const env = r.fusion
+    ? `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`
+    : r.environment === "conditions unknown" ? `<span class="muted">conditions unknown</span>` : `<code>${esc(r.environment)}</code>`;
+  const tags = [
+    r.variety && `<span class="tag" title="variety">${esc(r.variety)}</span>`,
+    r.stratum && `<span class="tag" title="stratum">${esc(r.stratum)}</span>`,
+    r.lexical_scope && `<span class="tag" title="lexically restricted">${esc(r.lexical_scope)}</span>`,
+    r.conditioning === "lexical" && !r.lexical_scope && `<span class="tag">lexically restricted</span>`,
+    r.derivation === "composed" && `<span class="tag der" title="composed from the source's statements against an earlier stage; see notes">composed</span>`,
+    r.derivation === "implied-retention" && `<span class="tag der" title="not mentioned by a changes-only source">implied</span>`,
+    r.source_form && `<span class="muted" title="as printed in the source">printed ${esc(r.source_form)}</span>`,
+  ].filter(Boolean);
+  return env + (tags.length ? " " + tags.join(" ") : "");
+}
+// "12 of 94" where the source gives both numbers.
+function evidence(r) {
+  if (r.evidence_count == null) return "";
+  return r.evidence_total != null ? `${r.evidence_count} of ${r.evidence_total}` : String(r.evidence_count);
 }
 
 async function pagePhoneme(L, uid) {

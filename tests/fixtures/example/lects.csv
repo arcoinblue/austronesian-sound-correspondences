@@ -1,5 +1,5 @@
-id,name,alt_names,type,glottocode,iso639_3,parent_id,subgroup_path,region,orthography_note,notes,default_system,systems,clade,competes_with,latitude,longitude,overlap_groups
-pxa,Proto-Example-A,PXA,proto-language,,,,PXA,,,fictional root,,,,,,,
-pxb,Proto-Example-B,,proto-language,,,pxa,PXA > PXB,,,fictional; inventory reverse-generated,,,,,,,
-exam1234,Examplese,Exampli;Examp,language,exam1234,xex,pxb,PXA > PXB,Nowhere,<y> = /j/,sourced inventory,,,,,,,
-samp1234,Samplish,,language,samp1234,,pxb,PXA > PXB,Nowhere,,edited inventory,,,,,,,
+id,name,alt_names,type,glottocode,iso639_3,parent_id,subgroup_path,region,orthography_note,notes,default_system,systems,clade,competes_with,latitude,longitude,overlap_groups,changes_only,language_id,alt_parents
+pxa,Proto-Example-A,PXA,proto-language,,,,PXA,,,fictional root,,,,,,,,,,
+pxb,Proto-Example-B,,proto-language,,,pxa,PXA > PXB,,,fictional; inventory reverse-generated,,,,,,,,,,
+exam1234,Examplese,Exampli;Examp,language,exam1234,xex,pxb,PXA > PXB,Nowhere,<y> = /j/,sourced inventory,,,,,,,,,,
+samp1234,Samplish,,language,samp1234,,pxb,PXA > PXB,Nowhere,,edited inventory,,,,,,,,,,

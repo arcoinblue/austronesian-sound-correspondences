@@ -141,3 +141,9 @@ table.lects .count { font-size: 12px; margin-left: 6px; }
 table.refs td.ref { max-width: 520px; line-height: 1.5; padding-left: 2em; text-indent: -1.4em; }
 table.refs .refid { font-size: 12px; }
 table.othersys { width: auto; margin: 4px 0; }
+.b-changes-only { background: var(--accent-soft); color: var(--accent); }
+.b-empty { background: var(--soft); color: var(--muted); }
+.chart a.implied { color: var(--muted); font-style: italic; }
+.tag { display: inline-block; font-size: 11.5px; padding: 0 6px; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); white-space: nowrap; }
+.tag.der { border-style: dashed; }
+svg.anc path.imp { stroke: var(--line); stroke-dasharray: 2 3; }
