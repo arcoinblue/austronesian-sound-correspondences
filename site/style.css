@@ -141,11 +141,18 @@ details.steps { margin: 2px 0 12px; }
 details.steps summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .steps .here { color: var(--accent); font-weight: 700; }
 
-table.lects b.clade { font-weight: 600; }
+table.lects .clade { font-weight: 600; }
 table.lects .twist { display: inline-block; width: 20px; padding: 0; border: 0; background: none; font: inherit;
   color: var(--muted); cursor: pointer; text-align: left; font-size: 15px; line-height: 1; }
 table.lects button.twist:hover { color: var(--fg); }
 table.lects .count { font-size: 12px; margin-left: 6px; }
+/* Names stay on one line (the table scrolls sideways instead), indented 14 px a
+   level, with a thin guide line under each open group's arrow. */
+table.lects td.nm { white-space: nowrap; padding-left: calc(10px + var(--d, 0) * 14px);
+  background-image: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px 14px);
+  background-size: calc(var(--d, 0) * 14px) 100%; background-position: 14px 0; background-repeat: no-repeat; }
+table.lects td.nw { white-space: nowrap; }
+table.lects .twist.after { color: var(--muted); font-size: 12px; cursor: default; }
 .controls #count { font-size: 13px; margin-left: auto; }
 
 .foldbtn { font: inherit; font-size: 12px; padding: 0 6px; border: 1px solid var(--line); border-radius: 5px;

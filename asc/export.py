@@ -1,6 +1,7 @@
 """Writing the site's data files and the generated part of STATUS.md."""
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import shutil
@@ -40,7 +41,27 @@ def write_site(D, out_dir, site_dir):
             dest = out_dir / f.relative_to(site_dir)
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(f, dest)
+    stamp_index(out_dir, files)
     return files
+
+
+def stamp_index(out_dir, files):
+    """Give every script and stylesheet in index.html a ?v=<content hash>, and
+    the data a build stamp, so that a browser fetches them again after a
+    deploy instead of using its cached copy."""
+    index = Path(out_dir) / "index.html"
+    if not index.exists():
+        return
+    digest = lambda b: hashlib.sha1(b).hexdigest()[:10]
+    def stamp(m):
+        f = Path(out_dir) / m.group(2)
+        return f'{m.group(1)}="{m.group(2)}?v={digest(f.read_bytes())}"' if f.is_file() else m.group(0)
+    html = re.sub(r'(src|href)="((?:js/)?[\w.-]+\.(?:js|css))"', stamp, index.read_text(encoding="utf-8"))
+    build = digest(json.dumps(files.get("index.json"), ensure_ascii=False, sort_keys=True).encode("utf-8")
+                   + json.dumps(files.get("sources.json"), ensure_ascii=False, sort_keys=True).encode("utf-8")
+                   + str(len(files)).encode())
+    html = html.replace("</head>", f'<meta name="asc-build" content="{build}">\n</head>', 1)
+    index.write_text(html, encoding="utf-8")
 
 STATUS_BEGIN = "<!-- BEGIN GENERATED: python3 build.py --check --status STATUS.md; do not edit by hand -->"
 STATUS_END = "<!-- END GENERATED -->"
