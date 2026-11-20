@@ -328,6 +328,20 @@ The data is entered in the Google Sheet [Austronesian Sound Correspondences — 
 - GitHub often delays or skips scheduled runs, so "every hour" is a best case. Run the workflow by hand when an edit should appear at once.
 - GitHub pauses hourly schedules in repositories with no activity for 60 days. If that happens, re-enable the workflow in the Actions tab.
 
+## Adding data in batches
+
+Hand edits and a few new rows go straight into the sheet. A larger addition (one source read into many rows) goes through a pull request, and a workflow appends the rows to the sheet; the sheet stays the source of truth and the only place rows are changed.
+
+1. Make a folder `data/incoming/<batch-id>/` (lowercase, e.g. `lobel2013`). Put in it one CSV per table you add to (`sources.csv`, `lects.csv`, `phonemes.csv`, `correspondences.csv`, `notation_map.csv`), each with a header row of that table's columns, any order, unused columns left out, **new rows only**. Every correspondence needs an `id`. Add `BATCH.md`: source and pages read, scope, method, decisions taken, what was not entered.
+2. Open a pull request. CI runs `python tools/batches.py check`: it checks the batch against `cldf/` (the sheet at the last sync), runs all of `build.py`'s checks on the combined data with errors pointing at `data/incoming/<batch-id>/<table>.csv:LINE`, and refuses a row whose key is already in the sheet with different content. Keys: `id` (sources, lects, correspondences), `lect_id`+`ipa` (phonemes), `lect_id`+`phoneme`+`system`+`symbol` (notation_map).
+3. Merge. **Actions → Add batch to Google Sheets** (`push-batch.yml`) then syncs the sheet, checks again, appends the new rows below the last row of each tab (values written as plain text, exactly as in the CSV), syncs back, verifies that every row arrived unchanged, moves the folder to `data/batches/<batch-id>/` with the sheet rows noted in `BATCH.md`, commits and redeploys.
+
+Running it again adds nothing: rows whose key is already in the sheet with the same content are skipped. If something in the sheet changed in between, so that the rows below the data are not empty or a key now has different content, the run stops before writing anything.
+
+The workflow signs in with a Google service account: the repository secret `GOOGLE_SERVICE_ACCOUNT_JSON` holds its key file, and the sheet is shared with the account's address as Editor. To test the setup, run the workflow by hand with mode `auth-check`; it signs in, reads the tabs, and rewrites the `sources!A1` header with its own value.
+
+This replaces the earlier route of uploading an .xlsx to Drive and copying tabs into the sheet.
+
 ## Publishing
 
 Every push to `main` runs `.github/workflows/pages.yml`: the tests run, then `build.py` builds from `cldf/`, and the result is deployed to https://arcoinblue.github.io/austronesian-sound-correspondences/. If the data has an error, the build fails and the previous site stays up; the error list is in the Actions log. Pull requests run the same checks without deploying.
