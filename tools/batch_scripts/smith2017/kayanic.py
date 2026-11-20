@@ -26,11 +26,8 @@ def build(b: Batch):
          alt_names="PKYN", inherit="assumed-unchanged",
          notes="Long Naah, Data Dian, Balui Liko, Busang and Bahau (Smith 2017a: 52-62). Smith calls the "
                "phonological evidence for Kayan 'relatively weak' (p. 60) and rests the group on lexical "
-               "innovations (pp. 60-62). Figure 10 (p. 54) lists the PMP to Proto-Kayan changes; those that "
-               "Table 23 already puts in Proto-Kayanic (*-d-, *-j- > *r, *-R- > *h) are entered there, and the "
-               "glottal stop added after final vowels with the lowering of high vowels is entered at "
-               "Proto-Kayan-Murik-Merap, where section 2.2.4.1 puts it. Glottolog's Kayanic (kaya1333) is this "
-               "group (Kayan languages and Bahau).")
+               "innovations (pp. 60-62). Figure 10 (p. 54) lists the PMP to Proto-Kayan changes. Glottolog's Kayanic "
+               "(kaya1333) is this group (Kayan languages and Bahau).")
     lect(b, "pmurik", "Proto-Murik-Merap", "proto-language", parent="pkmm", glottocode="muri1259",
          clade="Murik-Merap", alt_names="PMUR;Murik-Merap",
          inherit="assumed-unchanged",
@@ -415,13 +412,14 @@ def build(b: Batch):
         "question mark or hedges in the text.",
         "*q- entered as a disputed blank (printed Ø?); *-z- > *c entered as disputed (the text says only that it "
         "'may' be Proto-Kayanic, p. 58); *R- > *h entered as printed, although every daughter has Ø.",
-        "leave these out of Proto-Kayanic", S, "86"))
+        "leave these out", S, "86"))
     b.decisions.append(decision("pkmm-glottal", "Where do the added final glottal stop and the lowering of "
         "final high vowels belong?",
-        "Proto-Kayan-Murik-Merap (section 2.2.4.1, p. 84), not Proto-Kayan as Figure 10 (p. 54) has it. The "
+        "Shared by Kayan and Murik-Merap (section 2.2.4.1, p. 84), as Smith concludes, not Kayan alone as "
+        "Figure 10 (p. 54) has it; entered on both Proto-Kayan and Proto-Murik-Merap (decision kayanic-held). The "
         "lengthening of vowels before an inherited glottal stop and the later loss of that stop (Figures 11-12, "
         "pp. 56-57) are not entered, nor is Table 4's row *-aʔ, which does not match Table 6 for Long Naah.",
-        "Proto-Kayan, as in Figure 10", S, "54"))
+        "Proto-Kayan only, as in Figure 10", S, "54"))
 
 
 if __name__ == "__main__":
@@ -432,3 +430,100 @@ if __name__ == "__main__":
     build(b)
     out = b.write()
     print(out, len(b.corrs), "rows")
+
+
+HELD_NOTE = ("Smith states this for Proto-Kayanic{x}; that node is held back as an intermediate stage above the "
+             "established microgroups (decision kayanic-held), so the change is entered on each microgroup.")
+
+
+def hold_intermediate(b: Batch):
+    """Proto-Kayanic and Proto-Kayan-Murik-Merap are held back: their rows are restated on Proto-Kayan,
+    Proto-Murik-Merap and Proto-Segai-Modang, which then hang directly from PMP."""
+    from lib import cid
+    held = {"pkayanic": [], "pkmm": []}
+    keep = []
+    for r in b.corrs:
+        if r["child_lect_id"] in held:
+            held[r["child_lect_id"]].append(r)
+        else:
+            keep.append(r)
+    b.corrs[:] = keep
+    b._ids = {r["id"] for r in keep}
+
+    def copy(r, L, **kw):
+        n = dict(r)
+        n.update(child_lect_id=L)
+        x = "" if r["child_lect_id"] == "pkayanic" else " (with Kayan and Murik-Merap only, section 2.2.4.1)"
+        if r["child_lect_id"] == "pkmm":
+            pass
+        n["notes"] = (HELD_NOTE.format(x=x) + (" " + r["notes"] if r["notes"] else "")).strip()
+        if r["child_lect_id"] == "pkmm":
+            n["notes"] = n["notes"].replace("for Proto-Kayanic", "for Proto-Kayan-Murik-Merap")
+        if n["derivation"] in ("", "as-stated"):
+            n["derivation"] = "composed"
+        n.update(kw)
+        n["id"] = cid(L, n["parent_phoneme"], n["child_phoneme"], n["environment"], n["source_id"], n["page"])
+        return n
+
+    def key(r):
+        return (r["parent_phoneme"], r["environment"])
+
+    plan = {
+        "pkayan": (["pkayanic", "pkmm"], {("R", "#_")}),
+        "pmurik": (["pkayanic", "pkmm"], {("j", "_#")}),
+        "psegmod": (["pkayanic"], {("z", "elsewhere")}),
+    }
+    new = []
+    for L, (chain, drop) in plan.items():
+        for h in chain:
+            for r in held[h]:
+                if r["derivation"] == "implied-retention" or key(r) in drop:
+                    continue
+                new.append(copy(r, L))
+    # the node's own rows, restated in PMP symbols where a held change made the symbol
+    for r in b.corrs:
+        L = r["child_lect_id"]
+        if L == "pkayan" and key(r) == ("h", "#_"):
+            r.update(parent_phoneme="R", as_printed="*R- > *Ø",
+                     notes="Figure 10 states PMP *R- > Proto-Kayan Ø (Table 23 has *h- for Proto-Kayanic).")
+        elif L in ("pkayan", "psegmod") and key(r) == ("n", "_j"):
+            r.update(environment="_z", notes=r["notes"] + " PMP *nz (Smith's *nj).")
+        elif L == "psegmod" and key(r) == ("j", "elsewhere"):
+            r.update(parent_phoneme="z", as_printed="*z- > s, s, c, c; *nj > s, s, c, c (Table 14)",
+                     notes=r["notes"] + " Stated here against PMP *z, initial and after a nasal; medial *z "
+                                        "(Proto-Kayanic *c) has the same reflexes.")
+        else:
+            continue
+        r["id"] = cid(L, r["parent_phoneme"], r["child_phoneme"], r["environment"], r["source_id"], r["page"])
+    new.append(copy({"child_lect_id": "pkayanic", "parent_phoneme": "j", "child_phoneme": "n", "environment": "_#",
+                     "notes": "Table 23 has *-j > *-d for Proto-Kayanic, and Proto-Murik-Merap *-d > *-n (p. 65).",
+                     "as_printed": "*j > *r/d; *-d > *-n", "derivation": "", "source_id": S, "page": "65",
+                     "locator": "Table 23; §2.2.2.1.1", "status": "regular",
+                     **{c: "" for c in ("blank_type", "evidence_count", "system", "via_source_id", "via_page",
+                                        "via_note", "conditioning", "evidence_total", "variety", "stratum",
+                                        "lexical_scope", "examples", "source_form", "decision")}}, "pmurik"))
+    for n in new:
+        if n["id"] not in b._ids:
+            b._ids.add(n["id"])
+            b.corrs.append(n)
+    # lects
+    b.lects[:] = [r for r in b.lects if r["id"] not in ("pkayanic", "pkmm")]
+    for r in b.lects:
+        if r["id"] in ("pkayan", "pmurik", "psegmod"):
+            r["parent_id"] = "pmp"
+            r["notes"] += (" Proto-Kayanic (Smith's Table 23, p. 86) and Proto-Kayan-Murik-Merap (section 2.2.4.1) "
+                           "are held back as intermediate stages; their changes are entered on this node "
+                           "(decision kayanic-held).") if r["id"] != "psegmod" else (
+                           " Proto-Kayanic (Smith's Table 23, p. 86) is held back as an intermediate stage; its "
+                           "changes are entered on this node (decision kayanic-held).")
+            r["alt_parents"] = ""
+    b.phonemes[:] = [dict(p, lect_id=L) for p in b.phonemes if p["lect_id"] == "pkmm" for L in ("pkayan", "pmurik")] \
+        + [p for p in b.phonemes if p["lect_id"] != "pkmm"]
+    b.notation[:] = [n for n in b.notation if n["lect_id"] not in ("pkayanic", "pkmm")]
+    b.decisions.append(decision("kayanic-held", "Kayanic and Kayan-Murik-Merap: intermediate stages above the "
+        "microgroups Kayan, Murik-Merap and Segai-Modang.",
+        "Held back, by the rule to add correspondence tables and the reconstructions of established "
+        "microgroups but to hold the intermediate stages above them. Proto-Kayan, Proto-Murik-Merap and "
+        "Proto-Segai-Modang hang from PMP; the Table 23 and section 2.2.4.1 changes are restated on each, "
+        "marked composed. Smith himself finds no phonological evidence for Kayanic (p. 86).",
+        "enter Proto-Kayanic and Proto-Kayan-Murik-Merap as nodes", S, "86"))
