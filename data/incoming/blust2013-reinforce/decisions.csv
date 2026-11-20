@@ -1,0 +1,2 @@
+id,batch,question,chosen_reading,alternatives,status,source_id,page,notes
+pazeh-j-final,blust2013-reinforce,Pazeh reflex of PAN *j word-finally: d (Blust 2013: 578) or t̪ (the row from Blust 1999b via Shibata 2025)?,"Both rows are kept, each with its source: Blust (2013) lists Pazeh '-d only' as an exception to final devoicing; the earlier row has t̪ by final devoicing.",Keep only one of the two.,open,blust2013,578,
