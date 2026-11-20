@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 73 |  |
-| lects | 562 | 102 dialect, 30 earlier-stage, 263 language, 167 proto-language |
-| phonemes | 715 |  |
-| correspondences | 3431 | plus 5809 implied and 279 stated retentions generated from lects.inherit |
-| notation_map | 406 |  |
-| decisions | 28 | 28 open |
+| sources | 78 |  |
+| lects | 618 | 113 dialect, 30 earlier-stage, 295 language, 180 proto-language |
+| phonemes | 716 |  |
+| correspondences | 4969 | plus 6081 implied and 831 stated retentions generated from lects.inherit |
+| notation_map | 419 |  |
+| decisions | 44 | 44 open |
 
-Lects by `inherit`: (blank) 254, assumed-unchanged 291, stated-unchanged 17.
-Inventories: edited 22, empty 154, reverse-generated 357, sourced 29.
+Lects by `inherit`: (blank) 253, assumed-unchanged 303, stated-unchanged 62.
+Inventories: edited 23, empty 154, reverse-generated 412, sourced 29.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 150 warning(s), 350 note(s).
+`build.py --check`: 0 error(s), 155 warning(s), 514 note(s).
 
 | Warnings | Count |
 |---|---|
 | a work cited in notes has no sources row | 61 |
-| no glottocode | 54 |
-| a source is never cited | 24 |
+| no glottocode | 56 |
+| a source is never cited | 27 |
 | an attested lect has symbols that are not IPA | 8 |
 | a reflex is not in the lect's sourced inventory | 3 |
 
@@ -61,9 +61,25 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ge-iso` | ISO codes that differ between the tree and appendix A: Ngadha nxq/nxg, Baikeno bxq/bkx, Taliabu tly/tlv. | Ngadha nxg and Baikeno bkx (13:40); Taliabu still to settle. |  |
 | `ge-identity-conflicts` | Four identity rows were added at a node because a daughter states a change from that phoneme, but the node itself states a change for it: Proto-Nuclear Rote *d… | Both kept: the stated change and the identity, as two elsewhere reflexes. | 4 |
 | `pocr-parents` | Parents of PNCV, PNC and the Vanikoro languages (Teanu, Lovono, Tanema). | Directly under POc (PEOc, Proto-Southern Oceanic and a Temotu node are not entered). |  |
-| `pocr-glottocodes` | Löyöp and Mwerlap have no Glottolog languoid under those names. | Left without glottocodes. |  |
+| `pocr-glottocodes` | Glottocodes for Löyöp and Mwerlap, which have no Glottolog languoid under those names. | From the language metadata of Ross et al. (2023): Löyöp = leha1244 (urr), as listed (p. 625); Mwerlap = Merlav merl1237 (mrm) (p. 626), identified by the name … |  |
 | `pocr-volow` | Volow: Glottolog has it as a dialect of Mwotlap. | Entered as a language. |  |
 | `bm-stated-unchanged` | Billings & McDonnell tabulate only the nontrivial correspondence sets (Tables 3, 5, 7, 10; Appendix G). Is a phoneme they do not list stated to be unchanged, o… | Stated: the 17 lects have inherit = stated-unchanged, and their generated rows are shown as stated ("unchanged per source"). |  |
+| `smith-semicolon` | Smith's tables list several reflexes in a cell: 'the first listed reflex is the regular reflex, and the reflex(es) appearing after the semi-colon are condition… | First reflex: regular. After a semicolon: sporadic, unless the text states a condition (then regular with that environment). After a comma: regular, conditions… | 167 |
+| `smith-higher-order` | Smith's higher-order groupings: North Borneo, Greater North Borneo, Central Sarawak, Punan-Müller-Schwaner, North Sarawak, Basap-Barito, Western Indonesian (20… | Not entered as nodes. They rest mainly on lexical innovations, which Smith himself later rejects as subgrouping evidence for Greater North Borneo and Barito-Ba… |  |
+| `kayanic-glottocodes` | Glottocodes for Smith's Kayanic varieties. | Long Naah = Baram Kayan bara1370; Data Dian = Kayan River Kayan kaya1325 (Glottolog alt name); Balui Liko = Rejang Kayan reja1241; Gaai = Segai sega1243 (langu… |  |
+| `ngorek-nj` | Ngorek reflex of *nj: Table 8 (p. 64) has nc, Table 11 (p. 67) nj. | Not entered. |  |
+| `psm-j` | Proto-Segai-Modang reflex of Proto-Kayanic *j (PMP *z- and *nz). | *j > *c, inferred from Table 14: it shares the reflexes of medial *c, while *-y- > j stays apart. | 1 |
+| `pkay-table23` | Proto-Kayanic (Table 23, p. 86): rows Smith prints with a question mark or hedges in the text. | *q- entered as a disputed blank (printed Ø?); *-z- > *c entered as disputed (the text says only that it 'may' be Proto-Kayanic, p. 58); *R- > *h entered as pri… | 3 |
+| `pkmm-glottal` | Where do the added final glottal stop and the lowering of final high vowels belong? | Proto-Kayan-Murik-Merap (section 2.2.4.1, p. 84), not Proto-Kayan as Figure 10 (p. 54) has it. The lengthening of vowels before an inherited glottal stop and t… | 3 |
+| `kajang-hiatus` | Kajang reflexes of penultimate *u and *i before *a (Table 25: *-uCVC gʷ / _a; *-iCVC ʑ / _a). | Entered at Proto-Kajang as *u > *gʷ, *i > *ʑ before *a: the strengthened transition glide (p. 95: *dua > dəgʷa). |  |
+| `melanau-node` | Is Proto-Melanau a node? | Entered, with only *-u > *əw and *-i > *əy, which Smith thinks 'likely' (p. 103). He calls Melanau a dialect network with mainly lexical evidence. |  |
+| `punan-internal` | Punan internal subgrouping (Figures 28-29, pp. 122-124). | No lower nodes: Punan Tubu-Bah (*a > *ə / _Ca(C)#, *z > *c) conflicts with the backing of final *ə shared by Punan Tubu, Bah, Aput and Beketan (pp. 120-122). T… |  |
+| `pld-l` | Land Dayak *l > *r: Hliboi and Sungkung have l (Table 50). | *l > *r at Proto-Land Dayak, as Smith reads it (p. 142); the two languages are entered with r > l. | 1 |
+| `landdayak-tables` | Land Dayak Tables 50-51 (pp. 141-142). | Consonant cells with '?', Bidayuh's column ('Bid', variety not named) and the optional prenasalization '(n)t' are left out; vowels are entered from the summary… |  |
+| `pmal-shared` | Proto-Malayic changes: Smith gives none. | Entered at Proto-Malayic: the reflexes shared by all seven lects of Tables 59-60 (*-q > h, *-b > p, *-d, *-j > t, *-j- > d, *-əC > a), marked composed. | 6 |
+| `malayic-glottal` | Malayic cells such as 'aʔ; a', 'u; (uʔ)', 'r; ʔ' (Tables 59-60): Smith ties final glottal stops to particular lexemes (Figures 60-61, p. 196). | The glottal stop after final vowels is entered as a sporadic inserted ʔ; the vowel itself as unchanged. | 5 |
+| `malayic-phonetic` | Table 60 prints some vowels phonetically: Seberuang ow, ey; Iban ʊu̯, ɪi̯, ʊə̯, ɪə̯; Mualang oə̯, ɛə̯. The text calls these allophonic (pp. 185-186: /kutu/ [ku… | Entered as the phonemes: u, i (Seberuang, Iban), o, e (Mualang closed syllables). |  |
+| `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
 
 <!-- END GENERATED -->
 

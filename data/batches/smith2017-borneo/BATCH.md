@@ -54,3 +54,14 @@ The user asked for the papers not to be taken as fact but assessed critically, w
 - §2.11 North Sarawak: Dayic (Tables 74-75), Berawan-Lower Baram (Tables 77-78), Bintulu (Table 80), Kenyah (no table; refers to Smith 2015).
 - Smith 2017a Table 51 and the Hliboi, Kelai, Merap and Punan Bah inventories (Tables 12-13, 19-20, 36, 54-55).
 - Lobel 2013 entirely: Proto-Subanen (ch. 10) is stated against Proto-Greater Central Philippine, which is not in the database. Southwest Sabah (ch. 11, Dusunic and Murutic) is stated against Proto-Southwest Sabah. Manide and Inagta Alabat (ch. 8).
+
+
+## Applied
+
+2026-11-20 09:10 UTC, by the push-batch workflow.
+- sources: sheet rows 75-79
+- lects: sheet rows 564-619
+- phonemes: sheet rows 717-717
+- correspondences: sheet rows 3433-4970
+- notation_map: sheet rows 408-420
+- decisions: sheet rows 30-45
