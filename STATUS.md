@@ -11,7 +11,7 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 78 |  |
 | lects | 616 | 113 dialect, 30 earlier-stage, 295 language, 178 proto-language |
 | phonemes | 717 |  |
-| correspondences | 4994 | plus 6039 implied and 816 stated retentions generated from lects.inherit |
+| correspondences | 4988 | plus 6039 implied and 816 stated retentions generated from lects.inherit |
 | notation_map | 417 |  |
 | decisions | 45 | 45 open |
 
@@ -76,7 +76,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `punan-internal` | Punan internal subgrouping (Figures 28-29, pp. 122-124). | No lower nodes: Punan Tubu-Bah (*a > *ə / _Ca(C)#, *z > *c) conflicts with the backing of final *ə shared by Punan Tubu, Bah, Aput and Beketan (pp. 120-122). T… |  |
 | `pld-l` | Land Dayak *l > *r: Hliboi and Sungkung have l (Table 50). | *l > *r at Proto-Land Dayak, as Smith reads it (p. 142); the two languages are entered with r > l. | 1 |
 | `landdayak-tables` | Land Dayak Tables 50-51 (pp. 141-142). | Consonant cells with '?', Bidayuh's column ('Bid', variety not named) and the optional prenasalization '(n)t' are left out; vowels are entered from the summary… |  |
-| `pmal-shared` | Proto-Malayic changes: Smith gives none. | Entered at Proto-Malayic: the reflexes shared by all seven lects of Tables 59-60 (*-q > h, *-b > p, *-d, *-j > t, *-j- > d, *-əC > a), marked composed. | 6 |
+| `pmal-shared` | Proto-Malayic changes: Smith gives none. | No Proto-Malayic rows; every change is entered on each lect. The reflexes shared by all seven lects of Tables 59-60 (*-q > h, *-b > p, *-d, *-j > t, *-j- > d, … |  |
 | `malayic-glottal` | Malayic cells such as 'aʔ; a', 'u; (uʔ)', 'r; ʔ' (Tables 59-60): Smith ties final glottal stops to particular lexemes (Figures 60-61, p. 196). | The glottal stop after final vowels is entered as a sporadic inserted ʔ; the vowel itself as unchanged. | 5 |
 | `malayic-phonetic` | Table 60 prints some vowels phonetically: Seberuang ow, ey; Iban ʊu̯, ɪi̯, ʊə̯, ɪə̯; Mualang oə̯, ɛə̯. The text calls these allophonic (pp. 185-186: /kutu/ [ku… | Entered as the phonemes: u, i (Seberuang, Iban), o, e (Mualang closed syllables). |  |
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
