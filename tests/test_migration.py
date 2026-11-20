@@ -26,9 +26,7 @@ def site_data(data_dir):
     t = build.load(Path(data_dir), rep)
     D = build.validate_and_derive(t, rep)
     assert not rep.errors, rep.errors[:5]
-    out = {f"{L}.json": build.lect_json(L, D) for L in D["lects"]}
-    out["index.json"] = build.index_json(D)
-    out["sources.json"] = build.sources_json(D)
+    out = build.site_files(D)
     return json.loads(json.dumps(out, ensure_ascii=False)), rep
 
 

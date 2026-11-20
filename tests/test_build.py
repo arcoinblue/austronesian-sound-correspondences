@@ -618,3 +618,49 @@ class TestV3Layout(unittest.TestCase):
         rep = run(lambda d: [(d / "decisions.csv").unlink(),
                              set_cells("correspondences.csv", "decision", "example-merger", decision="")(d)])
         self.assertEqual(rep.errors, [])
+
+
+class TestSiteFiles(unittest.TestCase):
+    """The site's data: one small file per lect, one per phoneme (restructuring plan, phase 4)."""
+
+    def test_each_phoneme_has_a_file_with_its_history(self):
+        rep, D = run(derived=True)
+        files = build.site_files(D)
+        lect = files["pxa.json"]
+        for ph in lect["phonemes"]:
+            self.assertNotIn("descendants", ph)
+            self.assertNotIn("ancestry_graph", ph)
+            det = files[ph["file"]]
+            self.assertEqual(det["id"], ph["id"])
+            self.assertEqual(det["descendants"], build.descendants(ph["id"], D))
+            self.assertEqual(det["ancestry_graph"], build.ancestry_graph(ph["id"], D))
+        self.assertIn("index.json", files)
+        self.assertIn("sources.json", files)
+
+    def test_file_names_are_ascii_and_case_safe(self):
+        self.assertEqual(build.phoneme_file("pan", "R"), "pan/0052.json")
+        self.assertNotEqual(build.phoneme_file("pan", "r").lower(), build.phoneme_file("pan", "R").lower())
+        self.assertEqual(build.phoneme_file("pan", "D", "Ross"), "pan/0044@Ross.json")
+        self.assertTrue(build.phoneme_file("x", "ᵑɡʷ").isascii())
+
+    def test_system_phonemes_go_with_their_counterpart(self):
+        def m(d):
+            append("notation_map.csv", "pxa,C,Beta,c,example2026,7,,palatal,affricate,voiceless,,,")(d)
+            append("notation_map.csv", "pxa,,Beta,θ,example2026,7,no counterpart,dental,fricative,voiceless,,,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        files = build.site_files(D)
+        lect = files["pxa.json"]
+        beta = next(s for s in lect["systems"] if s["name"] == "Beta")
+        short = {p["ipa"]: p for p in beta["phonemes"]}
+        self.assertNotIn("rows", short["c"])
+        self.assertNotIn("file", short["c"])            # shown on *C's page
+        self.assertEqual(files[short["θ"]["file"]]["rows"][0]["notes"], "no counterpart")
+        c_file = next(p["file"] for p in lect["phonemes"] if p["ipa"] == "C")
+        self.assertIn("c", [p["ipa"] for p in files[c_file]["system_phonemes"]])
+        self.assertTrue(all("rows" in p for p in files[c_file]["system_phonemes"]))
+
+    def test_index_carries_only_what_the_list_shows(self):
+        rep, D = run(derived=True)
+        rows = build.site_files(D)["index.json"]["lects"]
+        self.assertTrue(all(set(r) <= set(build.INDEX_FIELDS) | {"overlap_groups"} for r in rows))

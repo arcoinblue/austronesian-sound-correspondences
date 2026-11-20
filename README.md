@@ -11,7 +11,16 @@ cldf/
   correspondences.csv    proto-phoneme > reflex / environment, one row each
   notation_map.csv       each author's symbol for each proto-phoneme
   decisions.csv          readings taken during entry that wait for confirmation
-build.py                 validator + derivation (Python 3.9+, standard library only)
+build.py                 the command line (Python 3.9+, standard library only)
+asc/                     the build, in modules:
+  schema.py              vocabularies, table columns, what a symbol means (IPA, proto orthography)
+  load.py                reading the CSV tables; the report
+  cite.py                citation labels, USS references, works cited in notes
+  validate.py            every check, and the inventories, retentions, notation and systems
+  derive.py              edges, ancestry, descent, the lect and phoneme records
+  export.py              writing build/data/ and STATUS.md
+site/                    the viewer: index.html, style.css, js/ (one script per page type)
+tools/                   sync, batches, migrations, sheet template
 tests/                   constraint tests + a FICTIONAL example dataset
 build/                   output (generated; don't edit)
 ```
@@ -330,16 +339,16 @@ Also warned about: a proto-language not named `Proto-X` or an earlier stage not 
 
 ## Output
 
-`build/data/<lect_id>.json` contains:
+The site loads a small file per lect, and a phoneme's history only when the phoneme is opened (restructuring plan, phase 4; the PAn page went from 5.1 MB of data to 34 KB). All files are compact JSON.
 
-- the basic information block
-- the derived inventory status, and coverage (phonemes with a sourced descent ÷ inventory size)
-- every phoneme with its `notation`, upward `ancestry` (all chains, oldest first; a merger gives several chains) and flattened `descendants` (each with a `via` path, which is what the pivoted index reads)
-- the inventory diff for edited inventories
+- `build/data/<lect_id>.json`: the basic information block; the derived inventory status and coverage; the inventory (each phoneme's symbol, chart position, origin and source, and `file`, the name of its own file); the other systems' phonemes (chart fields and counterparts); the changes that define the lect; the inventory diff for edited inventories.
+- `build/data/<lect_id>/<code points>.json`, one per phoneme (`pan/0052.json` is PAn *R; code points keep the names ASCII and *R apart from *r on any file system): its `notation`, its `ancestry_graph`, its flattened `descendants` (each with a `via` path, which is what the pivoted index reads), and the full records of the other systems' phonemes that match it. A system phoneme with no counterpart in the default inventory has a file of its own (`pan/0072@Blust.json`).
+- `build/data/index.json`: what the lect list shows of each lect (name, alternate names, type, glottocode, parent, clade, coverage, status, overlapping groups); loaded on every page.
+- `build/data/sources.json`: the bibliography. `build/report.txt` keeps the last report.
 
-`build/data/index.json` feeds page 1, and `build/data/sources.json` feeds the bibliography. `build/report.txt` keeps the last report.
+`tests/test_output_size.py` keeps the PAn lect file under 100 KB, and everything the PAn page fetches under 100 KB as served (gzip).
 
-The viewer in `site/` (plain HTML/JS, no dependencies) is copied into `build/` and renders the three page types from that JSON with hash routes (`#/lects/`, `#/lects/<id>/`, `#/lects/<id>/<phoneme>/`, `#/lects/?reflex=pmp:R`). To preview with the fictional data:
+The viewer in `site/` (plain HTML/JS, no dependencies; `js/common.js`, then one script per page type, `js/main.js` last) is copied into `build/` and renders the three page types from that JSON with hash routes (`#/lects/`, `#/lects/<id>/`, `#/lects/<id>/<phoneme>/`, `#/lects/?reflex=pmp:R`). To preview with the fictional data:
 
 ```bash
 python3 build.py --data tests/fixtures/example && python3 -m http.server 8765 --directory build
