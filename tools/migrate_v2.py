@@ -114,7 +114,8 @@ def forward(rows, D):
 
     # --- correspondences
     ids = {id(r): d["id"] for r, d in zip(rows["correspondences"], D["corrs"])} \
-        if len(rows["correspondences"]) == len([d for d in D["corrs"] if d.get("derivation") != "implied-retention"]) \
+        if len(rows["correspondences"]) == len([d for d in D["corrs"]
+                                                if d.get("derivation") not in ("implied-retention", "stated-retention")]) \
         else None
     for i, r in enumerate(rows["correspondences"]):
         if not r["id"]:

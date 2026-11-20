@@ -41,7 +41,8 @@ LISTS = {
     "pub_type": sorted(build.PUB_TYPES),
     "conditioning": sorted(build.CONDITIONING),
     "derivation": sorted(build.DERIVATIONS),
-    "changes_only": ["TRUE"],
+    "inherit": sorted(build.INHERIT),
+    "decision_status": sorted(build.DECISION_STATUS),
     "blank_type": ["not-attested", "lexeme-replaced", "irregular", "loan", "disputed"],
     "environment": ["elsewhere", "#_", "_#", "V_V", "_i", "_u", "_a", "C_", "_C", "#_V", "V_#"]
                    + sorted(build.ENV_SYLLABLES) + [build.ENV_UNKNOWN],
@@ -52,7 +53,11 @@ VALIDATION = {
     ("sources", "kind"): "source_kind",
     ("sources", "pub_type"): "pub_type",
     ("lects", "competes_with"): "lects",
-    ("lects", "changes_only"): "changes_only",
+    ("lects", "inherit"): "inherit",
+    ("lects", "inherit_source_id"): "sources",
+    ("decisions", "status"): "decision_status",
+    ("decisions", "source_id"): "sources",
+    ("correspondences", "decision"): "decisions",
     ("lects", "language_id"): "lects",
     ("correspondences", "conditioning"): "conditioning",
     ("correspondences", "derivation"): "derivation",
@@ -88,12 +93,13 @@ REQUIRED = {
     "phonemes": {"lect_id", "ipa", "class", "origin"},
     "correspondences": {"child_lect_id", "parent_phoneme", "environment", "source_id"},
     "notation_map": {"lect_id", "phoneme", "system", "symbol"},
+    "decisions": {"id", "question", "status"},
 }
 
 HELP = [
     ("Austronesian Sound Correspondence Dictionary: data entry", True),
     ("", False),
-    ("Enter data in the five tabs: sources, lects, phonemes, correspondences, notation_map.", False),
+    ("Enter data in the tabs sources, lects, phonemes, correspondences, notation_map; readings to confirm go in decisions.", False),
     ("Do not rename tabs or change row 1 (the headers). Bold headers are required columns.", False),
     ("Order: add the source, then the lect (its parent proto-language first), then phonemes, then correspondences, then notation.", False),
     ("Never type * in a symbol: write R, not *R. The site adds the asterisk.", False),
@@ -135,6 +141,7 @@ def main():
         list_ref[name] = f"='_lists'!${col}$2:${col}${len(values) + 1}"
     list_ref["lects"] = f"=lects!$A$2:$A${ROWS}"
     list_ref["sources"] = f"=sources!$A$2:$A${ROWS}"
+    list_ref["decisions"] = f"=decisions!$A$2:$A${ROWS}"
 
     head_fill = PatternFill("solid", fgColor="EDEAE3")
     for tab, cols in build.TABLES.items():

@@ -30,22 +30,23 @@ jobs:
       - run: pip install openpyxl==3.1.5
       - name: Download the sheet into cldf/
         run: python tools/sync_sheet.py "$SHEET_ID" --out cldf
-      - name: Check the data
-        run: python build.py --check
+      - name: Check the data (and refresh STATUS.md)
+        run: python build.py --check --status STATUS.md
       - name: Check Glottocodes and ISO codes against Glottolog
         run: python tools/check_glottolog.py
       - name: Commit and redeploy if changed
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet -- cldf; then
+          if git diff --quiet -- cldf STATUS.md; then
             echo "No changes in the sheet."
             exit 0
           fi
-          git diff --stat -- cldf
+          git diff --stat -- cldf STATUS.md
           git config user.name "sheet-sync[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cldf
-          git commit -m "Sync data from Google Sheets"
+          git add cldf STATUS.md
+          if git diff --cached --quiet -- cldf; then MSG="Refresh STATUS.md"; else MSG="Sync data from Google Sheets"; fi
+          git commit -m "$MSG"
           git push
           gh workflow run pages.yml --ref main

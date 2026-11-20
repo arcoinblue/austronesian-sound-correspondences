@@ -1,0 +1,70 @@
+name: Apply a migration to the sheet
+
+# After a layout migration is merged (cldf/ rewritten by tools/migrate_v*.py),
+# this makes the same edits in the Google Sheet with the service account:
+# renamed and added columns, new tabs, changed cells, deleted rows. It never
+# adds or reorders rows. Then it syncs the sheet back and fails unless cldf/
+# is unchanged, i.e. the sheet now holds exactly the migrated tables.
+#
+# Run it by hand: first with mode "dry-run" (prints the plan), then "apply".
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run: print what would change; apply: make the changes"
+        type: choice
+        options: [dry-run, apply]
+        default: dry-run
+      max_deletions:
+        description: "How many sheet rows may be deleted (the dry run prints the number)"
+        default: "0"
+      archive:
+        description: "Every deleted correspondence must be in this file"
+        default: "data/migrations/v3_removed_correspondences.csv"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sheet-sync          # never at the same time as the hourly sync or a batch
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    env:
+      SHEET_ID: ${{ vars.SHEET_ID }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl==3.1.5 google-auth==2.38.0 requests==2.32.3
+
+      - name: Plan (dry run)
+        if: inputs.mode == 'dry-run'
+        run: python tools/sheet_apply.py --archive "${{ inputs.archive }}"
+
+      - name: Apply to the sheet
+        if: inputs.mode == 'apply'
+        run: python tools/sheet_apply.py --apply --max-deletions "${{ inputs.max_deletions }}" --archive "${{ inputs.archive }}"
+
+      - name: Sync back; the sheet must now equal cldf/
+        if: inputs.mode == 'apply'
+        run: |
+          for i in 1 2 3 4; do
+            python tools/sync_sheet.py "$SHEET_ID" --out cldf
+            if git diff --quiet -- cldf; then
+              echo "No changes in the sheet: it holds the migrated tables."
+              python build.py --check --quiet --status STATUS.md
+              git diff --stat -- STATUS.md
+              exit 0
+            fi
+            echo "The export differs from cldf/ (it may lag); retrying in 20 s."
+            sleep 20
+          done
+          git diff --stat -- cldf
+          git diff -- cldf | head -100
+          exit 1
