@@ -86,6 +86,7 @@ jobs:
             exit 0
           fi
           git commit -m "Add batch to the sheet: $(ls data/batches -t | head -1)"
-          git pull --rebase origin main
-          git push
+          # Someone may have pushed meanwhile: then replay onto the branch this run is for.
+          git push || { git fetch --depth=50 origin "$GITHUB_REF_NAME" \
+                        && git rebase "origin/$GITHUB_REF_NAME" && git push; }
           gh workflow run pages.yml --ref main
