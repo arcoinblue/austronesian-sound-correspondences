@@ -1,28 +1,10 @@
 id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes,system,via_source_id,via_page,via_note,conditioning,evidence_total,derivation,variety,stratum,lexical_scope,examples,source_form,as_printed,locator,decision
-c190aa03cc7,pkayanic,q,,#_,,disputed,,smith2017a,86,"Printed with a question mark for initial position: Smith does not commit to loss or ʔ here. Every Kayanic language in Tables 3, 8 and 14 has Ø.",,,,,,,,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,pkay-table23
-c25206496b5,pkayanic,q,ʔ,elsewhere,regular,,,smith2017a,86,Medial and final.,,,,,,,,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,
-ccb57227ba5,pkayanic,d,r,V_V,regular,,,smith2017a,86,,,,,,,,,,,,,,*d > *d/r/d,Table 23,
-c6de492a247,pkayanic,d,d,elsewhere,regular,,,smith2017a,86,Initial and final.,,,,,,,,,,,,,*d > *d/r/d,Table 23,
-cc48aa82b32,pkayanic,j,r,V_V,regular,,,smith2017a,86,,,,,,,,,,,,,,*j > *r/d,Table 23,
-c6962cc5df3,pkayanic,j,d,_#,regular,,,smith2017a,86,,,,,,,,,,,,,,*j > *r/d,Table 23,
-ccf94ea6ead,pkayanic,z,j,elsewhere,regular,,,smith2017a,86,"Not a sound change: below PMP Smith writes *z [ʤ] as *j (p. 26). Initial, and after a nasal (*nz > *nj).",,,,,,,,,,,,,*z [ʤ] > *j,Table 23,
-c46cfa35715,pkayanic,z,c,V_V,disputed,,,smith2017a,86,"Medial *z: Kayan, Ngorek and Modang have s, Merap c (and ʄ), Segai c. In the text Smith says only that *-z- > *-c- 'may actually be assignable to Proto-Kayanic' (p. 58); Table 23 prints c.",,,,,,,,,,,,,*z [ʤ] > *j/c,Table 23,pkay-table23
-cf58b21b659,pkayanic,R,h,#_,regular,,,smith2017a,86,"Every Kayanic language in Tables 3, 8 and 14 has Ø for *R-.",,,,,,,,,,,,,*R > *h/h/R,Table 23,pkay-table23
-c211f86c4d7,pkayanic,R,h,V_V,regular,,,smith2017a,86,,,,,,,,,,,,,,*R > *h/h/R,Table 23,
-ccd1669f8e3,pkayanic,R,R,_#,regular,,,smith2017a,86,"Kept: Balui Liko and Busang lost final *s but not final *R, so *-s and *-R had not merged (p. 58).",,,,,,,,,,,,,*R > *h/h/R,Table 23,
-c2668cb4a2f,pkayanic,h,∅,elsewhere,regular,,,smith2017a,86,,,,,,,,,,,,,,*h > Ø,Table 23,
-c3acffc8d15,pkayanic,e,ə,elsewhere,regular,,,smith2017a,86,The source writes ə for the PMP vowel keyed e here (p. 27).,,,,,,,,,,,,,*ə > *ə,Table 23,
-ce4dc6dab51,pkayanic,w,w,elsewhere,regular,,,smith2017a,86,Not in Table 23; entered as unchanged. Segai-Modang alone changed medial *w and *y (p. 76).,,,,,,,implied-retention,,,,,,,Table 23,
-cfbeb9474f0,pkayanic,y,y,elsewhere,regular,,,smith2017a,86,Not in Table 23; entered as unchanged. Segai-Modang alone changed medial *w and *y (p. 76).,,,,,,,implied-retention,,,,,,,Table 23,
-c2bee83b301,pkmm,∅,ʔ,V_#,regular,,,smith2017a,84,"Glottal stop added after every final vowel (pp. 54, 83-84; Table 22). Figure 10 (p. 54) lists this under Proto-Kayan, but section 2.2.4.1 assigns it to Kayan and Murik-Merap together, since Segai-Modang did not add it after high vowels.",,,,,,,,,,,,,*-V > *-Vʔ (accompanied by lowering of final high vowels),§2.2.4.1,pkmm-glottal
-c1c0a946643,pkmm,i,e,_#,regular,,,smith2017a,84,Short final high vowels lowered before the added glottal stop (pp. 54-57); vowels before an inherited glottal stop (from *q) did not lower.,,,,,,,,,,,,,*-i > *-eʔ,§2.2.4.1,pkmm-glottal
-c10729dcd75,pkmm,u,o,_#,regular,,,smith2017a,84,As for *-i.,,,,,,,,,,,,,*-u > *-oʔ,§2.2.4.1,pkmm-glottal
 cafa8769cbf,pkayan,b,v,V_V,regular,,,smith2017a,54,,,,,,,,,,,,,,*-b- > *v,fig. 10,
 c315da9f47b,pkayan,m,∅,_b,regular,,,smith2017a,54,"Nasal + voiced obstruent simplified. Segai-Modang did the same, which Smith treats as parallel (pp. 60, 84-85).",,,,,,,,,,,,,*mb > *b,fig. 10,
 c19597202a1,pkayan,n,∅,_d,regular,,,smith2017a,54,"Nasal + voiced obstruent simplified. Segai-Modang did the same, which Smith treats as parallel (pp. 60, 84-85).",,,,,,,,,,,,,*nd > *d,fig. 10,
-cd9961235eb,pkayan,n,∅,_j,regular,,,smith2017a,54,"Nasal + voiced obstruent simplified. Segai-Modang did the same, which Smith treats as parallel (pp. 60, 84-85).",,,,,,,,,,,,,*nj > *j,fig. 10,
+c8ced187d69,pkayan,n,∅,_z,regular,,,smith2017a,54,"Nasal + voiced obstruent simplified. Segai-Modang did the same, which Smith treats as parallel (pp. 60, 84-85). PMP *nz (Smith's *nj).",,,,,,,,,,,,,*nj > *j,fig. 10,
 c3474e7a343,pkayan,ŋ,∅,_g,regular,,,smith2017a,54,"Nasal + voiced obstruent simplified. Segai-Modang did the same, which Smith treats as parallel (pp. 60, 84-85).",,,,,,,,,,,,,*ŋg > *g,fig. 10,
-c0d684d5757,pkayan,h,∅,#_,regular,,,smith2017a,54,Proto-Kayanic *h- is from PMP *R- (Table 23).,,,,,,,,,,,,,*R- > *Ø,fig. 10,
+c34071426a2,pkayan,R,∅,#_,regular,,,smith2017a,54,Figure 10 states PMP *R- > Proto-Kayan Ø (Table 23 has *h- for Proto-Kayanic).,,,,,,,,,,,,,*R- > *Ø,fig. 10,
 c81a3917ed5,pkayan,s,h,#_,regular,,,smith2017a,54,,,,,,,,,,,,,,*s- > *h,fig. 10,
 c4855277a3d,pkayan,s,h,_#,regular,,,smith2017a,58,'All Kayan languages reflect the change *-s > *-h' (p. 58); Balui Liko and Busang went on to lose it. *-R stayed apart (p. 58).,,,,,,,,,,,,,*-s > *-h,§2.2.1.1.3,
 c7d3f168eb2,pmurik,b,p,_#,regular,,,smith2017a,65,,,,,,,,,,,,,,*-b > *-p,§2.2.2.1.1,
@@ -36,7 +18,7 @@ c8cda1a3586,psegmod,i,ə,penultimate syllable,regular,,,smith2017a,74,"Kelai and
 c043cccded5,psegmod,u,ə,penultimate syllable,regular,,,smith2017a,74,"Kelai and Gaai later deleted most penultimate vowels (pp. 80, 104 Table 15).",,,,,,,,,,,,,Penultimate vowels reduced to schwa,fig. 18,
 c55201cdfc3,psegmod,y,j,V_V,regular,,,smith2017a,74,"Glide fortition, also of transition glides (*dua [duwa]) (p. 76).",,,,,,,,,,,,,*-y- > j,fig. 18,
 c5d5f276842,psegmod,w,g,V_V,regular,,,smith2017a,74,,,,,,,,,,,,,,*-w- > g,fig. 18,
-c2e2ddc3e58,psegmod,j,c,elsewhere,regular,,,smith2017a,73,"Not stated by Smith; inferred here. Proto-Kayanic *j (PMP *z, initial and after a nasal) has the same reflexes as medial *c in all four languages (s in Modang and Long Gelat, c in Gaai and Kelai), while *-y- became j (Table 14). The two must have been apart when *-y- > *j.",,,,,,,composed,,,,,,"*z- > s, s, c, c; *nj > s, s, c, c",Table 14,psm-j
+c477132903b,psegmod,z,c,elsewhere,regular,,,smith2017a,73,"Not stated by Smith; inferred here. Proto-Kayanic *j (PMP *z, initial and after a nasal) has the same reflexes as medial *c in all four languages (s in Modang and Long Gelat, c in Gaai and Kelai), while *-y- became j (Table 14). The two must have been apart when *-y- > *j. Stated here against PMP *z, initial and after a nasal; medial *z (Proto-Kayanic *c) has the same reflexes.",,,,,,,composed,,,,,,"*z- > s, s, c, c; *nj > s, s, c, c (Table 14)",Table 14,psm-j
 cb4a531b43d,psegmod,b,b,#_,regular,,,smith2017a,75,"Fortis reflex of an apparently unconditioned split (p. 75, Table 16).",,,,,,,,,,,,,*b- > b; w,§2.2.3.1.1.1,
 c81c3f30b08,psegmod,b,w,#_,regular,,,smith2017a,75,"Lenis reflex of the split (p. 75, Table 16): *batu > Modang wətaɵ̯, *bəRuaŋ > wahguə̯ŋ.",,,,,,,,,,,,,*b- > b; w,§2.2.3.1.1.1,
 ca10dfa13bd,psegmod,b,p,#_ before s,regular,,,smith2017a,75,"*bəsuR > Long Gelat, Modang pəsoh, Gaai, Kelai psɒh (Table 16).",,,,,,,,,,,,,fortis *b- devoiced before *s in the following onset,§2.2.3.1.1.1,
@@ -49,7 +31,7 @@ c12ee0c0d60,psegmod,l,∅,#_,regular,,,smith2017a,76,"An apparently unconditione
 cadc3bba703,psegmod,l,l,#_,regular,,,smith2017a,76,"The other half of the split (p. 76, Table 17).",,,,,,,,,,,,,*l- > Ø; l,§2.2.3.1.1.3,
 ca6ed19814f,psegmod,m,∅,_b,regular,,,smith2017a,73,"Nasal + obstruent simplified in all four languages (Table 14; Table 11, p. 67). Smith treats it as parallel to Kayan (pp. 84-85).",,,,,,,,,,,,,*mb > b,Table 14,
 c67177c2d7b,psegmod,n,∅,_d,regular,,,smith2017a,73,"Nasal + obstruent simplified in all four languages (Table 14; Table 11, p. 67). Smith treats it as parallel to Kayan (pp. 84-85).",,,,,,,,,,,,,*nd > d,Table 14,
-cf0a9dd1daf,psegmod,n,∅,_j,regular,,,smith2017a,73,"Nasal + obstruent simplified in all four languages (Table 14; Table 11, p. 67). Smith treats it as parallel to Kayan (pp. 84-85).",,,,,,,,,,,,,*nj > j,Table 14,
+c104af072db,psegmod,n,∅,_z,regular,,,smith2017a,73,"Nasal + obstruent simplified in all four languages (Table 14; Table 11, p. 67). Smith treats it as parallel to Kayan (pp. 84-85). PMP *nz (Smith's *nj).",,,,,,,,,,,,,*nj > j,Table 14,
 c6de819f59e,busa1255,ʔ,ʔ,V_V,regular,,,smith2017a,53,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-q- > ʔ; Ø,Table 3,
 c0dc60a7f7a,busa1255,ʔ,∅,V_V,sporadic,,,smith2017a,53,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-q- > ʔ; Ø,Table 3,smith-semicolon
 c6ff37472c2,bara1370,ʔ,∅,_#,regular,,,smith2017a,53,,,,,,,,,,,,,,*-q > Ø,Table 3,
@@ -469,6 +451,49 @@ c39043b1a82,sega1243,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written 
 c0597a2ab48,kela1259,g,ɡ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith's g is IPA ɡ.,,,,,,,stated-retention,,,,,g,,,
 c0b4f841a44,kela1259,j,d͡ʒ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes j for [ʤ] (2017a: 26).,,,,,,,stated-retention,,,,,j,,,
 cff85a5d461,kela1259,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cd20ac48b23,pkayan,q,,#_,,disputed,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Printed with a question mark for initial position: Smith does not commit to loss or ʔ here. Every Kayanic language in Tables 3, 8 and 14 has Ø.",,,,,,,composed,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,pkay-table23
+c85a16595b6,pkayan,q,ʔ,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Medial and final.",,,,,,,composed,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,
+c9d4130a358,pkayan,d,r,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*d > *d/r/d,Table 23,
+c1b6a7df63a,pkayan,d,d,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Initial and final.",,,,,,,composed,,,,,,*d > *d/r/d,Table 23,
+c6313ef3617,pkayan,j,r,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*j > *r/d,Table 23,
+c01f3312d34,pkayan,j,d,_#,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*j > *r/d,Table 23,
+c1dcb87a7d7,pkayan,z,j,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Not a sound change: below PMP Smith writes *z [ʤ] as *j (p. 26). Initial, and after a nasal (*nz > *nj).",,,,,,,composed,,,,,,*z [ʤ] > *j,Table 23,
+c2f8f78798f,pkayan,z,c,V_V,disputed,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Medial *z: Kayan, Ngorek and Modang have s, Merap c (and ʄ), Segai c. In the text Smith says only that *-z- > *-c- 'may actually be assignable to Proto-Kayanic' (p. 58); Table 23 prints c.",,,,,,,composed,,,,,,*z [ʤ] > *j/c,Table 23,pkay-table23
+cd37e9256b8,pkayan,R,h,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,
+c3f27bce75d,pkayan,R,R,_#,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Kept: Balui Liko and Busang lost final *s but not final *R, so *-s and *-R had not merged (p. 58).",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,
+c5ebb42f69d,pkayan,h,∅,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*h > Ø,Table 23,
+cfd5d02f38b,pkayan,e,ə,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. The source writes ə for the PMP vowel keyed e here (p. 27).",,,,,,,composed,,,,,,*ə > *ə,Table 23,
+cd3bf24cbdb,pkayan,∅,ʔ,V_#,regular,,,smith2017a,84,"Smith states this for Proto-Kayan-Murik-Merap (with Kayan and Murik-Merap only, section 2.2.4.1); that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Glottal stop added after every final vowel (pp. 54, 83-84; Table 22). Figure 10 (p. 54) lists this under Proto-Kayan, but section 2.2.4.1 assigns it to Kayan and Murik-Merap together, since Segai-Modang did not add it after high vowels.",,,,,,,composed,,,,,,*-V > *-Vʔ (accompanied by lowering of final high vowels),§2.2.4.1,pkmm-glottal
+c7449b47dd3,pkayan,i,e,_#,regular,,,smith2017a,84,"Smith states this for Proto-Kayan-Murik-Merap (with Kayan and Murik-Merap only, section 2.2.4.1); that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Short final high vowels lowered before the added glottal stop (pp. 54-57); vowels before an inherited glottal stop (from *q) did not lower.",,,,,,,composed,,,,,,*-i > *-eʔ,§2.2.4.1,pkmm-glottal
+ccb8e3595dc,pkayan,u,o,_#,regular,,,smith2017a,84,"Smith states this for Proto-Kayan-Murik-Merap (with Kayan and Murik-Merap only, section 2.2.4.1); that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. As for *-i.",,,,,,,composed,,,,,,*-u > *-oʔ,§2.2.4.1,pkmm-glottal
+ce4f320e38a,pmurik,q,,#_,,disputed,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Printed with a question mark for initial position: Smith does not commit to loss or ʔ here. Every Kayanic language in Tables 3, 8 and 14 has Ø.",,,,,,,composed,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,pkay-table23
+cc0f45e1b91,pmurik,q,ʔ,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Medial and final.",,,,,,,composed,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,
+c6233a1dad4,pmurik,d,r,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*d > *d/r/d,Table 23,
+c7ef4f82183,pmurik,d,d,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Initial and final.",,,,,,,composed,,,,,,*d > *d/r/d,Table 23,
+cf3396831b3,pmurik,j,r,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*j > *r/d,Table 23,
+c3b779a27c2,pmurik,z,j,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Not a sound change: below PMP Smith writes *z [ʤ] as *j (p. 26). Initial, and after a nasal (*nz > *nj).",,,,,,,composed,,,,,,*z [ʤ] > *j,Table 23,
+c9269d98bc4,pmurik,z,c,V_V,disputed,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Medial *z: Kayan, Ngorek and Modang have s, Merap c (and ʄ), Segai c. In the text Smith says only that *-z- > *-c- 'may actually be assignable to Proto-Kayanic' (p. 58); Table 23 prints c.",,,,,,,composed,,,,,,*z [ʤ] > *j/c,Table 23,pkay-table23
+c959750d068,pmurik,R,h,#_,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Every Kayanic language in Tables 3, 8 and 14 has Ø for *R-.",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,pkay-table23
+cb2b48874a4,pmurik,R,h,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,
+cf3036a19f0,pmurik,R,R,_#,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Kept: Balui Liko and Busang lost final *s but not final *R, so *-s and *-R had not merged (p. 58).",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,
+cc82ad3c177,pmurik,h,∅,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*h > Ø,Table 23,
+cf05d3ed8c5,pmurik,e,ə,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. The source writes ə for the PMP vowel keyed e here (p. 27).",,,,,,,composed,,,,,,*ə > *ə,Table 23,
+ce68d66d6c2,pmurik,∅,ʔ,V_#,regular,,,smith2017a,84,"Smith states this for Proto-Kayan-Murik-Merap (with Kayan and Murik-Merap only, section 2.2.4.1); that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Glottal stop added after every final vowel (pp. 54, 83-84; Table 22). Figure 10 (p. 54) lists this under Proto-Kayan, but section 2.2.4.1 assigns it to Kayan and Murik-Merap together, since Segai-Modang did not add it after high vowels.",,,,,,,composed,,,,,,*-V > *-Vʔ (accompanied by lowering of final high vowels),§2.2.4.1,pkmm-glottal
+c331e57423f,pmurik,i,e,_#,regular,,,smith2017a,84,"Smith states this for Proto-Kayan-Murik-Merap (with Kayan and Murik-Merap only, section 2.2.4.1); that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Short final high vowels lowered before the added glottal stop (pp. 54-57); vowels before an inherited glottal stop (from *q) did not lower.",,,,,,,composed,,,,,,*-i > *-eʔ,§2.2.4.1,pkmm-glottal
+c63aec5d8ff,pmurik,u,o,_#,regular,,,smith2017a,84,"Smith states this for Proto-Kayan-Murik-Merap (with Kayan and Murik-Merap only, section 2.2.4.1); that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. As for *-i.",,,,,,,composed,,,,,,*-u > *-oʔ,§2.2.4.1,pkmm-glottal
+c304192af57,psegmod,q,,#_,,disputed,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Printed with a question mark for initial position: Smith does not commit to loss or ʔ here. Every Kayanic language in Tables 3, 8 and 14 has Ø.",,,,,,,composed,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,pkay-table23
+ce8a7c26f29,psegmod,q,ʔ,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Medial and final.",,,,,,,composed,,,,,,*q > *Ø?/ʔ/ʔ,Table 23,
+c69bb601a21,psegmod,d,r,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*d > *d/r/d,Table 23,
+c56e120a8a8,psegmod,d,d,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Initial and final.",,,,,,,composed,,,,,,*d > *d/r/d,Table 23,
+cabf3444bda,psegmod,j,r,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*j > *r/d,Table 23,
+c6db88b1542,psegmod,j,d,_#,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*j > *r/d,Table 23,
+cdb1965bc39,psegmod,z,c,V_V,disputed,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Medial *z: Kayan, Ngorek and Modang have s, Merap c (and ʄ), Segai c. In the text Smith says only that *-z- > *-c- 'may actually be assignable to Proto-Kayanic' (p. 58); Table 23 prints c.",,,,,,,composed,,,,,,*z [ʤ] > *j/c,Table 23,pkay-table23
+cb33175be95,psegmod,R,h,#_,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Every Kayanic language in Tables 3, 8 and 14 has Ø for *R-.",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,pkay-table23
+c0f7b19daa3,psegmod,R,h,V_V,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,
+c076c279709,psegmod,R,R,_#,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Kept: Balui Liko and Busang lost final *s but not final *R, so *-s and *-R had not merged (p. 58).",,,,,,,composed,,,,,,*R > *h/h/R,Table 23,
+cabd4075188,psegmod,h,∅,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup.",,,,,,,composed,,,,,,*h > Ø,Table 23,
+c01248bd47f,psegmod,e,ə,elsewhere,regular,,,smith2017a,86,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. The source writes ə for the PMP vowel keyed e here (p. 27).",,,,,,,composed,,,,,,*ə > *ə,Table 23,
+cbb6f81987c,pmurik,j,n,_#,regular,,,smith2017a,65,"Smith states this for Proto-Kayanic; that node is held back as an intermediate stage above the established microgroups (decision kayanic-held), so the change is entered on each microgroup. Table 23 has *-j > *-d for Proto-Kayanic, and Proto-Murik-Merap *-d > *-n (p. 65).",,,,,,,composed,,,,,,*j > *r/d; *-d > *-n,Table 23; §2.2.2.1.1,
 c54012b9caa,pkajang,b,v,V_V,regular,,,smith2017a,97,Medial *b (Table 24: *-b- > v).,,,,,,,,,,,,,*b > *v; b,fig. 23,
 c34d84060b2,pkajang,b,b,ə_,regular,,,smith2017a,99,"Consonants were geminated after schwa, which kept *-əb- from weakening (p. 99).",,,,,,,,,,,,,*-b- > v; b / ə_,Table 24,
 c7a633d322c,pkajang,l,ɮ,_VC#,regular,,,smith2017a,97,In the onset of the final syllable; an allophone of l in the modern languages (p. 95).,,,,,,,,,,,,,*l > *ɮ / _VC#,fig. 23,
@@ -1302,12 +1327,6 @@ c527384074a,golik,g,ɡ,elsewhere,regular,,,smith2017a,50,Unchanged; written in I
 c8a5af26a9a,golik,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
 c8dbce4fee6,golik,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
 cc77749af76,golik,z,d͡ʒ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
-c4940610b71,pmalayic,q,h,_#,regular,,,smith2017a,184,Shared by all seven lects of Tables 59-60; not stated by Smith as a Proto-Malayic change.,,,,,,,composed,,,,,,*-q > h (all seven lects),Tables 59-60,pmal-shared
-c585766fcda,pmalayic,b,p,_#,regular,,,smith2017a,184,Shared by all seven lects of Tables 59-60; not stated by Smith as a Proto-Malayic change.,,,,,,,composed,,,,,,*-b > p (all seven lects),Tables 59-60,pmal-shared
-c0611b3e802,pmalayic,d,t,_#,regular,,,smith2017a,184,Shared by all seven lects of Tables 59-60; not stated by Smith as a Proto-Malayic change.,,,,,,,composed,,,,,,*-d > t (all seven lects),Tables 59-60,pmal-shared
-cc82334440d,pmalayic,j,t,_#,regular,,,smith2017a,184,Shared by all seven lects of Tables 59-60; not stated by Smith as a Proto-Malayic change.,,,,,,,composed,,,,,,*-j > t (all seven lects),Tables 59-60,pmal-shared
-ccbe79a3f27,pmalayic,j,d,V_V,regular,,,smith2017a,184,Shared by all seven lects of Tables 59-60; not stated by Smith as a Proto-Malayic change.,,,,,,,composed,,,,,,*-j- > d (all seven lects),Tables 59-60,pmal-shared
-c48ab7171dd,pmalayic,e,a,_C#,regular,,,smith2017a,184,Shared by all seven lects of Tables 59-60; not stated by Smith as a Proto-Malayic change.,,,,,,,composed,,,,,,*-əC > a (all seven lects),Tables 59-60,pmal-shared
 c8cf2720649,pmalayic,e,ə,elsewhere,regular,,,smith2017a,184,The source writes ə for the PMP vowel keyed e here.,,,,,,,,,,,,,*ə,Table 60,
 c3b39bc3fa3,iban1264,k,ʔ,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-k > ʔ,Table 59,
 c4b7c401938,mual1241,k,k,_#,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-k > k; ʔ,Table 59,
@@ -1331,6 +1350,13 @@ ce2e9c6b12e,kend1254,q,∅,V_V,sporadic,,,smith2017a,184,Listed after a semicolo
 cbb8ffe7a4b,sebe1242,q,∅,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q- > Ø,Table 59,
 cadfd855f1b,iban1264,q,∅,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q- > Ø,Table 59,
 c76174183be,mual1241,q,∅,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q- > Ø,Table 59,
+c736de5fa19,indo1316,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
+c7f1bfdc9e1,ketapang,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
+ca8da1d9444,keni1248,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
+c8b292022de,kend1254,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
+c85a6376ac5,sebe1242,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
+c59bc18405b,iban1264,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
+c8a0875fa06,mual1241,q,h,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-q > h,Table 59,
 c64e5564a71,indo1316,b,b,V_V,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b; w,Table 59,
 c5e536d42af,indo1316,b,w,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b; w,Table 59,smith-semicolon
 ca570ec78c4,ketapang,b,b,V_V,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b; w,Table 59,
@@ -1339,6 +1365,13 @@ c46e6f777c3,keni1248,b,b,V_V,regular,,,smith2017a,184,Same sound: the attested f
 c9517608b6c,keni1248,b,w,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b; w,Table 59,smith-semicolon
 cee2d165e74,kend1254,b,b,V_V,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b; (w),Table 59,
 cc37f936a9f,kend1254,b,w,V_V,sporadic,,,smith2017a,184,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b; (w),Table 59,smith-semicolon
+c0d63f7bc6f,indo1316,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
+cdd605ce63b,ketapang,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
+ce45c3520de,keni1248,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
+ca2d4c618ef,kend1254,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
+c3b8d96d34e,sebe1242,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
+c783dee8a3d,iban1264,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
+cfc3080b6ad,mual1241,b,p,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-b > p,Table 59,
 c0532e0c4dd,keni1248,d,d,V_V,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > d; n,Table 59,
 ce00b0a6ff4,keni1248,d,n,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > d; n,Table 59,smith-semicolon
 c74a55625ea,kend1254,d,d,V_V,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > d; (r),Table 59,
@@ -1347,6 +1380,31 @@ c8dfa6f0de3,iban1264,d,d,V_V,regular,,,smith2017a,184,Same sound: the attested f
 cbb271de131,iban1264,d,n,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > d; n,Table 59,smith-semicolon
 c75632c0ca2,mual1241,d,d,V_V,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > d; n,Table 59,
 ce1a984233c,mual1241,d,n,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > d; n,Table 59,smith-semicolon
+c3f62d301dc,indo1316,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+c102eba1ae5,ketapang,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+c4477358191,keni1248,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+c5ec2308c9b,kend1254,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+cb1ea079f9b,sebe1242,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+c26821a4ca8,iban1264,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+cefb2e7b405,mual1241,d,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-d > t,Table 59,
+c70e6329609,indo1316,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d,Table 59,
+c4b730bea1f,ketapang,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d,Table 59,
+c9d0a91df94,keni1248,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d; n,Table 59,
+c2fb2d9c8e8,keni1248,j,n,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > d; n,Table 59,smith-semicolon
+c1c24ab1ffb,kend1254,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d; (r),Table 59,
+c4dd45fea0f,kend1254,j,r,V_V,sporadic,,,smith2017a,184,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > d; (r),Table 59,smith-semicolon
+c6a5375ac93,sebe1242,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d,Table 59,
+c78e60f651c,iban1264,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d; n,Table 59,
+c3edd2177c0,iban1264,j,n,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > d; n,Table 59,smith-semicolon
+c3600cf552a,mual1241,j,d,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j- > d; n,Table 59,
+ccd972d9b3c,mual1241,j,n,V_V,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > d; n,Table 59,smith-semicolon
+c5f20f01aa0,indo1316,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
+c0c7b051f6d,ketapang,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
+cd9f1bf7f6f,keni1248,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
+c7e32670a24,kend1254,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
+c80538f6a7f,sebe1242,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
+c65d8a8a59f,iban1264,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
+c04c403ce18,mual1241,j,t,_#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-j > t,Table 59,
 cc804bf1329,indo1316,z,d͡ʒ,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,j,*-z- > j,Table 59,
 c0e51b8d9e9,ketapang,z,d͡ʒ,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,j,*-z- > j,Table 59,
 c4f55890c70,keni1248,z,d͡ʒ,V_V,regular,,,smith2017a,184,,,,,,,,,,,,,j,*-z- > j; ñ,Table 59,
@@ -1432,6 +1490,13 @@ ca022cd7e8f,kend1254,i,e,_C#,sporadic,,,smith2017a,184,In parentheses in the tab
 cd765d84795,mual1241,i,e,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-iC > e,Table 60,
 c52b2f6e649,kend1254,i,i,penultimate syllable,regular,,,smith2017a,184,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iCVC > i; e,Table 60,
 c1723cd3d86,kend1254,i,e,penultimate syllable,sporadic,,,smith2017a,184,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iCVC > i; e,Table 60,smith-semicolon
+cba40d622bf,indo1316,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
+cbb741b9c0d,ketapang,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
+cae148d03f2,keni1248,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
+c9c2ed428c5,kend1254,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
+c75cebca48c,sebe1242,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
+c7f2b506978,iban1264,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
+cd4740d04cf,mual1241,ə,a,_C#,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əC > a,Table 60,
 cf922562cdd,ketapang,ə,o,penultimate syllable,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əCVC > o,Table 60,
 c99877286e1,keni1248,ə,o,penultimate syllable,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əCVC > o,Table 60,
 cfcdfbfc55f,kend1254,ə,a,penultimate syllable,regular,,,smith2017a,184,,,,,,,,,,,,,,*-əCVC > a,Table 60,
@@ -1475,6 +1540,8 @@ cf8a7ce76c3,iban1264,∅,n,V_t,sporadic,,,smith2017a,184,A nasal before the medi
 c91713ca116,mual1241,∅,m,V_p,sporadic,,,smith2017a,184,A nasal before the medial obstruent in some words.,,,,,,,,,,,,,*-p- > p; mp,Table 59,
 c157db657e6,mual1241,∅,n,V_t,sporadic,,,smith2017a,184,A nasal before the medial obstruent in some words.,,,,,,,,,,,,,*-t- > t; nt,Table 59,
 cd5aa278361,iban1264,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1603521b3e,iban1264,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c96794ddab6,iban1264,b,b,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c509048fec6,iban1264,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cd5a7792690,iban1264,i,i,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 ca63a84a0e1,iban1264,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
@@ -1484,8 +1551,12 @@ cd6106abfe7,iban1264,s,s,V_V,regular,,,smith2017a,50,Not listed for this positio
 ccfa2f458d0,iban1264,u,u,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cb6c4007f78,iban1264,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c2f6a9f6908,iban1264,z,d͡ʒ,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50). PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+ce143dc0fe8,iban1264,ə,ə,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cc182aa8839,indo1316,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cead2f0c51a,indo1316,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c20e13ed956,indo1316,d,d,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c133e28a2fb,indo1316,z,d͡ʒ,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50). PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+c7cde7a737a,indo1316,ə,ə,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c050e80feac,kend1254,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c5cb8011bc2,kend1254,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c3aa56acc63,kend1254,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
@@ -1502,6 +1573,8 @@ c2e8e461dcd,keni1248,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed
 c550978239b,keni1248,z,d͡ʒ,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50). PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
 c5a435a2d36,ketapang,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cbaad104a1d,ketapang,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cbb62ab190b,ketapang,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c716e538ba9,ketapang,d,d,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cc42da264e8,ketapang,i,i,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c46f9ac99f5,ketapang,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c7b9dbc29ea,ketapang,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
@@ -1509,20 +1582,28 @@ cc59d51d0a0,ketapang,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed
 ceded53e288,ketapang,z,d͡ʒ,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50). PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
 ceb43d21fa4,mual1241,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cc060e7939e,mual1241,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfee1fec0cd,mual1241,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6d31e9bc0d,mual1241,b,b,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c8ed0e3427f,mual1241,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c32cc4b3336,mual1241,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c49d4332c3b,mual1241,k,k,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c9c42fdc4f2,mual1241,k,k,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c9a4ed22e8b,mual1241,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c5ea053ec99,mual1241,z,d͡ʒ,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50). PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+c374f9f0bad,mual1241,ə,ə,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c34b65b1fdd,sebe1242,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c2379446f43,sebe1242,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c41aacde702,sebe1242,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c585b527423,sebe1242,b,b,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3ed0201a14,sebe1242,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c4def08b04a,sebe1242,d,d,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c6db502afa8,sebe1242,i,i,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c5b8912cecf,sebe1242,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 cfd7b70397e,sebe1242,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c7c8f5d6fe7,sebe1242,s,s,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c6ad91b6761,sebe1242,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c08d79b643f,sebe1242,z,d͡ʒ,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50). PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+c562faf338a,sebe1242,ə,ə,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
 c98274623ff,indo1316,g,ɡ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith's g is IPA ɡ.,,,,,,,stated-retention,,,,,g,,,
 cfa21873a53,indo1316,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
 c0a13149ae3,ketapang,g,ɡ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith's g is IPA ɡ.,,,,,,,stated-retention,,,,,g,,,

@@ -223,6 +223,36 @@ function altDescentHtml(rows, d) {
     <div class="scroll"><table><tr><th>Lect (classification)</th><th>Stated against</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${rows.map(tr).join("")}</table></div>`;
 }
 
+// One table for a phoneme in every reconstruction system: the notation rows, each with
+// the system's value and notes, and a link where a system spells it differently.
+function reconTable(det, ph, d, L) {
+  const rank = s => s === "canonical" ? -1 : (d.tab_order.indexOf(s) < 0 ? 99 : d.tab_order.indexOf(s));
+  const rows = det.notation.slice().sort((a, b) => rank(a.system) - rank(b.system));
+  const used = new Set();
+  const spOf = n => {
+    const sp = det.system_phonemes.find(p => p.system === n.system && p.ipa === n.symbol);
+    if (sp) used.add(sp.id);
+    return sp;
+  };
+  const tr = rows.map(n => {
+    const sp = spOf(n);
+    const symCell = n.symbol === "∅" ? '<span class="muted">not a phoneme in this system</span>'
+      : sp && sp.ipa !== ph.ipa ? phLink(`${L}:${sp.ipa}@${n.system}`, "*" + sp.ipa).replace(/<span class="sys">.*<\/span>$/, "")
+      : `<span class="ipa">${esc(isProto(L) ? "*" + n.symbol : n.symbol)}</span>`;
+    const also = sp && sp.counterparts.length > 1
+      ? `<br><span class="muted">also matches ${sp.counterparts.filter(c => c !== ph.id).map(c => phLink(c)).join(", ")}</span>` : "";
+    return `<tr><td>${esc(n.system)}</td><td>${symCell}</td>
+      <td>${sp ? (describe(sp) || '<span class="muted">not stated</span>') : ""}${also}</td>
+      <td>${cite(n)}${n.notes ? `<br><span class="muted">${fold(n.notes)}</span>` : ""}</td></tr>`;
+  });
+  // A system phoneme that matches here without a notation row of this phoneme's own.
+  const extra = det.system_phonemes.filter(sp => !used.has(sp.id)).map(sp => `<tr><td>${esc(sp.system)}</td>
+      <td>${phLink(`${L}:${sp.ipa}@${sp.system}`, "*" + sp.ipa).replace(/<span class="sys">.*<\/span>$/, "")}</td>
+      <td>${describe(sp) || '<span class="muted">not stated</span>'}</td>
+      <td>${(sp.rows || []).map(r => `${cite(r) || ""}${r.notes ? `<br><span class="muted">${fold(r.notes)}</span>` : ""}`).join("<br>")}</td></tr>`);
+  return `<table class="othersys"><tr><th>System</th><th>Symbol</th><th>Value</th><th>Source and notes</th></tr>${tr.join("")}${extra.join("")}</table>`;
+}
+
 function systemPanel(sys, sps, d) {
   return sps.map(sp => `
     <h3><span class="ipa">${esc(isProto(d.id) ? "*" + sp.ipa : sp.ipa)}</span> in ${esc(sys)}'s reconstruction</h3>
@@ -259,6 +289,27 @@ async function pagePhoneme(L, uid) {
       wireMore();
       return;
     }
+    if (!sp.separate && sp.ipa !== ph.ipa) {
+      // Spelled differently from its counterpart (Blust's *c, under *s), with no descent
+      // of its own: a page that says so, with the counterpart's descent.
+      const det = await phonemeData(ph);
+      const full = det.system_phonemes.find(p => p.id === sp.id) || sp;
+      const others = full.counterparts.filter(c => c !== ph.id);
+      app.innerHTML = `<div class="crumb"><a href="#/lects/">Lects</a> › ${lectLink(L)} › ${phLink(ph.id)}</div>
+        <h1><span class="ipa">${esc(sym(sp.id))}</span> <span class="muted" style="font-size:16px">in ${lectLink(L)}, ${esc(wantSystem)}</span></h1>
+        <div class="notice">${esc(d.default_label)}'s reconstruction has no ${esc(sym(sp.id))}: it falls under ${phLink(ph.id)}${others.length ? ` (and ${others.map(c => phLink(c)).join(", ")})` : ""} there, and its reflexes are entered under that phoneme.</div>
+        <dl class="info">
+          ${describe(full) ? `<dt>Description</dt><dd>${describe(full)}${inferredNote(full) ? ` <span class="muted">(${esc(inferredNote(full))})</span>` : ""}</dd>` : ""}
+          ${(full.rows || []).map(r => `<dt>Source</dt><dd>${cite(r) || '<span class="muted">none</span>'}${r.notes ? `<br>${fold(r.notes, 600)}` : ""}</dd>`).join("")}
+        </dl>
+        <h3>Every reconstruction</h3>${reconTable(det, ph, d, L)}
+        <h2>Descent</h2>
+        <p class="muted">The reflexes of ${phLink(ph.id)}, which ${esc(wantSystem)}'s ${esc(sym(sp.id))} shares${others.length ? " with " + others.map(c => phLink(c)).join(", ") : ""}.</p>
+        ${det.descendants.length ? `<p><a href="#/lects/?reflex=${encodeURIComponent(ph.id)}">Open as a table of all lects →</a></p>` : ""}
+        ${descentHtml(det.descendants, d.daughters.length)}`;
+      wireMore();
+      return;
+    }
   } else ph = d.phonemes.find(p => p.ipa === bare);
   if (!ph) throw new Error(`No phoneme ${raw} in ${L}`);
   // The history: notation, ancestry, descent, and the other systems' matching phonemes in full.
@@ -272,12 +323,8 @@ async function pagePhoneme(L, uid) {
   const inline = bySystem.filter(x => !tabbed.includes(x));
   if (wantSystem && !tabbed.some(x => x.name === wantSystem)) wantSystem = "";
   const tabs = systemTabsOf(d, tabbed.map(x => x.name));
-  const otherSystems = inline.length ? `<h3>In other reconstructions</h3><table class="othersys"><tr><th>System</th><th>Symbol</th><th>Value</th><th>Source and explanation</th></tr>
-    ${inline.map(x => x.sps.length ? x.sps.map(sp => `<tr><td>${esc(x.name)}</td><td class="ipa">${esc(sym(sp.id))}</td>
-        <td>${describe(sp) || '<span class="muted">not stated</span>'}${inferredNote(sp) ? ` <span class="muted">(${esc(inferredNote(sp))})</span>` : ""}${sp.counterparts.length > 1 ? `<br><span class="muted">also matches ${sp.counterparts.filter(c => c !== ph.id).map(c => phLink(c)).join(", ")}</span>` : ""}</td>
-        <td>${sp.rows.map(r => `${cite(r) || ""}${r.notes ? `<br><span class="muted">${fold(r.notes)}</span>` : ""}`).join("<br>")}</td></tr>`).join("")
-      : `<tr><td>${esc(x.name)}</td><td colspan="3" class="muted">not a phoneme in this system</td></tr>`).join("")}</table>
-    <p class="muted" style="font-size:12.5px">Same descent as ${esc(sym(ph.id))}: these systems differ in spelling or phonetic value only.</p>` : "";
+  const otherSystems = det.notation.length || inline.length ? `<h3>Every reconstruction</h3>${reconTable(det, ph, d, L)}
+    ${inline.length ? `<p class="muted" style="font-size:12.5px">${inline.map(x => esc(x.name)).join(", ")}: same descent as ${esc(sym(ph.id))}; these differ in spelling or phonetic value only.</p>` : ""}` : "";
   const proto = isProto(L);
   const ancestorPids = det.ancestry_graph.nodes.filter(n => n !== ph.id && !n.endsWith(":∅"));
 
@@ -296,10 +343,6 @@ async function pagePhoneme(L, uid) {
     ${tabbed.map(x => `<div class="panel" data-panel="${esc(x.name)}"${x.name === wantSystem ? "" : " hidden"}>${x.absent ? `<div class="notice">${esc(x.name)}'s reconstruction has no ${esc(sym(ph.id))}.</div>` : ""}${systemPanel(x.name, x.sps, d)}</div>`).join("")}
     <div class="panel" data-panel=""${wantSystem ? " hidden" : ""}>
     ${inDefault(d, ph) ? "" : `<div class="notice">${esc(d.default_label)}'s reconstruction has no ${esc(sym(ph.id))}. It is kept here because other systems reconstruct it.</div>`}
-    ${det.notation.length ? `<h3>Notation by reconstruction system</h3>
-      <table style="width:auto"><tr><th>System</th><th>Symbol</th><th>Source</th></tr>
-      ${det.notation.map(n => `<tr><td>${esc(n.system)}</td><td class="ipa">${n.symbol === "∅" ? '<span class="muted" style="font-family:inherit">not a phoneme in this system</span>' : "*" + esc(n.symbol)}</td><td>${cite(n)}</td></tr>`).join("")}</table>` : ""}
-
     ${otherSystems}
 
     <h2>Ancestry</h2>

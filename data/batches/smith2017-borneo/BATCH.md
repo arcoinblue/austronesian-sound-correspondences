@@ -8,11 +8,11 @@ The user asked for the papers not to be taken as fact but assessed critically, w
 
 ## Scope
 
-56 lects, 1,538 correspondence rows: 1,047 as stated, 482 stated retentions, 7 composed, 2 implied retentions.
+54 lects, 1,563 correspondence rows.
 
 | Subgroup | Nodes | Member lects (rows from) |
 |---|---|---|
-| Kayanic (§2.2) | Proto-Kayanic → Proto-Kayan-Murik-Merap → Proto-Kayan, Proto-Murik-Merap; Proto-Segai-Modang | Long Naah, Data Dian, Balui Liko, Busang, Bahau (Tables 3-4); Ngorek (Tables 8-9); Merap (Smith 2017 Merap paper, consonants); Modang, Long Gelat, Gaai, Kelai (Tables 14-15) |
+| Kayanic (§2.2) | Proto-Kayan, Proto-Murik-Merap, Proto-Segai-Modang, each under PMP (Proto-Kayanic and Proto-Kayan-Murik-Merap held back: decision `kayanic-held`) | Long Naah, Data Dian, Balui Liko, Busang, Bahau (Tables 3-4); Ngorek (Tables 8-9); Merap (Smith 2017 Merap paper, consonants); Modang, Long Gelat, Gaai, Kelai (Tables 14-15) |
 | Kajang (§2.3.1) | Proto-Kajang | Sekapan, Kejaman, Lahanan (Tables 24-25) |
 | Melanau (§2.3.2) | Proto-Melanau | Kanowit, Dalat, Mukah, Balingian, Sarikei, Matu (Tables 26-27) |
 | Punan (§2.4) | Proto-Punan (Table 31) | Punan Tubu, Punan Bah, Punan Aput, Beketan, Ukit (Tables 29-30) |
@@ -31,6 +31,10 @@ The user asked for the papers not to be taken as fact but assessed critically, w
 - **Glottocodes** from Glottolog 5.4, matched by name and checked against the membership of the clade. Three Land Dayak varieties (Hliboi, Sungkung, Golik) and Ketapang Malay have no languoid and keep slugs. Decision `kayanic-glottocodes` lists the matches that needed judgement.
 
 ## Critical assessment: what was left out or flagged
+
+- **The rule the user set (20 Nov):** add correspondence tables and the reconstructions of established microgroups, but hold back the intermediate reconstructions above them.
+  - Proto-Kayanic (Table 23) and Proto-Kayan-Murik-Merap (§2.2.4.1) are therefore not nodes. Their changes are restated on Proto-Kayan, Proto-Murik-Merap and Proto-Segai-Modang, marked `composed` (`kayanic-held`).
+  - Smith himself finds no phonological evidence for Kayanic (p. 86).
 
 - **Higher-order groupings are not nodes:** North Borneo, Greater North Borneo, Central Sarawak, North Sarawak, Basap-Barito, Western Indonesian, Late MP (`smith-higher-order`). Smith himself later rejects the lexical evidence for Greater North Borneo and Barito-Basap (2023).
 - **Not entered as nodes because the evidence conflicts:** Punan internal subgroups (`punan-internal`), Malayic lower groups (defined by changes in single lexemes), Segai and Modang, and the Bidayuh and Southern Land Dayak branches.
@@ -65,3 +69,7 @@ The user asked for the papers not to be taken as fact but assessed critically, w
 - correspondences: sheet rows 3433-4970
 - notation_map: sheet rows 408-420
 - decisions: sheet rows 30-45
+
+2026-11-20 09:35 UTC, restructured in the sheet by hand (Sheets connector), after the user's rule on intermediate stages: Proto-Kayanic and Proto-Kayan-Murik-Merap deleted from lects (rows 564-565), notation_map (408-409) and correspondences (22 rows); Proto-Kayan, Proto-Murik-Merap and Proto-Segai-Modang reparented to PMP; 47 composed rows appended (correspondences 4949-4995); the PKMM e override moved to Proto-Kayan and Proto-Murik-Merap; decision `kayanic-held` added and `pkay-table23`, `pkmm-glottal` updated. The files here are the restructured batch.
+
+2026-11-20, Proto-Malayic: its six composed rows (pmal-shared) deleted from the sheet by hand (correspondences 4714-4719) and the node's note and decision updated; the Table 59-60 rows they stood for go on each lect through batch `smith2017-malayic`. The files here include them.
