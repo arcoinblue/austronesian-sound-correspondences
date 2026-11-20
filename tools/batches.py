@@ -349,9 +349,11 @@ def cmd_archive(args):
             sys.exit(f"{dest} already exists")
         shutil.move(str(b.folder), str(dest))
         lines = [f"\n\n## Applied\n\n{when}, by the push-batch workflow."]
-        for t, a, z, n in info.get("written", []):
-            if t in b.tables:
-                lines.append(f"- {t}: sheet rows {a}-{z}")
+        written = [(t, a, z) for t, a, z, n in info.get("written", []) if t in b.tables]
+        for t, a, z in written:
+            lines.append(f"- {t}: sheet rows {a}-{z}")
+        if not written:
+            lines.append("- All rows were already in the sheet (applied by an earlier run).")
         with open(dest / "BATCH.md", "a", encoding="utf-8") as fh:
             fh.write("\n".join(lines) + "\n")
         print(f"{b.id} -> {dest.relative_to(ROOT)}")
