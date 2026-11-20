@@ -37,7 +37,7 @@ python3 -m unittest discover tests
 2. **`lects.csv`**: add the lect, with its nearest reconstructed ancestor in `parent_id`. That ancestor has to be entered first and needs phonemes.
 3. **`phonemes.csv`**: enter the inventory, but only if the source gives one.
 4. **`correspondences.csv`**: for each phoneme of the parent, add one row per reflex × environment, and include the gaps (typed blanks).
-5. **`notation_map.csv`**: if the lect is a proto-language, give every phoneme at least a `canonical` row.
+5. **`notation_map.csv`**: if the lect is a proto-language, add one default `canonical` row (phoneme and symbol blank) citing where its spelling comes from, plus a row for each phoneme the source spells differently.
 6. Run `python3 build.py`. Fix all errors, then read the notes it prints (unentered proto-phonemes, possible allophones).
 
 Nothing is entered from memory. If the claim isn't in a source you have open, use `disputed` with a note, or leave it out.
@@ -51,7 +51,7 @@ Nothing is entered from memory. If the claim isn't in a source you have open, us
 - **Phoneme key = (lect, symbol).** The build derives the id `<lect_id>:<symbol>` (e.g. `pmp:R`, `mala1479:r`), which also appears in the pivot URL `/lects/?reflex=pmp:R`. Phoneme URLs use `_` for `*` (`/lects/pmp/_R/`).
 - **Lect ids** are the Glottocode where one exists (`mala1479`). Proto-languages get a short lowercase slug (`pan`, `pmp`, `pwmp`, `pcemp`, `poc`).
 - **`ipa`** holds the IPA symbol for attested lects. For proto-languages it holds the site's canonical symbol (which can be non-IPA, e.g. `C`, `S`, `N`). The source's own spelling goes in `source_symbol`.
-- **Lists:** `alt_names` are separated by `;`, and `subgroup_path` by `>` (`PAN > PMP > PWMP`).
+- **Lists:** `alt_names` are separated by `;`, and `subgroup_path` by `>` (`Austronesian > Malayo-Polynesian`).
 
 ---
 
@@ -102,7 +102,7 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `type` | yes | `language` · `dialect` · `proto-language` · `earlier-stage` (an earlier state of one language, reached by internal reconstruction or inferred from a proto-language: Pre-Gayo). Both reconstructed types can be a parent and have starred symbols. |
 | `glottocode`, `iso639_3` | | the build warns if an attested lect has no Glottocode |
 | `parent_id` | | nearest reconstructed ancestor the source uses; **must be a proto-language or an earlier-stage**. Empty only for the root (PAN). |
-| `subgroup_path` | | established subgroups only, `>`-separated; disputed ⇒ stop at the lowest secure node |
+| `subgroup_path` | | **leave blank**: the build derives it from `parent_id`, each ancestor's `clade` (or name without Proto-), root first. Fill it only to override the derived path, `>`-separated: the root, a group with no proto node entered (Atayalic), a member whose node is missing (Island Kaili–Wolio). The build notes cells that equal the derived path. |
 | `default_system` | | *optional column.* The reconstruction system the lect's `phonemes` rows follow, e.g. `Shibata` for PAn. It names the first tab on the site; other systems come from `notation_map`. |
 | `systems` | | *optional column.* The lect's reconstruction systems, `;`-separated, in tab order: `Shibata;Blust;Ross;Wolff`. Any other system in `notation_map` is then a spelling only (Grace's POc orthography): it appears in the notation table and gets no tab. Blank: every system in `notation_map` gets a tab, in the order first seen. |
 | `clade` | | *optional column.* The group a proto-language is the ancestor of, used as the heading in the lect tree. Blank: the name without `Proto-` (Proto-Malayo-Polynesian heads *Malayo-Polynesian*). An earlier-stage heads no group. |
@@ -166,6 +166,8 @@ One proto-segment → one reflex, in one daughter, in one environment. The paren
 | `source_id` | yes | |
 | `page` | strongly advised | the build warns if missing (unless `via_page` is given) |
 | `notes` | | |
+| `as_printed` | | *optional column.* The source's statement as printed, when the row restates it (`*b > **β, **b`; a tree's clause composed against an intermediate node). Shown before the notes as "As printed: …". |
+| `locator` | | *optional column.* Where on the page: `Table 18`, `fig. 4`, `§4.8.3`, `tree`. Shown after the page number. Keep `page` a page number. |
 | `conditioning` | | *optional column.* `stated` (the environment is the condition) · `unknown` (the source gives no condition; environment `conditions unknown`, set automatically) · `lexical` (in some words only; say which in `lexical_scope`) |
 | `evidence_total` | | *optional column.* N where the source gives "n of N": `evidence_count` 12, `evidence_total` 94. Shown as "12 of 94". |
 | `derivation` | | *optional column.* `as-stated` (blank) · `composed` (restated against an intermediate node from the source's statements) · `implied-retention` (the build adds these for `changes_only` lects; enter it by hand only for a retention you infer) |
@@ -224,13 +226,22 @@ A parent phoneme with no row at all for a daughter is reported as **unentered**,
 
 | column | required | values |
 |---|---|---|
-| `lect_id`, `phoneme` | yes | a proto-phoneme already in that lect's inventory (sourced or generated) |
+| `lect_id` | yes | |
+| `phoneme` | yes, except on a default row | a proto-phoneme already in that lect's inventory (sourced or generated) |
 | `system` | yes | `canonical` (the site's own symbol), `Blust`, `Wolff`, `Ross`, `Zorc`, … |
-| `symbol` | yes | that system's spelling, without `*` (`t₂`) |
+| `symbol` | yes, except on a default row | that system's spelling, without `*` (`t₂`) |
 | `source_id`, `page`, `notes` | | |
 | `place`, `manner`, `voicing` | | *optional columns.* The phonetic value this system gives the phoneme, in the same vocabulary as `phonemes.csv` |
 
-Every proto-phoneme needs at least one row, and the build fails otherwise.
+Every proto-phoneme needs a `canonical` spelling, and the build fails otherwise. Most are spelled as themselves, so one **default row** per lect covers them: system `canonical`, `phoneme` and `symbol` blank, and the citation (`source_id`, `page`, `notes`) for the lect's spelling:
+
+```
+lect_id,phoneme,system,symbol,source_id,page,notes,...
+poc,,canonical,,ross2023,26,"Orthography of Ross (1988, 1989)."
+poc,R,canonical,R,ross2023,27,"Orthography of Ross (1988, 1989)."
+```
+
+The build gives every phoneme of the lect without a `canonical` row of its own a row with the default's citation (implied phonemes of a changes-only lect get none, as before). Enter a phoneme's own row only where the spelling or the citation differs; it wins over the default. `tools/migrate_v2.py` collapsed the per-phoneme rows into defaults (see *Layout v2* below).
 
 **Reconstruction systems.** `phonemes.csv` holds the lect's default system (`lects.default_system`). Every other system's phonemes come from this table: a row with system `Ross` and symbol `D` defines Ross's \*D, keyed by lect, system and symbol, so it is a different phoneme from Blust's \*D. The `phoneme` column says which default phoneme it corresponds to; one system phoneme can be listed against several, and `phoneme` may be blank if it has no counterpart. `canonical` and the default system's own name are spellings only and define no phonemes.
 
@@ -239,6 +250,17 @@ A system phoneme with blank place or manner is filled the same way: from a disti
 On the site each proto-phoneme page has one tab per system. A system's tab shows its symbol and phonetic value. It shows its own reflexes only if `correspondences` has rows with that `system`; otherwise the reflexes are the default ones.
 
 ---
+
+## Layout v2 (November 2026)
+
+Defaults the build fills in, so they are not typed row by row (restructuring plan, phase 1):
+
+- `notation_map`: one default `canonical` row per lect (above).
+- `lects.subgroup_path`: derived from `parent_id` + `clade`; filled only to override.
+- `correspondences.as_printed` and `locator`: the printed statement and the table/figure reference, out of `notes`.
+- Correspondence `id`s are frozen: every row has one, and a new row should get one (the build's report gives the hash it would use).
+
+`tools/migrate_v2.py` rewrites tables to this layout and `--reverse` writes every default out again. Both layouts build the same site data; `tests/test_migration.py` checks that on the repository's tables. Row provenance is described by `derivation` (as-stated · composed · implied-retention), so there is no separate `basis` column.
 
 ## What the build checks
 

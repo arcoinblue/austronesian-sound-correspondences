@@ -76,7 +76,17 @@ ENV_UNKNOWN_SPELLINGS = {"not stated", "conditions unclear", "in part of the voc
 # (a changes-only source lists only what changed; the build adds these).
 DERIVATIONS = {"as-stated", "composed", "implied-retention"}
 CORR_EXTRA = ["conditioning", "evidence_total", "derivation", "variety", "stratum", "lexical_scope",
-              "examples", "source_form"]
+              "examples", "source_form", "as_printed", "locator"]
+# as_printed: the source's statement as printed ("*b > **β, **b"), kept out of notes.
+# locator: where on the page it is (Table 18, fig. 4, §4.8.3, tree), apart from the page number.
+AS_PRINTED_PREFIX = "As printed: "
+
+
+def note_with_printed(as_printed, notes):
+    """The single note text an as_printed + notes pair stands for (the pre-v2 notes column)."""
+    if not as_printed:
+        return notes
+    return f"{AS_PRINTED_PREFIX}{as_printed}." + (f" {notes}" if notes else "")
 ENV_SYLLABLES = {"final syllable", "penultimate syllable", "antepenultimate syllable", "initial syllable",
                  "non-final syllable", "stressed syllable", "unstressed syllable",
                  "pretonic syllable", "posttonic syllable"}
@@ -262,6 +272,10 @@ OPTIONAL_COLUMNS = {
     "notation_map": ["place", "manner", "voicing"] + VIA,
 }
 CANONICAL = "canonical"   # notation system that only spells the site's own symbols
+# A canonical notation_map row with phoneme and symbol both blank is the lect's
+# default: every phoneme of the lect without a canonical row of its own is
+# spelled as itself, cited as on the default row. Implied phonemes (a changes-only
+# lect's retentions) get none, as before.
 
 # Columns whose values are phoneme symbols and must be NFC with no '*'.
 SYMBOL_COLUMNS = {
@@ -617,6 +631,26 @@ def validate_and_derive(t, rep: Report):
                 break
             seen.add(cur)
             cur = lects[cur]["parent_id"]
+
+    # subgroup_path: derived from the parent chain (each ancestor's clade, root first).
+    # A filled cell overrides it, for the few lects the tree cannot say (the root,
+    # a group without a proto node, a member whose node is not entered).
+    same_as_derived = []
+    for r in lects.values():
+        derived, seen, cur = [], {r["id"]}, r["parent_id"]
+        while cur and cur in lects and cur not in seen:
+            seen.add(cur)
+            if lects[cur]["clade_label"]:
+                derived.append(lects[cur]["clade_label"])
+            cur = lects[cur]["parent_id"]
+        r["derived_subgroup"] = derived[::-1]
+        if not r["subgroup_list"]:
+            r["subgroup_list"] = r["derived_subgroup"]
+        elif r["subgroup_list"] == r["derived_subgroup"]:
+            same_as_derived.append(r["id"])
+    if same_as_derived:
+        rep.note("lects.csv", f"{len(same_as_derived)} lect(s) have a subgroup_path equal to the one derived "
+                              "from parent_id and clade; it can be left blank")
 
     # --- entered phonemes
     entered = defaultdict(dict)  # lect -> sym -> row
@@ -1001,6 +1035,31 @@ def validate_and_derive(t, rep: Report):
             rep.error(rec["_where"], f"root proto-language {L} needs a sourced inventory")
 
     # --- notation map, and the phonemes of every non-default reconstruction system
+    # A lect's default canonical row stands for one row per phoneme that has no
+    # canonical row of its own. The rows it stands for are made here, ahead of the
+    # entered rows, and are treated exactly like entered ones from here on.
+    defaults, entered_nm = {}, []
+    for r in t["notation_map"]:
+        if r["system"] == CANONICAL and not r["phoneme"] and not r["symbol"]:
+            if r["lect_id"] not in lects:
+                rep.error(r["_where"], f"lect_id {r['lect_id']!r} is not in lects.csv")
+            elif r["lect_id"] in defaults:
+                rep.error(r["_where"], f"a second default canonical row for {r['lect_id']} "
+                                       f"(the first is {defaults[r['lect_id']]['_where']})")
+            else:
+                defaults[r["lect_id"]] = r
+            continue
+        entered_nm.append(r)
+    own_canonical = {(r["lect_id"], r["phoneme"]) for r in entered_nm if r["system"] == CANONICAL}
+    implicit_nm = []
+    for L, d in defaults.items():
+        for s, ph in inventory.get(L, {}).items():
+            if not ph.get("implied") and (L, s) not in own_canonical:
+                implicit_nm.append({**d, "phoneme": s, "symbol": s, "_where": f"{d['_where']} (default, *{s})"})
+        if not any(r["lect_id"] == L for r in implicit_nm):
+            rep.warn(d["_where"], f"default canonical row for {L} applies to no phoneme")
+    t["notation_map"] = implicit_nm + entered_nm
+
     notation = defaultdict(list)
     sysph = defaultdict(lambda: defaultdict(dict))   # lect -> system -> symbol -> record
     for r in t["notation_map"]:
@@ -1274,7 +1333,8 @@ def edge(r, include_child=True):
         "system": r.get("system") or None,
         "via_source_id": r.get("via_source_id", ""), "via_page": r.get("via_page", ""),
         "via_note": r.get("via_note", ""),
-        **{k: r.get(k, "") for k in ("conditioning", "variety", "stratum", "lexical_scope", "examples", "source_form")},
+        **{k: r.get(k, "") for k in ("conditioning", "variety", "stratum", "lexical_scope", "examples", "source_form",
+                                    "as_printed", "locator")},
         "evidence_total": int(r["evidence_total"]) if r.get("evidence_total", "").isdigit() else None,
         "derivation": r.get("derivation") or "as-stated",
     }

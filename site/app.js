@@ -92,10 +92,15 @@ function srcLink(id, page) {
 // A citation, direct ("Li 1981: 240") or indirect ("Li 1981, via Shibata 2025: 55").
 // What the secondary source changed is on hover and marked with a dagger.
 function cite(r) {
-  const orig = srcLink(r.source_id, r.page);
+  const orig = srcLink(r.source_id, r.page) + (r.locator ? `, ${esc(r.locator)}` : "");
   if (!r.via_source_id) return orig;
   return `${orig}<span class="via">, via ${srcLink(r.via_source_id, r.via_page)}${r.via_note
     ? `<span class="vianote"> † ${fold(r.via_note, 90)}</span>` : ""}</span>`;
+}
+// A correspondence row's notes, with the source's own statement first when it was kept.
+function rowNote(r, limit = 140) {
+  const printed = r.as_printed ? `<span class="printed" title="the source's statement as printed">As printed: ${esc(r.as_printed)}.</span>` : "";
+  return printed + (printed && r.notes ? " " : "") + (r.notes ? fold(r.notes, limit) : "");
 }
 function tabsHtml(names, on) {
   return `<div class="tabs" role="tablist">${names.map(n =>
@@ -337,7 +342,7 @@ async function pageLect(L) {
   const changesTable = d.changes.length ? `<h2>Changes defining this ${proto ? "node" : "lect"}</h2>
     <div class="scroll"><table><tr><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
     ${d.changes.map(r => `<tr><td>${r.parent ? phLink(r.parent) : ""} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td>${envHtml(r)}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${fold(r.notes, 140)}</td></tr>`).join("")}</table></div>` : "";
+      <td>${envHtml(r)}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : "";
 
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a>${ancestors ? " › " + ancestors : ""}</div>
@@ -377,7 +382,7 @@ async function pageLect(L) {
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
       <div class="scroll"><table><tr><th>Daughter lect</th><th>Inserted</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
       ${d.insertions.map(r => `<tr><td>${lectLink(r.child_lect_id)}</td><td>${phLink(r.child)}</td><td>${envHtml(r)}</td><td>${badge(r.status)}</td>
-        <td>${evidence(r)}</td><td>${cite(r)}</td><td>${fold(r.notes, 140)}</td></tr>`).join("")}</table></div>` : ""}
+        <td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : ""}
     ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
       <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
       ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
@@ -588,7 +593,7 @@ function descentHtml(rows, daughters) {
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${evidence(r)}</td>
       <td>${cite(r)}</td>
-      <td>${fold(r.notes, 140)}</td></tr>`;
+      <td>${rowNote(r)}</td></tr>`;
   const hidden = rows.filter(deep).length;
   if (!rows.length) return `<p class="muted">The reflexes below this stage are on the pages of its competing reconstructions.</p>`;
   const shownDeep = rows.filter(r => r.via.length && r.conflict).length;

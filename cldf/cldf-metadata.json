@@ -425,6 +425,14 @@
           {
             "name": "source_form",
             "datatype": "string"
+          },
+          {
+            "name": "as_printed",
+            "datatype": "string"
+          },
+          {
+            "name": "locator",
+            "datatype": "string"
           }
         ],
         "foreignKeys": [

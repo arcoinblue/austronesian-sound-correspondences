@@ -467,3 +467,52 @@ class TestSheetRoundTrip(unittest.TestCase):
             for f in FIXTURE.glob("*.csv"):
                 self.assertEqual(f.read_text(encoding="utf-8"),
                                  (d / "out" / f.name).read_text(encoding="utf-8"), f.name)
+
+
+class TestV2Layout(unittest.TestCase):
+    """Defaults the build fills in (restructuring plan, phase 1)."""
+
+    def test_default_canonical_row_stands_for_the_rest(self):
+        def m(d):
+            p = d / "notation_map.csv"
+            lines = p.read_text(encoding="utf-8").splitlines()
+            keep = [ln for ln in lines if not (ln.startswith("pxa,") and ",canonical," in ln
+                                               and ln.split(",")[1] == ln.split(",")[3])]
+            keep.append("pxa,,canonical,,example2026,7,Orthography of the example.,,,,,,")
+            p.write_text("\n".join(keep) + "\n", encoding="utf-8")
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        canon = lambda s: [n for n in D["notation"]["pxa:" + s] if n["system"] == "canonical"]
+        self.assertEqual([(n["symbol"], n["page"]) for n in canon("p")], [("p", "7")])
+        self.assertEqual(len(canon("C")), 1)
+        # a row of its own wins over the default
+        self.assertEqual([n["symbol"] for n in canon("ə")], ["e"])
+
+    def test_two_default_rows_for_one_lect(self):
+        rep = run(lambda d: (append("notation_map.csv", "pxa,,canonical,,example2026,7,,,,,,,")(d),
+                             append("notation_map.csv", "pxa,,canonical,,example2026,8,,,,,,,")(d)))
+        self.assertTrue(any("second default canonical row" in e for e in rep.errors), rep.errors)
+
+    def test_blank_subgroup_path_is_derived(self):
+        rep, D = run(replace("lects.csv", "pxa,PXA > PXB,", "pxa,,"), derived=True)
+        self.assertEqual(rep.errors, [])
+        rec = D["lects"]["pxb"]
+        self.assertEqual(rec["subgroup_list"], rec["derived_subgroup"])
+        self.assertEqual(rec["subgroup_list"], [D["lects"]["pxa"]["clade_label"]])
+
+    def test_filled_subgroup_path_overrides(self):
+        rep, D = run(derived=True)
+        self.assertEqual(D["lects"]["pxb"]["subgroup_list"], ["PXA", "PXB"])
+
+    def test_as_printed_and_locator_reach_the_site(self):
+        def m(d):
+            p = d / "correspondences.csv"
+            lines = p.read_text(encoding="utf-8").splitlines()
+            self.assertTrue(lines[0].endswith(",as_printed,locator") and lines[1].endswith(",,"))
+            lines[1] = lines[1][:-2] + ",*p > p,Table 3"
+            p.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        e = build.edge(D["corrs"][0])
+        self.assertEqual((e["as_printed"], e["locator"]), ("*p > p", "Table 3"))
+        self.assertEqual(build.note_with_printed("*p > p", "Split."), "As printed: *p > p. Split.")
