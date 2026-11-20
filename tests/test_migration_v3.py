@@ -78,10 +78,13 @@ class TestMigrationV3(unittest.TestCase):
         """Undo the migration (rows back, changes_only, no stated-unchanged) and redo it."""
         rows = restored()
         stated = {r["child_lect_id"] for r in removed_rows() if r["source_id"] == migrate_v3.STATED_SOURCE}
+        # Only the lects the migration touched had their citation columns filled by it;
+        # a lect set to inherit by hand later keeps what was typed.
+        migrated = {r["child_lect_id"] for r in removed_rows()}
         with tempfile.TemporaryDirectory() as d:
             d = Path(d)
             for r in rows["lects"]:
-                if r["id"] in stated or r["inherit"] == "assumed-unchanged":
+                if r["id"] in migrated:
                     for c in ("inherit_source_id", "inherit_page", "inherit_note"):
                         r[c] = ""
                 if r["inherit"] == "stated-unchanged":
