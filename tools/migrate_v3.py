@@ -67,7 +67,10 @@ def read_raw(data_dir):
             i = header.index("inherit")
             for r in rows[1:]:
                 if i < len(r):
-                    r[i] = "assumed-unchanged" if r[i].strip().upper() in ("TRUE", "YES") else ""
+                    v = r[i].strip()
+                    # TRUE is the old assumed-unchanged; a value already in the new vocabulary
+                    # (a lect added after the migration) is kept as it is.
+                    r[i] = "assumed-unchanged" if v.upper() in ("TRUE", "YES") else (v if v in build.INHERIT else "")
         unknown = [c for c in header if c not in cols]
         if unknown:
             sys.exit(f"{name}.csv: unknown column(s) {unknown}")

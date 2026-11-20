@@ -87,7 +87,7 @@ class TestMigrationV3(unittest.TestCase):
                 if r["id"] in migrated:
                     for c in ("inherit_source_id", "inherit_page", "inherit_note"):
                         r[c] = ""
-                if r["inherit"] == "stated-unchanged":
+                if r["inherit"] == "stated-unchanged" and r["id"] in stated:
                     r["inherit"] = ""
             migrate_v3.write(rows, d / "old")
             lects = d / "old" / "lects.csv"
@@ -95,7 +95,9 @@ class TestMigrationV3(unittest.TestCase):
             i = table[0].index("inherit")
             table[0][i] = "changes_only"
             for r in table[1:]:
-                r[i] = "TRUE" if r[i] == "assumed-unchanged" else ""
+                # The old layout said only TRUE; a lect set to stated-unchanged after the migration
+                # keeps its value, which the reader passes through.
+                r[i] = "TRUE" if r[i] == "assumed-unchanged" else r[i]
             buf = io.StringIO()
             csv.writer(buf, lineterminator="\n").writerows(table)
             lects.write_text(buf.getvalue(), encoding="utf-8")
