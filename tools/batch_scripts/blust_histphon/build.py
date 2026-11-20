@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import Batch  # noqa: E402
-import chamorro, palauan, dobel, northsarawak  # noqa: E402
+import chamorro, palauan, dobel, northsarawak, omalongh, kiput  # noqa: E402
 
 B = Batch("blust-histphon")
 
@@ -25,6 +25,11 @@ B.add("sources", id="blust2000", author="Blust, Robert", year=2000, title="Chamo
       url_or_doi="https://www.jstor.org/stable/3623218", volume=39, issue=1, pages="83-122", **OL,
       notes="Read from the page images of the JSTOR scan (the OCR layer is unreliable). Reflexes are stated against "
             "PMP (p. 88). Read: §2 (pp. 83-87), §3 (pp. 87-103).")
+B.add("sources", id="blust2002", author="Blust, Robert", year=2002, title="Kiput historical phonology",
+      url_or_doi="https://doi.org/10.1353/ol.2002.0004", volume=41, issue=2, pages="384-438", **OL,
+      notes="§3.1 (PMP > PNS), §3.2 (36 ordered changes from PNS to Kiput; Table 17, p. 420), §3.3 (shifts, splits "
+            "and mergers, pp. 423-427). The text layer writes ¥ for ŋ, ¿ for ʔ and ² for 'fi'; forms were checked "
+            "against the page images.")
 B.add("sources", id="blust2007", author="Blust, Robert", year=2007, title="Òma Lóngh historical phonology",
       url_or_doi="https://doi.org/10.1353/ol.2007.0016", volume=46, issue=1, pages="1-53", **OL,
       notes="Table 2 (p. 6): PMP > Proto-North Sarawak; p. 7: the changes from PNS to Proto-Kenyah; §4 (pp. 8-): "
@@ -51,8 +56,15 @@ B.add("sources", id="hughes1995a", author="Hughes, Jock", year=1995, year_suffix
       notes="Bibliographic details from the reference list of Blust (2014); not consulted directly. Blust's Table 3 "
             "(2014: 40) 'reflects the analysis proposed' here.")
 
+B.add("sources", id="soriente2006", author="Soriente, Antonia", year=2006,
+      title="Mencalèny and Usung Bayung Marang: A collection of Kenyah stories in the Òma Lóngh and Lebu' Kulit languages",
+      kind="dictionary", pub_type="book", editors="Antonia Soriente", place="Jakarta", publisher="Atma Jaya University Press",
+      notes="Bibliographic details from the reference list of Blust (2007); not consulted directly. Texts and vocabularies "
+            "of 1,500-1,800 words; the source of Blust's Òma Lóngh data and of the orthography and phonetic values he "
+            "reports (2007: 8-9, 11).")
+
 # ---------------------------------------------------------------- languages
-for mod in (northsarawak, chamorro, palauan, dobel):
+for mod in (northsarawak, chamorro, palauan, dobel, omalongh, kiput):
     mod.build(B)
 
 # ---------------------------------------------------------------- decisions
@@ -87,6 +99,14 @@ B.D("cha-y", "Chamorro y: Topping's y is [dz], and Blust respells final -ai, -ao
     "final [j] as one phoneme (2000: 85).",
     "One phoneme d͡z (printed y); PMP *y > d͡z in all positions, final *-ay included.",
     "A separate glide j for final y, with *y > j / _#.", src="blust2000", page="85, 97")
+B.D("kiput-collapsed", "Blust (2002) derives Kiput from PNS through 36 ordered changes (Table 17, p. 420). How are they "
+    "entered?",
+    "As PNS segment > Kiput segment rows, as Blust's own summary of shifts, splits and mergers does (§3.3, pp. 423-427); "
+    "each row's notes name the changes that produced it. Kiput diphthongs and triphthongs are inventory units "
+    "(p. 385), so *-i > -ay is one row (i > aj). Environments that depend on 'a voiced obstruent earlier in the word' "
+    "are written '... after a voiced obstruent'.",
+    "Intermediate Pre-Kiput stages for the ordered changes; or diphthongs as vowel + glide.", src="blust2002",
+    page="420, 423-427")
 B.D("pal-vowels", "Palauan vowel reflexes depend on pre-Palauan penultimate stress, which shifted under suffixation "
     "(Blust 2009: 310).",
     "Entered with the set terms 'stressed syllable' (unchanged; *e > e or o) and 'unstressed syllable' (ə), and _# "

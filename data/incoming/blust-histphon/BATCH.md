@@ -1,9 +1,10 @@
 # blust-histphon
 
-Blust's historical phonologies of Chamorro, Palauan and Dobel, with the Proto-North Sarawak and Proto-Kenyah nodes that Kiput and Òma Lóngh need. All were read directly from the PDFs in the user's Downloads folder.
+Blust's historical phonologies of Chamorro, Palauan, Dobel, Kiput and Òma Lóngh, with the Proto-North Sarawak and Proto-Kenyah nodes that the last two need. All were read directly from the PDFs in the user's Downloads folder.
 
 - Blust, Robert. 2000. Chamorro historical phonology. *Oceanic Linguistics* 39(1). 83-122.
-- Blust, Robert. 2007. Òma Lóngh historical phonology. *Oceanic Linguistics* 46(1). 1-53. Only pp. 6-8 are used here (Table 2; the PNS > PK changes).
+- Blust, Robert. 2002. Kiput historical phonology. *Oceanic Linguistics* 41(2). 384-438.
+- Blust, Robert. 2007. Òma Lóngh historical phonology. *Oceanic Linguistics* 46(1). 1-53.
 - Blust, Robert. 2009. Palauan historical phonology: Whence the intrusive velar nasal? *Oceanic Linguistics* 48(2). 307-336.
 - Blust, Robert. 2014. Dobel historical phonology. *Oceanic Linguistics* 53(1). 37-60.
 
@@ -13,12 +14,12 @@ The generator is `tools/batch_scripts/blust_histphon/build.py`. There is one mod
 
 | Table | Rows |
 |---|---|
-| sources | 6 (blust2000, blust2007, blust2009, blust2014, topping1973, hughes1995a) |
-| lects | 4 (Chamorro, Palauan, Proto-North Sarawak, Proto-Kenyah) |
-| phonemes | 90 (Chamorro 26, Palauan 19, Dobel 19, PNS 26) |
-| correspondences | 195 |
+| sources | 8 (blust2000, blust2002, blust2007, blust2009, blust2014, topping1973, hughes1995a, soriente2006) |
+| lects | 6 (Chamorro, Palauan, Kiput, Òma Lóngh, Proto-North Sarawak, Proto-Kenyah) |
+| phonemes | 166 (Kiput 46, Òma Lóngh 30, Chamorro 26, PNS 26, Palauan 19, Dobel 19) |
+| correspondences | 377 (Òma Lóngh 92, Kiput 90, Palauan 66, Chamorro 63, Dobel 41, PNS 14, PK 11) |
 | notation_map | 2 |
-| decisions | 6 |
+| decisions | 7 |
 
 - **Chamorro (cham1312)**, under PMP.
   - Rows: all of §3 (pp. 88-102).
@@ -39,6 +40,18 @@ The generator is `tools/batch_scripts/blust_histphon/build.py`. There is one mod
   - Inventory: the PNS row of Table 2.
 - **Proto-Kenyah (pk, keny1280)**, under PNS, assumed-unchanged.
   - Rows: changes 1-7 of p. 7, with the examples of pp. 7-8.
+- **Kiput (kipu1237)**, under PNS, stated-unchanged: 'It will be assumed that no change has taken place unless stated otherwise' (p. 423).
+  - Rows: §3.2 (the 36 ordered changes of Table 17, p. 420) and §3.3 (shifts, splits and mergers, pp. 423-427), collapsed to PNS segment > Kiput segment. Each row's notes name the changes that produced it (vowel breaking, lowering of diphthongal nuclei, low vowel fronting, glide fortition, intervocalic devoicing, final velar lenition and so on).
+    - The counts of the unconditioned splits are Blust's (§3.3.2).
+    - Conditions that depend on 'a voiced obstruent earlier in the word' are written in the environment as '... after a voiced obstruent'.
+  - Inventory: Table 1 and p. 385. The diphthongs and triphthongs are entered as units, as Blust counts them ('at least twelve diphthongs, and two triphthongs'), with the long -aay, -aaw (p. 423) and phonemic aa (p. 399).
+- **Òma Lóngh (umal1238)**, under PK, with no inherit (every PK phoneme has rows).
+  - Rows: §4.2 (pp. 10-34):
+    - last-syllable vowels and diphthongs (Table 5);
+    - penult vowels, by harmonic lowering and nonharmonic lowering (Table 6);
+    - final consonants by the preceding vowel;
+    - nonfinal consonants, prenasalized stops and hiatus.
+  - Inventory: Soriente's orthography and values as Blust gives them (pp. 8-9; Table 4, p. 11). Soriente's single letter e is two phonemes, ə and ɯ (p. 11).
 - **Dobel (dobe1238)**, already in the sheet from Grimes & Edwards.
   - Rows: Table 4 (p. 51) with §§2-3, composed against Proto-Dobel-Koba (decision `dobel-composed`).
   - Inventory: Blust's Table 3 (p. 40), after Hughes (1995a).
@@ -58,7 +71,14 @@ The generator is `tools/batch_scripts/blust_histphon/build.py`. There is one mod
   - Palauan: y as j.
   - Dobel: y as j. Blust prints kʷ with a superscript w, and it is entered as kʷ.
   - examples keeps the forms as printed.
-- **Other text layers.** The Palauan and Dobel text layers are correct Unicode, and Tables 1-2 (Palauan) and 3-4 (Dobel) were checked against the page images. The Òma Lóngh text layer is a shifted font encoding, so its Table 2 and pp. 6-8 were read from the page images.
+- **Òma Lóngh letters.** Its text layer is a shifted font encoding: '7KH' is 'The', and every é è ó ò ŋ ʔ is lost. Everything was read from page images at 200 dpi, pp. 6-35. Blust's spelling varies here too:
+  - *dumit > rumij (p. 26) but rumit (p. 31);
+  - *njam > cam (p. 28) but ncam (p. 32);
+  - *pəñaʔ (p. 28) but *peñaʔ (p. 33);
+  - *busan > bòsèny in the decoded p. 19 but bosèny (p. 33).
+  - PK *h appears as *R in the list on p. 29, against *h on p. 25 and the PK change *R > h (p. 7). Entered as *h.
+- **Kiput letters.** The text layer writes ¥ for ŋ, ¿ for ʔ, ² for 'fi', and the aspirates as dh. Tables 1 and 14 were checked against the page images, where the aspirates have a superscript h (*tedʰik).
+- **Other text layers.** The Palauan and Dobel text layers are correct Unicode, and Tables 1-2 (Palauan) and 3-4 (Dobel) were checked against the page images.
 - **Counts.** evidence_count holds Blust's counts: Dobel Table 4 and Chamorro Table 1, with evidence_total for Table 1.
 - **Unconditioned splits** follow decision `blust-unconditioned`.
 - **Dobel composition.** Each Dobel row is restated against the Proto-Dobel-Koba symbol that the Grimes & Edwards rows give for the PMP phoneme, as follows. Blust's statement is in as_printed.
@@ -82,6 +102,7 @@ The generator is `tools/batch_scripts/blust_histphon/build.py`. There is one mod
 - `dobel-composed`
 - `cha-k`
 - `cha-y`
+- `kiput-collapsed`
 - `pal-vowels`
 
 ## Not entered
@@ -107,4 +128,19 @@ The generator is `tools/batch_scripts/blust_histphon/build.py`. There is one mod
   - Vowel crasis and final-vowel loss, which are irregular.
   - Schwa syncope ('may have', p. 51).
   - The loss of prepenultimate initial vowels.
-- **Kiput (Blust 2002) and Òma Lóngh (Blust 2007, §4):** not in this batch. Their parents, PNS and PK, are.
+- **Kiput**
+  - The PMP > PNS changes of §3.1, which are Blust's account of PNS itself (PNS here is from the 2007 Table 2).
+  - The irregular forms listed in each section:
+    - *jameq > dimeʔ, a Berawan loan;
+    - *betis > beti;
+    - the stray final ʔ in *pedʰu > peseuʔ and *lumu > lumauʔ;
+    - the b ~ s alternation.
+  - Loss of initial syllables, and the lowering and centralisation of high vowels before strengthened glides, both irregular (pp. 403, 417).
+  - The prenasalized stops (four outcomes, 'none of which clearly predominates', p. 416).
+  - *-ay > -ey after a voiced obstruent (*paday > padey).
+  - The Malay loanword strata (§3.2.2).
+- **Òma Lóngh**
+  - The exceptions listed after each change. Rows name the ones Blust stresses.
+  - The vowel-harmony constraints as synchronic rules (§4.2.1.7).
+  - The ordering relations (§4.3).
+  - The 12 exceptions to height harmony (p. 21).
