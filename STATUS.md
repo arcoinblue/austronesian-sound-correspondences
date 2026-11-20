@@ -9,18 +9,18 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 78 |  |
-| lects | 618 | 113 dialect, 30 earlier-stage, 295 language, 180 proto-language |
-| phonemes | 716 |  |
-| correspondences | 4969 | plus 6081 implied and 831 stated retentions generated from lects.inherit |
-| notation_map | 419 |  |
-| decisions | 44 | 44 open |
+| lects | 616 | 113 dialect, 30 earlier-stage, 295 language, 178 proto-language |
+| phonemes | 717 |  |
+| correspondences | 4994 | plus 6039 implied and 816 stated retentions generated from lects.inherit |
+| notation_map | 417 |  |
+| decisions | 45 | 45 open |
 
-Lects by `inherit`: (blank) 253, assumed-unchanged 303, stated-unchanged 62.
-Inventories: edited 23, empty 154, reverse-generated 412, sourced 29.
+Lects by `inherit`: (blank) 253, assumed-unchanged 302, stated-unchanged 61.
+Inventories: edited 24, empty 154, reverse-generated 409, sourced 29.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 155 warning(s), 514 note(s).
+`build.py --check`: 0 error(s), 155 warning(s), 509 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -69,8 +69,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `kayanic-glottocodes` | Glottocodes for Smith's Kayanic varieties. | Long Naah = Baram Kayan bara1370; Data Dian = Kayan River Kayan kaya1325 (Glottolog alt name); Balui Liko = Rejang Kayan reja1241; Gaai = Segai sega1243 (langu… |  |
 | `ngorek-nj` | Ngorek reflex of *nj: Table 8 (p. 64) has nc, Table 11 (p. 67) nj. | Not entered. |  |
 | `psm-j` | Proto-Segai-Modang reflex of Proto-Kayanic *j (PMP *z- and *nz). | *j > *c, inferred from Table 14: it shares the reflexes of medial *c, while *-y- > j stays apart. | 1 |
-| `pkay-table23` | Proto-Kayanic (Table 23, p. 86): rows Smith prints with a question mark or hedges in the text. | *q- entered as a disputed blank (printed Ø?); *-z- > *c entered as disputed (the text says only that it 'may' be Proto-Kayanic, p. 58); *R- > *h entered as pri… | 3 |
-| `pkmm-glottal` | Where do the added final glottal stop and the lowering of final high vowels belong? | Proto-Kayan-Murik-Merap (section 2.2.4.1, p. 84), not Proto-Kayan as Figure 10 (p. 54) has it. The lengthening of vowels before an inherited glottal stop and t… | 3 |
+| `pkay-table23` | Proto-Kayanic (Table 23, p. 86): rows Smith prints with a question mark or hedges in the text. | *q- entered as a disputed blank (printed Ø?); *-z- > *c entered as disputed (the text says only that it 'may' be Proto-Kayanic, p. 58); *R- > *h entered as pri… | 8 |
+| `pkmm-glottal` | Where do the added final glottal stop and the lowering of final high vowels belong? | Shared by Kayan and Murik-Merap (section 2.2.4.1, p. 84), as Smith concludes, not Kayan alone as Figure 10 (p. 54) has it; entered on both Proto-Kayan and Prot… | 6 |
 | `kajang-hiatus` | Kajang reflexes of penultimate *u and *i before *a (Table 25: *-uCVC gʷ / _a; *-iCVC ʑ / _a). | Entered at Proto-Kajang as *u > *gʷ, *i > *ʑ before *a: the strengthened transition glide (p. 95: *dua > dəgʷa). |  |
 | `melanau-node` | Is Proto-Melanau a node? | Entered, with only *-u > *əw and *-i > *əy, which Smith thinks 'likely' (p. 103). He calls Melanau a dialect network with mainly lexical evidence. |  |
 | `punan-internal` | Punan internal subgrouping (Figures 28-29, pp. 122-124). | No lower nodes: Punan Tubu-Bah (*a > *ə / _Ca(C)#, *z > *c) conflicts with the backing of final *ə shared by Punan Tubu, Bah, Aput and Beketan (pp. 120-122). T… |  |
@@ -80,6 +80,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `malayic-glottal` | Malayic cells such as 'aʔ; a', 'u; (uʔ)', 'r; ʔ' (Tables 59-60): Smith ties final glottal stops to particular lexemes (Figures 60-61, p. 196). | The glottal stop after final vowels is entered as a sporadic inserted ʔ; the vowel itself as unchanged. | 5 |
 | `malayic-phonetic` | Table 60 prints some vowels phonetically: Seberuang ow, ey; Iban ʊu̯, ɪi̯, ʊə̯, ɪə̯; Mualang oə̯, ɛə̯. The text calls these allophonic (pp. 185-186: /kutu/ [ku… | Entered as the phonemes: u, i (Seberuang, Iban), o, e (Mualang closed syllables). |  |
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
+| `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | Held back, by the rule to add correspondence tables and the reconstructions of established microgroups but to hold the intermediate stages above them. Proto-Ka… |  |
 
 <!-- END GENERATED -->
 
