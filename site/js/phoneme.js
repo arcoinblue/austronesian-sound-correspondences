@@ -204,6 +204,25 @@ function descentHtml(rows, daughters) {
     <div class="scroll"><table><tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${rows.map(tr).join("")}</table></div></div>`;
 }
 
+// Lects that another classification puts under this lect. In the tree they hang
+// from their own nearest ancestor, against which their rows are stated; each row is
+// listed here under the phoneme its parent phoneme becomes on the way down to this lect.
+function altDescentHtml(rows, d) {
+  if (!rows || !rows.length) return "";
+  const tr = r => `<tr>
+      <td>${lectLink(r.child_lect_id)} <span class="muted">(${srcLink(r.alt_source)})</span></td>
+      <td>${phLink(r.parent)}${r.alt_via.length > 2 ? `<br><span class="muted">via ${r.alt_via.slice(1, -1).map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
+      <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
+      <td>${envHtml(r)}</td>
+      <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
+      <td>${evidence(r)}</td>
+      <td>${cite(r)}</td>
+      <td>${rowNote(r)}</td></tr>`;
+  return `<h3>Daughters in other classifications</h3>
+    <p class="muted">These lects are placed under ${esc(d.name)} by another classification. In the tree they descend from their own nearest ancestor, so their rows are stated against that ancestor's phoneme, which becomes this phoneme on the way down to ${esc(d.name)}.</p>
+    <div class="scroll"><table><tr><th>Lect (classification)</th><th>Stated against</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${rows.map(tr).join("")}</table></div>`;
+}
+
 function systemPanel(sys, sps, d) {
   return sps.map(sp => `
     <h3><span class="ipa">${esc(isProto(d.id) ? "*" + sp.ipa : sp.ipa)}</span> in ${esc(sys)}'s reconstruction</h3>
@@ -291,8 +310,9 @@ async function pagePhoneme(L, uid) {
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
 
     <h2>Descent</h2>
-    ${det.descendants.length ? `<p><a href="#/lects/?reflex=${encodeURIComponent(ph.id)}">Open as a table of all lects →</a></p>` : ""}
-    ${descentHtml(det.descendants, d.daughters.length)}
+    ${det.descendants.length || (det.alt_descendants || []).length ? `<p><a href="#/lects/?reflex=${encodeURIComponent(ph.id)}">Open as a table of all lects →</a></p>` : ""}
+    ${det.descendants.length || !(det.alt_descendants || []).length ? descentHtml(det.descendants, d.daughters.length) : ""}
+    ${altDescentHtml(det.alt_descendants, d)}
     </div>`;
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
     app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));

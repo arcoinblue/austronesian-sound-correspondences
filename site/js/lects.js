@@ -10,9 +10,17 @@ async function pageIndex(params) {
     const ph = d.phonemes.find(p => p.ipa === ps);
     if (!ph) throw new Error(`No phoneme ${reflex}`);
     const det = await phonemeData(ph);
-    pivot = { lect: pl, ph, byLect: {} };
+    pivot = { lect: pl, ph, byLect: {}, alt: new Set() };
     for (const r of det.descendants) (pivot.byLect[r.child_lect_id] ||= []).push(r);
+    // Lects another classification puts under the pivot's lect: their rows, through the pivot's phoneme.
+    for (const r of det.alt_descendants || []) {
+      (pivot.byLect[r.child_lect_id] ||= []).push({ ...r, via: [] });
+      pivot.alt.add(r.child_lect_id);
+    }
   }
+  // Lects that other classifications put under each node.
+  const altKids = {};
+  for (const l of INDEX.lects) for (const a of l.alt_parents || []) (altKids[a.parent_id] ||= []).push({ lect: l, source_id: a.source_id });
   const state = { q: "", view: "tree", hideEmpty: true };
   try { state.view = localStorage.getItem("asc-view") === "flat" ? "flat" : "tree"; } catch (e) {}
 
@@ -63,7 +71,7 @@ async function pageIndex(params) {
       if (pivot) {
         const rs = pivot.byLect[l.id] || [];
         mid = rs.length ? rs.map(r => r.child
-          ? `${phLink(r.child)} <span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> ${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}`
+          ? `${phLink(r.child)} <span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> ${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}${r.alt_via ? ` <span class="muted">from ${esc(LECTS[splitPid(r.parent)[0]]?.name || "")} ${esc(sym(r.parent))}</span>` : ""}`
           : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
@@ -94,9 +102,21 @@ async function pageIndex(params) {
               ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button><b class="clade">${esc(clade)}</b> <span class="muted">·</span> `
               : `<span class="twist"></span>`}${lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${size(l.id)} lect${size(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
           if (k && isOpen) walk(l.id, depth + 1);
+          // Lects that another classification puts here: listed, dimmed, with the work that proposes it.
+          if (isOpen && altKids[l.id] && !q) for (const a of altKids[l.id]) {
+            if (pivot && !pivot.alt.has(a.lect.id)) continue;
+            body += `<tr class="dim alt"><td style="padding-left:${10 + (depth + 1) * 22}px"><span class="twist"></span>${lectLink(a.lect.id)}
+              <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">in another classification (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
+          }
         }
       };
       walk("", 0);
+      // In a reflex table, lects that another classification puts directly under the pivot's lect.
+      if (pivot && !q) for (const a of altKids[pivot.lect] || []) {
+        shown++;
+        body += `<tr class="alt"><td style="padding-left:10px"><span class="twist"></span>${lectLink(a.lect.id)}
+          <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">in another classification (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
+      }
     }
     const cols = tree ? 4 : 5;
     const hidden = state.hideEmpty && !pivot ? pool.filter(l => !hasData(l)).length : 0;

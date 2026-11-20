@@ -112,6 +112,60 @@ def descendants(phoneme_id, D, path=(), depth=0, beyond=False):
     return out
 
 
+def alt_descendants(phoneme_id, L, D):
+    """Rows of the lects that another classification puts under L (lects.alt_parents),
+    for the phoneme phoneme_id of L.
+
+    Such a lect hangs from its own parent Q in the tree, and its rows are stated
+    against Q. Where Q is an ancestor of L, a row is listed under the phoneme of L
+    that its Q phoneme becomes on the way down to L: PAn *j and *n both become
+    Proto-East Formosan *n, so Kavalan's rows for PAn *j and *n are listed under
+    PEF *n. Each row gets 'alt_via' (the Q phoneme and the path to L) and
+    'alt_source' (the work that proposes the classification)."""
+    out = []
+    chain = lect_chain(L, D["lects"])
+    for A, a_rec in D["lects"].items():
+        for a in a_rec["alt_parent_list"]:
+            if a["parent_id"] != L:
+                continue
+            Q = a_rec["parent_id"]
+            if not Q or Q not in chain:
+                continue
+            stages = set(chain[chain.index(Q) + 1:]) | {L}
+            for q in D["inventory"].get(Q, {}).values():
+                paths = _paths_into(q["id"], phoneme_id, stages, D)
+                if not paths:
+                    continue
+                for r in D["by_parent"].get(q["id"], []):
+                    if r["child_lect_id"] != A:
+                        continue
+                    row = edge(r)
+                    row["alt_via"] = paths[0]
+                    row["alt_source"] = a["source_id"]
+                    out.append(row)
+    return out
+
+
+def _paths_into(start, target, stages, D, depth=0):
+    """Paths of phoneme ids from start down to target through the lects in stages."""
+    if depth > 20:
+        return []
+    found = []
+    for r in D["by_parent"].get(start, []):
+        if r["child_lect_id"] not in stages or not r["child_phoneme_id"]:
+            continue
+        if r["child_phoneme_id"] == target:
+            found.append([start, target])
+        else:
+            found += [[start] + p for p in _paths_into(r["child_phoneme_id"], target, stages, D, depth + 1)]
+    # One path per route, shortest first.
+    uniq = []
+    for p in sorted(found, key=len):
+        if p not in uniq:
+            uniq.append(p)
+    return uniq
+
+
 def lect_chain(L, lects):
     chain, cur = [], lects[L]["parent_id"]
     while cur and cur in lects and cur not in chain:
@@ -157,12 +211,14 @@ def lect_full(L, D):
     index_status = data_status(L, D)
     used_sources = sorted({p["source_id"] for p in inv.values() if p["source_id"]})
     corr_sources = sorted({r["source_id"] for r in D["corrs"] if r["child_lect_id"] == L})
+    has_alt = any(a["parent_id"] == L for v in D["lects"].values() for a in v["alt_parent_list"])
     phonemes = []
     for s, ph in inv.items():
         ph = dict(ph)
         ph["notation"] = D["notation"].get(ph["id"], [])
         ph["ancestry_graph"] = ancestry_graph(ph["id"], D)
         ph["descendants"] = descendants(ph["id"], D)
+        ph["alt_descendants"] = alt_descendants(ph["id"], L, D) if has_alt else []
         phonemes.append(ph)
     default = rec["default_system"]
     systems = []
@@ -243,7 +299,7 @@ def lect_full(L, D):
 
 
 # Kept on the phoneme's own file, not on the lect's: the lect page does not need them.
-PHONEME_DETAIL = ("notation", "ancestry_graph", "descendants")
+PHONEME_DETAIL = ("notation", "ancestry_graph", "descendants", "alt_descendants")
 SYSTEM_DETAIL = ("rows", "descendants")
 
 
@@ -304,6 +360,9 @@ def index_json(D, lect_records=None):
         groups = [g["name"] for g in j["overlap_groups"]]
         if groups:
             row["overlap_groups"] = groups
+        # Other classifications: the lect tree also lists the lect under these nodes.
+        if j["alt_parents"]:
+            row["alt_parents"] = [{"parent_id": a["parent_id"], "source_id": a["source_id"]} for a in j["alt_parents"]]
         rows.append(row)
     return {"lects": rows}
 
