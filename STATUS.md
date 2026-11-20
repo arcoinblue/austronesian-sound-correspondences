@@ -50,7 +50,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ksr-composition` | Lee & Wang (1984) state Kosraean against POc. How are their rows entered? | Composed to PMc through Bender's POc > PMc rows; the notes keep the POc statement. | 31 |
 | `ksr-s-before-i` | Lee & Wang: POc *s lost before *i. Bender et al. have *s > s / _i. | s > ∅ / _i entered as regular. | 1 |
 | `ksr-dr` | Lee & Wang's POC *(dr) > Kosraean ɾ. | Marked disputed. | 1 |
-| `ksr-retroflex` | Lee's Kosraean palatal fricative and flap. | Entered as retroflex. |  |
+| `ksr-retroflex` | Lee's Kosraean palatal fricative and flap. | Entered as retroflex. The r series (r, rw, ro) is an approximant ɻ, ɻˠ, ɻʷ after Lee & Wang (1984: 436, n. 4), not Lee's flap: changed 20 Nov 2026 at the user'… |  |
 | `ge-unchanged-nodes` | A phoneme that the tree does not mention at a node: what happens to it there? | Unchanged (lects.inherit = assumed-unchanged; the build generates the rows, shown grey as implied). |  |
 | `ge-earlier-stage` | Tree nodes printed as one language with an ISO code, whose members are its varieties. | Entered as earlier-stage Pre-X (Pre-Tetun, Pre-Mambae, Pre-Kei, ...). |  |
 | `ge-overlap` | Overlapping subgroups (Wetar-Galolen, Nuclear Wetar-Atauro; the Peripheral Babar shared changes). | Entered on the member lects (overlap_groups). |  |
