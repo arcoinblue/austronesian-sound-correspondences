@@ -11,16 +11,16 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 78 |  |
 | lects | 616 | 113 dialect, 30 earlier-stage, 295 language, 178 proto-language |
 | phonemes | 717 |  |
-| correspondences | 4988 | plus 6039 implied and 816 stated retentions generated from lects.inherit |
+| correspondences | 5090 | plus 6044 implied and 799 stated retentions generated from lects.inherit |
 | notation_map | 417 |  |
-| decisions | 45 | 45 open |
+| decisions | 47 | 47 open |
 
 Lects by `inherit`: (blank) 253, assumed-unchanged 302, stated-unchanged 61.
 Inventories: edited 24, empty 154, reverse-generated 409, sourced 29.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 155 warning(s), 509 note(s).
+`build.py --check`: 0 error(s), 155 warning(s), 510 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -47,7 +47,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `kanakanavu-d` | Kanakanavu *d > sʲ word-initially: the table has s-(?); the text says *d is regularly r. | Entered, marked disputed. | 1 |
 | `wolff-vowels` | The Wolff system has no vowel rows: Shibata's Table 2.16 has none. | Consonants only; the site says Wolff's vowels are not compared. |  |
 | `ksr-ipa` | Kosraean consonants: Bender's transcription or IPA? | IPA (Bender's KSR sr, r are ʂ, ɾ). |  |
-| `ksr-composition` | Lee & Wang (1984) state Kosraean against POc. How are their rows entered? | Composed to PMc through Bender's POc > PMc rows; the notes keep the POc statement. | 31 |
+| `ksr-composition` | Lee & Wang (1984) state Kosraean against POc. How are their rows entered? | Composed to PMc through Bender's POc > PMc rows; the notes keep the POc statement. | 48 |
 | `ksr-s-before-i` | Lee & Wang: POc *s lost before *i. Bender et al. have *s > s / _i. | s > ∅ / _i entered as regular. | 1 |
 | `ksr-dr` | Lee & Wang's POC *(dr) > Kosraean ɾ. | Marked disputed. | 1 |
 | `ksr-retroflex` | Lee's Kosraean palatal fricative and flap. | Entered as retroflex. The r series (r, rw, ro) is an approximant ɻ, ɻˠ, ɻʷ after Lee & Wang (1984: 436, n. 4), not Lee's flap: changed 20 Nov 2026 at the user'… |  |
@@ -64,7 +64,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `pocr-glottocodes` | Glottocodes for Löyöp and Mwerlap, which have no Glottolog languoid under those names. | From the language metadata of Ross et al. (2023): Löyöp = leha1244 (urr), as listed (p. 625); Mwerlap = Merlav merl1237 (mrm) (p. 626), identified by the name … |  |
 | `pocr-volow` | Volow: Glottolog has it as a dialect of Mwotlap. | Entered as a language. |  |
 | `bm-stated-unchanged` | Billings & McDonnell tabulate only the nontrivial correspondence sets (Tables 3, 5, 7, 10; Appendix G). Is a phoneme they do not list stated to be unchanged, o… | Stated: the 17 lects have inherit = stated-unchanged, and their generated rows are shown as stated ("unchanged per source"). |  |
-| `smith-semicolon` | Smith's tables list several reflexes in a cell: 'the first listed reflex is the regular reflex, and the reflex(es) appearing after the semi-colon are condition… | First reflex: regular. After a semicolon: sporadic, unless the text states a condition (then regular with that environment). After a comma: regular, conditions… | 167 |
+| `smith-semicolon` | Smith's tables list several reflexes in a cell: 'the first listed reflex is the regular reflex, and the reflex(es) appearing after the semi-colon are condition… | First reflex: regular. After a semicolon: sporadic, unless the text states a condition (then regular with that environment). After a comma: regular, conditions… | 171 |
 | `smith-higher-order` | Smith's higher-order groupings: North Borneo, Greater North Borneo, Central Sarawak, Punan-Müller-Schwaner, North Sarawak, Basap-Barito, Western Indonesian (20… | Not entered as nodes. They rest mainly on lexical innovations, which Smith himself later rejects as subgrouping evidence for Greater North Borneo and Barito-Ba… |  |
 | `kayanic-glottocodes` | Glottocodes for Smith's Kayanic varieties. | Long Naah = Baram Kayan bara1370; Data Dian = Kayan River Kayan kaya1325 (Glottolog alt name); Balui Liko = Rejang Kayan reja1241; Gaai = Segai sega1243 (langu… |  |
 | `ngorek-nj` | Ngorek reflex of *nj: Table 8 (p. 64) has nc, Table 11 (p. 67) nj. | Not entered. |  |
@@ -81,6 +81,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `malayic-phonetic` | Table 60 prints some vowels phonetically: Seberuang ow, ey; Iban ʊu̯, ɪi̯, ʊə̯, ɪə̯; Mualang oə̯, ɛə̯. The text calls these allophonic (pp. 185-186: /kutu/ [ku… | Entered as the phonemes: u, i (Seberuang, Iban), o, e (Mualang closed syllables). |  |
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
 | `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | Held back, by the rule to add correspondence tables and the reconstructions of established microgroups but to hold the intermediate stages above them. Proto-Ka… |  |
+| `ksr-secondary` | Origin of the Kosraean velarised and rounded consonants. | Each is entered as a reflex of the same PMc consonant as the plain one, before e and ɛ, marked sporadic: Lee & Wang put distinctive velarisation after PMc and … | 23 |
+| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 5 |
 
 <!-- END GENERATED -->
 

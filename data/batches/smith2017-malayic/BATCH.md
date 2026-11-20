@@ -17,3 +17,9 @@ The six rows were deleted from the sheet by hand and the Proto-Malayic note and 
 As in `smith2017-borneo`: the nasal before *-d-, *-j-, *-s- in some words (only the *-p-, *-t- ones are entered), Ketapang (rt) for *-d and *-j.
 
 `data/batches/smith2017-borneo/` holds the whole Borneo batch as it now stands, these rows included.
+
+
+## Applied
+
+2026-11-20 09:54 UTC, by the push-batch workflow.
+- correspondences: sheet rows 4990-5091

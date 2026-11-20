@@ -23,3 +23,10 @@ r was already changed to the approximant ɻ (with ɻˠ, ɻʷ) in the sheet, afte
 - Monophthongisation (p. 427) and glide insertion (pp. 428-429).
 - No rows for the ɻ series (loans and POC *(dr)), the glides j, jˠ, jʷ, w, wʷ, or a secondary series from PMc *s, whose regular reflex Lee & Wang and Bender et al. disagree on.
 - The rows from Lee & Wang already in the sheet are still not marked `derivation` composed (decision `ksr-composition`).
+
+
+## Applied
+
+2026-11-20 09:54 UTC, by the push-batch workflow.
+- correspondences: sheet rows 4990-5091
+- decisions: sheet rows 47-48
