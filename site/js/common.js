@@ -8,10 +8,11 @@ const cache = {};
 
 let INDEX, SOURCES, LECTS;
 
-// A labialised series (pʷ bʷ mʷ, kʷ) has its own column, right after the plain place.
+// A velarised series (Kosraean pˠ tˠ) and a labialised one (pʷ bʷ mʷ, kʷ) each have a column of their
+// own, right after the plain place.
 const PLACES = ["bilabial", "labiodental", "labial-velar", "dental", "alveolar", "postalveolar",
   "alveolo-palatal", "retroflex", "palatal", "velar", "uvular", "pharyngeal", "glottal"]
-  .flatMap(p => [p, "labialized-" + p]);
+  .flatMap(p => [p, "velarized-" + p, "labialized-" + p]);
 
 const MANNERS = ["plosive", "prenasalized-plosive", "implosive", "affricate", "prenasalized-affricate",
   "nasal", "trill", "prenasalized-trill", "tap", "fricative", "lateral-fricative", "approximant",

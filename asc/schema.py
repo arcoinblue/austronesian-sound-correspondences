@@ -28,10 +28,25 @@ PLACES_C_PLAIN = [
     "postalveolar", "alveolo-palatal", "retroflex", "palatal", "velar",
     "uvular", "pharyngeal", "glottal",
 ]
-# A labialised series gets its own chart column, right after the plain place.
+# A labialised series gets its own chart column, right after the plain place; a velarised series
+# (Kosraean pˠ tˠ kˠ) one of its own too, between the plain and the labialised columns.
 LABIALIZED = "labialized-"
 LABIAL_MARK = "ʷ"
-PLACES_C = set(PLACES_C_PLAIN) | {LABIALIZED + p for p in PLACES_C_PLAIN}
+VELARIZED = "velarized-"
+VELAR_MARK = "ˠ"
+PLACES_C = set(PLACES_C_PLAIN) | {LABIALIZED + p for p in PLACES_C_PLAIN} | {VELARIZED + p for p in PLACES_C_PLAIN}
+
+
+def secondary_column(place, sym):
+    """The chart column of a consonant with a secondary articulation: kʷ goes to labialized-velar,
+    tˠ to velarized-dental. A plain place and a plain symbol stay as they are."""
+    if place not in PLACES_C_PLAIN:
+        return place
+    if LABIAL_MARK in sym:
+        return LABIALIZED + place
+    if VELAR_MARK in sym:
+        return VELARIZED + place
+    return place
 MANNERS_C = {
     "plosive", "prenasalized-plosive", "implosive", "affricate",
     "prenasalized-affricate", "nasal", "trill", "prenasalized-trill", "tap",
