@@ -122,3 +122,10 @@ svg.anc line.odd { stroke-dasharray: 4 3; }
 details.steps { margin: 2px 0 12px; }
 details.steps summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .steps .here { color: var(--accent); font-weight: 700; }
+
+table.lects tr.proto td:first-child a { font-weight: 600; }
+table.lects .twist { display: inline-block; width: 20px; padding: 0; border: 0; background: none; font: inherit;
+  color: var(--muted); cursor: pointer; text-align: left; font-size: 15px; line-height: 1; }
+table.lects button.twist:hover { color: var(--fg); }
+table.lects .count { font-size: 12px; margin-left: 6px; }
+.controls #count { font-size: 13px; margin-left: auto; }
