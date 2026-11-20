@@ -1,11 +1,46 @@
 """Writing the site's data files and the generated part of STATUS.md."""
 from __future__ import annotations
 
+import json
 import re
+import shutil
 from collections import Counter
 from pathlib import Path
 
 from .schema import *  # noqa: F401,F403
+from .derive import lect_files, index_json, sources_json
+
+
+def site_files(D):
+    """{path under data/: record} for every file the site reads."""
+    out, lites = {}, {}
+    for L in D["lects"]:
+        lite, files = lect_files(L, D)
+        lites[L] = lite
+        out[f"{L}.json"] = lite
+        out.update(files)
+    out["index.json"] = index_json(D, lites)
+    out["sources.json"] = sources_json(D)
+    return out
+
+
+def write_site(D, out_dir, site_dir):
+    """Write data/ (compact JSON, one folder per lect for its phonemes) and copy the viewer."""
+    out_dir = Path(out_dir)
+    data = out_dir / "data"
+    if data.exists():
+        shutil.rmtree(data)
+    files = site_files(D)
+    for rel, obj in files.items():
+        p = data / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(obj, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    for f in Path(site_dir).rglob("*"):
+        if f.is_file():
+            dest = out_dir / f.relative_to(site_dir)
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(f, dest)
+    return files
 
 STATUS_BEGIN = "<!-- BEGIN GENERATED: python3 build.py --check --status STATUS.md; do not edit by hand -->"
 STATUS_END = "<!-- END GENERATED -->"

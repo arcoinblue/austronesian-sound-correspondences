@@ -1,0 +1,192 @@
+"use strict";
+// Shared by every page: data loading, links, citations, and how a correspondence row is shown.
+// The site's scripts are plain (no modules); index.html loads them in order, main.js last.
+
+const app = document.getElementById("app");
+
+const cache = {};
+
+let INDEX, SOURCES, LECTS;
+
+// A labialised series (pʷ bʷ mʷ, kʷ) has its own column, right after the plain place.
+const PLACES = ["bilabial", "labiodental", "labial-velar", "dental", "alveolar", "postalveolar",
+  "alveolo-palatal", "retroflex", "palatal", "velar", "uvular", "pharyngeal", "glottal"]
+  .flatMap(p => [p, "labialized-" + p]);
+
+const MANNERS = ["plosive", "prenasalized-plosive", "implosive", "affricate", "prenasalized-affricate",
+  "nasal", "trill", "prenasalized-trill", "tap", "fricative", "lateral-fricative", "approximant",
+  "lateral-approximant"];
+
+const BACKNESS = ["front", "central", "back"];
+
+const HEIGHTS = ["close", "near-close", "close-mid", "mid", "open-mid", "near-open", "open"];
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+const label = s => esc(String(s || "").replace(/-/g, " "));
+
+// A correspondence found only in loanwords is stored as loan-stratum and shown as "borrowed".
+const statusLabel = s => s === "loan-stratum" ? "borrowed" : String(s || "").replace(/-/g, " ");
+
+const badge = s => s ? `<span class="badge b-${esc(s)}">${esc(statusLabel(s))}</span>` : "";
+
+// A long note is cut at a word boundary and opened with a "more" button.
+function fold(text, limit = 180) {
+  const t = String(text ?? "");
+  if (t.length <= limit + 40) return esc(t);
+  let cut = t.lastIndexOf(" ", limit);
+  if (cut < limit * 0.6) cut = limit;
+  return `<span class="fold"><span class="short">${esc(t.slice(0, cut))}… </span><span class="full" hidden>${esc(t)} </span><button type="button" class="foldbtn" aria-expanded="false">more</button></span>`;
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest(".foldbtn");
+  if (!b) return;
+  const box = b.parentElement, openNow = b.getAttribute("aria-expanded") === "true";
+  box.querySelector(".short").hidden = !openNow;
+  box.querySelector(".full").hidden = openNow;
+  b.setAttribute("aria-expanded", String(!openNow));
+  b.textContent = openNow ? "more" : "less";
+});
+
+async function json(path) {
+  if (!cache[path]) cache[path] = fetch(path).then(r => {
+    if (!r.ok) throw new Error(`${path}: ${r.status}`);
+    return r.json();
+  });
+  return cache[path];
+}
+
+// A lect's own file: its record and inventory. A phoneme's history (notation,
+// ancestry, descent) is in a file of its own, named on the phoneme as "file".
+const lectData = id => json(`data/${encodeURIComponent(id)}.json`);
+
+const phonemeData = p => json(`data/${p.file}`);
+
+// A phoneme id is "lect:symbol", or "lect:symbol@System" for a phoneme of a
+// reconstruction system other than the lect's default one.
+function splitPid(pid) { const i = pid.indexOf(":"); return [pid.slice(0, i), pid.slice(i + 1)]; }
+
+function parsePid(pid) {
+  const [lect, rest] = splitPid(pid);
+  const at = rest.lastIndexOf("@");
+  return at > 0 ? { lect, s: rest.slice(0, at), system: rest.slice(at + 1) } : { lect, s: rest, system: null };
+}
+
+// Reconstructed lects (a proto-language, or an earlier stage of one language) have starred symbols.
+const RECONSTRUCTED = ["proto-language", "earlier-stage"];
+
+function isProto(lectId) { return RECONSTRUCTED.includes(LECTS[lectId]?.type); }
+
+function sym(pid) {
+  const { lect, s } = parsePid(pid);
+  if (s === "∅") return "∅";   // nothing: the source of an inserted sound, or a deletion
+  return isProto(lect) ? `*${s}` : s;
+}
+
+function urlId(lectId, s) {
+  return encodeURIComponent(isProto(lectId) ? "_" + s : s);
+}
+
+function phLink(pid, text) {
+  const { lect, s, system } = parsePid(pid);
+  if (s === "∅") return `<span class="ipa" title="zero reflex (deletion)">∅</span>`;
+  const tail = system ? "@" + encodeURIComponent(system) : "";
+  return `<a class="ipa" href="#/lects/${esc(lect)}/${urlId(lect, s)}${tail}/">${esc(text ?? sym(pid))}</a>`
+    + (system ? `<span class="sys">${esc(system)}</span>` : "");
+}
+
+function lectLink(id) {
+  return `<a href="#/lects/${esc(id)}/">${esc(LECTS[id]?.name || id)}</a>`;
+}
+
+function srcLink(id, page) {
+  if (!id) return "";
+  const s = SOURCES[id];
+  const name = s ? esc(s.label || `${s.author.split(",")[0]} ${s.year}`) : esc(id);
+  return `<a href="#/sources/${esc(id)}/">${name}</a>${page ? `: ${esc(page)}` : ""}`;
+}
+
+// A citation, direct ("Li 1981: 240") or indirect ("Li 1981, via Shibata 2025: 55").
+// What the secondary source changed is on hover and marked with a dagger.
+function cite(r) {
+  const orig = srcLink(r.source_id, r.page) + (r.locator ? `, ${esc(r.locator)}` : "");
+  if (!r.via_source_id) return orig;
+  return `${orig}<span class="via">, via ${srcLink(r.via_source_id, r.via_page)}${r.via_note
+    ? `<span class="vianote"> † ${fold(r.via_note, 90)}</span>` : ""}</span>`;
+}
+
+// A correspondence row's notes, with the source's own statement first when it was kept.
+function rowNote(r, limit = 140) {
+  const printed = r.as_printed ? `<span class="printed" title="the source's statement as printed">As printed: ${esc(r.as_printed)}.</span>` : "";
+  return printed + (printed && r.notes ? " " : "") + (r.notes ? fold(r.notes, limit) : "");
+}
+
+function tabsHtml(names, on) {
+  return `<div class="tabs" role="tablist">${names.map(n =>
+    `<button role="tab" data-tab="${esc(n.key)}" class="${n.key === on ? "on" : ""}">${esc(n.label)}</button>`).join("")}</div>`;
+}
+
+function ancestorsOf(id) {
+  const out = []; let cur = LECTS[id]?.parent_id;
+  while (cur && LECTS[cur] && !out.includes(cur)) { out.unshift(cur); cur = LECTS[cur].parent_id; }
+  return out;
+}
+
+// How many of the parent's phonemes have an outcome here: stated by the source, or
+// implied (a changes-only source does not mention what stays the same).
+function coverage(c) {
+  if (!c) return `<span class="muted">root</span>`;
+  if (!c.stated && !c.implied) return `<span class="muted" title="no correspondences entered">no data</span>`;
+  return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes have an outcome stated by the source${c.implied ? `; ${c.implied} more are implied retentions` : ""}">${c.stated}/${c.parent_size}${c.implied ? ` <span class="muted">+${c.implied} implied</span>` : ""}</span>`;
+}
+
+function coverageText(d) {
+  const c = d.coverage;
+  if (!c) return "root proto-language";
+  const P = LECTS[d.parent_id]?.name || d.parent_id;
+  if (!c.stated && !c.implied) return `no correspondences entered (the sources used give no data for ${esc(d.name)})`;
+  return `${c.stated} of the ${c.parent_size} phonemes of ${esc(P)} have an outcome stated by the source`
+    + (c.implied ? `; the other ${c.implied} are taken as retained, because the source lists only the changes` : "");
+}
+
+// What the build filled in because the source did not state it.
+function inferredNote(p) {
+  const f = (p.inferred_fields || []).filter(k => k === "place" || k === "manner");
+  const open = ["place", "manner"].filter(k => p[k] === "unknown");
+  return [f.length && `${f.join(" and ")} inferred from the symbol, not stated by the source`,
+    open.length && `${open.join(" and ")} left open by the source`].filter(Boolean).join(" · ");
+}
+
+// "*m + *b": the members of a fused cluster.
+function fusionLabel(f) {
+  return f.members.map(m => `<span class="ipa">${esc(sym(m))}</span>`).join(" + ");
+}
+
+function describe(p) {
+  return label([p.voicing, p.rounding, p.place, p.manner].filter(x => x && x !== "unknown").join(" "));
+}
+
+function envHtml(r) {
+  const env = r.fusion
+    ? `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`
+    : r.environment === "conditions unknown" ? `<span class="muted">conditions unknown</span>` : `<code>${esc(r.environment)}</code>`;
+  const tags = [
+    r.variety && `<span class="tag" title="variety">${esc(r.variety)}</span>`,
+    r.stratum && `<span class="tag" title="stratum">${esc(r.stratum)}</span>`,
+    r.lexical_scope && `<span class="tag" title="lexically restricted">${esc(r.lexical_scope)}</span>`,
+    r.conditioning === "lexical" && !r.lexical_scope && `<span class="tag">lexically restricted</span>`,
+    r.derivation === "composed" && `<span class="tag der" title="composed from the source's statements against an earlier stage; see notes">composed</span>`,
+    r.derivation === "implied-retention" && `<span class="tag der" title="not mentioned by a source that lists only the changes: taken as retained">implied</span>`,
+    r.derivation === "stated-retention" && `<span class="tag der" title="the source says that what it does not list is unchanged">unchanged per source</span>`,
+    r.source_form && `<span class="muted" title="as printed in the source">printed ${esc(r.source_form)}</span>`,
+  ].filter(Boolean);
+  return env + (tags.length ? " " + tags.join(" ") : "");
+}
+
+// "12 of 94" where the source gives both numbers.
+function evidence(r) {
+  if (r.evidence_count == null) return "";
+  return r.evidence_total != null ? `${r.evidence_count} of ${r.evidence_total}` : String(r.evidence_count);
+}

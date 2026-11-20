@@ -1,5 +1,12 @@
-"""From the validated data to what the site shows: edges, ancestry, descent, lect records."""
+"""From the validated data to what the site shows: edges, ancestry, descent, lect records.
+
+The site loads one small file per lect (its record and inventory) and, when a
+phoneme is opened, one file per phoneme (its notation, ancestry and descent).
+"""
 from __future__ import annotations
+
+import re
+from collections import defaultdict
 
 from .schema import *  # noqa: F401,F403
 
@@ -141,7 +148,8 @@ def data_status(L, D):
     return "generated"
 
 
-def lect_json(L, D):
+def lect_full(L, D):
+    """Everything about a lect, with each phoneme's ancestry and descent (as one record)."""
     rec = D["lects"][L]
     inv = D["inventory"][L]
     status = D["inv_status"][L]
@@ -234,14 +242,69 @@ def lect_json(L, D):
     }
 
 
-def index_json(D):
+# Kept on the phoneme's own file, not on the lect's: the lect page does not need them.
+PHONEME_DETAIL = ("notation", "ancestry_graph", "descendants")
+SYSTEM_DETAIL = ("rows", "descendants")
+
+
+def phoneme_file(L, sym, system=None):
+    """'pan/0052.json' for PAn *R, 'pan/0044@Ross.json' for Ross's *D. Code points, not the
+    symbol itself: the names are plain ASCII and *R and *r differ on any file system."""
+    key = "-".join(f"{ord(c):04x}" for c in sym)
+    if system:
+        key += "@" + re.sub(r"[^A-Za-z0-9]+", "-", system)
+    return f"{L}/{key}.json"
+
+
+def lect_files(L, D):
+    """The lect's own file, and {path: record} for its phonemes' files.
+
+    Each default phoneme's file has its notation, ancestry graph and descent, and the
+    full records (sources, descent) of the other systems' phonemes that match it. A
+    system phoneme with no counterpart in the default inventory has a file of its own."""
+    full = lect_full(L, D)
+    files, matching, systems = {}, defaultdict(list), []
+    for sysrec in full["systems"]:
+        out = []
+        for sp in sysrec["phonemes"]:
+            for c in sp["counterparts"]:
+                matching[c].append(sp)
+            short = {k: v for k, v in sp.items() if k not in SYSTEM_DETAIL}
+            if not sp["counterparts"]:
+                short["file"] = phoneme_file(L, sp["ipa"], sysrec["name"])
+                files[short["file"]] = sp
+            out.append(short)
+        systems.append({**sysrec, "phonemes": out})
+    phonemes = []
+    for ph in full["phonemes"]:
+        short = {k: v for k, v in ph.items() if k not in PHONEME_DETAIL}
+        short["file"] = phoneme_file(L, ph["ipa"])
+        files[short["file"]] = {"id": ph["id"], **{k: ph[k] for k in PHONEME_DETAIL},
+                                "system_phonemes": matching.get(ph["id"], [])}
+        phonemes.append(short)
+    return {**full, "phonemes": phonemes, "systems": systems}, files
+
+
+def lect_json(L, D):
+    """The lect's own file: its record and inventory, without the phonemes' history."""
+    return lect_files(L, D)[0]
+
+
+# What the lect list needs of each lect (it is loaded on every page, so nothing more,
+# and empty values are left out). The full record is in the lect's own file.
+INDEX_FIELDS = ("id", "name", "alt_names", "type", "glottocode", "parent_id", "clade", "coverage", "index_status")
+
+
+def index_json(D, lect_records=None):
     rows = []
     for L in D["lects"]:
-        j = lect_json(L, D)
-        rows.append({k: j[k] for k in ("id", "name", "alt_names", "type", "glottocode",
-                                        "parent_id", "subgroup_path", "clade", "competes_with", "coverage", "index_status",
-                                        "coordinates", "language_id", "changes_only", "inherit")})
-        rows[-1]["overlap_groups"] = [g["name"] for g in j["overlap_groups"]]
+        j = (lect_records or {}).get(L) or lect_json(L, D)
+        row = {k: j[k] for k in INDEX_FIELDS if j[k] not in (None, "", [], False)}
+        row["id"], row["name"] = j["id"], j["name"]
+        groups = [g["name"] for g in j["overlap_groups"]]
+        if groups:
+            row["overlap_groups"] = groups
+        rows.append(row)
     return {"lects": rows}
 
 

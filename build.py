@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate the CLDF tables and derive per-lect JSON for the site.
 
-    python3 build.py                 # validate cldf/, write build/data/*.json
+    python3 build.py                 # validate cldf/, write build/data/ and copy site/ to build/
     python3 build.py --check         # validate only, write nothing
     python3 build.py --data DIR --out DIR
 
@@ -13,7 +13,6 @@ Standard library only (Python 3.9+).
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -54,21 +53,10 @@ def main(argv=None):
     if args.check:
         return 0
 
-    out = Path(args.out) / "data"
-    out.mkdir(parents=True, exist_ok=True)
-    for old in out.glob("*.json"):
-        old.unlink()
-    dump = lambda obj, p: p.write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    for L in D["lects"]:
-        dump(lect_json(L, D), out / f"{L}.json")
-    dump(index_json(D), out / "index.json")
-    dump(sources_json(D), out / "sources.json")
-    import shutil
-    for f in (ROOT / "site").glob("*"):
-        if f.is_file():
-            shutil.copy(f, Path(args.out) / f.name)
+    files = write_site(D, args.out, ROOT / "site")
     (Path(args.out) / "report.txt").write_text(rep.text() + "\n", encoding="utf-8")
-    print(f"\nWrote {len(D['lects'])} lect file(s) to {out}")
+    print(f"\nWrote {len(D['lects'])} lect file(s) and {len(files) - len(D['lects']) - 2} phoneme file(s) "
+          f"to {Path(args.out) / 'data'}")
     return 0
 
 

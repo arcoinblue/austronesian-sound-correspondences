@@ -85,8 +85,9 @@ Hand-kept. Collected from the handoffs of 2026-11-20 (09:20 to 15:00). The Googl
 
 Hand-kept.
 
-- Restructuring plan, rest of phase 3: one environment per row (split the 132 comma-separated environments); ISO 639-3, coordinates and alternate names from a pinned Glottolog CLDF release by glottocode.
-- Restructuring plan, phase 4: per-phoneme output loaded on demand (`pan.json` is 7.6 MB); split `build.py` and `site/app.js`.
+- One environment per row (split the 132 comma-separated environments).
+- ISO 639-3, coordinates and alternate names from a pinned Glottolog CLDF release by glottocode.
+- The largest phoneme files (PAn *N 530 KB, *a and *s 250 KB) carry every deeper descendant row; they could load those rows only when "show deeper rows" is pressed.
 - Show decisions on the site (a row's `decision`, with its status).
 - Diphthongs as their own class (the Sumatran ones are vowels with `unknown` height and backness).
 - Vowel length (Nauruan and Kosraean long vs short).
@@ -97,4 +98,4 @@ Hand-kept.
 ## Housekeeping
 
 - "TEMP import" 1-12 in Google Drive can be deleted.
-- Branches `layout-v2-phase1`, `batches-to-sheet`, `e2e-batch-test`, `push-batch-fix` can be deleted on GitHub.
+- Branches `layout-v2-phase1`, `batches-to-sheet`, `e2e-batch-test`, `push-batch-fix`, `phase3-inherit-decisions` can be deleted on GitHub.
