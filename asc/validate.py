@@ -870,6 +870,26 @@ def validate_and_derive(t, rep: Report):
                  + "; ".join(f"{' '.join(sorted(v))} (use {why})" for why, v in whys.items())
                  + ". Keep the printed form in source_symbol / source_form.")
 
+    # --- /g/ is written ɡ (U+0261) in every symbol, reconstructions included
+    latin_g = defaultdict(list)
+    for r in t["phonemes"]:
+        if "g" in r["ipa"]:
+            latin_g["phonemes.csv"].append(f"{r['lect_id']}:{r['ipa']}")
+    for r in t["notation_map"]:
+        for c in ("phoneme", "symbol"):
+            if "g" in r[c]:
+                latin_g["notation_map.csv"].append(f"{r['lect_id']} {r['system']} {c} {r[c]}")
+    for r in t["correspondences"]:
+        for c in ("parent_phoneme", "child_phoneme"):
+            if "g" in r[c]:
+                latin_g["correspondences.csv"].append(f"{r['id'] or r['child_lect_id']} {c} {r[c]}")
+        # In an environment only a g standing as a symbol (_g, _+g), not one in a word (high).
+        if re.search(r"(?<![A-Za-z])g(?![A-Za-z])", r["environment"]):
+            latin_g["correspondences.csv"].append(f"{r['id'] or r['child_lect_id']} environment {r['environment']}")
+    for where, items in latin_g.items():
+        rep.error(where, f"{len(items)} symbol(s) with Latin g; write ɡ (U+0261): "
+                  + "; ".join(items[:12]) + (" …" if len(items) > 12 else ""))
+
     # --- works cited in running text (notes) need a sources row
     labels = defaultdict(set)   # 'Lee & Wang' -> {'1984', '2022a', ...}
     for sr in sources.values():

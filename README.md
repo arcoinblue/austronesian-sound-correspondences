@@ -211,6 +211,8 @@ The build pairs the rows. In the reflex's ancestry diagram the two members run t
 
 **IPA in attested lects.** `phonemes.ipa` and `child_phoneme` hold IPA for languages and dialects: `ɡ` (not Latin g), `j` for the palatal glide, `ɲ`, affricates with a tie bar (`t͡ʃ d͡ʒ t͡s d͡z`). The printed form goes in `source_symbol` / `source_form`. The build warns about Latin g, y, ñ, the old ligatures ʤ ʧ, untied affricates, digraphs and cedilla/caron letters. Proto-languages keep their reconstruction orthography (`*y`, `*ñ`, `*j`).
 
+**/ɡ/ is always `ɡ` (U+0261).** In every symbol column (`phonemes.ipa`, `notation_map.phoneme` and `symbol`, `correspondences.parent_phoneme` and `child_phoneme`), proto-languages included, Latin g is a build error, and so is a g standing as a symbol in an environment (`_ɡ`). Reconstructions written with `*` in notes and examples use `ɡ` too; `as_printed` and `source_symbol` keep the source's letter. The digraph `ng` of an orthography (Polynesian `*ngau`) is left as printed.
+
 **Unknown conditioning** is written one way: environment `conditions unknown`. "not stated", "conditions unclear" and similar spellings are warned about.
 
 **Stable ids.** Every correspondence row has an `id`. One left blank gets a hash of its content, which changes when the row is edited; fill it in (the build's report gives the value) so links to the row keep working.
@@ -344,6 +346,7 @@ The site loads a small file per lect, and a phoneme's history only when the phon
 - `build/data/<lect_id>.json`: the basic information block; the derived inventory status and coverage; the inventory (each phoneme's symbol, chart position, origin and source, and `file`, the name of its own file); the other systems' phonemes (chart fields and counterparts); the changes that define the lect; the inventory diff for edited inventories.
 - `build/data/<lect_id>/<code points>.json`, one per phoneme (`pan/0052.json` is PAn *R; code points keep the names ASCII and *R apart from *r on any file system): its `notation`, its `ancestry_graph`, its flattened `descendants` (each with a `via` path, which is what the pivoted index reads), and the full records of the other systems' phonemes that match it. A system phoneme with no counterpart in the default inventory has a file of its own (`pan/0072@Blust.json`).
 - `build/data/index.json`: what the lect list shows of each lect (name, alternate names, type, glottocode, parent, clade, coverage, status, overlapping groups); loaded on every page.
+- `build/data/segments.json`: every lect's displayed inventory (default system), one row per phoneme with its features and flags (implied, marginal); loaded only by the Segments page (`#/segments/`), which lists and searches it by lect or by segment.
 - `build/data/sources.json`: the bibliography. `build/report.txt` keeps the last report.
 
 `tests/test_output_size.py` keeps the PAn lect file under 100 KB, and everything the PAn page fetches under 100 KB as served (gzip).

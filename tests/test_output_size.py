@@ -43,16 +43,30 @@ class TestOutputSize(unittest.TestCase):
         self.assertLess(sent, LIMIT)
 
     def test_no_lect_file_carries_phoneme_history(self):
-        for L in (k for k in self.files if "/" not in k and k not in ("index.json", "sources.json")):
+        for L in (k for k in self.files if "/" not in k and k not in ("index.json", "sources.json", "segments.json")):
             for ph in self.files[L]["phonemes"]:
                 self.assertNotIn("descendants", ph, L)
 
     def test_report_sizes(self):
         big = sorted(((size(v), k) for k, v in self.files.items()), reverse=True)[:3]
-        lect = max((size(v), k) for k, v in self.files.items() if "/" not in k and k not in ("index.json", "sources.json"))
+        lect = max((size(v), k) for k, v in self.files.items() if "/" not in k and k not in ("index.json", "sources.json", "segments.json"))
         print(f"\n  largest lect file {lect[1]} {lect[0]:,} B; index {size(self.files['index.json']):,} B; "
               f"sources {size(self.files['sources.json']):,} B; largest files {big}")
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestSegmentsSize(unittest.TestCase):
+    """segments.json is fetched only by the Segments page; keep it small enough to load at once."""
+
+    def test_segments_file(self):
+        rep = build.Report()
+        D = build.validate_and_derive(build.load(ROOT / "cldf", rep), rep)
+        seg = build.site_files(D)["segments.json"] if hasattr(build, "site_files") else None
+        if seg is None:
+            from asc.export import site_files
+            seg = site_files(D)["segments.json"]
+        self.assertTrue(seg["lects"])
+        self.assertLess(len(json.dumps(seg, ensure_ascii=False, separators=(",", ":")).encode()), 1_500_000)

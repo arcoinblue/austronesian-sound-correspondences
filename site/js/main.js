@@ -6,6 +6,7 @@
 //   #/lects/?reflex=pmp:R    page 1 pivoted on a proto-phoneme
 //   #/lects/<lect>/          page 3 (inventory)
 //   #/lects/<lect>/<ph>/     page 2 (phoneme)
+//   #/segments/[?q=…]        every lect's phonemes, searchable
 //   #/sources/ and #/sources/<id>/
 
 // Where each list page was scrolled to, so that coming back to a list (from a
@@ -22,6 +23,7 @@ async function route() {
   const parts = path.split("/").filter(Boolean);
   try {
     if (parts[0] === "sources") pageSources(parts[1] && decodeURIComponent(parts[1]));
+    else if (parts[0] === "segments") await pageSegments(new URLSearchParams(query || ""));
     else if (parts[0] !== "lects" || parts.length === 1) await pageIndex(new URLSearchParams(query || ""));
     else if (parts.length === 2) await pageLect(decodeURIComponent(parts[1]));
     else await pagePhoneme(decodeURIComponent(parts[1]), parts[2]);
