@@ -35,3 +35,10 @@ The rows Blust lists for proto-languages (Proto-Atayalic, Amis, Bunun, Paiwan, P
 - **Blust's evaluations of other reconstructions** (§8.2: Dyen, Dahl, Wolff, Zorc). The Blust notation rows already summarise them.
 - **The reflex lists for non-Formosan languages in Tables 8.27 and 8.30.** Most of those languages are not in the database, or sit below intermediate nodes.
 - **POc *R > PPn ∅** (Table 8.30) is in batch `marck2000-polynesian`, which creates PPn.
+
+
+## Applied
+
+2026-11-20 13:57 UTC, by the push-batch workflow.
+- correspondences: sheet rows 5092-5428
+- decisions: sheet rows 49-60

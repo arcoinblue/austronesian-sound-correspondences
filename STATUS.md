@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 78 |  |
-| lects | 616 | 113 dialect, 30 earlier-stage, 295 language, 178 proto-language |
-| phonemes | 717 |  |
-| correspondences | 5090 | plus 6044 implied and 799 stated retentions generated from lects.inherit |
-| notation_map | 417 |  |
-| decisions | 47 | 47 open |
+| sources | 82 |  |
+| lects | 680 | 126 dialect, 30 earlier-stage, 326 language, 198 proto-language |
+| phonemes | 735 |  |
+| correspondences | 5427 | plus 6147 implied and 1536 stated retentions generated from lects.inherit |
+| notation_map | 437 |  |
+| decisions | 59 | 59 open |
 
-Lects by `inherit`: (blank) 253, assumed-unchanged 302, stated-unchanged 61.
-Inventories: edited 24, empty 154, reverse-generated 409, sourced 29.
+Lects by `inherit`: (blank) 254, assumed-unchanged 308, stated-unchanged 118.
+Inventories: edited 24, empty 154, reverse-generated 472, sourced 30.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 155 warning(s), 510 note(s).
+`build.py --check`: 0 error(s), 156 warning(s), 580 note(s).
 
 | Warnings | Count |
 |---|---|
 | a work cited in notes has no sources row | 61 |
 | no glottocode | 56 |
-| a source is never cited | 27 |
+| a source is never cited | 28 |
 | an attested lect has symbols that are not IPA | 8 |
 | a reflex is not in the lect's sourced inventory | 3 |
 
@@ -82,7 +82,19 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
 | `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | Held back, by the rule to add correspondence tables and the reconstructions of established microgroups but to hold the intermediate stages above them. Proto-Ka… |  |
 | `ksr-secondary` | Origin of the Kosraean velarised and rounded consonants. | Each is entered as a reflex of the same PMc consonant as the plain one, before e and ɛ, marked sporadic: Lee & Wang put distinctive velarisation after PMc and … | 23 |
-| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 5 |
+| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 10 |
+| `pazeh-j-final` | Pazeh reflex of PAN *j word-finally: d (Blust 2013: 578) or t̪ (the row from Blust 1999b via Shibata 2025)? | Both rows are kept, each with its source: Blust (2013) lists Pazeh '-d only' as an exception to final devoicing; the earlier row has t̪ by final devoicing. | 1 |
+| `pn-tree` | Which Polynesian tree goes in parent_id: Marck (2000), Walworth (2014) or Wilson (2021)? | Marck's (Figure 1.2, p. 3), the only one with regular sound changes at each node (Table 2.2). Walworth's tree (no Proto-Marquesic or Proto-Tahitic; 2014: 268) … |  |
+| `ppn-parent` | What is the parent of Proto-Polynesian? | POc directly. Proto-Central Pacific (and Proto-Eastern Oceanic) are held back as intermediate stages, as in kayanic-held; POc > PPn rows are composed through P… | 5 |
+| `pn-orthography` | How are the Polynesian glottal stop and velar nasal written? | ʔ and ŋ, in proto-languages and attested lects. Marck writes the glottal stop *q in proto-languages and ' in living languages (p. 34), the velar nasal ng, and … | 1 |
+| `pto-r` | Proto-Tongic reflex of PPn *r: loss, or l (Table A.1 vs Table 2.2)? | *r > ∅ elsewhere and *r > *l between like vowels in words beginning with a stop other than *q, both regular (Table A.1, note 1, p. 237). | 2 |
+| `pnp-h` | PPn *h, lost in Nuclear Polynesian except in a few words (Table 2.2 note 5). | PNP *h > ∅ regular and *h > *h sporadic; each daughter's s or h ('ø/s', 'ø/h') is entered as the reflex of that residual *h. Below PEP Table 2.2 has no *h colu… | 26 |
+| `marck-diffused` | Marck's diffused changes (lexical diffusion, with residue): PCE *f > *w before *a(a)h, the Nuclear Marquesic low-vowel assimilation, the Kapingamarangi final-v… | Entered as regular with their conditions, each row noting that the change did not reach every eligible word; there is no status between regular and sporadic (S… | 8 |
+| `mqa-general` | Marck's vowel rows and one sporadic row for 'Mqa (general)' (Table 3.1; Table 2.32), where Table 2.2 has Southern and Northern Marquesan. | Entered on both South and North Marquesan. | 10 |
+| `mao-f` | Māori reflex of PPn *f, printed 'wh/h' with note 13, whose text ('In some place names only. Elsewhere ' (glottal stop)') fits Tubuai's *ng. | wh regular and h with conditions unknown; note 13 taken to belong to Tubuai. | 2 |
+| `ren-bel` | Table 2.2 has rows Bel and Ren; Table 1.6 has only 'Ren Rennellese and Bellona'. | Ren on Rennellese (renn1242, Rennell-Bellona) and Bel on Bellona (Glottolog dialect mung1270, alternative name Mungiki). |  |
+| `tok-placement` | Where does Tokelauan go? | Under Proto-Ellicean Outlier, as Table 2.2 lists it (pp. 23-24). Marck also suggests a Samoan-Tokelauan subgroup from four shared sporadic vowel changes (§5.8,… |  |
+| `wilson-nodes` | How are Wilson's (2021) proto-languages entered? | As nodes under Marck's PNP and PEP, with stated-unchanged inventories where Wilson says so (PCNO-EPN, PEPND, PFEPN, PEPNP; p. 44) and assumed-unchanged for PSS… |  |
 
 <!-- END GENERATED -->
 

@@ -59,3 +59,14 @@ Generator: `tools/batch_scripts/polynesian/build.py`.
 - **From Wilson:** PEPNP(N), whose only descendant is Hawaiian; the doublet *a > *oo in *toonga-qa-mimi; grammatical and lexical innovations.
 - **From Walworth:** no correspondence rows. Her Table 10 (PCEP *s) repeats Marck's reflexes.
 - **Wilson (2012)**, in the same folder, was not read.
+
+
+## Applied
+
+2026-11-20 13:57 UTC, by the push-batch workflow.
+- sources: sheet rows 80-83
+- lects: sheet rows 618-681
+- phonemes: sheet rows 719-736
+- correspondences: sheet rows 5092-5428
+- notation_map: sheet rows 419-438
+- decisions: sheet rows 49-60
