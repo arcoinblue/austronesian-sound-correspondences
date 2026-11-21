@@ -6,6 +6,7 @@ correspondence's as_printed is compared folded back into its notes.
 
 Run: python3 -m unittest tests.test_migration
 """
+import re
 import json
 import shutil
 import sys
@@ -95,7 +96,9 @@ class TestMigrationKeepsSiteData(unittest.TestCase):
 
     def test_same_warnings(self):
         # Row locations differ (the default row stands for many), so compare the messages only.
-        strip = lambda ws: sorted(w.split(": ", 1)[1] for w in ws)
+        # Messages can name another row too ("repeats the fusion row at correspondences.csv:1162"),
+        # and v2 drops blank rows, so those numbers shift as well.
+        strip = lambda ws: sorted(re.sub(r"\.csv:\d+", ".csv:N", w.split(": ", 1)[1]) for w in ws)
         self.assertEqual(strip(self.rep_now.warnings), strip(self.rep_v2.warnings))
 
     def test_migration_is_idempotent(self):
