@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 125 |  |
-| lects | 752 | 161 dialect, 30 earlier-stage, 350 language, 211 proto-language |
-| phonemes | 1857 |  |
-| correspondences | 7088 | plus 6471 implied and 1755 stated retentions generated from lects.inherit |
-| notation_map | 457 |  |
-| decisions | 96 | 10 confirmed, 83 open, 3 reverted |
+| sources | 136 |  |
+| lects | 816 | 215 dialect, 30 earlier-stage, 350 language, 221 proto-language |
+| phonemes | 2646 |  |
+| correspondences | 7558 | plus 6487 implied and 2781 stated retentions generated from lects.inherit |
+| notation_map | 492 |  |
+| decisions | 100 | 10 confirmed, 87 open, 3 reverted |
 
-Lects by `inherit`: (blank) 290, assumed-unchanged 330, stated-unchanged 132.
-Inventories: edited 24, empty 153, reverse-generated 499, sourced 76.
+Lects by `inherit`: (blank) 296, assumed-unchanged 330, stated-unchanged 190.
+Inventories: edited 24, empty 153, reverse-generated 529, sourced 110.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 185 warning(s), 750 note(s).
+`build.py --check`: 0 error(s), 251 warning(s), 783 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 71 |
+| no glottocode | 123 |
 | a work cited in notes has no sources row | 66 |
-| a source is never cited | 30 |
+| a source is never cited | 38 |
+| a reflex is not in the lect's sourced inventory | 12 |
 | an attested lect has symbols that are not IPA | 8 |
-| a reflex is not in the lect's sourced inventory | 6 |
 | repeats the fusion row at … | 4 |
 
 ## Open decisions
@@ -70,7 +70,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
 | `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | Held back, by the rule to add correspondence tables and the reconstructions of established microgroups but to hold the intermediate stages above them. Proto-Ka… |  |
 | `ksr-secondary` | Origin of the Kosraean velarised and rounded consonants. | Each is entered as a reflex of the same PMc consonant as the plain one, before e and ɛ, marked sporadic: Lee & Wang put distinctive velarisation after PMc and … | 23 |
-| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 22 |
+| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 38 |
 | `pazeh-j-final` | Pazeh reflex of PAN *j word-finally: d (Blust 2013: 578) or t̪ (the row from Blust 1999b via Shibata 2025)? | Both rows are kept, each with its source: Blust (2013) lists Pazeh '-d only' as an exception to final devoicing; the earlier row has t̪ by final devoicing. | 1 |
 | `pn-tree` | Which Polynesian tree goes in parent_id: Marck (2000), Walworth (2014) or Wilson (2021)? | Marck's (Figure 1.2, p. 3), the only one with regular sound changes at each node (Table 2.2). Walworth's tree (no Proto-Marquesic or Proto-Tahitic; 2014: 268) … |  |
 | `ppn-parent` | What is the parent of Proto-Polynesian? | POc directly. Proto-Central Pacific (and Proto-Eastern Oceanic) are held back as intermediate stages, as in kayanic-held; POc > PPn rows are composed through P… | 5 |
@@ -120,6 +120,10 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lu-mayrinax-c` | Lu (2004, via Lu 2005: 20) has Mayrinax *c > t before i and y. Goderich (2020) lists no change of *c in Matu’uwal. | Entered against Proto-Northern Atayal, with a hand-entered retention row for *c elsewhere so the stated-unchanged rule still covers it. | 3 |
 | `tsou-tfuya` | Tfuya Tsou (Zeitoun 2005b) and Teruku Seediq (Tsukida 2005) give inventories only. Enter them as lects? | Entered as dialects with inventories and no correspondences: tfue1237 under PAn (language_id tsou1248; the existing Tsou lect is Tsuchida’s Duhtu), teru1237 un… |  |
 | `maga-li-vowels` | Maga mid vowels (Li 1977, via Hsin 2000): PR *ay, *ai > e; *aw, *au > o; *i, *u > e, o after a lost *a. | Entered as fusion pairs and conditioned rows against Proto-Rukai. Hsin himself derives e and o synchronically (p. 80). | 12 |
+| `lin-amis` | Lin (2022) read directly. Shibata’s Proto-Amis (pami) is Lin’s Proto-Amis-Sakizaya; Lin’s subgroups are entered as nodes under it. | pami renamed Proto-Amis-Sakizaya, with Lin’s values *z (fricative) and *d (stop) in place of Shibata’s d and ɮ (Shibata’s values in the notes). New nodes: Prot… |  |
+| `chuang-paiwan-dialects` | Chuang’s (2024) sixteen Paiwan dialects are entered as separate lects under Proto-Paiwan. His Timur (三地門) may be Chang’s (2006) Santi (Stimur village), and his… | Kept apart; the linkages are entered as overlap groups, not nodes. |  |
+| `tseng-nef` | Tseng (2022) read directly: Proto-Northeast Formosan (Glottolog’s Northern East Formosan) entered under Proto-East Formosan, with Proto-Kavalan and Proto-Basay… | Older PAn-level rows of Kavalan, Basay and Ketagalan (Li & Tsuchida 2006, Shibata 2025, Blust 2013, Ogawa 1931) restated against the new parents through Tseng’… |  |
+| `song-seediq` | Song (2025) reconstructs Proto-Seediq from five dialects, with an inventory that differs from Shibata’s (2025) Proto-Seediq (psed): *c, *x, *h and fricative *g… | Song’s inventory entered as the reconstruction system “Song” of psed (notation_map), and the five dialects stated against it (correspondences with system Song)… |  |
 
 <!-- END GENERATED -->
 
