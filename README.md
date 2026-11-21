@@ -266,7 +266,7 @@ On the site each proto-phoneme page has one tab per system. A system's tab shows
 
 ### `decisions.csv`
 
-A reading taken during data entry that the user has still to confirm: how a table was read, a classification chosen, a code corrected. One row per decision; rows of `correspondences` that depend on it name it in `decision`. The open ones are listed in `STATUS.md` and in the build's notes. To settle one, change its `status` in the sheet (and the rows, if the other reading wins).
+A reading taken during data entry that the user has still to confirm: how a table was read, a classification chosen, a code corrected. One row per decision; rows of `correspondences` that depend on it name it in `decision`. The open ones are listed in `STATUS.md` and in the build's notes. To settle one, change its `status` in the sheet (and the rows, if the other reading wins), or write what should be done in `instructions`.
 
 | column | required | values |
 |---|---|---|
@@ -275,6 +275,7 @@ A reading taken during data entry that the user has still to confirm: how a tabl
 | `question` | yes | what had to be decided |
 | `chosen_reading` | | what was entered |
 | `alternatives` | | the other reading(s) |
+| `instructions` | | optional: the user's answer or directions, in their words, for the next data-entry session to carry out |
 | `status` | yes | `open` · `confirmed` · `reverted` |
 | `source_id`, `page` | | where the question arises |
 | `notes` | | |
