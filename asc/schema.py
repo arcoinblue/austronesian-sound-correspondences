@@ -287,8 +287,8 @@ TABLES = {
     "notation_map": ["lect_id", "phoneme", "system", "symbol", "source_id", "page", "notes",
                      "place", "manner", "voicing"] + VIA,
     # Readings taken during data entry that the user has still to confirm (or has).
-    "decisions": ["id", "batch", "question", "chosen_reading", "alternatives", "status",
-                  "source_id", "page", "notes"],
+    "decisions": ["id", "batch", "question", "chosen_reading", "alternatives", "instructions",
+                  "status", "source_id", "page", "notes"],
 }
 DECISION_STATUS = {"open", "confirmed", "reverted"}
 # Tables that may be missing from a data folder (read as empty): added after the first release.
@@ -302,7 +302,7 @@ OPTIONAL_COLUMNS = {
     "phonemes": VIA + ["status"],
     "correspondences": ["system"] + VIA + CORR_EXTRA,
     "notation_map": ["place", "manner", "voicing"] + VIA,
-    "decisions": [],
+    "decisions": ["instructions"],
 }
 CANONICAL = "canonical"   # notation system that only spells the site's own symbols
 # A canonical notation_map row with phoneme and symbol both blank is the lect's
