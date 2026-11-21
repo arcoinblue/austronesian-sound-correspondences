@@ -8,28 +8,28 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 136 |  |
-| lects | 816 | 215 dialect, 30 earlier-stage, 350 language, 221 proto-language |
-| phonemes | 2646 |  |
-| correspondences | 7558 | plus 6487 implied and 2781 stated retentions generated from lects.inherit |
-| notation_map | 492 |  |
-| decisions | 100 | 10 confirmed, 87 open, 3 reverted |
+| sources | 143 |  |
+| lects | 820 | 218 dialect, 30 earlier-stage, 350 language, 222 proto-language |
+| phonemes | 2671 |  |
+| correspondences | 7738 | plus 6487 implied and 2927 stated retentions generated from lects.inherit |
+| notation_map | 496 |  |
+| decisions | 106 | 10 confirmed, 93 open, 3 reverted |
 
-Lects by `inherit`: (blank) 296, assumed-unchanged 330, stated-unchanged 190.
-Inventories: edited 24, empty 153, reverse-generated 529, sourced 110.
+Lects by `inherit`: (blank) 291, assumed-unchanged 330, stated-unchanged 199.
+Inventories: edited 24, empty 153, reverse-generated 532, sourced 111.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 251 warning(s), 783 note(s).
+`build.py --check`: 0 error(s), 255 warning(s), 798 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 123 |
+| no glottocode | 125 |
 | a work cited in notes has no sources row | 66 |
 | a source is never cited | 38 |
 | a reflex is not in the lect's sourced inventory | 12 |
 | an attested lect has symbols that are not IPA | 8 |
-| repeats the fusion row at … | 4 |
+| repeats the fusion row at … | 6 |
 
 ## Open decisions
 
@@ -124,6 +124,12 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `chuang-paiwan-dialects` | Chuang’s (2024) sixteen Paiwan dialects are entered as separate lects under Proto-Paiwan. His Timur (三地門) may be Chang’s (2006) Santi (Stimur village), and his… | Kept apart; the linkages are entered as overlap groups, not nodes. |  |
 | `tseng-nef` | Tseng (2022) read directly: Proto-Northeast Formosan (Glottolog’s Northern East Formosan) entered under Proto-East Formosan, with Proto-Kavalan and Proto-Basay… | Older PAn-level rows of Kavalan, Basay and Ketagalan (Li & Tsuchida 2006, Shibata 2025, Blust 2013, Ogawa 1931) restated against the new parents through Tseng’… |  |
 | `song-seediq` | Song (2025) reconstructs Proto-Seediq from five dialects, with an inventory that differs from Shibata’s (2025) Proto-Seediq (psed): *c, *x, *h and fricative *g… | Song’s inventory entered as the reconstruction system “Song” of psed (notation_map), and the five dialects stated against it (correspondences with system Song)… |  |
+| `li-reprints` | Li’s papers read in his Selected papers (2004): which work and pages are cited? | The original paper is the source (li1977, li1981, li1988, li2003, li2004, li1979); its sources row says it was read in the reprint, and pages are the reprint’s. |  |
+| `li-atayalic` | Li’s (1981) Proto-Atayalic, read directly: enter it? | Entered as its own proto-language under PAN (patayalic, atay1246) with Li’s inventory and PAN > Proto-Atayalic rows; Proto-Atayal and Proto-Seediq keep PAN as … |  |
+| `li-rukai` | Li’s (1977) Proto-Rukai, read directly: how are the rows changed? | Shibata’s via rows are now direct where Li agrees. PAN *R > PR *ʔ and *r both have conditions unknown (Li: conditions unclear); PR *ð is added to the inventory… |  |
+| `li-bunun-dialects` | Li’s (1988) five Bunun dialects: which lects? | Takituduh and Takbanuað (no glottocodes) and Takibakha (taki1252) added under Proto-Bunun; Isbukun and Takivatan get Li’s rows. All five are stated-unchanged a… |  |
+| `li-plains` | Li (2003) on the four coastal plains languages: whose claims, and the subgroup? | The three innovations Li takes from Tsuchida (1982: 9-10) and the Taokas-Babuza *p change are cited to Tsuchida via Li; *ŋ > n (from Li 1985), the *C and *S ro… |  |
+| `li-favorlang` | Li’s (2005) Favorlang reflexes: where? | On Babuza (babu1240), each row labelled Favorlang, as the earlier rows are. His two PAN *S (Dahl’s *S1 > s, *S2 > ø) are two rows with conditions unknown; *p >… |  |
 
 <!-- END GENERATED -->
 
