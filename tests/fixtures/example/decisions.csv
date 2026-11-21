@@ -1,2 +1,2 @@
-id,batch,question,chosen_reading,alternatives,status,source_id,page,notes
-example-merger,example2026,"Do *C and *t merge in Proto-Example-B, or is *C > t sporadic?",merger (regular),sporadic *C > t,open,example2026,20,FICTIONAL: shows how a row points at an open reading.
+id,batch,question,chosen_reading,alternatives,instructions,status,source_id,page,notes
+example-merger,example2026,"Do *C and *t merge in Proto-Example-B, or is *C > t sporadic?",merger (regular),sporadic *C > t,,open,example2026,20,FICTIONAL: shows how a row points at an open reading.
