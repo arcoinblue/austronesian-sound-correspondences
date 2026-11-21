@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 90 |  |
-| lects | 686 | 126 dialect, 30 earlier-stage, 330 language, 200 proto-language |
-| phonemes | 901 |  |
-| correspondences | 5804 | plus 6154 implied and 1555 stated retentions generated from lects.inherit |
-| notation_map | 439 |  |
-| decisions | 66 | 66 open |
+| sources | 107 |  |
+| lects | 713 | 128 dialect, 30 earlier-stage, 350 language, 205 proto-language |
+| phonemes | 1130 |  |
+| correspondences | 6497 | plus 6459 implied and 1555 stated retentions generated from lects.inherit |
+| notation_map | 444 |  |
+| decisions | 83 | 83 open |
 
-Lects by `inherit`: (blank) 257, assumed-unchanged 309, stated-unchanged 120.
-Inventories: edited 24, empty 154, reverse-generated 472, sourced 36.
+Lects by `inherit`: (blank) 263, assumed-unchanged 330, stated-unchanged 120.
+Inventories: edited 24, empty 154, reverse-generated 489, sourced 46.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 155 warning(s), 603 note(s).
+`build.py --check`: 0 error(s), 166 warning(s), 661 note(s).
 
 | Warnings | Count |
 |---|---|
-| a work cited in notes has no sources row | 60 |
-| no glottocode | 56 |
-| a source is never cited | 28 |
+| a work cited in notes has no sources row | 66 |
+| no glottocode | 58 |
+| a source is never cited | 31 |
 | an attested lect has symbols that are not IPA | 8 |
 | a reflex is not in the lect's sourced inventory | 3 |
 
@@ -102,6 +102,23 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `cha-y` | Chamorro y: Topping's y is [dz], and Blust respells final -ai, -ao, -ui as -ay, -aw, -uy, taking [dz] and final [j] as one phoneme (2000: 85). | One phoneme d͡z (printed y); PMP *y > d͡z in all positions, final *-ay included. | 1 |
 | `kiput-collapsed` | Blust (2002) derives Kiput from PNS through 36 ordered changes (Table 17, p. 420). How are they entered? | As PNS segment > Kiput segment rows, as Blust's own summary of shifts, splits and mergers does (§3.3, pp. 423-427); each row's notes name the changes that prod… |  |
 | `pal-vowels` | Palauan vowel reflexes depend on pre-Palauan penultimate stress, which shifted under suffixation (Blust 2009: 310). | Entered with the set terms 'stressed syllable' (unchanged; *e > e or o) and 'unstressed syllable' (ə), and _# (lost). The stress is that of the pre-Palauan wor… |  |
+| `lynch-parents` | Lynch states South Efate, Naman and Nese against POc. PNCV is in the sheet (from François 2011). What is their parent? | POc, as Lynch states them. Lynch (2000b: 321, n. 2) doubts that PNCV existed and suggests South Efate subgroups with Southern Vanuatu; the 2019 papers cite PNC… |  |
+| `lynch-brackets` | How are Lynch's bracketed reflexes entered? The 2000 paper (p. 328) puts conditioned reflexes in parentheses and reflexes whose conditioning he cannot establis… | Unbracketed or first: regular, elsewhere. Conditioned: regular, with the environment from the text. Square brackets (2000) and the 2019 parentheses: regular wi… |  |
+| `lynch-ipa` | Lynch writes the three languages in a practical orthography. How are the reflexes entered? | As IPA, with Lynch's symbol in source_symbol and as_printed. South Efate ᵏp, ᵑm = k͡p, ŋ͡m (labiovelars 'coarticulated with initial velar closure followed by l… |  |
+| `nese-linguolabial-place` | The schema has no place 'linguolabial' for the Nese consonants d̼ ð̼ n̼. | Entered with manner and voicing but place blank, so they are listed under the chart; the notes say linguolabial. A 'linguolabial' place (between bilabial and l… |  |
+| `sef-dialects` | South Efate: Lynch's data are Erakor (Thieberger); Clark (1985) reports other reflexes for Eton and Epau. | One lect, South Efate (sout2856), with Erakor as its data. Eton and Epau reflexes Lynch reports from Clark are entered as rows with variety 'Eton, Epau', sourc… |  |
+| `nese-final-vowels` | Nese final syllables (Lynch 2019c: 75-78): high vowels lost and a final e or o added. How are they entered? | As loss rows for the lost vowels and two insertion rows (∅ > e, ∅ > o) at the end of the word, each with Lynch's rule (52a-c) in as_printed. Lynch argues the f… | 2 |
+| `ph-no-pph` | Is there a Proto-Philippine node between PMP and the northern Philippine subgroups? | No. Proto-Batanic, Proto-Northern Luzon, Proto-Northeastern Luzon and Proto-Central Luzon are entered directly under PMP. Ross (2005: 12-15) finds no convincin… |  |
+| `pb-r` | Did PMP *R become Proto-Batanic *y (Ross) or stay distinct (Yang)? | Both rows are entered on Proto-Batanic: *R > *R from Yang (2002: 37), whose Proto-Batanic keeps *R apart from *y because Yami has l for it (daRa > rala 'blood'… | 2 |
+| `pb-liquids` | Yang's Proto-Batanic *l1, *l2 and *L: what are they? | Entered as the proto-phonemes l₁, l₂ and L (Yang writes l1, l2 with subscripts, Table 4-1, p. 43). Yang says PMP *l split into *l1 and *l2 (p. 47; *qulu 'head'… | 2 |
+| `yang-ipa` | What IPA values do Yang's daughter symbols have? | The IPA glyphs in Yang's §3.1 are lost in the PDF, so the values follow his prose (pp. 15-17): Yami d retroflex stop ɖ, s voiceless retroflex fricative ʂ, h vo… |  |
+| `yang-tree` | Yang's subgrouping inside Batanic | Not entered as nodes. Yang (2002: 65) separates Itbayat from Yami-Ivatan-Babuyan (*q > h, loss of *h) and Yami from Ivatan-Babuyan (*l1 > d, *r > l) but recons… |  |
+| `neluz-parent` | Where does Proto-Northeastern Luzon attach? | Under PMP, with Proto-Northern Luzon as an alternative parent. Robinson & Lobel argue that Northeastern Luzon is a primary branch of Northern Luzon, not part o… |  |
+| `neluz-internal` | Robinson & Lobel's internal tree of Northeastern Luzon | Not entered as nodes. They make Dupaningan Agta a primary branch, group Casiguran with Nagtipunan ('very closely related, if not dialects of a single language'… |  |
+| `neluz-gemination` | Gemination after schwa in Northeastern Luzon | Not entered as correspondence rows: it is a change in consonant length after ə, not in any phoneme. Recorded in the notes of Proto-Northeastern Luzon and each … |  |
+| `himes-apicals` | Himes's (2) lists *j > d, *d > l / V[-back]_V and *z > d for Proto-Central Luzon, but his inventory (3) keeps *z and *j. Where do these changes go? | On the branches. (3) keeps *d, *z and *j apart, and §§2.4.4, 2.5.2, 2.5.5 and 2.6.6-2.6.8 describe the merger of *j and *z with *d, and the lenition of intervo… | 32 |
+| `himes-r-y` | Himes's Sinauna, Kapampangan and Sambalic rules for *R, after Proto-Central Luzon *R > *y | Entered on Proto-Central Luzon *y, with a note that they apply only to *y from PMP *R; as_printed keeps Himes's *R. Himes states them for *R (§§2.4.1, 2.5.1, 2… | 6 |
+| `himes-nodes` | Which Central Luzon nodes are entered? | Proto-Central Luzon with three equidistant branches, Sinauna, Kapampangan and Proto-Sambalic, as Himes concludes (p. 527). His Proto-Sambal-Sinauna (p. 510) is… |  |
 
 <!-- END GENERATED -->
 
