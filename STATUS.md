@@ -8,26 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 107 |  |
-| lects | 713 | 128 dialect, 30 earlier-stage, 350 language, 205 proto-language |
-| phonemes | 1130 |  |
-| correspondences | 6497 | plus 6459 implied and 1555 stated retentions generated from lects.inherit |
-| notation_map | 444 |  |
-| decisions | 83 | 83 open |
+| sources | 116 |  |
+| lects | 745 | 154 dialect, 30 earlier-stage, 350 language, 211 proto-language |
+| phonemes | 1600 |  |
+| correspondences | 6900 | plus 6471 implied and 1756 stated retentions generated from lects.inherit |
+| notation_map | 457 |  |
+| decisions | 87 | 10 confirmed, 74 open, 3 reverted |
 
-Lects by `inherit`: (blank) 263, assumed-unchanged 330, stated-unchanged 120.
-Inventories: edited 24, empty 154, reverse-generated 489, sourced 46.
+Lects by `inherit`: (blank) 283, assumed-unchanged 330, stated-unchanged 132.
+Inventories: edited 24, empty 153, reverse-generated 502, sourced 66.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 166 warning(s), 661 note(s).
+`build.py --check`: 0 error(s), 178 warning(s), 722 note(s).
 
 | Warnings | Count |
 |---|---|
+| no glottocode | 67 |
 | a work cited in notes has no sources row | 66 |
-| no glottocode | 58 |
-| a source is never cited | 31 |
+| a source is never cited | 30 |
 | an attested lect has symbols that are not IPA | 8 |
+| repeats the fusion row at … | 4 |
 | a reflex is not in the lect's sourced inventory | 3 |
 
 ## Open decisions
@@ -36,29 +37,16 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 
 | id | Question | Reading taken | Rows |
 |---|---|---|---|
-| `mc-unchained-cells` | Two Micronesian cells cannot be chained: PCK *x (the PPC row has r and ∅, PCK only ∅) and Pohnpeian *ñ (the PPON row has ∅ and n, Pohnpeian only ∅). | Omitted; a note on each lect says so. |  |
 | `kw-branches-unchanged` | Zobel's Table 18 has no column for the Northern and Southern Kaili–Wolio branches. What do their consonants continue? | Unchanged from PKW unless Zobel says otherwise; each such row says so and cites the PSKW/PNKW reconstructions of the appendix. | 32 |
 | `ledo-subgroup` | Where does Ledo go? Zobel calls it mixed; Glottolog puts it in the Northern branch. | Under Southern Kaili–Wolio (its dominant lexical stratum). |  |
-| `pmp-parent` | Chen et al. (2022) put PMP under Proto-Coastal Formosan. What is PMP's parent? | PAN; Chen et al.'s classification is noted on both lects. |  |
-| `pmc-glottocode` | Which glottocode does Proto-Micronesian get? | micr1243, which includes Nauruan (as Blumenfeld 2022 does). |  |
 | `atayal-original` | Which work is the original of the Proto-Atayal reconstruction? | Goderich (2020) only. |  |
 | `lynch-biggs-ids` | Are the Lynch (2022) and Biggs (1965) works the ones the citing sources mean? | As entered in sources. |  |
-| `ross2023-pages` | Page range of Ross, Pawley & Osmond 2023, ch. 1. | 1-46. |  |
 | `kanakanavu-d` | Kanakanavu *d > sʲ word-initially: the table has s-(?); the text says *d is regularly r. | Entered, marked disputed. | 1 |
 | `wolff-vowels` | The Wolff system has no vowel rows: Shibata's Table 2.16 has none. | Consonants only; the site says Wolff's vowels are not compared. |  |
-| `ksr-ipa` | Kosraean consonants: Bender's transcription or IPA? | IPA (Bender's KSR sr, r are ʂ, ɾ). |  |
-| `ksr-composition` | Lee & Wang (1984) state Kosraean against POc. How are their rows entered? | Composed to PMc through Bender's POc > PMc rows; the notes keep the POc statement. | 48 |
-| `ksr-s-before-i` | Lee & Wang: POc *s lost before *i. Bender et al. have *s > s / _i. | s > ∅ / _i entered as regular. | 1 |
-| `ksr-dr` | Lee & Wang's POC *(dr) > Kosraean ɾ. | Marked disputed. | 1 |
-| `ksr-retroflex` | Lee's Kosraean palatal fricative and flap. | Entered as retroflex. The r series (r, rw, ro) is an approximant ɻ, ɻˠ, ɻʷ after Lee & Wang (1984: 436, n. 4), not Lee's flap: changed 20 Nov 2026 at the user'… |  |
-| `ge-unchanged-nodes` | A phoneme that the tree does not mention at a node: what happens to it there? | Unchanged (lects.inherit = assumed-unchanged; the build generates the rows, shown grey as implied). |  |
 | `ge-earlier-stage` | Tree nodes printed as one language with an ISO code, whose members are its varieties. | Entered as earlier-stage Pre-X (Pre-Tetun, Pre-Mambae, Pre-Kei, ...). |  |
 | `ge-overlap` | Overlapping subgroups (Wetar-Galolen, Nuclear Wetar-Atauro; the Peripheral Babar shared changes). | Entered on the member lects (overlap_groups). |  |
-| `ge-helong-d` | Helong "*l/-j-/z/d- > l": which *d? | Medial *d (text §4.1). | 1 |
 | `ge-appendix-codes` | Corrections to appendix A codes: So'a soaa1237 → cent2074; Lamalera lama1278 → lama1299 (lama1278 goes to the Peripheral Lembata node); Semau Helong without a … | As listed. |  |
 | `ge-uncertain` | Hukumina and Salas ("classification uncertain"). | Under PMP. |  |
-| `ge-celebic` | Grimes & Edwards's Celebic changes. | Not re-entered on pcel (Zobel's). |  |
-| `ge-iso` | ISO codes that differ between the tree and appendix A: Ngadha nxq/nxg, Baikeno bxq/bkx, Taliabu tly/tlv. | Ngadha nxg and Baikeno bkx (13:40); Taliabu still to settle. |  |
 | `ge-identity-conflicts` | Four identity rows were added at a node because a daughter states a change from that phoneme, but the node itself states a change for it: Proto-Nuclear Rote *d… | Both kept: the stated change and the identity, as two elsewhere reflexes. | 5 |
 | `pocr-parents` | Parents of PNCV, PNC and the Vanikoro languages (Teanu, Lovono, Tanema). | Directly under POc (PEOc, Proto-Southern Oceanic and a Temotu node are not entered). |  |
 | `pocr-glottocodes` | Glottocodes for Löyöp and Mwerlap, which have no Glottolog languoid under those names. | From the language metadata of Ross et al. (2023): Löyöp = leha1244 (urr), as listed (p. 625); Mwerlap = Merlav merl1237 (mrm) (p. 626), identified by the name … |  |
@@ -82,7 +70,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |
 | `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | Held back, by the rule to add correspondence tables and the reconstructions of established microgroups but to hold the intermediate stages above them. Proto-Ka… |  |
 | `ksr-secondary` | Origin of the Kosraean velarised and rounded consonants. | Each is entered as a reflex of the same PMc consonant as the plain one, before e and ɛ, marked sporadic: Lee & Wang put distinctive velarisation after PMc and … | 23 |
-| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 10 |
+| `vowel-default` | A lect whose sourced vowels are a bare i e a o u system (below POc) or i ə a u system (below PMP or PAN), with no stated vowel change: what are its vowel corre… | Taken as its parent's vowels unchanged, as implied retentions, until a source says otherwise. The build adds the rows (asc/validate.py, vowel_default); a lect … | 22 |
 | `pazeh-j-final` | Pazeh reflex of PAN *j word-finally: d (Blust 2013: 578) or t̪ (the row from Blust 1999b via Shibata 2025)? | Both rows are kept, each with its source: Blust (2013) lists Pazeh '-d only' as an exception to final devoicing; the earlier row has t̪ by final devoicing. | 1 |
 | `pn-tree` | Which Polynesian tree goes in parent_id: Marck (2000), Walworth (2014) or Wilson (2021)? | Marck's (Figure 1.2, p. 3), the only one with regular sound changes at each node (Table 2.2). Walworth's tree (no Proto-Marquesic or Proto-Tahitic; 2014: 268) … |  |
 | `ppn-parent` | What is the parent of Proto-Polynesian? | POc directly. Proto-Central Pacific (and Proto-Eastern Oceanic) are held back as intermediate stages, as in kayanic-held; POc > PPn rows are composed through P… | 5 |
@@ -119,6 +107,10 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `himes-apicals` | Himes's (2) lists *j > d, *d > l / V[-back]_V and *z > d for Proto-Central Luzon, but his inventory (3) keeps *z and *j. Where do these changes go? | On the branches. (3) keeps *d, *z and *j apart, and §§2.4.4, 2.5.2, 2.5.5 and 2.6.6-2.6.8 describe the merger of *j and *z with *d, and the lenition of intervo… | 32 |
 | `himes-r-y` | Himes's Sinauna, Kapampangan and Sambalic rules for *R, after Proto-Central Luzon *R > *y | Entered on Proto-Central Luzon *y, with a note that they apply only to *y from PMP *R; as_printed keeps Himes's *R. Himes states them for *R (§§2.4.1, 2.5.1, 2… | 6 |
 | `himes-nodes` | Which Central Luzon nodes are entered? | Proto-Central Luzon with three equidistant branches, Sinauna, Kapampangan and Proto-Sambalic, as Himes concludes (p. 527). His Proto-Sambal-Sinauna (p. 510) is… |  |
+| `atayalic-node` | Goderich (2020: Tables 4.41, 4.46) gives Proto-Atayalic (Li 1981) between PAn and Proto-Atayal, with two changes from Proto-Atayalic to Proto-Atayal (*r > *ɹ, … | Not entered: pata and psed stay under PAN, and PAn > Proto-Atayal rows are stated directly. |  |
+| `atayal-nodes` | Goderich's subgroup nodes (Proto-Northern, Proto-Nuclear Northern, Proto-Southern, Proto-Nuclear Southern and Proto-Southwestern Atayal; ch. 6): where do the d… | Each change is entered at the node to which ch. 6 assigns it (Tables 6.1-6.15), and only the rest on the dialects. Exception: the affrication of *t, which ch. … |  |
+| `siraya-ipa` | Adelaar's Gospel (G) and Utrecht Manuscript (UM) symbols x, D, v, e, o, ʔ and the uncertain c, nḡ, z: how are they entered? | x as ʝ, the voiced palatal fricative of Adelaar (2014: 4 n. 2), not the velar of Adelaar (2011: 52); D kept as D (a root-initial phoneme realised d or r, with … |  |
+| `puyuma-ting` | Ting's (1978) Puyuma tree (via Teng 2008: 5): Nanwang against a subgroup of the other five, which further divides into Pinaski-Ulivelivek, Rikavung and Kasavak… | No: Ting's statements are entered on each dialect under Yeh's Proto-Puyuma (ppuy), marked composed. The five non-Nanwang varieties have no glottocodes (Glottol… |  |
 
 <!-- END GENERATED -->
 
