@@ -146,34 +146,34 @@ c8517f289bf,pbun,e,u,elsewhere,regular,,,li1988,,Merges with a or u; conditionin
 c42d50c058a,pbun,e,a,elsewhere,regular,,,li1988,,Merges with a or u; conditioning unclear.,,shibata2025,57,,,,,,,,,,,,
 c194771759d,pbun,i,i,elsewhere,regular,,,li1988,,,,shibata2025,58,,,,,,,,,,,,
 c566c403acf,pbun,u,u,elsewhere,regular,,,li1988,,,,shibata2025,58,,,,,,,,,,,,
-ca965d31c46,thao1240,p,p,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-ca608a89fbd,thao1240,t,t̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cf64e511cf3,thao1240,C,θ,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c12e75f8fc3,thao1240,k,k,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c48b3b21803,thao1240,q,q,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cdebad64e53,thao1240,s,t̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c8eb83abddf,thao1240,S,ʃ,elsewhere,regular,,,blust2003,,"Fricatives assimilate when two or more occur in a word, e.g. Sidi > s̪is̪i.",,shibata2025,60,,,,,,,,,,,,
-caa77227f91,thao1240,h,∅,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cc3ddab3fe9,thao1240,b,ɸ,elsewhere,regular,,,blust2003,,ɸ~f in the source.,,shibata2025,61,Blust writes f and describes it as labiodental; Shibata follows Li (1976) in taking it as bilabial ɸ (pp. 59-60).,,,,,,,,,,,
-c26a516a0ab,thao1240,z,s̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c89cf7d17f5,thao1240,d,s̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c36a62ebd79,thao1240,d,t̪,before a following ʃ,sporadic,,2,blust2003,,"Possible dissimilation in two examples (duSa > t̪uʃa, qudaS > qut̪aʃ), after Blust (2003).",,shibata2025,60,,,,,,,,,,,,
+ca965d31c46,thao1240,p,p,elsewhere,regular,,,blust2003,76,Unchanged in all positions.,,,,,,,,,,,,,,,
+ca608a89fbd,thao1240,t,t̪,elsewhere,regular,,,blust2003,76,Unchanged in all positions. Printed t.,,,,,,,,,,,,,,,
+cf64e511cf3,thao1240,C,θ,elsewhere,regular,,,blust2003,76,Printed c. Becomes lh when l follows in the word (next row).,,,,,,,,,,,,,,,
+c12e75f8fc3,thao1240,k,k,elsewhere,regular,,,blust2003,76,Unchanged in all positions.,,,,,,,,,,,,,,,
+c48b3b21803,thao1240,q,q,elsewhere,regular,,,blust2003,76,Unchanged in all positions.,,,,,,,,,,,,,,,
+cdebad64e53,thao1240,s,t̪,elsewhere,regular,,,blust2003,77,"*susu > tutu, *asu > atu, *bekas > fkat. Printed t.",,,,,,,,,,,,,,,
+c8eb83abddf,thao1240,S,ʃ,conditions unknown,regular,,,blust2003,77-78,"About four times as frequent as *S > ∅; no condition can be stated, and both occur in all positions (p. 78). Printed sh.",,,,,unknown,,,,,,,,,,
+caa77227f91,thao1240,h,∅,elsewhere,regular,,,blust2003,78,Lost unconditionally.,,,,,,,,,,,,,,,
+cc3ddab3fe9,thao1240,b,f,elsewhere,regular,,,blust2003,76,"Printed f, labiodental (p. 30); Shibata (2025: 59) writes ɸ~f.",,,,,,,,,,,,,,,
+c26a516a0ab,thao1240,z,s̪,elsewhere,regular,,,blust2003,77,Merged with *d. Printed s.,,,,,,,,,,,,,,,
+c89cf7d17f5,thao1240,d,s̪,elsewhere,regular,,,blust2003,76,Printed s.,,,,,,,,,,,,,,,
+c36a62ebd79,thao1240,d,t̪,before a following ʃ,sporadic,,2,blust2003,80,"*duSa > tusha, *qudaS > qutash; possibly a conditioned change *d > t where *S followed in the next syllable, possibly contamination in the numerals (pp. 80-81).",,,,,,,,,,,,,,,
 c201cf27746,thao1240,ɡ,k,elsewhere,disputed,,,shibata2025,61,Single etymon: gaRaŋ 'crab'. Blust (2003) states that Thao has no clear reflex of g (p. 60).,,,,,,,,,,,,,,,
-c87381a6961,thao1240,m,m,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cb1896d2642,thao1240,n,n̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cb9888ee035,thao1240,ŋ,n̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-ca12eaac44b,thao1240,j,ð,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-ce993be2468,thao1240,N,ð,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cc2764d2cdf,thao1240,l,ɾ̪,elsewhere,regular,,,blust2003,,ɾ̪~r̪ in the source.,,shibata2025,61,,,,,,,,,,,,
-c35359c1725,thao1240,R,ɬ̪,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c2b0157c090,thao1240,w,w,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c95213c24ce,thao1240,y,j,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c088e60a711,thao1240,a,a,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-cc4478e0e71,thao1240,e,i,elsewhere,regular,,,blust2003,,Penultimate e is regularly deleted (p. 60).,,shibata2025,61,,,,,,,,,,,,
-c1a0d934200,thao1240,e,u,_[labial],regular,,,blust2003,,Also occasionally by assimilation to u in the following syllable.,,shibata2025,60,,,,,,,,,,,,
-c29be84ac29,thao1240,e,a,when q follows anywhere in the word,regular,,,blust2003,,,,shibata2025,60,,,,,,,,,,,,
-cfd089ac71f,thao1240,i,i,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
-c926c217657,thao1240,u,u,elsewhere,regular,,,blust2003,,,,shibata2025,61,,,,,,,,,,,,
+c87381a6961,thao1240,m,m,elsewhere,regular,,,blust2003,77,Unchanged.,,,,,,,,,,,,,,,
+cb1896d2642,thao1240,n,n̪,elsewhere,regular,,,blust2003,77,Unchanged. Printed n.,,,,,,,,,,,,,,,
+cb9888ee035,thao1240,ŋ,n̪,elsewhere,regular,,,blust2003,77,"*qipeŋ > nipin, *paŋa > pana. Printed n.",,,,,,,,,,,,,,,
+ca12eaac44b,thao1240,j,ð,elsewhere,regular,,,blust2003,77,Printed z; merged with *N.,,,,,,,,,,,,,,,
+ce993be2468,thao1240,N,ð,elsewhere,regular,,,blust2003,77,Printed z; merged with *j.,,,,,,,,,,,,,,,
+cc2764d2cdf,thao1240,l,ɾ̪,elsewhere,regular,,,blust2003,78-79,Merged with *r. Printed r.,,,,,,,,,,,,,,,
+c35359c1725,thao1240,R,ɬ̪,elsewhere,regular,,,blust2003,79,A voiceless lateral. Printed lh.,,,,,,,,,,,,,,,
+c2b0157c090,thao1240,w,w,elsewhere,regular,,,blust2003,79,"Unchanged, except for occasional glide truncation in casual speech.",,,,,,,,,,,,,,,
+c95213c24ce,thao1240,y,j,elsewhere,regular,,,blust2003,79,Unchanged. Printed y.,,,,,,,,,,,,,,,
+c088e60a711,thao1240,a,a,elsewhere,regular,,,blust2003,73,Unchanged in penultimate and final syllables.,,,,,,,,,,,,,,,
+cc4478e0e71,thao1240,e,i,"final syllable, before a non-labial",regular,,,blust2003,75,"In the final syllable before a non-labial consonant: *bekeS > fukish, *qipeŋ > nipin. Penultimate *e is deleted (p. 74).",,,,,,,,,,,,,,,
+c1a0d934200,thao1240,e,u,"final syllable, before a labial",regular,,,blust2003,75,"In the final syllable: *qaRem > qalhum, *qaleb > qaruf.",,,,,,,,,,,,,,,
+c29be84ac29,thao1240,e,a,when q follows anywhere in the word,regular,,,blust2003,,,,shibata2025,60,Shibata has q anywhere in the word; Blust (2003: 75) gives *e before *q (*luSeq > rushaq).,,,,,,,,,,,
+cfd089ac71f,thao1240,i,i,elsewhere,regular,,,blust2003,73,Unchanged in penultimate and final syllables.,,,,,,,,,,,,,,,
+c926c217657,thao1240,u,u,elsewhere,regular,,,blust2003,73,Unchanged in penultimate and final syllables.,,,,,,,,,,,,,,,
 c6184325049,sais1237,p,p,elsewhere,regular,,,li1978,,,,shibata2025,65,,,,,,,,,,,,
 cef1446b992,sais1237,t,t̪,elsewhere,regular,,,li1978,,,,shibata2025,65,,,,,,,,,,,,
 c6b22b8cc6c,sais1237,C,θ,elsewhere,regular,,,li1978,,,,shibata2025,65,,,,,,,,,,,,
@@ -203,37 +203,37 @@ cc3738ff5c6,sais1237,e,∅,elsewhere,regular,,,li1978,,Third reflex in Table 3.1
 c8c4c182846,sais1237,i,i,elsewhere,regular,,,li1978,,,,shibata2025,65,,,,,,,,,,,,
 c763a985441,sais1237,u,o,elsewhere,regular,,,li1978,,,,shibata2025,65,,,,,,,,,,,,
 c4834024eca,sais1237,u,œ,"in the presence of q, s or h",regular,,,li1978,,Fronting.,,shibata2025,65,,,,,,,,,,,,
-c6eed8ff2d5,kulo1237,p,p,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cc513e377c9,kulo1237,t,t̪,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cece38bae91,kulo1237,C,s,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c71dc24c657,kulo1237,k,k,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c64551c917a,kulo1237,q,∅,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c5cfe06e8ef,kulo1237,s,d͡z,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cac7fcbf1fa,kulo1237,s,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,,,,,,,,,,,,
-cd7b792fe66,kulo1237,S,s,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cb825989f4b,kulo1237,h,ħ,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cc434adc49a,kulo1237,b,b,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c5facce5122,kulo1237,b,p,_#,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c2600c66e9f,kulo1237,z,d,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c416d760875,kulo1237,z,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,,,,,,,,,,,,
-cb801a0fe25,kulo1237,d,d,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c941b8d423f,kulo1237,d,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,,,,,,,,,,,,
-c2c91e98f20,kulo1237,ɡ,k,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cb280375823,kulo1237,m,m,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-ce069d733dd,kulo1237,n,n̪,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c4177b91142,kulo1237,ŋ,ŋ,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cd9b9e36925,kulo1237,j,d͡z,elsewhere,regular,,,blust1999b,,Word-medial; the source lists no initial reflex.,,shibata2025,69,,,,,,,,,,,,
-c6f430a31e9,kulo1237,j,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,,,,,,,,,,,,
-cd338ee295b,kulo1237,N,l̪,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cd7bfd5bd56,kulo1237,l,ɾ,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cce90d8e1c9,kulo1237,R,x,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c839792bb5a,kulo1237,w,w,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cddf9c33538,kulo1237,y,j,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cd9c7c340f7,kulo1237,a,a,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-cf0a94ff0e1,kulo1237,e,ə,elsewhere,regular,,,blust1999b,,"Limited examples of i or a as well (Blust 1999b, cited in Blust 1999b: 68).",,shibata2025,69,,,,,,,,,,,,
-c883dc880a1,kulo1237,e,u,next to a labial consonant or a syllable with a rounded vowel,regular,,,blust1999b,,After Blust (1999b).,,shibata2025,68,,,,,,,,,,,,
-c8c57efb133,kulo1237,i,i,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
-c4d4717c61e,kulo1237,u,u,elsewhere,regular,,,blust1999b,,,,shibata2025,69,,,,,,,,,,,,
+c6eed8ff2d5,kulo1237,p,p,elsewhere,regular,,29,blust1999b,332-333,"10 initial, 15 medial, 4 final.",,,,,,,,,,,,,,Table 3,
+cc513e377c9,kulo1237,t,t̪,elsewhere,regular,,36,blust1999b,332-333,"21 initial, 10 medial, 5 final. Printed t.",,,,,,,,,,,,,,Table 3,
+cece38bae91,kulo1237,C,s,elsewhere,regular,,19,blust1999b,333,"11 initial, 2 medial, 6 final. *C and *S merged as s; *S > h probably preceded *C > s (p. 333).",,,,,,,,,,,,,,Table 3,
+c71dc24c657,kulo1237,k,k,elsewhere,regular,,43,blust1999b,332-333,"12 initial, 18 medial, 13 final.",,,,,,,,,,,,,,Table 3,
+c64551c917a,kulo1237,q,∅,elsewhere,regular,,35,blust1999b,333,"15 initial, 7 medial, 13 final; lost without a trace.",,,,,,,,,,,,,,Table 3,
+c5cfe06e8ef,kulo1237,s,d͡z,elsewhere,regular,,11,blust1999b,333-334,"Not word-final: 4 initial, 7 medial, merging with *j as [dz] (printed z).",,,,,,,,,,,,,,Table 3,
+cac7fcbf1fa,kulo1237,s,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,"Shibata enters the word-final reflex as t̪. Blust (1999b: 325-326, 334) assigns word-final postdental [t] from *d, *z, *j and *s to the phoneme d, distinct from interdental t.",,,,,,,,,,,
+cd7b792fe66,kulo1237,S,s,elsewhere,regular,,26,blust1999b,333,"8 initial, 6 medial, 12 final; *S also gives h (next rows).",,,,,,,,,,,,,,Table 3,
+cb825989f4b,kulo1237,h,ħ,elsewhere,regular,,11,blust1999b,333-334,"2 initial, 4 medial, 5 final; retained in all environments. Printed h.",,,,,,,,,,,,,,Table 3,
+cc434adc49a,kulo1237,b,b,elsewhere,regular,,33,blust1999b,333,"Not word-final: 23 initial, 10 medial.",,,,,,,,,,,,,,Table 3,
+c5facce5122,kulo1237,b,p,_#,regular,,1,blust1999b,333,Final devoicing; the contrast of *b and *p is lost word-finally.,,,,,,,,,,,,,,Table 3,
+c2600c66e9f,kulo1237,z,d,elsewhere,regular,,5,blust1999b,333-334,"3 initial, 2 medial; merged unconditionally with *d.",,,,,,,,,,,,,,Table 3,
+c416d760875,kulo1237,z,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,"Shibata enters the word-final reflex as t̪. Blust (1999b: 325-326, 334) assigns word-final postdental [t] from *d, *z, *j and *s to the phoneme d, distinct from interdental t.",,,,,,,,,,,
+cb801a0fe25,kulo1237,d,d,elsewhere,regular,,22,blust1999b,333,"16 initial, 3 medial, 3 final. Word-final d is devoiced to postdental [t] but stays distinct from interdental t (pp. 325-326).",,,,,,,,,,,,,,Table 3,
+c941b8d423f,kulo1237,d,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,"Shibata enters the word-final reflex as t̪. Blust (1999b: 325-326, 334) assigns word-final postdental [t] from *d, *z, *j and *s to the phoneme d, distinct from interdental t.",,,,,,,,,,,
+c2c91e98f20,kulo1237,ɡ,k,elsewhere,regular,,2,blust1999b,333,"The two available etymologies (1 initial, 1 medial): *gemel > me-kemer, *tageRaŋ > takaxang.",,,,,,,,,,,,,,Table 3,
+cb280375823,kulo1237,m,m,elsewhere,regular,,30,blust1999b,333-334,"5 initial, 17 medial, 8 final.",,,,,,,,,,,,,,Table 3,
+ce069d733dd,kulo1237,n,n̪,elsewhere,regular,,19,blust1999b,333-334,"2 initial, 10 medial, 7 final. Printed n.",,,,,,,,,,,,,,Table 3,
+c4177b91142,kulo1237,ŋ,ŋ,elsewhere,regular,,24,blust1999b,333-334,"13 medial, 11 final. Printed ng.",,,,,,,,,,,,,,Table 3,
+cd9b9e36925,kulo1237,j,d͡z,elsewhere,regular,,6,blust1999b,333-334,Medial (6); no initial example. Merged with non-final *s as [dz] (printed z).,,,,,,,,,,,,,,Table 3,
+c6f430a31e9,kulo1237,j,t̪,_#,regular,,,blust1999b,,"Final devoicing; entered as t̪, the only t in the sourced inventory (Blust 1999b).",,shibata2025,69,"Shibata enters the word-final reflex as t̪. Blust (1999b: 325-326, 334) assigns word-final postdental [t] from *d, *z, *j and *s to the phoneme d, distinct from interdental t.",,,,,,,,,,,
+cd338ee295b,kulo1237,N,l̪,elsewhere,regular,,21,blust1999b,333-334,"Not word-final: 4 initial, 17 medial; merged with *ñ as l. Word-finally *N > n (next rows); Table 3 also counts one medial n.",,,,,,,,,,,,,,Table 3,
+cd7bfd5bd56,kulo1237,l,ɾ,elsewhere,regular,,34,blust1999b,333-334,"10 initial, 22 medial, 2 final. Printed r; *l > r preceded *N > l (p. 334).",,,,,,,,,,,,,,Table 3,
+cce90d8e1c9,kulo1237,R,x,elsewhere,regular,,32,blust1999b,"333, 335","8 initial, 21 medial, 3 final. Assimilated to h when h follows in the morpheme (next rows).",,,,,,,,,,,,,,Table 3,
+c839792bb5a,kulo1237,w,w,elsewhere,regular,,17,blust1999b,"333, 335","5 initial, 2 medial, 10 final.",,,,,,,,,,,,,,Table 3,
+cddf9c33538,kulo1237,y,j,elsewhere,regular,,14,blust1999b,"333, 335","2 medial, 12 final. Printed y.",,,,,,,,,,,,,,Table 3,
+cd9c7c340f7,kulo1237,a,a,elsewhere,regular,,,blust1999b,337,Unchanged.,,,,,,,,,,,,,,,
+cf0a94ff0e1,kulo1237,e,ə,elsewhere,regular,,26,blust1999b,335-336,"26 known cases, against 16 of *e > u (p. 336). Printed e.",,,,,,,,,,,,,,,
+c883dc880a1,kulo1237,e,u,next to a labial consonant or a syllable with a rounded vowel,regular,,,blust1999b,,After Blust (1999b).,,shibata2025,68,"Shibata states the condition. Blust (1999b: 335-336) finds that neither a labial nor a rounded vowel nearby is sufficient, and leaves the split unexplained.",,,,,,,,,,,
+c8c57efb133,kulo1237,i,i,elsewhere,regular,,,blust1999b,335,"Unchanged, except that prevocalic *i became y in *i-aku > yaku, *i-ami > yami.",,,,,,,,,,,,,,,
+c4d4717c61e,kulo1237,u,u,elsewhere,regular,,74,blust1999b,336,About 74 known cases; u > e in five (next rows).,,,,,,,,,,,,,,,
 c91a78642bf,tsou1248,p,p,elsewhere,regular,,,tsuchida1976,,,,shibata2025,78,,,,,,,,,,,,
 ce107b1282f,tsou1248,t,t,elsewhere,regular,,,tsuchida1976,,,,shibata2025,78,,,,,,,,,,,,
 c9b4dbf8a2b,tsou1248,C,t͡s,elsewhere,regular,,,tsuchida1976,,,,shibata2025,78,,,,,,,,,,,,
@@ -303,7 +303,7 @@ cad42a22395,saar1237,q,ʔ,elsewhere,loan-stratum,,,shibata2025,86,"ʔ in forms t
 c1e7ec4cc36,saar1237,s,∅,elsewhere,regular,,,shibata2025,84,Apparent s reflexes are treated as borrowings (p. 87).,,,,,,,,,,,,,,,
 c7e6ae1fdeb,saar1237,S,∅,elsewhere,regular,,,shibata2025,84,Apparent s reflexes are treated as borrowings (p. 87).,,,,,,,,,,,,,,,
 cf90d26d693,saar1237,h,∅,elsewhere,regular,,,tsuchida1976,,,,shibata2025,84,,,,,,,,,,,,
-c93a560a82e,saar1237,b,β,elsewhere,regular,,,tsuchida1976,,,,shibata2025,84,,,,,,,,,,,,
+c93a560a82e,saar1237,b,v,elsewhere,regular,,,tsuchida1976,,Printed β; v is the symbol of the sourced inventory (Pan 2012: 22).,,shibata2025,84,,,,,,,,,β,,,saaroa-inventory-pan
 c23dfe73100,saar1237,z,s,elsewhere,regular,,,tsuchida1976,,,,shibata2025,84,,,,,,,,,,,,
 ca9535f5ad2,saar1237,d,s,elsewhere,regular,,,tsuchida1976,,,,shibata2025,84,,,,,,,,,,,,
 c2f25e2621f,saar1237,ɡ,,elsewhere,,not-attested,,shibata2025,97,No reflex listed (Table 3.32).,,,,,,,,,,,,,,,
@@ -352,32 +352,32 @@ c81c8fdfb3b,pruk,a,a,elsewhere,regular,,,li1977,,,,shibata2025,90,,,,,,,,,,,,
 cc467283f31,pruk,e,ə,elsewhere,regular,,,li1977,,,,shibata2025,90,,,,,,,,,,,,
 cc5db646dd5,pruk,i,i,elsewhere,regular,,,li1977,,,,shibata2025,90,,,,,,,,,,,,
 cca8b8c8f70,pruk,u,o,elsewhere,regular,,,li1977,,,,shibata2025,90,,,,,,,,,,,,
-c56232c800b,ppuy,p,p,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cb1384bbe80,ppuy,t,t̪,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-ccd3495697b,ppuy,C,ʈ,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c519bfa28e6,ppuy,k,k,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-ce3e7e95189,ppuy,q,ħ,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c27759c988f,ppuy,s,s,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c22426165b1,ppuy,S,∅,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c7c86236468,ppuy,h,∅,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c1c5525c91d,ppuy,b,b,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cb5eb7c34eb,ppuy,z,d̪,elsewhere,regular,,,yeh2024,,The regular reflex; only word-initially do the voiced coronal obstruents correspond irregularly (ch. 4).,,shibata2025,93,,,,,,,,,,,,
-c29dc6948c4,ppuy,d,ɖ,elsewhere,regular,,,yeh2024,,The regular reflex; only word-initially do the voiced coronal obstruents correspond irregularly (ch. 4).,,shibata2025,93,,,,,,,,,,,,
-ce291fe7d86,ppuy,ɡ,ɡ,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cf13326c54b,ppuy,m,m,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c15962c5647,ppuy,n,n,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cc5065a0bc6,ppuy,ŋ,ŋ,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cacb61f01e7,ppuy,j,d̪,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c47ea0c7082,ppuy,N,l̪,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
+c56232c800b,ppuy,p,p,elsewhere,regular,,,yeh2024,"162-163, 170",Table 4.32; no example of final *p.,,,,,,,,,,,,,,Table 4.44,
+cb1384bbe80,ppuy,t,t̪,elsewhere,regular,,,yeh2024,"162-163, 170","Table 4.32: *tuqəd > *t̪uħəɖ, *Səpat > *pat̪.",,,,,,,,,,,,,,Table 4.44,
+ccd3495697b,ppuy,C,ʈ,elsewhere,regular,,,yeh2024,"162-163, 170","Table 4.32: *Cau > *ʈau, *huRaC > *uraʈ.",,,,,,,,,,,,,,Table 4.44,
+c519bfa28e6,ppuy,k,k,elsewhere,regular,,,yeh2024,"162-163, 170",Table 4.32.,,,,,,,,,,,,,,Table 4.44,
+ce3e7e95189,ppuy,q,ħ,elsewhere,regular,,,yeh2024,"164, 170","Table 4.34: *qayam > *ħajam, *luSəq > *ɭuəħ.",,,,,,,,,,,,,,Table 4.44,
+c27759c988f,ppuy,s,s,elsewhere,regular,,,yeh2024,"164, 170",Table 4.34.,,,,,,,,,,,,,,Table 4.44,
+c22426165b1,ppuy,S,∅,elsewhere,regular,,,yeh2024,168-170,"Table 4.43: lost in all positions (*Sapuy > *apuj, *duSa > *ɖua, *qubiS > *ħubi).",,,,,,,,,,,,,,Table 4.44,
+c7c86236468,ppuy,h,∅,elsewhere,regular,,,yeh2024,168-170,"Table 4.43: lost in all positions (*buhət > *but̪, *dəpah > *d̪əpa).",,,,,,,,,,,,,,Table 4.44,
+c1c5525c91d,ppuy,b,b,elsewhere,regular,,,yeh2024,"163-164, 170",Table 4.33; no example of final *b.,,,,,,,,,,,,,,Table 4.44,
+cb5eb7c34eb,ppuy,z,d̪,elsewhere,regular,,,yeh2024,"163-164, 170","Table 4.33: *zawa > *d̪awa, *quzaN > *ħud̪al̪; *z and *j merged as *d̪ (p. 170). Shibata (2025, ch. 4) adds that only word-initially do the voiced coronal obstruents correspond irregularly.",,,,,,,,,,,,,,Table 4.44,
+c29dc6948c4,ppuy,d,ɖ,elsewhere,regular,,,yeh2024,"163-164, 170","Table 4.33: *daja > *ɖaja, *tuqəd > *tuħəɖ. Shibata (2025, ch. 4) adds that only word-initially do the voiced coronal obstruents correspond irregularly.",,,,,,,,,,,,,,Table 4.44,
+ce291fe7d86,ppuy,ɡ,ɡ,elsewhere,regular,,,yeh2024,"163-164, 170","Table 4.33; no example of final *ɡ, and none is reconstructed.",,,,,,,,,,,,,,Table 4.44,
+cf13326c54b,ppuy,m,m,elsewhere,regular,,,yeh2024,"165, 170",Table 4.35.,,,,,,,,,,,,,,Table 4.44,
+c15962c5647,ppuy,n,n,elsewhere,regular,,,yeh2024,"165, 170",Table 4.35.,,,,,,,,,,,,,,Table 4.44,
+cc5065a0bc6,ppuy,ŋ,ŋ,elsewhere,regular,,,yeh2024,"165, 170",Table 4.35.,,,,,,,,,,,,,,Table 4.44,
+cacb61f01e7,ppuy,j,d̪,elsewhere,regular,,,yeh2024,170,Merged with *z as *d̪ (p. 170).,,,,,,,,,,,,,,Table 4.44,
+c47ea0c7082,ppuy,N,l̪,elsewhere,regular,,,yeh2024,"165-166, 170","Table 4.36: *Nitaq > *l̪itaħ, *aNak > *al̪ak, *quzaN > *ħud̪al̪.",,,,,,,,,,,,,,Table 4.44,
 ca4cf8ba2ae,ppuy,N,n,elsewhere,sporadic,,,tengross2010,410-413,"In some examples, at least partly when ɭ is the onset of the same syllable (Teng & Ross 2010): bulaN > buɭan.",,shibata2025,92,,,,,,,,,,,,
-c6a232332ac,ppuy,l,ɭ,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cadd54ca7e8,ppuy,R,r,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cc0d52cfd8c,ppuy,w,w,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-c65eb126fa6,ppuy,y,j,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cf6d32617b2,ppuy,a,a,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-ca38ba84d10,ppuy,e,ə,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cba2b9464a2,ppuy,i,i,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
-cf0ed420159,ppuy,u,u,elsewhere,regular,,,yeh2024,,,,shibata2025,93,,,,,,,,,,,,
+c6a232332ac,ppuy,l,ɭ,elsewhere,regular,,,yeh2024,"165-166, 170",Table 4.36: initial and medial; no regular word-final reflex.,,,,,,,,,,,,,,Table 4.44,
+cadd54ca7e8,ppuy,R,r,elsewhere,regular,,,yeh2024,"165-166, 170","Table 4.36: *Rubu > *rubu, *ɡaRaŋ > *ɡaraŋ, *SimaR > *imar.",,,,,,,,,,,,,,Table 4.44,
+cc0d52cfd8c,ppuy,w,w,elsewhere,regular,,,yeh2024,"166, 170",Table 4.37.,,,,,,,,,,,,,,Table 4.44,
+c65eb126fa6,ppuy,y,j,elsewhere,regular,,,yeh2024,"166, 170",Table 4.37; no initial example.,,,,,,,,,,,,,,Table 4.44,
+cf6d32617b2,ppuy,a,a,elsewhere,regular,,,yeh2024,"167, 170",Table 4.38.,,,,,,,,,,,,,,Table 4.44,
+ca38ba84d10,ppuy,e,ə,elsewhere,regular,,,yeh2024,"168, 170",Table 4.41: final syllable only (*daRəq > *darəħ).,,,,,,,,,,,,,,Table 4.44,
+cba2b9464a2,ppuy,i,i,elsewhere,regular,,,yeh2024,"167, 170",Table 4.39.,,,,,,,,,,,,,,Table 4.44,
+cf0ed420159,ppuy,u,u,elsewhere,regular,,,yeh2024,"167, 170",Table 4.40.,,,,,,,,,,,,,,Table 4.44,
 c2ee7232f51,ppai,p,p,elsewhere,regular,,,chuang2024,,,,shibata2025,96,,,,,,,,,,,,
 c588c7c98de,ppai,t,c,elsewhere,regular,,,chuang2024,,,,shibata2025,96,,,,,,,,,,,,
 cecd386ced8,ppai,C,t͡s,elsewhere,regular,,,chuang2024,,,,shibata2025,96,Chuang writes this Proto-Paiwan phoneme C; the symbol t͡s is Shibata's (p. 94).,,,,,,,,,,,
@@ -6828,18 +6828,18 @@ cfcd74a6cf1,nanw1237,d̪,d,elsewhere,regular,,,ting1978,325-326,Nanwang alone ke
 c9a7a459196,nanw1237,ɖ,ɖ,elsewhere,regular,,,ting1978,325-326,Nanwang alone keeps the voiced stops.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 cd80560385d,nanw1237,ɡ,ɡ,elsewhere,regular,,,ting1978,325-326,Nanwang alone keeps the voiced stops.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 ca12c523667,nanw1237,ħ,ʔ,elsewhere,regular,,,ting1978,,"Restated against Yeh's Proto-Puyuma *ħ. ruma vs rumah, rumaʁ 'house'.",,teng2008,17,Teng: the Nanwang glottal stop 'systematically corresponds to /h/ or /ʁ/ in cognates in other dialects' (Teng cites Ting 1978 and Li).,,,composed,,,,,,,,
-c49918230c4,katipul,b,v,elsewhere,regular,,,ting1978,325-326,"b > v in Rikavung, Kasavakan and Katipul.",,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
+c49918230c4,katipul,b,v,elsewhere,regular,,,ting1978,325-326,"b > v in Rikavung, Kasavakan and Katipul.",,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,yeh-ting-inventories
 cca9be3e869,katipul,d̪,ð,elsewhere,regular,,,ting1978,325-326,Teng writes d; d̪ is Yeh's Proto-Puyuma symbol.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 cff2a502061,katipul,ɡ,h,elsewhere,regular,,,ting1978,325-326,,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 c548eba1b7e,katipul,ɖ,ʐ,elsewhere,regular,,,ting1978,,Restated against Yeh's Proto-Puyuma.,,lizeitoun2024a,30,"Li & Zeitoun: the other dialects reflect the voiced stops as β~v, ð, ʐ, h. (Teng's symbol for this reflex is lost in the PDF.)",,,composed,,,,,,,,
-c4d08ee1fe5,rikavung,b,v,elsewhere,regular,,,ting1978,325-326,"b > v in Rikavung, Kasavakan and Katipul.",,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
+c4d08ee1fe5,rikavung,b,v,elsewhere,regular,,,ting1978,325-326,"b > v in Rikavung, Kasavakan and Katipul.",,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,yeh-ting-inventories
 cf2e6a49fa9,rikavung,d̪,ð,elsewhere,regular,,,ting1978,325-326,Teng writes d; d̪ is Yeh's Proto-Puyuma symbol.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 ce03fbe7a09,rikavung,ɡ,h,elsewhere,regular,,,ting1978,325-326,,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 c3506b52354,rikavung,ɖ,ʐ,elsewhere,regular,,,ting1978,,Restated against Yeh's Proto-Puyuma.,,lizeitoun2024a,30,"Li & Zeitoun: the other dialects reflect the voiced stops as β~v, ð, ʐ, h. (Teng's symbol for this reflex is lost in the PDF.)",,,composed,,,,,,,,
-ca794e2aa77,kasavakan,b,v,elsewhere,regular,,,ting1978,325-326,"b > v in Rikavung, Kasavakan and Katipul.",,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
+ca794e2aa77,kasavakan,b,v,elsewhere,regular,,,ting1978,325-326,"b > v in Rikavung, Kasavakan and Katipul.",,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,yeh-ting-inventories
 cc9bad6210f,kasavakan,d̪,ð,elsewhere,regular,,,ting1978,325-326,Teng writes d; d̪ is Yeh's Proto-Puyuma symbol.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 ca11d05800b,kasavakan,ɡ,h,elsewhere,regular,,,ting1978,325-326,,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
-c7f5d0e5a7a,kasavakan,ɖ,ʐ,elsewhere,regular,,,ting1978,,Restated against Yeh's Proto-Puyuma.,,lizeitoun2024a,30,"Li & Zeitoun: the other dialects reflect the voiced stops as β~v, ð, ʐ, h. (Teng's symbol for this reflex is lost in the PDF.)",,,composed,,,,,,,,
+c7f5d0e5a7a,kasavakan,ɖ,ʐ,elsewhere,regular,,,ting1978,,Restated against Yeh's Proto-Puyuma.,,lizeitoun2024a,30,"Li & Zeitoun: the other dialects reflect the voiced stops as β~v, ð, ʐ, h. (Teng's symbol for this reflex is lost in the PDF.)",,,composed,,,,,,,,yeh-ting-inventories
 c934e0095a7,pinaski,b,β,elsewhere,regular,,,ting1978,325-326,b > β in Pinaski and Ulivelivek.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 cd7e4768e8b,pinaski,d̪,ð,elsewhere,regular,,,ting1978,325-326,Teng writes d; d̪ is Yeh's Proto-Puyuma symbol.,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
 c90d3cfd1d3,pinaski,ɡ,h,elsewhere,regular,,,ting1978,325-326,,,teng2008,"5, 12",Ting's statement relayed by Teng; restated against Yeh's (2024) Proto-Puyuma.,,,composed,,,,,,,,
@@ -6906,3 +6906,191 @@ ceac3d7799a,suli1239,w,w,elsewhere,regular,,,goderich2020,116,Unchanged elsewher
 cb33678f79d,suli1239,j,j,elsewhere,regular,,,goderich2020,116,Unchanged elsewhere: the source states the conditioned change(s) in full.,,,,,,,stated-retention,,,,,,,,
 c669b4b4878,matu1265,ʔ,ʔ,elsewhere,regular,,,goderich2020,116,Unchanged elsewhere: the source states the conditioned change(s) in full.,,,,,,,stated-retention,,,,,,,,
 ca34ef7338a,matu1265,ɡ,ɡ,elsewhere,regular,,,goderich2020,116,Unchanged elsewhere: the source states the conditioned change(s) in full.,,,,,,,stated-retention,,,,,,,,
+cdf72f77d70,kulo1237,q,k,_#,sporadic,,1,blust1999b,333,"Only *Rumaq > xumak, beside regular xuma.",,,,,,,,,,,,,,Table 3,
+ce9df7bc260,kulo1237,d,k,#_,disputed,,1,blust1999b,333-334,"Only karum ‘in, inside’ < *dalem, which Blust finds problematic.",,,,,,,,,,,,,,Table 3,
+ceadb1642d8,kulo1237,s,d,_#,regular,,8,blust1999b,333-334,Merged with final *j and *d (p. 334); in some reflexes -d still varies with -s.,,,,,,,,,,,,,,Table 3,
+ceb4a818991,kulo1237,s,s,_#,sporadic,,1,blust1999b,333-334,"Free variation of -d with -s, as in pu-singad ~ pu-singas.",,,,,,,,,,,,,,Table 3,
+c0890ba7305,kulo1237,j,d,_#,regular,,3,blust1999b,333-334,"*baRuj > baxud, *palij > pa-palid, *Cebuj > subud.",,,,,,,,,,,,,,Table 3,
+c6fa68d9d13,kulo1237,N,n̪,_#,regular,,4,blust1999b,333-334,Merged with *n word-finally; Blust takes *N > l and then final *l > n as two ordered changes (pp. 334-335).,,,,,,,,,,,,,,Table 3,
+c150facc7c6,kulo1237,S,ħ,conditions unknown,regular,,8,blust1999b,333,"6 initial, 1 medial, 1 final: *Sapuy > hapuy, *kaSiw > kahuy, *CumeS > sumah. Printed h.",,,,,unknown,,,,,,,,,Table 3,
+ce69d28d74b,kulo1237,S,∅,conditions unknown,sporadic,,1,blust1999b,333,"Only *ma-SeReC > ma-xes, presumably through *S > h > ∅.",,,,,unknown,,,,,,,,,Table 3,
+c0bff2928a8,kulo1237,R,ħ,h elsewhere in the morpheme,regular,,3,blust1999b,"333, 335","x assimilated to h: *baRah > bahah, *huRaC > huhas, *SuReNa > hahela; not across a morpheme boundary. Printed h.",,,,,,,,,,,,,,Table 3,
+c3b206f9ef0,kulo1237,w,∅,#_,sporadic,,2,blust1999b,"333, 335","*wanaN > anan, *wiRi > ixi, presumably through a now-obscured morphological process.",,,,,,,,,,,,,,Table 3,
+c082dba678e,kulo1237,e,u,conditions unknown,regular,,16,blust1999b,335-336,"16 known cases. Blust suggests a change diffusing through the lexicon, favouring a neighbouring labial or a rounded vowel in the next syllable, but neither condition is sufficient.",,,,,unknown,,,,,,,,,,
+c4df02b1f09,kulo1237,e,a,before h,sporadic,,1,blust1999b,336,"*CumeS > sumah, almost certainly conditioned by the following h.",,,,,,,,,,,,,,,
+c174c5ebef4,kulo1237,e,a,conditions unknown,sporadic,,1,blust1999b,336,"*tageRaŋ > takaxang, explained as assimilation.",,,,,unknown,,,,,,,,,,
+c83a05a5cd6,kulo1237,e,i,conditions unknown,sporadic,,1,blust1999b,336,"*keRiw > kixiw, explained as assimilation.",,,,,unknown,,,,,,,,,,
+c3532ae6a88,kulo1237,e,∅,"V_ or _V, in a trisyllable",regular,,3,blust1999b,336,"Absorbed into the adjacent vowel: *bituqen > bintun, *kaen-en > kan-en, *ma-SeReC > maxes.",,,,,,,,,,,,,,,
+c7eb46b472d,kulo1237,u,ə,conditions unknown,sporadic,,5,blust1999b,336,"Five known cases (*bukeS > bekes, *zaRum > daxem, *luSeq > rese), explained as reformations modelled on the e ~ u variation from *e. Printed e.",,,,,unknown,,,,,,,,,,
+c2936e8dd5d,kulo1237,u,a,conditions unknown,sporadic,,1,blust1999b,337,Only *SuReNa > hahela.,,,,,unknown,,,,,,,,,,
+c531968ef06,kulo1237,ñ,l̪,not word-final,regular,,1,blust1999b,333-334,One medial example (*tañam > talam); merged with non-final *N as l.,Blust,,,,,,,,,,,,,Table 3,
+cbf87d8c6c3,kulo1237,r,ɾ,elsewhere,regular,,3,blust1999b,333-334,"Only three reflexes (2 medial, 1 final); merged with *l, not *R (p. 334). Printed r.",Blust,,,,,,,,,,,,,Table 3,
+cd34fa238c6,thao1240,C,ɬ̪,l later in the word,regular,,4,blust2003,76,"*Cali > lhari, *Caliŋa > lharina, *Cemel > lhmir, *Culi > lhuri. The only exception, *qaCeluR > qaricuy ‘egg’, is problematic.",,,,,,,,,,,,,,,
+c6636984d08,thao1240,S,∅,conditions unknown,regular,,,blust2003,78,"*Sapuy > apuy, *kaSiw > kawi; about a quarter as frequent as *S > sh, and some morphemes alternate (pat ‘four’, ma-shpat-iz ‘40’).",,,,,unknown,,,,,,,,,,
+cf28b1b21a3,thao1240,ɡ,,elsewhere,,not-attested,,blust2003,76,Thao has no clear reflex of PAN *g.,,,,,,,,,,,,,,,
+c3468a5a8a8,thao1240,e,∅,penultimate syllable,regular,,,blust2003,74,"Deleted in disyllables (*beCiq > fciq, *qeCa > qca) and trisyllables (*qajepu > qazpu).",,,,,,,,,,,,,,,
+c1c99b18a0f,thao1240,e,u,"penultimate syllable, before u",sporadic,,3,blust2003,73-74,"*tebuS > tufush, *telu > turu, *qaSelu > qashuru; at least eight forms meet the condition without assimilating.",,,,,,,,,,,,,,,
+cb5368a691e,thao1240,e,a,_q,regular,,,blust2003,75,*luSeq > rushaq.,,,,,,,,,,,,,,,
+c7b8d3e3d40,thao1240,e,∅,next to another vowel,regular,,,blust2003,75,"*kaen > kan, *ma-etaq > mataq.",,,,,,,,,,,,,,,
+cc9f747bb3e,thao1240,i,∅,antepenultimate syllable,sporadic,,3,blust2003,74,"Prepenultimate *i lost in *Ribawa > lhfawa, *paliSi-an > parshian, *timaNa > tmaza; kept in other forms, without a known condition.",,,,,,,,,,,,,,,
+c6e2ba8ea72,thao1240,a,∅,antepenultimate syllable,sporadic,,3,blust2003,74,"Prepenultimate *a lost in *qaCipa > qcipa, *qaNuaq > qnuan (probably a loan), *qasiRah > qtilha.",,,,,,,,,,,,,,,
+c6b3670c5a8,thao1240,d,ɬ̪,by sibilant assimilation to lh in the word,sporadic,,2,blust2003,79,"*daRa > lhalha, *diRi > lhilhi. Invariant; dissimilar sibilants are avoided in a morpheme (pp. 79-80).",,,,,,,,,,,,,,,
+c0fcf6bbb21,thao1240,z,ɬ̪,by sibilant assimilation to lh in the word,sporadic,,1,blust2003,79,*zaRum > lhalhum.,,,,,,,,,,,,,,,
+c0af17e03f9,thao1240,S,s̪,by sibilant assimilation to s in the word,sporadic,,1,blust2003,79,*Sidi > sisi.,,,,,,,,,,,,,,,
+c6fd63bbb99,thao1240,C,s̪,by sibilant assimilation to s in the word,sporadic,,1,blust2003,79,*Cukud > sukus.,,,,,,,,,,,,,,,
+cf1a3498378,thao1240,d,ʃ,by sibilant assimilation to sh in the word,sporadic,,2,blust2003,79,"*dakeS > shakish, *daqiS > shaqish.",,,,,,,,,,,,,,,
+c3e95c8e837,thao1240,C,ʃ,by sibilant assimilation to sh in the word,sporadic,,2,blust2003,79,"*CaqiS > shaqish, *CekeS > shkish.",,,,,,,,,,,,,,,
+cc68de47b47,thao1240,ñ,ð,elsewhere,regular,,,blust2003,77,"*hamham > zamzam, *tañam > tazam; merged with *N and *j as z.",Blust,,,,,,,,,,,,,,
+cfa67d98b90,thao1240,r,ɾ̪,elsewhere,regular,,,blust2003,79,"*riSriS > rishrish, *tirtir > shin-tirtir; merged with *l.",Blust,,,,,,,,,,,,,,
+c813cb83d9d,ppuy,l,n,R later in the word,regular,,3,yeh2024,170-171,"Proto-Puyuma allows no two liquids in a word; one became n and the other assimilated: *SulaR > *unan, *lawaR > *nawan, *liqəR > *niħən.",,,,,,,,,,,,,,Table 4.46,
+c61937efa53,ppuy,R,n,l earlier in the word,regular,,3,yeh2024,170-171,"See the *l row: *SulaR > *unan, *lawaR > *nawan, *liqəR > *niħən.",,,,,,,,,,,,,,Table 4.46,
+cbe9ac460b3,nanw1237,p,p,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ceb11d978e3,tamalrakaw,p,p,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+caf07394b92,rikavung,p,p,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cc14b24409b,katipul,p,p,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c4adfee92c4,kasavakan,p,p,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c5a4263132a,nanw1237,t̪,t,elsewhere,regular,,,yeh2024,154,Yeh writes dental t̪; t is the symbol of the sourced inventory (Teng 2008).,,,,,,,,,,,,t̪,,Table 4.26,yeh-puyuma-tree
+cf74c23b9cb,tamalrakaw,t̪,t̪,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cafa5a058d4,rikavung,t̪,t̪,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c4e1bb6efa6,katipul,t̪,t̪,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cc638b45012,kasavakan,t̪,t̪,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c3838a01a6c,nanw1237,ʈ,ʈ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+caa73976d56,tamalrakaw,ʈ,ʈ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cc5d2f0e397,rikavung,ʈ,ʈ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c6314d308dc,katipul,ʈ,ʈ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c390038eec5,kasavakan,ʈ,ʈ,elsewhere,regular,,,yeh2024,154,In free variation with a dental affricate [ʦ] among elder speakers (p. 31).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c6457d2f74d,nanw1237,k,k,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ca90a450f93,tamalrakaw,k,k,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c327711347a,rikavung,k,k,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c58ac906ca5,katipul,k,k,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c7eb0318978,kasavakan,k,k,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce63ba1b88e,nanw1237,b,b,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ceb898e8735,tamalrakaw,b,β,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157. Younger speakers vary with [v]; word-finally [ɸ] (p. 29).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cb0c26250de,rikavung,b,β,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157. Likavung speaker B always has [v] (p. 29).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c87494630ef,katipul,b,f,elsewhere,regular,,,yeh2024,154,"Table 4.30, p. 158: *b > **β > **v > f; [ɸ] before u. Ting (1978) and later work write v (p. 160).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c5cf0b6f8aa,kasavakan,b,ɸ,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159: *b > **β > **v > **f > ɸ.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cb82ed1929e,nanw1237,d̪,d,elsewhere,regular,,,yeh2024,154,Yeh writes dental d̪; d is the symbol of the sourced inventory (Teng 2008).,,,,,,,,,,,,d̪,,Table 4.26,yeh-puyuma-tree
+c07f42541cd,tamalrakaw,d̪,ð,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c3b8cc9df2a,rikavung,d̪,ð,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c279bd88a18,katipul,d̪,ð,elsewhere,regular,,,yeh2024,154,"Table 4.30, p. 158.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c3c6563d474,kasavakan,d̪,ð,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c9bf49460be,nanw1237,ɖ,ɖ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cd84b92534e,tamalrakaw,ɖ,ʐ,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c20771776ce,rikavung,ɖ,ʐ,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ca5c55c63f0,katipul,ɖ,ð,elsewhere,regular,,,yeh2024,154,"Table 4.30, p. 158: merged with *d̪ as ð for most words; ʐ survives in some words (next row).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c119fac9f1c,kasavakan,ɖ,ð,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159: merged with *d̪; [ʐ] only in ʐiaran ‘pine tree’ (p. 32).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c0faf89506c,nanw1237,ɡ,ɡ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c068ba009e6,tamalrakaw,ɡ,h,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c5bc8310859,rikavung,ɡ,h,elsewhere,regular,,,yeh2024,154,"Table 4.29, p. 157.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cb02d6601d7,katipul,ɡ,h,elsewhere,regular,,,yeh2024,154,"Table 4.30, p. 158.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce4261b0410,kasavakan,ɡ,h,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159.",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c89b815894b,nanw1237,s,s,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c6ff82242e3,tamalrakaw,s,s̪,elsewhere,regular,,,yeh2024,154,"Dental in Tamalrakaw (EMA, p. 29).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c70a9ca6375,rikavung,s,s,elsewhere,regular,,,yeh2024,154,Yeh treats s as alveolar in Likavung until it is measured (p. 29).,,,,,,,,,,,,s̪,,Table 4.26,yeh-puyuma-tree
+cef2e741d14,katipul,s,s,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cb8f402a88c,kasavakan,s,s̪,elsewhere,regular,,,yeh2024,154,Dental (p. 31).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c469aef0a53,nanw1237,ħ,ʔ,elsewhere,regular,,,yeh2024,154,"Table 4.28, p. 156: Nanwang’s only change (*ħayam > ʔajam); the glottal stop is now being lost (pp. 26-29).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c47923db335,tamalrakaw,ħ,ħ,elsewhere,regular,,,yeh2024,154,Sometimes an epiglottal stop [ʡ] (p. 29).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cff5cc1ba7d,rikavung,ħ,ħ,elsewhere,regular,,,yeh2024,154,Sometimes an epiglottal stop [ʡ] (p. 161).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c76c0728cca,katipul,ħ,ʡ,elsewhere,regular,,,yeh2024,154,"An epiglottal stop, [ħ] word-finally (p. 161); independent of the Kasavakan change (p. 162).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cdf691d6084,kasavakan,ħ,ʡ,elsewhere,regular,,,yeh2024,154,"An epiglottal stop, [ħ] word-finally (p. 161).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c1dac52c4fc,nanw1237,m,m,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ca767e2e96b,tamalrakaw,m,m,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cad16f10af5,rikavung,m,m,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c7cf435c852,katipul,m,m,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cc2ca6e7b07,kasavakan,m,m,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c873429b3d9,nanw1237,n,n,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c9e873ea4b5,tamalrakaw,n,n̪,elsewhere,regular,,,yeh2024,154,"Dental in Tamalrakaw (EMA, p. 29).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c8e2618fa82,rikavung,n,n,elsewhere,regular,,,yeh2024,154,Yeh treats n as alveolar in Likavung until it is measured (p. 29).,,,,,,,,,,,,n̪,,Table 4.26,yeh-puyuma-tree
+c1659731faf,katipul,n,n,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c3bc1a62a67,kasavakan,n,n̪,elsewhere,regular,,,yeh2024,154,Dental (p. 31).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cd810caa1f9,nanw1237,ŋ,ŋ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c176fefe3b4,tamalrakaw,ŋ,ŋ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c881a8130aa,rikavung,ŋ,ŋ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c95ded5f8b5,katipul,ŋ,ŋ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cb0ad54d4c1,kasavakan,ŋ,ŋ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c89b3809581,nanw1237,r,r,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cac00cbe4d4,tamalrakaw,r,r,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c1fa4153f4b,rikavung,r,r,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c518667c3dc,katipul,r,r,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ccea7f0c3ba,kasavakan,r,ɭ,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159: *r and *ɭ merged as ɭ, in free variation with [r].",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c500756f465,nanw1237,l̪,l,elsewhere,regular,,,yeh2024,154,"Yeh writes dental l̪, with some frication for some speakers (p. 26); l is the symbol of the sourced inventory (Teng 2008).",,,,,,,,,,,,l̪,,Table 4.26,yeh-puyuma-tree
+c5de7e84114,tamalrakaw,l̪,l,elsewhere,regular,,,yeh2024,154,Without frication (p. 29).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c2875ff76b3,rikavung,l̪,l,elsewhere,regular,,,yeh2024,154,Without frication (p. 29).,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce97e99d71d,katipul,l̪,l̪,elsewhere,regular,,,yeh2024,154,"Table 4.30, p. 158: with stronger frication, [ɬ] word-finally (p. 30).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c55c7a24761,kasavakan,l̪,ɮ̪,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159: a dental lateral fricative, voiceless [ɬ] word-finally (p. 31).",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce248bc33be,nanw1237,ɭ,ɭ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ca2dbd3b05b,tamalrakaw,ɭ,ɭ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+caca160c680,rikavung,ɭ,ɭ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c3bec029ebc,katipul,ɭ,ɭ,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce808cdfe46,kasavakan,ɭ,ɭ,elsewhere,regular,,,yeh2024,154,"Table 4.31, p. 159: *r and *ɭ merged as ɭ, in free variation with [r].",,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ca7903de9bd,nanw1237,j,j,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c24bb3e3644,tamalrakaw,j,j,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ccb0ace1994,rikavung,j,j,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c25039ce2b4,katipul,j,j,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c60fec41387,kasavakan,j,j,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c71e902b2a5,nanw1237,w,w,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce976e73f0b,tamalrakaw,w,w,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cfb735e4d42,rikavung,w,w,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c633e1226a2,katipul,w,w,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cbf5f321216,kasavakan,w,w,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c169d5658d5,nanw1237,a,a,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c25d628141d,tamalrakaw,a,a,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c972cef77ea,rikavung,a,a,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c3f6857111c,katipul,a,a,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cf549e5f3dd,kasavakan,a,a,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ce11ce142e6,nanw1237,i,i,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cec2ef5eea0,tamalrakaw,i,i,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c616049dd5e,rikavung,i,i,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cff9ccee45f,katipul,i,i,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c5259d655dc,kasavakan,i,i,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c6a79fffda5,nanw1237,u,u,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+ca76a5a22f5,tamalrakaw,u,u,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cac87caee24,rikavung,u,u,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c59edfcb6d6,katipul,u,u,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c86a96d6dfb,kasavakan,u,u,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c149fcad393,nanw1237,ə,ə,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c835e877ad7,tamalrakaw,ə,ə,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+cd37d6eb2aa,rikavung,ə,ə,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c47f9e0ba57,katipul,ə,ə,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c18bd324ca7,kasavakan,ə,ə,elsewhere,regular,,,yeh2024,154,Table 4.26.,,,,,,,,,,,,,,Table 4.26,yeh-puyuma-tree
+c59608c51b1,katipul,ɖ,ʐ,conditions unknown,sporadic,,,yeh2024,"30-31, 161",Ongoing merger of ð and ʐ; two of three speakers keep ʐ in more words (Table 2.7). Ting (1978) still distinguished them.,,,,,lexical,,,,,"some words, more of them for some speakers",,,,,yeh-ting-inventories
+c918f720877,mayr1237,t͡s,t,_i,regular,,,lu2004,,"Lu (2004, via Lu 2005: 20, n. 24): c dissimilated to t before i and y, so Mayrinax t answers Squliq c in t-um-uti ‘knock’, bwati ‘moon’, timu ‘salt’ ((39), p. 19).",,lu2005,19-20,,,,,,,,,,,,lu-mayrinax-c
+cfba947cb08,mayr1237,t͡s,t,_j,regular,,,lu2004,,"As the row before: before y (bwati ‘moon’, Squliq bjaci).",,lu2005,19-20,,,,,,,,,,,,lu-mayrinax-c
+c667c678f76,mayr1237,t͡s,t͡s,elsewhere,regular,,,goderich2020,116,Unchanged elsewhere: Goderich lists no change of *c in Matu’uwal. Entered by hand because Lu’s conditioned rows would otherwise stop the generated retention.,,,,,,,stated-retention,,,,,,,,lu-mayrinax-c
+c59b91cbc4e,mant1271,b,v,elsewhere,regular,,,zeitoun2005a,17,Spirantization: *bələbələ > vələvələ ‘banana’.,,,,,,,,,,,,,,,
+cf5660883ec,mant1271,d̪,ð,elsewhere,regular,,,zeitoun2005a,17,"Spirantization: *dapalə > ðapalə ‘foot, leg’. Zeitoun writes PR *d.",,,,,,,,,,,,,,,
+c7e54c794a5,mant1271,ɖ,ð,elsewhere,regular,,,zeitoun2005a,17,Spirantization: *ɖakəralə > ðakəralə ‘river’.,,,,,,,,,,,,,,,
+cf34868653a,mant1271,ɡ,h,elsewhere,regular,,,zeitoun2005a,17,Spirantization: *gəməgəmə > həməhəmə ‘hold in hand’.,,,,,,,,,,,,,,,
+ce94ce5a976,mant1271,v,∅,elsewhere,regular,,,zeitoun2005a,17,"*valo > alo ‘bee’, *ɭava > ɭaa ‘flying squirrel’.",,,,,,,,,,,,,,,
+cf691297311,mant1271,θ,s,elsewhere,regular,,,zeitoun2005a,17,*θiabə > siavə ‘chop’.,,,,,,,,,,,,,,,
+c96b28123fa,mant1271,s,ʔ,elsewhere,regular,,,zeitoun2005a,17,*sipi > ʔipi ‘dream’; merged with *ʔ (*kaʔaŋə ‘fish’).,,,,,,,,,,,,,,,
+c5d923a5a99,mant1271,k,ʔ,elsewhere,sporadic,,,zeitoun2005a,18,"Ill-understood; only in a few affixes and loans: *ki- > ʔi-, *ka- > ʔa ‘Topic’, but *ka > ka ‘ligature’.",,,,,,,,,,a few affixes and loans,,,,,
+c319d494d3d,mant1271,j,ɭ,not word-final,regular,,,zeitoun2005a,18,"*ɖaya > ðaɭa ‘up’, *ayamə > aaɭamə ‘bird’. Li (1977: 585) has PR *ð, not *y, merging with *ɭ in Mantauran (n. 13).",,,,,,,,,,,,,,,
+cddc9bccebe,mant1271,o,o,_+a,regular,,,zeitoun2005a,18,"PR *oa > o: *oakanə > okanə ‘eat’, *koanə > konə.",,,,,,,,,,,,,,,
+c86b342f9a1,mant1271,a,o,o+_,regular,,,zeitoun2005a,18,PR *oa > o (see the *o row).,,,,,,,,,,,,,,,
+c69f9f4c933,mant1271,n,∅,a_ə,regular,,,zeitoun2005a,18-19,"*saloaŋanə > ʔaloŋaə ‘deer’, *akananə > akanaə ‘food’; the suffix -anə survives in some forms.",,,,,,,,,,,,,,,
+cb0bcc52557,buda1252,j,ð,elsewhere,regular,,,zeitoun2005a,18,"Zeitoun takes PAN *y as retained in PR *y, which became Budai (Tanan and Labuan) ð, Mantauran ɭ and Maga r (n. 13).",,,,,,,,,,,,,,,
+c91b2497a54,tana1287,j,ð,elsewhere,regular,,,zeitoun2005a,18,"Zeitoun takes PAN *y as retained in PR *y, which became Budai (Tanan and Labuan) ð, Mantauran ɭ and Maga r (n. 13).",,,,,,,,,,,,,,,
+ceea679ab33,labu1252,j,ð,elsewhere,regular,,,zeitoun2005a,18,"Zeitoun takes PAN *y as retained in PR *y, which became Budai (Tanan and Labuan) ð, Mantauran ɭ and Maga r (n. 13).",,,,,,,,,,,,,,,
+c6723054c6f,maga1265,j,r,elsewhere,regular,,,zeitoun2005a,18,"Zeitoun takes PAN *y as retained in PR *y, which became Budai (Tanan and Labuan) ð, Mantauran ɭ and Maga r (n. 13).",,,,,,,,,,,,,,,
+c65d7809a64,maga1265,a,e,_+j,regular,,4,li1977,,"PR *ay > Maga e (long ee in the examples): *cumay > cmee ‘bear’, *iday > idee ‘hundred’ ((58)). Hsin derives the mid vowels synchronically as well (pp. 80-89).",,hsin2000,76,,,,,,,,,,,,maga-li-vowels
+ca5035afd7a,maga1265,j,e,a+_,regular,,4,li1977,,PR *ay > e (see the *a row). Hsin derives the mid vowels synchronically as well (pp. 80-89).,,hsin2000,76,,,,,,,,,,,,maga-li-vowels
+cd782a143ec,maga1265,a,e,_+i,regular,,2,li1977,,"PR *ai > e: *-baisi > o-be ‘hungry’, *taisi > tesi ‘rope’ ((59)). Hsin derives the mid vowels synchronically as well (pp. 80-89).",,hsin2000,76,,,,,,,,,,,,maga-li-vowels
+cbfb6bcdea9,maga1265,i,e,a+_,regular,,2,li1977,,PR *ai > e (see the *a row). Hsin derives the mid vowels synchronically as well (pp. 80-89).,,hsin2000,76,,,,,,,,,,,,maga-li-vowels
+cab286167be,maga1265,a,o,_+w,regular,,3,li1977,,"PR *aw > o: *madaw > madoo ‘big, many’, *sinaw > -sinoo ‘wash’ ((61)). Hsin derives the mid vowels synchronically as well (pp. 80-89).",,hsin2000,77,,,,,,,,,,,,maga-li-vowels
+ce20a6ff8bd,maga1265,w,o,a+_,regular,,3,li1977,,PR *aw > o (see the *a row). Hsin derives the mid vowels synchronically as well (pp. 80-89).,,hsin2000,77,,,,,,,,,,,,maga-li-vowels
+cc6af371fc0,maga1265,a,o,_+o,regular,,2,li1977,,"PR *au > o: *auɭu > oɭu ‘head’, *lauŋu > loŋu ‘horn’ ((62)). Hsin writes Li’s *o as *u. Hsin derives the mid vowels synchronically as well (pp. 80-89).",,hsin2000,78,,,,,,,,,,,,maga-li-vowels
+c47db6b54bc,maga1265,o,o,a+_,regular,,2,li1977,,PR *au > o (see the *a row). Hsin writes Li’s *o as *u. Hsin derives the mid vowels synchronically as well (pp. 80-89).,,hsin2000,78,,,,,,,,,,,,maga-li-vowels
+c209f74cc1b,maga1265,i,e,"aC_, when the preceding *a is lost",regular,,4,li1977,,"*damili > dmele ‘hemp’, *valisi > vlese ‘tooth’, *caki > ckee ‘excrement’ ((60)). Hsin derives the mid vowels synchronically as well (pp. 80-89).",,hsin2000,77,,,,,,,,,,,,maga-li-vowels
+c978c2efc23,maga1265,o,o,"aC_, when the preceding *a is lost",regular,,3,li1977,,"*valu > vloo ‘bee’, *taluɖu > tloɖo ‘bridge’, *paluŋu > ploŋo ‘pan’ ((63)); Maga o is a mid vowel. Hsin writes Li’s *o as *u. Hsin derives the mid vowels synchronically as well (pp. 80-89).",,hsin2000,78,,,,,,,,,,,,maga-li-vowels
+c1165d13026,maga1265,ə,ɨ,elsewhere,regular,,,li1977,,Hsin follows Li in taking Maga ɨ as the reflex of PR *ə: *bələbələ > blɨblɨ ‘banana’ ((75)).,,hsin2000,89-90,,,,,,,,,,,,maga-li-vowels
+c39e730071d,maga1265,ə,ə,"aC_, when the preceding *a is lost",regular,,3,hsin2000,90-91,"Hsin’s proposal: Maga ə arises from ɨ by the same coalescence when an *a is lost in the preceding syllable: *baləbalə > bləblə ‘bamboo’, *kacəkacə > kcəkcə ‘bark’ ((76)).",,,,,,,,,,,,,,,maga-li-vowels
+c4ee0223e08,buda1252,v,∅,elsewhere,regular,,,chen2006,313,One of the three major sound changes Chen lists for Budai; no examples there.,,,,,,,,,,,,,,Table 7.4,
+cf53b6d415b,buda1252,ʔ,∅,elsewhere,regular,,,chen2006,313,One of the three major sound changes Chen lists for Budai; no examples there.,,,,,,,,,,,,,,Table 7.4,
+cca0d4c1c4a,paiwan-north,c,t,elsewhere,regular,,,chen2006,"49, 131-132, 313",Table 2.4: *c > t (tula : cuʎa ‘eel’); Central Paiwan also varies c ~ t (p. 132). Chen states the changes with Ho’s Proto-Paiwan symbols.,,,,,,,,,,,,,,,chen-paiwan-dialects
+cb9dd80463c,paiwan-north,ɟ,d,elsewhere,regular,,,chen2006,"49, 132, 313",Table 2.4: *ɟ > d (damuʔ : ɟamuq ‘blood’). Chen states the changes with Ho’s Proto-Paiwan symbols.,,,,,,,,,,,,,,,chen-paiwan-dialects
+c74502a5acf,paiwan-north,q,ʔ,elsewhere,regular,,,chen2006,"47, 49, 134, 313",Table 2.4: *q > ʔ (isiʔ : isiq ‘urine’); the glottal stop is often lost word-initially and word-finally (p. 134). Chen states the changes with Ho’s Proto-Paiwan symbols.,,,,,,,,,,,,,,,chen-paiwan-dialects
+cea2d209e90,paiwan-north,ʎ,l,elsewhere,regular,,,chen2006,"49, 133, 313",Table 2.4: *ʎ > l (ləɭət : ʎəɭət ‘lip’); some older speakers keep [ʎ] (p. 133). Chen states the changes with Ho’s Proto-Paiwan symbols.,,,,,,,,,,,,,,,chen-paiwan-dialects
+c4d146e77a6,paiwan-central,w,v,_#,regular,,,chen2006,"139, 313",Table 7.4: word-finally only. Chen states the changes with Ho’s Proto-Paiwan symbols.,,,,,,,,,,,,,,,chen-paiwan-dialects
+c26fa0160b2,paiwan-south,k,ʔ,elsewhere,sporadic,,,chen2006,"49, 135-136, 313","Table 2.4: *k > ʔ (ʔivaŋvaŋ : kivaŋvaŋ ‘to play’); free variation k ~ ʔ, not a phonemic change (p. 136). Chen states the changes with Ho’s Proto-Paiwan symbols.",,,,,,,,,,,,,,,chen-paiwan-dialects

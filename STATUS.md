@@ -8,28 +8,28 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 116 |  |
-| lects | 745 | 154 dialect, 30 earlier-stage, 350 language, 211 proto-language |
-| phonemes | 1600 |  |
-| correspondences | 6900 | plus 6471 implied and 1756 stated retentions generated from lects.inherit |
+| sources | 125 |  |
+| lects | 752 | 161 dialect, 30 earlier-stage, 350 language, 211 proto-language |
+| phonemes | 1857 |  |
+| correspondences | 7088 | plus 6471 implied and 1755 stated retentions generated from lects.inherit |
 | notation_map | 457 |  |
-| decisions | 87 | 10 confirmed, 74 open, 3 reverted |
+| decisions | 96 | 10 confirmed, 83 open, 3 reverted |
 
-Lects by `inherit`: (blank) 283, assumed-unchanged 330, stated-unchanged 132.
-Inventories: edited 24, empty 153, reverse-generated 502, sourced 66.
+Lects by `inherit`: (blank) 290, assumed-unchanged 330, stated-unchanged 132.
+Inventories: edited 24, empty 153, reverse-generated 499, sourced 76.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 178 warning(s), 722 note(s).
+`build.py --check`: 0 error(s), 185 warning(s), 750 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 67 |
+| no glottocode | 71 |
 | a work cited in notes has no sources row | 66 |
 | a source is never cited | 30 |
 | an attested lect has symbols that are not IPA | 8 |
+| a reflex is not in the lect's sourced inventory | 6 |
 | repeats the fusion row at … | 4 |
-| a reflex is not in the lect's sourced inventory | 3 |
 
 ## Open decisions
 
@@ -111,6 +111,15 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `atayal-nodes` | Goderich's subgroup nodes (Proto-Northern, Proto-Nuclear Northern, Proto-Southern, Proto-Nuclear Southern and Proto-Southwestern Atayal; ch. 6): where do the d… | Each change is entered at the node to which ch. 6 assigns it (Tables 6.1-6.15), and only the rest on the dialects. Exception: the affrication of *t, which ch. … |  |
 | `siraya-ipa` | Adelaar's Gospel (G) and Utrecht Manuscript (UM) symbols x, D, v, e, o, ʔ and the uncertain c, nḡ, z: how are they entered? | x as ʝ, the voiced palatal fricative of Adelaar (2014: 4 n. 2), not the velar of Adelaar (2011: 52); D kept as D (a root-initial phoneme realised d or r, with … |  |
 | `puyuma-ting` | Ting's (1978) Puyuma tree (via Teng 2008: 5): Nanwang against a subgroup of the other five, which further divides into Pinaski-Ulivelivek, Rikavung and Kasavak… | No: Ting's statements are entered on each dialect under Yeh's Proto-Puyuma (ppuy), marked composed. The five non-Nanwang varieties have no glottocodes (Glottol… |  |
+| `yeh-puyuma-tree` | Should Yeh’s Puyuma subgroups (fig. 6.1: Proto-Nuclear Puyuma > Proto-Alripay-Mulivelivek, Proto-Likavung-Tamalrakaw, Proto-Katripulr-Kasavakan) be entered as … | Not entered. Yeh’s Table 4.26 states every dialect’s reflexes against Proto-Puyuma, so the rows are entered against ppuy, as Ting’s are (decision puyuma-ting). | 110 |
+| `yeh-ting-inventories` | Yeh’s 2023-2024 inventories are now the sourced inventories of Katripulr, Likavung and Kasavakan. Ting’s (1978) rows b > v (all three) and ɖ > ʐ (Kasavakan) de… | Ting’s rows are kept as they are; they now give 4 warnings (reflex outside the sourced inventory). | 5 |
+| `saaroa-inventory-pan` | Saaroa (saar1237): whose inventory? | Pan’s (2012) Lha’alua inventory replaces the Tsuchida (1976)-via-Shibata one; Tsuchida’s β is restated as Pan’s v in the correspondence rows (notes say so). | 1 |
+| `thao-f` | Thao: Shibata (2025) gives ɸ~f; Blust (2003: 30) says labiodental [f]. | The inventory now follows Blust: f. The PAn *b row is restated as b > f. |  |
+| `chen-paiwan-dialects` | Chen (2006) describes Northern (Sandimen), Central (Piuma) and Southern (Mudan, Shimen) Paiwan. How to enter them? | Three dialect lects under ppai (paiwan-north, paiwan-central, paiwan-south) with Chen’s inventories and the changes of his Tables 2.4 and 7.4. Southern *k > ʔ … | 6 |
+| `chen-budai-dh` | Chen’s Table 7.4 lists Budai *ð > j. Proto-Rukai *ð is Li’s (1977), but pruk (Li via Shibata) has no *ð. | Not entered. |  |
+| `lu-mayrinax-c` | Lu (2004, via Lu 2005: 20) has Mayrinax *c > t before i and y. Goderich (2020) lists no change of *c in Matu’uwal. | Entered against Proto-Northern Atayal, with a hand-entered retention row for *c elsewhere so the stated-unchanged rule still covers it. | 3 |
+| `tsou-tfuya` | Tfuya Tsou (Zeitoun 2005b) and Teruku Seediq (Tsukida 2005) give inventories only. Enter them as lects? | Entered as dialects with inventories and no correspondences: tfue1237 under PAn (language_id tsou1248; the existing Tsou lect is Tsuchida’s Duhtu), teru1237 un… |  |
+| `maga-li-vowels` | Maga mid vowels (Li 1977, via Hsin 2000): PR *ay, *ai > e; *aw, *au > o; *i, *u > e, o after a lost *a. | Entered as fusion pairs and conditioned rows against Proto-Rukai. Hsin himself derives e and o synchronically (p. 80). | 12 |
 
 <!-- END GENERATED -->
 
