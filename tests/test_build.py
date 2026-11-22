@@ -405,6 +405,13 @@ class TestSheetRoundTrip(unittest.TestCase):
         self.assertFalse(build.non_ipa("ɡ"))
         self.assertFalse(build.non_ipa("j"))
 
+    def test_vowel_y_is_ipa(self):
+        # Sakao, Rotuman, Iaai: y is the close front rounded vowel, not a glide spelled y.
+        w = run(append("phonemes.csv", "exam1234,y,ü,V,front,close,,rounded,sourced,example2026,40,,,,,,")).warnings
+        self.assertFalse([x for x in w if "not IPA" in x and "Examplese" in x])
+        w = run(append("phonemes.csv", "exam1234,y,,C,palatal,approximant,voiced,,sourced,example2026,40,,,,,,")).warnings
+        self.assertTrue([x for x in w if "not IPA" in x and "Examplese" in x])
+
     def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
         def m(d):
             append("phonemes.csv", "exam1234,ᵐb,,C,bilabial,prenasalized-plosive,voiced,,sourced,example2026,1,,")(d)

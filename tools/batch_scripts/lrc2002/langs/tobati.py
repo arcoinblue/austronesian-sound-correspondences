@@ -1,0 +1,32 @@
+LANG = dict(id="toba1266", name="Tobati", glottocode="toba1266", iso="tti", parent="poc",
+            notes="Sarmi/Jayapura group; Tobati and Enggros villages, Yotefa Bay, east of Jayapura. Sketch by Mark Donohue (Lynch et al. 2002: 186-203), based on the Enggros dialect.",
+            page="186-188")
+PH = [
+ ("t","","C","",""),("c","","C","","A palatal stop with no perceptible affrication (p. 187)."),("k","","C","",""),
+ ("b","","C","",""),("d̪","d","C","","Dental; the other apicals are alveolar (p. 187)."),("ɟ","j","C","","Palatal stop, printed j (p. 187)."),
+ ("ɸ","","C","",""),("f","","C","",""),("s","","C","",""),("ʃ","","C","","Probably a recent split from /s/: it occurs mostly next to /i/ or /y/, but near-minimal pairs exist (pp. 187-188)."),
+ ("h","","C","",""),("ɣ","","C","","Voiced velar continuant; its overlap with /h/ makes the pair suspicious, but near-minimal pairs exist (p. 188)."),
+ ("m","","C","",""),("n","","C","",""),("ɲ","ñ","C","",""),
+ ("ŋ","~","C","","Printed /~/ in the chart, in the velar column of the nasals: a nasalisation phoneme, reflecting POc *ŋ, realised as nasalisation of a vowel or as a homorganic nasal before a stop; prevocalically [ŋɡ] (p. 188). Entered as ŋ (decision lrc2002-readings)."),
+ ("r","","C","",""),("w","","C","",""),("j","y","C","",""),
+ ("i","","V","",""),("e","","V","",""),("a","","V","",""),("o","","V","",""),("u","","V","",""),
+]
+AL = [
+ ("b","β","between continuants","187",""),
+ ("d̪","ð̪","between continuants","187","Printed [ð̪]."),
+ ("k","ɡ","N_V","187","After a homorganic nasal and before a vowel: [ŋɡa] or [ŋɣa]."),
+ ("k","ɣ","N_V","187","Alternative realisation to [ɡ] after a homorganic nasal."),
+ ("k","x","_# after an unrounded vowel","187","Usually a fricative word-finally after a non-rounded vowel."),
+ ("k","k","_# after a rounded vowel","187",""),
+ ("k","kʷ","u_#","187","After /u/ additionally rounded."),
+ ("c","t͡ʃ","some younger speakers","187","Younger, more acculturated speakers substitute a Malay-style palato-alveolar affricate."),
+ ("ɟ","d͡ʒ","some younger speakers","187",""),
+ ("ɣ","ɣ","free variation","188",""),("ɣ","ɰ","free variation","188","Varies freely between [ɣ] and [ɰ]."),
+ ("h","h","free variation","188",""),("h","x","free variation","188",""),("h","ɦ","free variation","188",""),("h","ɣ","free variation","188","Overlaps with /ɣ/."),
+ ("f","f","","188",""),("f","ɸ","","188",""),("f","p͡ɸ","_# (most common)","188","Printed [p] ~ [pɸ]; the last most common word-finally."),("f","p","","188",""),
+ ("ŋ","ŋɡ","_V","188","Prevocalically realised as [ŋɡ]; before a stop as a homorganic nasal; otherwise as nasalisation of the vowel."),
+ ("i","i","open syllables","188","Tense."),("i","ɪ","closed syllables","188","Lax."),
+ ("e","e","open syllables","188",""),("e","ɛ","closed syllables","188",""),
+ ("o","o","open syllables","188",""),("o","ɔ","closed syllables","188",""),
+ ("u","u","open syllables","188",""),("u","ʊ","closed syllables","188",""),
+]
