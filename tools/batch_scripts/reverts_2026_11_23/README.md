@@ -1,6 +1,6 @@
 # Reverted decisions, 23 November 2026
 
-The user set 24 decisions to `reverted` in the sheet. Three (mc-unchained-cells, ksr-s-before-i, ge-celebic) were carried out on 21 November; this folder carries out the others. `apply.py` edits a copy of the sheet's tables (`cldf/` at the last sync, or a fresh export: the run of 23 November used the sheet as exported at 08:05 KST, after the user's edits to ngorek-nj and psm-j) and writes the result; the decisions tab's `chosen_reading` of each decision is rewritten as "Reverted 23 November 2026: …" and the reading before goes to `alternatives`.
+The user set 24 decisions to `reverted` in the sheet. Three (mc-unchained-cells, ksr-s-before-i, ge-celebic) were carried out on 21 November; this folder carries out the others. `apply.py` edits a copy of the sheet's tables (`cldf/` at the last sync, or a fresh export: the run of 23 November used the sheet as exported at about 07:55 KST, after the user's edits to ngorek-nj and psm-j) and writes the result; the decisions tab's `chosen_reading` of each decision is rewritten as "Reverted 23 November 2026: …" and the reading before goes to `alternatives`.
 
     python3 tools/batch_scripts/reverts_2026_11_23/apply.py cldf /tmp/out   # then copy /tmp/out/*.csv to cldf/
 
