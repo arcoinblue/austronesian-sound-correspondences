@@ -89,4 +89,11 @@ jobs:
           # Someone may have pushed meanwhile: then replay onto the branch this run is for.
           git push || { git fetch --depth=50 origin "$GITHUB_REF_NAME" \
                         && git rebase "origin/$GITHUB_REF_NAME" && git push; }
+          # A deploy queued while another is running has been cancelled twice (22 Nov 2026), which left
+          # the site one commit behind: wait for running deploys to finish before asking for this one.
+          for i in $(seq 1 40); do
+            busy=$(gh run list --workflow pages.yml --json status --jq '[.[] | select(.status != "completed")] | length')
+            [ "$busy" = "0" ] && break
+            sleep 15
+          done
           gh workflow run pages.yml --ref main

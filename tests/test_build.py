@@ -196,6 +196,28 @@ except ImportError:
 
 
 @unittest.skipUnless(HAVE_OPENPYXL, "openpyxl not installed")
+class TestSourcedInventoryUnderAssumedUnchanged(unittest.TestCase):
+    def test_kept_phonemes_are_linked_to_the_parent(self):
+        """A lect with a sourced inventory and inherit = assumed-unchanged gets implied retentions for
+        the parent phonemes its inventory also has, and for no others (Fehan Tetun, 22 Nov 2026)."""
+        cols = build.TABLES["lects"]
+        buf = io.StringIO()
+        kw = dict(id="newl1234", name="Newlish", type="language", glottocode="newl1234", parent_id="pxb",
+                  inherit="assumed-unchanged", inherit_source_id="example2026", inherit_page="1")
+        csv.writer(buf, lineterminator="").writerow([kw.get(c, "") for c in cols])
+
+        def m(d):
+            append("lects.csv", buf.getvalue())(d)
+            append("phonemes.csv", "newl1234,p,p,C,bilabial,plosive,voiceless,,sourced,example2026,40,,,,,,")(d)
+            append("phonemes.csv", "newl1234,ʘ,,C,bilabial,plosive,voiceless,,sourced,example2026,40,,,,,,")(d)
+        rep, D = run(m, derived=True)
+        self.assertEqual(rep.errors, [])
+        rows = [r for r in D["corrs"] if r["child_lect_id"] == "newl1234"]
+        self.assertEqual({(r["parent_phoneme"], r["child_phoneme"], r["derivation"]) for r in rows},
+                         {("p", "p", "implied-retention")})
+        self.assertEqual(D["inv_status"]["newl1234"], "sourced")
+
+
 class TestSheetRoundTrip(unittest.TestCase):
     def test_fusion_rows_pair_into_one_line_of_descent(self):
         def m(d):

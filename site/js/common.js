@@ -156,8 +156,10 @@ function ancestorsOf(id) {
 
 // How many of the parent's phonemes have an outcome here: stated by the source, or
 // implied (a changes-only source does not mention what stays the same).
-function coverage(c) {
+function coverage(c, status) {
   if (!c) return `<span class="muted">root</span>`;
+  // An inventory from a source, with nothing yet stated about where its phonemes come from.
+  if (!c.stated && !c.implied && status === "sourced") return `<span class="muted" title="the source gives an inventory; no correspondences entered yet">inventory only</span>`;
   if (!c.stated && !c.implied) return `<span class="muted" title="no correspondences entered">no data</span>`;
   return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes ${c.stated === 1 ? "has" : "have"} an outcome stated by the source${c.implied ? `; ${c.implied} more ${c.implied === 1 ? "is an implied retention" : "are implied retentions"}` : ""}">${c.stated}/${c.parent_size}${c.implied ? ` <span class="muted">+${c.implied} implied</span>` : ""}</span>`;
 }
@@ -166,6 +168,7 @@ function coverageText(d) {
   const c = d.coverage;
   if (!c) return "root proto-language";
   const P = LECTS[d.parent_id]?.name || d.parent_id;
+  if (!c.stated && !c.implied && d.inventory_status === "sourced") return `no correspondences entered yet: the inventory below is from its source, but nothing is stated about how it derives from ${esc(P)}`;
   if (!c.stated && !c.implied) return `no correspondences entered (the sources used give no data for ${esc(d.name)})`;
   return `${c.stated} of the ${c.parent_size} phonemes of ${esc(P)} ${c.stated === 1 ? "has" : "have"} an outcome stated by the source`
     + (c.implied ? `; the other ${c.implied} ${c.implied === 1 ? "is" : "are"} taken as retained, because the source lists only the changes` : "");

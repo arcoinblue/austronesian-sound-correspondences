@@ -1,7 +1,14 @@
 "use strict";
 // The reference list (#/sources/ and #/sources/<id>/).
 
-function citedBy(s) {
+// A long list of lects is cut in the full list (Bender et al. 2003a is cited in 20); the
+// source's own page gives all of them.
+function lectList(ids, all) {
+  if (all || ids.length <= 8) return ids.map(lectLink).join(", ");
+  return `${ids.slice(0, 6).map(lectLink).join(", ")}<details class="morelects"><summary>and ${ids.length - 6} more</summary>${ids.slice(6).map(lectLink).join(", ")}</details>`;
+}
+
+function citedBy(s, all) {
   const c = s.cited_by;
   if (!c) return "";
   const n = c.phonemes + c.correspondences + c.notation + (c.allophones || 0);
@@ -16,7 +23,7 @@ function citedBy(s) {
     // Indirect citations sit under the original work, grouped by where it was read.
     ...c.read_via.map(v => `<span class="muted">↳ ${v.rows} read via</span> ${srcLink(v.source_id)}`),
     relayed ? `<span class="muted">relays ${relayed} row${relayed === 1 ? "" : "s"} from</span> ${c.relays.map(r => `${srcLink(r.source_id)} <span class="muted">(${r.rows})</span>`).join(", ")}` : "",
-    c.lects.length ? `<span class="muted">in</span> ${c.lects.map(lectLink).join(", ")}` : "",
+    c.lects.length ? `<span class="muted">in</span> ${lectList(c.lects, all)}` : "",
   ].filter(Boolean).join("<br>");
 }
 
@@ -34,5 +41,5 @@ function pageSources(id) {
     ${!id && idle ? `<p class="muted">${idle} of ${list.length} sources are not cited by any row yet${notesOnly ? `; ${notesOnly} of them are named in notes` : ""}.</p>` : ""}
     <div class="scroll"><table class="refs"><tr><th>Reference</th><th class="kd">Kind</th><th>Cited by</th><th class="nt">Notes</th></tr>
     ${list.map(s => `<tr><td class="ref" id="${esc(s.id)}">${ref(s)}<br><a class="muted refid" href="#/sources/${esc(s.id)}/">${esc(s.id)}</a></td>
-      <td class="kd">${esc(s.kind)}</td><td>${citedBy(s)}</td><td class="nt">${fold(s.notes, 140)}</td></tr>`).join("")}</table></div>`;
+      <td class="kd">${esc(s.kind)}</td><td>${citedBy(s, !!id)}</td><td class="nt">${fold(s.notes, 140)}</td></tr>`).join("")}</table></div>`;
 }
