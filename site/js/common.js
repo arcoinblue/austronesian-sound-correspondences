@@ -104,9 +104,22 @@ function phLink(pid, text) {
     + (system ? `<span class="sys">${esc(system)}</span>` : "");
 }
 
-function lectLink(id) {
-  return `<a href="#/lects/${esc(id)}/">${esc(LECTS[id]?.name || id)}</a>`;
+// Where a lect's page is: its own, its representative dialect's (Tsou opens Duhtu), or none
+// for a tree node with no page (a group such as a linkage; Babuza, whose dialects have the rows).
+function lectHref(id) {
+  const l = LECTS[id];
+  if (l?.node_only) return l.representative ? `#/lects/${encodeURIComponent(l.representative)}/` : null;
+  return `#/lects/${esc(id)}/`;
 }
+
+function lectLink(id) {
+  const href = lectHref(id), name = esc(LECTS[id]?.name || id);
+  return href ? `<a href="${href}">${name}</a>` : `<span class="node" title="a node of the tree, with no page of its own">${name}</span>`;
+}
+
+// The node the lect list draws a lect under: its tree parent (a group, a language for a
+// dialect, a dialect for a sub-dialect), else its nearest reconstructed ancestor.
+const treeParent = l => l.tree_parent || l.parent_id;
 
 function srcLink(id, page) {
   if (!id) return "";

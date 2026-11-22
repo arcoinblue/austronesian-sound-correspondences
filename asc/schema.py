@@ -7,10 +7,14 @@ from urllib.parse import quote
 
 # ---------------------------------------------------------------- vocabularies
 
-LECT_TYPES = {"language", "dialect", "proto-language", "earlier-stage"}
+LECT_TYPES = {"language", "dialect", "proto-language", "earlier-stage", "group"}
 # Reconstructed lects: a proto-language (ancestor of a group) and an earlier
 # stage of one language (Pre-Gayo). Both can be a parent, and their symbols are starred.
 RECONSTRUCTED = {"proto-language", "earlier-stage"}
+# A node of the tree that is not a lect: a linkage, or a subgroup accepted with no
+# proto-language entered (Central Western Plains). No rows, no page; the tree lists
+# its members (lects.tree_parent) under it.
+GROUP = "group"
 PUB_TYPES = {"book", "article", "chapter", "thesis", "presentation", "dataset", "other"}
 PUB_COLUMNS = ["pub_type", "container_title", "editors", "volume", "issue", "pages",
                "place", "publisher", "series", "edition"]
@@ -277,7 +281,7 @@ TABLES = {
               "parent_id", "subgroup_path", "region", "orthography_note", "notes", "default_system",
               "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups",
               "inherit", "language_id", "alt_parents", "inherit_source_id", "inherit_page",
-              "inherit_note"],
+              "inherit_note", "tree_parent", "representative"],
     "phonemes": ["lect_id", "ipa", "source_symbol", "class", "place", "manner",
                  "voicing", "rounding", "origin", "source_id", "page", "reason", "notes"] + VIA
                 + ["status"],
@@ -298,7 +302,8 @@ OPTIONAL_TABLES = {"decisions"}
 OPTIONAL_COLUMNS = {
     "sources": ["year_suffix"] + PUB_COLUMNS,
     "lects": ["default_system", "systems", "clade", "competes_with", "latitude", "longitude", "overlap_groups",
-              "inherit", "language_id", "alt_parents", "inherit_source_id", "inherit_page", "inherit_note"],
+              "inherit", "language_id", "alt_parents", "inherit_source_id", "inherit_page", "inherit_note",
+              "tree_parent", "representative"],
     "phonemes": VIA + ["status"],
     "correspondences": ["system"] + VIA + CORR_EXTRA,
     "notation_map": ["place", "manner", "voicing"] + VIA,

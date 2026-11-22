@@ -87,9 +87,10 @@ def validate_and_derive(t, rep: Report):
         if r["glottocode"]:
             if not GLOTTOCODE_RE.match(r["glottocode"]):
                 rep.error(w, f"glottocode {r['glottocode']!r} is malformed")
-            elif r["id"] != r["glottocode"] and r["type"] not in RECONSTRUCTED:
-                rep.warn(w, f"lect id should be its Glottocode ({r['glottocode']})")
-        elif r["type"] not in RECONSTRUCTED:
+            elif r["id"] != r["glottocode"] and r["type"] not in RECONSTRUCTED | {GROUP}:
+                # Checked once the tree is known: a sub-dialect may share the code of the lect it is listed under.
+                r["_code_differs"] = True
+        elif r["type"] not in RECONSTRUCTED | {GROUP}:
             rep.warn(w, "no glottocode")
         if r["iso639_3"] and not ISO_RE.match(r["iso639_3"]):
             rep.error(w, f"iso639_3 {r['iso639_3']!r} is malformed")
@@ -109,6 +110,13 @@ def validate_and_derive(t, rep: Report):
         # The group a proto-language is the ancestor of: 'clade', or the name without Proto-.
         # An earlier stage of one language heads no group.
         r["clade_label"] = r["clade"] or (re.sub(r"^Proto-", "", r["name"]) if r["type"] == "proto-language" else "")
+        r["tree_parent"] = r.get("tree_parent", "").strip()
+        r["representative"] = r.get("representative", "").strip()
+        if r["type"] == GROUP:
+            for col in ("inherit", "language_id", "alt_parents", "competes_with", "clade"):
+                if r[col]:
+                    rep.warn(w, f"{col} does not apply to a group (a tree node with no rows); ignored")
+                    r[col] = ""
         if r["clade"] and r["type"] != "proto-language":
             rep.warn(w, "clade is for proto-languages; ignored here")
             r["clade_label"] = ""
@@ -173,6 +181,13 @@ def validate_and_derive(t, rep: Report):
                 rep.error(w, f"language_id {r['language_id']!r} is not a lect")
             elif lects[r["language_id"]]["type"] != "language":
                 rep.error(w, f"language_id {r['language_id']!r} is a {lects[r['language_id']]['type']}, must be a language")
+        if r["representative"]:
+            if r["type"] != "language":
+                rep.warn(w, "representative is for a language node; ignored")
+                r["representative"] = ""
+            elif r["representative"] not in lects:
+                rep.error(w, f"representative {r['representative']!r} is not a lect")
+                r["representative"] = ""
         # Competing reconstructions of the same node: both are listed under the
         # parent, and nothing below either of them is.
         r["competes_list"] = [a.strip() for a in r["competes_with"].split(";") if a.strip()]
@@ -192,6 +207,61 @@ def validate_and_derive(t, rep: Report):
                 break
             seen.add(cur)
             cur = lects[cur]["parent_id"]
+
+    # The tree the lect list draws: each lect under its tree_parent, which is a group (a
+    # linkage, or a subgroup with no proto-language), a language (for its dialects) or a
+    # dialect (for its sub-dialects). Blank: a dialect goes under its language_id when the
+    # two have the same parent_id; anything else under its parent_id. A tree parent sits
+    # under the same reconstructed parent as its members, so the tree and the descent agree.
+    TREE_PARENT_TYPES = {GROUP, "language", "dialect"}
+    for r in lects.values():
+        w, tp = r["_where"], r["tree_parent"]
+        if tp:
+            if tp not in lects:
+                rep.error(w, f"tree_parent {tp!r} is not a lect")
+                tp = ""
+            elif lects[tp]["type"] not in TREE_PARENT_TYPES:
+                rep.error(w, f"tree_parent {tp!r} is a {lects[tp]['type']}; it must be a group, a language or "
+                             "a dialect (a reconstructed parent goes in parent_id)")
+                tp = ""
+            elif lects[tp]["parent_id"] != r["parent_id"]:
+                rep.error(w, f"tree_parent {tp!r} stands under {lects[tp]['parent_id'] or 'nothing'!r}, "
+                             f"this lect under {r['parent_id'] or 'nothing'!r}; give both the same parent_id")
+                tp = ""
+        elif r["type"] == "dialect" and r["language_id"] in lects:
+            lg = lects[r["language_id"]]
+            if lg["parent_id"] == r["parent_id"]:
+                tp = r["language_id"]
+            else:
+                rep.note(w, f"listed under {r['parent_id']!r}, not under its language {r['language_id']!r}, "
+                            f"which stands under {lg['parent_id'] or 'nothing'!r}")
+        r["tree_parent_id"] = tp or r["parent_id"]
+    for r in lects.values():
+        seen, cur = {r["id"]}, r["tree_parent_id"]
+        while cur and cur in lects and lects[cur]["type"] not in RECONSTRUCTED:
+            if cur in seen:
+                rep.error(r["_where"], f"tree_parent chain loops back to {cur!r}")
+                r["tree_parent_id"] = r["parent_id"]
+                break
+            seen.add(cur)
+            cur = lects[cur]["tree_parent_id"]
+    tree_kids = defaultdict(list)
+    for L, r in lects.items():
+        if r["tree_parent_id"]:
+            tree_kids[r["tree_parent_id"]].append(L)
+    for r in lects.values():
+        r["tree_children"] = sorted(tree_kids.get(r["id"], []))
+        if r.get("_code_differs"):
+            tp = lects.get(r["tree_parent_id"])
+            if not (tp and tp["glottocode"] == r["glottocode"] and r["tree_parent_id"] != r["parent_id"]):
+                rep.warn(r["_where"], f"lect id should be its Glottocode ({r['glottocode']})")
+        if r["type"] == GROUP and not r["tree_children"]:
+            rep.warn(r["_where"], "group with no members (no lect has it as tree_parent)")
+        rp = r["representative"]
+        if rp and lects[rp]["tree_parent_id"] != r["id"]:
+            rep.error(r["_where"], f"representative {rp!r} is not listed under this language "
+                                   "(give it language_id or tree_parent)")
+            r["representative"] = ""
 
     # subgroup_path: derived from the parent chain (each ancestor's clade, root first).
     # A filled cell overrides it, for the few lects the tree cannot say (the root,
@@ -941,9 +1011,30 @@ def validate_and_derive(t, rep: Report):
         if not r["system"] and r["parent_phoneme"] != ZERO and r["derivation"] != "implied-retention":
             entered_pairs[r["child_lect_id"]].add(r["parent_phoneme"])
 
+    # Nodes with no page: a group, and a language or dialect with no rows of its own whose
+    # page would only list what the tree already lists under it (Babuza, Pazeh-Kaxabu). A
+    # language with a representative opens that dialect's page instead (Tsou: Duhtu).
+    has_rows = {r["lect_id"] for r in t["phonemes"]} | {r["child_lect_id"] for r in corrs} \
+        | {r["lect_id"] for r in t["notation_map"]}
+    for L, r in lects.items():
+        if r["type"] == GROUP:
+            if L in has_rows:
+                rep.error(r["_where"], "a group is a tree node only; its rows belong to its members")
+            r["node_only"] = True
+        else:
+            r["node_only"] = (r["type"] in ("language", "dialect") and L not in has_rows and not r["inherit"]
+                              and bool(r["tree_children"]))
+        if r["representative"] and L in has_rows:
+            rep.warn(r["_where"], "representative is set, but the language has rows of its own; "
+                                  "its page shows them, not the representative's")
+            r["representative"] = ""
+        if r["node_only"] and r["type"] != GROUP:
+            rep.note(r["_where"], "no rows of its own: a tree node with no page"
+                                  + (f" (opens {r['representative']})" if r["representative"] else ""))
+
     for L, rec in lects.items():
         P = rec["parent_id"]
-        if not P or P not in inventory:
+        if not P or P not in inventory or rec["node_only"]:
             continue
         missing = [s for s in inventory[P] if s not in entered_pairs.get(L, set())]
         if rec["changes_only_flag"]:

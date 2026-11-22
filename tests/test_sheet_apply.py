@@ -84,7 +84,8 @@ class TestSheetApply(unittest.TestCase):
         sheet = old_layout(self.cldf)
         plans = sheet_apply.plan(sheet, self.cldf)
         self.assertTrue(plans["decisions"]["create"])
-        self.assertEqual(plans["lects"]["added_cols"], ["inherit_source_id", "inherit_page", "inherit_note"])
+        self.assertEqual(plans["lects"]["added_cols"], ["inherit_source_id", "inherit_page", "inherit_note",
+                                                          "tree_parent", "representative"])
         self.assertEqual([r[0] for _, r in plans["correspondences"]["deletes"]], ["old1", "old2"])
         self.assertEqual(sheet_apply.check_limits(plans, 2, None), 2)
         with self.assertRaises(ValueError):

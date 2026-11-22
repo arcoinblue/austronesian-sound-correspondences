@@ -1,4 +1,5 @@
 """Loader constraints. Run: python3 -m unittest discover tests"""
+import io
 import shutil
 import sys
 import tempfile
@@ -130,6 +131,57 @@ class TestConstraints(unittest.TestCase):
         D = build.validate_and_derive(build.load(FIXTURE, rep), rep)
         tops = sorted(c[0]["parent"] for c in build.ancestry("exam1234:t", D))
         self.assertEqual(tops, ["pxa:C", "pxa:t"])
+
+
+class TestTreeNodes(unittest.TestCase):
+    def assertError(self, rep, fragment):
+        self.assertTrue(any(fragment in e for e in rep.errors), f"expected {fragment!r}; got {rep.errors}")
+
+    def test_tree_nodes(self):
+        """Groups, language nodes with a representative, sub-dialects sharing a code (22 Nov 2026)."""
+        cols = build.TABLES["lects"]
+
+        def lect(**kw):
+            buf = io.StringIO()
+            csv.writer(buf, lineterminator="").writerow([kw.get(c, "") for c in cols])
+            return append("lects.csv", buf.getvalue())
+
+        base = [lect(id="grp", name="Example Group", type="group", parent_id="pxb"),
+                lect(id="lang1234", name="Langish", type="language", glottocode="lang1234", parent_id="pxb",
+                     tree_parent="grp", representative="dial1234"),
+                lect(id="dial1234", name="Dialish", type="dialect", glottocode="dial1234", parent_id="pxb",
+                     language_id="lang1234"),
+                lect(id="subdial", name="Sub-Dialish", type="dialect", glottocode="dial1234", parent_id="pxb",
+                     tree_parent="dial1234"),
+                append("correspondences.csv", "cdial000001,dial1234,p,f,elsewhere,regular,,,example2026,1,"),
+                append("correspondences.csv", "csubd000001,subdial,p,v,elsewhere,regular,,,example2026,1,"),
+                set_cells("lects.csv", "id", "samp1234", tree_parent="grp")]
+        rep, D = run(lambda d: [m(d) for m in base], derived=True)
+        self.assertEqual(rep.errors, [])
+        L = D["lects"]
+        self.assertEqual(L["dial1234"]["tree_parent_id"], "lang1234")    # from language_id
+        self.assertEqual(L["lang1234"]["tree_parent_id"], "grp")
+        self.assertEqual(L["samp1234"]["tree_parent_id"], "grp")
+        self.assertTrue(L["grp"]["node_only"] and L["lang1234"]["node_only"])
+        self.assertFalse(L["dial1234"]["node_only"])                      # it has rows, and a child
+        self.assertFalse(any("should be its Glottocode (dial1234)" in w for w in rep.warnings))   # sub-dialect
+        self.assertEqual(sum("no glottocode" in w for w in rep.warnings),
+                         sum("no glottocode" in w for w in run().warnings))                # not for the group
+        idx = {r["id"]: r for r in build.index_json(D)["lects"]}
+        self.assertEqual(idx["lang1234"]["representative"], "dial1234")
+        self.assertEqual(idx["subdial"]["tree_parent"], "dial1234")
+        self.assertNotIn("tree_parent", idx["exam1234"])
+        self.assertEqual(build.lect_json("dial1234", D)["represents"], "lang1234")
+        self.assertNotIn("grp", build.lect_json("pxb", D)["daughters"])
+        # A tree parent under another reconstructed parent, and rows on a group, are refused.
+        rep = run(lambda d: [m(d) for m in base + [set_cells("lects.csv", "id", "exam1234", tree_parent="pxb")]])
+        self.assertError(rep, "must be a group, a language or a dialect")
+        rep = run(lambda d: [m(d) for m in base + [append("correspondences.csv",
+                                                          "cgrp0000001,grp,p,f,elsewhere,regular,,,example2026,1,")]])
+        self.assertError(rep, "a group is a tree node only")
+        rep = run(lambda d: [m(d) for m in base + [lect(id="odd", name="Odd", type="group", parent_id="pxa",
+                                                       tree_parent="grp")]])
+        self.assertError(rep, "give both the same parent_id")
 
 
 if __name__ == "__main__":
