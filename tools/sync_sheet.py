@@ -71,6 +71,11 @@ def main():
     problems, out = [], {}
     for tab, cols in build.TABLES.items():
         if tab not in wb.sheetnames:
+            if tab in build.OPTIONAL_TABLES:
+                # A tab added after the first release: until the sheet has it, it is empty.
+                print(f"WARNING tab '{tab}' is missing; written with its header only")
+                out[tab] = [cols]
+                continue
             problems.append(f"tab '{tab}' is missing")
             continue
         rows = [[clean(cell_text(v)) for v in r] for r in wb[tab].iter_rows(values_only=True)]

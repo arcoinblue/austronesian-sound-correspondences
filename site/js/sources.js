@@ -4,8 +4,8 @@
 function citedBy(s) {
   const c = s.cited_by;
   if (!c) return "";
-  const n = c.phonemes + c.correspondences + c.notation;
-  const kinds = [[c.correspondences, "correspondence"], [c.phonemes, "phoneme"], [c.notation, "notation"]]
+  const n = c.phonemes + c.correspondences + c.notation + (c.allophones || 0);
+  const kinds = [[c.correspondences, "correspondence"], [c.phonemes, "phoneme"], [c.notation, "notation"], [c.allophones || 0, "allophone"]]
     .filter(([k]) => k).map(([k, w]) => `${k} ${w} row${k === 1 ? "" : "s"}`).join(", ");
   const relayed = c.relays.reduce((a, r) => a + r.rows, 0);
   // A work cited only in running text (a lect's notes, another source's notes): no row rests on it.
@@ -23,7 +23,7 @@ function citedBy(s) {
 function pageSources(id) {
   const list = id ? [SOURCES[id]].filter(Boolean) : Object.values(SOURCES);
   if (id && !list.length) throw new Error(`No source ${id}`);
-  const rowless = list.filter(s => s.cited_by && !(s.cited_by.phonemes + s.cited_by.correspondences + s.cited_by.notation + s.cited_by.relays.length));
+  const rowless = list.filter(s => s.cited_by && !(s.cited_by.phonemes + s.cited_by.correspondences + s.cited_by.notation + (s.cited_by.allophones || 0) + s.cited_by.relays.length));
   const idle = rowless.length, notesOnly = rowless.filter(s => s.cited_by.notes).length;
   // A reference list: by first author's surname, then year.
   list.sort((p, q) => p.author.localeCompare(q.author) || String(p.year + (p.year_suffix || "")).localeCompare(q.year + (q.year_suffix || "")));

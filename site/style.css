@@ -37,8 +37,8 @@ main { max-width: 1080px; margin: 0 auto; padding: 20px 24px 48px; }
 .foot { max-width: 1080px; margin: 0 auto; padding: 0 24px 32px; color: var(--muted); font-size: 13px; }
 h1 { font-size: 26px; margin: 4px 0 4px; font-weight: 650; }
 h2 { font-size: 17px; margin: 28px 0 8px; font-weight: 650; }
-h3 { font-size: 14px; margin: 18px 0 6px; color: var(--muted); font-weight: 600;
-  text-transform: uppercase; letter-spacing: .04em; }
+/* No text-transform anywhere a symbol can appear: s and S are different phonemes. */
+h3 { font-size: 14.5px; margin: 18px 0 6px; color: var(--muted); font-weight: 650; }
 .muted { color: var(--muted); }
 .crumb { color: var(--muted); font-size: 13px; }
 .ipa { font-family: var(--ipa); font-size: 1.12em; text-transform: none; letter-spacing: normal; }
@@ -210,7 +210,7 @@ table.othersys { width: auto; margin: 4px 0; }
 table.segs td.nm { white-space: normal; width: 13em; }
 table.segs td.ipa a { display: inline-block; padding: 0 3px; border-radius: 4px; }
 table.segs a.implied { color: var(--muted); }
-table.segs a.unc { text-decoration: underline dotted; }
+table.segs a.unc { text-decoration: underline wavy var(--muted); text-underline-offset: 3px; }
 table.segs a.hit { background: var(--accent-soft); outline: 1px solid var(--accent); }
 table.segs td.big { font-size: 20px; white-space: nowrap; }
 table.segs td.num, table.segs th.num { text-align: right; }
@@ -225,3 +225,6 @@ table.segs details.more summary { display: inline; cursor: pointer; color: var(-
 .anctrees { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: flex-start; }
 .anctree { margin: 0; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px 2px; max-width: 100%; }
 .anctree figcaption { font-size: 13px; margin: 0 0 4px 2px; }
+
+table.allo { width: auto; margin: 4px 0 8px; }
+table.allo td.ipa { font-size: 1.2em; white-space: nowrap; }

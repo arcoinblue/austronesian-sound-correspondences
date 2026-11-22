@@ -824,3 +824,37 @@ class TestDescendantsOnce(unittest.TestCase):
         D = {"by_parent": {"a:R": top, "mid:l": low}, "conflicts": set(), "competing": set()}
         ids = [r["correspondence_id"] for r in descendants("a:R", D)]
         self.assertEqual(sorted(ids), ["l1", "l2", "t0", "t1", "t2"])
+
+
+class TestAllophones(unittest.TestCase):
+    """allophones.csv: a source's allophones reach the phoneme's record and page."""
+
+    def test_rows_reach_the_phoneme(self):
+        rep, D = run(derived=True)
+        self.assertEqual([a["allophone"] for a in D["inventory"]["exam1234"]["t"]["allophones"]], ["t͡ʃ", "t"])
+        self.assertEqual(D["inventory"]["exam1234"]["k"]["allophones"], [])
+        lite = build.lect_json("exam1234", D)
+        t = next(p for p in lite["phonemes"] if p["ipa"] == "t")
+        self.assertEqual(t["allophones"][0]["environment"], "_i")
+        self.assertEqual(D["sources"]["example2026"]["cited_by"]["allophones"], 2)
+
+    def test_table_may_be_missing(self):
+        rep, D = run(lambda d: (d / "allophones.csv").unlink(), derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(D["inventory"]["exam1234"]["t"]["allophones"], [])
+
+    def test_checks(self):
+        rep = run(lambda d: [
+            append("allophones.csv", "exam1234,b,,β,V_V,example2026,11,,,,")(d),
+            append("allophones.csv", "exam1234,k,,[x],_#,example2026,11,,,,")(d),
+            append("allophones.csv", "exam1234,k,,ɡ,V_V,,11,,,,")(d)])
+        self.assertTrue(any("exam1234:b is not in exam1234's inventory" in w for w in rep.warnings))
+        self.assertTrue(any("without brackets" in e for e in rep.errors))
+        self.assertTrue(any("source_id is required" in e for e in rep.errors))
+
+    def test_notes_that_describe_allophones_need_rows(self):
+        rep = run(replace("phonemes.csv", "exam1234,k,k,C,velar,plosive,voiceless,,sourced,example2026,40,,,",
+                          "exam1234,k,k,C,velar,plosive,voiceless,,sourced,example2026,40,,[x] word-finally,"))
+        self.assertTrue(any("exam1234:k describe allophones" in w for w in rep.warnings))
+        rep = run()
+        self.assertFalse(any("describe allophones" in w for w in rep.warnings))

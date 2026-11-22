@@ -369,7 +369,17 @@ function descentHtml(rows, daughters) {
     ${hidden || shownDeep || multi ? `<p class="muted">${hidden || shownDeep ? "Reflexes one level down the tree." : ""}${shownDeep ? ` ${shownDeep} deeper row(s) are listed because sources or reconstructions disagree there.` : ""}
       ${hidden ? `<button class="more" data-n="${hidden}">Show ${hidden} deeper row(s)</button>` : ""}
       ${multi ? `<label class="mergetoggle"><input type="checkbox" class="mergelects"${mergeLects() ? " checked" : ""}> Merge for lects</label>` : ""}</p>` : ""}
-    <div class="scroll">${multi ? `<table class="t-merged">${head}${merged}</table><table class="t-flat">${head}${flat}</table>` : `<table>${head}${flat}</table>`}</div></div>`;
+    <div class="scroll">${multi ? `<table class="t-merged">${head}${merged}</table><table class="t-flat">${head}${flat}</table>` : `<table>${head}${flat}</table>`}</div>
+    ${descentLegend(rows)}</div>`;
+}
+
+// What the grey and italic text in a descent table mean, when the table has any.
+function descentLegend(rows) {
+  const grey = rows.some(r => r.via.length || r.derivation === "implied-retention");
+  const blank = rows.some(r => !r.child);
+  if (!grey && !blank) return "";
+  return `<p class="legend">${grey ? "Grey row = a lect further down, reached through the stage named under it (via …), or a retention implied because the source lists only the changes." : ""}
+    ${blank ? "Grey italic = no reflex; the badge says why (not attested, replaced, irregular …)." : ""}</p>`;
 }
 
 // Whether a lect's reflexes share one row. Kept per browser where storage works.
@@ -438,6 +448,7 @@ function systemPanel(sys, sps, d) {
       ${sp.counterparts.length > 1 ? `<dt>Also matches</dt><dd>${sp.counterparts.map(c => phLink(c)).join(", ")} <span class="muted">in the ${esc(d.default_label)} system</span></dd>` : ""}
       ${sp.rows.map(r => `<dt>Source</dt><dd>${cite(r) || '<span class="muted">none</span>'}${r.notes ? `<br><span class="muted">${fold(r.notes)}</span>` : ""}</dd>`).join("")}
     </dl>
+    ${allophonesHtml(sp)}
     <h3>Descent</h3>
     ${sp.descendants.length ? descentHtml(sp.descendants, true)
       : `<p class="muted">No separate descent is entered for ${esc(sys)}'s ${esc(sym(sp.id))}; its reflexes are those under the ${esc(d.default_label)} tab.</p>`}`).join("");
@@ -479,6 +490,7 @@ async function pagePhoneme(L, uid) {
           ${describe(full) ? `<dt>Description</dt><dd>${describe(full)}${inferredNote(full) ? ` <span class="muted">(${esc(inferredNote(full))})</span>` : ""}</dd>` : ""}
           ${(full.rows || []).map(r => `<dt>Source</dt><dd>${cite(r) || '<span class="muted">none</span>'}${r.notes ? `<br>${fold(r.notes, 600)}` : ""}</dd>`).join("")}
         </dl>
+        ${allophonesHtml(full)}
         <h3>Every reconstruction</h3>${reconTable(det, ph, d, L)}
         <h2>Descent</h2>
         <p class="muted">The reflexes of ${phLink(ph.id)}, which ${esc(wantSystem)}'s ${esc(sym(sp.id))} shares${others.length ? " with " + others.map(c => phLink(c)).join(", ") : ""}.</p>
@@ -516,6 +528,7 @@ async function pagePhoneme(L, uid) {
       ${ph.reason ? `<dt>Reason</dt><dd>${fold(ph.reason, 320)}</dd>` : ""}
       ${ph.notes ? `<dt>Notes</dt><dd>${fold(ph.notes, 320)}</dd>` : ""}
     </dl>
+    ${allophonesHtml(ph)}
     ${tabbed.length ? tabsHtml(tabs, wantSystem) : ""}
     ${tabbed.map(x => `<div class="panel" data-panel="${esc(x.name)}"${x.name === wantSystem ? "" : " hidden"}>${x.absent ? `<div class="notice">${esc(x.name)}'s reconstruction has no ${esc(sym(ph.id))}.</div>` : ""}${systemPanel(x.name, x.sps, d)}</div>`).join("")}
     <div class="panel" data-panel=""${wantSystem ? " hidden" : ""}>
