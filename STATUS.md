@@ -8,20 +8,20 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 215 |  |
-| lects | 936 | 246 dialect, 33 earlier-stage, 9 group, 411 language, 237 proto-language |
-| phonemes | 4005 |  |
-| correspondences | 9255 | plus 10320 implied and 3451 stated retentions generated from lects.inherit |
-| notation_map | 514 |  |
+| sources | 217 |  |
+| lects | 942 | 246 dialect, 33 earlier-stage, 9 group, 414 language, 240 proto-language |
+| phonemes | 4070 |  |
+| correspondences | 9283 | plus 10369 implied and 3451 stated retentions generated from lects.inherit |
+| notation_map | 517 |  |
 | allophones | 908 |  |
-| decisions | 136 | 49 confirmed, 66 open, 21 reverted |
+| decisions | 138 | 49 confirmed, 68 open, 21 reverted |
 
-Lects by `inherit`: (blank) 191, assumed-unchanged 505, stated-unchanged 240.
-Inventories: edited 24, empty 15, reverse-generated 732, sourced 165.
+Lects by `inherit`: (blank) 194, assumed-unchanged 508, stated-unchanged 240.
+Inventories: edited 27, empty 15, reverse-generated 732, sourced 168.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 280 warning(s), 856 note(s).
+`build.py --check`: 0 error(s), 280 warning(s), 861 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -104,6 +104,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lrc2002-readings` | Symbols in the Lynch et al. (2002) sketches whose IPA value is not stated or is ambiguous. | j (a voiced palatal stop or affricate, value not stated) entered as ɟ in Sudest, Teanu (Buma) and Xârâcùù, and ⁿj as ᶮɟ; Tobati /~/ (a nasalisation phoneme in … |  |  |
 | `lrc2002-nadroga` | Nadrogā: the sketch says that historically *t became /s/ before /i e/ and /tʃ/ before /u/, *ⁿd became /ⁿdʒ/ before /i u/, and *s became /h/, without naming the… | Entered against Proto-Oceanic (the parent in this database), with a row for each statement; no elsewhere rows for *t and *d. | 4 |  |
 | `lrc2002-subgroups` | Ch. 5 names subgroup-defining sound changes: Proto Admiralties *R > *y before high vowels, lost elsewhere (p. 99); Southeast Solomonic merger of POc *l and *R … | Not entered: no Proto-Admiralties, Proto-Southeast Solomonic or Proto-Papuan Tip node was added, and the sketch languages are placed directly under POc (Southe… |  |  |
+| `shwng-nodes` | Which of Kamholz's SHWNG subgroups (Table 14.1) to enter as proto-languages? | Only those defined by sound changes and needed for a lect: Proto-Yaur-Yerisiam (*ŋ > ∅) and Proto-Raja Ampat–South Halmahera (*R > ∅), both directly under PSHW… |  |  |
+| `shwng-k` | PMP *k > ∅ (change 9) was probably not complete in PSHWNG: *k survives as k in some words, especially in South Halmahera and Moor. | Two rows: *k > ∅ regular, and *k > k sporadic with conditions unknown. | 2 |  |
 
 <!-- END GENERATED -->
 

@@ -26,3 +26,14 @@ South Halmahera–West New Guinea, from two chapters of Adelaar, Alexander & Ant
 ## Checks
 
 `batches.py check`: 0 errors, 280 warnings (as on main). PSHWNG page checked in a local build (headless Chrome, 1100 px).
+
+
+## Applied
+
+2026-11-22 14:50 UTC, by the push-batch workflow.
+- sources: sheet rows 217-218
+- lects: sheet rows 938-943
+- phonemes: sheet rows 4007-4071
+- correspondences: sheet rows 9257-9284
+- notation_map: sheet rows 516-518
+- decisions: sheet rows 138-139
