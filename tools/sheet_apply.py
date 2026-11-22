@@ -13,6 +13,9 @@ changes. It only does what a migration needs, and refuses anything else:
 - rows may be deleted, and cells of the remaining rows changed; rows are never
   added in the middle or reordered (the row key, as in tools/batches.py, must
   appear in the same order in the sheet and in cldf/);
+- with --allow-append, rows after the last matched one in cldf/ are appended below
+  the tab's last row, provided their keys are nowhere in the sheet (a row moved to
+  the end is still refused); used for data edits that also add rows;
 - at most --max-deletions rows are deleted, and with --archive every deleted
   correspondence must be in that file (the migration's record of what it removed).
 
@@ -55,7 +58,7 @@ def read_target(cldf, table):
     return batches.read_records(Path(cldf) / f"{table}.csv")
 
 
-def plan_tab(table, sheet_rows, target_header, target_recs):
+def plan_tab(table, sheet_rows, target_header, target_recs, allow_append=False):
     """What to do to one tab. sheet_rows: the tab's values (row 1 = header), or None if
     the tab is missing. Returns a dict, or raises ValueError if the change is not allowed."""
     cols = list(target_header)
@@ -88,22 +91,27 @@ def plan_tab(table, sheet_rows, target_header, target_recs):
             j += 1
         else:
             deletes.append((i, r))
+    appends = []
     if j < len(target):
-        raise ValueError(f"{table}: cldf row {j + 2} ({target[j][:3]}...) is not in the sheet in this order; "
-                         "this tool only deletes and changes rows")
+        in_sheet = {key(r) for r in sheet}
+        if not allow_append or any(key(r) in in_sheet for r in target[j:]):
+            raise ValueError(f"{table}: cldf row {j + 2} ({target[j][:3]}...) is not in the sheet in this order; "
+                             "this tool only deletes and changes rows" + (", and appends new rows" if allow_append else ""))
+        appends = target[j:]
     added_cols = [c for c in cols if c not in renamed]
     return {"create": False, "header": cols, "header_change": header_change, "renamed": sh != renamed,
-            "added_cols": added_cols, "deletes": deletes, "updates": updates}
+            "added_cols": added_cols, "deletes": deletes, "updates": updates, "appends": appends,
+            "last_row": len(sheet) + 1}
 
 
-def plan(sheet_values, cldf):
+def plan(sheet_values, cldf, allow_append=False):
     """sheet_values: {tab: rows or None}. Returns {tab: plan}."""
     out = {}
     for table in build.TABLES:
         header, recs = read_target(cldf, table)
         if header != build.TABLES[table]:
             raise ValueError(f"cldf/{table}.csv must have the full header (run the migration first)")
-        out[table] = plan_tab(table, sheet_values.get(table), header, recs)
+        out[table] = plan_tab(table, sheet_values.get(table), header, recs, allow_append)
     return out
 
 
@@ -125,6 +133,8 @@ def summary(plans):
             bits.append(f"{len(p['updates'])} cell(s) changed ({', '.join(f'{k} {v}' for k, v in cols.items())})")
         if p["deletes"]:
             bits.append(f"{len(p['deletes'])} row(s) deleted")
+        if p.get("appends"):
+            bits.append(f"{len(p['appends'])} row(s) appended")
         lines.append(f"{t}: " + ("; ".join(bits) if bits else "no change"))
     return lines
 
@@ -169,6 +179,13 @@ def requests_for(plans, tabs):
         for i, c, _, new in p["updates"]:
             cell = f"{batches.col_letter(c + 1)}{i}"
             values.append({"range": f"{t}!{cell}:{cell}", "values": [[new]]})
+        if p.get("appends"):
+            first = p["last_row"] + 1
+            end = first + len(p["appends"]) - 1
+            if grid.get("rowCount", 1000) < end:
+                before.append({"appendDimension": {"sheetId": sid, "dimension": "ROWS",
+                                                   "length": end - grid.get("rowCount", 1000)}})
+            values.append({"range": f"{t}!A{first}:{last}{end}", "values": [list(r) for r in p["appends"]]})
         # Deletions bottom-up, contiguous rows in one request.
         rows = sorted((i for i, _ in p["deletes"]), reverse=True)
         k = 0
@@ -225,6 +242,8 @@ def main(argv=None):
     ap.add_argument("--apply", action="store_true", help="make the changes (default: dry run)")
     ap.add_argument("--max-deletions", type=int, default=0)
     ap.add_argument("--archive", help="every deleted correspondence must be in this CSV")
+    ap.add_argument("--allow-append", action="store_true",
+                    help="append the rows that follow the last matched row in cldf/ (keys new to the sheet only)")
     args = ap.parse_args(argv)
     if not args.sheet:
         ap.error("--sheet or SHEET_ID is required")
@@ -232,7 +251,7 @@ def main(argv=None):
     tabs = sheet.tabs()
     current = {t: (sheet.all_values(t) if t in tabs else None) for t in build.TABLES}
     try:
-        plans = plan(current, args.cldf)
+        plans = plan(current, args.cldf, args.allow_append)
         for line in summary(plans):
             print(line)
         n = check_limits(plans, args.max_deletions if args.apply else 10**9, args.archive)
@@ -252,7 +271,8 @@ def main(argv=None):
     sheet.batch_update(after)
     tabs = sheet.tabs()
     sheet.batch_update(format_requests(plans, tabs))
-    print(f"Done: {len(values)} range(s) written, {n} row(s) deleted.")
+    print(f"Done: {len(values)} range(s) written, {n} row(s) deleted, "
+          f"{sum(len(p.get('appends', [])) for p in plans.values())} row(s) appended.")
     return 0
 
 

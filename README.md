@@ -330,7 +330,7 @@ Restructuring plan, phase 3:
 
 `tools/migrate_v3.py` does the rewrite; `tests/test_migration_v3.py` checks that the build generates every removed row unchanged (lect, phonemes, environment, status, source, page) and that putting them back changes nothing the build derives.
 
-A migration reaches the sheet through **Actions → Apply a migration to the sheet** (`sheet-apply.yml`, `tools/sheet_apply.py`): run it with `dry-run` to see the plan, then with `apply` and the number of rows to delete. It renames and adds columns, creates missing tabs, changes cells and deletes rows (each deleted correspondence must be in the archive file), never adds or reorders rows, and fails unless a sync afterwards finds the sheet equal to `cldf/`.
+A migration reaches the sheet through **Actions → Apply a migration to the sheet** (`sheet-apply.yml`, `tools/sheet_apply.py`): run it with `dry-run` to see the plan, then with `apply` and the number of rows to delete. It renames and adds columns, creates missing tabs, changes cells and deletes rows (each deleted correspondence must be in the archive file), never reorders rows, and fails unless a sync afterwards finds the sheet equal to `cldf/`. With `allow_append` (and an empty `archive`) it also appends the rows that follow the last matched row of each table, if their keys are new to the sheet: this is how a data edit that changes, deletes and adds rows at once reaches the sheet (`tools/batch_scripts/reverts_2026_11_23/`). Run it straight after merging such a pull request, before the hourly sync copies the sheet back over `cldf/`, and check that the dry run's counts are the ones expected.
 
 ## What the build checks
 
