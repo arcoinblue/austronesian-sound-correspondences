@@ -856,6 +856,19 @@ decision_done("pn-tree", "Wilson's (2021) tree is the main one (user's choice): 
               "Proto-Nuclear Marquesic) are composed onto those lects; rows that became identities are removed. "
               "Marck's nodes stay as lects with their rows; Walworth's parents stay proposed parents.")
 
+# ---------------------------------------------------------------- ngorek-nj (reverted by the user on 23 Nov, comment
+# "Note the inconsistency of the source")
+for page, loc, ipa, form in (("64", "Table 8", "t͡ʃ", "c"), ("67", "Table 11", "d͡ʒ", "j")):
+    T.add("correspondences", child_lect_id="ngor1244", parent_phoneme="j", child_phoneme=ipa, environment="n_",
+          status="disputed", source_id="smith2017a", page=page, locator=loc, source_form=form,
+          as_printed=f"*nj > n{form}",
+          notes="Smith is inconsistent here: Table 8 (p. 64) gives Ngorek nc for *nj, Table 11 (p. 67) nj; both are "
+                "entered, marked disputed. Smith (2017b: 165) has nc for Merap. The nasal is kept, as for *mb, *nd, "
+                "*ŋg (mp, nt, ŋk).", decision="ngorek-nj")
+decision_done("ngorek-nj", "both readings are entered on Ngorek as disputed rows, *j > t͡ʃ / n_ (Table 8, p. 64: nc) "
+              "and *j > d͡ʒ / n_ (Table 11, p. 67: nj), each noting that the source is inconsistent (the user's "
+              "comment).")
+
 # ---------------------------------------------------------------- wolff-vowels (not carried out)
 wv = T.one("decisions", id="wolff-vowels")
 T.append_note(wv, f"Not carried out on {TODAY}: Wolff (2010) has not been read directly (its PAn system is entered "

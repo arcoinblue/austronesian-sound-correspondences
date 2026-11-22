@@ -11,17 +11,17 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 226 |  |
 | lects | 984 | 247 dialect, 33 earlier-stage, 8 group, 438 language, 258 proto-language |
 | phonemes | 4281 |  |
-| correspondences | 10172 | plus 10542 implied and 3326 stated retentions generated from lects.inherit |
+| correspondences | 10174 | plus 10542 implied and 3326 stated retentions generated from lects.inherit |
 | notation_map | 536 |  |
 | allophones | 962 |  |
-| decisions | 153 | 55 confirmed, 74 open, 24 reverted |
+| decisions | 153 | 67 confirmed, 58 open, 28 reverted |
 
 Lects by `inherit`: (blank) 225, assumed-unchanged 525, stated-unchanged 234.
 Inventories: edited 28, empty 16, reverse-generated 763, sourced 177.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 288 warning(s), 932 note(s).
+`build.py --check`: 0 error(s), 288 warning(s), 917 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -38,8 +38,6 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 
 | id | Question | Reading taken | Rows | Comments |
 |---|---|---|---|---|
-| `ngorek-nj` | Ngorek reflex of *nj: Table 8 (p. 64) has nc, Table 11 (p. 67) nj. | Not entered. |  |  |
-| `psm-j` | Proto-Segai-Modang reflex of Proto-Kayanic *j (PMP *z- and *nz). | *j > *c, inferred from Table 14: it shares the reflexes of medial *c, while *-y- > j stays apart. | 1 |  |
 | `pkmm-glottal` | Where do the added final glottal stop and the lowering of final high vowels belong? | Shared by Kayan and Murik-Merap (section 2.2.4.1, p. 84), as Smith concludes, not Kayan alone as Figure 10 (p. 54) has it; entered on both Proto-Kayan and Prot… | 6 |  |
 | `kajang-hiatus` | Kajang reflexes of penultimate *u and *i before *a (Table 25: *-uCVC gʷ / _a; *-iCVC ʑ / _a). | Entered at Proto-Kajang as *u > *ɡʷ, *i > *ʑ before *a: the strengthened transition glide (p. 95: *dua > dəgʷa). |  |  |
 | `punan-internal` | Punan internal subgrouping (Figures 28-29, pp. 122-124). | No lower nodes: Punan Tubu-Bah (*a > *ə / _Ca(C)#, *z > *c) conflicts with the backing of final *ə shared by Punan Tubu, Bah, Aput and Beketan (pp. 120-122). T… |  |  |
@@ -88,30 +86,16 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `song-seediq` | Song (2025) reconstructs Proto-Seediq from five dialects, with an inventory that differs from Shibata’s (2025) Proto-Seediq (psed): *c, *x, *h and fricative *g… | Song’s inventory entered as the reconstruction system “Song” of psed (notation_map), and the five dialects stated against it (correspondences with system Song)… |  |  |
 | `li-reprints` | Li’s papers read in his Selected papers (2004): which work and pages are cited? | The original paper is the source (li1977, li1981, li1988, li2003, li2004, li1979); its sources row says it was read in the reprint, and pages are the reprint’s. |  |  |
 | `shibata-pb` | Shibata’s (2020) PAN > Proto-Bunun rows beside Li’s (1988): how? | Entered as separate rows on pbun. His *b, *d are Li’s ʔb, ʔd (source_form b, d). PAN *b, *d > *ʔ word-finally are regular rows, with his doubt about *b (p. 73)… | 6 |  |
-| `rau-mstbon` | Rau (2000), sound change in progress in Mstbon Squliq: how? | On Squliq (sqol1237) with variety ‘Mstbon (Ruiyan)’: -p > -k, -m > -ŋ, -l > -n as regular rows (lexical diffusion in the notes), the new variants as sporadic. … | 10 |  |
 | `lobel-subanen` | Subanen internal nodes (Figure 10.1)? | Proto-Subanen with Lobel's inventory (Table 10.3) under pgcph. Nodes Western Subanen (west2811), Nuclear Subanen (nucl1726) and East Nuclear Subanen (east2769)… | 4 |  |
 | `lobel-manide` | Manide and Inagta Alabat: where, and which reflexes? | Node Proto-Manide-Alabat (alab1255, the two languages only) directly under PMP: Lobel takes it as a primary branch of the Philippine macrogroup and there is no… |  |  |
-| `allophones-readings` | Readings taken while entering the allophones tab from the sources' descriptions (22 Nov 2026). | General statements are entered on every lect they cover: Goderich (2020: 15) on c, s and r for each Atayal dialect; Chen (2006: 60-68) on 'Paiwan' for the thre… |  |  |
 | `lrc2002-readings` | Symbols in the Lynch et al. (2002) sketches whose IPA value is not stated or is ambiguous. | j (a voiced palatal stop or affricate, value not stated) entered as ɟ in Sudest, Teanu (Buma) and Xârâcùù, and ⁿj as ᶮɟ; Tobati /~/ (a nasalisation phoneme in … |  |  |
 | `lrc2002-nadroga` | Nadrogā: the sketch says that historically *t became /s/ before /i e/ and /tʃ/ before /u/, *ⁿd became /ⁿdʒ/ before /i u/, and *s became /h/, without naming the… | Entered against Proto-Oceanic (the parent in this database), with a row for each statement; no elsewhere rows for *t and *d. | 4 |  |
 | `lrc2002-subgroups` | Ch. 5 names subgroup-defining sound changes: Proto Admiralties *R > *y before high vowels, lost elsewhere (p. 99); Southeast Solomonic merger of POc *l and *R … | Not entered: no Proto-Admiralties, Proto-Southeast Solomonic or Proto-Papuan Tip node was added, and the sketch languages are placed directly under POc (Southe… |  |  |
-| `shwng-nodes` | Which of Kamholz's SHWNG subgroups (Table 14.1) to enter as proto-languages? | Only those defined by sound changes and needed for a lect: Proto-Yaur-Yerisiam (*ŋ > ∅) and Proto-Raja Ampat–South Halmahera (*R > ∅), both directly under PSHW… |  |  |
 | `shwng-k` | PMP *k > ∅ (change 9) was probably not complete in PSHWNG: *k survives as k in some words, especially in South Halmahera and Moor. | Two rows: *k > ∅ regular, and *k > k sporadic with conditions unknown. | 2 |  |
-| `adelaar2005-ms` | Adelaar's Malayo-Sumbawan: a Malayic-Chamic-BSS branch, with Sundanese and Madurese as two other branches, excluding Javanese. Enter it as nodes? | Not entered as nodes. Proto-Chamic, Proto-Balinese-Sasak-Sumbawa, Sundanese, Madurese and Javanese are placed directly under PMP, each with the developments fr… |  |  |
 | `adelaar2005-unconditioned` | How to enter Adelaar's 'unconditioned splits' of final diphthongs and changes stated with alternatives (*R > r, y, Ø; *-aw > -u, -ò)? | One row per outcome with conditioning unknown; final diphthong mergers as fusions (V + glide), other diphthong changes as conditioned rows. Where a list item g… |  |  |
 | `ross1992-tables` | Ross (1992) was read directly (22 November 2026). Should its Table 2 (Formosan evidence: Proto-Atayal, Saisiyat, Thao, Proto-Bunun, Amis, Proto-Tsou, Proto-Ruk… | Not entered. The database's Ross system on PAn is Ross (2015); Ross (1992) uses a different inventory (*d1, *d2, *d3, *Z, no *θ or *x, Blust's *r folded into *… |  |  |
-| `geraghty1986-pcp` | Proto-Central Pacific (Geraghty 1986): where does it attach, and what of its descent from POc is entered? | Under POc, with Glottocode cent2060. POc > PCP rows only where a source states them: *mʷ > *ŋʷ (Geraghty 1986: 306), the liquids from Marck (2000: Table A.1) a… |  |  |
-| `geraghty1986-ppn` | Geraghty (1986) gives the PPn reflex of every PCP phoneme. Should Proto-Polynesian now go under PCP? | Not yet: decision ppn-parent (open) keeps PPn under POc. PPn is listed under PCP as a proposed daughter (alt_parents pcp:geraghty1986). The 31 PCP > PPn rows a… |  |  |
-| `geraghty1986-pfj` | Proto-Fijian: Glottocode, and its *ñ ('ñ/n' in Table 6). | No Glottocode: Glottolog has no Fijian clade (Western Fijian, and Tokalau Fijian with Polynesian). PFJ keeps *ñ, which Western Fijian keeps apart (n before u, … | 1 |  |
-| `geraghty1983-communalects` | Geraghty (1983), Table 15: direct reflexes of 37 Proto-Eastern Oceanic phonemes in 38 Fijian communalects, with a key to 41 sound changes. Enter them? | Not entered in this session. The table states reflexes from Proto-Eastern Oceanic, which is not a node here (decision pocr-parents), and the scan's OCR is unus… |  |  |
-| `lynch2001-tree` | Where do the Southern Vanuatu lects go, and what happens to Sye and Anejom, which were entered from Lynch et al. (2002) directly under POc? | Proto-Southern Vanuatu under POc (in the Southern Oceanic group), with Proto-Erromango (Sye, Ura, Utaha), Proto-Tanna (Proto-Northern Tanna: North Tanna, White… |  |  |
-| `lynch2001-variants` | How are Lynch's (2001) unconditioned variants entered: 'x ~ y' ('x or y, but more often x'), the fortis/lenis splits of POc *p, *pʷ and *k, and PEr *r ~ *L? | The more frequent reflex as regular 'elsewhere', the other as regular with 'conditions unknown', each with the cell in as_printed. Parenthesised reflexes in Ap… | 18 |  |
 | `lynch2001-pnt-pst` | Appendix I prints '?' for *q in Proto-Northern and Proto-Southern Tanna. Was *q still there? | PTn *q > PNT, PST *q with status disputed; each Tanna language has *q > ∅. | 2 |  |
 | `lynch2001-psv-e` | PSV *e has two sources (POc *e; POc *a before *Ci, *Cu) with different Proto-Tanna reflexes (*i and *e; Tables 3.4-3.5). | PSV *e > PTn *i regular, and PSV *e > PTn *e with conditioning 'lexical' (scope: PSV *e from POc *a before *Ci, *Cu). Not split into two PSV phonemes, since Ly… | 1 |  |
-| `lynch2001-ipa` | Lynch's symbols for the modern Southern Vanuatu languages. | IPA, with Lynch's letter in source_symbol or source_form: y = j (glide); Anejom j = t͡ʃ, ñ = ɲ; Ura b d g and North Tanna bʷ b d = ᵐb ⁿd ᵑɡ, ᵐbʷ ᵐb ⁿd (prenasa… |  |  |
-| `nc1992-orthography` | Ozanne-Rivierre writes POc in Milke's spelling (*d, *mpw, *mp, *nt, *nd, *nj, *ŋk) and PNC with geminates (Table 4). How are her statements entered? | Against Ross's POc in the database: her *d = Ross *r, *mpw *mp *nt *nd *nj *ŋk = Ross *bʷ *b *d *dr *j *ɡ (p. 196). PNC symbols as in Table 4, with ṭ and nḍ fo… | 7 |  |
-| `nc1992-geraghty` | Geraghty's (1989) Proto-Southern Oceanic reconstructs the same node as Proto-New Caledonian (New Caledonia and the Loyalties). How is it entered? | As rows on PNC citing Geraghty (1989) where he names a change from a POc phoneme: *ñ, *l > *n, *y > ∅, *R > ∅ with sporadic r before high vowels, *l > *r after… | 4 |  |
-| `nc1992-lects` | New Caledonian lects in Ozanne-Rivierre (1992): codes and symbols. | Gomen Yuanga = Glottolog Zuanga (thua1237) and Bondé Yuanga = Yuanga (juan1250), dialects of Zuanga-Yuanga; Kumak = Nixumwak (nucl1483), dialect of Nêlêmwa-Nix… | 1 |  |
 
 <!-- END GENERATED -->
 
