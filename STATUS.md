@@ -9,25 +9,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 226 |  |
-| lects | 978 | 249 dialect, 33 earlier-stage, 9 group, 438 language, 249 proto-language |
-| phonemes | 4339 |  |
-| correspondences | 10096 | plus 10467 implied and 3451 stated retentions generated from lects.inherit |
-| notation_map | 527 |  |
-| allophones | 963 |  |
+| lects | 984 | 247 dialect, 33 earlier-stage, 8 group, 438 language, 258 proto-language |
+| phonemes | 4281 |  |
+| correspondences | 10172 | plus 10542 implied and 3326 stated retentions generated from lects.inherit |
+| notation_map | 536 |  |
+| allophones | 962 |  |
 | decisions | 153 | 55 confirmed, 74 open, 24 reverted |
 
-Lects by `inherit`: (blank) 222, assumed-unchanged 516, stated-unchanged 240.
-Inventories: edited 28, empty 17, reverse-generated 754, sourced 179.
+Lects by `inherit`: (blank) 225, assumed-unchanged 525, stated-unchanged 234.
+Inventories: edited 28, empty 16, reverse-generated 763, sourced 177.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 289 warning(s), 924 note(s).
+`build.py --check`: 0 error(s), 288 warning(s), 932 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 136 |
+| no glottocode | 134 |
 | a work cited in notes has no sources row | 66 |
-| a source is never cited | 46 |
+| a source is never cited | 47 |
 | a reflex is not in the lect's sourced inventory | 27 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -53,8 +53,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ppn-parent` | What is the parent of Proto-Polynesian? | POc directly. Proto-Central Pacific (and Proto-Eastern Oceanic) are held back as intermediate stages, as in kayanic-held; POc > PPn rows are composed through P… | 5 |  |
 | `pn-orthography` | How are the Polynesian glottal stop and velar nasal written? | ʔ and ŋ, in proto-languages and attested lects. Marck writes the glottal stop *q in proto-languages and ' in living languages (p. 34), the velar nasal ng, and … | 1 |  |
 | `pto-r` | Proto-Tongic reflex of PPn *r: loss, or l (Table A.1 vs Table 2.2)? | *r > ∅ elsewhere and *r > *l between like vowels in words beginning with a stop other than *q, both regular (Table A.1, note 1, p. 237). | 2 |  |
-| `pnp-h` | PPn *h, lost in Nuclear Polynesian except in a few words (Table 2.2 note 5). | PNP *h > ∅ regular and *h > *h sporadic; each daughter's s or h ('ø/s', 'ø/h') is entered as the reflex of that residual *h. Below PEP Table 2.2 has no *h colu… | 26 |  |
-| `marck-diffused` | Marck's diffused changes (lexical diffusion, with residue): PCE *f > *w before *a(a)h, the Nuclear Marquesic low-vowel assimilation, the Kapingamarangi final-v… | Entered as regular with their conditions, each row noting that the change did not reach every eligible word; there is no status between regular and sporadic (S… | 8 |  |
+| `pnp-h` | PPn *h, lost in Nuclear Polynesian except in a few words (Table 2.2 note 5). | PNP *h > ∅ regular and *h > *h sporadic; each daughter's s or h ('ø/s', 'ø/h') is entered as the reflex of that residual *h. Below PEP Table 2.2 has no *h colu… | 31 |  |
+| `marck-diffused` | Marck's diffused changes (lexical diffusion, with residue): PCE *f > *w before *a(a)h, the Nuclear Marquesic low-vowel assimilation, the Kapingamarangi final-v… | Entered as regular with their conditions, each row noting that the change did not reach every eligible word; there is no status between regular and sporadic (S… | 16 |  |
 | `mqa-general` | Marck's vowel rows and one sporadic row for 'Mqa (general)' (Table 3.1; Table 2.32), where Table 2.2 has Southern and Northern Marquesan. | Entered on both South and North Marquesan. | 10 |  |
 | `mao-f` | Māori reflex of PPn *f, printed 'wh/h' with note 13, whose text ('In some place names only. Elsewhere ' (glottal stop)') fits Tubuai's *ng. | wh regular and h with conditions unknown; note 13 taken to belong to Tubuai. | 2 |  |
 | `ren-bel` | Table 2.2 has rows Bel and Ren; Table 1.6 has only 'Ren Rennellese and Bellona'. | Ren on Rennellese (renn1242, Rennell-Bellona) and Bel on Bellona (Glottolog dialect mung1270, alternative name Mungiki). |  |  |
@@ -120,7 +120,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 Hand-kept. Collected from the handoffs of 2026-11-20 (09:20 to 15:00). The Google Doc "ASC to-do list" could not be read when this was written ("Permission denied"), so items that are only there still need adding here.
 
 - Zobel 2020: the appendix of PKW reconstructions; the languages outside his Table 18 (Rai, Kamaru, Kalao). Lindu, Sedoa and Topoiyo are entered from prose only.
-- Smith 2017a (Borneo): batch `smith2017-borneo` has Kayan, Murik-Merap, Segai-Modang, Kajang, Melanau, Punan, Müller-Schwaner, Land Dayak and Malayic (see its BATCH.md for what was left out). Proto-Kayanic and Proto-Kayan-Murik-Merap are held back as intermediate stages (`kayanic-held`), and Proto-Malayic has no changes of its own (`pmal-shared`), by the user's rule of 20 Nov: correspondence tables and established microgroups yes, intermediate reconstructions above them not yet. Still to enter: §2.7 Barito (a linkage, no node), §2.9 Basap, §2.10 Sabah (Northeast Sabah, Molbog; Dusunic from Lobel), §2.11 Dayic, Berawan-Lower Baram, Bintulu (Kenyah has no table). The scripts are in `tools/batch_scripts/smith2017/`.
+- Smith 2017a (Borneo): batch `smith2017-borneo` has Kayan, Murik-Merap, Segai-Modang, Kajang, Melanau, Punan, Müller-Schwaner, Land Dayak and Malayic (see its BATCH.md for what was left out). Proto-Kayanic and Proto-Kayan-Murik-Merap are held back as intermediate stages (`kayanic-held`), and Proto-Malayic carries the reflexes all seven lects share, marked composed (`pmal-shared`, reverted), by the user's rule of 20 Nov: correspondence tables and established microgroups yes, intermediate reconstructions above them not yet. Still to enter: §2.7 Barito beyond Tables 56-57 (Proto-Barito is a node since the revert of `smith-barito`), §2.9 Basap, §2.10 Sabah (Northeast Sabah, Molbog; Dusunic from Lobel), §2.11 Dayic, Berawan-Lower Baram, Bintulu (Kenyah has no table). The scripts are in `tools/batch_scripts/smith2017/`.
 - Lobel 2013: nothing entered. Proto-Subanen (ch. 10) is stated against Proto-Greater Central Philippine and Southwest Sabah (ch. 11) against Proto-Southwest Sabah; neither node is in the database. Also Manide and Inagta Alabat (ch. 8).
 - Grimes & Edwards 2026: only the classification trees are entered (Banda from summary (19), p. 505). The chapter tables (cognate sets) and the prose are not. Kept in lect notes, not as rows: *ma-p/*map, insertions (∅ > C, y-insertion, prothesis), metathesis (SW Maluku), whole-class rules (*C > ∅ /_#, *V > ∅ /_#), and changes whose input the tree never provides (Timaus **ʤ/**gʷ, East Nage **ʤ, Kei **d). The insertions could now be rows (parent `∅`).
 - Bender et al. 2003a beyond p. 9 (the dictionary), and part 2 (2003b).
@@ -132,6 +132,7 @@ Hand-kept. Collected from the handoffs of 2026-11-20 (09:20 to 15:00). The Googl
 - Southern Vanuatu (Lynch 2001; batches `lynch2001`, `lynch2001-reparent`): canonical-form changes (pretonic vowel loss, accretion, Article Reduction), vowel tendencies without stated conditions, Anejom vowel sequences, chapters 5-8 and Appendix II.
 - Central Pacific (Geraghty 1986; batches `geraghty1986-pcp`, `geraghty1986-rotuman`): POc > PCP is entered only for *mʷ, the liquids and *R; the PCP > PPn rows are held until `ppn-parent` and `geraghty1986-ppn` are decided (`python3 tools/batch_scripts/geraghty1986/build.py ppn`); Western/Eastern Fijian and Nadrogā are not under Proto-Fijian. Geraghty 1983, Table 15 (38 communalects, pp. 183-186) is not entered (`geraghty1983-communalects`).
 - New Caledonia (Ozanne-Rivierre 1992, Geraghty 1989; batch `nc-ozannerivierre1992`): PNC vowels; Geraghty's aspirates and internal nodes; the Loyalty, Mainland, Northern and Southern New Caledonian subgroups.
+- Reverted decisions carried out on 23 Nov 2026 (`tools/batch_scripts/reverts_2026_11_23/`), with what is left: `wolff-vowels` not done (Wolff 2010 not read directly; the PDFs were not reachable); `yeh-puyuma-tree`: the three nodes below Proto-Nuclear Puyuma have no rows of their own, and Yeh's pp. 193-194 should be re-read for their innovations (Katripulr and Kasavakan share **v and perhaps **f, Tables 4.30-4.31); `ge-overlap`: the Peripheral Babar shared changes (overlapping sets) stay on the languages, and Glottolog's Wetar-Galolen (weta1247) may fit pwetgal; `pmal-shared`: Iban *a > æ / _C# now also covers the *ə merged into *a at Proto-Malayic; `pn-tree`: Marck's Proto-Central East Polynesian, Proto-Marquesic and Proto-Nuclear Marquesic have no daughters in the main tree.
 - Papora, Taokas, Basay: Shibata 2025 gives no separate reflexes.
 - About 50 works cited in notes have no sources row (Hughes 2020a, Edwards 2015, Marck 1977, Brown 2001, Harrison 1978, Wolff 1982, ...): see the warnings above. Their details come from the citing sources' reference lists.
 - `locator` is empty: table, figure and section references are still in the notes.

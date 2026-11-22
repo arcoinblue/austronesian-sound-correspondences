@@ -22,10 +22,16 @@ import build  # noqa: E402
 import migrate_v3  # noqa: E402
 
 REMOVED = ROOT / "data" / "migrations" / "v3_removed_correspondences.csv"
+# Archived retentions that later data edits made untrue: *d > d below Proto-Nuclear Rote (Proto-Central
+# East Rote and the nodes under it), Proto-West Rote-Meto (Proto-Dengga-Meto) and Proto-Ambon-Seram
+# (Proto-Nuclear Ambon-Seram), which now change *d (decision ge-identity-conflicts, reverted 23 Nov 2026).
+# They are neither generated nor valid any more.
+RETIRED = {"cc8f477b3bb", "c5c46352749", "ce2dc9c9d8a", "c2c9a6a982f", "c8b4de3bf63", "c873ea522cd", "c8a7bda0812"}
 
 
-def removed_rows():
-    return list(csv.DictReader(io.StringIO(REMOVED.read_text(encoding="utf-8"))))
+def removed_rows(all_rows=False):
+    rows = list(csv.DictReader(io.StringIO(REMOVED.read_text(encoding="utf-8"))))
+    return rows if all_rows else [r for r in rows if r["id"] not in RETIRED]
 
 
 def claims(D):
@@ -110,6 +116,7 @@ class TestMigrationV3(unittest.TestCase):
             self.assertEqual(sorted(again["correspondences"], key=key), sorted(now["correspondences"], key=key))
             redone = list(csv.DictReader(io.StringIO((d / "removed.csv").read_text(encoding="utf-8"))))
             self.assertEqual(sorted(redone, key=key), sorted(removed_rows(), key=key))
+        self.assertTrue(RETIRED <= {r["id"] for r in removed_rows(all_rows=True)})
 
 
 if __name__ == "__main__":

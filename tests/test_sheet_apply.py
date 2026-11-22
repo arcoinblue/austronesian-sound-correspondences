@@ -118,6 +118,35 @@ class TestSheetApply(unittest.TestCase):
         with self.assertRaises(ValueError):
             sheet_apply.plan(sheet, self.cldf)
 
+    def test_new_rows_are_appended_only_when_allowed(self):
+        sheet = {t: grid(self.cldf / f"{t}.csv") for t in build.TABLES}
+        sheet["sources"].append(["stray2026", "Nobody", "2026", "x", "", "comparative"])   # deleted
+        # cldf/ gains two rows at the end of sources and loses the first lect's row (which moves to the end).
+        src = grid(self.cldf / "sources.csv")
+        width = len(src[0])
+        new = [["new2026a", "Somebody", "2026", "y", "", "comparative"], ["new2026b", "Somebody", "2026", "z", "", "comparative"]]
+        src += [r + [""] * (width - len(r)) for r in new]
+        with open(self.cldf / "sources.csv", "w", newline="", encoding="utf-8") as f:
+            csv.writer(f, lineterminator="\n").writerows(src)
+        with self.assertRaises(ValueError):
+            sheet_apply.plan(sheet, self.cldf)
+        plans = sheet_apply.plan(sheet, self.cldf, allow_append=True)
+        self.assertEqual([r[0] for r in plans["sources"]["appends"]], ["new2026a", "new2026b"])
+        self.assertEqual([r[0] for _, r in plans["sources"]["deletes"]], ["stray2026"])
+        after = run_plan(sheet, plans)
+        got = [r + [""] * (width - len(r)) for r in after["sources"]]
+        while got and not any(got[-1]):
+            got.pop()
+        self.assertEqual(got, src)
+        # A row moved to the end keeps its key, so it is still refused.
+        lects = grid(self.cldf / "lects.csv")
+        lects = [lects[0]] + lects[2:] + [lects[1]]
+        with open(self.cldf / "lects.csv", "w", newline="", encoding="utf-8") as f:
+            csv.writer(f, lineterminator="\n").writerows(lects)
+        with self.assertRaises(ValueError):
+            sheet_apply.plan({t: grid(self.cldf / f"{t}.csv") if t != "lects" else sheet["lects"] for t in build.TABLES},
+                             self.cldf, allow_append=True)
+
     def test_new_columns_get_text_format_and_dropdowns(self):
         sheet = old_layout(self.cldf)
         plans = sheet_apply.plan(sheet, self.cldf)

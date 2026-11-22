@@ -3,7 +3,7 @@ name: Apply a migration to the sheet
 # After a layout migration is merged (cldf/ rewritten by tools/migrate_v*.py),
 # this makes the same edits in the Google Sheet with the service account:
 # renamed and added columns, new tabs, changed cells, deleted rows. It never
-# adds or reorders rows. Then it syncs the sheet back and fails unless cldf/
+# reorders rows; with allow_append it appends rows whose keys are new. Then it syncs the sheet back and fails unless cldf/
 # is unchanged, i.e. the sheet now holds exactly the migrated tables.
 #
 # Run it by hand: first with mode "dry-run" (prints the plan), then "apply".
@@ -20,8 +20,13 @@ on:
         description: "How many sheet rows may be deleted (the dry run prints the number)"
         default: "0"
       archive:
-        description: "Every deleted correspondence must be in this file"
+        description: "Every deleted correspondence must be in this file (leave empty for a data edit)"
         default: "data/migrations/v3_removed_correspondences.csv"
+        required: false
+      allow_append:
+        description: "Also append the rows that follow the last matched row (new keys only)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -45,11 +50,11 @@ jobs:
 
       - name: Plan (dry run)
         if: inputs.mode == 'dry-run'
-        run: python tools/sheet_apply.py --archive "${{ inputs.archive }}"
+        run: python tools/sheet_apply.py --archive "${{ inputs.archive }}" ${{ inputs.allow_append && '--allow-append' || '' }}
 
       - name: Apply to the sheet
         if: inputs.mode == 'apply'
-        run: python tools/sheet_apply.py --apply --max-deletions "${{ inputs.max_deletions }}" --archive "${{ inputs.archive }}"
+        run: python tools/sheet_apply.py --apply --max-deletions "${{ inputs.max_deletions }}" --archive "${{ inputs.archive }}" ${{ inputs.allow_append && '--allow-append' || '' }}
 
       - name: Sync back; the sheet must now equal cldf/
         if: inputs.mode == 'apply'
