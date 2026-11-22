@@ -45,7 +45,6 @@ async function pageIndex(params) {
   // Branches first, then leaves, each by name.
   for (const k of Object.values(kids))
     k.sort((x, y) => (kids[y.id] ? 1 : 0) - (kids[x.id] ? 1 : 0) || x.name.localeCompare(y.name));
-  const size = id => (kids[id] || []).reduce((n, k) => n + 1 + size(k.id), 0);
   // Open to start with: the top two levels; everything in a reflex table.
   const open = mem.open ||= new Set();
   if (!open.size) {
@@ -107,13 +106,18 @@ async function pageIndex(params) {
     } else {
       // A filter keeps the matches and the ancestors that lead to them.
       const has = l => hit(l) || (kids[l.id] || []).some(has);
+      const shows = l => !((q && !has(l)) || !visible(l));
+      // Daughters that would be listed: with "hide lects with no data" on, a group
+      // whose daughters all lack data has nothing to open.
+      const shownKids = id => (kids[id] || []).filter(shows);
+      const shownSize = id => shownKids(id).reduce((n, k) => n + 1 + shownSize(k.id), 0);
       const walk = (pid, depth) => {
         for (const l of kids[pid] || []) {
-          if ((q && !has(l)) || !visible(l)) continue;
+          if (!shows(l)) continue;
           // A proto-language with daughters heads a group, named after the clade
           // (Malayo-Polynesian, not Proto-Malayo-Polynesian). An earlier stage of
           // one language (Pre-Gayo) heads none: its daughter simply follows it.
-          const k = kids[l.id], group = k && l.type !== "earlier-stage";
+          const k = shownKids(l.id).length ? kids[l.id] : null, group = k && l.type !== "earlier-stage";
           const isOpen = !group || q ? true : open.has(l.id);
           const clade = group ? (l.clade || l.name) : "";
           // The daughter of an earlier stage (Pre-Gayo > Gayo) follows it at the same depth.
@@ -124,13 +128,13 @@ async function pageIndex(params) {
               ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${l.name === "Proto-" + clade
                 ? `<a class="clade" href="#/lects/${esc(l.id)}/" title="${esc(l.name)}">${esc(clade)}</a>`
                 : `<b class="clade">${esc(clade)}</b> <span class="muted">·</span> ${lectLink(l.id)}`}`
-              : (afterStage ? "" : `<span class="twist"></span>`) + lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${size(l.id)} lect${size(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
+              : (afterStage ? "" : `<span class="twist"></span>`) + lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${shownSize(l.id)} lect${shownSize(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
           if (k && isOpen) walk(l.id, l.type === "earlier-stage" ? depth : depth + 1);
           // Lects that another classification puts here: listed, dimmed, with the work that proposes it.
           if (isOpen && altKids[l.id] && !q) for (const a of altKids[l.id]) {
             if (pivot && !pivot.alt.has(a.lect.id)) continue;
             body += `<tr class="dim alt"><td class="nm" style="--d:${depth + 1}"><span class="twist"></span>${lectLink(a.lect.id)}
-              <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">in another classification (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
+              <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">proposed daughter (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
           }
         }
       };
@@ -139,7 +143,7 @@ async function pageIndex(params) {
       if (pivot && !q) for (const a of altKids[pivot.lect] || []) {
         shown++;
         body += `<tr class="alt"><td class="nm" style="--d:0"><span class="twist"></span>${lectLink(a.lect.id)}
-          <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">in another classification (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
+          <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">proposed daughter (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
       }
     }
     const cols = tree ? 4 : 5;

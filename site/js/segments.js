@@ -61,10 +61,12 @@ async function pageSegments(params) {
   q.value = S.q; kind.value = S.kind; imp.checked = S.implied; sort.value = S.sort;
 
   const draw = () => {
-    const words = S.q.trim().toLowerCase().split(/[\s,]+/).filter(Boolean);
+    // Symbols are matched as typed: s and S are different phonemes. Only feature
+    // words and lect names ignore case.
+    const words = S.q.trim().split(/[\s,]+/).filter(Boolean);
     const lectQ = S.q.trim().toLowerCase();
     const segHit = p => words.length > 0 && words.every(w => normSeg(w) === p[0]
-      || segFeatures(p).split(" ").includes(w));
+      || segFeatures(p).split(" ").includes(w.toLowerCase()));
     const lectHit = L => {
       const l = LECTS[L]; if (!l || !lectQ) return false;
       return [l.name, ...(l.alt_names || []), l.glottocode, l.clade, L].some(x => x && String(x).toLowerCase().includes(lectQ));

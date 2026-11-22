@@ -122,7 +122,7 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `language_id` | | *optional column.* For a dialect: the language it belongs to. The dialect's page says "Dialect of …" and the language's page lists its dialects. |
 | `inherit_source_id`, `inherit_page` | | *optional columns.* The citation of the generated rows: where the source says (or shows) that the rest is unchanged. Blank: the source and page the lect's own rows cite most. Give them for `stated-unchanged`. |
 | `inherit_note` | | *optional column.* The note of the generated rows (`Unchanged: not among the nontrivial sets of Table 3 (p. 119).`). Blank: a standard note. |
-| `alt_parents` | | *optional column.* Other classifications, `parent_id:source_id`, `;`-separated: `pef:chen2022`. The tree and the correspondences follow `parent_id`; the lect page lists the other hypotheses and the proposed parent lists the lect under "Daughters in other classifications". |
+| `alt_parents` | | *optional column.* Other classifications, `parent_id:source_id`, `;`-separated: `pef:chen2022`. The tree and the correspondences follow `parent_id`; the lect page lists the other hypotheses and the proposed parent lists the lect under "Proposed daughters". |
 | `overlap_groups` | | *optional column.* Names of subgroups that cut across the tree, `;`-separated (`Wetar-Galolen`). They are labels, not nodes: a lect can be in several, its `parent_id` stays what the tree says, and the changes that define the group are entered on each member. The lect page lists the other members, and the lect filter finds the name. |
 | `region`, `orthography_note`, `notes` | | |
 
