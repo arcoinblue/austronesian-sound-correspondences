@@ -168,6 +168,8 @@ table.lects td.nw, table.lects td.cov { white-space: nowrap; }
 @media (max-width: 900px) {
   table.lects .gc, table.refs .nt { display: none; }
   table.refs td.ref { max-width: none; }
+  /* "proposed daughter (Robinson & Lobel 2013)" goes on a line of its own under the name. */
+  table.lects tr.alt td.nm .muted { display: block; padding-left: 20px; }
 }
 @media (max-width: 640px) {
   table.lects .ty, table.refs .kd { display: none; }
@@ -196,7 +198,9 @@ table.othersys { width: auto; margin: 4px 0; }
 .seg-toggle button.on { background: var(--accent); color: var(--bg); }
 #sq { min-width: 260px; }
 #scount { font-size: 13px; margin-left: auto; }
-table.segs td.nm { white-space: nowrap; }
+/* A fixed name column: long names (Proto-Southeast Solomons Outlier-East Polynesian) wrap,
+   and the symbols get the room. */
+table.segs td.nm { white-space: normal; width: 13em; }
 table.segs td.ipa a { display: inline-block; padding: 0 3px; border-radius: 4px; }
 table.segs a.implied { color: var(--muted); }
 table.segs a.unc { text-decoration: underline dotted; }
