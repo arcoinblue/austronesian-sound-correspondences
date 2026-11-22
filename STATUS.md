@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 143 |  |
-| lects | 820 | 218 dialect, 30 earlier-stage, 350 language, 222 proto-language |
-| phonemes | 2671 |  |
-| correspondences | 7738 | plus 6487 implied and 2927 stated retentions generated from lects.inherit |
-| notation_map | 496 |  |
-| decisions | 106 | 10 confirmed, 93 open, 3 reverted |
+| sources | 154 |  |
+| lects | 822 | 218 dialect, 30 earlier-stage, 350 language, 224 proto-language |
+| phonemes | 2729 |  |
+| correspondences | 7853 | plus 6487 implied and 2956 stated retentions generated from lects.inherit |
+| notation_map | 498 |  |
+| decisions | 113 | 10 confirmed, 100 open, 3 reverted |
 
-Lects by `inherit`: (blank) 291, assumed-unchanged 330, stated-unchanged 199.
-Inventories: edited 24, empty 153, reverse-generated 532, sourced 111.
+Lects by `inherit`: (blank) 291, assumed-unchanged 330, stated-unchanged 201.
+Inventories: edited 24, empty 153, reverse-generated 531, sourced 114.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 255 warning(s), 798 note(s).
+`build.py --check`: 0 error(s), 256 warning(s), 814 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 125 |
-| a work cited in notes has no sources row | 66 |
-| a source is never cited | 38 |
+| a work cited in notes has no sources row | 64 |
+| a source is never cited | 41 |
 | a reflex is not in the lect's sourced inventory | 12 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -130,6 +130,13 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `li-bunun-dialects` | Li’s (1988) five Bunun dialects: which lects? | Takituduh and Takbanuað (no glottocodes) and Takibakha (taki1252) added under Proto-Bunun; Isbukun and Takivatan get Li’s rows. All five are stated-unchanged a… |  |
 | `li-plains` | Li (2003) on the four coastal plains languages: whose claims, and the subgroup? | The three innovations Li takes from Tsuchida (1982: 9-10) and the Taokas-Babuza *p change are cited to Tsuchida via Li; *ŋ > n (from Li 1985), the *C and *S ro… |  |
 | `li-favorlang` | Li’s (2005) Favorlang reflexes: where? | On Babuza (babu1240), each row labelled Favorlang, as the earlier rows are. His two PAN *S (Dahl’s *S1 > s, *S2 > ø) are two rows with conditions unknown; *p >… |  |
+| `shibata-bunun-nodes` | Shibata’s (2020) Northern and Central Bunun: nodes? | Entered as Proto-Northern Bunun (pnbun, nort2902) and Proto-Central Bunun (pcbun, cent2105) under Proto-Bunun, both stated-unchanged with Shibata’s changes as … | 8 |
+| `shibata-pb` | Shibata’s (2020) PAN > Proto-Bunun rows beside Li’s (1988): how? | Entered as separate rows on pbun. His *b, *d are Li’s ʔb, ʔd (source_form b, d). PAN *b, *d > *ʔ word-finally are regular rows, with his doubt about *b (p. 73)… | 6 |
+| `bunun-dialect-inventories` | Inventories for Takituduh, Takbanuað and Takibakha: whose? | Takituduh from Cheng (2017) via Shibata (2020: 38) and Takbanuað from Shibata (2020: 46), both with implosive ɓ, ɗ; Takibakha from Jiang (2012: 23-30), with b,… |  |
+| `litsuchida-amis` | Li & Tsuchida (2022) on Amis: where do their rows and groups go? | Their PAN > Proto-Amis list (pp. 96-97) is entered on pami (Lin’s Proto-Amis-Sakizaya) in Lin’s symbols. The list has *d > r but their summary of mergers has *… | 1 |
+| `rau-mstbon` | Rau (2000), sound change in progress in Mstbon Squliq: how? | On Squliq (sqol1237) with variety ‘Mstbon (Ruiyan)’: -p > -k, -m > -ŋ, -l > -n as regular rows (lexical diffusion in the notes), the new variants as sporadic. … | 10 |
+| `ross-sibilant-dissimilation` | Ross (2012) on sibilant dissimilation (*C > t when a sibilant follows): where? | On Tsou, Kanakanavu and Saaroa (there is no Proto-Tsouic node) and on Maga and Tona against Proto-Rukai *c, as regular conditioned rows, with the lexical exten… | 10 |
+| `ten-4-groups` | Classifications in Blust (1996), Ross (2012), Sagart (2004, 2014, 2026) and Zeitoun & Teng (2016): nodes? | None are nodes. Overlap groups: ‘Western Plains (Blust 1996)’ on Thao and the four western plains languages; ‘Tsouic (Sagart 2014)’ on Tsou, Tfuya, Kanakanavu … |  |
 
 <!-- END GENERATED -->
 
