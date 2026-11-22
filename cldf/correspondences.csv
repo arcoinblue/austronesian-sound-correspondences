@@ -7852,3 +7852,1314 @@ c4174602e3d,kana1286,C,t,elsewhere,sporadic,,,sagart2014,875,"Sagart takes this 
 c28491ea4d3,saar1237,C,t,elsewhere,sporadic,,,sagart2014,875,"Sagart takes this irregular change, with the metathesis *pataS > *tapaSə, to be a sporadic innovation of Proto-Tsouic (p. 875); Ross (2012: 1303) lists the same etymon.",,,,,,,,,,*Caqi ‘excrement’,*Caqi > Proto-Tsouic *táʔ₃i > tiiʔi,,,,
 cf67ebafc70,thao1240,y,∅,a_#,sporadic,,,blust1996,281,"A tendency that Thao shares with the western plains languages (p. 281). Ross (2012: 1278) notes that there it affects every candidate word, in Thao not.",,,,,,,,,,,,,,,
 c0cc4b93ace,thao1240,w,∅,a_#,sporadic,,,blust1996,281,"A tendency that Thao shares with the western plains languages (p. 281). Ross (2012: 1278) notes that there it affects every candidate word, in Thao not.",,,,,,,,,,,,,,,
+c48e644e0df,pnoep,f,p,elsewhere,sporadic,,,wilson2012,305,"Example (6). Nukuoro, Sikaiana paasua, Kapingamarangi paehua, pahua; Takuu and Luangiua vaasua may instead be a later Central Northern Outlier change of *f (p. 305).",,,,,lexical,,,,,*faasua,"PPN, PNPN *faasua > PNO-EPN *paasua ‘tridacna’",,,,
+cdf73ba502f,pnoep,f,w,elsewhere,sporadic,,,wilson2012,305,"Example (7). Nukuoro vaalanga, Kapingamarangi waalanga; PEPN *wananga ‘weighty language’.",,,,,lexical,,,,,*fananga,PPN *fananga > PNO-EPN *wananga ‘story’,,,,
+c7807aa8f89,psnoep,f,w,elsewhere,sporadic,,,wilson2012,309,"Example (33): conflation of PPN *faqasi ‘part, side’, *fasi ‘split’ and *faasi ‘split lengthwise’; Wilson calls it an irregular change of *f to *w before *s. East Futunan, East Uvean and Rennellese share it, which he takes to be independent (p. 309).",,,,,lexical,,,,,"*faqasi, *fasi, *faasi",PPN *faqasi/*fasi > PSNO-EPN *waqasi/*wasi,,,,
+ca50420326a,psnoep,w,f,elsewhere,sporadic,,,wilson2012,309,"Example (35). Sikaiana hatuke, Takuu fatuke; the Carolinean Outlier words are replacements, so the change may go back to PNO-EPN (p. 309).",,,,,lexical,,,,,*watuke,PPN *watuke > PSNO-EPN *fatuke ‘pencil urchin’,,,,
+cbbcf8120f5,pcnoep,m,p,elsewhere,sporadic,,,wilson2012,310,"Example (41). Takuu panoko, Luangiua pungoʻo; Nukuoro keeps manoko. Wilson suggests the form may have been borrowed from a Fijian word with sporadic *m > b (p. 310).",,,,,lexical,,,,,*manoko,PPN *manoko > PCNO-EPN *panoko ‘goby’,,,,
+c8127135de7,pnoep,f,f,elsewhere,regular,,,wilson2021,44,"Retention entered by hand: Wilson's changes of *f at this node are single-word (sporadic) changes, so *f otherwise continues; without this row the assumed-unchanged rule drops *f from the inventory. Wilson (2021: 44) assumes one phoneme inventory from PNPN down.",,,,,,,implied-retention,,,,,,,,
+cf4370d967f,psnoep,f,f,elsewhere,regular,,,wilson2021,44,"Retention entered by hand: Wilson's changes of *f at this node are single-word (sporadic) changes, so *f otherwise continues; without this row the assumed-unchanged rule drops *f from the inventory. Wilson (2021: 44) assumes one phoneme inventory from PNPN down.",,,,,,,implied-retention,,,,,,,,
+c915b6145c8,psnoep,w,w,elsewhere,regular,,,wilson2021,44,"Retention entered by hand: Wilson's changes of *w at this node are single-word (sporadic) changes, so *w otherwise continues; without this row the assumed-unchanged rule drops *w from the inventory. Wilson (2021: 44) assumes one phoneme inventory from PNPN down.",,,,,,,implied-retention,,,,,,,,
+c1d88b46dd6,umir1236,h,∅,elsewhere,regular,,,himes2002,,"Lost (Lobel 2013: 213), as in Northern and Central Luzon.",,lobel2013,213-215,,,,,,,,,,,,
+c485f9829f7,umir1236,q,∅,elsewhere,regular,,,himes2002,,Lost (Lobel 2013: 213-214).,,lobel2013,213-215,,,,,,,,,,,,
+ca390933a4e,umir1236,j,d,elsewhere,regular,,,himes2002,,Merged with *d (Lobel 2013: 214).,,lobel2013,213-215,,,,,,,,,,,,
+ca2081e1e11,umir1236,R,ɡ,elsewhere,regular,,,himes2002,,Dual reflex g ~ ∅ (Lobel 2013: 214-215).,,lobel2013,213-215,,,,,,,,,,,,
+c4165a1e671,umir1236,R,∅,"_i; between like vowels; [e,i]_[a,u]",regular,,,himes2002,,"Zero before /i/ or between like vowels (a_a, u_u, ə_ə, i_i) or between (e,i)_(a,u) (Himes 2002: 279, cited in Lobel 2013: 215 n. 6); Lobel suggests *R > *g > *ɣ > *h > ∅.",,lobel2013,214-215,,,,,,,,,,,,
+c3c8a7448fc,umir1236,e,i,penultimate syllable,regular,,,lobel2013,217,"*ə is /i/ in the penult and /o/ in the ultima, a combination found in no other Philippine language.",,,,,,,,,,,,,,,
+c21e37a23e1,umir1236,e,o,final syllable,regular,,,lobel2013,217,,,,,,,,,,,,,,,,
+c30c4c93b51,umir1236,i,u,conditions unknown,sporadic,,5,lobel2013,215-216,Unconditioned; 'probably best explained as sporadic irregular shifts' (pp. 215-216).,,,,,unknown,,,,,,,,,,
+c751e208dec,umir1236,u,i,conditions unknown,sporadic,,5,lobel2013,215-216,,,,,,unknown,,,,,,,,,,
+cd632ca05dd,umir1236,a,o,_w,regular,,,himes2002,,*aw > /ow/ (Lobel 2013: 217).,,lobel2013,217,,,,,,,,,,,,
+c992f569332,umir1236,a,o,_y,regular,,,himes2002,,*ay > /oy/ (Lobel 2013: 217).,,lobel2013,217,,,,,,,,,,,,
+c475281e212,umir1236,y,j,elsewhere,regular,,,himes2002,,IPA for the glide written y.,,lobel2013,217,,,,,,,,,,,,
+c9b6dae6568,pma,q,ʔ,elsewhere,regular,,,lobel2013,244,In all positions; both ʔC and Cʔ clusters are allowed (p. 244).,,,,,,,,,,,,,,,
+c047636bc84,pma,R,ɡ,elsewhere,regular,,,lobel2013,245,In all known inherited lexicon; karáyum 'needle' is a Tagalog loan (p. 245).,,,,,,,,,,,,,,,
+c34ad5ed7a9,pma,h,h,elsewhere,regular,,,lobel2013,245,"Retained in all positions, 'virtually unheard of in the languages of Luzon' (pp. 243, 245).",,,,,,,,,,,,,,,
+c605b73de46,pma,s,s,elsewhere,regular,,,lobel2013,246,"Usual reflex; *s > h only in nominative functors, entered on the languages.",,,,,,,,,,,,,,,
+c6d47998358,pma,d,d,elsewhere,regular,,,lobel2013,246-247,"*z, *j and *d merged as /d/; unlike Tagalog and Bikol, intervocalic *d did not go on to r or l in native vocabulary (p. 246).",,,,,,,,,,,,,,,
+c564fe8420d,pma,j,d,elsewhere,regular,,,lobel2013,246-247,"*z, *j and *d merged as /d/; unlike Tagalog and Bikol, intervocalic *d did not go on to r or l in native vocabulary (p. 246).",,,,,,,,,,,,,,,
+c39681b6648,pma,z,d,elsewhere,regular,,,lobel2013,246-247,"*z, *j and *d merged as /d/; unlike Tagalog and Bikol, intervocalic *d did not go on to r or l in native vocabulary (p. 246).",,,,,,,,,,,,,,,
+ce0e5561fa6,pma,l,l,elsewhere,regular,,,lobel2013,248,Inherited reflex; /y/ only in a borrowed stratum (pp. 248-249).,,,,,,,,,,,,,,,
+ce368a4eb2e,cama1250,y,j,elsewhere,regular,,,lobel2013,244,IPA for the glide written y.,,,,,,,,,,,,,,,
+cd505a1fa56,cama1250,e,e,elsewhere,regular,,,lobel2013,249-252,"The inherited reflex of *ə (22 forms, pp. 250-251): basic vocabulary, semantic shifts, and unique lexicon with /e/.",,,,,,,,,,,,,,,
+cf016093169,cama1250,e,u,elsewhere,loan-stratum,,,lobel2013,249-250,'The vast majority of these are readily identifiable Bikol or Bisayan loans' (p. 250); the human-noun suffix -un may be a borrowed doublet of -en.,,,,,,,,,,,,,,,
+c0d93e14596,cama1250,e,i,elsewhere,sporadic,,,lobel2013,251-252,Often Tagalog loans; some may be sporadic raising of inherited /e/ (Manide tidés vs Alabat tedés).,,,,,,,,,,,,,,,
+c16234020f1,cama1250,l,j,elsewhere,loan-stratum,,32,lobel2013,248-249,"The /y/ stratum (32 of 1,000 Manide items, 23 Inagta Alabat), borrowed from a Central Philippine language like Romblomanon, Asi or Bantayanon (pp. 248, 259-265).",,,,,,,,,,,,y,,,
+c2a478ff1d1,cama1250,r,j,V_V,loan-stratum,,,lobel2013,248-249,"Part of the borrowed /y/ stratum (*-r-, from PCPH *r).",,,,,,,,,,,,y,,,
+c3565416ae5,cama1250,d,j,V_V,loan-stratum,,,lobel2013,247-249,"Part of the borrowed /y/ stratum (*-d-, *-j-, *-z-); e.g. páyay 'rice in field', súyud 'comb'.",,,,,,,,,,,,y,,,
+c9f74788bb0,cama1250,s,h,elsewhere,sporadic,,,lobel2013,246,"One shift in the nominative pronouns, case marker hu and demonstrative formative hu- (p. 246).",,,,,lexical,,,,,"nominative functors (*si-, *su)",,,,,
+c0bdb280138,cama1250,a,e,"b_, d_, ɡ_, w_",sporadic,,,lobel2013,252-255,"Low Vowel Fronting, an areal feature of the Pacific coast of Luzon; at least 27 PCPH/PPH/PMP forms in the two languages, mostly in or before the penult (pp. 252-256).",,,,,,,,,,,,,,,
+c0c31804492,cama1250,u,i,"b_, d_, ɡ_, w_, j_",sporadic,,,lobel2013,256-259,Back Vowel Fronting; in any syllable (p. 257).,,,,,,,,,,,,,,,
+c570ba34d40,alab1246,y,j,elsewhere,regular,,,lobel2013,244,IPA for the glide written y.,,,,,,,,,,,,,,,
+cdd8b440c59,alab1246,e,e,elsewhere,regular,,,lobel2013,249-252,"The inherited reflex of *ə (22 forms, pp. 250-251): basic vocabulary, semantic shifts, and unique lexicon with /e/.",,,,,,,,,,,,,,,
+c151980ddaa,alab1246,e,u,elsewhere,loan-stratum,,,lobel2013,249-250,'The vast majority of these are readily identifiable Bikol or Bisayan loans' (p. 250); the human-noun suffix -un may be a borrowed doublet of -en.,,,,,,,,,,,,,,,
+c4fe9f914ff,alab1246,e,i,elsewhere,sporadic,,,lobel2013,251-252,Often Tagalog loans; some may be sporadic raising of inherited /e/ (Manide tidés vs Alabat tedés).,,,,,,,,,,,,,,,
+c485bccc2c6,alab1246,l,j,elsewhere,loan-stratum,,23,lobel2013,248-249,"The /y/ stratum (32 of 1,000 Manide items, 23 Inagta Alabat), borrowed from a Central Philippine language like Romblomanon, Asi or Bantayanon (pp. 248, 259-265).",,,,,,,,,,,,y,,,
+c6102154b9d,alab1246,r,j,V_V,loan-stratum,,,lobel2013,248-249,"Part of the borrowed /y/ stratum (*-r-, from PCPH *r).",,,,,,,,,,,,y,,,
+c79e541a53c,alab1246,d,j,V_V,loan-stratum,,,lobel2013,247-249,"Part of the borrowed /y/ stratum (*-d-, *-j-, *-z-); e.g. páyay 'rice in field', súyud 'comb'.",,,,,,,,,,,,y,,,
+c8f8eec7093,alab1246,s,h,elsewhere,sporadic,,,lobel2013,246,"One shift in the nominative pronouns, case marker hu and demonstrative formative hu- (p. 246).",,,,,lexical,,,,,"nominative functors (*si-, *su)",,,,,
+ce9b3f6849e,alab1246,a,e,"b_, d_, ɡ_, w_, j_",sporadic,,,lobel2013,252-255,"Low Vowel Fronting, an areal feature of the Pacific coast of Luzon; at least 27 PCPH/PPH/PMP forms in the two languages, mostly in or before the penult (pp. 252-256). After *y only in Inagta Alabat (p. 254).",,,,,,,,,,,,,,,
+cbb2d212d30,alab1246,u,i,"b_, d_, ɡ_, w_, j_",sporadic,,,lobel2013,256-259,"Back Vowel Fronting; in any syllable, 'limited' in Inagta Alabat (Table 8.3, p. 252).",,,,,,,,,,,,,,,
+c280970e2fb,cama1250,a,u,"final syllable (after b, d, ɡ, w, j)",sporadic,,10,lobel2013,255-256,"Low Vowel Backing, unique to Manide: at least ten forms, all but one in the ultima (pp. 255-256).",,,,,,,,,,,,,,,
+c21a6d5fc6d,cama1250,e,a,elsewhere,loan-stratum,,,lobel2013,249,Rare; loans from Bikol Daet or Naga (p. 249).,,,,,,,,,,,,,,,
+c875d69a791,pgcph,q,ʔ,elsewhere,regular,,,lobel2013,213,'*q and *ʔ would have already merged as PGCPH *ʔ' (p. 213); *q is /ʔ/ in most GCPh languages (p. 214).,,,,,,,,,,,,,,,lobel-pgcph
+c4f73c4085f,pgcph,h,h,elsewhere,regular,,,lobel2013,213,Retained in Proto-Greater Central Philippines (p. 213); lost in Subanen and several lower groups (n. 4).,,,,,,,,,,,,,,,lobel-pgcph
+c73c7241212,pgcph,R,ɡ,elsewhere,regular,,,lobel2013,215,'The combination of *R > /g/ and *j > /d/ is found ... in the Greater Central Philippines' (p. 215).,,,,,,,,,,,,,,,lobel-pgcph
+c7ed403a12f,pgcph,j,d,elsewhere,regular,,,lobel2013,214,The merger of *j with *d is 'also found in the Greater Central Philippine languages' (p. 214).,,,,,,,,,,,,,,,lobel-pgcph
+c894041b453,pgcph,z,d,elsewhere,regular,,,lobel2013,246,"The merger of *z, *j and *d is 'common to most Philippine languages' (p. 246); Proto-Subanen has only *d (p. 311).",,,,,,,,,,,,,,,lobel-pgcph
+c896aabdc8d,pgcph,e,ə,elsewhere,regular,,,lobel2013,310,Lobel writes PGCPH schwa as *ə.,,,,,,,,,,,,,,,lobel-pgcph
+cbe007acdba,psub,h,∅,elsewhere,regular,,,lobel2013,"304, 310",Innovation 1: lost in all positions; the only PGCPh phoneme lost completely (p. 310).,,,,,,,,,,,,,,,
+c829dd4c8de,psub,ʔ,∅,not word-final,regular,,,lobel2013,"304, 310",Innovation 2.,,,,,,,,,,,,,,,
+c3db914b9e8,psub,ʔ,ʔ,_#,regular,,,lobel2013,310-311,,,,,,,,,,,,,,,,
+c6df33ea08a,psub,a,ə,antepenultimate syllable,regular,,,lobel2013,"304, 311","Innovation 3: in all prepenultimate syllables, before the loss of *h and *ʔ.",,,,,,,,,,,,,,,
+cbd87ff54b7,psub,a,ə,closed penultimate syllable,regular,,,lobel2013,"304, 311",Innovation 3.,,,,,,,,,,,,,,,
+cc08a0ff1be,psub,p,k,_C,regular,,,lobel2013,"304-305, 314-316","Innovation 5a: obstruent > velar stop before a consonant (*pk > k, *ps > ks, *pg? cf. *magpa- > *məkpə-).",,,,,,,,,,,,,,,
+cc7bc65ae7c,psub,t,k,_C,regular,,,lobel2013,"304-305, 314-316",Innovation 5a.,,,,,,,,,,,,,,,
+ce07c9bed0f,psub,s,k,_C,regular,,,lobel2013,"304-305, 314-316","Innovation 5a (*sk > k, *sp > kp: *pispis > *gəkpis).",,,,,,,,,,,,,,,
+c72be423c29,psub,b,ɡ,_C[+voice],regular,,,lobel2013,"304-305, 314-316",Innovation 5a (*bd > gd: *dəbdəb > *dəgdəb).,,,,,,,,,,,,,,,
+c151c71be77,psub,b,k,_C[-voice],regular,,,lobel2013,"304-305, 314-316","Innovation 5a + 5b (*bt > kt, *bk > k).",,,,,,,,,,,,,,,
+caa5b357503,psub,d,ɡ,_C[+voice],regular,,,lobel2013,"304-305, 314-316",Innovation 5a (*db > gb: *bədbəd > *bəgbəd).,,,,,,,,,,,,,,,
+cd57bd27456,psub,d,k,_C[-voice],regular,,,lobel2013,"304-305, 314-316","Innovation 5a + 5b (*ds > ks, *dk > k).",,,,,,,,,,,,,,,
+cb001fe0d9a,psub,ɡ,k,_C[-voice],regular,,,lobel2013,"304-305, 314-316","Innovation 5b: *g > [-voice] before a voiceless consonant (*pəgsa > *pəksa, *magpa- > *məkpə-).",,,,,,,,,,,,,,,
+c3c3345a1c2,psub,k,∅,_k,regular,,,lobel2013,"304-305, 314-316",Innovation 5d: *kk > k (*kəpkəp > *Kəkəp).,,,,,,,,,,,,,,,
+c1861a3d894,psub,l,m,"_b, _p",regular,,,lobel2013,"304-305, 314-316",Innovation 5c: *l > nasal homorganic with the next consonant (*bulbul > *bəmbul).,,,,,,,,,,,,,,,
+c8555a77939,psub,l,n,"_d, _t, _s",regular,,,lobel2013,"304-305, 314-316","Innovation 5c (*haldək > *əndək, *ʔaldaw > *g-əndaw).",,,,,,,,,,,,,,,
+ca47ac5b246,psub,l,ŋ,"_k, _ɡ",regular,,,lobel2013,"304-305, 314-316","Innovation 5c (*kulkul > *Kəŋkul, *gəlgəl > *gəŋgəl).",,,,,,,,,,,,,,,
+c93183c98ba,psub,∅,ɡ,#_V,regular,,,lobel2013,"304, 313-314","Innovation 4: *g- added to nouns that would otherwise begin with a vowel (after the loss of *ʔ-, *h- and, in some words, *k-), reanalysed from the final *-g of the case markers (pp. 313-314).",,,,,,,,,,nouns and numerals,,,,,
+cfe365b6464,psub,y,y,elsewhere,regular,,,lobel2013,311,,,,,,,,,,,,,,,,
+c1e041f3878,pwsub,r,l,elsewhere,regular,,,lobel2013,"306-308, 311",,,,,,,,composed,,,,,,,,lobel-subanen
+c62ae8723ae,pwsub,ə,o,elsewhere,regular,,,lobel2013,"307, 312",Table 10.2 rule 12 (Western Subanon and Western Kolibugan).,,,,,,,composed,,,,,,,,lobel-subanen
+c25c2a76e9f,pwsub,a,o,_y,regular,,,lobel2013,312,*ay > oy (Table 10.5).,,,,,,,composed,,,,,,,,
+c04033414fd,pwsub,a,o,_w,regular,,,lobel2013,312,*aw > ow (Table 10.5).,,,,,,,composed,,,,,,,,
+c316335d373,pnsub,k,∅,"#_, V_V",sporadic,,,lobel2013,"305-306, 311","Lobel's *K: a Proto-Subanen *k lost in Proto-Nuclear Subanen, not a separate phoneme (n. 2). Final *K is kept (Table 10.4: ø-ø-k).",,,,,lexical,,composed,,,"*kayu, *kəwayan, *kurən, *kumut, *kilid, *kutu, *kilat, *siku, *dəruKan, *saKit, ... (Table 10.1)",,,,,lobel-subanen
+c7736668d8b,pnsub,k,k,elsewhere,regular,,,lobel2013,311,"Kept as /k/ in many forms even in the languages with the sporadic loss (p. 306); Table 10.4 has k in Tawlet-Kalibugan, Central and Northern Subanen.",,,,,,,composed,,,,,,,,
+cedf1ea784e,pensub,r,l,elsewhere,regular,,,lobel2013,"306-308, 311",,,,,,,,composed,,,,,,,,lobel-subanen
+c3990362e37,west2557,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+c622d59a48f,west2557,a,e,_+i,regular,,,lobel2013,312,"*ai > e (Table 10.5), from the loss of *h or *ʔ between vowels (p. 312).",,,,,,,,,,,,,,,
+ccc26bb5957,west2557,i,e,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+c60a5c6ae64,west2557,a,o,_+u,regular,,,lobel2013,312,*au > o (Table 10.5).,,,,,,,,,,,,,,,
+c322efe80f4,west2557,u,o,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+c52e230df60,koli1253,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+c030fe14728,koli1253,a,e,_+i,regular,,,lobel2013,312,"*ai > e (Table 10.5), from the loss of *h or *ʔ between vowels (p. 312).",,,,,,,,,,,,,,,
+cfefd0b241f,koli1253,i,e,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+c7199e1f060,koli1253,a,o,_+u,regular,,,lobel2013,312,*au > o (Table 10.5).,,,,,,,,,,,,,,,
+c0dc3d462c0,koli1253,u,o,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+c67b177098e,tawletkalibugan,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+cea3d8f00a3,tawletkalibugan,a,e,_+i,regular,,,lobel2013,312,"*ai > e (Table 10.5), from the loss of *h or *ʔ between vowels (p. 312).",,,,,,,,,,,,,,,
+c308b3dc2dc,tawletkalibugan,i,e,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+ccd7023aae4,tawletkalibugan,a,o,_+u,regular,,,lobel2013,312,*au > o (Table 10.5).,,,,,,,,,,,,,,,
+cea45d17232,tawletkalibugan,u,o,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+cfd71715dc1,salugsubanen,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+c354ef443d6,salugsubanen,a,e,_+i,regular,,,lobel2013,312,"*ai > e (Table 10.5), from the loss of *h or *ʔ between vowels (p. 312).",,,,,,,,,,,,,,,
+c4fc6a4f9cf,salugsubanen,i,e,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+cdf5bf82191,salugsubanen,a,o,_+u,regular,,,lobel2013,312,*au > o (Table 10.5).,,,,,,,,,,,,,,,
+cc698aefd98,salugsubanen,u,o,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+ccdf53b021e,lapu1236,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+c2d2bd89e6f,lapu1236,a,e,_+i,regular,,,lobel2013,312,"*ai > e (Table 10.5), from the loss of *h or *ʔ between vowels (p. 312).",,,,,,,,,,,,,,,
+c394ed3bd66,lapu1236,i,e,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+c3ae4b12fe1,lapu1236,a,o,_+u,regular,,,lobel2013,312,*au > o (Table 10.5).,,,,,,,,,,,,,,,
+c2ef170381e,lapu1236,u,o,a+_,regular,,,lobel2013,312,,,,,,,,,,,,,,,,
+cb94788e85e,cent2089,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+c4025db9d62,nort2885,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+cd601108722,east2694,y,j,elsewhere,regular,,,lobel2013,311,IPA for the glide written y.,,,,,,,,,,,,,,,
+cf246555458,lapu1236,d,r,V_V,regular,,,lobel2013,311-312,Including under suffixation and before enclitics (p. 312).,,,,,,,,,,,,,,,
+c99703b714f,nort2885,d,r,V_V,regular,,,lobel2013,311-312,Including under suffixation and before enclitics (p. 312).,,,,,,,,,,,,,,,
+cd8afb18e9d,east2694,d,r,V_V,regular,,,lobel2013,311-312,Including under suffixation and before enclitics (p. 312).,,,,,,,,,,,,,,,
+cb21f3a74d6,lapu1236,k,h,not word-final,regular,,,lobel2013,311-312,Table 10.4 h-h-k: /h/ except in coda position (p. 312).,,,,,,,,,,,,,,,
+c339d84d5ee,east2694,k,ʔ,elsewhere,regular,,,lobel2013,311-312,"In all positions, also from a final *K (Table 10.4: ʔ-ʔ-ʔ, ø-ø-ʔ).",,,,,,,,,,,,,,,
+c2d44bb7159,east2694,y,d͡ʒ,V_V,regular,,,lobel2013,311-312,Intervocalic *y is /j/ (Table 10.4: y-j/y-y).,,,,,,,,,,,,j,,,
+c473c837843,pswsab,h,∅,elsewhere,regular,,,lobel2013,367,'PMP *h > PSWSAB ø' (p. 367).,,,,,,,,,,,,,,,lobel-swsabah
+cb1cd41058b,pswsab,e,ə,elsewhere,regular,,,lobel2013,365-367,Lobel writes schwa ə.,,,,,,,,,,,,,,,
+c2a4a6b75cc,pswsab,a,ə,_#,regular,,,lobel2013,368,"'PMP *a > PSWSAB *ə / _#' (p. 368), also in Idaanic, perhaps areal.",,,,,,,,,,,,,,,lobel-swsabah
+cf5ea194cbe,pswsab,R,h,"[a,i,u]_[a,ə,u]",regular,,,lobel2013,"368, 378","Intervocalic lenition (pp. 368, 378).",,,,,,,,,,,,,,,lobel-swsabah
+cb33ba2544d,pswsab,R,ɡ,ə_,regular,,,lobel2013,"368, 378","Fortition after the extra-short schwa, probably through *-gg- (p. 378); *b and *d were also fortified (n. 17).",,,,,,,,,,,,,,,lobel-swsabah
+ca6bc27a8e1,pdus,R,w,_#,regular,,,lobel2013,"366, 378-379",Innovation 2 of Greater Dusunic: 'highly diagnostic' (p. 379).,,,,,,,composed,,,,,,,,lobel-swsabah
+c38249bc4c6,pdus,R,ɡ,"[i,u]_i",regular,,,lobel2013,"366, 378-379",Innovation 3: *R > g before *i.,,,,,,,composed,,,,,,,,lobel-swsabah
+c4f04b516f3,pdus,b,b,conditions unknown,regular,,,lobel2013,"366, 379, 385","Innovation 5: *b split to *b and *w; many exceptions (pp. 379-380, §11.2.4).",,,,,,,composed,,,,,,,,lobel-swsabah
+c10c17e787b,pdus,b,w,conditions unknown,regular,,,lobel2013,"366, 379, 385",,,,,,,,composed,,,,,,,,lobel-swsabah
+c3fdf3f071e,pdus,d,d,conditions unknown,regular,,,lobel2013,"366, 379, 385","Innovation 6: PSWSAB *d (< PMP *d, *j, *z) split to *d and *r (§11.2.5).",,,,,,,composed,,,,,,,,lobel-swsabah
+c9dd829b2f9,pdus,d,r,conditions unknown,regular,,,lobel2013,"366, 379, 385",,,,,,,,composed,,,,,,,,lobel-swsabah
+c39eb3750e2,pdus,ə,a,"non-final syllable, before a syllable with *a",regular,,,lobel2013,"366, 385-387",Innovation 7: *ə kept in non-final syllables unless the next syllable has *a.,,,,,,,composed,,,,,,,,lobel-swsabah
+cc13ab7674e,pbislo,R,w,_#,regular,,,lobel2013,"366, 378-379",Innovation 2 of Greater Dusunic: 'highly diagnostic' (p. 379).,,,,,,,composed,,,,,,,,lobel-swsabah
+c2542f151fa,pbislo,R,ɡ,"[i,u]_i",regular,,,lobel2013,"366, 378-379",Innovation 3: *R > g before *i.,,,,,,,composed,,,,,,,,lobel-swsabah
+c085cfd942f,pbislo,b,b,conditions unknown,regular,,,lobel2013,"366, 379, 385","Innovation 5: *b split to *b and *w; many exceptions (pp. 379-380, §11.2.4).",,,,,,,composed,,,,,,,,lobel-swsabah
+c56685a9ebd,pbislo,b,w,conditions unknown,regular,,,lobel2013,"366, 379, 385",,,,,,,,composed,,,,,,,,lobel-swsabah
+cdc15ee96d2,pbislo,d,d,conditions unknown,regular,,,lobel2013,"366, 379, 385","Innovation 6: PSWSAB *d (< PMP *d, *j, *z) split to *d and *r (§11.2.5).",,,,,,,composed,,,,,,,,lobel-swsabah
+ca92a2db4b5,pbislo,d,r,conditions unknown,regular,,,lobel2013,"366, 379, 385",,,,,,,,composed,,,,,,,,lobel-swsabah
+c06d325cb53,pbislo,ə,a,"non-final syllable, before a syllable with *a",regular,,,lobel2013,"366, 385-387",Innovation 7: *ə kept in non-final syllables unless the next syllable has *a.,,,,,,,composed,,,,,,,,lobel-swsabah
+cd9e9e164ca,ppait,R,w,_#,regular,,,lobel2013,"366, 378-379",Innovation 2 of Greater Dusunic: 'highly diagnostic' (p. 379).,,,,,,,composed,,,,,,,,lobel-swsabah
+cb07ac6d465,ppait,R,∅,"[i,u]_i",regular,,,lobel2013,378-379,"Zero before *i, probably through Pre-Paitanic *h (p. 378).",,,,,,,composed,,,,,,,,lobel-swsabah
+ccc832d997b,ppait,h,∅,elsewhere,regular,,,lobel2013,378-379,PSWSAB *h (from *R) is lost in Paitanic (Table 11.11; p. 378).,,,,,,,composed,,,,,,,,lobel-swsabah
+cbe1156bef2,ppait,b,b,conditions unknown,regular,,,lobel2013,"366, 379, 385","Innovation 5: *b split to *b and *w; many exceptions (pp. 379-380, §11.2.4).",,,,,,,composed,,,,,,,,lobel-swsabah
+ca70d48bd34,ppait,b,w,conditions unknown,regular,,,lobel2013,"366, 379, 385",,,,,,,,composed,,,,,,,,lobel-swsabah
+cace68ba07b,ppait,d,d,conditions unknown,regular,,,lobel2013,"366, 379, 385","Innovation 6: PSWSAB *d (< PMP *d, *j, *z) split to *d and *r (§11.2.5).",,,,,,,composed,,,,,,,,lobel-swsabah
+cefeaa07868,ppait,d,r,conditions unknown,regular,,,lobel2013,"366, 379, 385",,,,,,,,composed,,,,,,,,lobel-swsabah
+c2dbe10e6f8,ppait,ə,a,"non-final syllable, before a syllable with *a",regular,,,lobel2013,"366, 385-387",Innovation 7: *ə kept in non-final syllables unless the next syllable has *a.,,,,,,,composed,,,,,,,,lobel-swsabah
+cd832ad9bc4,pmur,R,∅,"[i,u]_i",regular,,,lobel2013,"367, 378-379","*R > *h before any vowel in Greater Murutic, then *h > ∅ (Table 11.11).",,,,,,,composed,,,,,,,,lobel-swsabah
+c60b8bd6d35,pmur,h,∅,elsewhere,regular,,,lobel2013,"367, 378",PGMUR *h lost in all Greater Murutic languages except Papar (p. 367).,,,,,,,composed,,,,,,,,lobel-swsabah
+c19439c1ce7,pmur,R,ɡ,_#,regular,,,lobel2013,"367, 378-379",Greater Murutic innovation 2.,,,,,,,composed,,,,,,,,lobel-swsabah
+cc78aeb0ba4,pmur,a,o,_w,regular,,,lobel2013,"367, 390",*aw > *ow (§11.3.1).,,,,,,,composed,,,,,,,,lobel-swsabah
+ce7653b8a00,pmur,a,o,_y,regular,,,lobel2013,"367, 390",*ay > *oy (§11.3.1).,,,,,,,composed,,,,,,,,lobel-swsabah
+c50fac5b8f5,pmur,i,u,_w,regular,,,lobel2013,"367, 390",*iw > *uy (§11.3.2); not in Tatana.,,,,,,,composed,,,,,,,,lobel-swsabah
+cbb393ef91f,pmur,w,y,i_,regular,,,lobel2013,"367, 390",,,,,,,,composed,,,,,,,,lobel-swsabah
+c834a79af4f,pmur,ə,o,"non-final syllable, _Cə",regular,,,lobel2013,"367, 391",Greater Murutic innovation 6 (§11.3.4).,,,,,,,composed,,,,,,,,lobel-swsabah
+cb48268ab13,pmur,ə,a,non-final syllable,regular,,,lobel2013,"367, 391",Elsewhere in non-final syllables (§11.3.4).,,,,,,,composed,,,,,,,,lobel-swsabah
+c5f310b3c24,papa1268,y,j,elsewhere,regular,,,lobel2013,379,IPA for the glide written y.,,,,,,,,,,,,,,,
+c354ffc792b,papa1268,R,h,"[i,u]_i",regular,,,lobel2013,378-379,Table 11.11: PAP h.,,,,,,,,,,,,,,,
+c03978ba3a7,papa1268,R,ɡ,_#,regular,,,lobel2013,"367, 378-379",Greater Murutic innovation 2.,,,,,,,,,,,,,,,lobel-swsabah
+c4bac392139,papa1268,a,o,_w,regular,,,lobel2013,"367, 390",*aw > *ow (§11.3.1).,,,,,,,,,,,,,,,lobel-swsabah
+cb6cd4a0c5c,papa1268,a,o,_y,regular,,,lobel2013,"367, 390",*ay > *oy (§11.3.1).,,,,,,,,,,,,,,,lobel-swsabah
+c6ef2a6d8d3,papa1268,i,u,_w,regular,,,lobel2013,"367, 390",*iw > *uy (§11.3.2); not in Tatana.,,,,,,,,,,,,,,,lobel-swsabah
+c27dac340f3,papa1268,w,j,i_,regular,,,lobel2013,"367, 390",,,,,,,,,,,,,,,,lobel-swsabah
+ca4cefebae9,papa1268,ə,o,"non-final syllable, _Cə",regular,,,lobel2013,"367, 391",Greater Murutic innovation 6 (§11.3.4).,,,,,,,,,,,,,,,lobel-swsabah
+c06c9a3c2c5,papa1268,ə,a,non-final syllable,regular,,,lobel2013,"367, 391",Elsewhere in non-final syllables (§11.3.4).,,,,,,,,,,,,,,,lobel-swsabah
+c28fac2a2e4,tata1257,y,j,elsewhere,regular,,,lobel2013,379,IPA for the glide written y.,,,,,,,,,,,,,,,
+ccdefca7cfe,tata1257,R,∅,"[i,u]_i",regular,,,lobel2013,378-379,Table 11.11: TAT ø.,,,,,,,,,,,,,,,
+c6b951baa8e,tata1257,h,∅,elsewhere,regular,,,lobel2013,378-379,Table 11.11: TAT ø after (aiu)_(auə).,,,,,,,,,,,,,,,
+c4c4987be10,tata1257,R,ɡ,_#,regular,,,lobel2013,"367, 378-379",Greater Murutic innovation 2.,,,,,,,,,,,,,,,lobel-swsabah
+c08561e14f3,tata1257,a,o,_w,regular,,,lobel2013,"367, 390",*aw > *ow (§11.3.1).,,,,,,,,,,,,,,,lobel-swsabah
+ca3480f2c62,tata1257,a,o,_y,regular,,,lobel2013,"367, 390",*ay > *oy (§11.3.1).,,,,,,,,,,,,,,,lobel-swsabah
+c5b0d8a2180,tata1257,ə,o,"non-final syllable, _Cə",regular,,,lobel2013,"367, 391",Greater Murutic innovation 6 (§11.3.4).,,,,,,,,,,,,,,,lobel-swsabah
+c8f83323a6c,tata1257,ə,a,non-final syllable,regular,,,lobel2013,"367, 391",Elsewhere in non-final syllables (§11.3.4).,,,,,,,,,,,,,,,lobel-swsabah
+c3297884db0,kado1243,p,ʰp,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-p- > ʰp; p,Table 56,
+c4e4e4bb05a,kado1243,p,p,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-p- > ʰp; p,Table 56,smith-semicolon
+c15100665ac,kado1243,t,ʰt,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-t- > ʰt; t,Table 56,
+ce48913a571,kado1243,t,t,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-t- > ʰt; t,Table 56,smith-semicolon
+c2a25c4fc5c,kado1243,k,ʰk,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-k- > ʰk; k,Table 56,
+c944c692d0b,kado1243,k,k,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-k- > ʰk; k,Table 56,smith-semicolon
+c9bd8e79e0d,kado1243,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+ca7721050f4,ngaj1237,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+cb0afcb520b,kapuasngaju,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+cbf1325b647,yaka1277,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+ce8f063e54a,maan1238,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+c1695db28bc,dusu1267,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+c6645946bdd,baya1259,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+c19f949bc01,tawo1243,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+c118c037477,benuaq,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+c7d2e03fd61,tunj1244,q,∅,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*q- > Ø,Table 56,
+cb35303bc3e,kado1243,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c353d860e8a,ngaj1237,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c64fc3f22d5,kapuasngaju,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c397f32907a,yaka1277,q,ʔ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > ʔ,Table 56,
+cc1bee281d1,maan1238,q,ʔ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > ʔ,Table 56,
+c5daaf90ce2,dusu1267,q,ʔ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > ʔ,Table 56,
+cd5c723d9ca,baya1259,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c118b574337,tawo1243,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c0ed244203a,benuaq,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c7d2d6716bd,tunj1244,q,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q- > Ø,Table 56,
+c6f1f54c0ca,kado1243,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+c5905f9cdcb,ngaj1237,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+c84ac514df8,kapuasngaju,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+c1b2978bad7,yaka1277,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+cab48c55c34,maan1238,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+c0f41040deb,dusu1267,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+c3d0d3b77cb,baya1259,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+ccea0ef371b,tawo1243,q,∅,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > Ø,Table 56,
+c091e547394,benuaq,q,∅,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > Ø,Table 56,
+cf5004befb5,tunj1244,q,ʔ,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-q > ʔ,Table 56,
+c2206c3fcd2,maan1238,b,w,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*b- > w,Table 56,
+cad16c4d124,dusu1267,b,w,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*b- > w,Table 56,
+c88b8a21d4d,baya1259,b,w,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*b- > w,Table 56,
+cd59da27609,tunj1244,b,b,#_,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*b- > b; w,Table 56,
+cdc1615d819,tunj1244,b,w,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*b- > b; w,Table 56,smith-semicolon
+cd65653ecc5,kado1243,b,v,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > v,Table 56,
+c45e5c73599,ngaj1237,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w; β,Table 56,
+c617b8211dd,ngaj1237,b,β,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > w; β,Table 56,smith-semicolon
+c3d5476e663,kapuasngaju,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+cf20fdd1b2e,yaka1277,b,b,V_V,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b; w,Table 56,
+cb70b43e9c5,yaka1277,b,w,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b; w,Table 56,smith-semicolon
+c934df99f45,maan1238,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+c0a42e24481,dusu1267,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+ce657f1d1fb,baya1259,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+c2173050e08,tawo1243,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+c903222df2b,benuaq,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+cbe5782b7b3,tunj1244,b,w,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b- > w,Table 56,
+c4febf173f8,kado1243,b,p,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > p,Table 56,
+ca1638d9311,ngaj1237,b,p,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > p,Table 56,
+c8f11787fd7,kapuasngaju,b,p,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > p,Table 56,
+c2ca6c68f18,yaka1277,b,p,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > p,Table 56,
+caab11f97a9,maan1238,b,p,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > p,Table 56,
+cc26ca94c02,dusu1267,b,p,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > p,Table 56,
+c48408296ab,baya1259,b,w,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > w,Table 56,
+c4255c600e2,tawo1243,b,w,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > w,Table 56,
+c37d8ab7a9e,benuaq,b,w,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-b > w,Table 56,
+cc3fc0e605d,tunj1244,b,w,_#,disputed,,,smith2017a,170,Printed with a question mark.,,,,,,,,,,,,,*-b > w?,Table 56,
+c95a3a37f38,yaka1277,d,d,#_,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*d- > d; l,Table 56,
+c32017d737c,yaka1277,d,l,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*d- > d; l,Table 56,smith-semicolon
+c8309d8070c,maan1238,d,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*d- > r,Table 56,
+cd720855ba9,dusu1267,d,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*d- > r,Table 56,
+c24d364f0cc,baya1259,d,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*d- > r,Table 56,
+ccd30e280c1,tunj1244,d,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*d- > r,Table 56,
+c2a580a2258,kado1243,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+c894ccc79c5,ngaj1237,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+c9db5dc83e0,kapuasngaju,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+c28f51dafcc,yaka1277,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+c4a9761c920,maan1238,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+ce174f952e4,dusu1267,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+cc5f69a0487,baya1259,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+c5996c0a6bb,tawo1243,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+c8d7d5df965,benuaq,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+cd6cb09c797,tunj1244,d,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d- > r,Table 56,
+cfa7ec47e40,kado1243,d,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > t,Table 56,
+c7cd1ebd21d,ngaj1237,d,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > r,Table 56,
+c8842ac9711,kapuasngaju,d,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > r,Table 56,
+cd87a9ce477,yaka1277,d,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > t,Table 56,
+c7b5d7f78dd,maan1238,d,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > t,Table 56,
+c91bd5f7bbf,dusu1267,d,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > t,Table 56,
+c13aba9ec34,baya1259,d,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > t,Table 56,
+c878b9ea718,tawo1243,d,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > r,Table 56,
+c2708ffa06e,benuaq,d,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > r,Table 56,
+c42931ecb63,tunj1244,d,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-d > r,Table 56,
+c989697f729,kado1243,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+ca14679ab40,ngaj1237,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+c8fb0cfd1fe,kapuasngaju,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+c278a473887,yaka1277,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r; d,Table 56,
+c8cb72eb434,yaka1277,j,d,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > r; d,Table 56,smith-semicolon
+c318bf5aeb2,maan1238,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+cb5f5196a52,dusu1267,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+c5851947ea2,baya1259,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+c34eea0d1bc,tawo1243,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+cda305e7278,benuaq,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+c6543ed1aab,tunj1244,j,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j- > r,Table 56,
+c54068a98e9,kado1243,j,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > t,Table 56,
+cd50bd53066,ngaj1237,j,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > r,Table 56,
+c4d2486b4cc,kapuasngaju,j,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > r,Table 56,
+c1ac465dec8,yaka1277,j,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > t,Table 56,
+ce1bcd1ba5f,maan1238,j,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > t,Table 56,
+cbf899a8994,dusu1267,j,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > t,Table 56,
+ccd309790cd,baya1259,j,t,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > t,Table 56,
+c56d8e703dc,tawo1243,j,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > r,Table 56,
+ceaef6917b0,benuaq,j,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > r,Table 56,
+c2ed50dc0a6,tunj1244,j,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-j > r,Table 56,
+c7579f02402,kado1243,z,d͡ʒ,#_,regular,,,smith2017a,170,,,,,,,,,,,,,j,"*z- > j, c",Table 56,
+cefc10d42c0,kado1243,z,t͡ʃ,#_,regular,,,smith2017a,170,"Listed after a comma, with no condition given.",,,,,,,,,,,,c,"*z- > j, c",Table 56,smith-semicolon
+c69a8ded3fa,ngaj1237,z,d͡ʒ,#_,regular,,,smith2017a,170,,,,,,,,,,,,,j,*z- > j,Table 56,
+ce299ef255c,kapuasngaju,z,d͡ʒ,#_,regular,,,smith2017a,170,,,,,,,,,,,,,j,*z- > j,Table 56,
+cb67a6d89cd,yaka1277,z,l,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*z- > l,Table 56,
+c27ba24bc05,maan1238,z,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*z- > r,Table 56,
+c349f4a04c6,dusu1267,z,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*z- > r,Table 56,
+c6b79c57931,baya1259,z,r,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*z- > r; d,Table 56,
+c970e57ebfb,baya1259,z,d,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*z- > r; d,Table 56,smith-semicolon
+c9760b83d2f,tawo1243,z,d,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*z- > d; l,Table 56,
+c565f2f2f24,tawo1243,z,l,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*z- > d; l,Table 56,smith-semicolon
+c99ad4c26ef,benuaq,z,d,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*z- > d; l,Table 56,
+c53b3413b71,benuaq,z,l,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*z- > d; l,Table 56,smith-semicolon
+c19897aa2cb,tunj1244,z,t͡ʃ,#_,regular,,,smith2017a,170,,,,,,,,,,,,,c,*z- > c,Table 56,
+cfc362ac083,kado1243,z,d͡ʒ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,j,"*-z- > j, c",Table 56,
+cf0b89a2632,kado1243,z,t͡ʃ,V_V,regular,,,smith2017a,170,"Listed after a comma, with no condition given.",,,,,,,,,,,,c,"*-z- > j, c",Table 56,smith-semicolon
+c67f027c987,ngaj1237,z,d͡ʒ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,j,*-z- > j,Table 56,
+c46a06f4ec3,kapuasngaju,z,d͡ʒ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,j,*-z- > j,Table 56,
+c94e0520dc8,yaka1277,z,l,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-z- > l; d,Table 56,
+cc6e864592d,yaka1277,z,d,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-z- > l; d,Table 56,smith-semicolon
+c1b72bfbba8,maan1238,z,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-z- > r,Table 56,
+c6a7d9909b0,dusu1267,z,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-z- > r,Table 56,
+c2a35bb1f1b,baya1259,z,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-z- > r,Table 56,
+c439a566596,tawo1243,z,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-z- > r,Table 56,
+c4bae00067f,benuaq,z,r,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-z- > r,Table 56,
+c500f858f1e,tunj1244,z,t͡ʃ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,c,*-z- > c,Table 56,
+c0d21ca27db,maan1238,s,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*s- > h,Table 56,
+c80afc2ecd3,dusu1267,s,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*s- > h,Table 56,
+c2da6bd67f2,kapuasngaju,s,s,V_V,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,"*-s- > s, ŋs",Table 56,
+c1be2726272,kapuasngaju,s,ŋs,V_V,regular,,,smith2017a,170,"Listed after a comma, with no condition given.",,,,,,,,,,,,,"*-s- > s, ŋs",Table 56,smith-semicolon
+c068bb919e7,maan1238,s,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s- > h; s,Table 56,
+c1e19d82c73,maan1238,s,s,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > h; s,Table 56,smith-semicolon
+c06ad0cc14e,dusu1267,s,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s- > h; s,Table 56,
+c2dff94456b,dusu1267,s,s,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > h; s,Table 56,smith-semicolon
+cfd8d8ff4e9,baya1259,s,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s- > h; s,Table 56,
+c79f00343b3,baya1259,s,s,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > h; s,Table 56,smith-semicolon
+cfa55436d0d,kado1243,s,jh,_#,regular,,,smith2017a,170,,,,,,,,,,,,,yh,*-s > yh,Table 56,
+c97ac3f6e44,maan1238,s,h,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s > h; s,Table 56,
+c18e029be4e,maan1238,s,s,_#,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s > h; s,Table 56,smith-semicolon
+ca070d11aca,dusu1267,s,h,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s > h; s,Table 56,
+cf86b41fd43,dusu1267,s,s,_#,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s > h; s,Table 56,smith-semicolon
+ccd1a09f7aa,baya1259,s,h,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s > h,Table 56,
+c3428b76d27,benuaq,s,s,_#,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s > s; h,Table 56,
+c7fb0064098,benuaq,s,h,_#,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-s > s; h,Table 56,smith-semicolon
+c0623962fa1,tunj1244,s,∅,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-s > Ø; h,Table 56,
+ceb631c3763,tunj1244,s,h,_#,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-s > Ø; h,Table 56,smith-semicolon
+cd9d6e5509c,kado1243,l,ɾ,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*l- > ɾ,Table 56,
+ce7e5526fdf,maan1238,l,l,#_,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*l- > l; d,Table 56,
+c28c7b6e2ab,maan1238,l,d,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*l- > l; d,Table 56,smith-semicolon
+c37a934bd19,dusu1267,l,l,#_,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*l- > l; d,Table 56,
+c38ebf50597,dusu1267,l,d,#_,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*l- > l; d,Table 56,smith-semicolon
+cbbcc8bb870,kado1243,l,ɾ,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l- > ɾ,Table 56,
+cec3394365b,maan1238,l,l,V_V,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; d,Table 56,
+c98e51d3d2d,maan1238,l,d,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; d,Table 56,smith-semicolon
+cb223962487,dusu1267,l,l,V_V,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; d,Table 56,
+c35f514aecf,dusu1267,l,d,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; d,Table 56,smith-semicolon
+c7e6f1884d9,kado1243,l,n,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > n,Table 56,
+cc76a204058,maan1238,l,n,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > n,Table 56,
+cb998cf1a3d,dusu1267,l,n,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > n,Table 56,
+cdc6ee18b9c,baya1259,l,n,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > n,Table 56,
+c2d4c09c505,tawo1243,l,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > r,Table 56,
+ca4a845982f,benuaq,l,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > r,Table 56,
+cbe2a7f3f70,tunj1244,l,r,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-l > r,Table 56,
+c312d5306ca,kado1243,R,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*R- > h,Table 56,
+ca3dcec7d2b,ngaj1237,R,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*R- > h,Table 56,
+c16541d1a5c,kapuasngaju,R,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*R- > h,Table 56,
+cc8ae864fa2,yaka1277,R,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*R- > h,Table 56,
+c1e9b6fb2b4,tunj1244,R,h,#_,regular,,,smith2017a,170,,,,,,,,,,,,,,*R- > h,Table 56,
+ccc24db5e3f,kado1243,R,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > h,Table 56,
+ce5f6389053,ngaj1237,R,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > h,Table 56,
+cead304e6d9,kapuasngaju,R,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > h,Table 56,
+c97f45ef6bc,yaka1277,R,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > h,Table 56,
+cb6f45ff19d,maan1238,R,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > Ø; y,Table 56,
+c177fa8b677,maan1238,R,j,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,y,*-R- > Ø; y,Table 56,smith-semicolon
+ca182dd6bd9,dusu1267,R,∅,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > Ø; y,Table 56,
+c7bb4f8d58f,dusu1267,R,j,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,y,*-R- > Ø; y,Table 56,smith-semicolon
+c859fda87dc,baya1259,R,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > h; y,Table 56,
+c9e7c892e21,baya1259,R,j,V_V,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,y,*-R- > h; y,Table 56,smith-semicolon
+cd99815207d,tawo1243,R,j,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R- > y,Table 56,
+c67e98b415d,benuaq,R,j,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R- > y,Table 56,
+c88075dc1b2,tunj1244,R,h,V_V,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R- > h,Table 56,
+cb60ddad88a,kado1243,R,h,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R > h,Table 56,
+cb05910538b,ngaj1237,R,h,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R > h,Table 56,
+c7c13f6317f,kapuasngaju,R,h,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R > h,Table 56,
+c3a6648624e,yaka1277,R,∅,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R > Ø,Table 56,
+cb552556039,maan1238,R,j,_#,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R > y,Table 56,
+c8073c5d7ad,dusu1267,R,j,_#,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R > y,Table 56,
+c82cd9f81c1,baya1259,R,j,_#,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R > y,Table 56,
+cfd8653c025,tawo1243,R,j,_#,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R > y,Table 56,
+c2b02057fed,benuaq,R,j,_#,regular,,,smith2017a,170,,,,,,,,,,,,,y,*-R > y,Table 56,
+c05683eb8aa,tunj1244,R,∅,_#,regular,,,smith2017a,170,,,,,,,,,,,,,,*-R > Ø; h,Table 56,
+cf07c4f7701,tunj1244,R,h,_#,sporadic,,,smith2017a,170,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-R > Ø; h,Table 56,smith-semicolon
+c431a6e9aa3,kado1243,y,t͡ʃ,elsewhere,regular,,,smith2017a,170,,,,,,,,,,,,,c,*y > c,Table 56,
+cb9529e9741,ngaj1237,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+cb43d64fa41,kapuasngaju,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+c17a77dcd6d,yaka1277,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+c9d4467c37c,maan1238,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+cf67b67b0e2,dusu1267,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+c7a43ae454f,baya1259,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+ccd9960e6d1,tawo1243,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+c01ed46f681,benuaq,y,j,elsewhere,regular,,,smith2017a,170,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 56,
+c944b58941b,tunj1244,y,d͡ʒ,elsewhere,regular,,,smith2017a,170,,,,,,,,,,,,,j,*y > j,Table 56,
+cf9aa4567b8,kado1243,w,∅,elsewhere,regular,,,smith2017a,170,,,,,,,,,,,,,,*w > Ø,Table 56,
+c7a4002ab1e,tunj1244,w,ɡ,elsewhere,regular,,,smith2017a,170,,,,,,,,,,,,,g,*w > g,Table 56,
+cb789d00172,kado1243,a,o,_#,regular,,,smith2017a,171,"The final ʔ printed in the table is entered as an inserted glottal stop. The table also lists eʔ, aʔ without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,,*-a > oʔ; eʔ; aʔ,Table 57,smith-semicolon
+cb7e32be664,ngaj1237,a,e,_#,regular,,,smith2017a,171,The final ʔ printed in the table is entered as an inserted glottal stop.,,,,,,,,,,,,,*-a > eʔ,Table 57,
+c3bec191341,kapuasngaju,a,e,_#,regular,,,smith2017a,171,The final ʔ printed in the table is entered as an inserted glottal stop.,,,,,,,,,,,,,*-a > eʔ,Table 57,
+cff453e0414,yaka1277,a,e,_#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-a > e,Table 57,
+c3a12a3a8f7,maan1238,a,e,_#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-a > e,Table 57,
+ce83d1b7b01,dusu1267,a,e,_#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-a > e,Table 57,
+c8b4b75b1cd,baya1259,a,e,_#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-a > e,Table 57,
+c03498ec5e5,tawo1243,a,ə,_#,regular,,,smith2017a,171,The final ʔ printed in the table is entered as an inserted glottal stop.,,,,,,,,,,,,,*-a > əʔ,Table 57,
+c2ab8bbe2e3,kado1243,a,a,_C#,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aC > a; o,Table 57,
+c5c4f12e288,kado1243,a,o,_C#,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aC > a; o,Table 57,smith-semicolon
+cc6a8fca9d1,kado1243,a,a,penultimate syllable,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aCVC > a; o,Table 57,
+c070f36b45b,kado1243,a,o,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aCVC > a; o,Table 57,smith-semicolon
+c3c350de6f3,yaka1277,u,u,_C#,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uC > u; o,Table 57,
+c9eebf78511,yaka1277,u,o,_C#,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uC > u; o,Table 57,smith-semicolon
+c9b3411d411,tunj1244,u,u,_C#,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uC > u; o,Table 57,
+cafe89e25e6,tunj1244,u,o,_C#,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uC > u; o,Table 57,smith-semicolon
+c49753fb990,yaka1277,u,u,penultimate syllable,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uCVC > u; o,Table 57,
+c00c5dd015d,yaka1277,u,o,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uCVC > u; o,Table 57,smith-semicolon
+cf747918107,tunj1244,u,u,penultimate syllable,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uCVC > u; o,Table 57,
+cbc86bcee8e,tunj1244,u,o,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uCVC > u; o,Table 57,smith-semicolon
+c3f39a013d8,yaka1277,i,i,_C#,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iC > i; e,Table 57,
+c61bc105f3c,yaka1277,i,e,_C#,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iC > i; e,Table 57,smith-semicolon
+c236bd241db,yaka1277,i,i,penultimate syllable,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iCVC > i; e,Table 57,
+c79fa546f4e,yaka1277,i,e,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iCVC > i; e,Table 57,smith-semicolon
+c76952f457b,tunj1244,i,i,penultimate syllable,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iCVC > i; e,Table 57,
+c53659ea3b9,tunj1244,i,e,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iCVC > i; e,Table 57,smith-semicolon
+c425e614e59,kado1243,e,o,_C#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əC > o,Table 57,
+cfc81f0f89f,dusu1267,e,e,_C#,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-əC > e; (o),Table 57,
+cf0558293e8,dusu1267,e,o,_C#,sporadic,,,smith2017a,171,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əC > e; (o),Table 57,smith-semicolon
+cd966491ab1,baya1259,e,e,_C#,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-əC > e; (o),Table 57,
+c091e666626,baya1259,e,o,_C#,sporadic,,,smith2017a,171,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əC > e; (o),Table 57,smith-semicolon
+c961d130018,tawo1243,e,ə,_C#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əC > ə,Table 57,
+c891e6a7a83,benuaq,e,ə,_C#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əC > ə; a,Table 57,
+c89fc50c055,benuaq,e,a,_C#,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əC > ə; a,Table 57,smith-semicolon
+c94c4d4efbd,tunj1244,e,a,_C#,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əC > a,Table 57,
+c888cdbf05b,kado1243,e,o,penultimate syllable,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əCVC > o,Table 57,
+c8b085d9e23,maan1238,e,e,penultimate syllable,regular,,,smith2017a,171,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-əCVC > e; i,Table 57,
+cae35f6a806,maan1238,e,i,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əCVC > e; i,Table 57,smith-semicolon
+c5f3e605735,dusu1267,e,e,penultimate syllable,regular,,,smith2017a,171,"The table also lists i, (o) without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-əCVC > e; i; (o),Table 57,smith-semicolon
+cffa119e546,baya1259,e,e,penultimate syllable,regular,,,smith2017a,171,"The table also lists i, (o) without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-əCVC > e; i; (o),Table 57,smith-semicolon
+cde6bf99926,tawo1243,e,o,penultimate syllable,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əCVC > o,Table 57,
+cff7f6bc829,benuaq,e,o,penultimate syllable,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əCVC > o,Table 57,
+ca5bf8ac437,tunj1244,e,ə,penultimate syllable,regular,,,smith2017a,171,,,,,,,,,,,,,,*-əCVC > ə; a,Table 57,
+cede79dd481,tunj1244,e,a,penultimate syllable,sporadic,,,smith2017a,171,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əCVC > ə; a,Table 57,smith-semicolon
+c3f7a9ff123,kado1243,a,oj,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,oy,*-ay > oy,Table 57,
+cd4a968cbc5,kado1243,y,oj,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,oy,*-ay > oy,Table 57,
+c861993a7aa,ngaj1237,a,ej,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c6973920fca,ngaj1237,y,ej,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c7478e95004,kapuasngaju,a,ej,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c9f3ab3314b,kapuasngaju,y,ej,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+cb928bdc1ca,yaka1277,a,ej,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c55bca56127,yaka1277,y,ej,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c689f14c639,maan1238,a,ej,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c536b53e7ca,maan1238,y,ej,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+cba1742679c,dusu1267,a,ej,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+caae871494d,dusu1267,y,ej,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c885d069f24,baya1259,a,ej,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+cef1e561062,baya1259,y,ej,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,ey,*-ay > ey,Table 57,
+c5fef9799c4,tawo1243,a,e,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,,*-ay > e,Table 57,
+c92f373859f,tawo1243,y,e,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,,*-ay > e,Table 57,
+cb5f5f05044,benuaq,a,e,_+y,regular,,,smith2017a,171,,,,,,,,,,,,,,*-ay > e,Table 57,
+cf0ec63eb64,benuaq,y,e,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,,*-ay > e,Table 57,
+c7613d3b38c,kado1243,a,ow,_+w,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > ow,Table 57,
+c311f24db7d,kado1243,w,ow,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > ow,Table 57,
+c0b46ce2176,yaka1277,a,ew,_+w,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > ew,Table 57,
+c4b6ce98172,yaka1277,w,ew,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > ew,Table 57,
+c7d2c786560,tawo1243,a,o,_+w,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > o,Table 57,
+c4218030539,tawo1243,w,o,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > o,Table 57,
+cdd69e718fe,benuaq,a,o,_+w,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > o,Table 57,
+c560f164a20,benuaq,w,o,a+_,regular,,,smith2017a,171,,,,,,,,,,,,,,*aw > o,Table 57,
+cb49ed4d346,kado1243,∅,ʔ,V_#,regular,,,smith2017a,171,A glottal stop after every final vowel in Table 57.,,,,,,,,,,,,,"*-a, *-u, *-i > -Vʔ",Table 57,
+c9ffeffc33b,ngaj1237,∅,ʔ,V_#,regular,,,smith2017a,171,A glottal stop after every final vowel in Table 57.,,,,,,,,,,,,,"*-a, *-u, *-i > -Vʔ",Table 57,
+cfb9c172034,kapuasngaju,∅,ʔ,V_#,regular,,,smith2017a,171,A glottal stop after every final vowel in Table 57.,,,,,,,,,,,,,"*-a, *-u, *-i > -Vʔ",Table 57,
+cb75084177a,tawo1243,∅,ʔ,V_#,regular,,,smith2017a,171,A glottal stop after every final vowel in Table 57.,,,,,,,,,,,,,"*-a, *-u, *-i > -Vʔ",Table 57,
+c747ce3e6f2,benuaq,∅,ʔ,V_#,regular,,,smith2017a,171,A glottal stop after every final vowel in Table 57.,,,,,,,,,,,,,"*-a, *-u, *-i > -Vʔ",Table 57,
+cd4d8298d8a,tunj1244,∅,ʔ,V_#,regular,,,smith2017a,171,A glottal stop after every final vowel in Table 57.,,,,,,,,,,,,,"*-a, *-u, *-i > -Vʔ",Table 57,
+cba0fd4fd8c,baya1259,R,R,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c031f066c8f,baya1259,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf7e0b098be,baya1259,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2bb9b56887,baya1259,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c601162230e,baya1259,l,l,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cb2f1a5a296,baya1259,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6be412d89b,benuaq,R,R,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c19639892a6,benuaq,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1673254e42,benuaq,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c97f61910ef,benuaq,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd6ad9eeab6,benuaq,l,l,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2a398ab292,benuaq,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c29c286fd64,benuaq,s,s,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c420e6006d5,dusu1267,R,R,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf17c71329c,dusu1267,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c97948acf6b,dusu1267,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2d3f2e8afb,kado1243,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1629aac045,kado1243,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3b885428b0,kado1243,k,k,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cbce10e53a2,kado1243,k,k,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3a2f2ce5e9,kado1243,p,p,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9b370c2045,kado1243,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7be3785c39,kado1243,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5c988b5ff5,kado1243,s,s,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca4fbbdc315,kado1243,t,t,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd6d26150d1,kado1243,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd1baec65c4,kapuasngaju,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cec99d9b988,kapuasngaju,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc4911fa8e7,kapuasngaju,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c0e3320128a,kapuasngaju,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6b5edbe8a0,kapuasngaju,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c8997fc8717,kapuasngaju,s,s,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c094f2b50cc,maan1238,R,R,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca5116ea553,maan1238,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c02df799a66,maan1238,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9fe0371900,maan1238,e,e,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c119a68d098,ngaj1237,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc79d988ce3,ngaj1237,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9bd6edd81d,ngaj1237,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c592a767217,ngaj1237,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6bcd1c38e4,tawo1243,R,R,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c15b31193c1,tawo1243,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfea8a2a0f3,tawo1243,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c98178a25c4,tawo1243,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c28b405bd54,tawo1243,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd09cc815f8,tawo1243,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3d44c8b598,tawo1243,l,l,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c41fd57a743,tunj1244,i,i,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfd174a0dcb,tunj1244,i,i,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5745614e21,tunj1244,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c4cde21fe07,tunj1244,l,l,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cebea6c5c32,tunj1244,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c35ecf8923b,tunj1244,s,s,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc7b46c53d4,tunj1244,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c84e7a71885,yaka1277,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1cd20975b4,yaka1277,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce360f301f0,yaka1277,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd1fce952ee,yaka1277,i,i,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cb31e85902d,yaka1277,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c8e9c151ad6,kado1243,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cdfa88f49fa,ngaj1237,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cd127d1d353,kapuasngaju,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c7d4589074d,yaka1277,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c421ebfabb4,maan1238,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cb71fed5508,dusu1267,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cd42abe9346,baya1259,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cf55b83af06,tawo1243,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c5d577acaa5,benuaq,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cb2c7bfad54,tunj1244,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c6fdcf2260a,prebasap,b,m,_#,regular,,,smith2017a,202,Shared by all four varieties; also in some Kayan languages (p. 202).,,,,,,,,,,,,,*-b > -m,Table 67,
+c143ea181f8,lebobasap,q,∅,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*q- > Ø,Table 67,
+c1781032a15,segaibasap,q,∅,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*q- > Ø,Table 67,
+c2296086eef,duma1254,q,∅,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*q- > Ø,Table 67,
+c51ae6cc06d,batuputihbasap,q,∅,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*q- > Ø,Table 67,
+cd6c29eb104,lebobasap,q,∅,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-q- > Ø; ʔ / C1_C1,Table 67,
+c6d0f6eab58,lebobasap,q,ʔ,between like vowels,regular,,,smith2017a,201,"Kept between like vowels, deleted elsewhere (p. 202).",,,,,,,,,,,,,*-q- > Ø; ʔ / C1_C1,Table 67,
+cdd229c7405,lebobasap,q,ʔ,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-q > ʔ,Table 67,
+cb8b79e6f24,segaibasap,q,ʔ,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-q > ʔ,Table 67,
+c6d90f62f8f,duma1254,q,ʔ,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-q > ʔ,Table 67,
+c9a222c8c92,batuputihbasap,q,ʔ,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-q > ʔ,Table 67,
+c025a1e3e64,segaibasap,b,b,V_V,regular,,,smith2017a,201,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b; w,Table 67,
+cab08cb8ab3,segaibasap,b,w,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b; w,Table 67,smith-semicolon
+c5e4adc5f1d,duma1254,b,w,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-b- > w; b,Table 67,
+c67fbe1a807,duma1254,b,b,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > w; b,Table 67,smith-semicolon
+cd610c6fdc1,batuputihbasap,b,w,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-b- > w; b,Table 67,
+c8afcfb8455,batuputihbasap,b,b,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > w; b,Table 67,smith-semicolon
+c2add535085,segaibasap,d,r,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-d- > r; d,Table 67,
+cd3b5012105,segaibasap,d,d,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > r; d,Table 67,smith-semicolon
+c46d0f7dc32,duma1254,d,j,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,y,*-d- > y; d,Table 67,
+cc81afd3b51,duma1254,d,d,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > y; d,Table 67,smith-semicolon
+c5431c20cee,batuputihbasap,d,r,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-d- > r; d,Table 67,
+c3c75290575,batuputihbasap,d,d,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > r; d,Table 67,smith-semicolon
+ca6d2aee51e,lebobasap,d,n,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-d > n,Table 67,
+ccdc665c483,segaibasap,d,n,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-d > n,Table 67,
+cbef50e81b6,lebobasap,j,d,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j- > d,Table 67,
+ce1399d2fa4,segaibasap,j,r,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j- > r; d,Table 67,
+c50ae803af8,segaibasap,j,d,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > r; d,Table 67,smith-semicolon
+cb56726487b,duma1254,j,j,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,y,*-j- > y; d,Table 67,
+c22ffe9a924,duma1254,j,d,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > y; d,Table 67,smith-semicolon
+cc5f312398a,batuputihbasap,j,r,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j- > r; d,Table 67,
+c1815535dd7,batuputihbasap,j,d,V_V,sporadic,,,smith2017a,201,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > r; d,Table 67,smith-semicolon
+c0daabbfd62,lebobasap,j,n,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j > n,Table 67,
+cda0c68ef0a,segaibasap,j,n,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j > n,Table 67,
+ca9863e8555,duma1254,j,d,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j > d,Table 67,
+c29c3ccdd9e,batuputihbasap,j,d,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-j > d,Table 67,
+cb180ec6d27,lebobasap,R,r,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*R- > r,Table 67,
+c92780e2bc5,segaibasap,R,h,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*R- > h,Table 67,
+c4238b29dcf,duma1254,R,h,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*R- > h,Table 67,
+cce8e2cdf54,batuputihbasap,R,h,#_,regular,,,smith2017a,201,,,,,,,,,,,,,,*R- > h,Table 67,
+c19c292a4bb,lebobasap,R,r,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R- > r,Table 67,
+cdac3ccaa8e,segaibasap,R,h,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R- > h,Table 67,
+ce90ca48c32,duma1254,R,h,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R- > h,Table 67,
+c3b67a79da4,batuputihbasap,R,h,V_V,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R- > h,Table 67,
+c96a36d4ab4,lebobasap,R,r,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R > r,Table 67,
+c72960a2dff,segaibasap,R,h,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R > h,Table 67,
+c7ac2ffbdb3,duma1254,R,h,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R > h,Table 67,
+cecc87fe077,batuputihbasap,R,h,_#,regular,,,smith2017a,201,,,,,,,,,,,,,,*-R > h,Table 67,
+c9ee1ed642a,lebobasap,u,u,_C#,regular,,,smith2017a,202,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uC > u; o,Table 68,
+c062bb1af9d,lebobasap,u,o,_C#,sporadic,,,smith2017a,202,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uC > u; o,Table 68,smith-semicolon
+c7d1dfcb5c3,duma1254,u,u,_C#,regular,,,smith2017a,202,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,"*-uC > u, o",Table 68,
+c422ec45194,duma1254,u,o,_C#,regular,,,smith2017a,202,"Listed after a comma, with no condition given.",,,,,,,,,,,,,"*-uC > u, o",Table 68,smith-semicolon
+cc84f68152a,batuputihbasap,u,u,_C#,regular,,,smith2017a,202,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,"*-uC > u, o",Table 68,
+c2acad0ca27,batuputihbasap,u,o,_C#,regular,,,smith2017a,202,"Listed after a comma, with no condition given.",,,,,,,,,,,,,"*-uC > u, o",Table 68,smith-semicolon
+c86e478831e,lebobasap,u,u,penultimate syllable,regular,,,smith2017a,202,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uCVC > u; o,Table 68,
+c373ea6755b,lebobasap,u,o,penultimate syllable,sporadic,,,smith2017a,202,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uCVC > u; o,Table 68,smith-semicolon
+c2c8fe51078,lebobasap,i,i,_C#,regular,,,smith2017a,202,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iC > i; e,Table 68,
+c299438cc50,lebobasap,i,e,_C#,sporadic,,,smith2017a,202,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iC > i; e,Table 68,smith-semicolon
+cad8352448f,lebobasap,i,i,penultimate syllable,regular,,,smith2017a,202,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iCVC > i; e,Table 68,
+cd27dfbd1c2,lebobasap,i,e,penultimate syllable,sporadic,,,smith2017a,202,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iCVC > i; e,Table 68,smith-semicolon
+ca544fde78f,lebobasap,e,ə,_C#,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əC > ə,Table 68,
+c760adc0854,segaibasap,e,ə,_C#,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əC > ə,Table 68,
+c9a89d99135,duma1254,e,ə,_C#,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əC > ə,Table 68,
+cbbc741ca44,batuputihbasap,e,ə,_C#,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əC > ə,Table 68,
+cbacecb38f7,lebobasap,e,ə,penultimate syllable,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əCVC > ə,Table 68,
+c35f79b6698,segaibasap,e,ə,penultimate syllable,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əCVC > ə,Table 68,
+cf670a5b05a,duma1254,e,ə,penultimate syllable,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əCVC > ə,Table 68,
+c9c532b235e,batuputihbasap,e,ə,penultimate syllable,regular,,,smith2017a,202,,,,,,,,,,,,,,*-əCVC > ə,Table 68,
+c8f9d314760,lebobasap,a,e,_+y,regular,,,smith2017a,202,,,,,,,,,,,,,,*ay > e,Table 68,
+c40fdf101d5,lebobasap,y,e,a+_,regular,,,smith2017a,202,,,,,,,,,,,,,,*ay > e,Table 68,
+c75d57a191a,lebobasap,a,o,_+w,regular,,,smith2017a,202,,,,,,,,,,,,,,*aw > o,Table 68,
+cc5ed0bdd4e,lebobasap,w,o,a+_,regular,,,smith2017a,202,,,,,,,,,,,,,,*aw > o,Table 68,
+c6188188f94,batuputihbasap,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9821474146,batuputihbasap,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c0686c0d6e5,batuputihbasap,d,d,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cbb08991adb,batuputihbasap,q,q,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ccf52c3b9c9,batuputihbasap,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cee7d5814e6,batuputihbasap,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5bef2c54d2,duma1254,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6654323e25,duma1254,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5fa0b316d8,duma1254,d,d,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf57a7b1554,duma1254,q,q,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c493fb516f7,duma1254,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9439c36da9,duma1254,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1eb2006dab,lebobasap,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c551c7d9946,lebobasap,d,d,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cb414979af3,lebobasap,i,i,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c0baeff5de4,lebobasap,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c13edd373f7,segaibasap,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c649eb2a273,segaibasap,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca0f7933504,segaibasap,q,q,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c42404291b1,lebobasap,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+ce1e1bbe33d,lebobasap,z,d͡ʒ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+cf5c69ccd7d,segaibasap,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c37e37a39f0,segaibasap,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
+ce000ac921e,segaibasap,z,d͡ʒ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+c3b82000444,duma1254,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cdcd440a616,duma1254,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
+c96759a5e6f,duma1254,z,d͡ʒ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+c2fb2a9fe61,batuputihbasap,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cea4ca363b1,batuputihbasap,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
+c5377488d7d,batuputihbasap,z,d͡ʒ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. PMP *z is [ʤ] (Smith 2017a: 26).,,,,,,,stated-retention,,,,,z,,,
+ce3d002ba29,nucl1564,p,p,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-p- > p; pp,Table 70,
+cea8a5add98,nucl1564,p,pp,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-p- > p; pp,Table 70,smith-semicolon
+c5fcef812e0,nucl1564,t,t,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-t- > t; tt,Table 70,
+c30ba637e22,nucl1564,t,tt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-t- > t; tt,Table 70,smith-semicolon
+cf693a70ba1,nucl1564,q,∅,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*q- > Ø,Table 70,
+cbe3d7e5daf,nucl1564,q,∅,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q- > Ø,Table 70,
+c9b044a1ea7,nucl1564,q,ʔ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q > ʔ,Table 70,
+cf61fa65106,nucl1564,b,b,#_,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*b- > b; bp,Table 70,
+c3d9dabac33,nucl1564,b,bp,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*b- > b; bp,Table 70,smith-semicolon
+c03a9831045,nucl1564,b,b,V_V,regular,,,smith2017a,229,"The table also lists bp, Ø without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-b- > b; bp; Ø,Table 70,smith-semicolon
+cbf53257ddd,nucl1564,d,d,#_,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*d- > d; dd,Table 70,
+c66f46c75dd,nucl1564,d,dd,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*d- > d; dd,Table 70,smith-semicolon
+cdf9874370e,nucl1564,d,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-d- > r; dt,Table 70,
+cb2cff872ee,nucl1564,d,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > r; dt,Table 70,smith-semicolon
+c956e2cb05f,nucl1564,j,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-j- > r; dt,Table 70,
+cec80c7bd15,nucl1564,j,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > r; dt,Table 70,smith-semicolon
+c90589df7a9,nucl1564,z,d,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*z- > d,Table 70,
+c6d03ef5aa6,nucl1564,z,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-z- > r; dt,Table 70,
+ca0dec305e0,nucl1564,z,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-z- > r; dt,Table 70,smith-semicolon
+c8eacdee913,nucl1564,s,s,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > s; ss,Table 70,
+c8f2177f5f5,nucl1564,s,ss,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-s- > s; ss,Table 70,smith-semicolon
+cb36d4ee4cd,nucl1564,l,l,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; ll,Table 70,
+c73c731f12e,nucl1564,l,ll,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; ll,Table 70,smith-semicolon
+c230acfe58f,nucl1564,R,ɡ,#_,regular,,,smith2017a,229,,,,,,,,,,,,,g,*R- > g; gk,Table 70,
+cd2017e9245,nucl1564,R,ɡk,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,gk,*R- > g; gk,Table 70,smith-semicolon
+c8badcda3ac,nucl1564,R,ɡ,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R- > g; gk,Table 70,
+cbde250166a,nucl1564,R,ɡk,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,gk,*-R- > g; gk,Table 70,smith-semicolon
+c5329498098,nucl1564,R,ɡ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R > g,Table 70,
+cdf48bd8acf,nucl1564,a,o,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-a > o,Table 71,
+cc970275cc9,nucl1564,e,o,_C#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əC > o,Table 71,
+c0dd60ebdbf,nucl1564,e,ə,penultimate syllable,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əCVC > ə; i,Table 71,
+c89236396c1,nucl1564,e,i,penultimate syllable,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əCVC > ə; i,Table 71,smith-semicolon
+cb1b491c4b0,nucl1564,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5924fc671a,nucl1564,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ceb197dae81,nucl1564,b,b,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca2ea025606,nucl1564,d,d,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c93cb17e7c4,nucl1564,j,j,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6b835cc3ec,nucl1564,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca45182f93f,nucl1564,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c199a16ddcd,nucl1564,p,p,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c203faa5494,nucl1564,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c364fdd99c7,nucl1564,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c67c47c149a,nucl1564,s,s,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf25cbe71ca,nucl1564,t,t,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca887a7b5bc,nucl1564,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cdb72f21050,nucl1564,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c6d3cef783a,nucl1564,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
+caabfb33906,sungaiseguliud,p,p,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-p- > p; pp,Table 70,
+c862c9b197a,sungaiseguliud,p,pp,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-p- > p; pp,Table 70,smith-semicolon
+c3b5aee165a,sungaiseguliud,t,t,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-t- > t; tt,Table 70,
+ce3486591c9,sungaiseguliud,t,tt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-t- > t; tt,Table 70,smith-semicolon
+ce8449f03a4,sungaiseguliud,q,∅,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*q- > Ø,Table 70,
+c6537513c74,sungaiseguliud,q,∅,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q- > Ø,Table 70,
+c37728f34c2,sungaiseguliud,q,ʔ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q > ʔ,Table 70,
+c2323d952eb,sungaiseguliud,b,b,#_,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*b- > b; bp,Table 70,
+ccc662bfd38,sungaiseguliud,b,bp,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*b- > b; bp,Table 70,smith-semicolon
+c558d47aaee,sungaiseguliud,b,b,V_V,regular,,,smith2017a,229,"The table also lists bp, Ø without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-b- > b; bp; Ø,Table 70,smith-semicolon
+cfc67d640d7,sungaiseguliud,d,d,#_,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*d- > d; dd,Table 70,
+c6757bae64c,sungaiseguliud,d,dd,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*d- > d; dd,Table 70,smith-semicolon
+cd63ab99bda,sungaiseguliud,d,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-d- > r; dt,Table 70,
+c2fd264b0d7,sungaiseguliud,d,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > r; dt,Table 70,smith-semicolon
+c815a2a0c8d,sungaiseguliud,j,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-j- > r; dt,Table 70,
+cc75229bbde,sungaiseguliud,j,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > r; dt,Table 70,smith-semicolon
+cf384e13149,sungaiseguliud,z,d,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*z- > d,Table 70,
+c33324b06c2,sungaiseguliud,z,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-z- > r; dt,Table 70,
+c1087bfa833,sungaiseguliud,z,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-z- > r; dt,Table 70,smith-semicolon
+c996cd11cc2,sungaiseguliud,s,s,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > s; ss,Table 70,
+c33b497a423,sungaiseguliud,s,ss,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-s- > s; ss,Table 70,smith-semicolon
+ca50d6ce347,sungaiseguliud,l,l,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; ll,Table 70,
+c443bd7dc9e,sungaiseguliud,l,ll,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; ll,Table 70,smith-semicolon
+c82545bcc3e,sungaiseguliud,R,ɡ,#_,regular,,,smith2017a,229,,,,,,,,,,,,,g,*R- > g; gk,Table 70,
+cf623d87264,sungaiseguliud,R,ɡk,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,gk,*R- > g; gk,Table 70,smith-semicolon
+cf9046705ff,sungaiseguliud,R,ɡ,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R- > g; gk,Table 70,
+cb070d7f469,sungaiseguliud,R,ɡk,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,gk,*-R- > g; gk,Table 70,smith-semicolon
+c552c344820,sungaiseguliud,R,ɡ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R > g,Table 70,
+c666895a1ce,sungaiseguliud,a,o,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-a > o,Table 71,
+cbbf35965b4,sungaiseguliud,e,o,_C#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əC > o,Table 71,
+c08dda75db8,sungaiseguliud,e,o,penultimate syllable,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əCVC > o; i,Table 71,
+c7981fd89f6,sungaiseguliud,e,i,penultimate syllable,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əCVC > o; i,Table 71,smith-semicolon
+c8566d0b930,sungaiseguliud,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf022082386,sungaiseguliud,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd7d88793cc,sungaiseguliud,b,b,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5818bb482b,sungaiseguliud,d,d,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5f28d31fc2,sungaiseguliud,j,j,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7a28577f77,sungaiseguliud,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6cb310d858,sungaiseguliud,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9714410180,sungaiseguliud,p,p,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c28ad0da200,sungaiseguliud,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c62b488e9fb,sungaiseguliud,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cb1afce0356,sungaiseguliud,s,s,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c587c7f64ae,sungaiseguliud,t,t,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c50953c607b,sungaiseguliud,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1a818a6dac,sungaiseguliud,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c46de069eff,sungaiseguliud,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
+c42e0ffe481,bega1240,p,p,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-p- > p; pp,Table 70,
+ca79ebf12fc,bega1240,p,pp,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-p- > p; pp,Table 70,smith-semicolon
+c2c69e9366a,bega1240,t,t,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-t- > t; tt,Table 70,
+c115d9e111b,bega1240,t,tt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-t- > t; tt,Table 70,smith-semicolon
+cda0993a7bc,bega1240,q,∅,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*q- > Ø,Table 70,
+c81f9306c79,bega1240,q,∅,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q- > Ø,Table 70,
+c5720344c74,bega1240,q,ʔ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q > ʔ,Table 70,
+c4340258697,bega1240,b,b,#_,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*b- > b; bp,Table 70,
+ccb23f8f41c,bega1240,b,bp,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*b- > b; bp,Table 70,smith-semicolon
+c238a3be9ba,bega1240,b,b,V_V,disputed,,,smith2017a,229,Printed with a question mark. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b?; bp,Table 70,
+c7e1f36964e,bega1240,b,bp,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b?; bp,Table 70,smith-semicolon
+c5f2d063fe3,bega1240,d,d,#_,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*d- > d; dd,Table 70,
+c8e6d66e14c,bega1240,d,dd,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*d- > d; dd,Table 70,smith-semicolon
+cb444a7b6ad,bega1240,d,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-d- > r; dt,Table 70,
+c0b8a28334f,bega1240,d,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > r; dt,Table 70,smith-semicolon
+ca0b2f2121b,bega1240,j,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-j- > r; dt,Table 70,
+ca94a62b8f6,bega1240,j,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > r; dt,Table 70,smith-semicolon
+c3be252f354,bega1240,z,d,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*z- > d,Table 70,
+cb54df0d2df,bega1240,z,r,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-z- > r; dt,Table 70,
+cd5a29e287a,bega1240,z,dt,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-z- > r; dt,Table 70,smith-semicolon
+c403a9cd143,bega1240,s,s,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > s; ss,Table 70,
+cbd52537755,bega1240,s,ss,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-s- > s; ss,Table 70,smith-semicolon
+caf61232783,bega1240,l,l,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; ll,Table 70,
+cecb7ed85ba,bega1240,l,ll,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; ll,Table 70,smith-semicolon
+c31d07e3da6,bega1240,R,ɡ,#_,regular,,,smith2017a,229,,,,,,,,,,,,,g,*R- > g; gk,Table 70,
+c78a2ea7d21,bega1240,R,ɡk,#_,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,gk,*R- > g; gk,Table 70,smith-semicolon
+c21935cc5f2,bega1240,R,ɡ,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R- > g; gk,Table 70,
+c0b2f3ebef2,bega1240,R,ɡk,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,gk,*-R- > g; gk,Table 70,smith-semicolon
+cce96abff6d,bega1240,R,ɡ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R > g,Table 70,
+c0c64982293,bega1240,a,o,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-a > o,Table 71,
+cac7d02240c,bega1240,e,o,_C#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əC > o,Table 71,
+c576aa93b36,bega1240,e,ə,penultimate syllable,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əCVC > ə; i,Table 71,
+c915f6adf03,bega1240,e,i,penultimate syllable,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əCVC > ə; i,Table 71,smith-semicolon
+c0bbe70e40a,bega1240,a,ow,_+w,regular,,,smith2017a,229,,,,,,,,,,,,,,*-aw > ow,Table 71,
+caff7180e46,bega1240,w,ow,a+_,regular,,,smith2017a,229,,,,,,,,,,,,,,*-aw > ow,Table 71,
+c52cfa7c247,bega1240,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c717c58f7e3,bega1240,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfa1957b408,bega1240,b,b,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c63c53b227c,bega1240,d,d,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c992e77eece,bega1240,j,j,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1ab62ac0cd,bega1240,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c9782ddce7e,bega1240,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c00bb4ca6c5,bega1240,p,p,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c29072a8ff6,bega1240,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c100b06af33,bega1240,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3a40d47c41,bega1240,s,s,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c65ce2851ca,bega1240,t,t,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c344f00d391,bega1240,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c24ae3a6e15,bega1240,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c5e7402d095,bega1240,y,j,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes y for [j] (2017a: 26).,,,,,,,stated-retention,,,,,y,,,
+cdb4bbacb0c,bong1289,p,f,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*p- > f,Table 70,
+c64cc85e0b2,bong1289,p,f,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-p- > f,Table 70,
+c9b08b03984,bong1289,q,∅,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*q- > Ø,Table 70,
+cadecd57699,bong1289,q,∅,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q- > Ø,Table 70,
+c97795cd8a1,bong1289,q,ʔ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-q > ʔ,Table 70,
+c54c9036176,bong1289,j,d,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-j- > d,Table 70,
+caba0caaaf2,bong1289,z,d,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*z- > d,Table 70,
+c57a8fb51fb,bong1289,z,d,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,*-z- > d,Table 70,
+cf35ba512a4,bong1289,R,ɡ,#_,regular,,,smith2017a,229,,,,,,,,,,,,,g,*R- > g,Table 70,
+c93242866e7,bong1289,R,∅,V_V,regular,,,smith2017a,229,,,,,,,,,,,,,,"*-R- > Ø; r,g / ə_",Table 70,
+cbeccaa87a3,bong1289,R,"r,ɡ",ə_,regular,,,smith2017a,229,Conditioned as printed in the table.,,,,,,,,,,,,"r,g","*-R- > Ø; r,g / ə_",Table 70,
+c72a74d8a2e,bong1289,R,ɡ,_#,regular,,,smith2017a,229,,,,,,,,,,,,,g,*-R > g,Table 70,
+cb1f5348493,bong1289,a,a,_C#,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aC > a; ai,Table 71,
+c99554b4bf8,bong1289,a,ai,_C#,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aC > a; ai,Table 71,smith-semicolon
+cae0534a49c,bong1289,a,a,penultimate syllable,regular,,,smith2017a,229,"The table also lists o, e without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-aCVC > a; o; e,Table 71,smith-semicolon
+c593de4d0ea,bong1289,e,a,_C#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əC > a; u,Table 71,
+ce642578caa,bong1289,e,u,_C#,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əC > a; u,Table 71,smith-semicolon
+c01f6d38597,bong1289,e,o,penultimate syllable,regular,,,smith2017a,229,"The table also lists i, (ə) without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,,*-əCVC > o; i; (ə),Table 71,smith-semicolon
+cd803b27b3f,bong1289,a,i,_+y,regular,,,smith2017a,229,,,,,,,,,,,,,,*-ay > i,Table 71,
+cc0adbaf9f6,bong1289,y,i,a+_,regular,,,smith2017a,229,,,,,,,,,,,,,,*-ay > i,Table 71,
+c987fbd7612,bong1289,a,u,_+w,regular,,,smith2017a,229,,,,,,,,,,,,,,*-aw > u,Table 71,
+cca5acfa15b,bong1289,w,u,a+_,regular,,,smith2017a,229,,,,,,,,,,,,,,*-aw > u,Table 71,
+cd5f9db4727,bong1289,a,a,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c227ef643c3,bong1289,j,j,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c67cc141b25,bong1289,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cddd80c8a69,bong1289,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c1b8d33882e,molb1237,ʔ,∅,#_,regular,,,smith2017a,229,,,,,,,,,,,,,,*q- > Ø,Table 70,
+ca7c6002450,molb1237,d,d,V_V,regular,,,smith2017a,229,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-j- > d; dd,Table 70,
+c5a99c68621,molb1237,d,dd,V_V,sporadic,,,smith2017a,229,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-j- > d; dd,Table 70,smith-semicolon
+cc8aedfc1f4,molb1237,ə,o,_C#,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əC > o,Table 71,
+c6f8e2c56dd,molb1237,ə,o,penultimate syllable,regular,,,smith2017a,229,,,,,,,,,,,,,,*-əCVC > o,Table 71,
+cdf1c5e03c3,molb1237,a,oj,_+y,regular,,,smith2017a,229,,,,,,,,,,,,,oy,*-ay > oy,Table 71,
+cdc18d57b05,molb1237,y,oj,a+_,regular,,,smith2017a,229,,,,,,,,,,,,,oy,*-ay > oy,Table 71,
+c956ea98bf8,molb1237,a,ow,_+w,regular,,,smith2017a,229,,,,,,,,,,,,,,*-aw > ow,Table 71,
+ce6a102219e,molb1237,w,ow,a+_,regular,,,smith2017a,229,,,,,,,,,,,,,,*-aw > ow,Table 71,
+cb219a46fb3,molb1237,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6e770f1059,molb1237,d,d,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c337c99b732,molb1237,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc516560160,molb1237,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2a8d6535b5,molb1237,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cd3084a37b9,bong1289,∅,j,a_n#,regular,,,smith2017a,230,*a became ay (written ai) before final *-n (p. 230); entered as an inserted glide.,,,,,,,,,,,,,*-aC > a; ai,Table 71,
+c284de1e506,pdayic,j,d,elsewhere,regular,,,smith2017a,238,*z merged with *d only in Dayic among the North Sarawak languages (p. 238).,,,,,,,,,,,,,"merger of *d, *j, and *z",,
+cfe8a3eb26f,pdayic,jʰ,dʰ,elsewhere,regular,,,smith2017a,238,The aspirate follows the merger: Long Lellang and Bario have d; dʰ for *-z- (Table 74).,,,,,,,composed,,,,,,"merger of *d, *j, and *z",,
+c6452d84093,pdayic,l,r,_VR#,regular,,,smith2017a,238,Before a final *r from *-R: *təluR > tərur (p. 238).,,,,,,,,,,,,,*l > r / _VR#,,
+c562d68b173,pdayic,R,r,elsewhere,regular,,,smith2017a,237,r in every Dayic lect of Table 74; Sa'ban later l or ∅.,,,,,,,composed,,,,,,*R > r,,
+cd2cba1c5bc,pdayic,k,ʔ,V_V,regular,,,smith2017a,239,Lun Dayeh later lost it; Kelabit keeps it except between unlike vowels the first of which is high (p. 239).,,,,,,,,,,,,,*-k- > *-ʔ-,,
+c4b9390200e,pkelabit,t,s,#_i,regular,,,smith2017a,240,Also in Sa'ban: *tinaʔi > sənʔay (p. 240).,,,,,,,,,,,,,*ti- > *si-,,
+cb9bfde0e52,prelundayeh,ʔ,∅,V_V,regular,,,smith2017a,239,In all environments (p. 239; Table 76).,,,,,,,,,,,,,deletion of medial glottal stops,,
+c78e28190fc,longbawan,ʔ,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*q- > Ø,Table 74,
+cbf7d378126,longbawan,bʰ,f,#_,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *bʰ.,,,,,,,,,,,,,*b- > b; f,Table 74,smith-semicolon
+ca392d6e53b,longbawan,bʰ,f,V_V,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *bʰ.,,,,,,,,,,,,,*-b- > b; f,Table 74,smith-semicolon
+caef4947e6b,longbawan,dʰ,s,V_V,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *dʰ.,,,,,,,,,,,,,*-d- > d; s,Table 74,smith-semicolon
+cf9c2ed4031,longbawan,s,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*s- > Ø; s,Table 74,
+c023799f54a,longbawan,s,s,#_,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*s- > Ø; s,Table 74,smith-semicolon
+cb32328c982,longbawan,s,∅,V_V,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s- > Ø; s,Table 74,
+c652b9790b4,longbawan,s,s,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > Ø; s,Table 74,smith-semicolon
+c564eec4ced,longbawan,s,∅,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s > Ø,Table 74,
+c0923fc0604,longbawan,l,l,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; r,Table 74,
+c5360953eb4,longbawan,l,r,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; r,Table 74,smith-semicolon
+cc2588aa28f,longbawan,a,ə,_#,regular,,,smith2017a,238,,,,,,,,,,,,,,*-a > ə,Table 75,
+c451d15c2b0,longbawan,u,u,penultimate syllable,regular,,,smith2017a,238,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uCVC > u; o,Table 75,
+c07619a55e6,longbawan,u,o,penultimate syllable,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uCVC > u; o,Table 75,smith-semicolon
+c71eb77d29e,longbawan,i,i,penultimate syllable,regular,,,smith2017a,238,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iCVC > i; e,Table 75,
+c084cd337a0,longbawan,i,e,penultimate syllable,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iCVC > i; e,Table 75,smith-semicolon
+c1d1b8025f2,longbawan,ə,ə,penultimate syllable,regular,,,smith2017a,238,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-əCVC > ə; (a),Table 75,
+c48b8b52a86,longbawan,ə,a,penultimate syllable,sporadic,,,smith2017a,238,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-əCVC > ə; (a),Table 75,smith-semicolon
+c6b1845e724,longbawan,a,e,_+y,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+ccaa5126f99,longbawan,y,e,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+c148f8dfed6,longbawan,a,o,_+w,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+ccaa4c561f5,longbawan,w,o,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+c08eab6819a,longbawan,∅,h,V_#,regular,,,smith2017a,238,An h after every final vowel (the vowel itself is entered without it).,,,,,,,,,,,,,"*-a > əh, *-u > uh, *-i > ih",Table 75,
+c7395e66c0e,longbawan,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c929fd8fcbe,longbawan,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c761023d0ec,longbawan,i,i,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc70438a535,longbawan,i,i,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca6229aacb4,longbawan,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c121e4fbea7,longbawan,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce86606dfb0,longbawan,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2805eb83ca,longbawan,u,u,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c0357246e5a,longbawan,ə,ə,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1ed8476f1d,longbawan,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ccb41ed516f,longbawan,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cc67dd5ee4d,longsemadoh,ʔ,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*q- > Ø,Table 74,
+cccca601ed7,longsemadoh,bʰ,pb,#_,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *bʰ.,,,,,,,,,,,,,*b- > b; pb,Table 74,smith-semicolon
+c756700c528,longsemadoh,bʰ,pb,V_V,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *bʰ.,,,,,,,,,,,,,*-b- > b; pb,Table 74,smith-semicolon
+c9e62815d26,longsemadoh,dʰ,dt͡ʃ,V_V,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *dʰ.,,,,,,,,,,,,,*-d- > d; dc,Table 74,smith-semicolon
+c654d59c084,longsemadoh,s,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*s- > Ø,Table 74,
+c6d1230c8da,longsemadoh,s,∅,V_V,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s- > Ø,Table 74,
+c65a22ef84e,longsemadoh,s,∅,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s > Ø,Table 74,
+ce0c2f0ef55,longsemadoh,l,l,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; r,Table 74,
+cbc1e4d2522,longsemadoh,l,r,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; r,Table 74,smith-semicolon
+c8c1884b26b,longsemadoh,a,ə,_#,regular,,,smith2017a,238,,,,,,,,,,,,,,*-a > ə,Table 75,
+c2b21f66496,longsemadoh,u,u,_C#,regular,,,smith2017a,238,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uC > u; o,Table 75,
+cd09d665aa9,longsemadoh,u,o,_C#,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uC > u; o,Table 75,smith-semicolon
+cb29f303d86,longsemadoh,i,i,_C#,regular,,,smith2017a,238,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iC > i; e,Table 75,
+ce948c997ea,longsemadoh,i,e,_C#,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iC > i; e,Table 75,smith-semicolon
+cd346fca42b,longsemadoh,a,e,_+y,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+cf68951c135,longsemadoh,y,e,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+c11a3648616,longsemadoh,a,o,_+w,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+c9a4c7759f3,longsemadoh,w,o,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+c26d64e46a0,longsemadoh,∅,h,V_#,regular,,,smith2017a,238,An h after every final vowel (the vowel itself is entered without it).,,,,,,,,,,,,,"*-a > əh, *-u > uh, *-i > ih",Table 75,
+c56e842d871,longsemadoh,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf4d4290770,longsemadoh,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfd3765e8fa,longsemadoh,i,i,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c4fb6bc0941,longsemadoh,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7ce954459b,longsemadoh,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca3399d0800,longsemadoh,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c52b683bec5,longsemadoh,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfbe4d20a0a,longsemadoh,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc6410d1933,longsemadoh,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c190b3a0ce4,longsemadoh,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cdfc3c9f765,padalih,t,t,#_,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*t- > t; s / _i,Table 74,
+c6c8bf07bf5,padalih,ʔ,∅,"between unlike vowels, the first high",regular,,,smith2017a,237,Kelabit keeps medial ʔ (also from *-k-) except between unlike vowels if the first is high (p. 239; Table 76).,,,,,,,,,,,,,*-k- > Ø; ʔ,Table 74,smith-semicolon
+c1352668a56,padalih,ʔ,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*q- > Ø,Table 74,
+c2c2edc3163,padalih,bʰ,p,#_,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *bʰ.,,,,,,,,,,,,,*b- > b; p,Table 74,smith-semicolon
+c847ee6bd60,padalih,bʰ,p,V_V,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *bʰ.,,,,,,,,,,,,,*-b- > b; p,Table 74,smith-semicolon
+c17ec06d51b,padalih,dʰ,s,V_V,regular,,,smith2017a,237,From the PNS voiced aspirate (Smith 2017a: 235-236; Blust 2010): the second reflex in Smith's table is that of *dʰ.,,,,,,,,,,,,,*-d- > d; s,Table 74,smith-semicolon
+c95ee51a452,padalih,s,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*s- > Ø,Table 74,
+c208a9008bb,padalih,s,∅,V_V,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s- > Ø,Table 74,
+c20119e6dfe,padalih,s,∅,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s > Ø,Table 74,
+ce68f8f63b9,padalih,l,l,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; r,Table 74,
+c05573e25cd,padalih,l,r,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; r,Table 74,smith-semicolon
+c9d9d1f5dd6,padalih,a,ə,_#,regular,,,smith2017a,238,,,,,,,,,,,,,,*-a > ə,Table 75,
+c0afa7091d6,padalih,a,e,_+y,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+cef3db2794b,padalih,y,e,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+c78cec0ea2d,padalih,a,o,_+w,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+c19a107f679,padalih,w,o,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+c094f97360c,padalih,∅,h,V_#,regular,,,smith2017a,238,An h after every final vowel (the vowel itself is entered without it).,,,,,,,,,,,,,"*-a > əh, *-u > uh, *-i > ih",Table 75,
+c3fce681ff3,padalih,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf8b115c51f,padalih,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1901b7a1cd,padalih,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c59bbe10420,padalih,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2b4a7d4d1d,padalih,t,t,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd0649c3abe,padalih,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7e397dbe30,padalih,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c851bdb1c18,padalih,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cffb0df9002,padalih,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c8d8c27064b,longlellang,t,t,#_,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*t- > t; s / _i,Table 74,
+c1e39436772,longlellang,ʔ,∅,"between unlike vowels, the first high",regular,,,smith2017a,237,Kelabit keeps medial ʔ (also from *-k-) except between unlike vowels if the first is high (p. 239; Table 76).,,,,,,,,,,,,,*-k- > Ø; ʔ,Table 74,smith-semicolon
+c10e95f208a,longlellang,ʔ,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*q- > Ø,Table 74,
+cd2ccac6829,longlellang,s,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*s- > Ø,Table 74,
+c07f8034e81,longlellang,s,∅,V_V,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s- > Ø,Table 74,
+c8e2f7d5089,longlellang,s,∅,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s > Ø,Table 74,
+c00186d8c8d,longlellang,l,l,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; r,Table 74,
+cbbd49d2486,longlellang,l,r,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; r,Table 74,smith-semicolon
+c2ec6dd3fd6,longlellang,a,ə,_#,regular,,,smith2017a,238,,,,,,,,,,,,,,*-a > ə,Table 75,
+cb55e0e4002,longlellang,a,e,_+y,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+ca79651dc52,longlellang,y,e,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+ce358efd922,longlellang,a,o,_+w,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+ca9693a0394,longlellang,w,o,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+cdbc0d0a6ca,longlellang,∅,h,V_#,regular,,,smith2017a,238,An h after every final vowel (the vowel itself is entered without it).,,,,,,,,,,,,,"*-a > əh, *-u > uh, *-i > ih",Table 75,
+c5b40cec1fb,longlellang,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c4f7cfbcb59,longlellang,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c95b647b284,longlellang,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5779b53982,longlellang,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cb5da3a1168,longlellang,t,t,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c0074ccf2d6,longlellang,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7ce80cb958,longlellang,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c8e24e49247,longlellang,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7612107831,longlellang,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c597ed273b3,bari1288,t,t,#_,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*t- > t; s / _i,Table 74,
+c349530ad7d,bari1288,ʔ,∅,"between unlike vowels, the first high",regular,,,smith2017a,237,Kelabit keeps medial ʔ (also from *-k-) except between unlike vowels if the first is high (p. 239; Table 76).,,,,,,,,,,,,,*-k- > Ø; ʔ,Table 74,smith-semicolon
+c849a738201,bari1288,ʔ,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*q- > Ø,Table 74,
+c9f979a33f1,bari1288,s,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*s- > Ø,Table 74,
+cf503d67a2b,bari1288,s,∅,V_V,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s- > Ø,Table 74,
+cceeadb16be,bari1288,s,∅,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s > Ø,Table 74,
+ceb1a048812,bari1288,l,l,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; r,Table 74,
+c4b20456227,bari1288,l,r,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; r,Table 74,smith-semicolon
+ca54528599f,bari1288,a,ə,_#,regular,,,smith2017a,238,,,,,,,,,,,,,,*-a > ə,Table 75,
+c415543d054,bari1288,a,e,_+y,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+c33f254916c,bari1288,y,e,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-ay > e,Table 75,
+c7d33762170,bari1288,a,o,_+w,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+c59c1807017,bari1288,w,o,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > o,Table 75,
+cc42318547f,bari1288,∅,h,V_#,regular,,,smith2017a,238,An h after every final vowel (the vowel itself is entered without it).,,,,,,,,,,,,,"*-a > əh, *-u > uh, *-i > ih",Table 75,
+c754cf22870,bari1288,a,a,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c41c6a0515b,bari1288,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc95ec0232f,bari1288,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3a0d6487fe,bari1288,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca3cc2bff3d,bari1288,t,t,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca3c1855bbf,bari1288,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1cbebd284d,bari1288,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c54eab855bb,bari1288,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c53479a9fcf,bari1288,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+ca199a9e76c,saba1265,p,p,#_,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*p- > p; h,Table 74,
+c4f43255a6d,saba1265,p,h,#_,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*p- > p; h,Table 74,smith-semicolon
+c75f71fd6bb,saba1265,t,t,#_,regular,,,smith2017a,237,"The table also lists h, Ø without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*t- > t; h; Ø,Table 74,smith-semicolon
+c597a329bb2,saba1265,k,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*k- > Ø,Table 74,
+cf2b1dbcf8b,saba1265,ʔ,∅,"between unlike vowels, the first high",regular,,,smith2017a,237,Kelabit keeps medial ʔ (also from *-k-) except between unlike vowels if the first is high (p. 239; Table 76).,,,,,,,,,,,,,*-k- > Ø; ʔ,Table 74,smith-semicolon
+cd27eb59a37,saba1265,ʔ,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*q- > Ø,Table 74,
+cb72180160b,saba1265,b,b,#_,regular,,,smith2017a,237,"The table also lists Ø, p without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*b- > b; Ø; p,Table 74,smith-semicolon
+cf3e2494dbb,saba1265,b,b,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-b- > b; p,Table 74,
+c8b9e7f491f,saba1265,b,p,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-b- > b; p,Table 74,smith-semicolon
+c571e2b8c75,saba1265,b,p,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-b > p,Table 74,
+c83d47f0967,saba1265,d,∅,#_,regular,,,smith2017a,237,"The table also lists b, l without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,,*d- > Ø; b; l,Table 74,smith-semicolon
+c8a4ef2d74c,saba1265,d,d,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d- > d; s,Table 74,
+c841c958647,saba1265,d,s,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d- > d; s,Table 74,smith-semicolon
+c3a1f716986,saba1265,d,t,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-d > t,Table 74,
+c4a1e9abcfd,saba1265,d,d,#_,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*z- > Ø; d,Table 74,smith-semicolon
+c3335cf287f,saba1265,s,∅,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*s- > Ø; (s),Table 74,
+cd90b647497,saba1265,s,s,#_,sporadic,,,smith2017a,237,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*s- > Ø; (s),Table 74,smith-semicolon
+c9a8a56c28f,saba1265,s,∅,V_V,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s- > Ø; s,Table 74,
+c1d8b691bbd,saba1265,s,s,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > Ø; s,Table 74,smith-semicolon
+cc4d716bed6,saba1265,s,∅,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-s > Ø,Table 74,
+c895f7c8a08,saba1265,l,l,#_,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*l- > l; Ø,Table 74,
+c2412e951f7,saba1265,l,∅,#_,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*l- > l; Ø,Table 74,smith-semicolon
+c62c67119c6,saba1265,l,l,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-l- > l; r,Table 74,
+cfed9dc646b,saba1265,l,r,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-l- > l; r,Table 74,smith-semicolon
+cbe98990d90,saba1265,r,l,#_,regular,,,smith2017a,237,,,,,,,,,,,,,,*R- > l; Ø,Table 74,
+c3120754ec3,saba1265,r,∅,#_,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*R- > l; Ø,Table 74,smith-semicolon
+c5c8b5c3386,saba1265,r,r,V_V,regular,,,smith2017a,237,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-R- > r; l,Table 74,
+c68dd08ed93,saba1265,r,l,V_V,sporadic,,,smith2017a,237,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-R- > r; l,Table 74,smith-semicolon
+cd696baced2,saba1265,r,l,_#,regular,,,smith2017a,237,,,,,,,,,,,,,,*-R > l,Table 74,
+cc4ba4aae58,saba1265,a,a,_#,regular,,,smith2017a,238,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-a > a; ə,Table 75,
+c287419dcb2,saba1265,a,ə,_#,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-a > a; ə,Table 75,smith-semicolon
+c1ebd3f565d,saba1265,a,a,_C#,regular,,,smith2017a,238,"The table also lists oə̯, i, eə̯ without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-aC > a; oə̯; i; eə̯,Table 75,smith-semicolon
+cd5adc8b665,saba1265,u,əw,_#,regular,,,smith2017a,238,,,,,,,,,,,,,,*-u > əw,Table 75,
+c16b66a0973,saba1265,u,aw,_C#,regular,,,smith2017a,238,"The table also lists u, o without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,,*-uC > aw; u; o,Table 75,smith-semicolon
+c1e0bad632f,saba1265,u,∅,penultimate syllable,regular,,,smith2017a,238,,,,,,,,,,,,,,*-uCVC > Ø,Table 75,
+cb59ea76fcb,saba1265,i,əj,_#,regular,,,smith2017a,238,,,,,,,,,,,,,əy,*-i > əy; e,Table 75,
+cbe8cdca64e,saba1265,i,e,_#,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-i > əy; e,Table 75,smith-semicolon
+c2c3f149aa8,saba1265,i,aj,_C#,regular,,,smith2017a,238,"The table also lists i, e, ɛ without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,ay,*-iC > ay; i; e; ɛ,Table 75,smith-semicolon
+cfac0e3ba6d,saba1265,i,∅,penultimate syllable,regular,,,smith2017a,238,"The table also lists e, i without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,,*-iCVC > Ø; e; i,Table 75,smith-semicolon
+ca8972c9884,saba1265,ə,∅,penultimate syllable,regular,,,smith2017a,238,,,,,,,,,,,,,,*-əCVC > Ø; ə,Table 75,
+ce9997ded29,saba1265,ə,ə,penultimate syllable,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-əCVC > Ø; ə,Table 75,smith-semicolon
+c02278a404d,saba1265,a,aə̯j,_+y,regular,,,smith2017a,238,,,,,,,,,,,,,aə̯y,*-ay > aə̯y,Table 75,
+ccaafa77bf3,saba1265,y,aə̯j,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,aə̯y,*-ay > aə̯y,Table 75,
+c486aabffc2,saba1265,a,aə̯w,_+w,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > aə̯w; iə̯w,Table 75,
+cc01e48c6b7,saba1265,w,aə̯w,a+_,regular,,,smith2017a,238,,,,,,,,,,,,,,*-aw > aə̯w; iə̯w,Table 75,
+ccb7635f06a,saba1265,a,iə̯w,_+w,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aə̯w; iə̯w,Table 75,smith-semicolon
+c2f6710982c,saba1265,w,iə̯w,a+_,sporadic,,,smith2017a,238,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aə̯w; iə̯w,Table 75,smith-semicolon
+cf08c3644ba,saba1265,∅,h,a_#,regular,,,smith2017a,238,Final *a only; *-u and *-i are əw and əy (Table 75).,,,,,,,,,,,,,*-a > ah; əh,Table 75,
+c91e5d6cb71,saba1265,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c8e4614e13a,saba1265,k,k,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cdd5242f1bd,saba1265,l,l,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc592e01900,saba1265,p,p,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc7430dbf3b,saba1265,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ca1d5142881,saba1265,t,t,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c5e08f69542,saba1265,t,t,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cdc49d23cea,saba1265,ə,ə,_C#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c69af4d1c6d,saba1265,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7e8c845a7a,saba1265,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce0a854f9c4,saba1265,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cb040af7fe9,longjegan,t,t,_#,regular,,,smith2017a,242,"The table also lists c, ʔʷ without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-t > t; c; ʔʷ,Table 77,smith-semicolon
+c5901a7ffd1,longjegan,k,k,_#,regular,,,smith2017a,242,"The table also lists c, ʔʷ without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-k > k; c; ʔʷ,Table 77,smith-semicolon
+c7120124130,longjegan,ʔ,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*q- > Ø,Table 77,
+c4591eed617,longjegan,ʔ,∅,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-q- > Ø; ʔ,Table 77,
+c420378a8fc,longjegan,ʔ,ʔ,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-q- > Ø; ʔ,Table 77,smith-semicolon
+c096c8b152f,longjegan,ʔ,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-q > Ø,Table 77,
+c17629d99cf,longjegan,b,b,#_,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*b- > b; p,Table 77,
+c77dc5e0994,longjegan,b,p,#_,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*b- > b; p,Table 77,smith-semicolon
+c6a4d1b4ce6,longjegan,b,k,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-b- > k; p,Table 77,smith-semicolon
+c0380bd0808,longjegan,bʰ,p,V_V,regular,,,smith2017a,242,"Berawan (Jegan) təppuh < PNS *təbʰu (Table 73, p. 236).",,,,,,,,,,,,,*-b- > k; p,Table 77,smith-semicolon
+c45ad9cafe7,longjegan,b,m,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-b > m,Table 77,
+cb9b0004e3c,longjegan,d,r,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-d- > r; c,Table 77,
+cd729e44344,longjegan,d,t͡ʃ,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,c,*-d- > r; c,Table 77,smith-semicolon
+cd9d38da077,longjegan,d,n,_#,regular,,,smith2017a,242,"The table also lists ŋ, ñ without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,,*-d > n; ŋ; ñ,Table 77,smith-semicolon
+c02b5d7cd18,longjegan,j,d͡ʒ,#_,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,j,*z- > j,Table 77,
+c974ee2e0b6,longjegan,j,t͡ʃ,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,c,*-z- > c; c,Table 77,
+c7242a3da32,longjegan,s,t͡ʃ,#_,regular,,,smith2017a,242,,,,,,,,,,,,,c,*s- > c,Table 77,
+c7ab2bc1302,longjegan,s,t͡ʃ,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,c,*-s- > c,Table 77,
+cb100617868,longjegan,s,ʔ,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-s > ʔ,Table 77,
+c111a3c2f06,longjegan,l,n,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-l > n,Table 77,
+c725f0a4205,longjegan,R,ɡ,#_,regular,,,smith2017a,242,,,,,,,,,,,,,g,*R- > g,Table 77,
+cb2c59173ad,longjegan,R,k,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R- > k,Table 77,
+caa139ad6bb,longjegan,R,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R > Ø,Table 77,
+c10d8c781c6,longjegan,y,d͡ʒ,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,j,*y > j,Table 77,
+c41d5445592,longjegan,w,v,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,,*w > v,Table 77,
+cb40519fa95,longjegan,a,a,_#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-a > a; i̯ əy,Table 78,
+c64015634ce,longjegan,a,i̯ əj,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,i̯ əy,*-a > a; i̯ əy,Table 78,smith-semicolon
+c1518200720,longjegan,a,a,_C#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aC > a; i,Table 78,
+ce2a0474e3f,longjegan,a,i,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aC > a; i,Table 78,smith-semicolon
+c0945d5ffbf,longjegan,a,a,penultimate syllable,regular,,,smith2017a,243,"The table also lists i, ɛ without conditions; not entered (decision smith-semicolon). Same sound: the attested form is written in IPA.",,,,,,,,,,,,,*-aCVC > a; i; ɛ,Table 78,smith-semicolon
+cfb385f2c2d,longjegan,u,aw,_#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-u > aw; əw,Table 78,
+cd9bf5f9c71,longjegan,u,əw,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-u > aw; əw,Table 78,smith-semicolon
+c11bb0ed1fc,longjegan,u,aw,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-uC > aw; o,Table 78,
+c9c04671d41,longjegan,u,o,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uC > aw; o,Table 78,smith-semicolon
+cf573b2ca4f,longjegan,u,u,penultimate syllable,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uCVC > u; o,Table 78,
+cace22ea3fa,longjegan,u,o,penultimate syllable,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uCVC > u; o,Table 78,smith-semicolon
+ccfab761c7b,longjegan,i,aj,_#,regular,,,smith2017a,243,,,,,,,,,,,,,ay,*-i > ay; əy,Table 78,
+ce7309c51aa,longjegan,i,əj,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,əy,*-i > ay; əy,Table 78,smith-semicolon
+ceae4cdb439,longjegan,i,aj,_C#,regular,,,smith2017a,243,"The table also lists ɛ, (i) without conditions; not entered (decision smith-semicolon).",,,,,,,,,,,,ay,*-iC > ay; ɛ; (i),Table 78,smith-semicolon
+c7c78000c36,longjegan,i,i,penultimate syllable,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iCVC > i; ɛ,Table 78,
+cace3865434,longjegan,i,ɛ,penultimate syllable,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iCVC > i; ɛ,Table 78,smith-semicolon
+c1c1e0fc706,longjegan,a,iw,_+w,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; iw,Table 78,smith-semicolon
+c1b821bccca,longjegan,w,iw,a+_,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; iw,Table 78,smith-semicolon
+ca465b3fa79,longjegan,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c67168b07a6,longjegan,k,k,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce00f174acb,longjegan,k,k,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c3a20caa415,longjegan,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cfefd9c0be4,longjegan,l,l,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c915628ea24,longjegan,t,t,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7b3153e1b3,longjegan,t,t,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7f34a308d4,longjegan,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c522a28aecd,longterawan,p,p,V_V,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-p- > p; pp,Table 77,
+c01016a9902,longterawan,p,pp,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-p- > p; pp,Table 77,smith-semicolon
+c370061cbdd,longterawan,p,ʔ,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-p > ʔ,Table 77,
+ca30e0f5d5b,longterawan,t,t,V_V,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-t- > t; tt,Table 77,
+ca9e3463604,longterawan,t,tt,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-t- > t; tt,Table 77,smith-semicolon
+c765f85bb43,longterawan,t,ʔ,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-t > ʔ,Table 77,
+cbe9bb3cc37,longterawan,k,k,V_V,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-k- > k; kk,Table 77,
+cd661d5ea20,longterawan,k,kk,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-k- > k; kk,Table 77,smith-semicolon
+c9e7e7ee470,longterawan,k,ʔ,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-k > ʔ,Table 77,
+cf0d4d6e795,longterawan,ʔ,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*q- > Ø,Table 77,
+c16762a6594,longterawan,ʔ,∅,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-q- > Ø; ʔ,Table 77,
+cf56d71041a,longterawan,ʔ,ʔ,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-q- > Ø; ʔ,Table 77,smith-semicolon
+c9f400473f4,longterawan,ʔ,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-q > Ø,Table 77,
+ca2356bc86d,longterawan,b,b,#_,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*b- > b; p,Table 77,
+c6edada63cf,longterawan,b,p,#_,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*b- > b; p,Table 77,smith-semicolon
+c894e961147,longterawan,b,w,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-b- > w; k; p,Table 77,smith-semicolon
+c6d34646eed,longterawan,bʰ,p,V_V,regular,,,smith2017a,242,"Berawan (Jegan) təppuh < PNS *təbʰu (Table 73, p. 236).",,,,,,,,,,,,,*-b- > w; k; p,Table 77,smith-semicolon
+cabdfc1f090,longterawan,b,m,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-b > m,Table 77,
+c929cbf905f,longterawan,d,r,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-d- > r; c,Table 77,
+ceb4b357804,longterawan,d,t͡ʃ,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,c,*-d- > r; c,Table 77,smith-semicolon
+c3b8357aaca,longterawan,d,n,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-d > n,Table 77,
+c39fe95d8b2,longterawan,j,d͡ʒ,#_,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,j,*z- > j,Table 77,
+c1e3c658895,longterawan,j,s,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-z- > s; c,Table 77,
+c9be4857990,longterawan,j,t͡ʃ,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,c,*-z- > s; c,Table 77,smith-semicolon
+cae8f21e39e,longterawan,s,s~t͡ʃ,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,s~c,*-s- > s~c,Table 77,
+c488244d415,longterawan,s,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-s > Ø; h,Table 77,
+c9fe729d318,longterawan,s,h,_#,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-s > Ø; h,Table 77,smith-semicolon
+c928d3e965d,longterawan,l,n,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-l > n,Table 77,
+ceb9bfc1edd,longterawan,R,ɡ,#_,regular,,,smith2017a,242,,,,,,,,,,,,,g,*R- > g,Table 77,
+caa8359050d,longterawan,R,k,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R- > k,Table 77,
+c7098a89012,longterawan,R,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R > Ø,Table 77,
+c9591e9f892,longterawan,y,d͡ʒ,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,j,*y > j,Table 77,
+c4d34c00204,longterawan,w,b,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,,*w > b,Table 77,
+cc573044e25,longterawan,a,ə,_#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-a > ə; i,Table 78,
+cabf4db0380,longterawan,a,i,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-a > ə; i,Table 78,smith-semicolon
+cdddae40f85,longterawan,a,a,_C#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aC > a; i,Table 78,
+c98fc36aa0f,longterawan,a,i,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aC > a; i,Table 78,smith-semicolon
+c955f3298de,longterawan,a,a,penultimate syllable,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aCVC > a; i,Table 78,
+ce5a971c150,longterawan,a,i,penultimate syllable,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aCVC > a; i,Table 78,smith-semicolon
+c2410e5fbdd,longterawan,u,o,_#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-u > o; u,Table 78,
+ce3c545ee80,longterawan,u,u,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-u > o; u,Table 78,smith-semicolon
+c34dd18a859,longterawan,u,o,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-uC > o,Table 78,
+ca0c6673293,longterawan,i,e,_#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-i > e; i,Table 78,
+c552c07e79f,longterawan,i,i,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-i > e; i,Table 78,smith-semicolon
+c875f392e6f,longterawan,i,i,_C#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-iC > i; e,Table 78,
+c0ff3a2bb38,longterawan,i,e,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-iC > i; e,Table 78,smith-semicolon
+c3640be6ff0,longterawan,a,iw,_+w,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; iw,Table 78,smith-semicolon
+c3fcce988b8,longterawan,w,iw,a+_,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; iw,Table 78,smith-semicolon
+c0bd4cd145d,longterawan,∅,h,V_#,regular,,,smith2017a,243,An h after final vowels as printed in Table 78 (the vowel itself is entered without it).,,,,,,,,,,,,,final vowels printed with -h,Table 78,
+c4372e9d9e0,longterawan,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2197a0c92a,longterawan,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c66970a5a18,longterawan,k,k,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7b667e3c84,longterawan,l,l,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c8b258ba736,longterawan,l,l,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cb1db493a07,longterawan,p,p,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2e00a36484,longterawan,s,s,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce89bc4a7b3,longterawan,t,t,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c22f2a410ad,longterawan,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c695f65aeae,longterawan,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cfddf4e9aac,miri1269,p,f,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*p- > f,Table 77,
+c549f78d820,miri1269,p,p,V_V,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-p- > p; f,Table 77,
+cc9f9e786d1,miri1269,p,f,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-p- > p; f,Table 77,smith-semicolon
+c059da2255a,miri1269,k,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*k- > Ø,Table 77,
+ccf44e68f50,miri1269,k,h,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-k- > h; (k),Table 77,
+ca1756e04e6,miri1269,k,k,V_V,sporadic,,,smith2017a,242,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-k- > h; (k),Table 77,smith-semicolon
+c04d64e9697,miri1269,ʔ,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*q- > Ø,Table 77,
+c26145a8dbf,miri1269,bʰ,f,#_,regular,,,smith2017a,242,Miri and Narum share *bʰ > f (p. 246).,,,,,,,,,,,,,*b- > b; f,Table 77,smith-semicolon
+c46d9cf4a6c,miri1269,bʰ,f,V_V,regular,,,smith2017a,242,Miri and Narum share *bʰ > f (p. 246).,,,,,,,,,,,,,*-b- > b; f; p,Table 77,smith-semicolon
+cd4e80a7617,miri1269,b,p,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-b > p,Table 77,
+c6693af981c,miri1269,dʰ,s,V_V,regular,,,smith2017a,242,"Kiput and Miri reflect *dʰ as s, Narum as t (p. 246).",,,,,,,,,,,,,*-d- > d; s,Table 77,smith-semicolon
+c7d6a046367,miri1269,d,d,_#,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-d > d; t,Table 77,
+cbdaf1e158a,miri1269,d,t,_#,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-d > d; t,Table 77,smith-semicolon
+c3e666302a0,miri1269,j,d͡ʒ,#_,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,j,*z- > j,Table 77,
+c5fe25499a2,miri1269,j,d͡ʒ,V_V,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,j,*-z- > j; s,Table 77,
+c9b1a6c8f45,miri1269,j,s,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-z- > j; s,Table 77,smith-semicolon
+cbb778982f0,miri1269,s,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*s- > Ø; s,Table 77,
+c449e7990ec,miri1269,s,s,#_,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*s- > Ø; s,Table 77,smith-semicolon
+c052ed0da5a,miri1269,s,∅,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-s- > Ø; s,Table 77,
+cfd6ecf19fa,miri1269,s,s,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > Ø; s,Table 77,smith-semicolon
+c740bb78f3e,miri1269,s,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-s > Ø,Table 77,
+c64b6c21135,miri1269,R,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*R- > Ø,Table 77,
+c2ddc395df6,miri1269,R,r,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R- > r,Table 77,
+c248a26b53f,miri1269,R,r,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R > r; (ʔ),Table 77,
+c2db5305317,miri1269,R,ʔ,_#,sporadic,,,smith2017a,242,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-R > r; (ʔ),Table 77,smith-semicolon
+c12db12863a,miri1269,y,d͡ʒ,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,j,*y > j,Table 77,
+cf076b17886,miri1269,w,b,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,,*w > b,Table 77,
+c6aa50b4673,miri1269,a,ə,_#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-a > ə; eə̯,Table 78,
+c3d0c2e4f30,miri1269,a,eə̯,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-a > ə; eə̯,Table 78,smith-semicolon
+ca00762192a,miri1269,a,a,_C#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aC > a; eə̯,Table 78,
+c9e13a69712,miri1269,a,eə̯,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aC > a; eə̯,Table 78,smith-semicolon
+c0a8cd0797d,miri1269,u,ew,_#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-u > ew; aw,Table 78,
+ca2af14b012,miri1269,u,aw,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-u > ew; aw,Table 78,smith-semicolon
+cebd54df472,miri1269,u,aw,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-uC > aw; uə̯,Table 78,
+cca7109b554,miri1269,u,uə̯,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-uC > aw; uə̯,Table 78,smith-semicolon
+c9d88452a86,miri1269,i,aj,_#,regular,,,smith2017a,243,,,,,,,,,,,,,ay,*-i > ay; eəy,Table 78,
+cfcdb310095,miri1269,i,eəj,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,eəy,*-i > ay; eəy,Table 78,smith-semicolon
+cf9abe8288f,miri1269,i,aj,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,ay,*-iC > ay; eəy,Table 78,
+c4c15f01f63,miri1269,i,eəj,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,eəy,*-iC > ay; eəy,Table 78,smith-semicolon
+c915e3c75bb,miri1269,ə,a,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-əC > a,Table 78,
+cb7a59a4f8c,miri1269,a,eəj,_+y,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,eəy,*-ay > ay; eəy,Table 78,smith-semicolon
+cf6c267ce92,miri1269,y,eəj,a+_,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,eəy,*-ay > ay; eəy,Table 78,smith-semicolon
+ccdbe512576,miri1269,a,eəw,_+w,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; eəw,Table 78,smith-semicolon
+cfca19fe926,miri1269,w,eəw,a+_,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; eəw,Table 78,smith-semicolon
+cc8477836b2,miri1269,∅,h,a_#,regular,,,smith2017a,243,An h after final vowels as printed in Table 78 (the vowel itself is entered without it).,,,,,,,,,,,,,final vowels printed with -h,Table 78,
+cec4acaf7a6,miri1269,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc550fef334,miri1269,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c922e780a77,miri1269,b,b,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c8185b3c3af,miri1269,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7ea088f281,miri1269,d,d,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c7090b84e2a,miri1269,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd922b9d812,miri1269,k,k,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ceb97b56d8b,miri1269,p,p,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cee9881f674,miri1269,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cc9ea8257a0,miri1269,ə,ə,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2ccbee185f,miri1269,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c2bece49d47,miri1269,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c85583160d2,miri1269,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+cc2cb1b27bb,naro1251,k,h,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*k- > h,Table 77,
+cd610b456c8,naro1251,k,h,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-k- > h,Table 77,
+c3970fbcd4c,naro1251,ʔ,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*q- > Ø,Table 77,
+c2a980d62b2,naro1251,bʰ,f,#_,regular,,,smith2017a,242,Miri and Narum share *bʰ > f (p. 246).,,,,,,,,,,,,,*b- > b; f,Table 77,smith-semicolon
+c252f273101,naro1251,bʰ,f,V_V,regular,,,smith2017a,242,Miri and Narum share *bʰ > f (p. 246).,,,,,,,,,,,,,*-b- > b; f,Table 77,smith-semicolon
+c7e16640098,naro1251,b,p,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-b > p,Table 77,
+c230765a8ce,naro1251,dʰ,t,V_V,regular,,,smith2017a,242,"Kiput and Miri reflect *dʰ as s, Narum as t (p. 246).",,,,,,,,,,,,,*-d- > d; t,Table 77,smith-semicolon
+cb32850d505,naro1251,d,t,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-d > t,Table 77,
+c1a5bd346b4,naro1251,j,d͡ʒ,#_,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,j,*z- > j,Table 77,
+c6738bb27f7,naro1251,j,d͡ʒ,V_V,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,j,*-z- > j; c,Table 77,
+caec01d1604,naro1251,j,t͡ʃ,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,c,*-z- > j; c,Table 77,smith-semicolon
+cd8a6049cc8,naro1251,s,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*s- > Ø; s,Table 77,
+cfcf1f7f2c3,naro1251,s,s,#_,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*s- > Ø; s,Table 77,smith-semicolon
+c27491f6fc7,naro1251,s,∅,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-s- > Ø; s,Table 77,
+c55a3c70aed,naro1251,s,s,V_V,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-s- > Ø; s,Table 77,smith-semicolon
+c9f231fbdf9,naro1251,s,∅,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-s > Ø,Table 77,
+c131c4060af,naro1251,R,∅,#_,regular,,,smith2017a,242,,,,,,,,,,,,,,*R- > Ø,Table 77,
+cdcbab34dbd,naro1251,R,ɣ,V_V,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R- > ɣ,Table 77,
+c093e65c6d1,naro1251,R,ɣ,_#,regular,,,smith2017a,242,,,,,,,,,,,,,,*-R > ɣ; (ʔ),Table 77,
+c9096a73a8f,naro1251,R,ʔ,_#,sporadic,,,smith2017a,242,In parentheses in the table. Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-R > ɣ; (ʔ),Table 77,smith-semicolon
+c585e74275b,naro1251,y,j,elsewhere,regular,,,smith2017a,242,Same sound: the attested form is written in IPA.,,,,,,,,,,,,y,*y > y,Table 77,
+c6a4872831f,naro1251,w,b,elsewhere,regular,,,smith2017a,242,,,,,,,,,,,,,,*w > b; w,Table 77,
+c9900810073,naro1251,w,w,elsewhere,sporadic,,,smith2017a,242,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*w > b; w,Table 77,smith-semicolon
+cdc0def3914,naro1251,a,a,_#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-a > a; e,Table 78,
+c3c131e6bdc,naro1251,a,e,_#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-a > a; e,Table 78,smith-semicolon
+cbe233521ce,naro1251,a,a,_C#,regular,,,smith2017a,243,Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-aC > a; e,Table 78,
+c408a0a0507,naro1251,a,e,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aC > a; e,Table 78,smith-semicolon
+c978d55b07e,naro1251,u,aw,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-uC > aw; u,Table 78,
+c8899a97fae,naro1251,u,u,_C#,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given. Same sound: the attested form is written in IPA.,,,,,,,,,,,,,*-uC > aw; u,Table 78,smith-semicolon
+ca01a8ce30b,naro1251,i,aj,_#,regular,,,smith2017a,243,,,,,,,,,,,,,ay,*-i > ay,Table 78,
+ca1f71133d3,naro1251,i,aj,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,ay,*-iC > ay,Table 78,
+cb458e2678a,naro1251,ə,a,_C#,regular,,,smith2017a,243,,,,,,,,,,,,,,*-əC > a,Table 78,
+c5a7428b7e1,naro1251,a,i,_+y,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-ay > ay; i,Table 78,smith-semicolon
+c81d506c45a,naro1251,y,i,a+_,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-ay > ay; i,Table 78,smith-semicolon
+c5bd98b5681,naro1251,a,u,_+w,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; u,Table 78,smith-semicolon
+c37ff9d9a5d,naro1251,w,u,a+_,sporadic,,,smith2017a,243,Listed after a semicolon: 'conditioned or irregular' (Smith 2017a: 52); no condition is given.,,,,,,,,,,,,,*-aw > aw; u,Table 78,smith-semicolon
+cc6880f68a0,naro1251,∅,h,V_#,regular,,,smith2017a,243,An h after final vowels as printed in Table 78 (the vowel itself is entered without it).,,,,,,,,,,,,,final vowels printed with -h,Table 78,
+c0ca1a4dbec,naro1251,a,a,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cebd935e119,naro1251,b,b,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c665017b7b3,naro1251,b,b,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c425bc79e66,naro1251,d,d,#_,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce623154c6b,naro1251,d,d,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cbe820db32c,naro1251,i,i,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c1d232ee9af,naro1251,k,k,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c82bbb5b6a1,naro1251,u,u,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cd2c749837d,naro1251,u,u,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+c6e1be38c19,naro1251,ə,ə,penultimate syllable,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cadedf5e39a,naro1251,ʔ,ʔ,V_V,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+ce3606e35b8,naro1251,ʔ,ʔ,_#,regular,,,smith2017a,50,Not listed for this position: Smith's tables list only changes (2017a: 50).,,,,,,,stated-retention,,,,,,,,
+cf62059ff92,naro1251,ñ,ɲ,elsewhere,regular,,,smith2017a,50,Unchanged; written in IPA. Smith writes ñ for [ɲ] (2017a: 26).,,,,,,,stated-retention,,,,,ñ,,,
+c7500d75e5d,bint1246,b,v,V_V,regular,,,smith2017a,250,,,,,,,,,,,,,,*-b- > v;ɓ,Table 80,
+c031419ecfe,bint1246,bʰ,ɓ,V_V,regular,,,smith2017a,250,Implosive from PNS *bʰ (p. 251).,,,,,,,,,,,,,*-b- > v;ɓ,Table 80,
+c22be1bca06,bint1246,d,ɣ,#_,regular,,,smith2017a,250,,,,,,,,,,,,,,*d- > ɣ,Table 80,
+cc958593a1d,bint1246,d,ɣ,V_V,regular,,,smith2017a,250,,,,,,,,,,,,,,*-d-/-j- > ɣ;ɗ,Table 80,
+c34798f71c6,bint1246,dʰ,ɗ,V_V,regular,,,smith2017a,250,Implosive from PNS *dʰ (p. 251).,,,,,,,,,,,,,*-d-/-j- > ɣ;ɗ,Table 80,
+c638c79b78c,bint1246,j,d͡ʒ,elsewhere,regular,,,smith2017a,250,Smith writes j for [ʤ] (2017a: 26).,,,,,,,,,,,,,"*z-, *-z- > j",Table 80,
+cc6818cb863,bint1246,jʰ,ʄ,V_V,regular,,,smith2017a,250,Implosive from PNS *jʰ (p. 251).,,,,,,,,,,,,,*-z- > j;ʄ,Table 80,
+c24f8ab7b01,bint1246,ɡʰ,ɠ,V_V,regular,,,smith2017a,250,Implosive from PNS *ɡʰ (p. 251).,,,,,,,,,,,,,*-g- > g;ɠ,Table 80,
+caac2171223,bint1246,l,n,_#,regular,,,smith2017a,250,,,,,,,,,,,,,,*-l > n,Table 80,
+c8e24aa4f90,bint1246,R,∅,elsewhere,regular,,,smith2017a,250,,,,,,,,,,,,,,*R > Ø,Table 80,
+c937c390b9d,bint1246,ñ,ɲ,elsewhere,regular,,,smith2017a,250,Smith writes ñ for [ɲ].,,,,,,,,,,,,,*ñ,Table 80,
+c83b8c9fc9b,bint1246,i,əj,_#,regular,,,smith2017a,250,,,,,,,,,,,,,,*-i > əy,Table 80,
+c6191b881d2,bint1246,u,əw,_#,regular,,,smith2017a,250,,,,,,,,,,,,,,*-u > əw,Table 80,
+c0b92ac5021,bint1246,u,o,_C#,sporadic,,,smith2017a,250,After a semicolon (decision smith-semicolon).,,,,,,,,,,,,,*-uC > u; o,Table 80,
+c1c5de32dc9,bint1246,w,b,V_V,regular,,,smith2017a,250,Glide strengthening (p. 251).,,,,,,,,,,,,,*-w- > b,Table 80,
+cbce76b228c,bint1246,y,z,V_V,regular,,,smith2017a,250,Glide strengthening (p. 251).,,,,,,,,,,,,,*-y- > z,Table 80,
+cec842389f0,bint1246,y,j,elsewhere,regular,,,smith2017a,250,IPA for the glide written y.,,,,,,,,,,,,,*y,Table 80,
+c8735a3c3ba,mera1243,a,a,"_# (penult *a, *ə or none)",regular,,,smith2017b,166,Example (58) *dəpa > paʔ.,,,,,,,,,,,,,*-a > aʔ,,
+c0b24a15c5c,mera1243,a,iə̯,_# (penult *i),regular,,,smith2017b,166,(58) *ñipa > piə̯ʔ.,,,,,,,,,,,,,*-a > iə̯ʔ,,
+cf574a66df0,mera1243,a,uə̯,_# (penult *u),regular,,,smith2017b,166,(58) *buta > buə̯ʔ.,,,,,,,,,,,,,*-a > uə̯ʔ,,
+c79c5843b67,mera1243,a,ajə̯,"_[k,ŋ]# (penult *a, *ə or none)",regular,,,smith2017b,166-167,"A triphthong: *a fronted with a schwa off-glide before the velar, then broke under final stress (*eə̯k > *ayə̯k). (59) *anak > nayə̯ʔ, *məndaŋ > məntayə̯. The velar itself is entered among the consonants.",,,,,,,,,,,,ayə̯,*aCak > Cayə̯ʔ,,
+cc0d28b7a3d,mera1243,a,ojə̯,"_[k,ŋ]# (penult *u)",regular,,,smith2017b,166-167,(59) *lubaŋ > loɓoyə̯.,,,,,,,,,,,,oyə̯,*uCak > Coyə̯ʔ,,
+c551584f5a8,mera1243,a,iːə̯,"_[k,ŋ]# (penult *i)",regular,,,smith2017b,166-167,"*iyə̯ became iːə̯, contracted to iə̯ in a closed syllable (p. 166); (59) *miʔaŋ > miʔiːə̯.",,,,,,,,,,,,,*iCak > *Ciyə̯ʔ > iːə̯,,
+c8df38fb91b,mera1243,a,ãə̯̃,_n#,regular,,,smith2017b,167,*n deleted and the vowel nasalized; perceived as /ã/. iə̯̃ and uə̯̃ after a penultimate *i or *u (60).,,,,,,,,,,,,,*a > ãə̯̃ [ə̃ə̯̃],,
+ce147e5e23a,mera1243,a,iə̯,"_C# (penult *i, C not velar)",regular,,,smith2017b,167,(61) *ibah > ɓiə̯h.,,,,,,,,,,,,,*a > iə̯ / *i_C,,
+c8a8ddee9ea,mera1243,a,uə̯,"_C# (penult *u, C not velar)",regular,,,smith2017b,167,(61) *kulat > kluə̯ʔ.,,,,,,,,,,,,,*a > uə̯ / *u_C,,
+c78f6a31d51,mera1243,a,aː,"_C# (penult *a, *ə or none)",regular,,,smith2017b,167,Otherwise lengthened in a closed final syllable: (62) *əpat > paːʔ.,,,,,,,,,,,,,*a > aː,,
+caea5b4e51b,mera1243,o,aw,"_# (penult *a, *ə or none)",regular,,,smith2017b,167,"(63) *təbu > təɓawʔ. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,,*-u > awʔ [ao],,
+c96a838af5c,mera1243,o,iw,_# (penult *i),regular,,,smith2017b,167,"(64) *siku > kiwʔ. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,,*-u > iw,,
+c64619e150f,mera1243,o,ow,_# (penult *u),regular,,,smith2017b,167-168,"(65) *kutu > kotowʔ; əw where the penult *u was later deleted. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,,*u > ow / *u_,,
+c2cb01e7939,mera1243,o,au̯,h_#,sporadic,,2,smith2017b,168,"No glottal stop added: (66) *pahu > pau̯, *ñahu > ñau̯. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,,*ahu# > au̯,,
+c71729273f2,mera1243,u,au̯,"_ʔ# (penult *a, *ə or none)",regular,,,smith2017b,168,(67) *aruʔ > rau̯.,,,,,,,,,,,,,*u > au̯ / _ʔ#,,
+cbb8c97d1ca,mera1243,u,awə̯,"_[k,ŋ]# (penult not *u)",regular,,,smith2017b,168,(68) *manuk > manawə̯ʔ.,,,,,,,,,,,,,"*u > awə̯ / _k,ŋ",,
+c0d6f26e8c1,mera1243,u,uːə̯,"_[k,ŋ]# (penult *u)",regular,,,smith2017b,168,Length phonetic: (69) *lunuk > lunuːə̯ʔ.,,,,,,,,,,,,,*uk/uŋ > uːə̯,,
+c89dde55ea2,mera1243,u,ow,_C# (penult *u),regular,,,smith2017b,167-168,"Also in closed syllables, unless closed by a velar (p. 168): (65) *nubus > loɓowh.",,,,,,,,,,,,,*u > ow / *u_,,
+c82c562f988,mera1243,u,aw,_C# (elsewhere),regular,,,smith2017b,168,"Phonetically [ao], distinct from final au̯ (p. 168): (70) *takut > takawkʷ.",,,,,,,,,,,,,"*u > ao, written aw",,
+c6a3a5f7866,mera1243,e,aj,"_# (penult *a, *ə or none)",regular,,,smith2017b,168,"(71) *laki > lakayʔ. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,ay,*-i > ayʔ,,
+cb87603af40,mera1243,e,oj,_# (penult *u),regular,,,smith2017b,168,"(71) *punti > toyʔ. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,oy,*-i > oyʔ,,
+caa4047dc62,mera1243,e,ɛj,_# (penult *i),regular,,,smith2017b,168,"(71) *ini > nɛyʔ. Against Proto-Murik-Merap, where final *-i and *-u had already become *e and *o and a glottal stop was added after final vowels.",,,,,,,,,,,,ɛy,*-i > ɛyʔ,,
+c0e55c61468,mera1243,i,aj,"_C# (penult *a, *ə or none; C not velar)",regular,,,smith2017b,169,(73) *kapid > kəpayc.,,,,,,,,,,,,ay,*i > ay,,
+c7e4ee59e56,mera1243,i,ajə̯,"_[k,ŋ]# (penult not *i)",regular,,,smith2017b,169,(74) *baʔik > maʔayə̯ʔ.,,,,,,,,,,,,ayə̯,"*i > ayə̯ / _k,ŋ",,
+cabe01f6abb,mera1243,i,iːə̯,"_[k,ŋ]# (penult *i)",regular,,,smith2017b,169,Length phonetic: (75) *kisiŋ > kihiːə̯.,,,,,,,,,,,,,*i > iːə̯,,
+c3132b7994c,mera1243,i,ɛj,_C# (penult *i; C not velar),regular,,,smith2017b,169,(76) *miris > mɛrɛyh.,,,,,,,,,,,,ɛy,*i > ɛy,,
+cd65bf777e9,mera1243,i,uj,_C# (penult *u),regular,,,smith2017b,169,(77) *murip > mpruyc.,,,,,,,,,,,,uy,*i > uy,,
+c36173160f6,mera1243,a,ae̯,_+y,regular,,,smith2017b,169-170,"(78) *matay > matae̯. After *u oy [oe̯] (*dahulay > loy), after *i ɛy (*inay > nɛy).",,,,,,,,,,,,,*ay > ae̯,,
+c5c257ab6ba,mera1243,y,ae̯,a+_,regular,,,smith2017b,169-170,"(78) *matay > matae̯. After *u oy [oe̯] (*dahulay > loy), after *i ɛy (*inay > nɛy).",,,,,,,,,,,,,*ay > ae̯,,
+c6f502008c1,mera1243,a,ao̯,_+w,regular,,,smith2017b,169-170,(79) *panaw > panao̯. After *i ɛw [ɛo̯] (*ñibaw > lɛbɛw).,,,,,,,,,,,,,*aw > ao̯,,
+cb41c10e744,mera1243,w,ao̯,a+_,regular,,,smith2017b,169-170,(79) *panaw > panao̯. After *i ɛw [ɛo̯] (*ñibaw > lɛbɛw).,,,,,,,,,,,,,*aw > ao̯,,
+cee45d06514,mera1243,ə,a,final syllable,regular,,,smith2017b,170,Contrasts with long aː from *a: (80) *nəm > nam.,,,,,,,,,,,,,*ə > a (short),,
+c53563f8f71,mera1243,ə,∅,penultimate syllable,regular,,,smith2017b,170,"(82) *səŋəm > hŋam; two exceptions (83): *bəsuR > məhawh, *təbu > təɓawʔ.",,,,,,,,,,,,,penultimate schwa deleted,,
+cc0f75724f9,mera1243,ə,uə̯,final syllable (penult *u),regular,,,smith2017b,170,"The schwa coalesced with the preceding vowel: (81) *utək > tuə̯k, *uləd > luə̯n.",,,,,,,,,,,,,reverse umlaut,,
+c04c1584859,mera1243,ə,iə̯,final syllable (penult *i),regular,,,smith2017b,170,(81) *siŋət > hŋiə̯t.,,,,,,,,,,,,,reverse umlaut,,
+ce06fc447cd,pmp,c,c,elsewhere,regular,,,blust2013,"563-567, 591","Blust assigns the voiceless palatal affricate to PMP (and PAN) against Wolff (1982) and Ross (1992) (pp. 563-567); PMP has the PAN inventory less *C, *N, *S (p. 591). Distinct reflexes only in 20-25 languages of western Indonesia and mainland Southeast Asia (p. 563).",Blust,,,,,,,,,,,,,,blust-c
+c823734ff96,pmalayic,c,c,elsewhere,regular,,,blust2013,565-566,"Iban and Malay distinguish *c from *s (p. 565): *peceq > Malay pəcah, *picek > Iban picak, *qapucuk > Iban, Malay pucok.",Blust,,,,,,composed,,,,,,,,blust-c
+c84d4332725,iban1264,c,t͡ʃ,elsewhere,regular,,,blust2013,565-566,Blust names Iban and Malay among the languages that distinguish *c from *s (p. 565).,,,,,,,,,,,"*cakaq > cakah, *culcul > tucul, *picek > picak, *qapucuk > pucok",c,,,blust-c
+c55eacbb748,indo1316,c,t͡ʃ,elsewhere,regular,,,blust2013,565-566,Blust names Iban and Malay among the languages that distinguish *c from *s (p. 565). Blust's examples are Malay; entered on Indonesian (standard Malay in Smith's tables).,,,,,,,,,,,"*peceq > pəcah, *pecel > pəcal, *qapucuk > pucok",c,,,blust-c
+c168e18df20,buda1252,ð,j,elsewhere,regular,,,chen2006,313,"Table 7.4, one of the three major changes Chen lists for Budai; no examples there. Li (1977: 582) has ð ~ y variation in Budai.",,,,,,,,,,,,,,,chen-budai-dh
+c93088445b1,pncfl,p,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+cb93b4b5ca9,pncfl,t,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c2abed63c1c,pncfl,k,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c64d9989288,pncfl,ʔ,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c7a9747ff83,pncfl,β,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c6cccba9803,pncfl,b,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+cc3727e058f,pncfl,d,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c241ff30c06,pncfl,r,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+cd1c194ef9b,pncfl,s,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c714b12739d,pncfl,m,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+cdd820ef968,pncfl,n,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c52fc507edd,pncfl,ŋ,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+cbdc0eba626,pncfl,w,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c96a045db1d,pncfl,y,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c8b7b5cec89,pncfl,l,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c00defe2a4a,pncfl,R,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c003d2b5348,pncfl,h,∅,_#,regular,,,grimesedwards2026,165,"The loss of all final consonants, entered for each consonant of the parent node, Proto-Central Flores (*z and *ñ do not occur finally in PMP).",,,,,,,,,,,,,*C > ∅ /_#,tree,
+c4e70e59ea7,pebomberai,a,∅,_#,regular,,,grimesedwards2026,487,"The loss of final vowels, entered for each vowel (PMP schwa does not occur finally); then *∅ > **ə /C_# (separate row).",,,,,,,,,,,,,*V > ∅ /_#,tree,
+c9e1640516e,pebomberai,i,∅,_#,regular,,,grimesedwards2026,487,"The loss of final vowels, entered for each vowel (PMP schwa does not occur finally); then *∅ > **ə /C_# (separate row).",,,,,,,,,,,,,*V > ∅ /_#,tree,
+c8200b78052,pebomberai,u,∅,_#,regular,,,grimesedwards2026,487,"The loss of final vowels, entered for each vowel (PMP schwa does not occur finally); then *∅ > **ə /C_# (separate row).",,,,,,,,,,,,,*V > ∅ /_#,tree,
