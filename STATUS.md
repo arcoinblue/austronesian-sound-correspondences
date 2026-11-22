@@ -14,14 +14,14 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | correspondences | 10096 | plus 10467 implied and 3451 stated retentions generated from lects.inherit |
 | notation_map | 527 |  |
 | allophones | 963 |  |
-| decisions | 153 | 52 confirmed, 79 open, 22 reverted |
+| decisions | 153 | 55 confirmed, 74 open, 24 reverted |
 
 Lects by `inherit`: (blank) 222, assumed-unchanged 516, stated-unchanged 240.
 Inventories: edited 28, empty 17, reverse-generated 754, sourced 179.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 289 warning(s), 929 note(s).
+`build.py --check`: 0 error(s), 289 warning(s), 924 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -80,19 +80,14 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `atayal-nodes` | Goderich's subgroup nodes (Proto-Northern, Proto-Nuclear Northern, Proto-Southern, Proto-Nuclear Southern and Proto-Southwestern Atayal; ch. 6): where do the d… | Each change is entered at the node to which ch. 6 assigns it (Tables 6.1-6.15), and only the rest on the dialects. Exception: the affrication of *t, which ch. … |  |  |
 | `siraya-ipa` | Adelaar's Gospel (G) and Utrecht Manuscript (UM) symbols x, D, v, e, o, ʔ and the uncertain c, nḡ, z: how are they entered? | x as ʝ, the voiced palatal fricative of Adelaar (2014: 4 n. 2), not the velar of Adelaar (2011: 52); D kept as D (a root-initial phoneme realised d or r, with … |  |  |
 | `puyuma-ting` | Ting's (1978) Puyuma tree (via Teng 2008: 5): Nanwang against a subgroup of the other five, which further divides into Pinaski-Ulivelivek, Rikavung and Kasavak… | No: Ting's statements are entered on each dialect under Yeh's Proto-Puyuma (ppuy), marked composed. The five non-Nanwang varieties have no glottocodes (Glottol… |  |  |
-| `chen-paiwan-dialects` | Chen (2006) describes Northern (Sandimen), Central (Piuma) and Southern (Mudan, Shimen) Paiwan. How to enter them? | Three dialect lects under ppai (paiwan-north, paiwan-central, paiwan-south) with Chen’s inventories and the changes of his Tables 2.4 and 7.4. Southern *k > ʔ … | 6 |  |
 | `chen-budai-dh` | Chen’s Table 7.4 lists Budai *ð > j. Proto-Rukai *ð is Li’s (1977), but pruk (Li via Shibata) has no *ð. | Entered (22 Nov 2026): Proto-Rukai now has Li's *ð (formosan-ten-3), so the row is buda1252 *ð > j, beside Li's own ð ~ j rows. | 1 |  |
-| `lu-mayrinax-c` | Lu (2004, via Lu 2005: 20) has Mayrinax *c > t before i and y. Goderich (2020) lists no change of *c in Matu’uwal. | Entered against Proto-Northern Atayal, with a hand-entered retention row for *c elsewhere so the stated-unchanged rule still covers it. | 3 |  |
 | `tsou-tfuya` | Tfuya Tsou (Zeitoun 2005b) and Teruku Seediq (Tsukida 2005) give inventories only. Enter them as lects? | Entered as dialects with inventories and no correspondences: tfue1237 under PAn (language_id tsou1248; the existing Tsou lect is Tsuchida’s Duhtu), teru1237 un… |  |  |
 | `maga-li-vowels` | Maga mid vowels (Li 1977, via Hsin 2000): PR *ay, *ai > e; *aw, *au > o; *i, *u > e, o after a lost *a. | Entered as fusion pairs and conditioned rows against Proto-Rukai. Hsin himself derives e and o synchronically (p. 80). | 12 |  |
 | `lin-amis` | Lin (2022) read directly. Shibata’s Proto-Amis (pami) is Lin’s Proto-Amis-Sakizaya; Lin’s subgroups are entered as nodes under it. | pami renamed Proto-Amis-Sakizaya, with Lin’s values *z (fricative) and *d (stop) in place of Shibata’s d and ɮ (Shibata’s values in the notes). New nodes: Prot… |  |  |
-| `chuang-paiwan-dialects` | Chuang’s (2024) sixteen Paiwan dialects are entered as separate lects under Proto-Paiwan. His Timur (三地門) may be Chang’s (2006) Santi (Stimur village), and his… | Kept apart; the linkages are entered as overlap groups, not nodes. |  |  |
 | `tseng-nef` | Tseng (2022) read directly: Proto-Northeast Formosan (Glottolog’s Northern East Formosan) entered under Proto-East Formosan, with Proto-Kavalan and Proto-Basay… | Older PAn-level rows of Kavalan, Basay and Ketagalan (Li & Tsuchida 2006, Shibata 2025, Blust 2013, Ogawa 1931) restated against the new parents through Tseng’… |  |  |
 | `song-seediq` | Song (2025) reconstructs Proto-Seediq from five dialects, with an inventory that differs from Shibata’s (2025) Proto-Seediq (psed): *c, *x, *h and fricative *g… | Song’s inventory entered as the reconstruction system “Song” of psed (notation_map), and the five dialects stated against it (correspondences with system Song)… |  |  |
 | `li-reprints` | Li’s papers read in his Selected papers (2004): which work and pages are cited? | The original paper is the source (li1977, li1981, li1988, li2003, li2004, li1979); its sources row says it was read in the reprint, and pages are the reprint’s. |  |  |
 | `shibata-pb` | Shibata’s (2020) PAN > Proto-Bunun rows beside Li’s (1988): how? | Entered as separate rows on pbun. His *b, *d are Li’s ʔb, ʔd (source_form b, d). PAN *b, *d > *ʔ word-finally are regular rows, with his doubt about *b (p. 73)… | 6 |  |
-| `bunun-dialect-inventories` | Inventories for Takituduh, Takbanuað and Takibakha: whose? | Takituduh from Cheng (2017) via Shibata (2020: 38) and Takbanuað from Shibata (2020: 46), both with implosive ɓ, ɗ; Takibakha from Jiang (2012: 23-30), with b,… |  |  |
-| `litsuchida-amis` | Li & Tsuchida (2022) on Amis: where do their rows and groups go? | Their PAN > Proto-Amis list (pp. 96-97) is entered on pami (Lin’s Proto-Amis-Sakizaya) in Lin’s symbols. The list has *d > r but their summary of mergers has *… | 1 |  |
 | `rau-mstbon` | Rau (2000), sound change in progress in Mstbon Squliq: how? | On Squliq (sqol1237) with variety ‘Mstbon (Ruiyan)’: -p > -k, -m > -ŋ, -l > -n as regular rows (lexical diffusion in the notes), the new variants as sporadic. … | 10 |  |
 | `lobel-subanen` | Subanen internal nodes (Figure 10.1)? | Proto-Subanen with Lobel's inventory (Table 10.3) under pgcph. Nodes Western Subanen (west2811), Nuclear Subanen (nucl1726) and East Nuclear Subanen (east2769)… | 4 |  |
 | `lobel-manide` | Manide and Inagta Alabat: where, and which reflexes? | Node Proto-Manide-Alabat (alab1255, the two languages only) directly under PMP: Lobel takes it as a primary branch of the Philippine macrogroup and there is no… |  |  |
