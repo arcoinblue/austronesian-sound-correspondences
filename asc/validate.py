@@ -887,8 +887,77 @@ def validate_and_derive(t, rep: Report):
                 rep.error(r["_where"], f"{r['system']} phoneme {P}:{r['parent_phoneme']} is not in notation_map "
                                        f"(add a row with system {r['system']}, symbol {r['parent_phoneme']})")
 
+    # --- allophones: how a phoneme is realised, as the source describes it. Every
+    # allophone a source gives belongs here, so that the phoneme's page explains it.
+    allophones = defaultdict(list)   # phoneme id (lect:sym or lect:sym@System) -> rows
+    for r in t.get("allophones", []):
+        w, L, s, S = r["_where"], r["lect_id"], r["phoneme"], r["system"]
+        if L not in lects:
+            rep.error(w, f"lect_id {L!r} is not in lects.csv")
+            continue
+        if not s or not r["allophone"]:
+            rep.error(w, "phoneme and allophone are required")
+            continue
+        if "[" in r["allophone"] or "/" in r["allophone"]:
+            rep.error(w, "write the allophone without brackets or slashes; the site adds [ ]")
+        check_source(w, r["source_id"])
+        check_via(w, r)
+        if S and S not in (CANONICAL, lects[L]["default_system"]):
+            if s not in sysph.get(L, {}).get(S, {}):
+                rep.warn(w, f"{S} phoneme {L}:{s} is not in notation_map; allophone row not shown")
+                continue
+            key = pid(L, s, S)
+        else:
+            if s not in inventory.get(L, {}):
+                rep.warn(w, f"phoneme {L}:{s} is not in {L}'s inventory; allophone row not shown")
+                continue
+            key = pid(L, s)
+        allophones[key].append({"allophone": r["allophone"], "environment": r["environment"],
+                                "source_id": r["source_id"], "page": r["page"], "notes": r["notes"],
+                                **via_of(r)})
+    for L, inv in inventory.items():
+        for s, rec in inv.items():
+            rec["allophones"] = allophones.get(rec["id"], [])
+    for L, systems in sysph.items():
+        for S, phs in systems.items():
+            for s, rec in phs.items():
+                rec["allophones"] = allophones.get(rec["id"], [])
+    # A phoneme row whose notes describe its realisations needs them in the allophones tab.
+    # A note copied onto several phonemes of a lect is about the lect (Leti: 'pretonic high
+    # vowels have glide allophones'); it is answered once any of those phonemes has rows.
+    shared = defaultdict(list)
+    for r in t["phonemes"]:
+        if r["lect_id"] in inventory and r["ipa"] in inventory[r["lect_id"]] and ALLOPHONY_RE.search(r["notes"]):
+            shared[(r["lect_id"], r["notes"])].append(r)
+    # A note can describe another phoneme's realisation ('surface [e] can also be short /ʌ/'):
+    # it is answered when a bracketed sound in it is an allophone row of another phoneme.
+    lect_allo = defaultdict(set)   # lect -> {(phoneme, allophone)}
+    for key, rows_ in allophones.items():
+        L_, s_ = key.split(":", 1)
+        s_ = s_.rsplit("@", 1)[0] if "@" in s_ else s_
+        for a in rows_:
+            lect_allo[L_].add((s_, a["allophone"]))
+
+    def answered(L, r):
+        if allophones.get(pid(L, r["ipa"])):
+            return True
+        heard = set(re.findall(r"\[([^\]\s,~]{1,8})\]", r["notes"]))
+        return any(a in heard and s_ != r["ipa"] for s_, a in lect_allo[L])
+
+    for (L, _), rows in shared.items():
+        has = [r for r in rows if answered(L, r)]
+        if len(rows) >= 3:
+            if not has:
+                rep.warn(rows[0]["_where"], f"the notes of {L}:{' '.join(r['ipa'] for r in rows)} describe "
+                                            "allophones; give each in the allophones tab so the phoneme's page lists it")
+            continue
+        for r in rows:
+            if r not in has:
+                rep.warn(r["_where"], f"the notes of {L}:{r['ipa']} describe allophones; give each in the "
+                                      "allophones tab so the phoneme's page lists it")
+
     # --- who cites what
-    cited = {sid: {"phonemes": 0, "correspondences": 0, "notation": 0, "lects": set(),
+    cited = {sid: {"phonemes": 0, "correspondences": 0, "notation": 0, "allophones": 0, "lects": set(),
                    "read_via": defaultdict(int), "relays": defaultdict(int)} for sid in sources}
     loose_via = re.compile(r"\bquoted from\b|\bvia\b", re.I)
 
@@ -913,13 +982,15 @@ def validate_and_derive(t, rep: Report):
         count("correspondences", r["child_lect_id"], r)
     for r in t["notation_map"]:
         count("notation", r["lect_id"], r)
+    for r in t.get("allophones", []):
+        count("allophones", r["lect_id"], r)
     for sid, c in cited.items():
-        if not (c["phonemes"] or c["correspondences"] or c["notation"] or c["relays"]):
+        if not (c["phonemes"] or c["correspondences"] or c["notation"] or c["allophones"] or c["relays"]):
             rep.warn(sources[sid]["_where"], f"source {sid} is never cited by a phoneme, correspondence "
                                              "or notation row")
         sources[sid]["cited_by"] = {
             "phonemes": c["phonemes"], "correspondences": c["correspondences"], "notation": c["notation"],
-            "lects": sorted(c["lects"]),
+            "allophones": c["allophones"], "lects": sorted(c["lects"]),
             "read_via": [{"source_id": k, "rows": v} for k, v in sorted(c["read_via"].items())],
             "relays": [{"source_id": k, "rows": v} for k, v in sorted(c["relays"].items())],
         }
@@ -956,6 +1027,10 @@ def validate_and_derive(t, rep: Report):
         # In an environment only a g standing as a symbol (_g, _+g), not one in a word (high).
         if re.search(r"(?<![A-Za-z])g(?![A-Za-z])", r["environment"]):
             latin_g["correspondences.csv"].append(f"{r['id'] or r['child_lect_id']} environment {r['environment']}")
+    for r in t.get("allophones", []):
+        for c in ("phoneme", "allophone"):
+            if "g" in r[c]:
+                latin_g["allophones.csv"].append(f"{r['lect_id']}:{r['phoneme']} {c} {r[c]}")
     for where, items in latin_g.items():
         rep.error(where, f"{len(items)} symbol(s) with Latin g; write ɡ (U+0261): "
                   + "; ".join(items[:12]) + (" …" if len(items) > 12 else ""))
@@ -975,9 +1050,10 @@ def validate_and_derive(t, rep: Report):
     for sid, sr in sources.items():
         by_label[sr["label"]].append(sid)
     note_cites = defaultdict(lambda: {"n": 0, "lects": set()})
-    lect_of = {"lects": "id", "phonemes": "lect_id", "correspondences": "child_lect_id", "notation_map": "lect_id"}
-    for table in ("sources", "lects", "phonemes", "correspondences", "notation_map"):
-        for r in t[table]:
+    lect_of = {"lects": "id", "phonemes": "lect_id", "correspondences": "child_lect_id", "notation_map": "lect_id",
+               "allophones": "lect_id"}
+    for table in ("sources", "lects", "phonemes", "correspondences", "notation_map", "allophones"):
+        for r in t.get(table, []):
             for col in text_cols:
                 for who, year, suffix in cited_works(r.get(col, "") or "", lect_words):
                     hits = by_label.get(f"{who} {year}{suffix}") or next(
@@ -1061,7 +1137,7 @@ def validate_and_derive(t, rep: Report):
         "decisions": decisions,
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,
-        "sysph": sysph, "conflicts": find_conflicts(corrs, sysph), "entered_pairs": entered_pairs,
+        "sysph": sysph, "allophones": allophones, "conflicts": find_conflicts(corrs, sysph), "entered_pairs": entered_pairs,
         "overlap": {g: sorted(L for L, r in lects.items() if g in r["overlap_list"])
                     for g in {g for r in lects.values() for g in r["overlap_list"]}},
         "competing": {L for L, r in lects.items() if r["competes_list"]}

@@ -57,6 +57,8 @@ VALIDATION = {
     ("lects", "inherit_source_id"): "sources",
     ("decisions", "status"): "decision_status",
     ("decisions", "source_id"): "sources",
+    ("allophones", "lect_id"): "lects",
+    ("allophones", "source_id"): "sources",
     ("correspondences", "decision"): "decisions",
     ("lects", "language_id"): "lects",
     ("correspondences", "conditioning"): "conditioning",
@@ -82,6 +84,7 @@ VALIDATION = {
     ("phonemes", "via_source_id"): "sources",
     ("correspondences", "via_source_id"): "sources",
     ("notation_map", "via_source_id"): "sources",
+    ("allophones", "via_source_id"): "sources",
 }
 # Suggestions only: free text is allowed (environment can be any condition).
 SOFT = {("correspondences", "environment"): "environment",
@@ -93,6 +96,7 @@ REQUIRED = {
     "phonemes": {"lect_id", "ipa", "class", "origin"},
     "correspondences": {"child_lect_id", "parent_phoneme", "environment", "source_id"},
     "notation_map": {"lect_id", "phoneme", "system", "symbol"},
+    "allophones": {"lect_id", "phoneme", "allophone", "source_id"},
     "decisions": {"id", "question", "status"},
 }
 
@@ -107,6 +111,7 @@ HELP = [
     ("A cluster that fuses into one reflex (mb > b) is two rows with the same reflex: parent m, environment _+b; parent b, environment m+_.", False),
     ("Every phoneme of a proto-language needs a notation_map row (system = canonical at least).", False),
     ("Indirect citation: source_id is the original work; via_source_id and via_page say where you read it; via_note says what that work changed.", False),
+    ("Allophones: wherever a source describes how a phoneme is realised, add one allophones row per allophone (no brackets), with its environment and source.", False),
     ("Another reconstruction system's phoneme is a notation_map row (system, symbol, its own place/manner/voicing). To give it its own reflexes, add correspondences rows with that system.", False),
     ("", False),
     ("Publishing: GitHub copies this sheet every hour (or when you press 'Run workflow' on the 'Sync from Google Sheets' action).", False),

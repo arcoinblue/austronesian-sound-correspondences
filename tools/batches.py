@@ -49,6 +49,7 @@ KEYS = {
     "phonemes": ["lect_id", "ipa"],
     "correspondences": ["id"],
     "notation_map": ["lect_id", "phoneme", "system", "symbol"],
+    "allophones": ["lect_id", "phoneme", "system", "allophone", "environment", "source_id"],
     "decisions": ["id"],
 }
 SHEETS_API = "https://sheets.googleapis.com/v4/spreadsheets"

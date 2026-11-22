@@ -184,8 +184,27 @@ function fusionLabel(f) {
   return f.members.map(m => `<span class="ipa">${esc(sym(m))}</span>`).join(" + ");
 }
 
+// How a phoneme is realised, as its sources describe it: one line per allophone.
+function allophonesHtml(p) {
+  const rows = p.allophones || [];
+  if (!rows.length) return "";
+  const notes = rows.some(a => a.notes);
+  return `<h3>Allophones</h3>
+    <div class="scroll"><table class="allo"><tr><th>Allophone</th><th>Where</th><th>Source</th>${notes ? "<th>Notes</th>" : ""}</tr>
+    ${rows.map(a => `<tr><td class="ipa">[${esc(a.allophone)}]</td>
+      <td>${a.environment ? esc(a.environment) : '<span class="muted">not stated</span>'}</td>
+      <td>${cite(a)}</td>${notes ? `<td>${a.notes ? fold(a.notes, 200) : ""}</td>` : ""}</tr>`).join("")}</table></div>`;
+}
+
+// The same, as one line for a tooltip.
+function allophonesText(p) {
+  return (p.allophones || []).map(a => `[${a.allophone}]${a.environment ? " " + a.environment : ""}`).join("; ");
+}
+
 function describe(p) {
-  return label([p.voicing, p.rounding, p.place, p.manner].filter(x => x && x !== "unknown").join(" "));
+  // Vowels read height, backness, rounding ("close back rounded"); consonants voicing, place, manner.
+  const parts = p.class === "V" ? [p.manner, p.place, p.rounding] : [p.voicing, p.rounding, p.place, p.manner];
+  return label(parts.filter(x => x && x !== "unknown").join(" "));
 }
 
 // A reflex that is a lect's only one from its source needs no "elsewhere": with

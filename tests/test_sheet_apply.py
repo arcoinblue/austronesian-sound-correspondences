@@ -26,7 +26,7 @@ def old_layout(cldf):
     """The fixture as the sheet had it before v3: changes_only, no decisions, extra X > X rows."""
     sheet = {}
     for t in build.TABLES:
-        if t == "decisions":
+        if t in ("decisions", "allophones"):
             continue
         g = grid(cldf / f"{t}.csv")
         if t == "lects":

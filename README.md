@@ -122,7 +122,7 @@ The site builds the citation label from `author` (`Surname, Given; Surname, Give
 | `language_id` | | *optional column.* For a dialect: the language it belongs to. The dialect's page says "Dialect of …" and the language's page lists its dialects. The lect tree lists the dialect under its language when both have the same `parent_id`. |
 | `inherit_source_id`, `inherit_page` | | *optional columns.* The citation of the generated rows: where the source says (or shows) that the rest is unchanged. Blank: the source and page the lect's own rows cite most. Give them for `stated-unchanged`. |
 | `inherit_note` | | *optional column.* The note of the generated rows (`Unchanged: not among the nontrivial sets of Table 3 (p. 119).`). Blank: a standard note. |
-| `alt_parents` | | *optional column.* Other classifications, `parent_id:source_id`, `;`-separated: `pef:chen2022`. The tree and the correspondences follow `parent_id`; the lect page lists the other hypotheses and the proposed parent lists the lect under "Proposed daughters". |
+| `alt_parents` | | *optional column.* Other classifications, `parent_id:source_id`, `;`-separated: `pef:chen2022`. The tree and the correspondences follow `parent_id`; the lect page lists the other hypotheses under "Proposed parents" and the proposed parent lists the lect under "Proposed daughters". |
 | `tree_parent` | | *optional column.* The node the lect tree lists the lect under, when that is not `parent_id`: a `group` (a linkage, an agreed subgroup), a language (for a dialect whose `language_id` is not given) or a dialect (for a sub-dialect, which may share that dialect's Glottocode). It must stand under the same `parent_id` as the lect. Blank: the dialect's `language_id`, else `parent_id`. The correspondences always follow `parent_id`. |
 | `representative` | | *optional column.* For a language with no rows of its own: the dialect its entry opens (Duhtu for Tsou). A language or dialect with no rows of its own and lects listed under it is a node of the tree with no page (Babuza, Pazeh-Kaxabu). |
 | `overlap_groups` | | *optional column.* Names of subgroups that cut across the tree, `;`-separated (`Wetar-Galolen`). They are labels, not nodes: a lect can be in several, its `parent_id` stays what the tree says, and the changes that define the group are entered on each member. The lect page lists the other members, and the lect filter finds the name. |
@@ -157,7 +157,7 @@ One row per phoneme that a source states or that you corrected by hand. Generate
 
 **Labialised and velarised series.** A consonant whose symbol contains `ʷ` (`pʷ`, `kʷ`) is put in its own chart column, `labialized-<place>`, next to the plain place; one whose symbol contains `ˠ` (Kosraean `tˠ`) goes to `velarized-<place>`, between the two. Enter the plain place (`bilabial`, `velar`) and the build does the rest. To put a symbol without `ʷ` in that column (POc `w`, which the source lists with the labialised bilabials), write the place out: `labialized-bilabial`.
 
-**Blank and unknown features.** If a sourced row leaves place or manner blank, the build fills it from the symbol and the site shows the phoneme in grey italics, with "inferred from the symbol" on hover. In a proto-language the reconstruction orthography is read first (`y` palatal glide, `e` schwa, `c z j ñ N C S R` with the ACD values), then IPA. Two readings come before these tables. Where a lect writes both `y` and `j`, `y` is the palatal glide and `j` a palatal (or palatalised coronal) stop or affricate, in proto-languages and attested languages alike. And a letter that is not plain IPA and is continued unchanged from the parent is read as the parent reads it, so the `y` of the Micronesian languages is the glide of PMc \*y. Write `unknown` where the source deliberately leaves the value open (place of PAn \*R): it is never inferred. A phoneme with only a place or only a manner sits in an *unspecified* row or column of the chart; with neither, it is listed as unclassified.
+**Blank and unknown features.** If a sourced row leaves place or manner blank, the build fills it from the symbol and the site shows the phoneme in italics, with "inferred from the symbol" on hover (see *Marks in the charts* under *Output*). In a proto-language the reconstruction orthography is read first (`y` palatal glide, `e` schwa, `c z j ñ N C S R` with the ACD values), then IPA. Two readings come before these tables. Where a lect writes both `y` and `j`, `y` is the palatal glide and `j` a palatal (or palatalised coronal) stop or affricate, in proto-languages and attested languages alike. And a letter that is not plain IPA and is continued unchanged from the parent is read as the parent reads it, so the `y` of the Micronesian languages is the glide of PMc \*y. Write `unknown` where the source deliberately leaves the value open (place of PAn \*R): it is never inferred. A phoneme with only a place or only a manner sits in an *unspecified* row or column of the chart; with neither, it is listed as unclassified.
 
 **Chart position of generated phonemes.** A generated phoneme is placed from its symbol. The build reads through length, aspiration and secondary-articulation marks, so `t̪ʰ` is a dental plosive and `n̥` a voiceless nasal. Where that is wrong or impossible, add a row with origin `override`, a `reason`, and the class, place, manner or voicing you want; blank cells keep the inferred value. (A `manual-add` row for a phoneme that is already generated does the same.) A symbol the build cannot read is still put with the consonants or the vowels, according to the proto-phonemes it continues, and is listed under the chart as *unclassified consonants* or *unclassified vowels*.
 
@@ -266,6 +266,29 @@ A system phoneme with blank place or manner is filled the same way: from a disti
 
 On the site each proto-phoneme page has one tab per system. A system's tab shows its symbol and phonetic value. It shows its own reflexes only if `correspondences` has rows with that `system`; otherwise the reflexes are the default ones.
 
+### `allophones.csv`
+
+How a phoneme is realised, as the source describes it. **Wherever a source gives the allophones of a phoneme, they go here**, one row per allophone, so that the phoneme's page lists them (with their environments and sources) and the chart shows them on hover. This holds for every kind of inventory: a sourced phoneme, a generated or implied one, a proto-phoneme, a phoneme of another reconstruction system. Free variation and variation between speakers or generations are entered the same way, with the condition in `environment`. A single phonetic value (the source's [ħ] for a phoneme written h) is not an allophone: it belongs in the phoneme's place and manner, `source_symbol` or notes. The phoneme's `notes` may still say it in the source's words; the build warns when a phoneme row's notes describe realisations (`[ɣ] between vowels`, `allophone`, `free variation`, `realised`) and the phoneme has no row here.
+
+| column | required | values |
+|---|---|---|
+| `lect_id` | yes | |
+| `phoneme` | yes | the phoneme as it is in the lect's inventory (`ipa` of `phonemes.csv`, or the generated symbol), without `*` |
+| `system` | | blank for the default system; a system name for a phoneme of that system (`notation_map`) |
+| `allophone` | yes | the realisation, in IPA, without brackets: `ʃ`, `ɣ`, `t͡ʃ`. Include the elsewhere realisation when the source states it. |
+| `environment` | | where it occurs, in the notation of `correspondences.environment` or in words: `_i`, `V_V`, `elsewhere`, `word-finally`, `free variation`, `younger speakers` |
+| `source_id`, `page` | yes, `page` where known | the description that states it |
+| `notes` | | |
+| `via_source_id`, `via_page`, `via_note` | | as in the other tables |
+
+```
+lect_id,phoneme,system,allophone,environment,source_id,page,notes,...
+duht1237,s,,ʃ,_i,tung1964,86,
+duht1237,s,,s,elsewhere,tung1964,86,
+```
+
+A row whose phoneme is not in the lect's inventory is reported and not shown. (Added November 2026; a data folder without this table reads it as empty.)
+
 ### `decisions.csv`
 
 A reading taken during data entry that the user has still to confirm: how a table was read, a classification chosen, a code corrected. One row per decision; rows of `correspondences` that depend on it name it in `decision`. The open ones are listed in `STATUS.md` and in the build's notes. To settle one, change its `status` in the sheet (and the rows, if the other reading wins), or write what should be done in `instructions`.
@@ -351,6 +374,19 @@ The site loads a small file per lect, and a phoneme's history only when the phon
 - `build/data/index.json`: what the lect list shows of each lect (name, alternate names, type, glottocode, parent, clade, coverage, status, overlapping groups); loaded on every page.
 - `build/data/segments.json`: every lect's displayed inventory (default system), one row per phoneme with its features and flags (implied, marginal); loaded only by the Segments page (`#/segments/`), which lists and searches it by lect or by segment.
 - `build/data/sources.json`: the bibliography. `build/report.txt` keeps the last report.
+
+### Marks in the charts
+
+The inventory charts on lect pages use four marks, each for one thing, and the legend under a chart names those it uses:
+
+| mark | means |
+|---|---|
+| *italic* | the source lists the phoneme but gives no place or manner; its position in the chart is read off the symbol (our inference, not the source's) |
+| grey | implied: the lect's source lists only changes (`inherit` = `assumed-unchanged`) and does not mention this phoneme, so it is taken as kept from the parent |
+| underline | no source gives the inventory: dotted = generated from the correspondences and placed from its symbol; double = placed by hand (`override`); solid = added by hand (`manual-add`) |
+| (parentheses) | `status` `marginal` or `dubious` |
+
+Blue is only the link colour. On a phoneme page, grey rows in the descent table are lects below a daughter (reached via the stage named under them) or implied retentions, and grey italic cells are blank reflexes; on the Segments page grey is implied and a wavy underline marks a symbol with no place or manner. No style changes the case of a symbol: `s` and `S` are different phonemes.
 
 `tests/test_output_size.py` keeps the PAn lect file under 100 KB, and everything the PAn page fetches under 100 KB as served (gzip).
 

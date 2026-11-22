@@ -55,7 +55,9 @@ async function pageSegments(params) {
       <select id="ssort" title="Order of the segments"><option value="count">most lects first</option><option value="chart">chart order</option></select>
       <span id="scount" class="muted"></span>
     </div>
-    <div class="scroll"><table class="segs" id="st"></table></div>`;
+    <div class="scroll"><table class="segs" id="st"></table></div>
+    <p class="legend">Grey = implied: not mentioned by a source that lists only the changes, taken as kept from the parent.
+      Wavy underline = the symbol gives no place or manner (unclassified). In parentheses = marginal or doubtful.</p>`;
   const q = app.querySelector("#sq"), kind = app.querySelector("#skind"), imp = app.querySelector("#simp"),
         sort = app.querySelector("#ssort");
   q.value = S.q; kind.value = S.kind; imp.checked = S.implied; sort.value = S.sort;

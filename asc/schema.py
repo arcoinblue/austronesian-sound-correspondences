@@ -290,13 +290,16 @@ TABLES = {
                         "source_id", "page", "notes", "system"] + VIA + CORR_EXTRA,
     "notation_map": ["lect_id", "phoneme", "system", "symbol", "source_id", "page", "notes",
                      "place", "manner", "voicing"] + VIA,
+    # How a phoneme is realised, as the source describes it: one row per allophone.
+    "allophones": ["lect_id", "phoneme", "system", "allophone", "environment", "source_id", "page",
+                   "notes"] + VIA,
     # Readings taken during data entry that the user has still to confirm (or has).
     "decisions": ["id", "batch", "question", "chosen_reading", "alternatives", "instructions",
                   "status", "source_id", "page", "notes"],
 }
 DECISION_STATUS = {"open", "confirmed", "reverted"}
 # Tables that may be missing from a data folder (read as empty): added after the first release.
-OPTIONAL_TABLES = {"decisions"}
+OPTIONAL_TABLES = {"decisions", "allophones"}
 # Columns added after the first release. A table without them still loads
 # (they read as blank), so an older sheet or CSV keeps working.
 OPTIONAL_COLUMNS = {
@@ -315,11 +318,20 @@ CANONICAL = "canonical"   # notation system that only spells the site's own symb
 # spelled as itself, cited as on the default row. Implied phonemes (an assumed-unchanged
 # lect's retentions) get none, as before.
 
+# Notes that describe how a phoneme is realised: such a phoneme needs allophones rows.
+ALLOPHONY_RE = re.compile(
+    r"allophone|allophonic|free variation|in variation with|\brealis|\brealiz|spirantiz|"
+    r"\[[^\]]{1,12}\]\s*(?:~|before|after|between|next to|word-|syllable-|elsewhere|"
+    r"intervocalic|finally|initially|medially)|"
+    r"(?:before|after|between|word-finally|word-initially|elsewhere|intervocalically)[^.;]{0,40}?\[[^\]]{1,12}\]|"
+    r"\[[^\]]{1,12}\s*~\s*[^\]]{1,12}\]", re.I)
+
 # Columns whose values are phoneme symbols and must be NFC with no '*'.
 SYMBOL_COLUMNS = {
     "phonemes": ["ipa"],
     "correspondences": ["parent_phoneme", "child_phoneme"],
     "notation_map": ["phoneme"],
+    "allophones": ["phoneme", "allophone"],
 }
 
 

@@ -7,7 +7,8 @@ function cellLink(L, p) {
        p.origin === "generated" && `chart position: ${p.placement === "hand" ? "set by hand" : "inferred from the symbol"}`,
        p.origin !== "sourced" && p.reason,
        p.status === "marginal" && "marginal phoneme", p.status === "dubious" && "doubtful proto-phoneme",
-       p.implied && "implied: carried down unchanged, not mentioned by the source"].filter(Boolean).join(" · ");
+       p.implied && "implied: carried down unchanged, not mentioned by the source",
+       p.allophones?.length && "allophones: " + allophonesText(p)].filter(Boolean).join(" · ");
   const guess = inferredNote(p);
   return `<a class="o-${esc(p.origin || "sourced")}${p.placement === "hand" && p.origin === "generated" ? " hand" : ""}${guess && p.origin !== "generated" ? " inferred" : ""}${p.implied ? " implied" : ""}" href="#/lects/${esc(L)}/${esc(p.url_id)}/" title="${esc([title, p.origin !== "generated" && guess].filter(Boolean).join(" · "))}">${p.status ? "(" : ""}${esc(isProto(L) ? "*" + p.ipa : p.ipa)}${p.status ? ")" : ""}</a>`;
 }
@@ -119,7 +120,7 @@ async function pageLect(L) {
       ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : ""}</dd>` : ""}
       ${d.dialects.length ? `<dt>Dialects</dt><dd>${d.dialects.map(lectLink).join(", ")}</dd>` : ""}
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
-      ${d.alt_parents.length ? `<dt>Other classifications</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
+      ${d.alt_parents.length ? `<dt>Proposed parents</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
         <br><span class="muted" style="font-size:12.5px">The tree and the correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
       ${d.alt_daughters.length ? `<dt>Proposed daughters</dt><dd>${d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join(", ")}</dd>` : ""}
       ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
@@ -140,7 +141,9 @@ async function pageLect(L) {
     ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
       ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated from the correspondences and placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}
       ${d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote)) ? "Italic = the source gives no place or manner, so the position is read off the symbol." : ""}
-      ${d.phonemes.some(x => x.implied) ? "Grey = implied: not mentioned by the source, taken as kept from the parent." : ""}</p>` : ""}
+      ${d.phonemes.some(x => x.implied) ? "Grey = implied: not mentioned by the source, taken as kept from the parent." : ""}
+      ${d.phonemes.some(x => x.status) ? "In parentheses = marginal (loans only, or an allophone the source lists as a sound of the language) or doubtful." : ""}
+      ${d.phonemes.some(x => x.allophones?.length) ? "Hover a symbol for its allophones; its page lists them with sources." : ""}</p>` : ""}
     ${d.changes_only ? changesTable : ""}
     ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
