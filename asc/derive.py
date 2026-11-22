@@ -83,15 +83,21 @@ def ancestry_graph(phoneme_id, D):
     return {"nodes": nodes, "edges": edges}
 
 
-def descendants(phoneme_id, D, path=(), depth=0, beyond=False):
+def descendants(phoneme_id, D, path=(), depth=0, beyond=False, seen=None):
     """Flattened downward rows, each with the path of intermediate phonemes.
 
     A row into a competing reconstruction is marked 'competing'. Rows below
     one are marked 'beyond_competing': they belong on that reconstruction's own
-    pages and are left out of the ancestor's reflex list."""
+    pages and are left out of the ancestor's reflex list.
+
+    Each intermediate phoneme is descended into once. Several rows can reach the
+    same one (three sources giving *R > Proto-Bunun *l; two phonemes merging);
+    its own rows are listed under the first path only, not once per row."""
     out = []
     if depth > 50:
         return out
+    if seen is None:
+        seen = set()
     for r in D["by_parent"].get(phoneme_id, []):
         row = edge(r)
         row["via"] = list(path)
@@ -106,9 +112,11 @@ def descendants(phoneme_id, D, path=(), depth=0, beyond=False):
         # repeat the same "unchanged" for every node of an assumed-unchanged tree.
         if not (path and row.get("derivation") == "implied-retention"):
             out.append(row)
-        if r["child_phoneme_id"]:
+        below = beyond or row.get("competing", False)
+        if r["child_phoneme_id"] and (r["child_phoneme_id"], below) not in seen:
+            seen.add((r["child_phoneme_id"], below))
             out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1,
-                                   beyond or row.get("competing", False)))
+                                   below, seen))
     return out
 
 

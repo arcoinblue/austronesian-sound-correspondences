@@ -754,3 +754,21 @@ class TestLatinG(unittest.TestCase):
     def test_g_in_a_word_is_fine(self):
         rep = run(append("correspondences.csv", ",samp1234,ə,a,before a high vowel,regular,,,example2026,1,"))
         self.assertFalse(any("Latin g" in e for e in rep.errors), rep.errors)
+
+
+class TestDescendantsOnce(unittest.TestCase):
+    """Several rows into one intermediate phoneme (three sources giving PAn *R >
+    Proto-Bunun *l) list that phoneme's own rows once, not once per row."""
+
+    def row(self, id, lect, parent, child, source):
+        return {"id": id, "child_lect_id": lect, "parent_phoneme_id": parent, "child_phoneme_id": child,
+                "environment": "elsewhere", "status": "regular", "blank_type": "", "evidence_count": "",
+                "source_id": source, "page": "", "notes": ""}
+
+    def test_rows_below_a_shared_phoneme_once(self):
+        from asc.derive import descendants
+        top = [self.row(f"t{i}", "mid", "a:R", "mid:l", s) for i, s in enumerate(["s1", "s2", "s3"])]
+        low = [self.row("l1", "leaf", "mid:l", "leaf:ɬ", "s1"), self.row("l2", "leaf", "mid:l", "leaf:ɬ", "s2")]
+        D = {"by_parent": {"a:R": top, "mid:l": low}, "conflicts": set(), "competing": set()}
+        ids = [r["correspondence_id"] for r in descendants("a:R", D)]
+        self.assertEqual(sorted(ids), ["l1", "l2", "t0", "t1", "t2"])
