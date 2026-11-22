@@ -307,7 +307,7 @@ function altDescentHtml(rows, d) {
       <td>${evidence(r)}</td>
       <td>${cite(r)}</td>
       <td>${rowNote(r)}</td></tr>`;
-  return `<h3>Daughters in other classifications</h3>
+  return `<h3>Proposed daughters</h3>
     <p class="muted">These lects are placed under ${esc(d.name)} by another classification. In the tree they descend from their own nearest ancestor, so their rows are stated against that ancestor's phoneme, which becomes this phoneme on the way down to ${esc(d.name)}.</p>
     <div class="scroll"><table><tr><th>Lect (classification)</th><th>Stated against</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${rows.map(tr).join("")}</table></div>`;
 }

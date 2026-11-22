@@ -32,7 +32,7 @@ h3 { font-size: 14px; margin: 18px 0 6px; color: var(--muted); font-weight: 600;
   text-transform: uppercase; letter-spacing: .04em; }
 .muted { color: var(--muted); }
 .crumb { color: var(--muted); font-size: 13px; }
-.ipa { font-family: var(--ipa); font-size: 1.12em; }
+.ipa { font-family: var(--ipa); font-size: 1.12em; text-transform: none; letter-spacing: normal; }
 
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
 th, td { border-bottom: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }

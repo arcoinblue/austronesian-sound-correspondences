@@ -113,7 +113,7 @@ async function pageLect(L) {
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
       ${d.alt_parents.length ? `<dt>Other classifications</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
         <br><span class="muted" style="font-size:12.5px">The tree and the correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
-      ${d.alt_daughters.length ? `<dt>Daughters in other classifications</dt><dd>${d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join(", ")}</dd>` : ""}
+      ${d.alt_daughters.length ? `<dt>Proposed daughters</dt><dd>${d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join(", ")}</dd>` : ""}
       ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
         <br><span class="muted" style="font-size:12.5px">Overlapping subgroups: they cut across the tree and are not nodes of it.</span></dd>` : ""}
       ${d.region ? `<dt>Region</dt><dd>${esc(d.region)}</dd>` : ""}
