@@ -325,10 +325,11 @@ function descentHtml(rows, daughters) {
   const cls = r => [r.via.length || r.derivation === "implied-retention" ? "dim" : "", deep(r) ? "deep" : ""].filter(Boolean);
   const lectTd = (r, span) => `<td${span > 1 ? ` rowspan="${span}"` : ""}>${lectLink(r.child_lect_id)}${r.competing ? ` <span class="badge b-disputed" title="One of two or more competing reconstructions of this stage; its own reflexes are on its pages">competing</span>` : ""}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>`;
   const reflexTd = (r, span, brk, end) => `<td${span > 1 ? ` rowspan="${span}"` : ""}${brk ? ` class="brk${end ? " gend" : ""}"` : ""}>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>`;
-  const rest = r => `<td>${envHtml(r, sole)}</td>
+  // srcTd: the source cell, or "" where a cell above spans this line.
+  const rest = (r, srcTd = `<td>${cite(r)}</td>`) => `<td>${envHtml(r, sole)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${evidence(r)}</td>
-      <td>${cite(r)}</td>
+      ${srcTd}
       <td>${rowNote(r)}</td>`;
   const flat = rows.map(r => `<tr class="${cls(r).join(" ")}">${lectTd(r, 1)}${reflexTd(r, 1)}${rest(r)}</tr>`).join("");
   // Merged: the lect once, then its reflexes, each source's together, the conditioned
@@ -340,12 +341,24 @@ function descentHtml(rows, daughters) {
     const lines = g.map((r, i) => ({ r, i })).sort((p, q) =>
       srcs.indexOf(p.r.source_id) - srcs.indexOf(q.r.source_id)
       || ELSEWHERE.has(p.r.environment) - ELSEWHERE.has(q.r.environment) || p.i - q.i).map(x => x.r);
-    const same = (a, b) => a.child === b.child && (a.child || a.blank_type === b.blank_type);
+    // Each source's lines are a block of their own: ruled off from the next
+    // source, with a reflex or a citation repeated on adjacent lines written once.
+    const sameSrc = (a, b) => a.source_id === b.source_id;
+    const same = (a, b) => sameSrc(a, b) && a.child === b.child && (a.child || a.blank_type === b.blank_type);
+    const sameCite = (a, b) => sameSrc(a, b) && cite(a) === cite(b);
+    const runAt = (i, eq) => {
+      if (i && eq(lines[i - 1], lines[i])) return 0;
+      let n = 1; while (i + n < lines.length && eq(lines[i + n], lines[i])) n++;
+      return n;
+    };
+    const blockLen = r => lines.filter(q => sameSrc(q, r)).length;
+    const endCls = (i, n) => i + n === lines.length || !sameSrc(lines[i + n], lines[i]) ? ' class="gend"' : "";
     lines.forEach((r, i) => {
-      let span = 0;
-      if (!i || !same(lines[i - 1], r)) { span = 1; while (i + span < lines.length && same(lines[i + span], r)) span++; }
-      const c = cls(r).concat(lines.length > 1 ? [i ? "gc" : "g0", i < lines.length - 1 ? "gin" : ""] : []).filter(Boolean);
-      merged += `<tr class="${c.join(" ")}">${i ? "" : lectTd(r, lines.length).replace("<td", '<td class="gend"')}${span ? reflexTd(r, span, lines.length > 1, i + span === lines.length) : ""}${rest(r)}</tr>`;
+      const span = runAt(i, same), cspan = runAt(i, sameCite);
+      const inBlock = i < lines.length - 1 && sameSrc(lines[i + 1], r);
+      const c = cls(r).concat(lines.length > 1 ? [i ? "gc" : "g0", inBlock ? "gin" : ""] : []).filter(Boolean);
+      const srcTd = cspan ? `<td${cspan > 1 ? ` rowspan="${cspan}"` : ""}${cspan > 1 ? endCls(i, cspan) : ""}>${cite(r)}</td>` : "";
+      merged += `<tr class="${c.join(" ")}">${i ? "" : lectTd(r, lines.length).replace("<td", '<td class="gend"')}${span ? reflexTd(r, span, blockLen(r) > 1, endCls(i, span) !== "") : ""}${rest(r, srcTd)}</tr>`;
     });
   }
   const multi = [...groups.values()].some(g => g.length > 1);
