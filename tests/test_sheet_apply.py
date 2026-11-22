@@ -147,6 +147,16 @@ class TestSheetApply(unittest.TestCase):
             sheet_apply.plan({t: grid(self.cldf / f"{t}.csv") if t != "lects" else sheet["lects"] for t in build.TABLES},
                              self.cldf, allow_append=True)
 
+    def test_blank_optional_column_missing_in_the_middle_is_left_out(self):
+        sheet = {t: grid(self.cldf / f"{t}.csv") for t in build.TABLES}
+        g = sheet["decisions"]
+        i = g[0].index("instructions")
+        self.assertTrue(all(not r[i] for r in g[1:]))
+        sheet["decisions"] = [r[:i] + r[i + 1:] for r in g]
+        plans = sheet_apply.plan(sheet, self.cldf)
+        self.assertNotIn("instructions", plans["decisions"]["header"])
+        self.assertFalse(plans["decisions"]["header_change"] or plans["decisions"]["updates"])
+
     def test_new_columns_get_text_format_and_dropdowns(self):
         sheet = old_layout(self.cldf)
         plans = sheet_apply.plan(sheet, self.cldf)

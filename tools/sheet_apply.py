@@ -67,6 +67,15 @@ def plan_tab(table, sheet_rows, target_header, target_recs, allow_append=False):
     sh = [clean(h) for h in (sheet_rows[0] if sheet_rows else [])]
     while sh and not sh[-1]:
         sh.pop()
+    # An optional column the sheet does not have, in the middle of the table (decisions.instructions; the
+    # sync writes it blank), is left out if it is blank: it could not be added at the end.
+    renamed_sh = [RENAMES.get(table, {}).get(h, h) for h in sh]
+    for c in [c for c in cols if c in build.OPTIONAL_COLUMNS.get(table, []) and c not in renamed_sh]:
+        i = cols.index(c)
+        if not any(x in renamed_sh for x in cols[i + 1:]) or any(len(r) > i and r[i] for r in target_recs):
+            continue   # at the end (added as a new column), or has values
+        cols = cols[:i] + cols[i + 1:]
+        target_recs = [list(r[:i]) + list(r[i + 1:]) for r in target_recs]
     renamed = [RENAMES.get(table, {}).get(h, h) for h in sh]
     if cols[:len(renamed)] != renamed:
         raise ValueError(f"{table}: header {sh} cannot become {cols} by renames and added columns")

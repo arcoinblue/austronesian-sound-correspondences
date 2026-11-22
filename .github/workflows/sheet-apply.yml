@@ -20,8 +20,8 @@ on:
         description: "How many sheet rows may be deleted (the dry run prints the number)"
         default: "0"
       archive:
-        description: "Every deleted correspondence must be in this file (leave empty for a data edit)"
-        default: "data/migrations/v3_removed_correspondences.csv"
+        description: "Every deleted correspondence must be in this file (empty: no check, as for a data edit)"
+        default: ""
         required: false
       allow_append:
         description: "Also append the rows that follow the last matched row (new keys only)"
