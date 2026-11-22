@@ -619,6 +619,9 @@ def validate_and_derive(t, rep: Report):
             out.append(r)
         return out
 
+    def rec_inherit_note(L):
+        return lects[L]["inherit_note"]
+
     implied_rows = []   # every row the build adds for `inherit` (implied and stated retentions)
     for L in order:
         rows = entered.get(L, {})
@@ -682,6 +685,22 @@ def validate_and_derive(t, rep: Report):
             corrs.append(r)
             implied_rows.append(r)
             unchanged.add((L, r["child_phoneme"]))
+        # A sourced inventory under an assumed-unchanged source: the parent's phonemes the source
+        # does not mention are taken as kept where the inventory has the same phoneme (same symbol,
+        # and no place or manner that contradicts the parent's). Without these rows the lect would
+        # have an inventory and no history at all (Fehan Tetun, Kambera).
+        if mode == "assumed-unchanged" and "sourced" in origins and P in inventory:
+            def same(a, b):
+                return a["class"] == b["class"] and all(
+                    not a[k] or not b[k] or "unknown" in (a[k], b[k]) or a[k] == b[k] for k in ("place", "manner"))
+            for r in retentions(L, P, mode):
+                s = r["child_phoneme"]
+                if s in inv and same(inv[s], inventory[P][s]):
+                    if not rec_inherit_note(L):
+                        r["notes"] = r["notes"].rstrip(".") + "; the lect's own inventory has the same phoneme."
+                    corrs.append(r)
+                    implied_rows.append(r)
+                    unchanged.add((L, s))
 
     # --- correspondences (second pass: referential integrity)
     for g in {g for r in lects.values() for g in r["overlap_list"]}:

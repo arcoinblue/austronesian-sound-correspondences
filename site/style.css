@@ -228,3 +228,9 @@ table.segs details.more summary { display: inline; cursor: pointer; color: var(-
 
 table.allo { width: auto; margin: 4px 0 8px; }
 table.allo td.ipa { font-size: 1.2em; white-space: nowrap; }
+
+/* Sources: the rest of a long list of lects opens in place. */
+details.morelects { display: inline; }
+details.morelects summary { display: inline; cursor: pointer; color: var(--accent); margin-left: 4px; }
+details.morelects[open] summary { display: none; }
+details.morelects[open]::before { content: ", "; }
