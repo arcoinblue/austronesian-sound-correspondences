@@ -13,14 +13,14 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | phonemes | 2910 |  |
 | correspondences | 9241 | plus 10112 implied and 3432 stated retentions generated from lects.inherit |
 | notation_map | 514 |  |
-| decisions | 130 | 19 confirmed, 105 open, 6 reverted |
+| decisions | 130 | 20 confirmed, 104 open, 6 reverted |
 
 Lects by `inherit`: (blank) 137, assumed-unchanged 505, stated-unchanged 239.
 Inventories: edited 24, reverse-generated 735, sourced 122.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 280 warning(s), 845 note(s).
+`build.py --check`: 0 error(s), 280 warning(s), 844 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -135,7 +135,6 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `smith-basap` | Basap (Smith 2017a: 200-207): node? | An earlier stage Pre-Basap (Glottolog's Basap language, basa1286) with the one change Smith finds shared by all varieties, *-b > -m (p. 202). Lebo (his fieldwo… |  |
 | `smith-nesabah` | Northeast Sabah and Molbog (Smith 2017a: 228-235)? | Northeast Sabah (Bonggi + Idaanic, after Blust) rests on lexical innovations only; it is held back as a node, so Bonggi sits under PMP. Idaanic (Idaan, Sungai … |  |
 | `smith-nsarawak` | North Sarawak lects of Smith 2017a §2.11: nodes and voiced aspirates? | Dayic is a node (Glottolog kela1257) with its three changes (*z > d, *l > r before final *r, *-k- > *-ʔ-; pp. 238-239), and below it Proto-Kelabit (*t > s / #_… |  |
-| `blust-c` | Blust's PAn *c: stored how? | User's choice of 22 Nov 2026: a Blust-system phoneme of PAN with its own descent. The PAN notation row for Blust's c no longer points to *s (phoneme blank, lik… | 4 |
 | `tsuchida-1975` | Tsuchida’s 1975 dissertation, read directly: what changes in the 81 Tsouic rows cited to Tsuchida (1976) via Shibata (2025)? | They keep their via: Tsuchida states them against Dyen’s PAN (*D₁-*D₃, *k₁, *k₂, *S₁-*S₃, *H₁, *H₂ …), and matching those to the ACD phonemes is Shibata’s work… | 14 |
 | `via-originals-groups` | Blust (1999) and Li (1985), read directly: their subgroups as nodes? | Overlap groups only: ‘Northwest Formosan (Blust 1999)’ on Saisiyat and Pazeh; ‘Central Western Plains (Blust 1999)’ on Taokas, Babuza, Papora and Hoanya; ‘Nort… |  |
 | `ogawa-favorlang` | Li’s revised PAN > Favorlang list in Ogawa (2003): how is it entered beside Li (2005)? | Only where it differs: *R (∅ after *i and *e and word-finally, r between i’s, x elsewhere, against Li 2005’s x between a’s and ∅ elsewhere) and the one-word *y… | 4 |
