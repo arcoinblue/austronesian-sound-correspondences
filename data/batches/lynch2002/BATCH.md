@@ -28,3 +28,14 @@ Lynch, John, Malcolm Ross & Terry Crowley. 2002. *The Oceanic languages*. Richmo
 - The PMP > POc correspondences of Ch. 4 (already in the database from Ross et al. 2023).
 - Historical remarks given as examples rather than rules (Mussau echo vowels, Rotuman vowel developments, Mwotlap r > y since 1885, inland Takia l = r): kept in the lect notes.
 - Works cited in passing in the sketches have no sources row; the notes name them without a year.
+
+
+## Applied
+
+2026-11-22 14:44 UTC, by the push-batch workflow.
+- sources: sheet rows 173-216
+- lects: sheet rows 899-937
+- phonemes: sheet rows 2912-4006
+- correspondences: sheet rows 9253-9256
+- allophones: sheet rows 584-909
+- decisions: sheet rows 135-137

@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 171 |  |
-| lects | 897 | 244 dialect, 33 earlier-stage, 9 group, 374 language, 237 proto-language |
-| phonemes | 2910 |  |
-| correspondences | 9251 | plus 10205 implied and 3451 stated retentions generated from lects.inherit |
+| sources | 215 |  |
+| lects | 936 | 246 dialect, 33 earlier-stage, 9 group, 411 language, 237 proto-language |
+| phonemes | 4005 |  |
+| correspondences | 9255 | plus 10320 implied and 3451 stated retentions generated from lects.inherit |
 | notation_map | 514 |  |
-| allophones | 582 |  |
-| decisions | 133 | 49 confirmed, 63 open, 21 reverted |
+| allophones | 908 |  |
+| decisions | 136 | 49 confirmed, 66 open, 21 reverted |
 
-Lects by `inherit`: (blank) 152, assumed-unchanged 505, stated-unchanged 240.
-Inventories: edited 24, empty 14, reverse-generated 737, sourced 122.
+Lects by `inherit`: (blank) 191, assumed-unchanged 505, stated-unchanged 240.
+Inventories: edited 24, empty 15, reverse-generated 732, sourced 165.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 276 warning(s), 815 note(s).
+`build.py --check`: 0 error(s), 280 warning(s), 856 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
 | a work cited in notes has no sources row | 66 |
 | a source is never cited | 45 |
-| a reflex is not in the lect's sourced inventory | 15 |
+| a reflex is not in the lect's sourced inventory | 19 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
 
@@ -101,6 +101,9 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lobel-subanen` | Subanen internal nodes (Figure 10.1)? | Proto-Subanen with Lobel's inventory (Table 10.3) under pgcph. Nodes Western Subanen (west2811), Nuclear Subanen (nucl1726) and East Nuclear Subanen (east2769)… | 4 |  |
 | `lobel-manide` | Manide and Inagta Alabat: where, and which reflexes? | Node Proto-Manide-Alabat (alab1255, the two languages only) directly under PMP: Lobel takes it as a primary branch of the Philippine macrogroup and there is no… |  |  |
 | `allophones-readings` | Readings taken while entering the allophones tab from the sources' descriptions (22 Nov 2026). | General statements are entered on every lect they cover: Goderich (2020: 15) on c, s and r for each Atayal dialect; Chen (2006: 60-68) on 'Paiwan' for the thre… |  |  |
+| `lrc2002-readings` | Symbols in the Lynch et al. (2002) sketches whose IPA value is not stated or is ambiguous. | j (a voiced palatal stop or affricate, value not stated) entered as ɟ in Sudest, Teanu (Buma) and Xârâcùù, and ⁿj as ᶮɟ; Tobati /~/ (a nasalisation phoneme in … |  |  |
+| `lrc2002-nadroga` | Nadrogā: the sketch says that historically *t became /s/ before /i e/ and /tʃ/ before /u/, *ⁿd became /ⁿdʒ/ before /i u/, and *s became /h/, without naming the… | Entered against Proto-Oceanic (the parent in this database), with a row for each statement; no elsewhere rows for *t and *d. | 4 |  |
+| `lrc2002-subgroups` | Ch. 5 names subgroup-defining sound changes: Proto Admiralties *R > *y before high vowels, lost elsewhere (p. 99); Southeast Solomonic merger of POc *l and *R … | Not entered: no Proto-Admiralties, Proto-Southeast Solomonic or Proto-Papuan Tip node was added, and the sketch languages are placed directly under POc (Southe… |  |  |
 
 <!-- END GENERATED -->
 
