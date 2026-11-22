@@ -1019,6 +1019,8 @@ def validate_and_derive(t, rep: Report):
     for r in t["phonemes"]:
         if r["lect_id"] in lects and lects[r["lect_id"]]["type"] in ("language", "dialect"):
             for why in non_ipa(r["ipa"]):
+                if r["class"] == "V" and why.startswith("j for"):
+                    continue   # y as a vowel is IPA (close front rounded): Sakao, Rotuman, Iaai
                 odd[r["lect_id"]][why].add(r["ipa"])
     for r in t["correspondences"]:
         if r["child_lect_id"] in lects and lects[r["child_lect_id"]]["type"] in ("language", "dialect") \

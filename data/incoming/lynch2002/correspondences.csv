@@ -1,0 +1,5 @@
+id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes,system,via_source_id,via_page,via_note,conditioning,evidence_total,derivation,variety,stratum,lexical_scope,examples,source_form,as_printed,locator,decision
+nadr1235-lrc-1,nadr1235,t,s,"_i, _e",regular,,,geraghty2002,834,"Historically, *t became /s/ before the front vowels /i/ and /e/.",,,,,stated,,,,,,,,,,lrc2002-nadroga
+nadr1235-lrc-2,nadr1235,t,t͡ʃ,_u,regular,,,geraghty2002,834,*t became /tʃ/ before /u/.,,,,,stated,,,,,,,,,,lrc2002-nadroga
+nadr1235-lrc-3,nadr1235,d,d͡ʒ,"_i, _u",regular,,,geraghty2002,834,*ⁿd became /ⁿdʒ/ before the high vowels /i/ and /u/ (printed *ⁿd > /ⁿdʒ/).,,,,,stated,,,,,,,,,,lrc2002-nadroga
+nadr1235-lrc-4,nadr1235,s,h,elsewhere,regular,,,geraghty2002,834,The change of *s to /h/ is unique in Fiji.,,,,,,,,,,,,,,,lrc2002-nadroga
