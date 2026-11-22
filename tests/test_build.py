@@ -581,6 +581,16 @@ class TestV3Layout(unittest.TestCase):
                          ("stated-unchanged", "example2026", "60"))
         self.assertFalse(j["changes_only"])
 
+    def test_sourced_inventory_is_not_changes_only(self):
+        # Proto-Subanen, Kambera, Leti and others: a sourced inventory with inherit
+        # assumed-unchanged is not a changes-only node on its page.
+        rep, D = run(set_cells("lects.csv", "id", "exam1234", inherit="assumed-unchanged"), derived=True)
+        self.assertEqual(rep.errors, [])
+        j = build.lect_json("exam1234", D)
+        self.assertEqual(j["inventory_status"], "sourced")
+        self.assertFalse(j["changes_only"])
+        self.assertEqual(j["index_status"], "sourced")
+
     def test_assumed_unchanged_gives_implied_rows_and_a_complement(self):
         only_s_q = lambda r: r["child_lect_id"] == "pxb" and r["parent_phoneme"] not in ("s", "q")
         rep, D = run(lambda d: [drop_rows("correspondences.csv", only_s_q)(d),

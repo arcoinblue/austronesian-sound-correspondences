@@ -900,15 +900,32 @@ def validate_and_derive(t, rep: Report):
     lect_words = frozenset(w for r in lects.values() for n in [r["name"]] + r["alt_names_list"]
                            for w in [n] + n.replace("-", " ").split())
     text_cols = ("notes", "orthography_note", "reason", "via_note")
+    # A source cited only in running text is not "not cited": the Sources page says where.
+    by_label = defaultdict(list)   # 'Li 1981' -> [source ids]
+    for sid, sr in sources.items():
+        by_label[sr["label"]].append(sid)
+    note_cites = defaultdict(lambda: {"n": 0, "lects": set()})
+    lect_of = {"lects": "id", "phonemes": "lect_id", "correspondences": "child_lect_id", "notation_map": "lect_id"}
     for table in ("sources", "lects", "phonemes", "correspondences", "notation_map"):
         for r in t[table]:
             for col in text_cols:
                 for who, year, suffix in cited_works(r.get(col, "") or "", lect_words):
+                    hits = by_label.get(f"{who} {year}{suffix}") or next(
+                        (v for k, v in by_label.items() if k.endswith(f" {who} {year}{suffix}")), [])
+                    if len(hits) == 1 and not (table == "sources" and r.get("id") == hits[0]):
+                        nc = note_cites[hits[0]]
+                        nc["n"] += 1
+                        if table in lect_of and r.get(lect_of[table]) in lects:
+                            nc["lects"].add(r[lect_of[table]])
                     known = labels.get(who) or next((v for k, v in labels.items() if k.endswith(" " + who)), set())
                     if year + suffix in known or (not suffix and any(k.startswith(year) for k in known)):
                         continue
                     entry = missing_works.setdefault((who, year + suffix), [r["_where"], 0])
                     entry[1] += 1
+    for sid, sr in sources.items():
+        nc = note_cites.get(sid)
+        sr["cited_by"]["notes"] = nc["n"] if nc else 0
+        sr["cited_by"]["note_lects"] = sorted(nc["lects"]) if nc else []
     for (who, year), (where, n) in sorted(missing_works.items()):
         rep.warn(where, f"{who} ({year}) is cited in notes but has no sources row"
                         + (f" ({n} mentions; this is the first)" if n > 1 else ""))

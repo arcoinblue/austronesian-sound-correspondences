@@ -1,10 +1,19 @@
+/* "ASC IPA": a subset of Charis SIL 6.200 shipped with the site (fonts/OFL.txt), so that
+   combining diacritics (t̪, t͡s, n̥) and Greek letters render even where no IPA font is
+   installed. Without it a Mac falls back to Georgia and shows boxes. */
+@font-face { font-family: "ASC IPA"; src: url("fonts/asc-ipa-regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ASC IPA"; src: url("fonts/asc-ipa-italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "ASC IPA"; src: url("fonts/asc-ipa-bold.woff2") format("woff2");
+  font-weight: 600 700; font-style: normal; font-display: swap; }
 :root {
   --bg: #fbfaf7; --fg: #1d1c1a; --muted: #6b6860; --line: #dedad2; --soft: #f1eee7;
   --accent: #2357a6; --accent-soft: #e4ecf8;
   --ok: #1f7a4d; --ok-soft: #e1f2e9; --warn: #9a5b00; --warn-soft: #f8ecd6;
   --bad: #a3322b; --bad-soft: #f7e2df;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --ipa: "Charis SIL", "Doulos SIL", "Gentium Plus", "Noto Serif", Georgia, serif;
+  --ipa: "ASC IPA", "Charis SIL", "Doulos SIL", "Gentium Plus", "Noto Serif", Georgia, serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -104,7 +113,9 @@ input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--l
 .descentbox.all tr.deep { display: table-row; }
 button.more { font: inherit; font-size: 13px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 6px;
   background: var(--bg); color: var(--accent); cursor: pointer; margin-left: 6px; }
-.chart a.inferred { font-style: italic; color: var(--muted); }
+/* Three marks that must not look alike: italic = chart position read off the symbol;
+   grey = implied (kept from the parent, not mentioned by the source); underline = generated. */
+.chart a.inferred { font-style: italic; }
 
 svg.anc { display: block; margin: 8px 0 6px; max-width: none; }
 svg.anc text { fill: var(--fg); }
@@ -151,7 +162,16 @@ table.lects .count { font-size: 12px; margin-left: 6px; }
 table.lects td.nm { white-space: nowrap; padding-left: calc(10px + var(--d, 0) * 14px);
   background-image: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px 14px);
   background-size: calc(var(--d, 0) * 14px) 100%; background-position: 14px 0; background-repeat: no-repeat; }
-table.lects td.nw { white-space: nowrap; }
+table.lects td.nw, table.lects td.cov { white-space: nowrap; }
+/* In a narrow window (the desktop app's side pane, a phone) the secondary columns go,
+   so the coverage column stays in view instead of being pushed off to the right. */
+@media (max-width: 900px) {
+  table.lects .gc, table.refs .nt { display: none; }
+  table.refs td.ref { max-width: none; }
+}
+@media (max-width: 640px) {
+  table.lects .ty, table.refs .kd { display: none; }
+}
 table.lects .twist.after { color: var(--muted); font-size: 12px; cursor: default; }
 .controls #count { font-size: 13px; margin-left: auto; }
 
@@ -166,7 +186,7 @@ table.refs .refid { font-size: 12px; }
 table.othersys { width: auto; margin: 4px 0; }
 .b-changes-only { background: var(--accent-soft); color: var(--accent); }
 .b-empty { background: var(--soft); color: var(--muted); }
-.chart a.implied { color: var(--muted); font-style: italic; }
+.chart a.implied { color: var(--muted); }
 .tag { display: inline-block; font-size: 11.5px; padding: 0 6px; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); white-space: nowrap; }
 .tag.der { border-style: dashed; }
 

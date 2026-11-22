@@ -27,6 +27,9 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
 
 const label = s => esc(String(s || "").replace(/-/g, " "));
 
+// A lect type as written in prose: "proto-language" keeps its hyphen, "earlier-stage" is "earlier stage".
+const typeLabel = t => t === "proto-language" ? "proto-language" : label(t);
+
 // A correspondence found only in loanwords is stored as loan-stratum and shown as "borrowed".
 const statusLabel = s => s === "loan-stratum" ? "borrowed" : String(s || "").replace(/-/g, " ");
 
@@ -143,7 +146,7 @@ function ancestorsOf(id) {
 function coverage(c) {
   if (!c) return `<span class="muted">root</span>`;
   if (!c.stated && !c.implied) return `<span class="muted" title="no correspondences entered">no data</span>`;
-  return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes have an outcome stated by the source${c.implied ? `; ${c.implied} more are implied retentions` : ""}">${c.stated}/${c.parent_size}${c.implied ? ` <span class="muted">+${c.implied} implied</span>` : ""}</span>`;
+  return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes ${c.stated === 1 ? "has" : "have"} an outcome stated by the source${c.implied ? `; ${c.implied} more ${c.implied === 1 ? "is an implied retention" : "are implied retentions"}` : ""}">${c.stated}/${c.parent_size}${c.implied ? ` <span class="muted">+${c.implied} implied</span>` : ""}</span>`;
 }
 
 function coverageText(d) {
@@ -151,8 +154,8 @@ function coverageText(d) {
   if (!c) return "root proto-language";
   const P = LECTS[d.parent_id]?.name || d.parent_id;
   if (!c.stated && !c.implied) return `no correspondences entered (the sources used give no data for ${esc(d.name)})`;
-  return `${c.stated} of the ${c.parent_size} phonemes of ${esc(P)} have an outcome stated by the source`
-    + (c.implied ? `; the other ${c.implied} are taken as retained, because the source lists only the changes` : "");
+  return `${c.stated} of the ${c.parent_size} phonemes of ${esc(P)} ${c.stated === 1 ? "has" : "have"} an outcome stated by the source`
+    + (c.implied ? `; the other ${c.implied} ${c.implied === 1 ? "is" : "are"} taken as retained, because the source lists only the changes` : "");
 }
 
 // What the build filled in because the source did not state it.

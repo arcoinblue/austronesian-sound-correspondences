@@ -277,7 +277,9 @@ def lect_full(L, D):
         ],
         "daughters": sorted(k for k, v in D["lects"].items() if v["parent_id"] == L),
         "coordinates": rec["coordinates"],
-        "changes_only": rec["changes_only_flag"],
+        # A sourced inventory is the inventory, whatever inherit says: the page shows no
+        # "changes only" notice for it.
+        "changes_only": rec["changes_only_flag"] and status != "sourced",
         # What a parent phoneme with no row does here, and where the source says so.
         "inherit": rec["inherit"] or None,
         "inherit_source_id": rec["inherit_source_id"] or None,
