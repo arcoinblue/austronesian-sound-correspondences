@@ -1,0 +1,4 @@
+lect_id,phoneme,system,symbol,source_id,page,notes,place,manner,voicing,via_source_id,via_page,via_note
+pshwng,,canonical,,kamholz2024,181,"Kamholz's spelling (§14.2), with PMP schwa written e as in the rest of the database. PSHWNG itself has no schwa: its *e is a mid front vowel, from the irregular *ə > *e in *pəñu (change 13).",,,,,,
+pyy,,canonical,,kamholz2024,184,"Kamholz's spelling; *e is a mid front vowel, as in PSHWNG.",,,,,,
+prash,,canonical,,kamholz2024,184,"Kamholz's spelling; *e is a mid front vowel, as in PSHWNG.",,,,,,
