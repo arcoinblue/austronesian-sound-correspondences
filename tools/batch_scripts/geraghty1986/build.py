@@ -127,7 +127,7 @@ elif MODE == "rotuman":
     c(P, "m", "m", page="291", locator="Table 2")
     c(P, "m", "∅", "V_u", page="292", status="sporadic", locator="Table 2", notes="Sporadic loss of intervocalic *m before *u, also in PPN: *kamu > ?au (p. 292).")
     c(P, "w", "v", page="291", locator="Table 2")
-    c(P, "t", "f", page="293", locator="Table 3", notes="Via an intermediate [θ] recorded by Hale (1846) and Turner (1884) (p. 293).")
+    c(P, "t", "f", page="293", locator="Table 3", notes="Through an intermediate stage [θ], which nineteenth-century observers recorded (p. 293).")
     c(P, "t", "t͡ʃ", "before a syllable with *j", page="293", locator="Table 3", source_form="j", notes="*t assimilated to a following j: *taji > jaji 'shave'. 'There are no counter-examples in my data' (pp. 293-294).")
     c(P, "t", "s", "before a syllable with s (from *c, *s, *z)", page="293", locator="Table 3", notes="*taci > sasi 'sea', *tazi-na > sasiga (pp. 293-294).")
     c(P, "d", "t", page="293", locator="Table 3")
