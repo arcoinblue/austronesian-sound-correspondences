@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 217 |  |
-| lects | 942 | 246 dialect, 33 earlier-stage, 9 group, 414 language, 240 proto-language |
-| phonemes | 4070 |  |
-| correspondences | 9283 | plus 10369 implied and 3451 stated retentions generated from lects.inherit |
-| notation_map | 517 |  |
+| sources | 221 |  |
+| lects | 950 | 246 dialect, 33 earlier-stage, 9 group, 420 language, 242 proto-language |
+| phonemes | 4071 |  |
+| correspondences | 9459 | plus 10495 implied and 3451 stated retentions generated from lects.inherit |
+| notation_map | 519 |  |
 | allophones | 908 |  |
-| decisions | 138 | 49 confirmed, 68 open, 21 reverted |
+| decisions | 140 | 49 confirmed, 70 open, 21 reverted |
 
-Lects by `inherit`: (blank) 194, assumed-unchanged 508, stated-unchanged 240.
-Inventories: edited 27, empty 15, reverse-generated 732, sourced 168.
+Lects by `inherit`: (blank) 194, assumed-unchanged 516, stated-unchanged 240.
+Inventories: edited 28, empty 15, reverse-generated 739, sourced 168.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 280 warning(s), 861 note(s).
+`build.py --check`: 0 error(s), 281 warning(s), 865 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
-| a work cited in notes has no sources row | 66 |
+| a work cited in notes has no sources row | 67 |
 | a source is never cited | 45 |
 | a reflex is not in the lect's sourced inventory | 19 |
 | an attested lect has symbols that are not IPA | 8 |
@@ -106,6 +106,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lrc2002-subgroups` | Ch. 5 names subgroup-defining sound changes: Proto Admiralties *R > *y before high vowels, lost elsewhere (p. 99); Southeast Solomonic merger of POc *l and *R … | Not entered: no Proto-Admiralties, Proto-Southeast Solomonic or Proto-Papuan Tip node was added, and the sketch languages are placed directly under POc (Southe… |  |  |
 | `shwng-nodes` | Which of Kamholz's SHWNG subgroups (Table 14.1) to enter as proto-languages? | Only those defined by sound changes and needed for a lect: Proto-Yaur-Yerisiam (*ŋ > ∅) and Proto-Raja Ampat–South Halmahera (*R > ∅), both directly under PSHW… |  |  |
 | `shwng-k` | PMP *k > ∅ (change 9) was probably not complete in PSHWNG: *k survives as k in some words, especially in South Halmahera and Moor. | Two rows: *k > ∅ regular, and *k > k sporadic with conditions unknown. | 2 |  |
+| `adelaar2005-ms` | Adelaar's Malayo-Sumbawan: a Malayic-Chamic-BSS branch, with Sundanese and Madurese as two other branches, excluding Javanese. Enter it as nodes? | Not entered as nodes. Proto-Chamic, Proto-Balinese-Sasak-Sumbawa, Sundanese, Madurese and Javanese are placed directly under PMP, each with the developments fr… |  |  |
+| `adelaar2005-unconditioned` | How to enter Adelaar's 'unconditioned splits' of final diphthongs and changes stated with alternatives (*R > r, y, Ø; *-aw > -u, -ò)? | One row per outcome with conditioning unknown; final diphthong mergers as fusions (V + glide), other diphthong changes as conditioned rows. Where a list item g… |  |  |
 
 <!-- END GENERATED -->
 

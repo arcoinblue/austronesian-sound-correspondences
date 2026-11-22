@@ -28,3 +28,14 @@ Section 4 lists, for each language, its phonological developments from PMP. Each
 ## Checks
 
 `batches.py check`: 0 errors, 280 warnings (as on main). The generated inventories of all eight lects were listed from a local build and checked against the lists.
+
+
+## Applied
+
+2026-11-22 14:57 UTC, by the push-batch workflow.
+- sources: sheet rows 219-222
+- lects: sheet rows 944-951
+- phonemes: sheet rows 4072-4072
+- correspondences: sheet rows 9285-9460
+- notation_map: sheet rows 519-520
+- decisions: sheet rows 140-141
