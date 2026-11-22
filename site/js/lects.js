@@ -91,8 +91,9 @@ async function pageIndex(params) {
       let mid;
       if (pivot) {
         const rs = pivot.byLect[l.id] || [];
+        const sole = soleRows(rs);
         mid = rs.length ? rs.map(r => r.child
-          ? `${phLink(r.child)} <span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> ${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}${r.alt_via ? ` <span class="muted">from ${esc(LECTS[splitPid(r.parent)[0]]?.name || "")} ${esc(sym(r.parent))}</span>` : ""}`
+          ? `${phLink(r.child)} ${sole.has(r) ? "" : `<span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> `}${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}${r.alt_via ? ` <span class="muted">from ${esc(LECTS[splitPid(r.parent)[0]]?.name || "")} ${esc(sym(r.parent))}</span>` : ""}`
           : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");

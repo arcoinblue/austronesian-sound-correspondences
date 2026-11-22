@@ -8,7 +8,7 @@
 // where the sound changes and light where it stays the same; a stage where
 // nothing changes gets a short band. Hovering a phoneme or a line picks out
 // its whole lineage.
-function ancestryHtml(g, herePid) {
+function ancestryHtml(g, herePid, opt = {}) {
   const [hereLect] = splitPid(herePid);
   const lectOf = p => splitPid(p)[0];
   const bare = p => parsePid(p).s;
@@ -243,23 +243,63 @@ function ancestryHtml(g, herePid) {
   }).join("");
   const svg = `<svg class="anc" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Ancestry diagram">
     ${bands}<g class="lines">${lines}</g>${labels}${plus}${g.nodes.filter(n => n in x).map(node).join("")}</svg>
-    <p class="anclegend">
+
+    ${keyed.length ? `<p class="anckey">${keyed.map((t, i) => `<span><b>${i + 1}</b> ${esc(t)}</span>`).join("")}</p>` : ""}
+    ${unplaced ? `<p class="muted" style="font-size:12.5px;margin:0">${unplaced} condition${unplaced === 1 ? " has" : "s have"} no room in the diagram; hover a line, or see the steps below.</p>` : ""}`;
+  const order = e => stages.indexOf(lectOf(e.child)) * 1000 + (x[e.child] ?? 0) * 10 + (x[e.parent] ?? 0);
+  if (opt.bare) return `<div class="scroll">${svg}</div>`;
+  return `<div class="scroll">${svg}</div>${ANC_LEGEND}${ancStepsHtml(g, herePid, order)}`;
+}
+
+const ANC_LEGEND = `<p class="anclegend">
       <span><svg width="28" height="10"><path class="chg" d="M2 5H26"/></svg>sound changes</span>
       <span><svg width="28" height="10"><path class="same" d="M2 5H26"/></svg>unchanged</span>
       <span><svg width="28" height="10"><path class="odd" d="M2 5H26"/></svg>sporadic, borrowed or doubtful</span>
       <span><svg width="28" height="10"><path class="imp" d="M2 5H26"/></svg>unchanged by implication</span>
       <span><b class="plusk">+</b>fusion</span>
-      <span class="muted">Hover a phoneme to trace its line; click it to open it.</span></p>
-    ${keyed.length ? `<p class="anckey">${keyed.map((t, i) => `<span><b>${i + 1}</b> ${esc(t)}</span>`).join("")}</p>` : ""}
-    ${unplaced ? `<p class="muted" style="font-size:12.5px;margin:0">${unplaced} condition${unplaced === 1 ? " has" : "s have"} no room in the diagram; hover a line, or see the steps below.</p>` : ""}`;
-  const order = e => stages.indexOf(lectOf(e.child)) * 1000 + (x[e.child] ?? 0) * 10 + (x[e.parent] ?? 0);
+      <span class="muted">Hover a phoneme to trace its line; click it to open it.</span></p>`;
+
+// Every step of the ancestry, with its condition and source, oldest stage first.
+function ancStepsHtml(g, herePid, order) {
+  const lectOf = p => splitPid(p)[0];
+  const stages = ancStagesOf(g, herePid);
+  order ||= e => stages.indexOf(lectOf(e.child)) * 1000 + g.edges.indexOf(e) / 1000;
   const steps = g.edges.slice().sort((a, b) => order(a) - order(b)).map(e => `<tr>
       <td>${lectLink(lectOf(e.child))}</td>
       <td>${phLink(e.parent)} &gt; ${e.child === herePid ? `<span class="ipa here">${esc(sym(e.child))}</span>` : phLink(e.child)}</td>
       <td>${envHtml(e)}</td><td>${badge(e.status)}</td><td>${evidence(e)}</td><td>${cite(e)}</td></tr>`).join("");
-  return `<div class="scroll">${svg}</div>
-    <details class="steps"${g.edges.length <= 6 ? " open" : ""}><summary>${g.edges.length} step${g.edges.length === 1 ? "" : "s"} with conditions and sources</summary>
+  return `<details class="steps"${g.edges.length <= 6 ? " open" : ""}><summary>${g.edges.length} step${g.edges.length === 1 ? "" : "s"} with conditions and sources</summary>
     <div class="scroll"><table><tr><th>Into</th><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th></tr>${steps}</table></div></details>`;
+}
+
+function ancStagesOf(g, herePid) {
+  const [hereLect] = splitPid(herePid);
+  return [...ancestorsOf(hereLect), hereLect].filter(l => g.nodes.some(n => splitPid(n)[0] === l));
+}
+
+// The ancestry section: one diagram, or, where that gets cluttered, one tree
+// per ancestor at a chosen stage (see ancsplit.js). The stage is picked
+// automatically and can be changed, or the split turned off.
+function ancestryBlock(g, herePid, cutLect) {
+  const lectOf = p => splitPid(p)[0];
+  const stages = ancStagesOf(g, herePid);
+  const auto = ancAutoCut(g, stages, lectOf);
+  if (cutLect === undefined) cutLect = auto || "";
+  const trees = cutLect ? ancSplitAt(g, stages, lectOf, cutLect) : null;
+  const opts = [`<option value=""${cutLect ? "" : " selected"}>one diagram</option>`].concat(stages.slice(0, -1).map(l =>
+    `<option value="${esc(l)}"${l === cutLect ? " selected" : ""}>a tree per ${esc(LECTS[l]?.name || l)} phoneme${l === auto ? " (suggested)" : ""}</option>`)).join("");
+  const control = g.edges.length > 6 || auto ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}<label>Show as <select class="anccut">${opts}</select></label></p>` : "";
+  if (!trees || trees.length < 2) return `${control}${ancestryHtml(g, herePid)}`;
+  // The regular line of descent first: trees with fewer sporadic, borrowed or doubtful steps come first.
+  const odd = t => t.g.edges.filter(e => e.status && e.status !== "regular").length;
+  const sorted = trees.map((t, i) => ({ t, i })).sort((p, q) => odd(p.t) - odd(q.t) || q.t.g.edges.length - p.t.g.edges.length || p.i - q.i).map(x => x.t);
+  const cap = t => {
+    const by = {};
+    for (const n of t.cut) (by[lectOf(n)] ||= []).push(n);
+    return "From " + Object.entries(by).map(([l, ns]) => `${ns.map(n => phLink(n)).join(", ")} <span class="muted">(${esc(LECTS[l]?.name || l)})</span>`).join("; ");
+  };
+  return `${control}<div class="anctrees">${sorted.map(t => `<figure class="anctree"><figcaption>${cap(t)}</figcaption>${ancestryHtml(t.g, herePid, { bare: true })}</figure>`).join("")}</div>
+    ${ANC_LEGEND}${ancStepsHtml(g, herePid)}`;
 }
 
 function fusionText(f) { return f.members.map(sym).join(" + ") + " fuse"; }
@@ -276,21 +316,55 @@ function descentHtml(rows, daughters) {
   rows = rows.filter(r => !r.beyond_competing);
   // Implied retentions (a changes-only source's silence) sit with the deeper rows.
   const deep = r => (r.via.length && !r.conflict) || r.derivation === "implied-retention";
-  const tr = r => `<tr class="${r.via.length || r.derivation === "implied-retention" ? "dim" : ""}${deep(r) ? " deep" : ""}">
-      <td>${lectLink(r.child_lect_id)}${r.competing ? ` <span class="badge b-disputed" title="One of two or more competing reconstructions of this stage; its own reflexes are on its pages">competing</span>` : ""}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
-      <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td>${envHtml(r)}</td>
+  if (!rows.length) return `<p class="muted">The reflexes below this stage are on the pages of its competing reconstructions.</p>`;
+  // Rows of one lect, reached the same way: one group, shown merged or one row each.
+  const gkey = r => [r.child_lect_id, r.via.join(">"), deep(r) ? 1 : 0, r.competing ? 1 : 0].join("\u0001");
+  const sole = soleRows(rows, gkey);
+  const groups = new Map();
+  for (const r of rows) { const k = gkey(r); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
+  const cls = r => [r.via.length || r.derivation === "implied-retention" ? "dim" : "", deep(r) ? "deep" : ""].filter(Boolean);
+  const lectTd = (r, span) => `<td${span > 1 ? ` rowspan="${span}"` : ""}>${lectLink(r.child_lect_id)}${r.competing ? ` <span class="badge b-disputed" title="One of two or more competing reconstructions of this stage; its own reflexes are on its pages">competing</span>` : ""}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>`;
+  const reflexTd = (r, span, brk, end) => `<td${span > 1 ? ` rowspan="${span}"` : ""}${brk ? ` class="brk${end ? " gend" : ""}"` : ""}>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>`;
+  const rest = r => `<td>${envHtml(r, sole)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${evidence(r)}</td>
       <td>${cite(r)}</td>
-      <td>${rowNote(r)}</td></tr>`;
+      <td>${rowNote(r)}</td>`;
+  const flat = rows.map(r => `<tr class="${cls(r).join(" ")}">${lectTd(r, 1)}${reflexTd(r, 1)}${rest(r)}</tr>`).join("");
+  // Merged: the lect once, then its reflexes, each source's together, the conditioned
+  // ones before the elsewhere one, as in a rule; a reflex repeated on adjacent lines
+  // is written once.
+  let merged = "";
+  for (const g of groups.values()) {
+    const srcs = [...new Set(g.map(r => r.source_id))];
+    const lines = g.map((r, i) => ({ r, i })).sort((p, q) =>
+      srcs.indexOf(p.r.source_id) - srcs.indexOf(q.r.source_id)
+      || ELSEWHERE.has(p.r.environment) - ELSEWHERE.has(q.r.environment) || p.i - q.i).map(x => x.r);
+    const same = (a, b) => a.child === b.child && (a.child || a.blank_type === b.blank_type);
+    lines.forEach((r, i) => {
+      let span = 0;
+      if (!i || !same(lines[i - 1], r)) { span = 1; while (i + span < lines.length && same(lines[i + span], r)) span++; }
+      const c = cls(r).concat(lines.length > 1 ? [i ? "gc" : "g0", i < lines.length - 1 ? "gin" : ""] : []).filter(Boolean);
+      merged += `<tr class="${c.join(" ")}">${i ? "" : lectTd(r, lines.length).replace("<td", '<td class="gend"')}${span ? reflexTd(r, span, lines.length > 1, i + span === lines.length) : ""}${rest(r)}</tr>`;
+    });
+  }
+  const multi = [...groups.values()].some(g => g.length > 1);
   const hidden = rows.filter(deep).length;
-  if (!rows.length) return `<p class="muted">The reflexes below this stage are on the pages of its competing reconstructions.</p>`;
   const shownDeep = rows.filter(r => r.via.length && r.conflict).length;
+  const head = `<tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>`;
   return `<div class="descentbox">
-    ${hidden || shownDeep ? `<p class="muted">Reflexes one level down the tree.${shownDeep ? ` ${shownDeep} deeper row(s) are listed because sources or reconstructions disagree there.` : ""}
-      ${hidden ? `<button class="more" data-n="${hidden}">Show ${hidden} deeper row(s)</button>` : ""}</p>` : ""}
-    <div class="scroll"><table><tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>${rows.map(tr).join("")}</table></div></div>`;
+    ${hidden || shownDeep || multi ? `<p class="muted">${hidden || shownDeep ? "Reflexes one level down the tree." : ""}${shownDeep ? ` ${shownDeep} deeper row(s) are listed because sources or reconstructions disagree there.` : ""}
+      ${hidden ? `<button class="more" data-n="${hidden}">Show ${hidden} deeper row(s)</button>` : ""}
+      ${multi ? `<label class="mergetoggle"><input type="checkbox" class="mergelects"${mergeLects() ? " checked" : ""}> Merge for lects</label>` : ""}</p>` : ""}
+    <div class="scroll">${multi ? `<table class="t-merged">${head}${merged}</table><table class="t-flat">${head}${flat}</table>` : `<table>${head}${flat}</table>`}</div></div>`;
+}
+
+// Whether a lect's reflexes share one row. Kept per browser where storage works.
+function mergeLects(v) {
+  try {
+    if (v !== undefined) localStorage.setItem("asc.mergeLects", v ? "1" : "0");
+    return localStorage.getItem("asc.mergeLects") !== "0";
+  } catch (e) { return v !== undefined ? v : !document.body.classList.contains("unmerged"); }
 }
 
 // Lects that another classification puts under this lect. In the tree they hang
@@ -298,11 +372,12 @@ function descentHtml(rows, daughters) {
 // listed here under the phoneme its parent phoneme becomes on the way down to this lect.
 function altDescentHtml(rows, d) {
   if (!rows || !rows.length) return "";
+  const sole = soleRows(rows);
   const tr = r => `<tr>
       <td>${lectLink(r.child_lect_id)} <span class="muted">(${srcLink(r.alt_source)})</span></td>
       <td>${phLink(r.parent)}${r.alt_via.length > 2 ? `<br><span class="muted">via ${r.alt_via.slice(1, -1).map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>
       <td>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td>${envHtml(r)}</td>
+      <td>${envHtml(r, sole)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${evidence(r)}</td>
       <td>${cite(r)}</td>
@@ -436,7 +511,7 @@ async function pagePhoneme(L, uid) {
 
     <h2>Ancestry</h2>
     ${det.ancestry_graph.edges.length
-      ? ancestryHtml(det.ancestry_graph, ph.id)
+      ? `<div class="ancblock">${ancestryBlock(det.ancestry_graph, ph.id)}</div>`
       : `<p class="muted">${d.parent_id ? "No correspondence entered for this phoneme yet." : "Root proto-language: no ancestor."}</p>`}
     ${ancestorPids.length ? `<p>Same ancestor across the family: ${ancestorPids.map(p =>
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
@@ -446,6 +521,14 @@ async function pagePhoneme(L, uid) {
     ${det.descendants.length || !(det.alt_descendants || []).length ? descentHtml(det.descendants, d.daughters.length) : ""}
     ${altDescentHtml(det.alt_descendants, d)}
     </div>`;
+  const wireAnc = () => {
+    const sel = app.querySelector(".ancblock select.anccut");
+    if (sel) sel.addEventListener("change", () => {
+      app.querySelector(".ancblock").innerHTML = ancestryBlock(det.ancestry_graph, ph.id, sel.value);
+      wireAnc();
+    });
+  };
+  wireAnc();
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
     app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
     app.querySelectorAll(".panel").forEach(x => { x.hidden = x.dataset.panel !== b.dataset.tab; });
@@ -454,6 +537,12 @@ async function pagePhoneme(L, uid) {
 }
 
 function wireMore() {
+  document.body.classList.toggle("unmerged", !mergeLects());
+  app.querySelectorAll("input.mergelects").forEach(c => c.addEventListener("change", () => {
+    const on = mergeLects(c.checked);
+    document.body.classList.toggle("unmerged", !on);
+    app.querySelectorAll("input.mergelects").forEach(x => { x.checked = on; });
+  }));
   app.querySelectorAll("button.more").forEach(b => b.addEventListener("click", () => {
     const box = b.closest(".descentbox");
     const open = box.classList.toggle("all");

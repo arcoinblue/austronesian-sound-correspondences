@@ -175,9 +175,20 @@ function describe(p) {
   return label([p.voicing, p.rounding, p.place, p.manner].filter(x => x && x !== "unknown").join(" "));
 }
 
-function envHtml(r) {
+// A reflex that is a lect's only one from its source needs no "elsewhere": with
+// nothing else to be elsewhere from, the word says nothing. Returns the rows whose
+// environment is left blank. `key` says which rows belong to the same lect.
+const ELSEWHERE = new Set(["elsewhere", "unconditioned"]);
+function soleRows(rows, key = r => r.child_lect_id) {
+  const n = {};
+  for (const r of rows) { const k = key(r) + "\u0001" + r.source_id; n[k] = (n[k] || 0) + 1; }
+  return new Set(rows.filter(r => !r.fusion && ELSEWHERE.has(r.environment) && n[key(r) + "\u0001" + r.source_id] === 1));
+}
+
+function envHtml(r, sole) {
   const env = r.fusion
     ? `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`
+    : sole && sole.has(r) ? ""
     : r.environment === "conditions unknown" ? `<span class="muted">conditions unknown</span>` : `<code>${esc(r.environment)}</code>`;
   const tags = [
     r.variety && `<span class="tag" title="variety">${esc(r.variety)}</span>`,
@@ -189,7 +200,7 @@ function envHtml(r) {
     r.derivation === "stated-retention" && `<span class="tag der" title="the source says that what it does not list is unchanged">unchanged per source</span>`,
     r.source_form && `<span class="muted" title="as printed in the source">printed ${esc(r.source_form)}</span>`,
   ].filter(Boolean);
-  return env + (tags.length ? " " + tags.join(" ") : "");
+  return env + (tags.length ? (env ? " " : "") + tags.join(" ") : "");
 }
 
 // "12 of 94" where the source gives both numbers.
