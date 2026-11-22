@@ -11,7 +11,7 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 226 |  |
 | lects | 978 | 249 dialect, 33 earlier-stage, 9 group, 438 language, 249 proto-language |
 | phonemes | 4339 |  |
-| correspondences | 9959 | plus 10467 implied and 3451 stated retentions generated from lects.inherit |
+| correspondences | 10096 | plus 10467 implied and 3451 stated retentions generated from lects.inherit |
 | notation_map | 527 |  |
 | allophones | 963 |  |
 | decisions | 153 | 52 confirmed, 79 open, 22 reverted |
@@ -21,14 +21,14 @@ Inventories: edited 28, empty 17, reverse-generated 754, sourced 179.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 286 warning(s), 921 note(s).
+`build.py --check`: 0 error(s), 289 warning(s), 929 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
 | a work cited in notes has no sources row | 66 |
 | a source is never cited | 46 |
-| a reflex is not in the lect's sourced inventory | 24 |
+| a reflex is not in the lect's sourced inventory | 27 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
 
@@ -110,7 +110,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `geraghty1986-pfj` | Proto-Fijian: Glottocode, and its *ñ ('ñ/n' in Table 6). | No Glottocode: Glottolog has no Fijian clade (Western Fijian, and Tokalau Fijian with Polynesian). PFJ keeps *ñ, which Western Fijian keeps apart (n before u, … | 1 |  |
 | `geraghty1983-communalects` | Geraghty (1983), Table 15: direct reflexes of 37 Proto-Eastern Oceanic phonemes in 38 Fijian communalects, with a key to 41 sound changes. Enter them? | Not entered in this session. The table states reflexes from Proto-Eastern Oceanic, which is not a node here (decision pocr-parents), and the scan's OCR is unus… |  |  |
 | `lynch2001-tree` | Where do the Southern Vanuatu lects go, and what happens to Sye and Anejom, which were entered from Lynch et al. (2002) directly under POc? | Proto-Southern Vanuatu under POc (in the Southern Oceanic group), with Proto-Erromango (Sye, Ura, Utaha), Proto-Tanna (Proto-Northern Tanna: North Tanna, White… |  |  |
-| `lynch2001-variants` | How are Lynch's (2001) unconditioned variants entered: 'x ~ y' ('x or y, but more often x'), the fortis/lenis splits of POc *p, *pʷ and *k, and PEr *r ~ *L? | The more frequent reflex as regular 'elsewhere', the other as regular with 'conditions unknown', each with the cell in as_printed. Parenthesised reflexes in Ap… | 17 |  |
+| `lynch2001-variants` | How are Lynch's (2001) unconditioned variants entered: 'x ~ y' ('x or y, but more often x'), the fortis/lenis splits of POc *p, *pʷ and *k, and PEr *r ~ *L? | The more frequent reflex as regular 'elsewhere', the other as regular with 'conditions unknown', each with the cell in as_printed. Parenthesised reflexes in Ap… | 18 |  |
 | `lynch2001-pnt-pst` | Appendix I prints '?' for *q in Proto-Northern and Proto-Southern Tanna. Was *q still there? | PTn *q > PNT, PST *q with status disputed; each Tanna language has *q > ∅. | 2 |  |
 | `lynch2001-psv-e` | PSV *e has two sources (POc *e; POc *a before *Ci, *Cu) with different Proto-Tanna reflexes (*i and *e; Tables 3.4-3.5). | PSV *e > PTn *i regular, and PSV *e > PTn *e with conditioning 'lexical' (scope: PSV *e from POc *a before *Ci, *Cu). Not split into two PSV phonemes, since Ly… | 1 |  |
 | `lynch2001-ipa` | Lynch's symbols for the modern Southern Vanuatu languages. | IPA, with Lynch's letter in source_symbol or source_form: y = j (glide); Anejom j = t͡ʃ, ñ = ɲ; Ura b d g and North Tanna bʷ b d = ᵐb ⁿd ᵑɡ, ᵐbʷ ᵐb ⁿd (prenasa… |  |  |

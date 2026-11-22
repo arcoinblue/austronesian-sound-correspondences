@@ -9,3 +9,9 @@ The ROT row of Tables 2-6, 11 and 14 with the conditions of the text (pp. 291-30
 ## Not entered
 
 - Rotuman vowels other than the final lowering (umlaut and metathesis are described in the Rotuman notes from Lynch et al. 2002), and the Polynesian loans.
+
+
+## Applied
+
+2026-11-22 21:31 UTC, by the push-batch workflow.
+- correspondences: sheet rows 9961-10097

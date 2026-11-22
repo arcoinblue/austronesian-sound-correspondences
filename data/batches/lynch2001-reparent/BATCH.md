@@ -14,3 +14,9 @@ The Sye and Anejom rows of Lynch (2001), the second half of batch `lynch2001` (s
 ## Checks
 
 `batches.py check`: see the PR. The Sye clusters mp, ŋk, nt are not in Sye's sourced inventory (Lynch et al. 2002), which lists unit phonemes only.
+
+
+## Applied
+
+2026-11-22 21:31 UTC, by the push-batch workflow.
+- correspondences: sheet rows 9961-10097
