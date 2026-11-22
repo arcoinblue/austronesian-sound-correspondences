@@ -41,7 +41,7 @@ async function pageIndex(params) {
   const pool = INDEX.lects.filter(l => !pivot || ancestorsOf(l.id).includes(pivot.lect));
   const inPool = new Set(pool.map(l => l.id));
   const kids = {};
-  for (const l of pool) (kids[inPool.has(l.parent_id) ? l.parent_id : ""] ||= []).push(l);
+  for (const l of pool) (kids[inPool.has(treeParent(l)) ? treeParent(l) : inPool.has(l.parent_id) ? l.parent_id : ""] ||= []).push(l);
   // Branches first, then leaves, each by the name shown: a group by its clade (Basap for
   // Pre-Basap, Aru for Proto-Aru), so that Pre-X groups sort among the clades.
   const shownName = l => l.clade || l.name.replace(/^(Proto|Pre)-/, "");
@@ -64,7 +64,7 @@ async function pageIndex(params) {
     ${pivot ? `<div class="crumb"><a href="#/lects/">All lects</a> › reflexes of ${phLink(reflex)}</div>
       <h1>Reflexes of <span class="ipa">${esc(sym(reflex))}</span> <span class="muted" style="font-size:16px">${esc(LECTS[pivot.lect].name)}</span></h1>
       <p class="muted">Each descendant lect's reflex, through every intermediate stage. Lects outside ${esc(LECTS[pivot.lect].name)} are hidden.</p>`
-      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one.</p>`}
+      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language.</p>`}
     <div class="controls">
       <input type="search" id="q" placeholder="Filter names and alternate names" aria-label="Filter">
       <span class="seg" role="group" aria-label="View">
@@ -89,21 +89,23 @@ async function pageIndex(params) {
       <th>${pivot ? "Reflex" : "Coverage"}</th></tr>`;
     const cells = l => {
       let mid;
-      if (pivot) {
+      if (pivot && l.node_only) mid = "";
+      else if (pivot) {
         const rs = pivot.byLect[l.id] || [];
         const sole = soleRows(rs);
         mid = rs.length ? rs.map(r => r.child
           ? `${phLink(r.child)} ${sole.has(r) ? "" : `<span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> `}${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}${r.alt_via ? ` <span class="muted">from ${esc(LECTS[splitPid(r.parent)[0]]?.name || "")} ${esc(sym(r.parent))}</span>` : ""}`
           : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
           : `<span class="blank">unentered</span>`;
-      } else mid = coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
+      } else mid = l.node_only ? (l.representative ? `<span class="muted">see ${lectLink(l.representative)}</span>` : "")
+        : coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
       return `<td class="nw ty">${typeLabel(l.type)}</td>
         <td class="gc">${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
         ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td class="${pivot ? "" : "cov"}">${mid}</td>`;
     };
     let body = "", shown = 0;
     if (!tree) {
-      const rows = pool.filter(l => hit(l) && visible(l)).sort((a, b) => a.name.localeCompare(b.name));
+      const rows = pool.filter(l => hit(l) && visible(l) && !l.node_only).sort((a, b) => a.name.localeCompare(b.name));
       shown = rows.length;
       body = rows.map(l => `<tr><td>${lectLink(l.id)}</td>${cells(l)}</tr>`).join("");
     } else {
@@ -127,13 +129,14 @@ async function pageIndex(params) {
           const k = shownKids(l.id).length ? kids[l.id] : null, group = k && !stageChain(l);
           const isOpen = !group || q ? true : open.has(l.id);
           const clade = group ? (l.clade || l.name) : "";
-          const afterStage = LECTS[l.parent_id]?.type === "earlier-stage" && inPool.has(l.parent_id)
-            && stageChain(LECTS[l.parent_id]);
+          const afterStage = treeParent(l) === l.parent_id && LECTS[l.parent_id]?.type === "earlier-stage"
+            && inPool.has(l.parent_id) && stageChain(LECTS[l.parent_id]);
           shown++;
           body += `<tr class="${q && !hit(l) ? "dim" : ""}">
             <td class="nm" style="--d:${depth}" title="${esc(pathOf(l))}">${afterStage ? `<span class="twist after">↳</span>` : ""}${group
               ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${l.name === "Proto-" + clade || l.name === clade
-                ? `<a class="clade" href="#/lects/${esc(l.id)}/" title="${esc(l.name)}">${esc(clade)}</a>`
+                ? (lectHref(l.id) ? `<a class="clade" href="${lectHref(l.id)}" title="${esc(l.name)}${l.representative ? ": opens " + esc(LECTS[l.representative]?.name || "") : ""}">${esc(clade)}</a>`
+                  : `<b class="clade" title="${l.type === "group" ? "a group with no proto-language entered: no page of its own" : "no page of its own: the lects under it carry the data"}">${esc(clade)}</b>`)
                 : `<b class="clade">${esc(clade)}</b> <span class="muted">·</span> ${lectLink(l.id)}`}`
               : (afterStage ? "" : `<span class="twist"></span>`) + lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${shownSize(l.id)} lect${shownSize(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
           if (k && isOpen) walk(l.id, group ? depth + 1 : depth);

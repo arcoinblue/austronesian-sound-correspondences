@@ -72,6 +72,12 @@ function inventoryHtml(L, phonemes) {
 }
 
 async function pageLect(L) {
+  // A tree node with no page: a language with a representative opens that dialect.
+  const node = LECTS[L];
+  if (node?.node_only) {
+    if (node.representative) { location.replace(`#/lects/${encodeURIComponent(node.representative)}/`); return; }
+    throw new Error(`${node.name} is a node of the lect tree, with no page of its own: its members are listed under it in the lect list.`);
+  }
   const d = await lectData(L);
   const systemTabs = systemTabsOf(d, d.systems.map(x => x.name));
   const own = d.phonemes.filter(p => inDefault(d, p));
@@ -108,7 +114,9 @@ async function pageLect(L) {
       ${d.iso639_3 ? `<dt>ISO 639-3</dt><dd>${esc(d.iso639_3)}</dd>` : ""}
       ${d.subgroup_path.length ? `<dt>Subgroup</dt><dd>${esc(d.subgroup_path.join(" > "))}</dd>` : ""}
       <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
-      ${d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
+      ${d.represents ? `<dt>Represents</dt><dd>${esc(LECTS[d.represents]?.name || d.represents)} <span class="muted">(the language's entry opens this dialect)</span></dd>`
+        : d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
+      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : ""}</dd>` : ""}
       ${d.dialects.length ? `<dt>Dialects</dt><dd>${d.dialects.map(lectLink).join(", ")}</dd>` : ""}
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
       ${d.alt_parents.length ? `<dt>Other classifications</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}

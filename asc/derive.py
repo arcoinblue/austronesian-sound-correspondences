@@ -283,7 +283,15 @@ def lect_full(L, D):
             {"op": "suppress", "ipa": p["ipa"], "reason": p["reason"], "source_id": p["source_id"]}
             for p in rec.get("_suppressed", [])
         ],
-        "daughters": sorted(k for k, v in D["lects"].items() if v["parent_id"] == L),
+        "daughters": sorted(k for k, v in D["lects"].items() if v["parent_id"] == L and not v["node_only"]),
+        # Where the lect list draws it, when that is not parent_id: a group (linkage), a
+        # language (for a dialect) or a dialect (for a sub-dialect).
+        "tree_parent": rec["tree_parent_id"] if rec["tree_parent_id"] != rec["parent_id"] else None,
+        # A tree node with no page (a group; a language with no rows of its own).
+        "node_only": rec["node_only"],
+        "representative": rec["representative"] or None,
+        # The language this lect is the representative dialect of (Duhtu for Tsou).
+        "represents": next((k for k, v in D["lects"].items() if v["representative"] == L), None),
         "coordinates": rec["coordinates"],
         # A sourced inventory is the inventory, whatever inherit says: the page shows no
         # "changes only" notice for it.
@@ -293,7 +301,8 @@ def lect_full(L, D):
         "inherit_source_id": rec["inherit_source_id"] or None,
         "inherit_page": rec["inherit_page"] or None,
         "language_id": rec["language_id"] or None,
-        "dialects": sorted(k for k, v in D["lects"].items() if v["language_id"] == L and v["type"] == "dialect"),
+        "dialects": sorted(k for k, v in D["lects"].items()
+                           if v["type"] == "dialect" and (v["language_id"] == L or v["tree_parent_id"] == L)),
         "alt_parents": rec["alt_parent_list"],
         "alt_daughters": sorted(({"lect_id": k, "source_id": a["source_id"]} for k, v in D["lects"].items()
                                  for a in v["alt_parent_list"] if a["parent_id"] == L), key=lambda x: x["lect_id"]),
@@ -358,7 +367,8 @@ def lect_json(L, D):
 
 # What the lect list needs of each lect (it is loaded on every page, so nothing more,
 # and empty values are left out). The full record is in the lect's own file.
-INDEX_FIELDS = ("id", "name", "alt_names", "type", "glottocode", "parent_id", "clade", "coverage", "index_status")
+INDEX_FIELDS = ("id", "name", "alt_names", "type", "glottocode", "parent_id", "clade", "coverage", "index_status",
+                "tree_parent", "node_only", "representative")
 
 
 def index_json(D, lect_records=None):
