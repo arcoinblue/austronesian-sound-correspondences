@@ -103,7 +103,7 @@ async function pageLect(L) {
     <h1>${esc(d.name)} ${badge(d.index_status === "changes-only" ? "changes-only" : d.inventory_status)}</h1>
     <dl class="info">
       ${d.alt_names.length ? `<dt>Also</dt><dd>${esc(d.alt_names.join(", "))}</dd>` : ""}
-      <dt>Type</dt><dd>${label(d.type)}</dd>
+      <dt>Type</dt><dd>${typeLabel(d.type)}</dd>
       ${d.glottocode ? `<dt>Glottocode</dt><dd><a href="https://glottolog.org/resource/languoid/id/${esc(d.glottocode)}" target="_blank" rel="noopener">${esc(d.glottocode)}</a></dd>` : ""}
       ${d.iso639_3 ? `<dt>ISO 639-3</dt><dd>${esc(d.iso639_3)}</dd>` : ""}
       ${d.subgroup_path.length ? `<dt>Subgroup</dt><dd>${esc(d.subgroup_path.join(" > "))}</dd>` : ""}
@@ -130,8 +130,9 @@ async function pageLect(L) {
     ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
     ${changesView && !d.changes_only ? "" : `<div id="inv">${inventoryHtml(L, own)}</div>`}
     ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
-      ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated, placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}
-      ${d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote)) ? "Grey italic = the source gives no place or manner, so the position is read off the symbol." : ""}</p>` : ""}
+      ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated from the correspondences and placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}
+      ${d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote)) ? "Italic = the source gives no place or manner, so the position is read off the symbol." : ""}
+      ${d.phonemes.some(x => x.implied) ? "Grey = implied: not mentioned by the source, taken as kept from the parent." : ""}</p>` : ""}
     ${d.changes_only ? changesTable : ""}
     ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>

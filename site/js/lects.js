@@ -42,9 +42,11 @@ async function pageIndex(params) {
   const inPool = new Set(pool.map(l => l.id));
   const kids = {};
   for (const l of pool) (kids[inPool.has(l.parent_id) ? l.parent_id : ""] ||= []).push(l);
-  // Branches first, then leaves, each by name.
+  // Branches first, then leaves, each by the name shown: a group by its clade (Basap for
+  // Pre-Basap, Aru for Proto-Aru), so that Pre-X groups sort among the clades.
+  const shownName = l => l.clade || l.name.replace(/^(Proto|Pre)-/, "");
   for (const k of Object.values(kids))
-    k.sort((x, y) => (kids[y.id] ? 1 : 0) - (kids[x.id] ? 1 : 0) || x.name.localeCompare(y.name));
+    k.sort((x, y) => (kids[y.id] ? 1 : 0) - (kids[x.id] ? 1 : 0) || shownName(x).localeCompare(shownName(y)));
   // Open to start with: the top two levels; everything in a reflex table.
   const open = mem.open ||= new Set();
   if (!open.size) {
@@ -83,7 +85,7 @@ async function pageIndex(params) {
     // A lect with no rows and no daughters with rows says nothing yet.
     const hasData = l => l.index_status !== "empty" || (kids[l.id] || []).some(hasData);
     const visible = l => !(state.hideEmpty && !pivot && !hasData(l));
-    const head = `<tr><th>Name</th><th>Type</th><th>Glottocode</th>${tree ? "" : "<th>Nearest ancestor</th>"}
+    const head = `<tr><th>Name</th><th class="ty">Type</th><th class="gc">Glottocode</th>${tree ? "" : "<th>Nearest ancestor</th>"}
       <th>${pivot ? "Reflex" : "Coverage"}</th></tr>`;
     const cells = l => {
       let mid;
@@ -94,9 +96,9 @@ async function pageIndex(params) {
           : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = coverage(l.coverage) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
-      return `<td class="nw">${label(l.type)}</td>
-        <td>${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
-        ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td>${mid}</td>`;
+      return `<td class="nw ty">${typeLabel(l.type)}</td>
+        <td class="gc">${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
+        ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td class="${pivot ? "" : "cov"}">${mid}</td>`;
     };
     let body = "", shown = 0;
     if (!tree) {
@@ -111,25 +113,29 @@ async function pageIndex(params) {
       // whose daughters all lack data has nothing to open.
       const shownKids = id => (kids[id] || []).filter(shows);
       const shownSize = id => shownKids(id).reduce((n, k) => n + 1 + shownSize(k.id), 0);
+      // An earlier stage with one daughter listed is a chain (Pre-Gayo, then Gayo), not a group.
+      const stageChain = l => l.type === "earlier-stage" && shownKids(l.id).length <= 1;
       const walk = (pid, depth) => {
         for (const l of kids[pid] || []) {
           if (!shows(l)) continue;
           // A proto-language with daughters heads a group, named after the clade
           // (Malayo-Polynesian, not Proto-Malayo-Polynesian). An earlier stage of
-          // one language (Pre-Gayo) heads none: its daughter simply follows it.
-          const k = shownKids(l.id).length ? kids[l.id] : null, group = k && l.type !== "earlier-stage";
+          // one language (Pre-Gayo > Gayo) heads none: its daughter simply follows it.
+          // An earlier stage with several daughters (Pre-Basap > four dialects) heads a
+          // group under its own name.
+          const k = shownKids(l.id).length ? kids[l.id] : null, group = k && !stageChain(l);
           const isOpen = !group || q ? true : open.has(l.id);
           const clade = group ? (l.clade || l.name) : "";
-          // The daughter of an earlier stage (Pre-Gayo > Gayo) follows it at the same depth.
-          const afterStage = LECTS[l.parent_id]?.type === "earlier-stage" && inPool.has(l.parent_id);
+          const afterStage = LECTS[l.parent_id]?.type === "earlier-stage" && inPool.has(l.parent_id)
+            && stageChain(LECTS[l.parent_id]);
           shown++;
           body += `<tr class="${q && !hit(l) ? "dim" : ""}">
             <td class="nm" style="--d:${depth}" title="${esc(pathOf(l))}">${afterStage ? `<span class="twist after">↳</span>` : ""}${group
-              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${l.name === "Proto-" + clade
+              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${l.name === "Proto-" + clade || l.name === clade
                 ? `<a class="clade" href="#/lects/${esc(l.id)}/" title="${esc(l.name)}">${esc(clade)}</a>`
                 : `<b class="clade">${esc(clade)}</b> <span class="muted">·</span> ${lectLink(l.id)}`}`
               : (afterStage ? "" : `<span class="twist"></span>`) + lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${shownSize(l.id)} lect${shownSize(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
-          if (k && isOpen) walk(l.id, l.type === "earlier-stage" ? depth : depth + 1);
+          if (k && isOpen) walk(l.id, group ? depth + 1 : depth);
           // Lects that another classification puts here: listed, dimmed, with the work that proposes it.
           if (isOpen && altKids[l.id] && !q) for (const a of altKids[l.id]) {
             if (pivot && !pivot.alt.has(a.lect.id)) continue;
