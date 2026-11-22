@@ -11,8 +11,9 @@ permissions:
   pages: write
   id-token: write
 
+# Pull-request checks have a group of their own, so that they never queue with (or displace) a deploy.
 concurrency:
-  group: pages
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.ref) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
