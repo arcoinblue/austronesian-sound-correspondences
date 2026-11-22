@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 161 |  |
+| sources | 165 |  |
 | lects | 881 | 235 dialect, 33 earlier-stage, 376 language, 237 proto-language |
-| phonemes | 2907 |  |
-| correspondences | 9164 | plus 10127 implied and 3432 stated retentions generated from lects.inherit |
+| phonemes | 2910 |  |
+| correspondences | 9183 | plus 10127 implied and 3432 stated retentions generated from lects.inherit |
 | notation_map | 514 |  |
-| decisions | 124 | 19 confirmed, 99 open, 6 reverted |
+| decisions | 127 | 19 confirmed, 102 open, 6 reverted |
 
 Lects by `inherit`: (blank) 137, assumed-unchanged 505, stated-unchanged 239.
 Inventories: edited 24, reverse-generated 735, sourced 122.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 275 warning(s), 836 note(s).
+`build.py --check`: 0 error(s), 277 warning(s), 840 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 139 |
 | a work cited in notes has no sources row | 66 |
-| a source is never cited | 41 |
+| a source is never cited | 43 |
 | a reflex is not in the lect's sourced inventory | 15 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -136,6 +136,9 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `smith-nesabah` | Northeast Sabah and Molbog (Smith 2017a: 228-235)? | Northeast Sabah (Bonggi + Idaanic, after Blust) rests on lexical innovations only; it is held back as a node, so Bonggi sits under PMP. Idaanic (Idaan, Sungai … |  |
 | `smith-nsarawak` | North Sarawak lects of Smith 2017a §2.11: nodes and voiced aspirates? | Dayic is a node (Glottolog kela1257) with its three changes (*z > d, *l > r before final *r, *-k- > *-ʔ-; pp. 238-239), and below it Proto-Kelabit (*t > s / #_… |  |
 | `blust-c` | Blust's PAn *c: stored how? | User's choice of 22 Nov 2026: a Blust-system phoneme of PAN with its own descent. The PAN notation row for Blust's c no longer points to *s (phoneme blank, lik… | 4 |
+| `tsuchida-1975` | Tsuchida’s 1975 dissertation, read directly: what changes in the 81 Tsouic rows cited to Tsuchida (1976) via Shibata (2025)? | They keep their via: Tsuchida states them against Dyen’s PAN (*D₁-*D₃, *k₁, *k₂, *S₁-*S₃, *H₁, *H₂ …), and matching those to the ACD phonemes is Shibata’s work… | 14 |
+| `via-originals-groups` | Blust (1999) and Li (1985), read directly: their subgroups as nodes? | Overlap groups only: ‘Northwest Formosan (Blust 1999)’ on Saisiyat and Pazeh; ‘Central Western Plains (Blust 1999)’ on Taokas, Babuza, Papora and Hoanya; ‘Nort… |  |
+| `ogawa-favorlang` | Li’s revised PAN > Favorlang list in Ogawa (2003): how is it entered beside Li (2005)? | Only where it differs: *R (∅ after *i and *e and word-finally, r between i’s, x elsewhere, against Li 2005’s x between a’s and ∅ elsewhere) and the one-word *y… | 4 |
 
 <!-- END GENERATED -->
 
