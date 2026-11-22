@@ -20,3 +20,14 @@ Ozanne-Rivierre, Françoise. 1992. The Proto-Oceanic consonantal system and the 
 ## Checks
 
 `batches.py check`: 0 errors; four new warnings: Geraghty's PSO reflexes r and x are not in the PNC inventory of Ozanne-Rivierre.
+
+
+## Applied
+
+2026-11-22 21:18 UTC, by the push-batch workflow.
+- sources: sheet rows 223-227
+- lects: sheet rows 952-979
+- phonemes: sheet rows 4073-4340
+- correspondences: sheet rows 9461-9960
+- notation_map: sheet rows 521-528
+- decisions: sheet rows 143-154

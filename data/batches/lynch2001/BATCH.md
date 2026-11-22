@@ -28,3 +28,15 @@ Sye and Anejom are already in the sheet under POc (from Lynch et al. 2002). Thei
 ## Checks
 
 `batches.py check` (with the other two batches of this PR): 0 errors. One new warning here: Whitesands *d > rh (a cluster) is not in its sourced inventory.
+
+
+## Applied
+
+2026-11-22 21:18 UTC, by the push-batch workflow.
+- sources: sheet rows 223-227
+- lects: sheet rows 952-979
+- phonemes: sheet rows 4073-4340
+- correspondences: sheet rows 9461-9960
+- notation_map: sheet rows 521-528
+- allophones: sheet rows 910-964
+- decisions: sheet rows 143-154
