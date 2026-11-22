@@ -698,6 +698,31 @@ class TestV3Layout(unittest.TestCase):
         bad = run(set_cells("decisions.csv", "id", "example-merger", status="maybe"))
         self.assertTrue(any("status 'maybe'" in e for e in bad.errors))
 
+    def test_decisions_comments_column(self):
+        # The sheet has `comments` as its last column and no `instructions` column.
+        def m(d):
+            p = d / "decisions.csv"
+            rows = list(csv.reader(p.read_text(encoding="utf-8").splitlines()))
+            i = rows[0].index("instructions")
+            rows = [r[:i] + r[i + 1:] for r in rows]
+            rows[1][rows[0].index("comments")] = "Check p. 21 first."
+            buf = io.StringIO()
+            csv.writer(buf, lineterminator="\n").writerows(rows)
+            p.write_text(buf.getvalue(), encoding="utf-8")
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            for f in FIXTURE.glob("*.csv"):
+                shutil.copy(f, d / f.name)
+            m(d)
+            rep = build.Report()
+            tables = build.load(d, rep)
+            self.assertFalse(rep.fatal)
+            D = build.validate_and_derive(tables, rep)
+            self.assertEqual(rep.errors, [])
+            self.assertFalse(any("different order" in w for w in rep.warnings))
+            self.assertEqual(D["decisions"]["example-merger"]["comments"], "Check p. 21 first.")
+            self.assertIn("Check p. 21 first.", build.status_md(tables, D, rep))
+
     def test_decisions_table_may_be_missing(self):
         rep = run(lambda d: [(d / "decisions.csv").unlink(),
                              set_cells("correspondences.csv", "decision", "example-merger", decision="")(d)])

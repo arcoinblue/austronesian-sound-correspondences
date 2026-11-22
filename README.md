@@ -304,6 +304,7 @@ A reading taken during data entry that the user has still to confirm: how a tabl
 | `status` | yes | `open` · `confirmed` · `reverted` |
 | `source_id`, `page` | | where the question arises |
 | `notes` | | |
+| `comments` | | optional: the user's comments on the decision (last column of the tab), free text; read by the next session with `instructions`, and shown beside open decisions in `STATUS.md` |
 
 ---
 

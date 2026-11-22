@@ -153,8 +153,9 @@ def status_md(t, D, rep, counts=None):
     out += ["## Open decisions", "",
             "From the `decisions` tab. Confirm or revert one by changing its `status` in the sheet.", ""]
     if opened:
-        out += ["| id | Question | Reading taken | Rows |", "|---|---|---|---|"]
-        out += [f"| `{d['id']}` | {_cell(d['question'])} | {_cell(d['chosen_reading'])} | {len(d['rows']) or ''} |"
+        out += ["| id | Question | Reading taken | Rows | Comments |", "|---|---|---|---|---|"]
+        out += [f"| `{d['id']}` | {_cell(d['question'])} | {_cell(d['chosen_reading'])} | {len(d['rows']) or ''} "
+                f"| {_cell(d.get('comments', ''))} |"
                 for d in opened]
     else:
         out.append("None.")
