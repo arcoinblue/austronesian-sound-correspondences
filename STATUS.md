@@ -11,16 +11,16 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 161 |  |
 | lects | 881 | 235 dialect, 33 earlier-stage, 376 language, 237 proto-language |
 | phonemes | 2907 |  |
-| correspondences | 9164 | plus 10099 implied and 3432 stated retentions generated from lects.inherit |
+| correspondences | 9164 | plus 10127 implied and 3432 stated retentions generated from lects.inherit |
 | notation_map | 514 |  |
 | decisions | 124 | 19 confirmed, 99 open, 6 reverted |
 
-Lects by `inherit`: (blank) 138, assumed-unchanged 504, stated-unchanged 239.
-Inventories: edited 24, empty 1, reverse-generated 734, sourced 122.
+Lects by `inherit`: (blank) 137, assumed-unchanged 505, stated-unchanged 239.
+Inventories: edited 24, reverse-generated 735, sourced 122.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 275 warning(s), 837 note(s).
+`build.py --check`: 0 error(s), 275 warning(s), 836 note(s).
 
 | Warnings | Count |
 |---|---|
