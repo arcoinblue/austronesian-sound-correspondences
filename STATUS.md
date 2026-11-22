@@ -13,20 +13,21 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | phonemes | 2910 |  |
 | correspondences | 9251 | plus 10112 implied and 3451 stated retentions generated from lects.inherit |
 | notation_map | 514 |  |
-| decisions | 132 | 39 confirmed, 73 open, 20 reverted |
+| allophones | 582 |  |
+| decisions | 133 | 49 confirmed, 63 open, 21 reverted |
 
 Lects by `inherit`: (blank) 152, assumed-unchanged 505, stated-unchanged 240.
 Inventories: edited 24, empty 14, reverse-generated 737, sourced 122.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 277 warning(s), 825 note(s).
+`build.py --check`: 0 error(s), 276 warning(s), 815 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
 | a work cited in notes has no sources row | 66 |
-| a source is never cited | 46 |
+| a source is never cited | 45 |
 | a reflex is not in the lect's sourced inventory | 15 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -75,7 +76,6 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `neluz-gemination` | Gemination after schwa in Northeastern Luzon | Not entered as correspondence rows: it is a change in consonant length after ə, not in any phoneme. Recorded in the notes of Proto-Northeastern Luzon and each … |  |
 | `himes-apicals` | Himes's (2) lists *j > d, *d > l / V[-back]_V and *z > d for Proto-Central Luzon, but his inventory (3) keeps *z and *j. Where do these changes go? | On the branches. (3) keeps *d, *z and *j apart, and §§2.4.4, 2.5.2, 2.5.5 and 2.6.6-2.6.8 describe the merger of *j and *z with *d, and the lenition of intervo… | 32 |
 | `himes-r-y` | Himes's Sinauna, Kapampangan and Sambalic rules for *R, after Proto-Central Luzon *R > *y | Entered on Proto-Central Luzon *y, with a note that they apply only to *y from PMP *R; as_printed keeps Himes's *R. Himes states them for *R (§§2.4.1, 2.5.1, 2… | 6 |
-| `himes-nodes` | Which Central Luzon nodes are entered? | Proto-Central Luzon with three equidistant branches, Sinauna, Kapampangan and Proto-Sambalic, as Himes concludes (p. 527). His Proto-Sambal-Sinauna (p. 510) is… |  |
 | `atayalic-node` | Goderich (2020: Tables 4.41, 4.46) gives Proto-Atayalic (Li 1981) between PAn and Proto-Atayal, with two changes from Proto-Atayalic to Proto-Atayal (*r > *ɹ, … | Not entered: pata and psed stay under PAN, and PAn > Proto-Atayal rows are stated directly. |  |
 | `atayal-nodes` | Goderich's subgroup nodes (Proto-Northern, Proto-Nuclear Northern, Proto-Southern, Proto-Nuclear Southern and Proto-Southwestern Atayal; ch. 6): where do the d… | Each change is entered at the node to which ch. 6 assigns it (Tables 6.1-6.15), and only the rest on the dialects. Exception: the affrication of *t, which ch. … |  |
 | `siraya-ipa` | Adelaar's Gospel (G) and Utrecht Manuscript (UM) symbols x, D, v, e, o, ʔ and the uncertain c, nḡ, z: how are they entered? | x as ʝ, the voiced palatal fricative of Adelaar (2014: 4 n. 2), not the velar of Adelaar (2011: 52); D kept as D (a root-initial phoneme realised d or r, with … |  |
@@ -98,18 +98,9 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `bunun-dialect-inventories` | Inventories for Takituduh, Takbanuað and Takibakha: whose? | Takituduh from Cheng (2017) via Shibata (2020: 38) and Takbanuað from Shibata (2020: 46), both with implosive ɓ, ɗ; Takibakha from Jiang (2012: 23-30), with b,… |  |
 | `litsuchida-amis` | Li & Tsuchida (2022) on Amis: where do their rows and groups go? | Their PAN > Proto-Amis list (pp. 96-97) is entered on pami (Lin’s Proto-Amis-Sakizaya) in Lin’s symbols. The list has *d > r but their summary of mergers has *… | 1 |
 | `rau-mstbon` | Rau (2000), sound change in progress in Mstbon Squliq: how? | On Squliq (sqol1237) with variety ‘Mstbon (Ruiyan)’: -p > -k, -m > -ŋ, -l > -n as regular rows (lexical diffusion in the notes), the new variants as sporadic. … | 10 |
-| `ross-sibilant-dissimilation` | Ross (2012) on sibilant dissimilation (*C > t when a sibilant follows): where? | On Tsou, Kanakanavu and Saaroa (there is no Proto-Tsouic node) and on Maga and Tona against Proto-Rukai *c, as regular conditioned rows, with the lexical exten… | 10 |
-| `lobel-pgcph` | Proto-Greater Central Philippine: node, rows and glottocode? | New node pgcph under PMP (user's choice of 22 Nov 2026: nodes with Lobel's rows). Rows only for what Lobel states in passing: *q > *ʔ, *R > *ɡ, *j > *d, *h kep… | 6 |
 | `lobel-subanen` | Subanen internal nodes (Figure 10.1)? | Proto-Subanen with Lobel's inventory (Table 10.3) under pgcph. Nodes Western Subanen (west2811), Nuclear Subanen (nucl1726) and East Nuclear Subanen (east2769)… | 4 |
 | `lobel-manide` | Manide and Inagta Alabat: where, and which reflexes? | Node Proto-Manide-Alabat (alab1255, the two languages only) directly under PMP: Lobel takes it as a primary branch of the Philippine macrogroup and there is no… |  |
-| `smith-nesabah` | Northeast Sabah and Molbog (Smith 2017a: 228-235)? | Northeast Sabah (Bonggi + Idaanic, after Blust) rests on lexical innovations only; it is held back as a node, so Bonggi sits under PMP. Idaanic (Idaan, Sungai … |  |
-| `smith-nsarawak` | North Sarawak lects of Smith 2017a §2.11: nodes and voiced aspirates? | Dayic is a node (Glottolog kela1257) with its three changes (*z > d, *l > r before final *r, *-k- > *-ʔ-; pp. 238-239), and below it Proto-Kelabit (*t > s / #_… |  |
-| `tsuchida-1975` | Tsuchida’s 1975 dissertation, read directly: what changes in the 81 Tsouic rows cited to Tsuchida (1976) via Shibata (2025)? | They keep their via: Tsuchida states them against Dyen’s PAN (*D₁-*D₃, *k₁, *k₂, *S₁-*S₃, *H₁, *H₂ …), and matching those to the ACD phonemes is Shibata’s work… | 14 |
-| `via-originals-groups` | Blust (1999) and Li (1985), read directly: their subgroups as nodes? | Overlap groups only: ‘Northwest Formosan (Blust 1999)’ on Saisiyat and Pazeh; ‘Central Western Plains (Blust 1999)’ on Taokas, Babuza, Papora and Hoanya; ‘Nort… |  |
-| `ogawa-favorlang` | Li’s revised PAN > Favorlang list in Ogawa (2003): how is it entered beside Li (2005)? | Only where it differs: *R (∅ after *i and *e and word-finally, r between i’s, x elsewhere, against Li 2005’s x between a’s and ∅ elsewhere) and the one-word *y… | 4 |
-| `li2009-direct` | Li (2009), read directly: what changes in the Taivuan and Makatau rows taken from Li & Zeitoun (2024a)? | They agree with Li’s Table 5, so they are cited to Li (2009) directly (via cleared), still restated against Proto-Siraya. Taivuan and Makatau get the overlap g… |  |
-| `engelenhoven-makuva` | Van Engelenhoven (2009) gives PMP > Makuva; Makuva hangs under Proto-Southwest Maluku (Grimes & Edwards). How are his rows entered? | Against Proto-Southwest Maluku: rows for PMP phonemes it keeps are as stated; those for its h (< *h and non-final *p), final p and ə are composed. Initial *h >… | 32 |
-| `tree-nodes-readings` | Readings taken while applying tree-nodes: which lects are in Barito and Southern Oceanic, how is Mstbon filled, and what happens to the Siraya dialect rows on … | Barito: Smith’s nine Barito lects of Tables 56-57, not Yakan. Southern Oceanic: pncv, pnc (the old overlap group) plus South Efate, Naman and Nese, which Lynch… |  |
+| `allophones-readings` | Readings taken while entering the allophones tab from the sources' descriptions (22 Nov 2026). | General statements are entered on every lect they cover: Goderich (2020: 15) on c, s and r for each Atayal dialect; Chen (2006: 60-68) on 'Paiwan' for the thre… |  |
 
 <!-- END GENERATED -->
 

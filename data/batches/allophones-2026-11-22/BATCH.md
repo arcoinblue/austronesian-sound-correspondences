@@ -27,3 +27,9 @@ Two kinds of input:
 - Loanword phonemes and morphophonemic alternations (Pazeh z ~ d in reduplication, Paiwan v ~ w at morpheme edges), except where the source calls the variants allophones.
 - Lynch (2000) on South Efate, Blust (2009) on Palauan, Blust (2014) on Dobel, Lobel (2013) on Manide and Inagta Alabat: no allophone statements for the lects' phonemes.
 - Proto-language "phonetic values" that are alternative analyses rather than allophones (Shibata's PAn *C as [ʈ] or [ʈ͡ʂ]).
+
+
+## Applied
+
+2026-11-22 13:08 UTC, by the push-batch workflow.
+- allophones: sheet rows 2-583
