@@ -6695,20 +6695,20 @@ c9d48abf742,siraya-um,ð,d,in consonant clusters,regular,,,adelaar2014,10,*ðəm
 cf6b6cc8581,siraya-um,ɣ,ʝ,elsewhere,regular,,,adelaar2014,14-15,"Written x, in all positions: *ɣuma > xuma, *waɣi > waxi.",,,,,,,,,,,,,,,
 c8ac84a708c,siraya-um,s,ʝ,elsewhere,regular,,,adelaar2014,14-16,"Written x: *simaɣ > ximax, *suap > ma-xoap. Some words lose it (*siup > m-iup, *usu > oho).",,,,,,,,,,,,,,,
 c586e34e9a7,siraya-um,s,∅,not word-final,sporadic,,,adelaar2014,16-17,*siup > m-iup; *usu > oho (with h).,,,,,,,,,,,,,,,
-c44dc087c9a,taiv1237,r,∅,elsewhere,regular,,,li2009,400-405,A late change in Taivuan alone: r is still written in a Wanli text of 1770 and h in a 1781 text (Li & Zeitoun 2024a: 26).,,lizeitoun2024a,25-26,"Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). PAN *l > ∅~h: *telu > too, toho.",,,composed,,,,,,*l > ∅~h,-11,
-cf3c2ffc0d1,taiv1237,r,h,elsewhere,regular,,,li2009,400-405,Beside ∅ (toho beside too 'three').,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014).,,,composed,,,,,,*l > ∅~h,-11,
-c22595aaec4,taiv1237,ł,l,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). *(qa)Nuang > lowan.,,,composed,,,,,,*N > l,-11,
-c00ef09af0d,taiv1237,ð,r,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). Li & Zeitoun's *D is PAN *d (*Daya > raija).,,,composed,,,,,,*D > r~d,-11,
-cc6b0e33b59,taiv1237,ð,d,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014).,,,composed,,,,,,*D > r~d,-11,
-c87382de1b5,taiv1237,k,∅,V_V,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). akosai > ausaij 'not have'.,,,composed,,,,,,*-k- > ∅,-11,
-ce9143844bc,taiv1237,s,∅,V_V,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). Proto-Siraya *s from PAN *S: dagogh > daoh 'price'.,,,composed,,,,,,"*-S-, *-R- > ∅",-11,
-c5f1b33b9fe,taiv1237,ɣ,∅,V_V,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). Proto-Siraya *ɣ from PAN *R: ligig > liih 'sand'.,,,composed,,,,,,"*-S-, *-R- > ∅",-11,
-c62f40e1be3,maka1313,r,r,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). *telu > toru.,,,composed,,,,,,*l > r,-11,
-c1a60f5bbae,maka1313,ł,n,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). *(qa)Nuang > noang.,,,composed,,,,,,*N > n,-11,
-c9c34b2a756,maka1313,ð,r,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014).,,,composed,,,,,,*D > r~d,-11,
-ce783bfcc7b,maka1313,ð,d,elsewhere,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014).,,,composed,,,,,,*D > r~d,-11,
-c3f0209d28c,maka1313,k,k,V_V,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). akusaij 'not have'.,,,composed,,,,,,*-k- > -k-~∅,-11,
-c857079f195,maka1313,k,∅,V_V,regular,,,li2009,400-405,,,lizeitoun2024a,25-26,Li & Zeitoun state the reflexes against PAN; restated against Proto-Siraya (Adelaar 2014). tarauwei 'given name'.,,,composed,,,,,,*-k- > -k-~∅,-11,
+c44dc087c9a,taiv1237,r,∅,elsewhere,regular,,,li2009,"400, 404, 407","PAn *l > ∅ ~ h (*telu > too, toho). A late change in Taivuan alone: r is still written in a Wanli text of 1770 and h in a Matau text of 1781 (p. 407). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).",,,,,,,composed,,,,,,*l > ∅~h,Table 5,
+cf3c2ffc0d1,taiv1237,r,h,elsewhere,regular,,,li2009,"400, 404",Beside ∅ (toho beside too ‘three’). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,*l > ∅~h,Table 5,
+c22595aaec4,taiv1237,ł,l,elsewhere,regular,,,li2009,"400, 404",PAn *N: *(qa)Nuang > lowan. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,*N > l,Table 5,
+c00ef09af0d,taiv1237,ð,r,elsewhere,regular,,,li2009,"402, 404","Li’s *D, *d (*Daya > raija; Wanli and Matau r ~ d). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).",,,,,,,composed,,,,,,*D > r~d,Table 5,
+cc6b0e33b59,taiv1237,ð,d,elsewhere,regular,,,li2009,"402, 404","Li’s *D, *d (Wanli and Matau r ~ d). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).",,,,,,,composed,,,,,,*D > r~d,Table 5,
+c87382de1b5,taiv1237,k,∅,V_V,regular,,,li2009,"402, 404","akosaij > ausaij ‘not have’; Li calls the loss of medial *k, *S, *R a Taivuan innovation. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).",,,,,,,composed,,,,,,*-k- > ∅,Table 5,
+ce9143844bc,taiv1237,s,∅,V_V,regular,,,li2009,"402, 404",Proto-Siraya *s from PAn *S: dagogh > daoh ‘price’. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,"*-S-, *-R- > ∅",Table 5,
+c5f1b33b9fe,taiv1237,ɣ,∅,V_V,regular,,,li2009,"402, 404",Proto-Siraya *ɣ from PAn *R: ligig > liih ‘sand’. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,"*-S-, *-R- > ∅",Table 5,
+c62f40e1be3,maka1313,r,r,elsewhere,regular,,,li2009,"400, 404",*telu > toru. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,*l > r,Table 5,
+c1a60f5bbae,maka1313,ł,n,elsewhere,regular,,,li2009,"400, 404",*(qa)Nuang > noang. Adelaar (pers. comm. in Li’s n. 9) takes Makatau n as an innovation if PAn is *L. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,*N > n,Table 5,
+c9c34b2a756,maka1313,ð,r,elsewhere,regular,,,li2009,"402, 404","Li’s *D, *d (Lower Tamtsui r ~ d). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).",,,,,,,composed,,,,,,*D > r~d,Table 5,
+ce783bfcc7b,maka1313,ð,d,elsewhere,regular,,,li2009,"402, 404","Li’s *D, *d (Lower Tamtsui r ~ d). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).",,,,,,,composed,,,,,,*D > r~d,Table 5,
+c3f0209d28c,maka1313,k,k,V_V,regular,,,li2009,"402, 404",akusaij ‘not have’. Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,*-k- > -k-~∅,Table 5,
+c857079f195,maka1313,k,∅,V_V,regular,,,li2009,"402, 404",tarauwei ‘given name’: medial *k is occasionally lost in some Makatau subdialects (p. 402 n. 7). Li states the reflexes against PAn; restated here against Proto-Siraya (Adelaar 2014).,,,,,,,composed,,,,,,*-k- > -k-~∅,Table 5,
 c5656e26702,kana1286,p,p,elsewhere,regular,,,zeitoun2024a,12,,,,,,,,,,,,,,,-3,
 c1fee134d88,kana1286,t,t,elsewhere,regular,,,zeitoun2024a,12,,,,,,,,,,,,,,,-3,
 c33253fa1d5,kana1286,k,k,elsewhere,regular,,,zeitoun2024a,12,,,,,,,,,,,,,,,-3,
@@ -9182,3 +9182,61 @@ cbeb62f7bde,babu1240,R,r,i_i,regular,,,ogawa2003,6,Label in the source: Favorlan
 c22c739afc7,babu1240,R,x,elsewhere,regular,,,ogawa2003,6,"Label in the source: Favorlang. Spelled g (gg); ch, gh and final g stand for [x] in Dutch spelling (p. 4 n.).",,,,,stated,,,,,,*DaRaq > taga ‘blood’; *kaRaC > agach ‘to bite’; *baRaq > bagga ‘lung’,,As printed: > g [x]/elsewhere,,ogawa-favorlang
 c75b6e40084,babu1240,y,d,conditions unknown,sporadic,,,ogawa2003,7,Label in the source: Favorlang. ‘An unusual reflex of *y’ in one word (n. 16); Li (2005: 183) has y > d as the regular reflex.,,,,,lexical,,,,,,*qayam > adam ‘bird’,,,,ogawa-favorlang
 c8568d7c88b,pnef,N,n,elsewhere,regular,,,blust1999a,46,"The Northern branch of East Formosan (Basay-Trobiawan, Kavalan) merged *n (from *j and *n) with *N, after the break-up of Proto-East Formosan, since Amis and Siraya do not show it (p. 46).",,,,,stated,,,,,,,,,Table 3 (p. 45),
+c7f2e8543e4,sout2883,q,∅,elsewhere,regular,,,steinhauer2009,99,PCMP *q > ∅ (*buaq > wu ‘fruit’).,,,,,stated,,composed,,,,*tanaq > kal ‘earth’,,,,steinhauer-babar
+c63aa93857c,sout2883,h,∅,elsewhere,regular,,,steinhauer2009,99-100,"Here h continues PMP *h, *z (Proto-Babar) and non-final *p (Proto-Timor-Babar); Steinhauer has all three > ∅ (*hikan > e:l, *zalan > al, *pitu > (wo-)exy). *p is kept in pant ‘hot’ (< *panas), pipy ‘goat’ and the place name Kep.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c7e1187afff,sout2883,p,∅,_#,regular,,,steinhauer2009,100,Final *p (kept as p in Proto-Timor-Babar) is lost: *malip > -moly ‘laugh’.,,,,,stated,,composed,,,,,,,,steinhauer-babar
+c57153cbc92,sout2883,k,k,#_,regular,,,steinhauer2009,101,Here k continues PCMP *t (*t > k at Proto-South Babar): kept as k root- or word-initially before a vowel (*tanaq > kal).,,,,,stated,,composed,,,,,,,,steinhauer-babar
+c4ee423d12d,sout2883,k,k,_# (after the loss of the preceding vowel),regular,,,steinhauer2009,101,"*laŋit > lalk, *ma-takut > mkak.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c7c0e704d5d,sout2883,k,x,elsewhere,regular,,,steinhauer2009,101,"*t (> +k) > x in other positions: *teliŋa > xlil, *batu > waxy, *mata > mox.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+cd4a34a1169,sout2883,k,t,n_,regular,,,steinhauer2009,101,Steinhauer: *t was not shifted after a homorganic nasal (*punti > uty ‘banana’); against Grimes & Edwards’s unconditioned *t > k at Proto-South Babar.,,,,,stated,,composed,,,,,,,,steinhauer-babar
+cdc1920de94,sout2883,t,t,elsewhere,regular,,,steinhauer2009,101,"PCMP *s > t (*susu > -tuty, *asu > uty), a drag chain after *t > k; t is interdental.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+cbcdb385ac4,sout2883,n,l,elsewhere,regular,,,steinhauer2009,102,"*n and *ŋ merged with *l as l: *bulan > wol, *ijuŋ > irl.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c65829b6f13,sout2883,n,n,_t,regular,,,steinhauer2009,102,"n before t (from *s) is secondary, after the merger with l (pant < *panas; l-/n- alternations).",,,,,stated,,composed,,,,,,,,steinhauer-babar
+cfb9f580aa9,sout2883,n,n,NV_,regular,,,steinhauer2009,102,Not changed in syllables with a nasal onset and coda: *ŋajan > non ‘name’.,,,,,stated,,composed,,,,,,,,steinhauer-babar
+ceb502e064d,sout2883,m,∅,_p,regular,,,steinhauer2009,100-101,*-mp- lost its nasal: *kampung > apl ‘belly’.,,,,,stated,,composed,,,,,,,,steinhauer-babar
+c6ea58d5e99,sout2883,w,∅,_#,regular,,,steinhauer2009,101,"Here w continues PMP *b and *w; *w is lost word-finally (*lakaw > -la, *qaləjaw > le).",,,,,stated,,composed,,,,,,,,steinhauer-babar
+ce491c3eeda,sout2883,w,b,conditions unknown,sporadic,,,steinhauer2009,100,"*b kept in berk ‘heavy’ (< *ma-bəRat), also irregular in its *R.",,,,,lexical,,composed,,,,,,,,steinhauer-babar
+c957f2d5547,sout2883,y,∅,u_#,regular,,,steinhauer2009,100,"Final *y lost after *u: *hapuy > uy, *babuy > wawy (through +wawu, +wawi).",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c221e0dcc81,sout2883,y,j,elsewhere,regular,,,steinhauer2009,100,Kept after *a (which was then lost: *matay > -moxy) and between vowels (*kayu > ay); written y.,,,,,stated,,composed,,,,,,,,steinhauer-babar
+c22370cc7ac,sout2883,i,j,_#,regular,,,steinhauer2009,102-103,"Final *-u and *-i merged as +-i (Proto-Babar *u > i /_#) and were reduced to -y: *batu > waxy, *malip > -moly.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c7f5542a07f,sout2883,ə,e,in roots that were or became monosyllabic,regular,,,steinhauer2009,103,"*nəm > wo-lem, *dəŋəR > rel.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c74c1c958bf,sout2883,ə,∅,in historically trisyllabic words,regular,,,steinhauer2009,103,"*təliŋa > xlil, *baqəRu > wa-way.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c48a9068d91,sout2883,u,o,"_C(a,ə)#, _k (penultimate syllable)",regular,,,steinhauer2009,103,"Lowered before an open syllable with a non-high vowel and before x (< *t): *bulan > wol, *kutu > oxy.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+cde974cbd59,sout2883,a,o,N_,regular,,,steinhauer2009,103,"After a nasal: *mata > mox, *maRi > -moy.",,,,,stated,,composed,,,,,,,,steinhauer-babar
+c699fe5ae52,sout2883,a,e,_i,regular,,,steinhauer2009,103,*a directly followed by *i: *waiR > wey.,,,,,stated,,composed,,,,,,,,steinhauer-babar
+cd62e30df85,maku1277,h,h,#_,regular,,,engelenhoven2009,431,"Here h continues PMP *h and non-final *p (Proto-Timor-Babar *p > h); initial PMP *p > h (*pandan > hene), while initial PMP *h is lost (*haŋin > ane).",,,,,stated,,composed,,,,,,,,engelenhoven-makuva
+c4fcf56e50d,maku1277,h,∅,elsewhere,regular,,,engelenhoven2009,431-432,PMP *h > ∅ (*wahiR > were) and *p > ∅ between vowels (*nipay > ne).,,,,,stated,,composed,,,,,,,,engelenhoven-makuva
+ca424e7d4ec,maku1277,p,∅,_#,regular,,,engelenhoven2009,431,"Final PMP *p: *ma-qudip > mori, *malip > mali.",,,,,stated,,composed,,,,,,,,engelenhoven-makuva
+c1d0ba34705,maku1277,b,h,#_,regular,,,engelenhoven2009,431,*batu > haku.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+cb96741bf6d,maku1277,b,∅,V_V,regular,,,engelenhoven2009,431,*tebuh > kiu.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c7c164e85ea,maku1277,b,∅,_#,regular,,,engelenhoven2009,431,*tutub > kuku.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c5f07e79e89,maku1277,w,w,#_,regular,,,engelenhoven2009,431,*wahiR > wera.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c171a9f5d18,maku1277,w,∅,V_V,regular,,,engelenhoven2009,431,*buwaq > hue.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c75a2196778,maku1277,w,∅,_#,regular,,,engelenhoven2009,431,*qalejaw > lera.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+cb7ee0038d2,maku1277,t,k,elsewhere,regular,,,engelenhoven2009,431,*telu > -kelu.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c21658acc7b,maku1277,d,d,#_,regular,,,engelenhoven2009,431,"Hull & Branco write d; it is now pronounced [d] or, more often, [t] (p. 432).",,,,,stated,,,,,,,,,,engelenhoven-makuva
+c85ee19b800,maku1277,d,t,#_,regular,,,engelenhoven2009,431-432,"*deŋeR > dete, tete.",,,,,stated,,,,,,,,,,engelenhoven-makuva
+c41bc090068,maku1277,d,r,V_V,regular,,,engelenhoven2009,431,*si-ida > tira.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c498fe8a496,maku1277,d,r,_#,regular,,,engelenhoven2009,431,*likud > liru.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+cbcfd2f462e,maku1277,s,t,elsewhere,regular,,,engelenhoven2009,431,"*susu > tutu, *asu > ato.",,,,,stated,,,,,,,,,,engelenhoven-makuva
+cae900664c7,maku1277,l,l,#_,regular,,,engelenhoven2009,431,*lakaw > la.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c9e046d1352,maku1277,l,l,V_V,regular,,,engelenhoven2009,431,*qulu > ulu.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+ca075e62b91,maku1277,l,∅,_VC#,regular,,,engelenhoven2009,431,"*bulan > hune, *teluR > kiru.",,,,,stated,,,,,,,,,,engelenhoven-makuva
+c83c8fd7946,maku1277,z,d͡ʒ,elsewhere,regular,,,engelenhoven2009,431,"Written j, a voiced palatal plosive (Table 1); d͡ʒ as in Grimes & Edwards’s row. *zalan > jane.",,,,,stated,,,,,,,,,,engelenhoven-makuva
+cca71470b0d,maku1277,ñ,n,elsewhere,regular,,,engelenhoven2009,431,*ñiuR > nur-ve.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c61d999400b,maku1277,k,∅,elsewhere,regular,,,engelenhoven2009,431,"*kutu > uku, *ikan > yene.",,,,,stated,,,,,,,,,,engelenhoven-makuva
+c73d565a7e8,maku1277,ŋ,n,elsewhere,regular,,,engelenhoven2009,431,*ŋajan > nade-.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c5e60d81cec,maku1277,j,r,elsewhere,regular,,,engelenhoven2009,431,*maja > mare.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+ced90e490a9,maku1277,q,∅,elsewhere,regular,,,engelenhoven2009,432,*qatey > ake.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c55f3467d23,maku1277,R,r,elsewhere,regular,,,engelenhoven2009,432,*ikuR > iru.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+cb206bf8b1a,maku1277,m,m,elsewhere,regular,,,engelenhoven2009,432,‘All PMP nasals other than *m merged in the dental nasal [n]’ (p. 432).,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c7e344ff1ac,maku1277,i,i,#(C)_,regular,,,engelenhoven2009,433,*ina > in-.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+cdddf19303b,maku1277,i,e,_C#,regular,,,engelenhoven2009,433,*qulit > ulke.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c633a19fdbe,maku1277,u,u,elsewhere,regular,,,engelenhoven2009,433,*qulu > ulu; [o] is an allophone finally.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c5a5f14d9d4,maku1277,ə,e,elsewhere,regular,,,engelenhoven2009,433,PMP *e (Proto-Timor-Babar *ə): *telu > kelu.,,,,,stated,,composed,,,,,,,,engelenhoven-makuva
+c7c4fd7271b,maku1277,a,a,elsewhere,regular,,,engelenhoven2009,433,*qabu > au.,,,,,stated,,,,,,,,,,engelenhoven-makuva
+c6285385769,maku1277,a,u,C_#,regular,,,engelenhoven2009,433,"Final *a ‘is either retained as /a/ or /u/’: *mata > maku, maka.",,,,,unknown,,,,,,,,,,engelenhoven-makuva
+c75e70003f0,litz1237,q,ɣ,_#,sporadic,,,lynch2009,63,"Final *q, when kept, merges with *k as a velar: *Rumwaq > ne/maɣ ‘house’, *tobwaq > dabaɣa- ‘belly’ (p. 63); against Lynch (2019b: 35), where Naman loses final *q.",,,,,lexical,,,,,,,,,,
+c0abc20edc4,litz1237,q,w,"_[o,u]",sporadic,,,lynch2009,63-64,Before a back vowel *q is normally w when kept: *qone > dabano/wen ‘sand’ (p. 64).,,,,,lexical,,,,,,,,,,
+cf08aea2599,litz1237,q,i,#_a,sporadic,,,lynch2009,64-65,"*qasu > ies, n/iisə- ‘smoke’; *qatop > n/iet ‘sago’. Lynch takes i (or y) to continue *q, after an article *na- (pp. 64-65).",,,,,lexical,,,,,,,,,,
+c64b354240f,nese1235,q,i,#_a,sporadic,,,lynch2009,64-65,"*qaRa(r) > n/iar ‘fence’, *qasu > n/ies ‘smoke’, *qatop > n/iat ‘sago’, *qase- > n/ias- ‘jaw’. Nese shows only the i reflex (p. 66).",,,,,lexical,,,,,,,,,,

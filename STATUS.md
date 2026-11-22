@@ -8,25 +8,25 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 165 |  |
+| sources | 171 |  |
 | lects | 881 | 235 dialect, 33 earlier-stage, 376 language, 237 proto-language |
 | phonemes | 2910 |  |
-| correspondences | 9183 | plus 10127 implied and 3432 stated retentions generated from lects.inherit |
+| correspondences | 9241 | plus 10112 implied and 3432 stated retentions generated from lects.inherit |
 | notation_map | 514 |  |
-| decisions | 127 | 19 confirmed, 102 open, 6 reverted |
+| decisions | 130 | 19 confirmed, 105 open, 6 reverted |
 
 Lects by `inherit`: (blank) 137, assumed-unchanged 505, stated-unchanged 239.
 Inventories: edited 24, reverse-generated 735, sourced 122.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 277 warning(s), 840 note(s).
+`build.py --check`: 0 error(s), 280 warning(s), 845 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 139 |
 | a work cited in notes has no sources row | 66 |
-| a source is never cited | 43 |
+| a source is never cited | 46 |
 | a reflex is not in the lect's sourced inventory | 15 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -139,6 +139,9 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `tsuchida-1975` | Tsuchida’s 1975 dissertation, read directly: what changes in the 81 Tsouic rows cited to Tsuchida (1976) via Shibata (2025)? | They keep their via: Tsuchida states them against Dyen’s PAN (*D₁-*D₃, *k₁, *k₂, *S₁-*S₃, *H₁, *H₂ …), and matching those to the ACD phonemes is Shibata’s work… | 14 |
 | `via-originals-groups` | Blust (1999) and Li (1985), read directly: their subgroups as nodes? | Overlap groups only: ‘Northwest Formosan (Blust 1999)’ on Saisiyat and Pazeh; ‘Central Western Plains (Blust 1999)’ on Taokas, Babuza, Papora and Hoanya; ‘Nort… |  |
 | `ogawa-favorlang` | Li’s revised PAN > Favorlang list in Ogawa (2003): how is it entered beside Li (2005)? | Only where it differs: *R (∅ after *i and *e and word-finally, r between i’s, x elsewhere, against Li 2005’s x between a’s and ∅ elsewhere) and the one-word *y… | 4 |
+| `li2009-direct` | Li (2009), read directly: what changes in the Taivuan and Makatau rows taken from Li & Zeitoun (2024a)? | They agree with Li’s Table 5, so they are cited to Li (2009) directly (via cleared), still restated against Proto-Siraya. Taivuan and Makatau get the overlap g… |  |
+| `steinhauer-babar` | Steinhauer (2009) states Southeast Babar against Proto-Central Malayo-Polynesian, but the lect hangs under Grimes & Edwards’s Proto-East Babar-North Marsela. H… | Restated against Proto-East Babar-North Marsela (derivation composed), skipping the changes that Grimes & Edwards already place higher up (*k > ∅, *R > ∅/r, *a… | 22 |
+| `engelenhoven-makuva` | Van Engelenhoven (2009) gives PMP > Makuva; Makuva hangs under Proto-Southwest Maluku (Grimes & Edwards). How are his rows entered? | Against Proto-Southwest Maluku: rows for PMP phonemes it keeps are as stated; those for its h (< *h and non-final *p), final p and ə are composed. Initial *h >… | 32 |
 
 <!-- END GENERATED -->
 
