@@ -7703,7 +7703,7 @@ c5af2e132a6,pbun,h,∅,_#,regular,,,shibata2020,75,,,,,,,,,,,,*qumah > *quma,,,T
 cc3fd4d5996,pbun,l,h,#_,regular,,,shibata2020,75-76,Initial *h had already been lost when *l became *h (p. 76).,,,,,,,,,,,*lawaR > *haval; *lukəNaw > *huknav; *lima > *hima; *luCuŋ > *hutuŋ,,,Table 4.17,
 cddfe8f16f7,pbun,l,∅,elsewhere,regular,,,shibata2020,75-76,Medially and finally. Li (1988) has *l > ∅ everywhere.,,,,,,,,,,,*zalan > *daan; *qəbəl > *qumbu,,,Table 4.17,
 c28b661bb30,pbun,l,l,elsewhere,loan-stratum,,,shibata2020,75,"In forms like *baliw > *mabaliv ‘to buy’, likely loans from neighbouring languages that keep *l as a liquid (p. 75).",,,,,,,,,,,,,,,
-ce36a29dfec,pbun,R,l,elsewhere,regular,,,shibata2020,75-76,"PAN *r also merged with it (*ɡərəC > *makulut, p. 76); not entered, as the canonical PAN has no *r.",,,,,,,,,,,*RamiS > *lamis; *kaRat > *kalat; *ikuR > *ikul,,,Table 4.17,
+ce36a29dfec,pbun,R,l,elsewhere,regular,,,shibata2020,75-76,"PAN *r also merged with it (*ɡərəC > *makulut, p. 76): entered against Blust’s *r (next row).",,,,,,,,,,,*RamiS > *lamis; *kaRat > *kalat; *ikuR > *ikul,,,Table 4.17,
 c3a66858d11,pbun,j,∅,elsewhere,regular,,,shibata2020,75-76,"Medial examples only. With the loss of medial *l, this formed many PB diphthongs (p. 76).",,,,,,,,,,,*ŋajan > *ŋaan,,,Table 4.17,
 c516cf3a442,pbun,m,m,elsewhere,regular,,,shibata2020,76-77,,,,,,,,,,,,,,,Table 4.18,
 c52264ac605,pbun,n,n,elsewhere,regular,,,shibata2020,76-77,,,,,,,,,,,,,,,Table 4.18,
@@ -11899,3 +11899,4 @@ ppn-g86-28,ppn,z,h,elsewhere,regular,,,geraghty1986,297,,,,,,,,,,,,,,"h,s",Table
 ppn-g86-29,ppn,z,s,conditions unknown,regular,,,geraghty1986,298,Five instances (p. 298).,,,,,unknown,,,,,,,,"h,s",Table 6,geraghty1986-ppn
 ppn-g86-30,ppn,j,t,conditions unknown,regular,,,geraghty1986,298,"'No obvious conditioning, only a tendency to *t before back vowels and *s before front vowels' (p. 298).",,,,,unknown,,,,,,,,"t,s",Table 6,geraghty1986-ppn
 ppn-g86-31,ppn,j,s,conditions unknown,regular,,,geraghty1986,298,,,,,,unknown,,,,,,,,"t,s",Table 6,geraghty1986-ppn
+c-shib20-r-l,pbun,r,l,elsewhere,regular,,,shibata2020,76,"PAN *r merged with *R as Proto-Bunun *l (p. 76). Stated against Blust’s *r, which the canonical PAN (Shibata 2025) does not reconstruct (decision alt-phoneme-links).",Blust,,,,,,,,,,*ɡərəC > *makulut,,,Table 4.17,alt-phoneme-links

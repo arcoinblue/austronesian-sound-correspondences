@@ -7,6 +7,18 @@
 // kept across visits.
 const LIST_STATE = {};
 
+// The tree labels a node by its name without Proto- or Pre- (the Type column says what it
+// is; the lect's own page keeps the full name, which the link's title gives).
+const treeName = l => l.name.replace(/^(Proto|Pre)-(?=\S)/, "");
+// A node that is not an established subgroup: a linkage. Shown in italics, after the
+// established lects and subgroups beside it.
+const isLinkage = l => l.type === "linkage" ? 1 : 0;
+function treeLink(id) {
+  const l = LECTS[id], href = lectHref(id), name = esc(l ? treeName(l) : id), full = esc(l?.name || id);
+  return href ? `<a href="${href}"${name !== full ? ` title="${full}"` : ""}>${name}</a>`
+    : `<span class="node" title="${full}: a node of the tree, with no page of its own">${name}</span>`;
+}
+
 async function pageIndex(params) {
   const reflex = params.get("reflex");
   let pivot = null;
@@ -42,11 +54,13 @@ async function pageIndex(params) {
   const inPool = new Set(pool.map(l => l.id));
   const kids = {};
   for (const l of pool) (kids[inPool.has(treeParent(l)) ? treeParent(l) : inPool.has(l.parent_id) ? l.parent_id : ""] ||= []).push(l);
-  // Branches first, then leaves, each by the name shown: a group by its clade (Basap for
+  // Established lects and subgroups first (branches, then leaves), then the nodes that are
+  // not established (linkages), each by the name shown: a group by its clade (Basap for
   // Pre-Basap, Aru for Proto-Aru), so that Pre-X groups sort among the clades.
-  const shownName = l => l.clade || l.name.replace(/^(Proto|Pre)-/, "");
+  const shownName = l => l.clade || treeName(l);
   for (const k of Object.values(kids))
-    k.sort((x, y) => (kids[y.id] ? 1 : 0) - (kids[x.id] ? 1 : 0) || shownName(x).localeCompare(shownName(y)));
+    k.sort((x, y) => isLinkage(x) - isLinkage(y) || (kids[y.id] ? 1 : 0) - (kids[x.id] ? 1 : 0)
+      || shownName(x).localeCompare(shownName(y)));
   // Open to start with: the top two levels; everything in a reflex table.
   const open = mem.open ||= new Set();
   if (!open.size) {
@@ -64,7 +78,7 @@ async function pageIndex(params) {
     ${pivot ? `<div class="crumb"><a href="#/lects/">All lects</a> › reflexes of ${phLink(reflex)}</div>
       <h1>Reflexes of <span class="ipa">${esc(sym(reflex))}</span> <span class="muted" style="font-size:16px">${esc(LECTS[pivot.lect].name)}</span></h1>
       <p class="muted">Each descendant lect's reflex, through every intermediate stage. Lects outside ${esc(LECTS[pivot.lect].name)} are hidden.</p>`
-      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language.</p>`}
+      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Linkages and proposed daughters, which are not established subgroups, are in italics, below the established lects and subgroups beside them.</p>`}
     <div class="controls">
       <input type="search" id="q" placeholder="Filter names and alternate names" aria-label="Filter">
       <span class="seg" role="group" aria-label="View">
@@ -128,22 +142,22 @@ async function pageIndex(params) {
           // group under its own name.
           const k = shownKids(l.id).length ? kids[l.id] : null, group = k && !stageChain(l);
           const isOpen = !group || q ? true : open.has(l.id);
-          const clade = group ? (l.clade || l.name) : "";
+          const clade = group ? (l.clade || treeName(l)) : "";
           const afterStage = treeParent(l) === l.parent_id && LECTS[l.parent_id]?.type === "earlier-stage"
             && inPool.has(l.parent_id) && stageChain(LECTS[l.parent_id]);
           shown++;
-          body += `<tr class="${q && !hit(l) ? "dim" : ""}">
+          body += `<tr class="${[q && !hit(l) ? "dim" : "", isLinkage(l) ? "unest" : ""].filter(Boolean).join(" ")}">
             <td class="nm" style="--d:${depth}" title="${esc(pathOf(l))}">${afterStage ? `<span class="twist after">↳</span>` : ""}${group
-              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${l.name === "Proto-" + clade || l.name === clade
+              ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${treeName(l) === clade || l.name === clade
                 ? (lectHref(l.id) ? `<a class="clade" href="${lectHref(l.id)}" title="${esc(l.name)}${l.representative ? ": opens " + esc(LECTS[l.representative]?.name || "") : ""}">${esc(clade)}</a>`
-                  : `<b class="clade" title="${l.type === "group" ? "a group with no proto-language entered: no page of its own" : "no page of its own: the lects under it carry the data"}">${esc(clade)}</b>`)
-                : `<b class="clade">${esc(clade)}</b> <span class="muted">·</span> ${lectLink(l.id)}`}`
-              : (afterStage ? "" : `<span class="twist"></span>`) + lectLink(l.id)}${group && !isOpen ? ` <span class="muted count">${shownSize(l.id)} lect${shownSize(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
+                  : `<b class="clade" title="${isLinkage(l) ? "a linkage, not an established subgroup: no proto-language, no page of its own" : l.type === "group" ? "a group with no proto-language entered: no page of its own" : "no page of its own: the lects under it carry the data"}">${esc(clade)}</b>`)
+                : `<b class="clade">${esc(clade)}</b> <span class="muted">·</span> ${treeLink(l.id)}`}`
+              : (afterStage ? "" : `<span class="twist"></span>`) + treeLink(l.id)}${group && !isOpen ? ` <span class="muted count">${shownSize(l.id)} lect${shownSize(l.id) === 1 ? "" : "s"}</span>` : ""}</td>${cells(l)}</tr>`;
           if (k && isOpen) walk(l.id, group ? depth + 1 : depth);
           // Lects that another classification puts here: listed, dimmed, with the work that proposes it.
           if (isOpen && altKids[l.id] && !q) for (const a of altKids[l.id]) {
             if (pivot && !pivot.alt.has(a.lect.id)) continue;
-            body += `<tr class="dim alt"><td class="nm" style="--d:${depth + 1}"><span class="twist"></span>${lectLink(a.lect.id)}
+            body += `<tr class="dim alt unest"><td class="nm" style="--d:${depth + 1}"><span class="twist"></span>${treeLink(a.lect.id)}
               <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">proposed daughter (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
           }
         }
@@ -152,7 +166,7 @@ async function pageIndex(params) {
       // In a reflex table, lects that another classification puts directly under the pivot's lect.
       if (pivot && !q) for (const a of altKids[pivot.lect] || []) {
         shown++;
-        body += `<tr class="alt"><td class="nm" style="--d:0"><span class="twist"></span>${lectLink(a.lect.id)}
+        body += `<tr class="alt unest"><td class="nm" style="--d:0"><span class="twist"></span>${treeLink(a.lect.id)}
           <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">proposed daughter (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
       }
     }

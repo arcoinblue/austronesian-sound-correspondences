@@ -7,7 +7,7 @@ from urllib.parse import quote
 
 # ---------------------------------------------------------------- vocabularies
 
-LECT_TYPES = {"language", "dialect", "proto-language", "earlier-stage", "group"}
+LECT_TYPES = {"language", "dialect", "proto-language", "earlier-stage", "group", "linkage"}
 # Reconstructed lects: a proto-language (ancestor of a group) and an earlier
 # stage of one language (Pre-Gayo). Both can be a parent, and their symbols are starred.
 RECONSTRUCTED = {"proto-language", "earlier-stage"}
@@ -15,6 +15,14 @@ RECONSTRUCTED = {"proto-language", "earlier-stage"}
 # proto-language entered (Central Western Plains). No rows, no page; the tree lists
 # its members (lects.tree_parent) under it.
 GROUP = "group"
+# A linkage (Southern Oceanic, the Paiwan linkages of Chuang 2024, Barito-Basap): a group that
+# is not an established subgroup. Handled as a group everywhere; the lect tree shows it in
+# italics, below the established lects and subgroups beside it.
+LINKAGE = "linkage"
+GROUP_TYPES = {GROUP, LINKAGE}
+# A lect with fewer phonemes known than this inherits the rest from its immediate ancestor
+# (as assumed-unchanged) when its `inherit` is blank.
+SMALL_INVENTORY = 13
 PUB_TYPES = {"book", "article", "chapter", "thesis", "presentation", "dataset", "other"}
 PUB_COLUMNS = ["pub_type", "container_title", "editors", "volume", "issue", "pages",
                "place", "publisher", "series", "edition"]

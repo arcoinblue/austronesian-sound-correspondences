@@ -135,7 +135,8 @@ def status_md(t, D, rep, counts=None):
             st = Counter(d["status"] for d in D["decisions"].values())
             extra = ", ".join(f"{v} {k}" for k, v in sorted(st.items()))
         out.append(f"| {name} | {n} | {extra} |")
-    inh = Counter(r["inherit"] or "(blank)" for r in D["lects"].values())
+    inh = Counter((r["inherit"] + (" (automatic, fewer than 13 phonemes known)" if r.get("inherit_auto") else ""))
+                  or "(blank)" for r in D["lects"].values())
     inv = Counter(D["inv_status"].values())
     out += ["", "Lects by `inherit`: " + ", ".join(f"{k} {v}" for k, v in sorted(inh.items())) + ".",
             "Inventories: " + ", ".join(f"{k} {v}" for k, v in sorted(inv.items())) + ".",
