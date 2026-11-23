@@ -11,26 +11,26 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 253 |  |
 | lects | 1027 | 255 dialect, 33 earlier-stage, 3 group, 455 language, 6 linkage, 275 proto-language |
 | phonemes | 4498 |  |
-| correspondences | 12082 | plus 11850 implied and 3374 stated retentions generated from lects.inherit |
+| correspondences | 12074 | plus 11850 implied and 3374 stated retentions generated from lects.inherit |
 | notation_map | 557 |  |
 | allophones | 979 |  |
-| decisions | 184 | 72 confirmed, 84 open, 28 reverted |
+| decisions | 185 | 72 confirmed, 85 open, 28 reverted |
 
 Lects by `inherit`: (blank) 172, assumed-unchanged 569, assumed-unchanged (automatic, fewer than 13 phonemes known) 47, stated-unchanged 239.
 Inventories: edited 28, empty 19, reverse-generated 798, sourced 182.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 304 warning(s), 1139 note(s).
+`build.py --check`: 0 error(s), 297 warning(s), 1135 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
 | a work cited in notes has no sources row | 74 |
 | a source is never cited | 52 |
-| a reflex is not in the lect's sourced inventory | 28 |
-| an attested lect has symbols that are not IPA | 8 |
+| a reflex is not in the lect's sourced inventory | 25 |
 | repeats the fusion row at … | 6 |
+| an attested lect has symbols that are not IPA | 4 |
 
 ## Open decisions
 
@@ -52,7 +52,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `pn-orthography` | How are the Polynesian glottal stop and velar nasal written? | ʔ and ŋ, in proto-languages and attested lects. Marck writes the glottal stop *q in proto-languages and ' in living languages (p. 34), the velar nasal ng, and … | 1 |  |
 | `pto-r` | Proto-Tongic reflex of PPn *r: loss, or l (Table A.1 vs Table 2.2)? | *r > ∅ elsewhere and *r > *l between like vowels in words beginning with a stop other than *q, both regular (Table A.1, note 1, p. 237). | 2 |  |
 | `pnp-h` | PPn *h, lost in Nuclear Polynesian except in a few words (Table 2.2 note 5). | PNP *h > ∅ regular and *h > *h sporadic; each daughter's s or h ('ø/s', 'ø/h') is entered as the reflex of that residual *h. Below PEP Table 2.2 has no *h colu… | 31 |  |
-| `marck-diffused` | Marck's diffused changes (lexical diffusion, with residue): PCE *f > *w before *a(a)h, the Nuclear Marquesic low-vowel assimilation, the Kapingamarangi final-v… | Entered as regular with their conditions, each row noting that the change did not reach every eligible word; there is no status between regular and sporadic (S… | 16 |  |
+| `marck-diffused` | Marck's diffused changes (lexical diffusion, with residue): PCE *f > *w before *a(a)h, the Nuclear Marquesic low-vowel assimilation, the Kapingamarangi final-v… | Entered as regular with their conditions, each row noting that the change did not reach every eligible word; there is no status between regular and sporadic (S… | 12 |  |
 | `mqa-general` | Marck's vowel rows and one sporadic row for 'Mqa (general)' (Table 3.1; Table 2.32), where Table 2.2 has Southern and Northern Marquesan. | Entered on both South and North Marquesan. | 10 |  |
 | `mao-f` | Māori reflex of PPn *f, printed 'wh/h' with note 13, whose text ('In some place names only. Elsewhere ' (glottal stop)') fits Tubuai's *ng. | wh regular and h with conditions unknown; note 13 taken to belong to Tubuai. | 2 |  |
 | `ren-bel` | Table 2.2 has rows Bel and Ren; Table 1.6 has only 'Ren Rennellese and Bellona'. | Ren on Rennellese (renn1242, Rennell-Bellona) and Bel on Bellona (Glottolog dialect mung1270, alternative name Mungiki). |  |  |
@@ -122,6 +122,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lynchbrotchie2010-tirax` | How are Lynch & Brotchie's (2010) Tirax reflexes and Table 3 entered? | Tirax (maee1241, new) under POc with Southern Oceanic as tree parent (like Nese, decision lynch-parents): Table 1 as its sourced inventory (dental t d n l as t… |  |  |
 | `rivierre1993-tones` | Rivierre (1993) derives the high tone of Cèmuhî, Paicî, Drubea, Numèè and Kwênyii from aspirated consonants (from PNC geminates). Is it entered? | Not yet. The data has no tone phonemes for these languages, and the rows would be PNC geminate > plain consonant with a high tone on the vowel, which the corre… |  |  |
 | `ozannerivierre1995-north` | Ozanne-Rivierre (1995) reconstructs Proto-North (Bril's PNNC) with *k > *c, *q > *k, *t > alveolar *t and *s > *t, aspirates from PNC geminates, and the subgro… | Not yet: a Proto-North node means restating every northern New Caledonian row (Bril 2020, Haudricourt & Ozanne-Rivierre 1982, Ozanne-Rivierre 1992) against it,… |  |  |
+| `ge-splits` | Grimes & Edwards print a split as 'x > a, b' with no conditions in the tree. How are the reflexes entered? | The first reflex as regular 'elsewhere'; each further reflex as regular with environment 'conditions unknown' (conditioning unknown). The source says a comma m… | 151 |  |
 
 <!-- END GENERATED -->
 
