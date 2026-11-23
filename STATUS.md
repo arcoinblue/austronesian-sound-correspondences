@@ -8,26 +8,26 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 248 |  |
-| lects | 1020 | 253 dialect, 33 earlier-stage, 3 group, 450 language, 6 linkage, 275 proto-language |
-| phonemes | 4475 |  |
-| correspondences | 11901 | plus 12111 implied and 3374 stated retentions generated from lects.inherit |
+| sources | 253 |  |
+| lects | 1027 | 255 dialect, 33 earlier-stage, 3 group, 455 language, 6 linkage, 275 proto-language |
+| phonemes | 4498 |  |
+| correspondences | 12082 | plus 12228 implied and 3374 stated retentions generated from lects.inherit |
 | notation_map | 557 |  |
-| allophones | 976 |  |
-| decisions | 177 | 72 confirmed, 77 open, 28 reverted |
+| allophones | 979 |  |
+| decisions | 184 | 72 confirmed, 84 open, 28 reverted |
 
-Lects by `inherit`: (blank) 170, assumed-unchanged 569, assumed-unchanged (automatic, fewer than 13 phonemes known) 42, stated-unchanged 239.
-Inventories: edited 28, empty 18, reverse-generated 793, sourced 181.
+Lects by `inherit`: (blank) 172, assumed-unchanged 569, assumed-unchanged (automatic, fewer than 13 phonemes known) 47, stated-unchanged 239.
+Inventories: edited 28, empty 19, reverse-generated 798, sourced 182.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 302 warning(s), 1117 note(s).
+`build.py --check`: 0 error(s), 304 warning(s), 1139 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
-| a work cited in notes has no sources row | 70 |
-| a source is never cited | 54 |
+| a work cited in notes has no sources row | 74 |
+| a source is never cited | 52 |
 | a reflex is not in the lect's sourced inventory | 28 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -115,6 +115,13 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross2011-kw` | Ross (2011) reconstructs a marginal POc *kʷ (already in the POc inventory from Ross et al. 2023) and a tentative *gʷ. Which reflexes are entered? | POc *kʷ > PCP *kʷ, PMc *k, PNCV *k (the PPn *k row was removed when PPn moved under PCP, whose *kʷ > PPn *k Geraghty gives) (stated for the groups), and Rotuma… |  |  |
 | `temotu-tree` | How are the Temotu languages placed? Ross & Næss (2007): Temotu > RSC, Utupua-Vanikoro (> Utupua, Buma, Vano, Tanema, no Vanikoro node). Lackey & Boerger (2021… | Reverted 23 November 2026: Teanu, Lovono and Tanema under Proto-Vanikoro (Lackey & Boerger 2021; François 2009), which is under Proto-Temotu; Proto-Utupua-Vani… |  |  |
 | `temotu-composed` | Ross & Næss's Table 2 states POc > language. How is it restated against the new nodes, and where it disagrees with Lackey & Boerger (2021)? | Each cell is restated against the lect's parent: PTm (*r, *l > *l; *s, *c, *j > *s), PRSC (Lackey & Boerger's Table 2) and Proto-Utupua; a cell that the parent… | 124 |  |
+| `biggs1965-sets` | Biggs (1965) gives two sets of Rotuman reflexes of Proto-Eastern Oceanic consonants (Table 5): Set I in directly inherited words, Set II in words that re-enter… | Set II only, as loan-stratum rows on Rotuman against PCP (stratum 'Set II (indirect inheritance)'): Set I is Geraghty's (1986) PCP > Rotuman table, already in … |  |  |
+| `lynch2003b-ploy` | Lynch (2003b) reconstructs Proto-Loyalties (PLoy) with aspirates from PNC geminates and palatalised bilabials. Is a PLoy node entered, and what is stated again… | Yes: Proto-Loyalties (ploy, Glottolog loya1239, Iaai, Drehu and Nengone) under PNC, assumed-unchanged from PNC except PNC *pp > PLoy *pʰ, the one change Lynch … |  |  |
+| `lynch2019a-scope` | Lynch (2019a) describes the linguolabial shift in about fifteen languages, many known only from short wordlists (Table 4). Which are entered, and where do the … | Entered: PNCV *p, *pʷ > *v, *vʷ; V'ënen Taut (new, Table 1), Sakao (Table 2) and Araki (11)-(12) against PNCV; Nengone through Proto-Loyalties (batch lynch2003… |  |  |
+| `lynch2022-poc-vowels` | Lynch (2022: §7) argues that POc kept PMP *ə, so that its vowels were /i ə a o u/, /i e ə a u/ or /i e ə a o u/, rather than /i e a o u/. Is this entered? | Not as a reconstruction system of POc: Lynch leaves the system open between three alternatives and gives no POc forms in it. Entered are the Southern Vanuatu f… |  |  |
+| `lynchbrotchie2010-tirax` | How are Lynch & Brotchie's (2010) Tirax reflexes and Table 3 entered? | Tirax (maee1241, new) under POc with Southern Oceanic as tree parent (like Nese, decision lynch-parents): Table 1 as its sourced inventory (dental t d n l as t… |  |  |
+| `rivierre1993-tones` | Rivierre (1993) derives the high tone of Cèmuhî, Paicî, Drubea, Numèè and Kwênyii from aspirated consonants (from PNC geminates). Is it entered? | Not yet. The data has no tone phonemes for these languages, and the rows would be PNC geminate > plain consonant with a high tone on the vowel, which the corre… |  |  |
+| `ozannerivierre1995-north` | Ozanne-Rivierre (1995) reconstructs Proto-North (Bril's PNNC) with *k > *c, *q > *k, *t > alveolar *t and *s > *t, aspirates from PNC geminates, and the subgro… | Not yet: a Proto-North node means restating every northern New Caledonian row (Bril 2020, Haudricourt & Ozanne-Rivierre 1982, Ozanne-Rivierre 1992) against it,… |  |  |
 
 <!-- END GENERATED -->
 
