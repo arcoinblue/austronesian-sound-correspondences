@@ -147,7 +147,7 @@ function rowNote(r, limit = 140) {
 
 function tabsHtml(names, on) {
   return `<div class="tabs" role="tablist">${names.map(n =>
-    `<button role="tab" data-tab="${esc(n.key)}" class="${n.key === on ? "on" : ""}">${esc(n.label)}</button>`).join("")}</div>`;
+    `<button role="tab" data-tab="${esc(n.key)}" aria-selected="${n.key === on}" class="${n.key === on ? "on" : ""}">${esc(n.label)}</button>`).join("")}</div>`;
 }
 
 function ancestorsOf(id) {

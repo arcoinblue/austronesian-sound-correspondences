@@ -144,6 +144,11 @@ _c("ɓ", "bilabial", "implosive", "voiced"); _c("ɗ", "alveolar", "implosive", "
 _c("t͡s ts", "alveolar", "affricate", "voiceless"); _c("d͡z dz", "alveolar", "affricate", "voiced")
 _c("t͡ʃ tʃ", "postalveolar", "affricate", "voiceless"); _c("d͡ʒ dʒ", "postalveolar", "affricate", "voiced")
 _c("t͡ɕ tɕ", "alveolo-palatal", "affricate", "voiceless"); _c("d͡ʑ dʑ", "alveolo-palatal", "affricate", "voiced")
+# The one-letter affricate ligatures some sources print (Grimes & Edwards 2026: ʤ, ʧ).
+_c("ʦ", "alveolar", "affricate", "voiceless"); _c("ʣ", "alveolar", "affricate", "voiced")
+_c("ʧ", "postalveolar", "affricate", "voiceless"); _c("ʤ", "postalveolar", "affricate", "voiced")
+_c("ʄ", "palatal", "implosive", "voiced"); _c("ɠ", "velar", "implosive", "voiced")
+_c("ʙ", "bilabial", "trill", "voiced"); _c("ʍ", "labial-velar", "fricative", "voiceless")
 _c("m", "bilabial", "nasal", "voiced"); _c("n", "alveolar", "nasal", "voiced")
 _c("n̪", "dental", "nasal", "voiced"); _c("ɳ", "retroflex", "nasal", "voiced")
 _c("ɲ", "palatal", "nasal", "voiced"); _c("ŋ", "velar", "nasal", "voiced")
@@ -221,6 +226,9 @@ IMPLIED_IPA = {
           ("palatal", "fricative", None): "ʝ"},
     "c": {("palatal", "affricate", None): "t͡ʃ"},
     "S": {("retroflex", "fricative", None): "ʂ", ("postalveolar", "fricative", None): "ʃ"},
+    # The ligatures are not current IPA: an attested lect gets the tie-bar spelling.
+    "ʤ": {("postalveolar", "affricate", None): "d͡ʒ"},
+    "ʧ": {("postalveolar", "affricate", None): "t͡ʃ"},
 }
 
 

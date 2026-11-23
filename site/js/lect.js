@@ -160,7 +160,7 @@ async function pageLect(L) {
       ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
         <td class="ipa">${esc(x.ipa)}</td><td>${fold(x.reason)}</td><td>${srcLink(x.source_id)}</td></tr>`).join("")}</table>` : ""}`;
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
-    app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+    app.querySelectorAll(".tabs button").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-selected", String(x === b)); });
     const sys = d.systems.find(x => x.name === b.dataset.tab);
     app.querySelector("#inv").innerHTML = sys
       ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol opens the matching ${esc(d.default_label)} phoneme with this system's tab.</p>`

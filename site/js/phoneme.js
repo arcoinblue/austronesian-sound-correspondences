@@ -562,7 +562,7 @@ async function pagePhoneme(L, uid) {
   };
   wireAnc();
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
-    app.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+    app.querySelectorAll(".tabs button").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-selected", String(x === b)); });
     app.querySelectorAll(".panel").forEach(x => { x.hidden = x.dataset.panel !== b.dataset.tab; });
   }));
   wireMore();
