@@ -116,7 +116,11 @@ function ancestryHtml(g, herePid, opt = {}) {
   const fanIn = Math.max(1, ...Object.values(up).map(u => u.size));
   const widest = Math.max(...stages.map(l => rows[l].length));
   const COL = widest > 7 ? 74 : 92, FULL = 92 + Math.min(fanIn, 6) * 7, SHORT = 50, TOP = 26;
-  const LEFT = Math.min(210, 24 + Math.max(...stages.map(l => (LECTS[l]?.name || l).length)) * 6.7);
+  // opt.folds: runs of unchanged stages taken out of the graph (ancFold), noted under the stage above each.
+  const foldAfter = Object.fromEntries((opt.folds || []).map(f => [f.after, f]));
+  const foldText = f => `⋯ ${f.lects.length} stage${f.lects.length === 1 ? "" : "s"} unchanged`;
+  const LEFT = Math.max(Math.min(210, 24 + Math.max(...stages.map(l => (LECTS[l]?.name || l).length)) * 6.7),
+    ...(opt.folds || []).map(f => 22 + foldText(f).length * 6.2));
   const rowY = [];
   stages.forEach((l, i) => { rowY.push(i ? rowY[i - 1] + [FULL, SHORT, SHORT + 20][quiet[i]] : TOP); });
   const minX = Math.min(...Object.values(x)), maxX = Math.max(...Object.values(x));
@@ -239,7 +243,8 @@ function ancestryHtml(g, herePid, opt = {}) {
   const bands = stages.map((l, i) => {
     const y0 = i ? (rowY[i - 1] + rowY[i]) / 2 : 0, y1 = i < stages.length - 1 ? (rowY[i] + rowY[i + 1]) / 2 : H;
     return `${i % 2 ? `<rect class="band" x="0" y="${y0}" width="${W}" height="${y1 - y0}"/>` : ""}
-      <a href="#/lects/${esc(l)}/"><text class="stage${l === hereLect ? " here" : ""}" x="8" y="${rowY[i] + 4}">${esc(LECTS[l]?.name || l)}</text></a>`;
+      <a href="#/lects/${esc(l)}/"><text class="stage${l === hereLect ? " here" : ""}" x="8" y="${rowY[i] + 4}">${esc(LECTS[l]?.name || l)}</text></a>${foldAfter[l]
+        ? `<text class="foldmark" x="8" y="${rowY[i] + 21}" tabindex="0" role="button"><title>${esc(`Unchanged through ${foldAfter[l].lects.map(x => LECTS[x]?.name || x).join(", ")}${foldAfter[l].implied ? ` (${foldAfter[l].implied} by implication: not mentioned by a source that lists only the changes)` : ""}. Click to show every stage.`)}</title>${esc(foldText(foldAfter[l]))}</text>` : ""}`;
   }).join("");
   const svg = `<svg class="anc" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Ancestry diagram">
     ${bands}<g class="lines">${lines}</g>${labels}${plus}${g.nodes.filter(n => n in x).map(node).join("")}</svg>
@@ -248,7 +253,8 @@ function ancestryHtml(g, herePid, opt = {}) {
     ${unplaced ? `<p class="muted" style="font-size:12.5px;margin:0">${unplaced} condition${unplaced === 1 ? " has" : "s have"} no room in the diagram; hover a line, or see the steps below.</p>` : ""}`;
   const order = e => stages.indexOf(lectOf(e.child)) * 1000 + (x[e.child] ?? 0) * 10 + (x[e.parent] ?? 0);
   if (opt.bare) return `<div class="scroll">${svg}</div>`;
-  return `<div class="scroll">${svg}</div>${ANC_LEGEND}${ancStepsHtml(g, herePid, order)}`;
+  // The steps are listed in full, the folded ones too.
+  return `<div class="scroll">${svg}</div>${ANC_LEGEND}${opt.steps ? ancStepsHtml(opt.steps, herePid) : ancStepsHtml(g, herePid, order)}`;
 }
 
 const ANC_LEGEND = `<p class="anclegend">
@@ -280,23 +286,45 @@ function ancStagesOf(g, herePid) {
 // The ancestry section: one diagram, or, where that gets cluttered, one tree
 // per ancestor at a chosen stage (see ancsplit.js). The stage is picked
 // automatically and can be changed, or the split turned off.
-function ancestryBlock(g, herePid, cutLect, regularOnly) {
+// st: what the reader has set. cut: the stage to split at (undefined = the suggested one,
+// "" = one diagram); regular: "Regular changes only"; fold: fold the unchanged stages
+// (undefined = fold a history of more than ANC_FOLD_OVER stages); from: the stage to start at.
+const ANC_FOLD_OVER = 5;
+function ancestryBlock(full, herePid, st = {}) {
+  const lectOf = p => splitPid(p)[0];
+  const bareSym = p => parsePid(p).s;
+  const allStages = ancStagesOf(full, herePid);
+  const from = allStages.slice(0, -1).includes(st.from) ? st.from : "";
+  let g = ancFrom(full, allStages, lectOf, from);
   // "Regular changes only": offered when it leaves a history and removes something.
   const regular = ancRegularOnly(g, herePid);
   const dropped = g.edges.length - regular.edges.length;
   const canFilter = dropped > 0 && regular.edges.length > 0;
   const allSteps = g.edges.length;
-  if (regularOnly && canFilter) g = regular;
-  const filterBox = canFilter ? ` <label class="ancregbox" title="Hide sporadic, borrowed and doubtful changes and the lines that reach this phoneme only through them"><input type="checkbox" class="ancreg"${regularOnly ? " checked" : ""}> Regular changes only <span class="muted">(${regularOnly ? "hides" : "would hide"} ${dropped} of ${allSteps} steps)</span></label>` : "";
-  const lectOf = p => splitPid(p)[0];
+  const regularOnly = !!st.regular && canFilter;
+  if (regularOnly) g = regular;
+  const filterBox = canFilter ? ` <label class="ancbox" title="Hide sporadic, borrowed and doubtful changes and the lines that reach this phoneme only through them"><input type="checkbox" class="ancreg"${regularOnly ? " checked" : ""}> Regular changes only <span class="muted">(${regularOnly ? "hides" : "would hide"} ${dropped} of ${allSteps} steps)</span></label>` : "";
+  // Folding: offered when some stage is unchanged; on by itself for a long history.
+  const unfolded = g, stagesBefore = ancStagesOf(g, herePid);
+  const fo = ancFold(g, stagesBefore, lectOf, bareSym);
+  const nFold = fo.folds.reduce((n, f) => n + f.lects.length, 0);
+  const fold = nFold > 0 && (st.fold === undefined ? stagesBefore.length > ANC_FOLD_OVER : !!st.fold);
+  if (fold) g = fo.g;
+  const foldBox = nFold ? ` <label class="ancbox" title="Take out the stages in which every phoneme of this history stays the same"><input type="checkbox" class="ancfold"${fold ? " checked" : ""}> Fold unchanged stages <span class="muted">(${nFold} of ${stagesBefore.length})</span></label>` : "";
+  const fromBox = allStages.length > 3 ? ` <label class="ancbox">From <select class="ancfrom">${allStages.slice(0, -1).map((l, i) =>
+    `<option value="${i ? esc(l) : ""}"${l === (from || allStages[0]) ? " selected" : ""}>${esc(LECTS[l]?.name || l)}</option>`).join("")}</select></label>` : "";
+  const drawOpt = { folds: fold ? fo.folds : [], steps: fold ? unfolded : null };
   const stages = ancStagesOf(g, herePid);
   const auto = ancAutoCut(g, stages, lectOf);
-  if (cutLect === undefined) cutLect = auto || "";
+  let cutLect = st.cut;
+  if (cutLect === undefined || (cutLect && !stages.includes(cutLect))) cutLect = auto || "";
   const trees = cutLect ? ancSplitAt(g, stages, lectOf, cutLect) : null;
   const opts = [`<option value=""${cutLect ? "" : " selected"}>one diagram</option>`].concat(stages.slice(0, -1).map(l =>
     `<option value="${esc(l)}"${l === cutLect ? " selected" : ""}>a tree per ${esc(LECTS[l]?.name || l)} phoneme${l === auto ? " (suggested)" : ""}</option>`)).join("");
-  const control = g.edges.length > 6 || auto || canFilter ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}${g.edges.length > 6 || auto ? `<label class="anccutbox">Show as <select class="anccut">${opts}</select></label>` : ""}${filterBox}</p>` : "";
-  if (!trees || trees.length < 2) return `${control}${ancestryHtml(g, herePid)}`;
+  const cutBox = g.edges.length > 6 || auto ? `<label class="anccutbox">Show as <select class="anccut">${opts}</select></label>` : "";
+  const control = cutBox || fromBox || filterBox || foldBox ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}${cutBox}${fromBox}${filterBox}${foldBox}</p>` : "";
+  const summary = ancSummary(regular.edges.length ? ancFold(regular, ancStagesOf(regular, herePid), lectOf, bareSym).g : fo.g, herePid);
+  if (!trees || trees.length < 2) return `${control}${summary}${ancestryHtml(g, herePid, drawOpt)}`;
   // The regular line of descent first: trees with fewer sporadic, borrowed or doubtful steps come first.
   const odd = t => t.g.edges.filter(e => e.status && e.status !== "regular").length;
   const sorted = trees.map((t, i) => ({ t, i })).sort((p, q) => odd(p.t) - odd(q.t) || q.t.g.edges.length - p.t.g.edges.length || p.i - q.i).map(x => x.t);
@@ -305,12 +333,30 @@ function ancestryBlock(g, herePid, cutLect, regularOnly) {
     for (const n of t.cut) (by[lectOf(n)] ||= []).push(n);
     return "From " + Object.entries(by).map(([l, ns]) => `${ns.map(n => phLink(n)).join(", ")} <span class="muted">(${esc(LECTS[l]?.name || l)})</span>`).join("; ");
   };
-  return `${control}<div class="anctrees">${sorted.map(t => `<figure class="anctree"><figcaption>${cap(t)}</figcaption>${ancestryHtml(t.g, herePid, { bare: true })}</figure>`).join("")}</div>
-    ${ANC_LEGEND}${ancStepsHtml(g, herePid)}`;
+  return `${control}${summary}<div class="anctrees">${sorted.map(t => `<figure class="anctree"><figcaption>${cap(t)}</figcaption>${ancestryHtml(t.g, herePid, { bare: true, folds: drawOpt.folds.filter(f => t.g.nodes.some(n => lectOf(n) === f.after)) })}</figure>`).join("")}</div>
+    ${ANC_LEGEND}${ancStepsHtml(unfolded, herePid)}`;
 }
 
-// The reader's choice of "Regular changes only", kept across pages and visits.
-function ancRegularPref() { try { return localStorage.getItem("asc-anc-regular") === "1"; } catch (e) { return false; } }
+// The history in one line: the regular line of descent, a stage at a time, without the stages
+// where nothing changes. "Proto-Central Pacific *t, *d, *j > Proto-Polynesian *t > Hawaiian k".
+function ancSummary(g, herePid) {
+  const lectOf = p => splitPid(p)[0];
+  const stages = ancStagesOf(g, herePid);
+  if (stages.length < 2) return "";
+  const part = l => {
+    const ns = g.nodes.filter(n => lectOf(n) === l && !n.endsWith(":∅"));
+    if (!ns.length) return "";
+    const shown = ns.slice(0, 5).map(n => n === herePid ? `<span class="ipa here">${esc(sym(n))}</span>` : phLink(n)).join(", ");
+    return `<span class="nw">${esc(LECTS[l]?.name || l)} ${shown}${ns.length > 5 ? `, … (${ns.length})` : ""}</span>`;
+  };
+  return `<p class="ancsum" title="The regular line of descent, without the stages where nothing changes">${stages.map(part).filter(Boolean).join(" &gt; ")}</p>`;
+}
+
+// A choice of the reader kept across pages and visits (read, or written when a value is given).
+function ancPref(key, value) {
+  try { if (value === undefined) return localStorage.getItem(key) || ""; localStorage.setItem(key, value); } catch (e) {}
+  return "";
+}
 
 function fusionText(f) { return f.members.map(sym).join(" + ") + " fuse"; }
 
@@ -553,7 +599,7 @@ async function pagePhoneme(L, uid) {
 
     <h2>Ancestry</h2>
     ${det.ancestry_graph.edges.length
-      ? `<div class="ancblock">${ancestryBlock(det.ancestry_graph, ph.id, undefined, ancRegularPref())}</div>`
+      ? `<div class="ancblock">${ancestryBlock(det.ancestry_graph, ph.id, { regular: ancPref("asc-anc-regular") === "1", fold: { "1": true, "0": false }[ancPref("asc-anc-fold")] })}</div>`
       : `<p class="muted">${d.parent_id ? "No correspondence entered for this phoneme yet." : "Root proto-language: no ancestor."}</p>`}
     ${ancestorPids.length ? `<p>Same ancestor across the family: ${ancestorPids.map(p =>
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
@@ -563,15 +609,24 @@ async function pagePhoneme(L, uid) {
     ${det.descendants.length || !(det.alt_descendants || []).length ? descentHtml(det.descendants, d.daughters.length) : ""}
     ${altDescentHtml(det.alt_descendants, d)}
     </div>`;
+  // What the reader has set in the ancestry section; "Regular changes only" and the folding
+  // are kept across pages and visits.
+  const anc = { cut: undefined, from: "", regular: ancPref("asc-anc-regular") === "1",
+                fold: { "1": true, "0": false }[ancPref("asc-anc-fold")] };
   const wireAnc = () => {
-    const sel = app.querySelector(".ancblock select.anccut"), reg = app.querySelector(".ancblock input.ancreg");
-    const redraw = cut => { app.querySelector(".ancblock").innerHTML = ancestryBlock(det.ancestry_graph, ph.id, cut, ancRegularPref()); wireAnc(); };
-    if (sel) sel.addEventListener("change", () => redraw(sel.value));
-    // The box changes what there is to split, so the split is chosen again.
-    if (reg) reg.addEventListener("change", () => {
-      try { localStorage.setItem("asc-anc-regular", reg.checked ? "1" : ""); } catch (e) {}
-      redraw(undefined);
-    });
+    const block = app.querySelector(".ancblock");
+    if (!block) return;
+    const redraw = () => { block.innerHTML = ancestryBlock(det.ancestry_graph, ph.id, anc); wireAnc(); };
+    const on = (sel, ev, f) => block.querySelectorAll(sel).forEach(x => x.addEventListener(ev, e => { f(x, e); redraw(); }));
+    on("select.anccut", "change", x => { anc.cut = x.value; });
+    // The other controls change what there is to split, so the split is chosen again.
+    on("select.ancfrom", "change", x => { anc.from = x.value; anc.cut = undefined; });
+    on("input.ancreg", "change", x => { anc.regular = x.checked; anc.cut = undefined; ancPref("asc-anc-regular", x.checked ? "1" : ""); });
+    on("input.ancfold", "change", x => { anc.fold = x.checked; anc.cut = undefined; ancPref("asc-anc-fold", x.checked ? "1" : "0"); });
+    const unfold = () => { anc.fold = false; anc.cut = undefined; };
+    on("text.foldmark", "click", unfold);
+    block.querySelectorAll("text.foldmark").forEach(x => x.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); unfold(); redraw(); } }));
   };
   wireAnc();
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
