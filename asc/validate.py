@@ -87,10 +87,10 @@ def validate_and_derive(t, rep: Report):
         if r["glottocode"]:
             if not GLOTTOCODE_RE.match(r["glottocode"]):
                 rep.error(w, f"glottocode {r['glottocode']!r} is malformed")
-            elif r["id"] != r["glottocode"] and r["type"] not in RECONSTRUCTED | {GROUP}:
+            elif r["id"] != r["glottocode"] and r["type"] not in RECONSTRUCTED | GROUP_TYPES:
                 # Checked once the tree is known: a sub-dialect may share the code of the lect it is listed under.
                 r["_code_differs"] = True
-        elif r["type"] not in RECONSTRUCTED | {GROUP}:
+        elif r["type"] not in RECONSTRUCTED | GROUP_TYPES:
             rep.warn(w, "no glottocode")
         if r["iso639_3"] and not ISO_RE.match(r["iso639_3"]):
             rep.error(w, f"iso639_3 {r['iso639_3']!r} is malformed")
@@ -112,7 +112,7 @@ def validate_and_derive(t, rep: Report):
         r["clade_label"] = r["clade"] or (re.sub(r"^Proto-", "", r["name"]) if r["type"] == "proto-language" else "")
         r["tree_parent"] = r.get("tree_parent", "").strip()
         r["representative"] = r.get("representative", "").strip()
-        if r["type"] == GROUP:
+        if r["type"] in GROUP_TYPES:
             for col in ("inherit", "language_id", "alt_parents", "competes_with", "clade"):
                 if r[col]:
                     rep.warn(w, f"{col} does not apply to a group (a tree node with no rows); ignored")
@@ -213,7 +213,7 @@ def validate_and_derive(t, rep: Report):
     # dialect (for its sub-dialects). Blank: a dialect goes under its language_id when the
     # two have the same parent_id; anything else under its parent_id. A tree parent sits
     # under the same reconstructed parent as its members, so the tree and the descent agree.
-    TREE_PARENT_TYPES = {GROUP, "language", "dialect"}
+    TREE_PARENT_TYPES = GROUP_TYPES | {"language", "dialect"}
     for r in lects.values():
         w, tp = r["_where"], r["tree_parent"]
         if tp:
@@ -255,7 +255,7 @@ def validate_and_derive(t, rep: Report):
             tp = lects.get(r["tree_parent_id"])
             if not (tp and tp["glottocode"] == r["glottocode"] and r["tree_parent_id"] != r["parent_id"]):
                 rep.warn(r["_where"], f"lect id should be its Glottocode ({r['glottocode']})")
-        if r["type"] == GROUP and not r["tree_children"]:
+        if r["type"] in GROUP_TYPES and not r["tree_children"]:
             rep.warn(r["_where"], "group with no members (no lect has it as tree_parent)")
         rp = r["representative"]
         if rp and lects[rp]["tree_parent_id"] != r["id"]:
@@ -548,7 +548,13 @@ def validate_and_derive(t, rep: Report):
             stated = by_sym.get(sym, [])
             if not retention_open(mode, stated):
                 continue
-            if mode == "assumed-unchanged":
+            if mode == "assumed-unchanged" and rec.get("inherit_auto"):
+                note = rec["inherit_note"] or (
+                    ("Retained elsewhere: the sources state this phoneme's development only under the "
+                     "conditions in the rows above.") if stated else
+                    f"Not mentioned by the sources entered, which give fewer than {SMALL_INVENTORY} phonemes "
+                    "for this lect: taken as retained from its immediate ancestor.")
+            elif mode == "assumed-unchanged":
                 note = rec["inherit_note"] or (
                     ("Retained elsewhere: the source states this phoneme's development only under the "
                      "conditions in the rows above.") if stated else
@@ -623,10 +629,25 @@ def validate_and_derive(t, rep: Report):
         return lects[L]["inherit_note"]
 
     implied_rows = []   # every row the build adds for `inherit` (implied and stated retentions)
+    with_corrs = {r["child_lect_id"] for r in corrs if not r["system"]}
     for L in order:
         rows = entered.get(L, {})
         origins = {r["origin"] for r in rows.values()}
         P = lects[L]["parent_id"]
+        # A lect for which fewer than SMALL_INVENTORY phonemes are known (from its sourced
+        # inventory, else from its reflexes) inherits, as assumed-unchanged, whatever of its
+        # immediate ancestor's phonemes its rows leave open: so few phonemes are a partial
+        # record, not an inventory. Lects with no rows of their own are left alone.
+        if not lects[L]["inherit"] and lects[L]["type"] not in GROUP_TYPES and P in inventory \
+                and (L in with_corrs or "sourced" in origins):
+            known = ({s for s, r in rows.items() if r["origin"] == "sourced"} if "sourced" in origins
+                     else set(reflexes_by_lect.get(L, {})) | {s for s, r in rows.items() if r["origin"] == "manual-add"})
+            if len(known - {ZERO}) < SMALL_INVENTORY:
+                lects[L]["inherit"] = "assumed-unchanged"
+                lects[L]["changes_only_flag"] = True
+                lects[L]["inherit_auto"] = True
+                rep.note(lects[L]["_where"], f"fewer than {SMALL_INVENTORY} phonemes known ({len(known - {ZERO})}): "
+                                             "inherits the rest of its parent's phonemes as assumed-unchanged")
         mode = lects[L]["inherit"]
         if mode and P in inventory and (mode == "stated-unchanged" or "sourced" not in origins):
             for r in retentions(L, P, mode):
@@ -1116,7 +1137,7 @@ def validate_and_derive(t, rep: Report):
     has_rows = {r["lect_id"] for r in t["phonemes"]} | {r["child_lect_id"] for r in corrs} \
         | {r["lect_id"] for r in t["notation_map"]}
     for L, r in lects.items():
-        if r["type"] == GROUP:
+        if r["type"] in GROUP_TYPES:
             if L in has_rows:
                 rep.error(r["_where"], "a group is a tree node only; its rows belong to its members")
             r["node_only"] = True
@@ -1127,7 +1148,7 @@ def validate_and_derive(t, rep: Report):
             rep.warn(r["_where"], "representative is set, but the language has rows of its own; "
                                   "its page shows them, not the representative's")
             r["representative"] = ""
-        if r["node_only"] and r["type"] != GROUP:
+        if r["node_only"] and r["type"] not in GROUP_TYPES:
             rep.note(r["_where"], "no rows of its own: a tree node with no page"
                                   + (f" (opens {r['representative']})" if r["representative"] else ""))
 

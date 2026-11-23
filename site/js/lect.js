@@ -91,7 +91,9 @@ async function pageLect(L) {
   const proto = isProto(L);
   // A node defined by a few changes is not an inventory: show the changes instead of a chart.
   const changesView = d.changes_only || (proto && d.inventory_status !== "sourced" && own.length <= 2 && d.changes.length);
-  const note = d.changes_only
+  const note = d.changes_only && d.inherit_auto
+    ? `Fewer than 13 phonemes of ${d.name} are known from the sources entered, so the phonemes of ${LECTS[d.parent_id]?.name || "its parent"} that they do not mention are taken as retained; they are shown in grey and marked implied.`
+    : d.changes_only
     ? `The source lists only the changes that define ${d.name}. The phonemes of ${LECTS[d.parent_id]?.name || "its parent"} that it does not mention are taken as retained; they are shown in grey and marked implied.`
     : d.index_status === "empty" ? `No correspondences entered: the sources used give no data for ${d.name}.`
     : changesView ? `The source gives only the changes that define ${d.name}, so its inventory is not known. The table lists those changes; it is not a phoneme inventory.`
@@ -117,7 +119,7 @@ async function pageLect(L) {
       <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
       ${d.represents ? `<dt>Represents</dt><dd>${esc(LECTS[d.represents]?.name || d.represents)} <span class="muted">(the language's entry opens this dialect)</span></dd>`
         : d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
-      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : ""}</dd>` : ""}
+      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : LECTS[d.tree_parent]?.type === "linkage" ? ' <span class="muted">(a linkage: not an established subgroup, no proto-language)</span>' : ""}</dd>` : ""}
       ${d.dialects.length ? `<dt>Dialects</dt><dd>${d.dialects.map(lectLink).join(", ")}</dd>` : ""}
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
       ${d.alt_parents.length ? `<dt>Proposed parents</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}

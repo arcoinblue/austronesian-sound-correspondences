@@ -800,12 +800,13 @@ class TestVowelDefault(unittest.TestCase):
 
     def setUp(self):
         import asc.validate as v
-        self._old = v.VOWEL_DEFAULT_PMP
+        self._old, self._small = v.VOWEL_DEFAULT_PMP, v.SMALL_INVENTORY
         v.VOWEL_DEFAULT_PMP = {"pxa"}
+        v.SMALL_INVENTORY = 0   # the five-phoneme test lect would otherwise inherit as a small inventory
 
     def tearDown(self):
         import asc.validate as v
-        v.VOWEL_DEFAULT_PMP = self._old
+        v.VOWEL_DEFAULT_PMP, v.SMALL_INVENTORY = self._old, self._small
 
     def lect(self, extra_rows=()):
         def m(d):
@@ -831,6 +832,68 @@ class TestVowelDefault(unittest.TestCase):
         rep, D = self.lect(["v1,four1234,a,e,_#,regular,,,example2026,7,,,,,,,,,,,,,,,,"])
         self.assertFalse([r for r in D["corrs"] if r["child_lect_id"] == "four1234"
                           and r["derivation"] == "implied-retention"])
+
+
+class TestUserRules20261123(unittest.TestCase):
+    """The user's instructions of 23 Nov 2026: linkages, and the small-inventory inheritance."""
+
+    def small_lect(self, n_rows, inherit=""):
+        cols = build.TABLES["lects"]
+        def m(d):
+            buf = io.StringIO()
+            csv.writer(buf, lineterminator="").writerow(
+                [dict(id="tiny1234", name="Tinyish", type="language", glottocode="tiny1234", parent_id="pxb",
+                      inherit=inherit).get(c, "") for c in cols])
+            append("lects.csv", buf.getvalue())(d)
+            for i, (p, c) in enumerate([("p", "f"), ("t", "θ")][:n_rows]):
+                append("correspondences.csv", f"ctiny00000{i},tiny1234,{p},{c},elsewhere,regular,,,example2026,1,")(d)
+        return run(m, derived=True)
+
+    def test_small_inventory_inherits_from_the_immediate_ancestor(self):
+        rep, D = self.small_lect(2)
+        self.assertEqual(rep.errors, [])
+        L = D["lects"]["tiny1234"]
+        self.assertTrue(L["inherit_auto"] and L["inherit"] == "assumed-unchanged")
+        got = {(r["parent_phoneme"], r["child_phoneme"]) for r in D["corrs"]
+               if r["child_lect_id"] == "tiny1234" and r["derivation"] == "implied-retention"}
+        self.assertTrue(got and all(p == c for p, c in got))
+        self.assertNotIn(("p", "p"), got)                 # an explicit row wins
+        self.assertTrue(all(r["parent_lect_id"] == "pxb" for r in D["corrs"] if r["child_lect_id"] == "tiny1234"))
+        self.assertTrue(build.lect_json("tiny1234", D)["inherit_auto"])
+
+    def test_no_rows_no_inheritance(self):
+        rep, D = self.small_lect(0)
+        self.assertFalse(D["lects"]["tiny1234"].get("inherit_auto"))
+        self.assertFalse([r for r in D["corrs"] if r["child_lect_id"] == "tiny1234"])
+
+    def test_a_set_inherit_is_kept(self):
+        rep, D = self.small_lect(2, inherit="stated-unchanged")
+        self.assertFalse(D["lects"]["tiny1234"].get("inherit_auto"))
+        self.assertEqual(D["lects"]["tiny1234"]["inherit"], "stated-unchanged")
+
+    def test_linkage_is_a_group(self):
+        cols = build.TABLES["lects"]
+        def lect(**kw):
+            buf = io.StringIO()
+            csv.writer(buf, lineterminator="").writerow([kw.get(c, "") for c in cols])
+            return append("lects.csv", buf.getvalue())
+        base = (lect(id="lnk", name="Example Linkage", type="linkage", parent_id="pxb"),
+                set_cells("lects.csv", "id", "samp1234", tree_parent="lnk"))
+        rep, D = run(lambda d: [m(d) for m in base], derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertTrue(D["lects"]["lnk"]["node_only"])
+        self.assertEqual(D["lects"]["samp1234"]["tree_parent_id"], "lnk")
+        self.assertFalse(any("no glottocode" in w and "Example Linkage" in w for w in rep.warnings))
+        idx = {r["id"]: r for r in build.index_json(D)["lects"]}
+        self.assertEqual(idx["lnk"]["type"], "linkage")
+        rep = run(lambda d: [m(d) for m in (lect(id="lnk", name="Example Linkage", type="linkage", parent_id="pxb"),
+                                             set_cells("lects.csv", "id", "samp1234", tree_parent="lnk"),
+                                             append("correspondences.csv",
+                                                    "clnk0000001,lnk,p,f,elsewhere,regular,,,example2026,1,"))])
+        self.assertError(rep, "a group is a tree node only")
+
+    def assertError(self, rep, fragment):
+        self.assertTrue(any(fragment in e for e in rep.errors), rep.errors)
 
 
 class TestStampIndex(unittest.TestCase):

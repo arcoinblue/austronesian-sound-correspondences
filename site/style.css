@@ -160,6 +160,8 @@ details.steps summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .steps .here { color: var(--accent); font-weight: 700; }
 
 table.lects .clade { font-weight: 600; }
+/* A linkage or a proposed daughter: not an established subgroup. */
+table.lects tr.unest td.nm a, table.lects tr.unest td.nm .clade, table.lects tr.unest td.nm .node { font-style: italic; }
 table.lects .twist { display: inline-block; width: 20px; padding: 0; border: 0; background: none; font: inherit;
   color: var(--muted); cursor: pointer; text-align: left; font-size: 15px; line-height: 1; }
 table.lects button.twist:hover { color: var(--fg); }

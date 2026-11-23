@@ -298,6 +298,7 @@ def lect_full(L, D):
         "changes_only": rec["changes_only_flag"] and status != "sourced",
         # What a parent phoneme with no row does here, and where the source says so.
         "inherit": rec["inherit"] or None,
+        "inherit_auto": bool(rec.get("inherit_auto")) or None,
         "inherit_source_id": rec["inherit_source_id"] or None,
         "inherit_page": rec["inherit_page"] or None,
         "language_id": rec["language_id"] or None,
