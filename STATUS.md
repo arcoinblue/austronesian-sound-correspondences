@@ -9,19 +9,19 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 247 |  |
-| lects | 1007 | 253 dialect, 33 earlier-stage, 8 group, 450 language, 263 proto-language |
+| lects | 1015 | 253 dialect, 33 earlier-stage, 8 group, 450 language, 271 proto-language |
 | phonemes | 4475 |  |
-| correspondences | 11875 | plus 10794 implied and 3374 stated retentions generated from lects.inherit |
-| notation_map | 541 |  |
+| correspondences | 11900 | plus 10937 implied and 3374 stated retentions generated from lects.inherit |
+| notation_map | 553 |  |
 | allophones | 976 |  |
 | decisions | 172 | 67 confirmed, 77 open, 28 reverted |
 
-Lects by `inherit`: (blank) 232, assumed-unchanged 536, stated-unchanged 239.
-Inventories: edited 28, empty 17, reverse-generated 781, sourced 181.
+Lects by `inherit`: (blank) 232, assumed-unchanged 544, stated-unchanged 239.
+Inventories: edited 28, empty 17, reverse-generated 789, sourced 181.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 296 warning(s), 1120 note(s).
+`build.py --check`: 0 error(s), 296 warning(s), 1138 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -48,7 +48,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | Entered as r for all seven lects (phonemic). |  |  |
 | `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | Held back, by the rule to add correspondence tables and the reconstructions of established microgroups but to hold the intermediate stages above them. Proto-Ka… |  |  |
 | `pazeh-j-final` | Pazeh reflex of PAN *j word-finally: d (Blust 2013: 578) or t̪ (the row from Blust 1999b via Shibata 2025)? | Both rows are kept, each with its source: Blust (2013) lists Pazeh '-d only' as an exception to final devoicing; the earlier row has t̪ by final devoicing. | 1 |  |
-| `ppn-parent` | What is the parent of Proto-Polynesian? | POc directly. Proto-Central Pacific (and Proto-Eastern Oceanic) are held back as intermediate stages, as in kayanic-held; POc > PPn rows are composed through P… | 5 |  |
+| `ppn-parent` | What is the parent of Proto-Polynesian? | Proto-Central Pacific, since 23 November 2026 (decision geraghty1986-ppn, reverted by the user), with Geraghty's (1986) PCP > PPn rows. Before: POc directly. P… |  |  |
 | `pn-orthography` | How are the Polynesian glottal stop and velar nasal written? | ʔ and ŋ, in proto-languages and attested lects. Marck writes the glottal stop *q in proto-languages and ' in living languages (p. 34), the velar nasal ng, and … | 1 |  |
 | `pto-r` | Proto-Tongic reflex of PPn *r: loss, or l (Table A.1 vs Table 2.2)? | *r > ∅ elsewhere and *r > *l between like vowels in words beginning with a stop other than *q, both regular (Table A.1, note 1, p. 237). | 2 |  |
 | `pnp-h` | PPn *h, lost in Nuclear Polynesian except in a few words (Table 2.2 note 5). | PNP *h > ∅ regular and *h > *h sporadic; each daughter's s or h ('ø/s', 'ø/h') is entered as the reflex of that residual *h. Below PEP Table 2.2 has no *h colu… | 31 |  |
@@ -112,8 +112,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lackeyboerger2021-q` | Lackey & Boerger (2021: 389-390) suggest that Proto-Temotu lenited *q to a fricative (x or χ) that later languages lost or restored to k, g. Enter it? | Not as a row (stated as 'perhaps'): it is in the Proto-Temotu notes, and *q is kept in PTm. |  |  |
 | `lynch2002h-table3` | Lynch (2002h) Table 3 gives sample reflexes of the POc labials and labiovelars in eleven languages. Which are entered? | None for now. Mota, the one column not yet covered, cannot be restated against PNCV, whose inventory in the data has no labials (PNCV has neither consonant row… |  |  |
 | `lynch2004-q` | Lynch (2004) lists sporadic overt reflexes of POc *q in Southern Vanuatu (Table 6) and occasional reflexes of *R in Vanuatu (Table 8). How are they entered? | As sporadic rows on the languages, with the parent phoneme of the lect's own parent (*q and *R are kept in PSV, Proto-Erromango, Proto-Tanna and PNCV in the da… |  |  |
-| `ross2011-kw` | Ross (2011) reconstructs a marginal POc *kʷ (already in the POc inventory from Ross et al. 2023) and a tentative *gʷ. Which reflexes are entered? | POc *kʷ > PCP *kʷ, PPn *k, PMc *k, PNCV *k (stated for the groups), and Rotuman ʔ and Bali-Vitu k from the cognate sets. *gʷ is not added to the POc inventory:… |  |  |
-| `temotu-tree` | How are the Temotu languages placed? Ross & Næss (2007): Temotu > RSC, Utupua-Vanikoro (> Utupua, Buma, Vano, Tanema, no Vanikoro node). Lackey & Boerger (2021… | By the rule for competing classifications: Proto-Temotu (POc) > Proto-Reefs-Santa Cruz and Proto-Utupua, which both have; Teanu, Lovono and Tanema directly und… |  |  |
+| `ross2011-kw` | Ross (2011) reconstructs a marginal POc *kʷ (already in the POc inventory from Ross et al. 2023) and a tentative *gʷ. Which reflexes are entered? | POc *kʷ > PCP *kʷ, PMc *k, PNCV *k (the PPn *k row was removed when PPn moved under PCP, whose *kʷ > PPn *k Geraghty gives) (stated for the groups), and Rotuma… |  |  |
+| `temotu-tree` | How are the Temotu languages placed? Ross & Næss (2007): Temotu > RSC, Utupua-Vanikoro (> Utupua, Buma, Vano, Tanema, no Vanikoro node). Lackey & Boerger (2021… | Reverted 23 November 2026: Teanu, Lovono and Tanema under Proto-Vanikoro (Lackey & Boerger 2021; François 2009), which is under Proto-Temotu; Proto-Utupua-Vani… |  |  |
 | `temotu-composed` | Ross & Næss's Table 2 states POc > language. How is it restated against the new nodes, and where it disagrees with Lackey & Boerger (2021)? | Each cell is restated against the lect's parent: PTm (*r, *l > *l; *s, *c, *j > *s), PRSC (Lackey & Boerger's Table 2) and Proto-Utupua; a cell that the parent… | 124 |  |
 
 <!-- END GENERATED -->
