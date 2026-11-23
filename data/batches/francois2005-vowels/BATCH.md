@@ -11,3 +11,11 @@ François, Alexandre. 2005. Unraveling the history of the vowels of seventeen no
 ## Not entered
 
 - Table 1's vowel inventories (no consonants given, so they cannot be sourced inventories); the vowel length and diphthong developments of §4.3, the asymmetries of word-internal syllables (§5.1), the fate of pretonic vowels (§5.2), morphology (§6) and Appendix 2.
+
+
+## Applied
+
+2026-11-23 07:09 UTC, by the push-batch workflow.
+- sources: sheet rows 228-235
+- correspondences: sheet rows 10176-11281
+- decisions: sheet rows 155-161

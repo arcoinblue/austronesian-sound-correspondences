@@ -14,3 +14,10 @@ Jackson, Frederick Henry. 1983. *The internal and external relationships of the 
 
 - Figure 4's intermediate nodes (`jackson1983-tree`); rule (7); the detailed sections 3.3.2-3.3.3 (reflexes by cognate set, vowels, *au); chapter 4 (Micronesian consonant correspondences with tentative PMc reconstructions, Kosraean reflexes); lexical and grammatical evidence.
 - The sources row `jackson1983` already exists (not consulted); its notes should say it was read directly (sheet edit, see the handoff).
+
+
+## Applied
+
+2026-11-23 07:09 UTC, by the push-batch workflow.
+- correspondences: sheet rows 10176-11281
+- decisions: sheet rows 155-161

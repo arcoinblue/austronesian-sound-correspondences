@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 226 |  |
-| lects | 984 | 247 dialect, 33 earlier-stage, 8 group, 438 language, 258 proto-language |
-| phonemes | 4281 |  |
-| correspondences | 10174 | plus 10542 implied and 3326 stated retentions generated from lects.inherit |
+| sources | 234 |  |
+| lects | 988 | 247 dialect, 33 earlier-stage, 8 group, 442 language, 258 proto-language |
+| phonemes | 4475 |  |
+| correspondences | 11280 | plus 10557 implied and 3326 stated retentions generated from lects.inherit |
 | notation_map | 536 |  |
-| allophones | 962 |  |
-| decisions | 153 | 67 confirmed, 58 open, 28 reverted |
+| allophones | 975 |  |
+| decisions | 160 | 67 confirmed, 65 open, 28 reverted |
 
-Lects by `inherit`: (blank) 225, assumed-unchanged 525, stated-unchanged 234.
-Inventories: edited 28, empty 16, reverse-generated 763, sourced 177.
+Lects by `inherit`: (blank) 229, assumed-unchanged 525, stated-unchanged 234.
+Inventories: edited 28, empty 16, reverse-generated 763, sourced 181.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 288 warning(s), 917 note(s).
+`build.py --check`: 0 error(s), 292 warning(s), 1042 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 134 |
 | a work cited in notes has no sources row | 66 |
-| a source is never cited | 47 |
-| a reflex is not in the lect's sourced inventory | 27 |
+| a source is never cited | 50 |
+| a reflex is not in the lect's sourced inventory | 28 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
 
@@ -96,6 +96,13 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross1992-tables` | Ross (1992) was read directly (22 November 2026). Should its Table 2 (Formosan evidence: Proto-Atayal, Saisiyat, Thao, Proto-Bunun, Amis, Proto-Tsou, Proto-Ruk… | Not entered. The database's Ross system on PAn is Ross (2015); Ross (1992) uses a different inventory (*d1, *d2, *d3, *Z, no *θ or *x, Blust's *r folded into *… |  |  |
 | `lynch2001-pnt-pst` | Appendix I prints '?' for *q in Proto-Northern and Proto-Southern Tanna. Was *q still there? | PTn *q > PNT, PST *q with status disputed; each Tanna language has *q > ∅. | 2 |  |
 | `lynch2001-psv-e` | PSV *e has two sources (POc *e; POc *a before *Ci, *Cu) with different Proto-Tanna reflexes (*i and *e; Tables 3.4-3.5). | PSV *e > PTn *i regular, and PSV *e > PTn *e with conditioning 'lexical' (scope: PSV *e from POc *a before *Ci, *Cu). Not split into two PSV phonemes, since Ly… | 1 |  |
+| `blust1984-grades` | Blust (1984) lists several reflexes of POc *p, *k, *nt, *s and *ns in Mussau and then treats the minority ones as consonant-grade 'cross-over' (pp. 179-180). H… | The oral-grade reflex of Table 3 as regular; each cross-over reflex as regular with conditioning 'lexical' and lexical_scope naming the cross-over etyma (p > p… | 6 |  |
+| `francois2005-hybridization` | How are François's (2005) charts of vowel hybridization (Appendix 1, pp. 490-491) entered? | As PNCV > language rows (the 17 Torres and Banks languages and Sakao already sit under PNCV), with five implied PNCV retentions of the POc vowels, since Franço… | 672 |  |
+| `ho1982-composition` | Ozanne-Rivierre's Table 3.3.4 (Haudricourt & Ozanne-Rivierre 1982: 54-55) gives POc > 'langues de Hienghène' for all four languages at once, naming a language … | One row per language (Pije, Fwâi, Nemi, Jawe), composed POc > PNC > language with the printed cell in as_printed; a cell without a language label applies to al… | 229 |  |
+| `jackson1983-table18` | How are the rules of Jackson's (1983: 226) Table 18 entered? | As PCK > language rows, one per rule and language, with the rule as printed in as_printed and Jackson's PTK *p', *m', *g mapped to PCK *pʷ, *mʷ, *ŋ. Marks: XX … |  |  |
+| `jackson1983-tree` | Jackson's Figure 4 (p. 231) is a Trukic tree with five unnamed intermediate nodes defined by the rules of Table 18 (ULI first; then PUA; then WOL; then CRL-STW… | Not entered: all eight languages stay directly under PCK, as in Bender et al. (2003a), whose Figure 1 (adapted from Jackson) is also not entered as nodes. Jack… |  |  |
+| `ross1996-strata` | Ross (1996) assigns Yapese vocabulary to five strata: Sets A and B (non-Oceanic, stated against PMP), Set C (inherited, POc), Sets D and UW (Nuclear Micronesia… | Set C only, as POc > Yapese rows with stratum 'Set C (inherited)', Yapese under POc. Sets A, B, D and UW are described in the lect notes, not entered: A and B … |  |  |
+| `ross1996-symbols` | Ross transcribes Yapese in a comparative orthography (n. 3). What are c, y and the superscript glottal stop? | c kept as c (the Yapese ch affricate; Ross gives no phonetic value, so it is not turned into an IPA affricate); y = j; fˀ, vˀ as printed (glottalised); Ross's … | 1 |  |
 
 <!-- END GENERATED -->
 

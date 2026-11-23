@@ -15,3 +15,13 @@ Haudricourt, André-Georges & Françoise Ozanne-Rivierre. 1982. *Dictionnaire th
 ## Not entered
 
 - The palatal rows of Table 3.3.4, *R and the vowels of Table 3.3.4 B (see `ho1982-composition`); the detailed discussion of §3.3 (conditions of each alternative), the dialect differences of §1 (Nemi 1 vs 2, Jawe Yambé vs Wevia) beyond notes, the canonical forms (§3.3.5), the reduced final and intervocalic systems (pp. 17-22), and the dictionary.
+
+
+## Applied
+
+2026-11-23 07:09 UTC, by the push-batch workflow.
+- sources: sheet rows 228-235
+- lects: sheet rows 986-989
+- phonemes: sheet rows 4283-4476
+- correspondences: sheet rows 10176-11281
+- decisions: sheet rows 155-161

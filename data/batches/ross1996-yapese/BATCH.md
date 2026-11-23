@@ -16,3 +16,12 @@ Ross, Malcolm. 1996. Is Yapese Oceanic? In Bernd Nothofer (ed.), *Reconstruction
 - Sets A, B (against PMP), D and UW (Nuclear Micronesian loans) and E; the Palauan, PMc, Ulithian and Woleaian columns; Table 3 (a summary of Table 2).
 - No inventory: Ross gives none (Table 3 lists the consonants by origin, without vowels); the inventory is generated from the rows.
 - Bound morphemes (Tables 4-7), the Admiralties comparison (Table 8), the appendix data.
+
+
+## Applied
+
+2026-11-23 07:09 UTC, by the push-batch workflow.
+- sources: sheet rows 228-235
+- lects: sheet rows 986-989
+- correspondences: sheet rows 10176-11281
+- decisions: sheet rows 155-161

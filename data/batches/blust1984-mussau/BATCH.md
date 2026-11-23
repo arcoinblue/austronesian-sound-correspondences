@@ -18,3 +18,12 @@ Blust, Robert. 1984. A Mussau vocabulary, with phonological notes. In Malcolm Ro
 - Echo vowels after final consonants (§3.1), haplology, the stress rules and syncope (§2.4): canonical changes, not segment rows. The muss1246 notes already mention echo vowels.
 - Irregular reflexes attested once (§3.2.3 items 2, 6-8, 11, 13-15, 18-20) and the doubtful etymologies of p. 183.
 - The vocabulary itself (§5).
+
+
+## Applied
+
+2026-11-23 07:09 UTC, by the push-batch workflow.
+- sources: sheet rows 228-235
+- correspondences: sheet rows 10176-11281
+- allophones: sheet rows 964-976
+- decisions: sheet rows 155-161
