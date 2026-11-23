@@ -723,6 +723,11 @@ def validate_and_derive(t, rep: Report):
                     implied_rows.append(r)
                     unchanged.add((L, s))
 
+    # Reflexes that a row states and the lect's inventory does not have (the source's own list
+    # lacks them, or a hand edit suppressed them). They are not phonemes of the inventory, but
+    # every row links to its reflex, so each still gets a page: lect -> sym -> phoneme dict.
+    stray = defaultdict(dict)
+
     # --- correspondences (second pass: referential integrity)
     for g in {g for r in lects.values() for g in r["overlap_list"]}:
         members = [L for L, r in lects.items() if g in r["overlap_list"]]
@@ -743,10 +748,17 @@ def validate_and_derive(t, rep: Report):
         if r["child_phoneme"] and r["child_phoneme"] != ZERO and inv_status[L] == "sourced" \
                 and r["child_phoneme"] not in inventory[L]:
             rep.warn(w, f"reflex {L}:{r['child_phoneme']} is not in {L}'s sourced inventory")
+            if r["child_phoneme"] not in stray[L]:
+                stray[L][r["child_phoneme"]] = phoneme_record(L, r["child_phoneme"], None, "outside-inventory")
         if r["child_phoneme"] and r["child_phoneme"] != ZERO and inv_status[L] == "edited" \
                 and r["child_phoneme"] not in inventory[L]:
             rep.warn(w, f"reflex {L}:{r['child_phoneme']} was suppressed from {L}'s inventory; "
                         "this row still points at it")
+            if r["child_phoneme"] not in stray[L]:
+                rec = phoneme_record(L, r["child_phoneme"], None, "suppressed")
+                rec["reason"] = next((x["reason"] for x in lects[L].get("_suppressed", [])
+                                      if x["ipa"] == r["child_phoneme"]), "")
+                stray[L][r["child_phoneme"]] = rec
 
     # --- fusions: pair the two rows of a cluster X+Y > R
     halves = {}  # (child lect, first, second, reflex) -> {"first": row, "second": row}
@@ -1180,6 +1192,7 @@ def validate_and_derive(t, rep: Report):
     return {
         "decisions": decisions,
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
+        "stray": {L: v for L, v in stray.items() if v},
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,
         "sysph": sysph, "allophones": allophones, "conflicts": find_conflicts(corrs, sysph), "entered_pairs": entered_pairs,
         "overlap": {g: sorted(L for L, r in lects.items() if g in r["overlap_list"])

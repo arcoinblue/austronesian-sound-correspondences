@@ -28,7 +28,8 @@ async function pageIndex(params) {
     const ph = d.phonemes.find(p => p.ipa === ps);
     if (!ph) throw new Error(`No phoneme ${reflex}`);
     const det = await phonemeData(ph);
-    pivot = { lect: pl, ph, byLect: {}, alt: new Set() };
+    // implied: retentions the build adds below the first level ({lect: [its phonemes]}).
+    pivot = { lect: pl, ph, byLect: {}, alt: new Set(), implied: det.implied_descendants || {} };
     for (const r of det.descendants) (pivot.byLect[r.child_lect_id] ||= []).push(r);
     // Lects another classification puts under the pivot's lect: their rows, through the pivot's phoneme.
     for (const r of det.alt_descendants || []) {
@@ -85,7 +86,7 @@ async function pageIndex(params) {
         <button data-v="tree">Tree</button><button data-v="flat">A–Z</button>
       </span>
       <span class="treeonly"><button class="more" id="openall">Expand all</button> <button class="more" id="closeall">Collapse</button></span>
-      <label class="muted" style="font-size:13px"><input type="checkbox" id="hideempty" checked> Hide lects with no data</label>
+      <label class="muted" id="hideemptybox" style="font-size:13px"><input type="checkbox" id="hideempty" checked> Hide lects with no data</label>
       <span class="muted" id="count"></span>
     </div>
     <div class="scroll"><table id="t" class="lects"></table></div>`;
@@ -107,9 +108,13 @@ async function pageIndex(params) {
       else if (pivot) {
         const rs = pivot.byLect[l.id] || [];
         const sole = soleRows(rs);
-        mid = rs.length ? rs.map(r => r.child
+        // A stage or lect that keeps the sound unchanged without the source saying so: the
+        // same implied retention its own page shows, not "unentered".
+        const imp = (pivot.implied[l.id] || []).filter(c => !rs.some(r => r.child === c))
+          .map(c => `${phLink(c)} <span class="tag der" title="not mentioned by a source that lists only the changes: taken as retained">implied</span>`);
+        mid = rs.length || imp.length ? rs.map(r => r.child
           ? `${phLink(r.child)} ${sole.has(r) ? "" : `<span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> `}${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}${r.alt_via ? ` <span class="muted">from ${esc(LECTS[splitPid(r.parent)[0]]?.name || "")} ${esc(sym(r.parent))}</span>` : ""}`
-          : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).join("<br>")
+          : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).concat(imp).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = l.node_only ? (l.representative ? `<span class="muted">see ${lectLink(l.representative)}</span>` : "")
         : coverage(l.coverage, l.index_status) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
@@ -117,10 +122,15 @@ async function pageIndex(params) {
         <td class="gc">${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
         ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td class="${pivot ? "" : "cov"}">${mid}</td>`;
     };
-    let body = "", shown = 0;
+    // The count is of lects that pass the filter and the box, whether or not their group is
+    // open: opening a group does not change it. A tree node with no page of its own (a
+    // linkage; Tsou, which opens Duhtu) is not counted.
+    const isLect = l => !l.node_only;
+    const lectsAll = pool.filter(isLect).length;
+    const shown = pool.filter(l => isLect(l) && (!q || hit(l)) && visible(l)).length;
+    let body = "";
     if (!tree) {
       const rows = pool.filter(l => hit(l) && visible(l) && !l.node_only).sort((a, b) => a.name.localeCompare(b.name));
-      shown = rows.length;
       body = rows.map(l => `<tr><td>${lectLink(l.id)}</td>${cells(l)}</tr>`).join("");
     } else {
       // A filter keeps the matches and the ancestors that lead to them.
@@ -145,7 +155,6 @@ async function pageIndex(params) {
           const clade = group ? (l.clade || treeName(l)) : "";
           const afterStage = treeParent(l) === l.parent_id && LECTS[l.parent_id]?.type === "earlier-stage"
             && inPool.has(l.parent_id) && stageChain(LECTS[l.parent_id]);
-          shown++;
           body += `<tr class="${[q && !hit(l) ? "dim" : "", isLinkage(l) ? "unest" : ""].filter(Boolean).join(" ")}">
             <td class="nm" style="--d:${depth}" title="${esc(pathOf(l))}">${afterStage ? `<span class="twist after">↳</span>` : ""}${group
               ? `<button class="twist" data-id="${esc(l.id)}" aria-expanded="${isOpen}" aria-label="${isOpen ? "Close" : "Open"} ${esc(clade)}">${isOpen ? "▾" : "▸"}</button>${treeName(l) === clade || l.name === clade
@@ -165,14 +174,20 @@ async function pageIndex(params) {
       walk("", 0);
       // In a reflex table, lects that another classification puts directly under the pivot's lect.
       if (pivot && !q) for (const a of altKids[pivot.lect] || []) {
-        shown++;
         body += `<tr class="alt unest"><td class="nm" style="--d:0"><span class="twist"></span>${treeLink(a.lect.id)}
           <span class="muted" title="In the tree this lect descends from ${esc(LECTS[a.lect.parent_id]?.name || "")}">proposed daughter (${srcLink(a.source_id)})</span></td>${cells(a.lect)}</tr>`;
       }
     }
     const cols = tree ? 4 : 5;
-    const hidden = state.hideEmpty && !pivot ? pool.filter(l => !hasData(l)).length : 0;
-    app.querySelector("#count").textContent = pool.length ? `${shown} of ${pool.length} shown${hidden ? ` (${hidden} with no data hidden)` : ""}` : "";
+    const empty = pivot ? 0 : pool.filter(l => !hasData(l)).length;
+    const hidden = state.hideEmpty ? empty : 0;
+    // The box is offered only when some lect has no data to hide (none has, when every lect
+    // has rows, an inheritance or a sourced inventory), and never in a reflex table.
+    app.querySelector("#hideemptybox").hidden = !empty;
+    const withReflex = pivot ? pool.filter(l => (pivot.byLect[l.id] || []).length || (pivot.implied[l.id] || []).length).length : 0;
+    app.querySelector("#count").textContent = !pool.length ? ""
+      : pivot ? `${q ? `${shown} of ` : ""}${lectsAll} lects, ${withReflex} with a reflex`
+      : `${shown === lectsAll ? "" : `${shown} of `}${lectsAll} lects${hidden ? ` (${hidden} with no data hidden)` : ""}`;
     remember();
     app.querySelector("#t").innerHTML = head + (body || `<tr><td colspan="${cols}" class="muted">${INDEX.lects.length ? "No lects match." : "No lects entered yet. Add rows to cldf/lects.csv."}</td></tr>`);
   };

@@ -185,6 +185,31 @@ class TestTreeNodes(unittest.TestCase):
         self.assertError(rep, "give both the same parent_id")
 
 
+
+class TestStrayReflex(unittest.TestCase):
+    """A reflex that the lect's sourced inventory lacks still gets a page (and a warning)."""
+
+    def test_page_for_a_reflex_outside_the_sourced_inventory(self):
+        from asc.derive import lect_files
+        rep, D = run(append("correspondences.csv", "stray1,exam1234,p,f,V_V,regular,,3,example2026,45,"), derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertTrue(any("exam1234:f is not in exam1234's sourced inventory" in w for w in rep.warnings))
+        lite, files = lect_files("exam1234", D)
+        self.assertNotIn("f", [p["ipa"] for p in lite["phonemes"]])
+        (f,) = lite["stray_phonemes"]
+        self.assertEqual((f["ipa"], f["origin"], f["url_id"]), ("f", "outside-inventory", "f"))
+        self.assertEqual(files[f["file"]]["ancestry_graph"]["edges"][0]["parent"], "pxb:p")
+
+    def test_a_suppressed_reflex_keeps_a_page(self):
+        """The fixture's Samplish has ɸ suppressed by hand while a row still gives it."""
+        from asc.derive import lect_files
+        rep, D = run(derived=True)
+        got = {L: [(p["ipa"], p["origin"], p["reason"]) for p in lect_files(L, D)[0]["stray_phonemes"]]
+               for L in D["lects"]}
+        self.assertEqual(got.pop("samp1234"), [("ɸ", "suppressed", "allophone of /p/ before u")])
+        self.assertEqual([v for v in got.values() if v], [])
+
+
 if __name__ == "__main__":
     unittest.main()
 

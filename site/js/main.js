@@ -15,6 +15,17 @@ const SCROLL = {};
 let shownHash = null;
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
+// Each page's own title (its heading without the badges), for tabs, history and bookmarks.
+const SITE_TITLE = document.title;
+function setTitle() {
+  const h = app.querySelector("h1");
+  if (!h) { document.title = SITE_TITLE; return; }
+  const c = h.cloneNode(true);
+  c.querySelectorAll(".badge").forEach(b => b.remove());
+  const t = c.textContent.replace(/\s+/g, " ").trim();
+  document.title = t && t !== "Lects" ? `${t} · ${SITE_TITLE}` : SITE_TITLE;
+}
+
 async function route() {
   if (shownHash !== null) SCROLL[shownHash] = window.scrollY;
   const hash = location.hash.replace(/^#/, "") || "/lects/";
@@ -22,6 +33,10 @@ async function route() {
   const [path, query] = hash.split("?");
   const parts = path.split("/").filter(Boolean);
   try {
+    // An address the site does not have (#/foo/, #/lects/pan/_S/extra/) says so.
+    if ((parts.length && !["lects", "segments", "sources"].includes(parts[0]))
+        || parts.length > (parts[0] === "lects" ? 3 : parts[0] === "sources" ? 2 : 1))
+      throw new Error(`No page at ${path}`);
     if (parts[0] === "sources") pageSources(parts[1] && decodeURIComponent(parts[1]));
     else if (parts[0] === "segments") await pageSegments(new URLSearchParams(query || ""));
     else if (parts[0] !== "lects" || parts.length === 1) await pageIndex(new URLSearchParams(query || ""));
@@ -30,6 +45,7 @@ async function route() {
   } catch (e) {
     app.innerHTML = `<h1>Not found</h1><p class="muted">${esc(e.message)}</p><p><a href="#/lects/">Back to all lects</a></p>`;
   }
+  setTitle();
   const list = parts.length <= 1 || (parts[0] === "sources" && !parts[1]);
   window.scrollTo(0, list ? SCROLL[hash] || 0 : 0);
 }

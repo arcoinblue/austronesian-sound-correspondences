@@ -33,7 +33,9 @@ const typeLabel = t => t === "proto-language" ? "proto-language" : label(t);
 // A correspondence found only in loanwords is stored as loan-stratum and shown as "borrowed".
 const statusLabel = s => s === "loan-stratum" ? "borrowed" : String(s || "").replace(/-/g, " ");
 
-const badge = s => s ? `<span class="badge b-${esc(s)}">${esc(statusLabel(s))}</span>` : "";
+// The words a badge shows; the data's own value stays in its class.
+const BADGE_WORDS = { "outside-inventory": "not in the inventory" };
+const badge = s => s ? `<span class="badge b-${esc(s)}">${esc(BADGE_WORDS[s] || statusLabel(s))}</span>` : "";
 
 // A long note is cut at a word boundary and opened with a "more" button.
 function fold(text, limit = 180) {

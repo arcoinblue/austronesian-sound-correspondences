@@ -222,7 +222,8 @@ table.segs details.more summary { display: inline; cursor: pointer; color: var(-
 
 /* A cluttered ancestry split into trees, side by side where they fit. */
 .anccontrol { font-size: 13px; margin: 4px 0 8px; }
-.anccontrol select { font: inherit; font-size: 13px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 6px;
+.anccontrol label.anccutbox { display: inline-block; max-width: 100%; }
+.anccontrol select { max-width: 100%; font: inherit; font-size: 13px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 6px;
   background: var(--bg); color: var(--fg); }
 .anctrees { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: flex-start; }
 .anctree { margin: 0; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px 2px; max-width: 100%; }

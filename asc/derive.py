@@ -83,7 +83,7 @@ def ancestry_graph(phoneme_id, D):
     return {"nodes": nodes, "edges": edges}
 
 
-def descendants(phoneme_id, D, path=(), depth=0, beyond=False, seen=None):
+def descendants(phoneme_id, D, path=(), depth=0, beyond=False, seen=None, implied=None):
     """Flattened downward rows, each with the path of intermediate phonemes.
 
     A row into a competing reconstruction is marked 'competing'. Rows below
@@ -110,13 +110,32 @@ def descendants(phoneme_id, D, path=(), depth=0, beyond=False, seen=None):
             row["beyond_competing"] = True
         # An implied retention is listed one level down only; deeper, it would
         # repeat the same "unchanged" for every node of an assumed-unchanged tree.
+        # They are kept apart, lect by lect, for the table of all lects (see implied_descendants).
         if not (path and row.get("derivation") == "implied-retention"):
             out.append(row)
+        elif implied is not None and r["child_phoneme_id"] \
+                and r["child_phoneme_id"] not in implied.setdefault(r["child_lect_id"], []):
+            implied[r["child_lect_id"]].append(r["child_phoneme_id"])
         below = beyond or row.get("competing", False)
         if r["child_phoneme_id"] and (r["child_phoneme_id"], below) not in seen:
             seen.add((r["child_phoneme_id"], below))
             out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1,
-                                   below, seen))
+                                   below, seen, implied))
+    return out
+
+
+def stray_phonemes(L, D):
+    """Reflexes stated by a row that the lect's inventory does not have, each with its
+    ancestry: a page for them, so that the row's link leads somewhere."""
+    out = []
+    for ph in D.get("stray", {}).get(L, {}).values():
+        ph = dict(ph)
+        ph["notation"] = []
+        ph["ancestry_graph"] = ancestry_graph(ph["id"], D)
+        ph["descendants"] = descendants(ph["id"], D)
+        ph["alt_descendants"] = []
+        ph["implied_descendants"] = {}
+        out.append(ph)
     return out
 
 
@@ -225,7 +244,11 @@ def lect_full(L, D):
         ph = dict(ph)
         ph["notation"] = D["notation"].get(ph["id"], [])
         ph["ancestry_graph"] = ancestry_graph(ph["id"], D)
-        ph["descendants"] = descendants(ph["id"], D)
+        # Implied retentions more than one level down: {lect: [its phonemes]}. The table of
+        # all lects shows them; the descent list would only repeat "unchanged" at every node.
+        implied = {}
+        ph["descendants"] = descendants(ph["id"], D, implied=implied)
+        ph["implied_descendants"] = implied
         ph["alt_descendants"] = alt_descendants(ph["id"], L, D) if has_alt else []
         phonemes.append(ph)
     default = rec["default_system"]
@@ -273,6 +296,8 @@ def lect_full(L, D):
         "inventory_sources": used_sources,
         "correspondence_sources": corr_sources,
         "phonemes": phonemes,
+        # Reflexes outside the inventory (not in the source's list, or suppressed by hand).
+        "stray_phonemes": stray_phonemes(L, D),
         "inventory_diff": [
             {"op": "add", "ipa": p["ipa"], "reason": p["reason"], "source_id": p["source_id"]}
             for p in inv.values() if p["origin"] == "manual-add"
@@ -319,7 +344,7 @@ def lect_full(L, D):
 
 
 # Kept on the phoneme's own file, not on the lect's: the lect page does not need them.
-PHONEME_DETAIL = ("notation", "ancestry_graph", "descendants", "alt_descendants")
+PHONEME_DETAIL = ("notation", "ancestry_graph", "descendants", "alt_descendants", "implied_descendants")
 SYSTEM_DETAIL = ("rows", "descendants")
 
 
@@ -358,7 +383,13 @@ def lect_files(L, D):
         files[short["file"]] = {"id": ph["id"], **{k: ph[k] for k in PHONEME_DETAIL},
                                 "system_phonemes": matching.get(ph["id"], [])}
         phonemes.append(short)
-    return {**full, "phonemes": phonemes, "systems": systems}, files
+    stray = []
+    for ph in full["stray_phonemes"]:
+        short = {k: v for k, v in ph.items() if k not in PHONEME_DETAIL}
+        short["file"] = phoneme_file(L, ph["ipa"])
+        files[short["file"]] = {"id": ph["id"], **{k: ph[k] for k in PHONEME_DETAIL}, "system_phonemes": []}
+        stray.append(short)
+    return {**full, "phonemes": phonemes, "stray_phonemes": stray, "systems": systems}, files
 
 
 def lect_json(L, D):

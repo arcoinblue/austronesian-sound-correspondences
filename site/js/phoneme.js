@@ -288,7 +288,7 @@ function ancestryBlock(g, herePid, cutLect) {
   const trees = cutLect ? ancSplitAt(g, stages, lectOf, cutLect) : null;
   const opts = [`<option value=""${cutLect ? "" : " selected"}>one diagram</option>`].concat(stages.slice(0, -1).map(l =>
     `<option value="${esc(l)}"${l === cutLect ? " selected" : ""}>a tree per ${esc(LECTS[l]?.name || l)} phoneme${l === auto ? " (suggested)" : ""}</option>`)).join("");
-  const control = g.edges.length > 6 || auto ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}<label>Show as <select class="anccut">${opts}</select></label></p>` : "";
+  const control = g.edges.length > 6 || auto ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}<label class="anccutbox">Show as <select class="anccut">${opts}</select></label></p>` : "";
   if (!trees || trees.length < 2) return `${control}${ancestryHtml(g, herePid)}`;
   // The regular line of descent first: trees with fewer sporadic, borrowed or doubtful steps come first.
   const odd = t => t.g.edges.filter(e => e.status && e.status !== "regular").length;
@@ -499,8 +499,13 @@ async function pagePhoneme(L, uid) {
       wireMore();
       return;
     }
-  } else ph = d.phonemes.find(p => p.ipa === bare);
+  } else ph = d.phonemes.find(p => p.ipa === bare) || (d.stray_phonemes || []).find(p => p.ipa === bare);
   if (!ph) throw new Error(`No phoneme ${raw} in ${L}`);
+  // A reflex that a row states and the inventory does not have: a page, so the row's link works.
+  const stray = !d.phonemes.includes(ph);
+  const strayNote = !stray ? "" : `<div class="notice">${ph.origin === "suppressed"
+    ? `${esc(sym(ph.id))} was removed from the inventory of ${esc(d.name)} by hand${ph.reason ? ` (${esc(ph.reason)})` : ""}, but a correspondence row still gives it as a reflex.`
+    : `${esc(sym(ph.id))} is not in the inventory that ${d.inventory_sources.map(s => srcLink(s)).join("; ") || "the source"} gives for ${esc(d.name)}. It is here because a correspondence row gives it as a reflex (see Ancestry): the source of that row may spell the phoneme differently, or count a sound the inventory leaves out.`}</div>`;
   // The history: notation, ancestry, descent, and the other systems' matching phonemes in full.
   const det = await phonemeData(ph);
   const bySystem = d.systems.map(x => ({ name: x.name, absent: ph.absent_from.includes(x.name),
@@ -528,6 +533,7 @@ async function pagePhoneme(L, uid) {
       ${ph.reason ? `<dt>Reason</dt><dd>${fold(ph.reason, 320)}</dd>` : ""}
       ${ph.notes ? `<dt>Notes</dt><dd>${fold(ph.notes, 320)}</dd>` : ""}
     </dl>
+    ${strayNote}
     ${allophonesHtml(ph)}
     ${tabbed.length ? tabsHtml(tabs, wantSystem) : ""}
     ${tabbed.map(x => `<div class="panel" data-panel="${esc(x.name)}"${x.name === wantSystem ? "" : " hidden"}>${x.absent ? `<div class="notice">${esc(x.name)}'s reconstruction has no ${esc(sym(ph.id))}.</div>` : ""}${systemPanel(x.name, x.sps, d)}</div>`).join("")}
