@@ -1,0 +1,673 @@
+id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes,system,via_source_id,via_page,via_note,conditioning,evidence_total,derivation,variety,stratum,lexical_scope,examples,source_form,as_printed,locator,decision
+pncv-fr05-i,pncv,i,i,elsewhere,regular,,,francois2005,456-457,"François derives the modern vowels from the five-vowel protosystem {*i e a o u}, through hybridization that took place separately and fairly recently in each language (pp. 456-457); PNCV is taken to keep the POc vowels.",,,,,,,implied-retention,,,,,,,,francois2005-hybridization
+pncv-fr05-e,pncv,e,e,elsewhere,regular,,,francois2005,456-457,"François derives the modern vowels from the five-vowel protosystem {*i e a o u}, through hybridization that took place separately and fairly recently in each language (pp. 456-457); PNCV is taken to keep the POc vowels.",,,,,,,implied-retention,,,,,,,,francois2005-hybridization
+pncv-fr05-a,pncv,a,a,elsewhere,regular,,,francois2005,456-457,"François derives the modern vowels from the five-vowel protosystem {*i e a o u}, through hybridization that took place separately and fairly recently in each language (pp. 456-457); PNCV is taken to keep the POc vowels.",,,,,,,implied-retention,,,,,,,,francois2005-hybridization
+pncv-fr05-o,pncv,o,o,elsewhere,regular,,,francois2005,456-457,"François derives the modern vowels from the five-vowel protosystem {*i e a o u}, through hybridization that took place separately and fairly recently in each language (pp. 456-457); PNCV is taken to keep the POc vowels.",,,,,,,implied-retention,,,,,,,,francois2005-hybridization
+pncv-fr05-u,pncv,u,u,elsewhere,regular,,,francois2005,456-457,"François derives the modern vowels from the five-vowel protosystem {*i e a o u}, through hybridization that took place separately and fairly recently in each language (pp. 456-457); PNCV is taken to keep the POc vowels.",,,,,,,implied-retention,,,,,,,,francois2005-hybridization
+hiww-fr05-1,hiww1237,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i_,Appendix 1,francois2005-hybridization
+hiww-fr05-2,hiww1237,i,i,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)e > i_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-3,hiww1237,e,ə,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)e > i_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-4,hiww1237,i,i,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*i(C)a > i_ə || e_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-5,hiww1237,a,ə,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)a > i_ə || e_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-6,hiww1237,i,e,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*i(C)a > i_ə || e_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-7,hiww1237,i,i,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > i_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-8,hiww1237,o,ə,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)o > i_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-9,hiww1237,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i_,Appendix 1,francois2005-hybridization
+hiww-fr05-10,hiww1237,e,e,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > e_,Appendix 1,francois2005-hybridization
+hiww-fr05-11,hiww1237,e,e,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > e_,Appendix 1,francois2005-hybridization
+hiww-fr05-12,hiww1237,e,e,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > e_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-13,hiww1237,a,ə,e(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)a > e_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-14,hiww1237,e,e,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > e_,Appendix 1,francois2005-hybridization
+hiww-fr05-15,hiww1237,e,e,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > e_,Appendix 1,francois2005-hybridization
+hiww-fr05-16,hiww1237,a,ɔ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɔ_ || e_,Appendix 1,francois2005-hybridization
+hiww-fr05-17,hiww1237,a,e,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɔ_ || e_,Appendix 1,francois2005-hybridization
+hiww-fr05-18,hiww1237,a,a,_(C)e,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)e > a_ || e_,Appendix 1,francois2005-hybridization
+hiww-fr05-19,hiww1237,a,e,_(C)e,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)e > a_ || e_,Appendix 1,francois2005-hybridization
+hiww-fr05-20,hiww1237,a,a,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-21,hiww1237,a,ə,a(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)a > a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-22,hiww1237,a,ɔ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-23,hiww1237,a,a,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)o > a_ || e_,Appendix 1,francois2005-hybridization
+hiww-fr05-24,hiww1237,a,e,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)o > a_ || e_,Appendix 1,francois2005-hybridization
+hiww-fr05-25,hiww1237,a,ɔ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)u > ɔ_,Appendix 1,francois2005-hybridization
+hiww-fr05-26,hiww1237,o,ɵ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)i > ɵ_,Appendix 1,francois2005-hybridization
+hiww-fr05-27,hiww1237,o,o,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > o_,Appendix 1,francois2005-hybridization
+hiww-fr05-28,hiww1237,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-29,hiww1237,a,ə,o(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)a > ɔ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-30,hiww1237,o,o,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)o > o_,Appendix 1,francois2005-hybridization
+hiww-fr05-31,hiww1237,o,ɵ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)u > ɵ_,Appendix 1,francois2005-hybridization
+hiww-fr05-32,hiww1237,u,ʉ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > ʉ_ || i_,Appendix 1,francois2005-hybridization
+hiww-fr05-33,hiww1237,u,i,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > ʉ_ || i_,Appendix 1,francois2005-hybridization
+hiww-fr05-34,hiww1237,u,ʉ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > ʉ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-35,hiww1237,e,ə,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)e > ʉ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-36,hiww1237,u,ʉ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)a > ʉ_ə || ɵ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-37,hiww1237,a,ə,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)a > ʉ_ə || ɵ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-38,hiww1237,u,ɵ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)a > ʉ_ə || ɵ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-39,hiww1237,u,ɵ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > ɵ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-40,hiww1237,o,ə,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)o > ɵ_ə,Appendix 1,francois2005-hybridization
+hiww-fr05-41,hiww1237,u,ʉ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > ʉ_ || i_,Appendix 1,francois2005-hybridization
+hiww-fr05-42,hiww1237,u,i,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > ʉ_ || i_,Appendix 1,francois2005-hybridization
+hiww-fr05-43,hiww1237,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+hiww-fr05-44,hiww1237,e,∅,"posttonic, after *e(C), *a(C), *o(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+hiww-fr05-45,hiww1237,o,∅,"posttonic, after *e(C), *a(C), *o(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+hiww-fr05-46,hiww1237,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+loto-fr05-47,loto1240,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i_,Appendix 1,francois2005-hybridization
+loto-fr05-48,loto1240,i,i,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)e > i_ə,Appendix 1,francois2005-hybridization
+loto-fr05-49,loto1240,e,ə,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)e > i_ə,Appendix 1,francois2005-hybridization
+loto-fr05-50,loto1240,i,i,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*i(C)a > i_ə || e_ə,Appendix 1,francois2005-hybridization
+loto-fr05-51,loto1240,a,ə,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)a > i_ə || e_ə,Appendix 1,francois2005-hybridization
+loto-fr05-52,loto1240,i,e,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*i(C)a > i_ə || e_ə,Appendix 1,francois2005-hybridization
+loto-fr05-53,loto1240,i,i,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > i_ə,Appendix 1,francois2005-hybridization
+loto-fr05-54,loto1240,o,ə,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)o > i_ə,Appendix 1,francois2005-hybridization
+loto-fr05-55,loto1240,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i_,Appendix 1,francois2005-hybridization
+loto-fr05-56,loto1240,e,e,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > e_,Appendix 1,francois2005-hybridization
+loto-fr05-57,loto1240,e,i,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > i_,Appendix 1,francois2005-hybridization
+loto-fr05-58,loto1240,e,e,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*e(C)a > e_ə || (i)ɛ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-59,loto1240,a,ə,e(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)a > e_ə || (i)ɛ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-60,loto1240,e,ɛ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*e(C)a > e_ə || (i)ɛ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-61,loto1240,e,i͡ɛ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition. Printed (i)ɛ: ɛ with an optional on-glide, the diphthong i͡ɛ of Table 1.",,,,,unknown,,,,,,,,*e(C)a > e_ə || (i)ɛ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-62,loto1240,e,i,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*e(C)o > i_ || ɛ_,Appendix 1,francois2005-hybridization
+loto-fr05-63,loto1240,e,ɛ,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*e(C)o > i_ || ɛ_,Appendix 1,francois2005-hybridization
+loto-fr05-64,loto1240,e,e,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > e_,Appendix 1,francois2005-hybridization
+loto-fr05-65,loto1240,a,ɛ,_(C)i,regular,,,francois2005,490,,,,,,unknown,,,,,,,,*a(C)i > (i)ɛ_,Appendix 1,francois2005-hybridization
+loto-fr05-66,loto1240,a,i͡ɛ,_(C)i,regular,,,francois2005,490,"Printed (i)ɛ: ɛ with an optional on-glide, the diphthong i͡ɛ of Table 1.",,,,,unknown,,,,,,,,*a(C)i > (i)ɛ_,Appendix 1,francois2005-hybridization
+loto-fr05-67,loto1240,a,a,_(C)e,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)e > (i)a_ || e_,Appendix 1,francois2005-hybridization
+loto-fr05-68,loto1240,a,i͡a,_(C)e,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition. Printed (i)a: a with an optional on-glide, the diphthong i͡a of Table 1.",,,,,unknown,,,,,,,,*a(C)e > (i)a_ || e_,Appendix 1,francois2005-hybridization
+loto-fr05-69,loto1240,a,e,_(C)e,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)e > (i)a_ || e_,Appendix 1,francois2005-hybridization
+loto-fr05-70,loto1240,a,e,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > (i)e_ə || (i)a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-71,loto1240,a,i͡e,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition. Printed (i)e: e with an optional on-glide, the diphthong i͡e of Table 1.",,,,,unknown,,,,,,,,*a(C)a > (i)e_ə || (i)a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-72,loto1240,a,ə,a(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)a > (i)e_ə || (i)a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-73,loto1240,a,a,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > (i)e_ə || (i)a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-74,loto1240,a,i͡a,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition. Printed (i)a: a with an optional on-glide, the diphthong i͡a of Table 1.",,,,,unknown,,,,,,,,*a(C)a > (i)e_ə || (i)a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-75,loto1240,a,ɔ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > (i)e_ə || (i)a_ə || ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-76,loto1240,a,a,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)o > a_ || e_,Appendix 1,francois2005-hybridization
+loto-fr05-77,loto1240,a,e,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)o > a_ || e_,Appendix 1,francois2005-hybridization
+loto-fr05-78,loto1240,a,ɔ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɔ_ || ɛ_,Appendix 1,francois2005-hybridization
+loto-fr05-79,loto1240,a,ɛ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɔ_ || ɛ_,Appendix 1,francois2005-hybridization
+loto-fr05-80,loto1240,o,ə,_(C)i,regular,,,francois2005,490,,,,,,unknown,,,,,,,,*o(C)i > (o)ə_,Appendix 1,francois2005-hybridization
+loto-fr05-81,loto1240,o,o͡ə,_(C)i,regular,,,francois2005,490,"Printed (o)ə: ə with an optional on-glide, the diphthong o͡ə of Table 1.",,,,,unknown,,,,,,,,*o(C)i > (o)ə_,Appendix 1,francois2005-hybridization
+loto-fr05-82,loto1240,o,o,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > o_,Appendix 1,francois2005-hybridization
+loto-fr05-83,loto1240,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,unknown,,,,,,,,*o(C)a > (o)ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-84,loto1240,o,o͡ɔ,_(C)a,regular,,,francois2005,490,"Printed (o)ɔ: ɔ with an optional on-glide, the diphthong o͡ɔ of Table 1.",,,,,unknown,,,,,,,,*o(C)a > (o)ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-85,loto1240,a,ə,o(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)a > (o)ɔ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-86,loto1240,o,o,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)o > o_,Appendix 1,francois2005-hybridization
+loto-fr05-87,loto1240,o,ə,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)u > ə_,Appendix 1,francois2005-hybridization
+loto-fr05-88,loto1240,u,ʉ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)i > ʉ_,Appendix 1,francois2005-hybridization
+loto-fr05-89,loto1240,u,ʉ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > ʉ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-90,loto1240,e,ə,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)e > ʉ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-91,loto1240,u,ə,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)a > ə_ə || ʉ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-92,loto1240,a,ə,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)a > ə_ə || ʉ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-93,loto1240,u,ʉ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)a > ə_ə || ʉ_ə,Appendix 1,francois2005-hybridization
+loto-fr05-94,loto1240,u,ə,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > ə_ə,Appendix 1,francois2005-hybridization
+loto-fr05-95,loto1240,o,ə,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)o > ə_ə,Appendix 1,francois2005-hybridization
+loto-fr05-96,loto1240,u,ʉ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > ʉ_ || i_,Appendix 1,francois2005-hybridization
+loto-fr05-97,loto1240,u,i,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > ʉ_ || i_,Appendix 1,francois2005-hybridization
+loto-fr05-98,loto1240,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+loto-fr05-99,loto1240,e,∅,"posttonic, after *e(C), *a(C), *o(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+loto-fr05-100,loto1240,o,∅,"posttonic, after *e(C), *a(C), *o(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+loto-fr05-101,loto1240,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-102,leha1243,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+leha-fr05-103,leha1243,i,e,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)e > e,Appendix 1,francois2005-hybridization
+leha-fr05-104,leha1243,i,e,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)a > e,Appendix 1,francois2005-hybridization
+leha-fr05-105,leha1243,i,e,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > e,Appendix 1,francois2005-hybridization
+leha-fr05-106,leha1243,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+leha-fr05-107,leha1243,e,e,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > e,Appendix 1,francois2005-hybridization
+leha-fr05-108,leha1243,e,ɛ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-109,leha1243,e,æ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > æ,Appendix 1,francois2005-hybridization
+leha-fr05-110,leha1243,e,ɛ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-111,leha1243,e,e,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > e,Appendix 1,francois2005-hybridization
+leha-fr05-112,leha1243,a,æ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)i > æ,Appendix 1,francois2005-hybridization
+leha-fr05-113,leha1243,a,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+leha-fr05-114,leha1243,a,a,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+leha-fr05-115,leha1243,a,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+leha-fr05-116,leha1243,a,ɔ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)u > ɔ,Appendix 1,francois2005-hybridization
+leha-fr05-117,leha1243,o,o,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)i > o,Appendix 1,francois2005-hybridization
+leha-fr05-118,leha1243,o,ɔ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+leha-fr05-119,leha1243,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+leha-fr05-120,leha1243,o,ɔ,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)o > ɔ || ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-121,leha1243,o,ɛ,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)o > ɔ || ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-122,leha1243,o,e,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)u > e,Appendix 1,francois2005-hybridization
+leha-fr05-123,leha1243,u,u,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+leha-fr05-124,leha1243,u,o,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > o,Appendix 1,francois2005-hybridization
+leha-fr05-125,leha1243,u,o,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)a > o,Appendix 1,francois2005-hybridization
+leha-fr05-126,leha1243,u,o,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > o,Appendix 1,francois2005-hybridization
+leha-fr05-127,leha1243,u,u,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+leha-fr05-128,leha1243,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-129,leha1243,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-130,leha1243,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-131,leha1243,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-132,leha1243,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-133,leha1244,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+leha-fr05-134,leha1244,i,i͡e,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)a > i͡e,Appendix 1,francois2005-hybridization
+leha-fr05-135,leha1244,i,i͡e,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > i͡e,Appendix 1,francois2005-hybridization
+leha-fr05-136,leha1244,e,e,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > e,Appendix 1,francois2005-hybridization
+leha-fr05-137,leha1244,e,ɛ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-138,leha1244,e,ɛ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-139,leha1244,e,ɛ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-140,leha1244,e,e,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > e,Appendix 1,francois2005-hybridization
+leha-fr05-141,leha1244,a,ɛ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)i > ɛ,Appendix 1,francois2005-hybridization
+leha-fr05-142,leha1244,a,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+leha-fr05-143,leha1244,a,a,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+leha-fr05-144,leha1244,a,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+leha-fr05-145,leha1244,a,ɛ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || œ,Appendix 1,francois2005-hybridization
+leha-fr05-146,leha1244,a,œ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || œ,Appendix 1,francois2005-hybridization
+leha-fr05-147,leha1244,o,o,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)i > o,Appendix 1,francois2005-hybridization
+leha-fr05-148,leha1244,o,ɔ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+leha-fr05-149,leha1244,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+leha-fr05-150,leha1244,o,ɔ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+leha-fr05-151,leha1244,o,œ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)u > œ,Appendix 1,francois2005-hybridization
+leha-fr05-152,leha1244,u,u,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > u || i,Appendix 1,francois2005-hybridization
+leha-fr05-153,leha1244,u,i,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > u || i,Appendix 1,francois2005-hybridization
+leha-fr05-154,leha1244,u,o,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > o,Appendix 1,francois2005-hybridization
+leha-fr05-155,leha1244,u,o,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)a > o,Appendix 1,francois2005-hybridization
+leha-fr05-156,leha1244,u,o,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > o,Appendix 1,francois2005-hybridization
+leha-fr05-157,leha1244,u,u,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > u || i,Appendix 1,francois2005-hybridization
+leha-fr05-158,leha1244,u,i,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > u || i,Appendix 1,francois2005-hybridization
+leha-fr05-159,leha1244,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-160,leha1244,e,∅,"posttonic, after *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-161,leha1244,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-162,leha1244,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+leha-fr05-163,leha1244,u,∅,"posttonic, after *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+volo-fr05-164,volo1238,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+volo-fr05-165,volo1238,i,ɪ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-166,volo1238,i,ɪ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-167,volo1238,i,ɪ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-168,volo1238,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+volo-fr05-169,volo1238,e,ɪ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-170,volo1238,e,ɛ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+volo-fr05-171,volo1238,e,ɛ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+volo-fr05-172,volo1238,e,ɛ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+volo-fr05-173,volo1238,e,ɪ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-174,volo1238,a,ɛ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-175,volo1238,a,ɪ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-176,volo1238,a,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+volo-fr05-177,volo1238,a,a,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+volo-fr05-178,volo1238,a,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+volo-fr05-179,volo1238,a,ɛ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)u > ɛ,Appendix 1,francois2005-hybridization
+volo-fr05-180,volo1238,o,ʊ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)i > ʊ || ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-181,volo1238,o,ɪ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)i > ʊ || ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-182,volo1238,o,ɔ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+volo-fr05-183,volo1238,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+volo-fr05-184,volo1238,o,ɔ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+volo-fr05-185,volo1238,o,ʊ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)u > ʊ || ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-186,volo1238,o,ɪ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)u > ʊ || ɪ,Appendix 1,francois2005-hybridization
+volo-fr05-187,volo1238,u,u,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > u || i,Appendix 1,francois2005-hybridization
+volo-fr05-188,volo1238,u,i,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > u || i,Appendix 1,francois2005-hybridization
+volo-fr05-189,volo1238,u,ʊ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+volo-fr05-190,volo1238,u,ʊ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+volo-fr05-191,volo1238,u,ʊ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+volo-fr05-192,volo1238,u,u,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > u || i,Appendix 1,francois2005-hybridization
+volo-fr05-193,volo1238,u,i,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > u || i,Appendix 1,francois2005-hybridization
+volo-fr05-194,volo1238,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+volo-fr05-195,volo1238,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+volo-fr05-196,volo1238,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+volo-fr05-197,volo1238,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+volo-fr05-198,volo1238,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+motl-fr05-199,motl1237,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+motl-fr05-200,motl1237,i,e,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,ɪ,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-201,motl1237,i,e,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,ɪ,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-202,motl1237,i,e,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,ɪ,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-203,motl1237,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+motl-fr05-204,motl1237,e,e,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,ɪ,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-205,motl1237,e,ɛ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+motl-fr05-206,motl1237,e,ɛ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+motl-fr05-207,motl1237,e,ɛ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+motl-fr05-208,motl1237,e,e,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,ɪ,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-209,motl1237,a,ɛ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || ɪ†,Appendix 1,francois2005-hybridization
+motl-fr05-210,motl1237,a,e,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition. The reflex ɪ of *a…i and *a…u occurs only in word-internal syllables (Appendix 1, note; §5.1.2.1).",,,,,unknown,,,,,,,ɪ,*a(C)i > ɛ || ɪ†,Appendix 1,francois2005-hybridization
+motl-fr05-211,motl1237,a,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+motl-fr05-212,motl1237,a,a,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > a || ɔ,Appendix 1,francois2005-hybridization
+motl-fr05-213,motl1237,a,ɔ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > a || ɔ,Appendix 1,francois2005-hybridization
+motl-fr05-214,motl1237,a,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+motl-fr05-215,motl1237,a,ɛ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || ɪ†,Appendix 1,francois2005-hybridization
+motl-fr05-216,motl1237,a,e,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition. The reflex ɪ of *a…i and *a…u occurs only in word-internal syllables (Appendix 1, note; §5.1.2.1).",,,,,unknown,,,,,,,ɪ,*a(C)u > ɛ || ɪ†,Appendix 1,francois2005-hybridization
+motl-fr05-217,motl1237,o,o,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,ʊ,*o(C)i > ʊ || ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-218,motl1237,o,e,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,ɪ,*o(C)i > ʊ || ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-219,motl1237,o,ɔ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+motl-fr05-220,motl1237,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+motl-fr05-221,motl1237,o,ɔ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+motl-fr05-222,motl1237,o,o,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,ʊ,*o(C)u > ʊ || ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-223,motl1237,o,e,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,ɪ,*o(C)u > ʊ || ɪ,Appendix 1,francois2005-hybridization
+motl-fr05-224,motl1237,u,u,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > u || i,Appendix 1,francois2005-hybridization
+motl-fr05-225,motl1237,u,i,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > u || i,Appendix 1,francois2005-hybridization
+motl-fr05-226,motl1237,u,o,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,ʊ,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+motl-fr05-227,motl1237,u,o,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,ʊ,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+motl-fr05-228,motl1237,u,o,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,ʊ,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+motl-fr05-229,motl1237,u,u,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > u || i,Appendix 1,francois2005-hybridization
+motl-fr05-230,motl1237,u,i,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > u || i,Appendix 1,francois2005-hybridization
+motl-fr05-231,motl1237,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+motl-fr05-232,motl1237,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+motl-fr05-233,motl1237,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+motl-fr05-234,motl1237,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+motl-fr05-235,motl1237,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+leme-fr05-236,leme1238,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+leme-fr05-237,leme1238,i,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)e > a,Appendix 1,francois2005-hybridization
+leme-fr05-238,leme1238,i,a,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)a > a || <ɪ>,Appendix 1,francois2005-hybridization
+leme-fr05-239,leme1238,i,ɪ,_a (adjacent),regular,,,francois2005,490,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*i(C)a > a || <ɪ>,Appendix 1,francois2005-hybridization
+leme-fr05-240,leme1238,i,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > a,Appendix 1,francois2005-hybridization
+leme-fr05-241,leme1238,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+leme-fr05-242,leme1238,e,ɪ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+leme-fr05-243,leme1238,e,ɛ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+leme-fr05-244,leme1238,e,a,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > a,Appendix 1,francois2005-hybridization
+leme-fr05-245,leme1238,e,ɛ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+leme-fr05-246,leme1238,e,ɪ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+leme-fr05-247,leme1238,a,ɛ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || œ,Appendix 1,francois2005-hybridization
+leme-fr05-248,leme1238,a,œ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || œ,Appendix 1,francois2005-hybridization
+leme-fr05-249,leme1238,a,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+leme-fr05-250,leme1238,a,a,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > a || ɒ,Appendix 1,francois2005-hybridization
+leme-fr05-251,leme1238,a,ɒ,_(C)a,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)a > a || ɒ,Appendix 1,francois2005-hybridization
+leme-fr05-252,leme1238,a,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+leme-fr05-253,leme1238,a,ɛ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || œ,Appendix 1,francois2005-hybridization
+leme-fr05-254,leme1238,a,œ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || œ,Appendix 1,francois2005-hybridization
+leme-fr05-255,leme1238,o,ø,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)i > ø,Appendix 1,francois2005-hybridization
+leme-fr05-256,leme1238,o,ɔ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+leme-fr05-257,leme1238,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+leme-fr05-258,leme1238,o,ɔ,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)o > ɔ || œ,Appendix 1,francois2005-hybridization
+leme-fr05-259,leme1238,o,œ,_(C)o,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)o > ɔ || œ,Appendix 1,francois2005-hybridization
+leme-fr05-260,leme1238,o,ø,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)u > ø,Appendix 1,francois2005-hybridization
+leme-fr05-261,leme1238,u,u,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+leme-fr05-262,leme1238,u,ʊ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+leme-fr05-263,leme1238,u,ʊ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+leme-fr05-264,leme1238,u,ʊ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+leme-fr05-265,leme1238,u,u,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+leme-fr05-266,leme1238,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+leme-fr05-267,leme1238,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+leme-fr05-268,leme1238,a,∅,"posttonic, after *i(C), *i, *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+leme-fr05-269,leme1238,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+leme-fr05-270,leme1238,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+vera-fr05-271,vera1241,i,i,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)i > i_,Appendix 1,francois2005-hybridization
+vera-fr05-272,vera1241,i,i,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)e > i_ɪ,Appendix 1,francois2005-hybridization
+vera-fr05-273,vera1241,e,ɪ,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)e > i_ɪ,Appendix 1,francois2005-hybridization
+vera-fr05-274,vera1241,i,i,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)a > i_ɪ,Appendix 1,francois2005-hybridization
+vera-fr05-275,vera1241,a,ɪ,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)a > i_ɪ,Appendix 1,francois2005-hybridization
+vera-fr05-276,vera1241,i,i,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)o > i_ɪ,Appendix 1,francois2005-hybridization
+vera-fr05-277,vera1241,o,ɪ,i(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)o > i_ɪ,Appendix 1,francois2005-hybridization
+vera-fr05-278,vera1241,i,i,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*i(C)u > i_,Appendix 1,francois2005-hybridization
+vera-fr05-279,vera1241,e,ɪ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)i > ɪ_,Appendix 1,francois2005-hybridization
+vera-fr05-280,vera1241,e,ɪ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)e > ɪ_,Appendix 1,francois2005-hybridization
+vera-fr05-281,vera1241,e,ɛ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)a > ɛ_ɛ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-282,vera1241,a,ɛ,e(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)a > ɛ_ɛ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-283,vera1241,e,i,_a (adjacent),regular,,,francois2005,490,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*e(C)a > ɛ_ɛ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-284,vera1241,a,ɛ,e_ (adjacent),regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)a > ɛ_ɛ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-285,vera1241,e,ɪ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)o > ɪ_,Appendix 1,francois2005-hybridization
+vera-fr05-286,vera1241,e,ɪ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*e(C)u > ɪ_,Appendix 1,francois2005-hybridization
+vera-fr05-287,vera1241,a,a,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > a_ || ɛ_,Appendix 1,francois2005-hybridization
+vera-fr05-288,vera1241,a,ɛ,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > a_ || ɛ_,Appendix 1,francois2005-hybridization
+vera-fr05-289,vera1241,a,a,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)e > a_ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-290,vera1241,a,i,_e (adjacent),regular,,,francois2005,490,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)e > a_ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-291,vera1241,e,ɛ,a_ (adjacent),regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)e > a_ || <i_ɛ>,Appendix 1,francois2005-hybridization
+vera-fr05-292,vera1241,a,a,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)a > a_a,Appendix 1,francois2005-hybridization
+vera-fr05-293,vera1241,a,a,a(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)a > a_a,Appendix 1,francois2005-hybridization
+vera-fr05-294,vera1241,a,a,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*a(C)o > a_,Appendix 1,francois2005-hybridization
+vera-fr05-295,vera1241,a,a,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > a_ || ɛ_ || ɔ_,Appendix 1,francois2005-hybridization
+vera-fr05-296,vera1241,a,ɛ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > a_ || ɛ_ || ɔ_,Appendix 1,francois2005-hybridization
+vera-fr05-297,vera1241,a,ɔ,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > a_ || ɛ_ || ɔ_,Appendix 1,francois2005-hybridization
+vera-fr05-298,vera1241,o,ʊ,_(C)i,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)i > ʊ_,Appendix 1,francois2005-hybridization
+vera-fr05-299,vera1241,o,ʊ,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)e > ʊ_,Appendix 1,francois2005-hybridization
+vera-fr05-300,vera1241,o,ɔ,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)a > ɔ_ɔ || <u_ɔ>,Appendix 1,francois2005-hybridization
+vera-fr05-301,vera1241,a,ɔ,o(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)a > ɔ_ɔ || <u_ɔ>,Appendix 1,francois2005-hybridization
+vera-fr05-302,vera1241,o,u,_a (adjacent),regular,,,francois2005,490,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*o(C)a > ɔ_ɔ || <u_ɔ>,Appendix 1,francois2005-hybridization
+vera-fr05-303,vera1241,a,ɔ,o_ (adjacent),regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)a > ɔ_ɔ || <u_ɔ>,Appendix 1,francois2005-hybridization
+vera-fr05-304,vera1241,o,ʊ,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)o > ʊ_,Appendix 1,francois2005-hybridization
+vera-fr05-305,vera1241,o,ʊ,_(C)u,regular,,,francois2005,490,,,,,,,,,,,,,,*o(C)u > ʊ_,Appendix 1,francois2005-hybridization
+vera-fr05-306,vera1241,u,i,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > i_ || u_,Appendix 1,francois2005-hybridization
+vera-fr05-307,vera1241,u,u,_(C)i,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)i > i_ || u_,Appendix 1,francois2005-hybridization
+vera-fr05-308,vera1241,u,u,_(C)e,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)e > u_ʊ,Appendix 1,francois2005-hybridization
+vera-fr05-309,vera1241,e,ʊ,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)e > u_ʊ,Appendix 1,francois2005-hybridization
+vera-fr05-310,vera1241,u,u,_(C)a,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)a > u_ʊ,Appendix 1,francois2005-hybridization
+vera-fr05-311,vera1241,a,ʊ,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)a > u_ʊ,Appendix 1,francois2005-hybridization
+vera-fr05-312,vera1241,u,u,_(C)o,regular,,,francois2005,490,,,,,,,,,,,,,,*u(C)o > u_ʊ,Appendix 1,francois2005-hybridization
+vera-fr05-313,vera1241,o,ʊ,u(C)_,regular,,,francois2005,490,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)o > u_ʊ,Appendix 1,francois2005-hybridization
+vera-fr05-314,vera1241,u,i,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > i_ || u_,Appendix 1,francois2005-hybridization
+vera-fr05-315,vera1241,u,u,_(C)u,regular,,,francois2005,490,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)u > i_ || u_,Appendix 1,francois2005-hybridization
+vera-fr05-316,vera1241,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+vera-fr05-317,vera1241,e,∅,"posttonic, after *e(C), *a(C), *o(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+vera-fr05-318,vera1241,o,∅,"posttonic, after *e(C), *a(C), *o(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+vera-fr05-319,vera1241,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,490,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+vure-fr05-320,vure1239,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+vure-fr05-321,vure1239,i,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-322,vure1239,i,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-323,vure1239,i,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-324,vure1239,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+vure-fr05-325,vure1239,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-326,vure1239,e,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-327,vure1239,e,i͡a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > i͡a || <ɪ>,Appendix 1,francois2005-hybridization
+vure-fr05-328,vure1239,e,ɪ,_a (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*e(C)a > i͡a || <ɪ>,Appendix 1,francois2005-hybridization
+vure-fr05-329,vure1239,e,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-330,vure1239,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+vure-fr05-331,vure1239,a,ɛ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || œ,Appendix 1,francois2005-hybridization
+vure-fr05-332,vure1239,a,œ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || œ,Appendix 1,francois2005-hybridization
+vure-fr05-333,vure1239,a,i͡a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > i͡a || <ɪ>,Appendix 1,francois2005-hybridization
+vure-fr05-334,vure1239,a,ɪ,_e (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)e > i͡a || <ɪ>,Appendix 1,francois2005-hybridization
+vure-fr05-335,vure1239,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+vure-fr05-336,vure1239,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+vure-fr05-337,vure1239,a,ɛ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || œ,Appendix 1,francois2005-hybridization
+vure-fr05-338,vure1239,a,œ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɛ || œ,Appendix 1,francois2005-hybridization
+vure-fr05-339,vure1239,o,ø,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > ø,Appendix 1,francois2005-hybridization
+vure-fr05-340,vure1239,o,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ʊ,Appendix 1,francois2005-hybridization
+vure-fr05-341,vure1239,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+vure-fr05-342,vure1239,o,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ʊ,Appendix 1,francois2005-hybridization
+vure-fr05-343,vure1239,o,ø,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > ø,Appendix 1,francois2005-hybridization
+vure-fr05-344,vure1239,u,y,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,ü,*u(C)i > y,Appendix 1,francois2005-hybridization
+vure-fr05-345,vure1239,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+vure-fr05-346,vure1239,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+vure-fr05-347,vure1239,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+vure-fr05-348,vure1239,u,y,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,ü,*u(C)u > y,Appendix 1,francois2005-hybridization
+vure-fr05-349,vure1239,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+vure-fr05-350,vure1239,e,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+vure-fr05-351,vure1239,a,∅,"posttonic, after *i(C), *e(C), *e, *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+vure-fr05-352,vure1239,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+vure-fr05-353,vure1239,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+mwes-fr05-354,mwes1235,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+mwes-fr05-355,mwes1235,i,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+mwes-fr05-356,mwes1235,i,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+mwes-fr05-357,mwes1235,i,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+mwes-fr05-358,mwes1235,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+mwes-fr05-359,mwes1235,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+mwes-fr05-360,mwes1235,e,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+mwes-fr05-361,mwes1235,e,ɛ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+mwes-fr05-362,mwes1235,e,ɛ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+mwes-fr05-363,mwes1235,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+mwes-fr05-364,mwes1235,a,ɛ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)i > ɛ,Appendix 1,francois2005-hybridization
+mwes-fr05-365,mwes1235,a,a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+mwes-fr05-366,mwes1235,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+mwes-fr05-367,mwes1235,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+mwes-fr05-368,mwes1235,a,ɔ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > ɔ,Appendix 1,francois2005-hybridization
+mwes-fr05-369,mwes1235,o,ʊ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > ʊ,Appendix 1,francois2005-hybridization
+mwes-fr05-370,mwes1235,o,ɔ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+mwes-fr05-371,mwes1235,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+mwes-fr05-372,mwes1235,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+mwes-fr05-373,mwes1235,o,ʊ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > ʊ,Appendix 1,francois2005-hybridization
+mwes-fr05-374,mwes1235,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+mwes-fr05-375,mwes1235,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+mwes-fr05-376,mwes1235,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+mwes-fr05-377,mwes1235,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+mwes-fr05-378,mwes1235,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+mwes-fr05-379,mwes1235,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+mwes-fr05-380,mwes1235,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+mwes-fr05-381,mwes1235,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+mwes-fr05-382,mwes1235,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+mwes-fr05-383,mwes1235,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+mota-fr05-384,mota1237,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i_,Appendix 1,francois2005-hybridization
+mota-fr05-385,mota1237,i,i,_(C)e,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*i(C)e > (i)_e,Appendix 1,francois2005-hybridization
+mota-fr05-386,mota1237,i,∅,_(C)e,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*i(C)e > (i)_e,Appendix 1,francois2005-hybridization
+mota-fr05-387,mota1237,e,e,i(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)e > (i)_e,Appendix 1,francois2005-hybridization
+mota-fr05-388,mota1237,i,i,_(C)a,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*i(C)a > (i)_a,Appendix 1,francois2005-hybridization
+mota-fr05-389,mota1237,i,∅,_(C)a,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*i(C)a > (i)_a,Appendix 1,francois2005-hybridization
+mota-fr05-390,mota1237,a,a,i(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)a > (i)_a,Appendix 1,francois2005-hybridization
+mota-fr05-391,mota1237,i,i,_(C)o,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*i(C)o > (i)_o,Appendix 1,francois2005-hybridization
+mota-fr05-392,mota1237,i,∅,_(C)o,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*i(C)o > (i)_o,Appendix 1,francois2005-hybridization
+mota-fr05-393,mota1237,o,o,i(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*i(C)o > (i)_o,Appendix 1,francois2005-hybridization
+mota-fr05-394,mota1237,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i_,Appendix 1,francois2005-hybridization
+mota-fr05-395,mota1237,e,e,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > e_,Appendix 1,francois2005-hybridization
+mota-fr05-396,mota1237,e,e,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > e_e,Appendix 1,francois2005-hybridization
+mota-fr05-397,mota1237,e,e,e(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)e > e_e,Appendix 1,francois2005-hybridization
+mota-fr05-398,mota1237,e,e,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > e_a,Appendix 1,francois2005-hybridization
+mota-fr05-399,mota1237,a,a,e(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)a > e_a,Appendix 1,francois2005-hybridization
+mota-fr05-400,mota1237,e,e,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > e_o,Appendix 1,francois2005-hybridization
+mota-fr05-401,mota1237,o,o,e(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*e(C)o > e_o,Appendix 1,francois2005-hybridization
+mota-fr05-402,mota1237,e,e,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > e_,Appendix 1,francois2005-hybridization
+mota-fr05-403,mota1237,a,a,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)i > a_,Appendix 1,francois2005-hybridization
+mota-fr05-404,mota1237,a,a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > a_e,Appendix 1,francois2005-hybridization
+mota-fr05-405,mota1237,e,e,a(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)e > a_e,Appendix 1,francois2005-hybridization
+mota-fr05-406,mota1237,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a_a,Appendix 1,francois2005-hybridization
+mota-fr05-407,mota1237,a,a,a(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)a > a_a,Appendix 1,francois2005-hybridization
+mota-fr05-408,mota1237,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a_o,Appendix 1,francois2005-hybridization
+mota-fr05-409,mota1237,o,o,a(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*a(C)o > a_o,Appendix 1,francois2005-hybridization
+mota-fr05-410,mota1237,a,a,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > a_,Appendix 1,francois2005-hybridization
+mota-fr05-411,mota1237,o,o,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > o_,Appendix 1,francois2005-hybridization
+mota-fr05-412,mota1237,o,o,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > o_e,Appendix 1,francois2005-hybridization
+mota-fr05-413,mota1237,e,e,o(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)e > o_e,Appendix 1,francois2005-hybridization
+mota-fr05-414,mota1237,o,o,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > o_a,Appendix 1,francois2005-hybridization
+mota-fr05-415,mota1237,a,a,o(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)a > o_a,Appendix 1,francois2005-hybridization
+mota-fr05-416,mota1237,o,o,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > o_o,Appendix 1,francois2005-hybridization
+mota-fr05-417,mota1237,o,o,o(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*o(C)o > o_o,Appendix 1,francois2005-hybridization
+mota-fr05-418,mota1237,o,o,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > o_,Appendix 1,francois2005-hybridization
+mota-fr05-419,mota1237,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u_,Appendix 1,francois2005-hybridization
+mota-fr05-420,mota1237,u,u,_(C)e,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*u(C)e > (u)_e,Appendix 1,francois2005-hybridization
+mota-fr05-421,mota1237,u,∅,_(C)e,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*u(C)e > (u)_e,Appendix 1,francois2005-hybridization
+mota-fr05-422,mota1237,e,e,u(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)e > (u)_e,Appendix 1,francois2005-hybridization
+mota-fr05-423,mota1237,u,u,_(C)a,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*u(C)a > (u)_a,Appendix 1,francois2005-hybridization
+mota-fr05-424,mota1237,u,∅,_(C)a,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*u(C)a > (u)_a,Appendix 1,francois2005-hybridization
+mota-fr05-425,mota1237,a,a,u(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)a > (u)_a,Appendix 1,francois2005-hybridization
+mota-fr05-426,mota1237,u,u,_(C)o,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*u(C)o > (u)_o,Appendix 1,francois2005-hybridization
+mota-fr05-427,mota1237,u,∅,_(C)o,regular,,,francois2005,491,The stressed vowel is optional before a non-high posttonic vowel (parentheses).,,,,,unknown,,,,,,,,*u(C)o > (u)_o,Appendix 1,francois2005-hybridization
+mota-fr05-428,mota1237,o,o,u(C)_,regular,,,francois2005,491,The posttonic vowel survives as a final vowel Vf (*V1(C)V2 > *V'(C)Vf).,,,,,,,,,,,,,*u(C)o > (u)_o,Appendix 1,francois2005-hybridization
+mota-fr05-429,mota1237,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u_,Appendix 1,francois2005-hybridization
+mota-fr05-430,mota1237,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+mota-fr05-431,mota1237,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+nume-fr05-432,nume1241,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+nume-fr05-433,nume1241,i,i,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > i,Appendix 1,francois2005-hybridization
+nume-fr05-434,nume1241,i,i,_(C)a,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*i(C)a > i || ɪ,Appendix 1,francois2005-hybridization
+nume-fr05-435,nume1241,i,ɪ,_(C)a,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*i(C)a > i || ɪ,Appendix 1,francois2005-hybridization
+nume-fr05-436,nume1241,i,i,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > i,Appendix 1,francois2005-hybridization
+nume-fr05-437,nume1241,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+nume-fr05-438,nume1241,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+nume-fr05-439,nume1241,e,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-440,nume1241,e,ɛ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-441,nume1241,e,ɛ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-442,nume1241,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+nume-fr05-443,nume1241,a,a,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > a || ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-444,nume1241,a,ɛ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > a || ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-445,nume1241,a,a,_(C)e,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)e > a || ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-446,nume1241,a,ɛ,_(C)e,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)e > a || ɛ,Appendix 1,francois2005-hybridization
+nume-fr05-447,nume1241,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+nume-fr05-448,nume1241,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+nume-fr05-449,nume1241,a,a,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > a,Appendix 1,francois2005-hybridization
+nume-fr05-450,nume1241,o,ʊ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > ʊ,Appendix 1,francois2005-hybridization
+nume-fr05-451,nume1241,o,ɔ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+nume-fr05-452,nume1241,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+nume-fr05-453,nume1241,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+nume-fr05-454,nume1241,o,ʊ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > ʊ,Appendix 1,francois2005-hybridization
+nume-fr05-455,nume1241,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+nume-fr05-456,nume1241,u,u,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > u,Appendix 1,francois2005-hybridization
+nume-fr05-457,nume1241,u,u,_(C)a,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)a > u || ʊ,Appendix 1,francois2005-hybridization
+nume-fr05-458,nume1241,u,ʊ,_(C)a,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*u(C)a > u || ʊ,Appendix 1,francois2005-hybridization
+nume-fr05-459,nume1241,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+nume-fr05-460,nume1241,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+nume-fr05-461,nume1241,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+nume-fr05-462,nume1241,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+nume-fr05-463,nume1241,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+nume-fr05-464,nume1241,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+weta-fr05-465,weta1242,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+weta-fr05-466,weta1242,i,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+weta-fr05-467,weta1242,i,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+weta-fr05-468,weta1242,i,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+weta-fr05-469,weta1242,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+weta-fr05-470,weta1242,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+weta-fr05-471,weta1242,e,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+weta-fr05-472,weta1242,e,ɛ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+weta-fr05-473,weta1242,e,ɛ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+weta-fr05-474,weta1242,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+weta-fr05-475,weta1242,a,aː,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)i > aː || <a>,Appendix 1,francois2005-hybridization
+weta-fr05-476,weta1242,a,a,_i (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)i > aː || <a>,Appendix 1,francois2005-hybridization
+weta-fr05-477,weta1242,a,a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+weta-fr05-478,weta1242,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+weta-fr05-479,weta1242,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+weta-fr05-480,weta1242,a,aː,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > aː || <a>,Appendix 1,francois2005-hybridization
+weta-fr05-481,weta1242,a,a,_u (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)u > aː || <a>,Appendix 1,francois2005-hybridization
+weta-fr05-482,weta1242,o,ʊ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > ʊ,Appendix 1,francois2005-hybridization
+weta-fr05-483,weta1242,o,ɔ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+weta-fr05-484,weta1242,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+weta-fr05-485,weta1242,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+weta-fr05-486,weta1242,o,ʊ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > ʊ,Appendix 1,francois2005-hybridization
+weta-fr05-487,weta1242,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+weta-fr05-488,weta1242,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+weta-fr05-489,weta1242,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+weta-fr05-490,weta1242,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+weta-fr05-491,weta1242,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+weta-fr05-492,weta1242,i,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+weta-fr05-493,weta1242,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+weta-fr05-494,weta1242,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+weta-fr05-495,weta1242,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+weta-fr05-496,weta1242,u,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+koro-fr05-497,koro1318,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+koro-fr05-498,koro1318,i,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+koro-fr05-499,koro1318,i,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+koro-fr05-500,koro1318,i,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+koro-fr05-501,koro1318,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+koro-fr05-502,koro1318,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+koro-fr05-503,koro1318,e,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+koro-fr05-504,koro1318,e,ɛ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+koro-fr05-505,koro1318,e,ɛ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+koro-fr05-506,koro1318,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+koro-fr05-507,koro1318,a,ɛ͡a,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)i > ɛ͡a || <a>,Appendix 1,francois2005-hybridization
+koro-fr05-508,koro1318,a,a,_i (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)i > ɛ͡a || <a>,Appendix 1,francois2005-hybridization
+koro-fr05-509,koro1318,a,a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+koro-fr05-510,koro1318,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+koro-fr05-511,koro1318,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+koro-fr05-512,koro1318,a,ɛ͡a,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > ɛ͡a || <a>,Appendix 1,francois2005-hybridization
+koro-fr05-513,koro1318,a,a,_u (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)u > ɛ͡a || <a>,Appendix 1,francois2005-hybridization
+koro-fr05-514,koro1318,o,ʊ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > ʊ,Appendix 1,francois2005-hybridization
+koro-fr05-515,koro1318,o,ɔ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+koro-fr05-516,koro1318,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+koro-fr05-517,koro1318,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+koro-fr05-518,koro1318,o,ʊ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > ʊ,Appendix 1,francois2005-hybridization
+koro-fr05-519,koro1318,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+koro-fr05-520,koro1318,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+koro-fr05-521,koro1318,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+koro-fr05-522,koro1318,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+koro-fr05-523,koro1318,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+koro-fr05-524,koro1318,i,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+koro-fr05-525,koro1318,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+koro-fr05-526,koro1318,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+koro-fr05-527,koro1318,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+koro-fr05-528,koro1318,u,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+olra-fr05-529,olra1234,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+olra-fr05-530,olra1234,i,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-531,olra1234,i,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-532,olra1234,i,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-533,olra1234,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+olra-fr05-534,olra1234,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-535,olra1234,e,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+olra-fr05-536,olra1234,e,ɛ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+olra-fr05-537,olra1234,e,ɛ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+olra-fr05-538,olra1234,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-539,olra1234,a,a,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > a || ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-540,olra1234,a,ɪ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > a || ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-541,olra1234,a,a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > a,Appendix 1,francois2005-hybridization
+olra-fr05-542,olra1234,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+olra-fr05-543,olra1234,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+olra-fr05-544,olra1234,a,a,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > a,Appendix 1,francois2005-hybridization
+olra-fr05-545,olra1234,o,ʊ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)i > ʊ || ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-546,olra1234,o,ɪ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)i > ʊ || ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-547,olra1234,o,ɔ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+olra-fr05-548,olra1234,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+olra-fr05-549,olra1234,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+olra-fr05-550,olra1234,o,ʊ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)u > ʊ || ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-551,olra1234,o,ɪ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)u > ʊ || ɪ,Appendix 1,francois2005-hybridization
+olra-fr05-552,olra1234,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+olra-fr05-553,olra1234,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+olra-fr05-554,olra1234,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+olra-fr05-555,olra1234,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+olra-fr05-556,olra1234,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+olra-fr05-557,olra1234,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+olra-fr05-558,olra1234,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+olra-fr05-559,olra1234,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+olra-fr05-560,olra1234,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+olra-fr05-561,olra1234,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+lako-fr05-562,lako1245,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+lako-fr05-563,lako1245,i,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-564,lako1245,i,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-565,lako1245,i,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-566,lako1245,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+lako-fr05-567,lako1245,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-568,lako1245,e,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɛ,Appendix 1,francois2005-hybridization
+lako-fr05-569,lako1245,e,ɛ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɛ,Appendix 1,francois2005-hybridization
+lako-fr05-570,lako1245,e,ɛ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɛ,Appendix 1,francois2005-hybridization
+lako-fr05-571,lako1245,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-572,lako1245,a,æ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)i > æ,Appendix 1,francois2005-hybridization
+lako-fr05-573,lako1245,a,æ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > æ,Appendix 1,francois2005-hybridization
+lako-fr05-574,lako1245,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+lako-fr05-575,lako1245,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+lako-fr05-576,lako1245,a,a,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)u > a,Appendix 1,francois2005-hybridization
+lako-fr05-577,lako1245,o,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)i > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-578,lako1245,o,ɔ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > ɔ,Appendix 1,francois2005-hybridization
+lako-fr05-579,lako1245,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+lako-fr05-580,lako1245,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+lako-fr05-581,lako1245,o,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)u > ɪ,Appendix 1,francois2005-hybridization
+lako-fr05-582,lako1245,u,u,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > u,Appendix 1,francois2005-hybridization
+lako-fr05-583,lako1245,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+lako-fr05-584,lako1245,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+lako-fr05-585,lako1245,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+lako-fr05-586,lako1245,u,u,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > u,Appendix 1,francois2005-hybridization
+lako-fr05-587,lako1245,i,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+lako-fr05-588,lako1245,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+lako-fr05-589,lako1245,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+lako-fr05-590,lako1245,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+lako-fr05-591,lako1245,u,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+merl-fr05-592,merl1237,i,i,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)i > i,Appendix 1,francois2005-hybridization
+merl-fr05-593,merl1237,i,ɛ͡a,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)e > ɛ͡a,Appendix 1,francois2005-hybridization
+merl-fr05-594,merl1237,i,ɛ͡a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)a > ɛ͡a,Appendix 1,francois2005-hybridization
+merl-fr05-595,merl1237,i,ɛ͡a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)o > ɛ͡a,Appendix 1,francois2005-hybridization
+merl-fr05-596,merl1237,i,i,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*i(C)u > i,Appendix 1,francois2005-hybridization
+merl-fr05-597,merl1237,e,ɪ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)i > ɪ,Appendix 1,francois2005-hybridization
+merl-fr05-598,merl1237,e,ɪ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)e > ɪ,Appendix 1,francois2005-hybridization
+merl-fr05-599,merl1237,e,ɪ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)a > ɪ,Appendix 1,francois2005-hybridization
+merl-fr05-600,merl1237,e,ɪ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)o > ɪ,Appendix 1,francois2005-hybridization
+merl-fr05-601,merl1237,e,ɪ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*e(C)u > ɪ,Appendix 1,francois2005-hybridization
+merl-fr05-602,merl1237,a,ɛ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || ɛ͡a || <ɪ>,Appendix 1,francois2005-hybridization
+merl-fr05-603,merl1237,a,ɛ͡a,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)i > ɛ || ɛ͡a || <ɪ>,Appendix 1,francois2005-hybridization
+merl-fr05-604,merl1237,a,ɪ,_i (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)i > ɛ || ɛ͡a || <ɪ>,Appendix 1,francois2005-hybridization
+merl-fr05-605,merl1237,a,ɛ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)e > ɛ,Appendix 1,francois2005-hybridization
+merl-fr05-606,merl1237,a,a,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)a > a,Appendix 1,francois2005-hybridization
+merl-fr05-607,merl1237,a,a,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*a(C)o > a,Appendix 1,francois2005-hybridization
+merl-fr05-608,merl1237,a,ɔ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɔ || ɔ͡ɞ || <ʊ>,Appendix 1,francois2005-hybridization
+merl-fr05-609,merl1237,a,ɔ͡ɞ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*a(C)u > ɔ || ɔ͡ɞ || <ʊ>,Appendix 1,francois2005-hybridization
+merl-fr05-610,merl1237,a,ʊ,_u (adjacent),regular,,,francois2005,491,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,,,,,,,,,,,,*a(C)u > ɔ || ɔ͡ɞ || <ʊ>,Appendix 1,francois2005-hybridization
+merl-fr05-611,merl1237,o,ʊ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)i > ʊ || ɵ,Appendix 1,francois2005-hybridization
+merl-fr05-612,merl1237,o,ɵ,_(C)i,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)i > ʊ || ɵ,Appendix 1,francois2005-hybridization
+merl-fr05-613,merl1237,o,œ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)e > œ,Appendix 1,francois2005-hybridization
+merl-fr05-614,merl1237,o,ɔ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)a > ɔ,Appendix 1,francois2005-hybridization
+merl-fr05-615,merl1237,o,ɔ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*o(C)o > ɔ,Appendix 1,francois2005-hybridization
+merl-fr05-616,merl1237,o,ʊ͡ɵ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)u > ʊ͡ɵ || ʊ,Appendix 1,francois2005-hybridization
+merl-fr05-617,merl1237,o,ʊ,_(C)u,regular,,,francois2005,491,"One of several regular reflexes of this sequence, with no stated condition.",,,,,unknown,,,,,,,,*o(C)u > ʊ͡ɵ || ʊ,Appendix 1,francois2005-hybridization
+merl-fr05-618,merl1237,u,ʉ,_(C)i,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)i > ʉ,Appendix 1,francois2005-hybridization
+merl-fr05-619,merl1237,u,ʊ,_(C)e,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)e > ʊ,Appendix 1,francois2005-hybridization
+merl-fr05-620,merl1237,u,ʊ,_(C)a,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)a > ʊ,Appendix 1,francois2005-hybridization
+merl-fr05-621,merl1237,u,ʊ,_(C)o,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)o > ʊ,Appendix 1,francois2005-hybridization
+merl-fr05-622,merl1237,u,ʉ,_(C)u,regular,,,francois2005,491,,,,,,,,,,,,,,*u(C)u > ʉ,Appendix 1,francois2005-hybridization
+merl-fr05-623,merl1237,i,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)i > V'(C),Appendix 1,francois2005-hybridization
+merl-fr05-624,merl1237,e,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)e > V'(C),Appendix 1,francois2005-hybridization
+merl-fr05-625,merl1237,a,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)a > V'(C),Appendix 1,francois2005-hybridization
+merl-fr05-626,merl1237,o,∅,"posttonic, after *i(C), *e(C), *a(C), *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)o > V'(C),Appendix 1,francois2005-hybridization
+merl-fr05-627,merl1237,u,∅,"posttonic, after *i(C), *e(C), *a(C), *a, *o(C), *u(C)",regular,,,francois2005,491,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,,,,,,,,,,,,*V1(C)u > V'(C),Appendix 1,francois2005-hybridization
+port-fr05-628,port1296,i,y,_(C)i,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,ü,*i(C)i > y,,francois2005-hybridization
+port-fr05-629,port1296,i,œ,_(C)e,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*i(C)e > œ || <i>,,francois2005-hybridization
+port-fr05-630,port1296,i,i,_e (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*i(C)e > œ || <i>,,francois2005-hybridization
+port-fr05-631,port1296,i,œ,_(C)a,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*i(C)a > œ || <i>,,francois2005-hybridization
+port-fr05-632,port1296,i,i,_a (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*i(C)a > œ || <i>,,francois2005-hybridization
+port-fr05-633,port1296,i,œ,_(C)o,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*i(C)o > œ || <i>,,francois2005-hybridization
+port-fr05-634,port1296,i,i,_o (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*i(C)o > œ || <i>,,francois2005-hybridization
+port-fr05-635,port1296,i,y,_(C)u,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,ü,*i(C)u > y,,francois2005-hybridization
+port-fr05-636,port1296,e,œ,_(C)i,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)i > œ || <e>,,francois2005-hybridization
+port-fr05-637,port1296,e,e,_i (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)i > œ || <e>,,francois2005-hybridization
+port-fr05-638,port1296,e,ɒ,_(C)e,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)e > ɒ,,francois2005-hybridization
+port-fr05-639,port1296,e,ɒ,_(C)a,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)a > ɒ,,francois2005-hybridization
+port-fr05-640,port1296,e,ɒ,_(C)o,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)o > ɒ,,francois2005-hybridization
+port-fr05-641,port1296,e,œ,_(C)u,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)u > œ || <e>,,francois2005-hybridization
+port-fr05-642,port1296,e,e,_u (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*e(C)u > œ || <e>,,francois2005-hybridization
+port-fr05-643,port1296,a,ɛ,_(C)i,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*a(C)i > ɛ,,francois2005-hybridization
+port-fr05-644,port1296,a,a,_(C)e,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*a(C)e > a,,francois2005-hybridization
+port-fr05-645,port1296,a,a,_(C)a,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*a(C)a > a,,francois2005-hybridization
+port-fr05-646,port1296,a,a,_(C)o,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*a(C)o > a,,francois2005-hybridization
+port-fr05-647,port1296,a,ɛ,_(C)u,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*a(C)u > ɛ,,francois2005-hybridization
+port-fr05-648,port1296,o,œ,_(C)i,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)i > œ || <ø>,,francois2005-hybridization
+port-fr05-649,port1296,o,ø,_i (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)i > œ || <ø>,,francois2005-hybridization
+port-fr05-650,port1296,o,ɔ,_(C)e,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)e > ɔ,,francois2005-hybridization
+port-fr05-651,port1296,o,ɔ,_(C)a,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)a > ɔ,,francois2005-hybridization
+port-fr05-652,port1296,o,ɔ,_(C)o,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)o > ɔ,,francois2005-hybridization
+port-fr05-653,port1296,o,œ,_(C)u,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)u > œ || <ø>,,francois2005-hybridization
+port-fr05-654,port1296,o,ø,_u (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*o(C)u > œ || <ø>,,francois2005-hybridization
+port-fr05-655,port1296,u,y,_(C)i,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,ü,*u(C)i > y,,francois2005-hybridization
+port-fr05-656,port1296,u,œ,_(C)e,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*u(C)e > œ || <u>,,francois2005-hybridization
+port-fr05-657,port1296,u,u,_e (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*u(C)e > œ || <u>,,francois2005-hybridization
+port-fr05-658,port1296,u,œ,_(C)a,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*u(C)a > œ || <u>,,francois2005-hybridization
+port-fr05-659,port1296,u,u,_a (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*u(C)a > œ || <u>,,francois2005-hybridization
+port-fr05-660,port1296,u,œ,_(C)o,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*u(C)o > œ || <u>,,francois2005-hybridization
+port-fr05-661,port1296,u,u,_o (adjacent),regular,,,guy1977,,"The sequence of two adjacent vowels *V1V2 (angled brackets), which did not hybridize as *V1CV2 did.",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*u(C)o > œ || <u>,,francois2005-hybridization
+port-fr05-662,port1296,u,y,_(C)u,regular,,,guy1977,,,,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,ü,*u(C)u > y,,francois2005-hybridization
+port-fr05-663,port1296,i,∅,"posttonic, after *i(C), *e(C), *e, *a(C), *o(C), *o, *u(C)",regular,,,guy1977,,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*V1(C)i > V'(C),,francois2005-hybridization
+port-fr05-664,port1296,e,∅,"posttonic, after *i(C), *i, *e(C), *a(C), *o(C), *u(C), *u",regular,,,guy1977,,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*V1(C)e > V'(C),,francois2005-hybridization
+port-fr05-665,port1296,a,∅,"posttonic, after *i(C), *i, *e(C), *a(C), *o(C), *u(C), *u",regular,,,guy1977,,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*V1(C)a > V'(C),,francois2005-hybridization
+port-fr05-666,port1296,o,∅,"posttonic, after *i(C), *i, *e(C), *a(C), *o(C), *u(C), *u",regular,,,guy1977,,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*V1(C)o > V'(C),,francois2005-hybridization
+port-fr05-667,port1296,u,∅,"posttonic, after *i(C), *e(C), *e, *a(C), *o(C), *o, *u(C)",regular,,,guy1977,,"The posttonic vowel is lost, its quality absorbed into the stressed vowel (vowel hybridization, pp. 449-451, 489).",,francois2005,491,"Reproduced by François as the 18th chart of Appendix 1, in his notation.",,,,,,,,,*V1(C)u > V'(C),,francois2005-hybridization

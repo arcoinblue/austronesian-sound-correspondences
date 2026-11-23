@@ -1026,6 +1026,8 @@ def validate_and_derive(t, rep: Report):
         if r["child_lect_id"] in lects and lects[r["child_lect_id"]]["type"] in ("language", "dialect") \
                 and r["child_phoneme"]:
             for why in non_ipa(r["child_phoneme"]):
+                if why.startswith("j for") and symbol_features(r["parent_phoneme"], proto=True)[0] == "V":
+                    continue   # y from a vowel is the close front rounded vowel (Vurës, Sakao ü)
                 odd[r["child_lect_id"]][why].add(r["child_phoneme"])
     for L, whys in sorted(odd.items()):
         rep.warn(lects[L]["_where"], f"{lects[L]['name']} has symbols that are not IPA: "

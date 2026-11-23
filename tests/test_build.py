@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 import build  # noqa: E402
+from asc.schema import ipa_features  # noqa: E402
 
 FIXTURE = ROOT / "tests" / "fixtures" / "example"
 
@@ -411,6 +412,17 @@ class TestSheetRoundTrip(unittest.TestCase):
         self.assertFalse([x for x in w if "not IPA" in x and "Examplese" in x])
         w = run(append("phonemes.csv", "exam1234,y,,C,palatal,approximant,voiced,,sourced,example2026,40,,,,,,")).warnings
         self.assertTrue([x for x in w if "not IPA" in x and "Examplese" in x])
+
+    def test_reflex_y_of_a_vowel_is_ipa(self):
+        # Vurës, Sakao: a vowel > y (printed ü) is the rounded vowel, not a glide spelled y.
+        w = run(append("correspondences.csv", "vy-1,exam1234,u,y,_(C)i,regular,,,example2026,1,")).warnings
+        self.assertFalse([x for x in w if "not IPA" in x and "Examplese" in x and " y " in x + " "])
+
+    def test_rounded_central_and_front_vowels_are_charted(self):
+        # Hiu ɵ, Mwerlap ɔ͡ɞ, Lemerig œ (François 2005): placed, not listed as unclassified.
+        for sym, place, height in (("ɵ", "central", "close-mid"), ("ɞ", "central", "open-mid"), ("œ", "front", "open-mid")):
+            cls, pl, h, _, rnd = ipa_features(sym)
+            self.assertEqual((cls, pl, h, rnd), ("V", place, height, "rounded"))
 
     def test_half_a_fusion_warns_and_stays_an_ordinary_row(self):
         def m(d):
