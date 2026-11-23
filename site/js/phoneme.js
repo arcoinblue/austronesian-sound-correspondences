@@ -280,7 +280,14 @@ function ancStagesOf(g, herePid) {
 // The ancestry section: one diagram, or, where that gets cluttered, one tree
 // per ancestor at a chosen stage (see ancsplit.js). The stage is picked
 // automatically and can be changed, or the split turned off.
-function ancestryBlock(g, herePid, cutLect) {
+function ancestryBlock(g, herePid, cutLect, regularOnly) {
+  // "Regular changes only": offered when it leaves a history and removes something.
+  const regular = ancRegularOnly(g, herePid);
+  const dropped = g.edges.length - regular.edges.length;
+  const canFilter = dropped > 0 && regular.edges.length > 0;
+  const allSteps = g.edges.length;
+  if (regularOnly && canFilter) g = regular;
+  const filterBox = canFilter ? ` <label class="ancregbox" title="Hide sporadic, borrowed and doubtful changes and the lines that reach this phoneme only through them"><input type="checkbox" class="ancreg"${regularOnly ? " checked" : ""}> Regular changes only <span class="muted">(${regularOnly ? "hides" : "would hide"} ${dropped} of ${allSteps} steps)</span></label>` : "";
   const lectOf = p => splitPid(p)[0];
   const stages = ancStagesOf(g, herePid);
   const auto = ancAutoCut(g, stages, lectOf);
@@ -288,7 +295,7 @@ function ancestryBlock(g, herePid, cutLect) {
   const trees = cutLect ? ancSplitAt(g, stages, lectOf, cutLect) : null;
   const opts = [`<option value=""${cutLect ? "" : " selected"}>one diagram</option>`].concat(stages.slice(0, -1).map(l =>
     `<option value="${esc(l)}"${l === cutLect ? " selected" : ""}>a tree per ${esc(LECTS[l]?.name || l)} phoneme${l === auto ? " (suggested)" : ""}</option>`)).join("");
-  const control = g.edges.length > 6 || auto ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}<label class="anccutbox">Show as <select class="anccut">${opts}</select></label></p>` : "";
+  const control = g.edges.length > 6 || auto || canFilter ? `<p class="anccontrol muted">${auto ? `This history has ${g.edges.length} steps, so it is split into smaller trees. ` : ""}${g.edges.length > 6 || auto ? `<label class="anccutbox">Show as <select class="anccut">${opts}</select></label>` : ""}${filterBox}</p>` : "";
   if (!trees || trees.length < 2) return `${control}${ancestryHtml(g, herePid)}`;
   // The regular line of descent first: trees with fewer sporadic, borrowed or doubtful steps come first.
   const odd = t => t.g.edges.filter(e => e.status && e.status !== "regular").length;
@@ -301,6 +308,9 @@ function ancestryBlock(g, herePid, cutLect) {
   return `${control}<div class="anctrees">${sorted.map(t => `<figure class="anctree"><figcaption>${cap(t)}</figcaption>${ancestryHtml(t.g, herePid, { bare: true })}</figure>`).join("")}</div>
     ${ANC_LEGEND}${ancStepsHtml(g, herePid)}`;
 }
+
+// The reader's choice of "Regular changes only", kept across pages and visits.
+function ancRegularPref() { try { return localStorage.getItem("asc-anc-regular") === "1"; } catch (e) { return false; } }
 
 function fusionText(f) { return f.members.map(sym).join(" + ") + " fuse"; }
 
@@ -543,7 +553,7 @@ async function pagePhoneme(L, uid) {
 
     <h2>Ancestry</h2>
     ${det.ancestry_graph.edges.length
-      ? `<div class="ancblock">${ancestryBlock(det.ancestry_graph, ph.id)}</div>`
+      ? `<div class="ancblock">${ancestryBlock(det.ancestry_graph, ph.id, undefined, ancRegularPref())}</div>`
       : `<p class="muted">${d.parent_id ? "No correspondence entered for this phoneme yet." : "Root proto-language: no ancestor."}</p>`}
     ${ancestorPids.length ? `<p>Same ancestor across the family: ${ancestorPids.map(p =>
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
@@ -554,10 +564,13 @@ async function pagePhoneme(L, uid) {
     ${altDescentHtml(det.alt_descendants, d)}
     </div>`;
   const wireAnc = () => {
-    const sel = app.querySelector(".ancblock select.anccut");
-    if (sel) sel.addEventListener("change", () => {
-      app.querySelector(".ancblock").innerHTML = ancestryBlock(det.ancestry_graph, ph.id, sel.value);
-      wireAnc();
+    const sel = app.querySelector(".ancblock select.anccut"), reg = app.querySelector(".ancblock input.ancreg");
+    const redraw = cut => { app.querySelector(".ancblock").innerHTML = ancestryBlock(det.ancestry_graph, ph.id, cut, ancRegularPref()); wireAnc(); };
+    if (sel) sel.addEventListener("change", () => redraw(sel.value));
+    // The box changes what there is to split, so the split is chosen again.
+    if (reg) reg.addEventListener("change", () => {
+      try { localStorage.setItem("asc-anc-regular", reg.checked ? "1" : ""); } catch (e) {}
+      redraw(undefined);
     });
   };
   wireAnc();

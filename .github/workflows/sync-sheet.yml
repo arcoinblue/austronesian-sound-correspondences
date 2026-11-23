@@ -6,7 +6,9 @@ name: Sync from Google Sheets
 
 on:
   schedule:
-    - cron: "17 * * * *"   # hourly
+    # Three times an hour: GitHub delays and drops scheduled runs (the single hourly slot ran
+    # 5 to 10 hours apart, 20-23 Nov 2026), and a run that finds nothing new costs half a minute.
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:
 
 permissions:

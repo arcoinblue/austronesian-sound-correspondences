@@ -46,8 +46,12 @@ async function pageIndex(params) {
     const saved = JSON.parse(localStorage.getItem("asc-open") || "null");
     if (Array.isArray(saved)) mem.open = new Set(saved);
   } catch (e) {}
-  const state = { q: mem.q, view: "tree", hideEmpty: mem.hideEmpty };
+  const state = { q: mem.q, view: "tree", hideEmpty: mem.hideEmpty, only: !!mem.only };
   try { state.view = localStorage.getItem("asc-view") === "flat" ? "flat" : "tree"; } catch (e) {}
+  // The address can carry the filter, the view and the reflex table's box (?q=tetun&view=flat&only=1).
+  if (params.get("q") !== null) state.q = params.get("q");
+  if (params.get("view")) state.view = params.get("view") === "flat" ? "flat" : "tree";
+  if (pivot && params.get("only")) state.only = params.get("only") === "1";
 
   // The tree: daughters under their nearest ancestor. In a reflex table the
   // pivot's own daughters are the top level.
@@ -69,7 +73,8 @@ async function pageIndex(params) {
     if (pivot) pool.forEach(l => open.add(l.id));
   }
   const remember = () => {
-    mem.q = state.q; mem.hideEmpty = state.hideEmpty;
+    mem.q = state.q; mem.hideEmpty = state.hideEmpty; mem.only = state.only;
+    setQuery({ q: state.q, view: state.view === "flat" ? "flat" : "", only: pivot && state.only ? "1" : "" });
     if (!pivot) try { localStorage.setItem("asc-open", JSON.stringify([...open])); } catch (e) {}
   };
   // The clades above a lect, shown when the pointer rests on its name.
@@ -87,6 +92,7 @@ async function pageIndex(params) {
       </span>
       <span class="treeonly"><button class="more" id="openall">Expand all</button> <button class="more" id="closeall">Collapse</button></span>
       <label class="muted" id="hideemptybox" style="font-size:13px"><input type="checkbox" id="hideempty" checked> Hide lects with no data</label>
+      ${pivot ? `<label class="muted" style="font-size:13px" title="Hide the lects, and the groups, that have no reflex of this phoneme entered or implied"><input type="checkbox" id="onlyreflex"> Only lects with a reflex</label>` : ""}
       <span class="muted" id="count"></span>
     </div>
     <div class="scroll"><table id="t" class="lects"></table></div>`;
@@ -99,7 +105,10 @@ async function pageIndex(params) {
     const hit = l => !q || [l.name, ...(l.alt_names || []), ...(l.overlap_groups || [])].some(n => n.toLowerCase().includes(q));
     // A lect with no rows and no daughters with rows says nothing yet.
     const hasData = l => l.index_status !== "empty" || (kids[l.id] || []).some(hasData);
-    const visible = l => !(state.hideEmpty && !pivot && !hasData(l));
+    // In a reflex table: has the lect, or a lect under it, a reflex of the phoneme?
+    const ownReflex = l => pivot && ((pivot.byLect[l.id] || []).length || (pivot.implied[l.id] || []).length);
+    const hasReflex = l => ownReflex(l) || (kids[l.id] || []).some(hasReflex);
+    const visible = l => !(state.hideEmpty && !pivot && !hasData(l)) && !(pivot && state.only && !hasReflex(l));
     const head = `<tr><th>Name</th><th class="ty">Type</th><th class="gc">Glottocode</th>${tree ? "" : "<th>Nearest ancestor</th>"}
       <th>${pivot ? "Reflex" : "Coverage"}</th></tr>`;
     const cells = l => {
@@ -195,6 +204,8 @@ async function pageIndex(params) {
   app.querySelector("#hideempty").checked = state.hideEmpty;
   app.querySelector("#q").addEventListener("input", e => { state.q = e.target.value; draw(); });
   app.querySelector("#hideempty").addEventListener("change", e => { state.hideEmpty = e.target.checked; draw(); });
+  const only = app.querySelector("#onlyreflex");
+  if (only) { only.checked = state.only; only.addEventListener("change", e => { state.only = e.target.checked; draw(); }); }
   app.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
     state.view = b.dataset.v; try { localStorage.setItem("asc-view", state.view); } catch (e) {} draw();
   }));

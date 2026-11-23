@@ -262,6 +262,35 @@ class TestImpliedInAttested(unittest.TestCase):
         self.assertEqual(implied_ipa("ʤ", {"place": "postalveolar", "manner": "affricate", "voicing": "voiced"}), "d͡ʒ")
 
 
+class TestAncestryRegularOnly(unittest.TestCase):
+    """site/js/ancsplit.js ancRegularOnly: the box 'Regular changes only' of the ancestry section."""
+
+    def run_js(self, graph, here):
+        import json, shutil, subprocess
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node is not installed")
+        src = (ROOT / "site" / "js" / "ancsplit.js").read_text(encoding="utf-8")
+        code = src + f"\nconsole.log(JSON.stringify(ancRegularOnly({json.dumps(graph)}, {json.dumps(here)})));"
+        return json.loads(subprocess.run([node, "-e", code], capture_output=True, text=True, check=True).stdout)
+
+    def test_drops_sporadic_steps_and_what_hangs_on_them(self):
+        e = lambda i, p, c, st="regular", **kw: dict(correspondence_id=i, parent=p, child=c, status=st, **kw)
+        g = {"nodes": ["x:k", "p:t", "p:l", "q:t", "q:r"],
+             "edges": [e("a", "p:t", "x:k"), e("b", "p:l", "x:k", "sporadic"), e("c", "q:t", "p:t"),
+                       e("d", "q:r", "p:l"), e("f", "q:t", "p:t", "disputed")]}
+        out = self.run_js(g, "x:k")
+        self.assertEqual([x["correspondence_id"] for x in out["edges"]], ["a", "c"])
+        self.assertEqual(out["nodes"], ["x:k", "p:t", "q:t"])
+
+    def test_a_fused_step_keeps_its_partner(self):
+        f = lambda partner: {"members": ["p:n", "p:d"], "partner_correspondence_id": partner}
+        g = {"nodes": ["x:dr", "p:n", "p:d"],
+             "edges": [dict(correspondence_id="n", parent="p:n", child="x:dr", status="regular", fusion=f("d")),
+                       dict(correspondence_id="d", parent="p:d", child="x:dr", status="regular", fusion=f("n"))]}
+        self.assertEqual(len(self.run_js(g, "x:dr")["edges"]), 2)
+
+
 class TestStrayReflex(unittest.TestCase):
     """A reflex that the lect's sourced inventory lacks still gets a page (and a warning)."""
 

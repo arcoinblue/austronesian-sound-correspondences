@@ -94,3 +94,19 @@ function ancAutoCut(g, stages, lectOf) {
 }
 
 if (typeof module !== "undefined") module.exports = { ancSplitAt, ancAutoCut, ANC_SPLIT };
+
+// The graph without its sporadic, borrowed or doubtful steps: the regular lines that still
+// lead to the page's phoneme (a fused step keeps its partner).
+function ancRegularOnly(g, herePid) {
+  const ok = e => !e.status || e.status === "regular";
+  const byId = {}, byChild = {};
+  for (const e of g.edges) { if (e.correspondence_id) byId[e.correspondence_id] = e; if (ok(e)) (byChild[e.child] ||= []).push(e); }
+  const keep = new Set(), todo = [herePid], seen = new Set([herePid]);
+  while (todo.length) for (const e of byChild[todo.pop()] || [])
+    for (const x of [e, e.fusion && byId[e.fusion.partner_correspondence_id]]) if (x && !keep.has(x)) {
+      keep.add(x);
+      if (x.parent && !seen.has(x.parent)) { seen.add(x.parent); todo.push(x.parent); }
+    }
+  const edges = g.edges.filter(e => keep.has(e));
+  return { ...g, edges, nodes: g.nodes.filter(n => n === herePid || edges.some(e => e.child === n || e.parent === n)) };
+}
