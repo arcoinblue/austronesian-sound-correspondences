@@ -1,0 +1,230 @@
+id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes,system,via_source_id,via_page,via_note,conditioning,evidence_total,derivation,variety,stratum,lexical_scope,examples,source_form,as_printed,locator,decision
+ho82-pije-1,pije1237,q,k,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *q- > k-,Table 3.3.4,ho1982-composition
+ho82-nemi-2,nemi1240,q,k,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *q- > k-,Table 3.3.4,ho1982-composition
+ho82-jawe-3,jawe1237,q,k,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *q- > k-,Table 3.3.4,ho1982-composition
+ho82-pije-4,pije1237,q,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-fwai-5,fwai1237,q,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-nemi-6,nemi1240,q,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-jawe-7,jawe1237,q,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-pije-8,pije1237,q,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-fwai-9,fwai1237,q,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-nemi-10,nemi1240,q,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-jawe-11,jawe1237,q,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *q- > -k, -∅- (P, F), -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-nemi-12,nemi1240,q,ɣ,V_V,sporadic,,,haudricourt1982,54,In parentheses; cf. POc (20) *puqu(n) (n. 55).,,,,,,,composed,,,,,,"POc *q- > -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-jawe-13,jawe1237,q,ɣ,V_V,sporadic,,,haudricourt1982,54,In parentheses; cf. POc (20) *puqu(n) (n. 55).,,,,,,,composed,,,,,,"POc *q- > -k, -∅-, (-ɣ-) (N, J)",Table 3.3.4,ho1982-composition
+ho82-pije-14,pije1237,q,k,_#,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-fwai-15,fwai1237,q,k,_#,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-nemi-16,nemi1240,q,k,_#,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-jawe-17,jawe1237,q,k,_#,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-pije-18,pije1237,q,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-fwai-19,fwai1237,q,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-nemi-20,nemi1240,q,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-jawe-21,jawe1237,q,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-q > -k, -∅",Table 3.3.4,ho1982-composition
+ho82-pije-22,pije1237,k,c,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *k- > c-,Table 3.3.4,ho1982-composition
+ho82-nemi-23,nemi1240,k,c,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *k- > c-,Table 3.3.4,ho1982-composition
+ho82-jawe-24,jawe1237,k,c,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *k- > c-,Table 3.3.4,ho1982-composition
+ho82-pije-25,pije1237,k,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-26,fwai1237,k,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-27,nemi1240,k,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-28,jawe1237,k,k,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-29,pije1237,k,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-30,fwai1237,k,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-31,nemi1240,k,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-32,jawe1237,k,∅,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-k- > -k, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-33,pije1237,k,k,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-k > -k,Table 3.3.4,ho1982-composition
+ho82-fwai-34,fwai1237,k,k,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-k > -k,Table 3.3.4,ho1982-composition
+ho82-nemi-35,nemi1240,k,k,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-k > -k,Table 3.3.4,ho1982-composition
+ho82-jawe-36,jawe1237,k,k,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-k > -k,Table 3.3.4,ho1982-composition
+ho82-pije-37,pije1237,ŋɡ,ŋ,"V_V, now word-final",regular,,,haudricourt1982,54,Blust's and Grace's *ŋk (Ross's *ɡ).,,,,,,,composed,,,,,,POc *-ŋk- > -ŋ,Table 3.3.4,ho1982-composition
+ho82-fwai-38,fwai1237,ŋɡ,ŋ,"V_V, now word-final",regular,,,haudricourt1982,54,Blust's and Grace's *ŋk (Ross's *ɡ).,,,,,,,composed,,,,,,POc *-ŋk- > -ŋ,Table 3.3.4,ho1982-composition
+ho82-nemi-39,nemi1240,ŋɡ,ŋ,"V_V, now word-final",regular,,,haudricourt1982,54,Blust's and Grace's *ŋk (Ross's *ɡ).,,,,,,,composed,,,,,,POc *-ŋk- > -ŋ,Table 3.3.4,ho1982-composition
+ho82-jawe-40,jawe1237,ŋɡ,ŋ,"V_V, now word-final",regular,,,haudricourt1982,54,Blust's and Grace's *ŋk (Ross's *ɡ).,,,,,,,composed,,,,,,POc *-ŋk- > -ŋ,Table 3.3.4,ho1982-composition
+ho82-pije-41,pije1237,ṭ,t,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *d- > t-,Table 3.3.4,ho1982-composition
+ho82-nemi-42,nemi1240,ṭ,t,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *d- > t-,Table 3.3.4,ho1982-composition
+ho82-jawe-43,jawe1237,ṭ,t,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *d- > t-,Table 3.3.4,ho1982-composition
+ho82-pije-44,pije1237,ṭ,t,"V_V, now word-final",regular,,,haudricourt1982,54,Her retroflex *d is Ross's *r.,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-fwai-45,fwai1237,ṭ,t,"V_V, now word-final",regular,,,haudricourt1982,54,Her retroflex *d is Ross's *r.,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-nemi-46,nemi1240,ṭ,t,"V_V, now word-final",regular,,,haudricourt1982,54,Her retroflex *d is Ross's *r.,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-jawe-47,jawe1237,ṭ,t,"V_V, now word-final",regular,,,haudricourt1982,54,Her retroflex *d is Ross's *r.,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-pije-48,pije1237,ṭ,l,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-fwai-49,fwai1237,ṭ,l,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-nemi-50,nemi1240,ṭ,l,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-jawe-51,jawe1237,ṭ,l,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-d- > -t, -l-",Table 3.3.4,ho1982-composition
+ho82-pije-52,pije1237,ṭ,t,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-d > -t,Table 3.3.4,ho1982-composition
+ho82-fwai-53,fwai1237,ṭ,t,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-d > -t,Table 3.3.4,ho1982-composition
+ho82-nemi-54,nemi1240,ṭ,t,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-d > -t,Table 3.3.4,ho1982-composition
+ho82-jawe-55,jawe1237,ṭ,t,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-d > -t,Table 3.3.4,ho1982-composition
+ho82-pije-56,pije1237,nḍ,ⁿd,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,POc *nd- > ⁿd-,Table 3.3.4,ho1982-composition
+ho82-fwai-57,fwai1237,nḍ,ⁿd,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,POc *nd- > ⁿd-,Table 3.3.4,ho1982-composition
+ho82-nemi-58,nemi1240,nḍ,ⁿd,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,POc *nd- > ⁿd-,Table 3.3.4,ho1982-composition
+ho82-jawe-59,jawe1237,nḍ,ⁿd,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,POc *nd- > ⁿd-,Table 3.3.4,ho1982-composition
+ho82-pije-60,pije1237,t,t,#_a,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *t(a) > t(a), ⁿd(a) (P, F, N), c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-nemi-61,nemi1240,t,t,#_a,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *t(a) > t(a), ⁿd(a) (P, F, N), c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-pije-62,pije1237,t,ⁿd,#_a,regular,,,haudricourt1982,54,"Table 3.3.4 also lists *t(a) / *nt(a) > ⁿd(a) (P, F, N), ⁿj(a) (J). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,d,"POc *t(a) > t(a), ⁿd(a) (P, F, N), c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-fwai-63,fwai1237,t,ⁿd,#_a,regular,,,haudricourt1982,54,"Table 3.3.4 also lists *t(a) / *nt(a) > ⁿd(a) (P, F, N), ⁿj(a) (J). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,d,"POc *t(a) > t(a), ⁿd(a) (P, F, N), c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-nemi-64,nemi1240,t,ⁿd,#_a,regular,,,haudricourt1982,54,"Table 3.3.4 also lists *t(a) / *nt(a) > ⁿd(a) (P, F, N), ⁿj(a) (J). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,d,"POc *t(a) > t(a), ⁿd(a) (P, F, N), c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-jawe-65,jawe1237,t,c,#_a,regular,,,haudricourt1982,54,Jawe palatalises the old dentals before *a (§1.2). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *t(a) > c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-jawe-66,jawe1237,t,ᶮɟ,#_a,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,j,"POc *t(a) > c(a), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-pije-67,pije1237,t,c,"#_i, #_u, #_o",regular,,,haudricourt1982,54,"The following *u, *o appear as i, e. One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,,"POc *t(i,u,o) > c(i,e), ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-nemi-68,nemi1240,t,c,"#_i, #_u, #_o",regular,,,haudricourt1982,54,"The following *u, *o appear as i, e. One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,,"POc *t(i,u,o) > c(i,e), ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-jawe-69,jawe1237,t,c,"#_i, #_u, #_o",regular,,,haudricourt1982,54,"The following *u, *o appear as i, e. One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,,"POc *t(i,u,o) > c(i,e), ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-pije-70,pije1237,t,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,j,"POc *t(u,o) / *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-fwai-71,fwai1237,t,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,j,"POc *t(u,o) / *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-nemi-72,nemi1240,t,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,j,"POc *t(u,o) / *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-jawe-73,jawe1237,t,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,j,"POc *t(u,o) / *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-pije-74,pije1237,t,c,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-fwai-75,fwai1237,t,c,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-nemi-76,nemi1240,t,c,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-jawe-77,jawe1237,t,c,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-pije-78,pije1237,t,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-fwai-79,fwai1237,t,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-nemi-80,nemi1240,t,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-jawe-81,jawe1237,t,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-t- > -c, -∅- (P, F), -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-nemi-82,nemi1240,t,j,V_V,regular,,,haudricourt1982,54,"Footnote 58 cites POc (108) *mata, (109) *ŋmata, (110) *natu, (111) *patu. One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,y,"POc *-t- > -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-jawe-83,jawe1237,t,j,V_V,regular,,,haudricourt1982,54,"Footnote 58 cites POc (108) *mata, (109) *ŋmata, (110) *natu, (111) *patu. One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).",,,,,unknown,,composed,,,,,y,"POc *-t- > -c, -∅-, -y- (N, J)",Table 3.3.4,ho1982-composition
+ho82-pije-84,pije1237,t,c,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-t > -c,Table 3.3.4,ho1982-composition
+ho82-fwai-85,fwai1237,t,c,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-t > -c,Table 3.3.4,ho1982-composition
+ho82-nemi-86,nemi1240,t,c,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-t > -c,Table 3.3.4,ho1982-composition
+ho82-jawe-87,jawe1237,t,c,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-t > -c,Table 3.3.4,ho1982-composition
+ho82-pije-88,pije1237,nd,ⁿd,#_a,regular,,,haudricourt1982,54,Her *nt is Ross's *d (PNC *nd).,,,,,,,composed,,,,,d,"POc *nt(a) > ⁿd(a) (P, F, N), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-fwai-89,fwai1237,nd,ⁿd,#_a,regular,,,haudricourt1982,54,Her *nt is Ross's *d (PNC *nd).,,,,,,,composed,,,,,d,"POc *nt(a) > ⁿd(a) (P, F, N), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-nemi-90,nemi1240,nd,ⁿd,#_a,regular,,,haudricourt1982,54,Her *nt is Ross's *d (PNC *nd).,,,,,,,composed,,,,,d,"POc *nt(a) > ⁿd(a) (P, F, N), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-jawe-91,jawe1237,nd,ᶮɟ,#_a,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,POc *nt(a) > ⁿj(a) (J),Table 3.3.4,ho1982-composition
+ho82-pije-92,pije1237,nd,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,"POc *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-fwai-93,fwai1237,nd,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,"POc *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-nemi-94,nemi1240,nd,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,"POc *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-jawe-95,jawe1237,nd,ᶮɟ,"#_u, #_o",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,"POc *nt(u,o) > ⁿj(i,e)",Table 3.3.4,ho1982-composition
+ho82-pije-96,pije1237,nd,ⁿd,V_a,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,"POc *-nt(a) > -ⁿd(a) (P, F, N), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-fwai-97,fwai1237,nd,ⁿd,V_a,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,"POc *-nt(a) > -ⁿd(a) (P, F, N), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-nemi-98,nemi1240,nd,ⁿd,V_a,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,d,"POc *-nt(a) > -ⁿd(a) (P, F, N), ⁿj(a) (J)",Table 3.3.4,ho1982-composition
+ho82-jawe-99,jawe1237,nd,ᶮɟ,V_a,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,POc *-nt(a) > ⁿj(a) (J),Table 3.3.4,ho1982-composition
+ho82-pije-100,pije1237,nd,ᶮɟ,V_i,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,POc *-nt(i) > -ⁿj(i),Table 3.3.4,ho1982-composition
+ho82-fwai-101,fwai1237,nd,ᶮɟ,V_i,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,POc *-nt(i) > -ⁿj(i),Table 3.3.4,ho1982-composition
+ho82-nemi-102,nemi1240,nd,ᶮɟ,V_i,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,POc *-nt(i) > -ⁿj(i),Table 3.3.4,ho1982-composition
+ho82-jawe-103,jawe1237,nd,ᶮɟ,V_i,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,j,POc *-nt(i) > -ⁿj(i),Table 3.3.4,ho1982-composition
+ho82-pije-104,pije1237,n,n,#_,regular,,,haudricourt1982,54,"POc *l merged with *n in PNC (Ozanne-Rivierre 1992), but it has its own medial reflexes here.",,,,,lexical,,composed,,,PNC *n from POc *l,,,POc *l- > n-,Table 3.3.4,ho1982-composition
+ho82-fwai-105,fwai1237,n,n,#_,regular,,,haudricourt1982,54,"POc *l merged with *n in PNC (Ozanne-Rivierre 1992), but it has its own medial reflexes here.",,,,,lexical,,composed,,,PNC *n from POc *l,,,POc *l- > n-,Table 3.3.4,ho1982-composition
+ho82-nemi-106,nemi1240,n,n,#_,regular,,,haudricourt1982,54,"POc *l merged with *n in PNC (Ozanne-Rivierre 1992), but it has its own medial reflexes here.",,,,,lexical,,composed,,,PNC *n from POc *l,,,POc *l- > n-,Table 3.3.4,ho1982-composition
+ho82-jawe-107,jawe1237,n,n,#_,regular,,,haudricourt1982,54,"POc *l merged with *n in PNC (Ozanne-Rivierre 1992), but it has its own medial reflexes here.",,,,,lexical,,composed,,,PNC *n from POc *l,,,POc *l- > n-,Table 3.3.4,ho1982-composition
+ho82-pije-108,pije1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-109,fwai1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-110,nemi1240,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-111,jawe1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-112,pije1237,n,∅,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-113,fwai1237,n,∅,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-114,nemi1240,n,∅,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-115,jawe1237,n,∅,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *l,,,"POc *-l- > -n, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-116,pije1237,p,p,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *p- > p-, pw-",Table 3.3.4,ho1982-composition
+ho82-nemi-117,nemi1240,p,p,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *p- > p-, pw-",Table 3.3.4,ho1982-composition
+ho82-jawe-118,jawe1237,p,p,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *p- > p-, pw-",Table 3.3.4,ho1982-composition
+ho82-pije-119,pije1237,p,pʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,pw,"POc *p- > p-, pw-",Table 3.3.4,ho1982-composition
+ho82-nemi-120,nemi1240,p,pʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,pw,"POc *p- > p-, pw-",Table 3.3.4,ho1982-composition
+ho82-jawe-121,jawe1237,p,pʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,pw,"POc *p- > p-, pw-",Table 3.3.4,ho1982-composition
+ho82-pije-122,pije1237,p,p,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-123,fwai1237,p,p,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-124,nemi1240,p,p,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-125,jawe1237,p,p,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-126,pije1237,p,β,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,v,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-127,fwai1237,p,β,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,v,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-128,nemi1240,p,β,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,v,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-129,jawe1237,p,β,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,v,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-130,pije1237,p,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-fwai-131,fwai1237,p,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-nemi-132,nemi1240,p,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-jawe-133,jawe1237,p,∅,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-p- > -p, -v-, -∅-",Table 3.3.4,ho1982-composition
+ho82-pije-134,pije1237,p,p,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-p > -p,Table 3.3.4,ho1982-composition
+ho82-fwai-135,fwai1237,p,p,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-p > -p,Table 3.3.4,ho1982-composition
+ho82-nemi-136,nemi1240,p,p,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-p > -p,Table 3.3.4,ho1982-composition
+ho82-jawe-137,jawe1237,p,p,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-p > -p,Table 3.3.4,ho1982-composition
+ho82-pije-138,pije1237,mb,ᵐb,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-fwai-139,fwai1237,mb,ᵐb,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-nemi-140,nemi1240,mb,ᵐb,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-jawe-141,jawe1237,mb,ᵐb,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-pije-142,pije1237,mb,ᵐbʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,bw,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-fwai-143,fwai1237,mb,ᵐbʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,bw,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-nemi-144,nemi1240,mb,ᵐbʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,bw,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-jawe-145,jawe1237,mb,ᵐbʷ,#_,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,bw,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-pije-146,pije1237,mb,ᵑɡ,#_,regular,,,haudricourt1982,54,The labials became velars before rounded vowels (pp. 42-45). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-fwai-147,fwai1237,mb,ᵑɡ,#_,regular,,,haudricourt1982,54,The labials became velars before rounded vowels (pp. 42-45). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-nemi-148,nemi1240,mb,ᵑɡ,#_,regular,,,haudricourt1982,54,The labials became velars before rounded vowels (pp. 42-45). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-jawe-149,jawe1237,mb,ᵑɡ,#_,regular,,,haudricourt1982,54,The labials became velars before rounded vowels (pp. 42-45). One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *mp- > ᵐb-, ᵐbw-, ⁿg-",Table 3.3.4,ho1982-composition
+ho82-pije-150,pije1237,mbʷ,ᵑɡ,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,g,POc *ŋp- > ⁿg-,Table 3.3.4,ho1982-composition
+ho82-fwai-151,fwai1237,mbʷ,ᵑɡ,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,g,POc *ŋp- > ⁿg-,Table 3.3.4,ho1982-composition
+ho82-nemi-152,nemi1240,mbʷ,ᵑɡ,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,g,POc *ŋp- > ⁿg-,Table 3.3.4,ho1982-composition
+ho82-jawe-153,jawe1237,mbʷ,ᵑɡ,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,g,POc *ŋp- > ⁿg-,Table 3.3.4,ho1982-composition
+ho82-pije-154,pije1237,mb,ᵐb,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-fwai-155,fwai1237,mb,ᵐb,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-nemi-156,nemi1240,mb,ᵐb,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-jawe-157,jawe1237,mb,ᵐb,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,b,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-pije-158,pije1237,mb,ᵑɡ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-fwai-159,fwai1237,mb,ᵑɡ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-nemi-160,nemi1240,mb,ᵑɡ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-jawe-161,jawe1237,mb,ᵑɡ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,g,"POc *-mp- > -ᵐb-, -ⁿg-",Table 3.3.4,ho1982-composition
+ho82-pije-162,pije1237,w,w,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *w- > w-,Table 3.3.4,ho1982-composition
+ho82-fwai-163,fwai1237,w,w,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *w- > w-,Table 3.3.4,ho1982-composition
+ho82-nemi-164,nemi1240,w,w,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *w- > w-,Table 3.3.4,ho1982-composition
+ho82-jawe-165,jawe1237,w,w,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *w- > w-,Table 3.3.4,ho1982-composition
+ho82-pije-166,pije1237,ŋ,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-fwai-167,fwai1237,ŋ,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-nemi-168,nemi1240,ŋ,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-jawe-169,jawe1237,ŋ,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-pije-170,pije1237,ŋ,n,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-fwai-171,fwai1237,ŋ,n,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-nemi-172,nemi1240,ŋ,n,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-jawe-173,jawe1237,ŋ,n,V_V,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-ŋ- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-pije-174,pije1237,ŋ,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56).,,,,,,,composed,,,,,,POc *-ŋ > ∅,Table 3.3.4,ho1982-composition
+ho82-fwai-175,fwai1237,ŋ,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56).,,,,,,,composed,,,,,,POc *-ŋ > ∅,Table 3.3.4,ho1982-composition
+ho82-nemi-176,nemi1240,ŋ,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56).,,,,,,,composed,,,,,,POc *-ŋ > ∅,Table 3.3.4,ho1982-composition
+ho82-jawe-177,jawe1237,ŋ,∅,_#,regular,,,haudricourt1982,54,On the loss of these final consonants see §3.3.5.2 (n. 56).,,,,,,,composed,,,,,,POc *-ŋ > ∅,Table 3.3.4,ho1982-composition
+ho82-pije-178,pije1237,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *ɲ- > n-,Table 3.3.4,ho1982-composition
+ho82-fwai-179,fwai1237,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *ɲ- > n-,Table 3.3.4,ho1982-composition
+ho82-nemi-180,nemi1240,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *ɲ- > n-,Table 3.3.4,ho1982-composition
+ho82-jawe-181,jawe1237,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *ɲ- > n-,Table 3.3.4,ho1982-composition
+ho82-pije-182,pije1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *-ñ- > -n,Table 3.3.4,ho1982-composition
+ho82-fwai-183,fwai1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *-ñ- > -n,Table 3.3.4,ho1982-composition
+ho82-nemi-184,nemi1240,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *-ñ- > -n,Table 3.3.4,ho1982-composition
+ho82-jawe-185,jawe1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *ñ,,,POc *-ñ- > -n,Table 3.3.4,ho1982-composition
+ho82-pije-186,pije1237,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *n- > n-,Table 3.3.4,ho1982-composition
+ho82-fwai-187,fwai1237,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *n- > n-,Table 3.3.4,ho1982-composition
+ho82-nemi-188,nemi1240,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *n- > n-,Table 3.3.4,ho1982-composition
+ho82-jawe-189,jawe1237,n,n,#_,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *n- > n-,Table 3.3.4,ho1982-composition
+ho82-pije-190,pije1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-fwai-191,fwai1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-nemi-192,nemi1240,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-jawe-193,jawe1237,n,n,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-pije-194,pije1237,n,n,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-fwai-195,fwai1237,n,n,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-nemi-196,nemi1240,n,n,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-jawe-197,jawe1237,n,n,V_V,regular,,,haudricourt1982,54,,,,,,lexical,,composed,,,PNC *n from POc *n,,,"POc *-n- > -n, -n-",Table 3.3.4,ho1982-composition
+ho82-pije-198,pije1237,n,∅,_#,regular,,,haudricourt1982,54,See §3.3.5.2 (n. 56).,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *-n > ∅,Table 3.3.4,ho1982-composition
+ho82-fwai-199,fwai1237,n,∅,_#,regular,,,haudricourt1982,54,See §3.3.5.2 (n. 56).,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *-n > ∅,Table 3.3.4,ho1982-composition
+ho82-nemi-200,nemi1240,n,∅,_#,regular,,,haudricourt1982,54,See §3.3.5.2 (n. 56).,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *-n > ∅,Table 3.3.4,ho1982-composition
+ho82-jawe-201,jawe1237,n,∅,_#,regular,,,haudricourt1982,54,See §3.3.5.2 (n. 56).,,,,,lexical,,composed,,,PNC *n from POc *n,,,POc *-n > ∅,Table 3.3.4,ho1982-composition
+ho82-pije-202,pije1237,m,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *m- > m-,Table 3.3.4,ho1982-composition
+ho82-fwai-203,fwai1237,m,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *m- > m-,Table 3.3.4,ho1982-composition
+ho82-nemi-204,nemi1240,m,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *m- > m-,Table 3.3.4,ho1982-composition
+ho82-jawe-205,jawe1237,m,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *m- > m-,Table 3.3.4,ho1982-composition
+ho82-pije-206,pije1237,mʷ,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *ŋm- > m-,Table 3.3.4,ho1982-composition
+ho82-fwai-207,fwai1237,mʷ,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *ŋm- > m-,Table 3.3.4,ho1982-composition
+ho82-nemi-208,nemi1240,mʷ,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *ŋm- > m-,Table 3.3.4,ho1982-composition
+ho82-jawe-209,jawe1237,mʷ,m,#_,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *ŋm- > m-,Table 3.3.4,ho1982-composition
+ho82-pije-210,pije1237,m,m,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-fwai-211,fwai1237,m,m,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-nemi-212,nemi1240,m,m,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-jawe-213,jawe1237,m,m,"V_V, now word-final",regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-pije-214,pije1237,m,m,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-fwai-215,fwai1237,m,m,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-nemi-216,nemi1240,m,m,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-jawe-217,jawe1237,m,m,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-pije-218,pije1237,m,mʷ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,mw,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-fwai-219,fwai1237,m,mʷ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,mw,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-nemi-220,nemi1240,m,mʷ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,mw,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-jawe-221,jawe1237,m,mʷ,V_V,regular,,,haudricourt1982,54,One of the reflexes listed for this position; the conditions are in §3.3 (pp. 33-53).,,,,,unknown,,composed,,,,,mw,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-pije-222,pije1237,m,ŋ,V_V,sporadic,,,haudricourt1982,54,In parentheses in the table.,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-fwai-223,fwai1237,m,ŋ,V_V,sporadic,,,haudricourt1982,54,In parentheses in the table.,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-nemi-224,nemi1240,m,ŋ,V_V,sporadic,,,haudricourt1982,54,In parentheses in the table.,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-jawe-225,jawe1237,m,ŋ,V_V,sporadic,,,haudricourt1982,54,In parentheses in the table.,,,,,,,composed,,,,,,"POc *-m- > -m, -m-, -mw-, (-)ŋ-",Table 3.3.4,ho1982-composition
+ho82-pije-226,pije1237,m,m,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-m > -m,Table 3.3.4,ho1982-composition
+ho82-fwai-227,fwai1237,m,m,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-m > -m,Table 3.3.4,ho1982-composition
+ho82-nemi-228,nemi1240,m,m,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-m > -m,Table 3.3.4,ho1982-composition
+ho82-jawe-229,jawe1237,m,m,_#,regular,,,haudricourt1982,54,,,,,,,,composed,,,,,,POc *-m > -m,Table 3.3.4,ho1982-composition

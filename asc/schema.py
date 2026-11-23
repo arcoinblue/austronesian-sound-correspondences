@@ -172,6 +172,8 @@ _v("ʌ", "back", "open-mid", "unrounded"); _v("ɔ", "back", "open-mid", "rounded
 _v("æ", "front", "near-open", "unrounded"); _v("ɐ", "central", "near-open", "unrounded")
 _v("a", "central", "open", "unrounded"); _v("ɑ", "back", "open", "unrounded")
 _v("ɒ", "back", "open", "rounded")
+_v("ɵ", "central", "close-mid", "rounded"); _v("ɞ", "central", "open-mid", "rounded")
+_v("œ", "front", "open-mid", "rounded"); _v("ʏ", "front", "near-close", "rounded")
 
 
 ZERO = "∅"  # a zero reflex (regular deletion); never a phoneme of the lect
