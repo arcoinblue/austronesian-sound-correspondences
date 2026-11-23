@@ -241,11 +241,25 @@ class TestImpliedInAttested(unittest.TestCase):
         self.assertIn("q", D["inventory"]["tiny1234"])     # the source says so
         self.assertIn("y", D["inventory"]["tiny1234"])
 
-    def test_no_respelling_onto_a_symbol_in_use(self):
-        """The lect's own rows write j for another sound: implied *y stays y, with a warning."""
+    def test_joins_the_same_ipa_symbol_in_the_lects_own_rows(self):
+        """The lect's rows have j (from *t), the IPA glide: implied *y is that j too (Habun)."""
         rep, D = self.lect(rows=(("p", "f"), ("t", "j")))
+        self.assertEqual(self.implied(D)["y"], "j")
+        self.assertNotIn("y", D["inventory"]["tiny1234"])
+        self.assertFalse(D["inventory"]["tiny1234"]["j"]["implied"])
+        self.assertFalse(any("is kept as" in w for w in rep.warnings))
+
+    def test_no_respelling_onto_a_symbol_used_for_another_sound(self):
+        """The lect's own rows write both y and j, so its j is not the glide: implied *y stays y."""
+        rep, D = self.lect(rows=(("p", "f"), ("t", "j"), ("k", "y")))
         self.assertEqual(self.implied(D)["y"], "y")
         self.assertTrue(any("implied *y" in w and "is kept as y" in w for w in rep.warnings))
+
+    def test_ligatures_are_charted(self):
+        self.assertEqual(ipa_features("ʤ")[:3], ("C", "postalveolar", "affricate"))
+        self.assertEqual(ipa_features("ʄ")[:3], ("C", "palatal", "implosive"))
+        from asc.schema import implied_ipa
+        self.assertEqual(implied_ipa("ʤ", {"place": "postalveolar", "manner": "affricate", "voicing": "voiced"}), "d͡ʒ")
 
 
 class TestStrayReflex(unittest.TestCase):

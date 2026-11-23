@@ -7,7 +7,9 @@ const SEG_STATE = { q: "", view: "lect", kind: "all", implied: true, sort: "coun
 
 // A typed segment, as the data spells it: no star, slashes or brackets, and
 // IPA ɡ for a typed g.
-const normSeg = s => s.trim().replace(/^\*+/, "").replace(/^[\/\[]|[\/\]]$/g, "").replace(/g/g, "ɡ");
+const normSeg = s => s.trim().replace(/^\*+/, "").replace(/^[\/\[]|[\/\]]$/g, "").replace(/g/g, "ɡ").replace(/\?/g, "ʔ");
+// An affricate is found with or without its tie bar (tʃ finds t͡ʃ), in the search and in the data.
+const untied = s => s.replace(/[\u0361\u035c]/g, "");
 
 function segFeatures(p) {
   const [, , cls, place, manner, voicing, rounding] = p;
@@ -48,7 +50,7 @@ async function pageSegments(params) {
     (<span class="ipa">ɡ</span>, <span class="ipa">*ŋ</span>; a Latin g is read as IPA ɡ), for feature words
     (<i>voiced velar</i>, <i>front rounded</i>, <i>prenasalized</i>) or for a lect.</p>
     <div class="controls">
-      <input id="sq" type="search" placeholder="Segment, features or lect" autocomplete="off">
+      <input id="sq" type="search" placeholder="Segment, features or lect" aria-label="Search segments, features or lects" autocomplete="off">
       <span class="seg-toggle" id="sview"><button data-v="lect">By lect</button><button data-v="segment">By segment</button></span>
       <select id="skind"><option value="all">All lects</option><option value="proto">Reconstructed only</option><option value="attested">Attested only</option></select>
       <label title="Phonemes a changes-only source does not mention, taken as kept from the parent"><input id="simp" type="checkbox"> implied phonemes</label>
@@ -67,7 +69,7 @@ async function pageSegments(params) {
     // words and lect names ignore case.
     const words = S.q.trim().split(/[\s,]+/).filter(Boolean);
     const lectQ = S.q.trim().toLowerCase();
-    const segHit = p => words.length > 0 && words.every(w => normSeg(w) === p[0]
+    const segHit = p => words.length > 0 && words.every(w => untied(normSeg(w)) === untied(p[0])
       || segFeatures(p).split(" ").includes(w.toLowerCase()));
     const lectHit = L => {
       const l = LECTS[L]; if (!l || !lectQ) return false;
@@ -120,7 +122,9 @@ async function pageSegments(params) {
     }
     app.querySelector("#st").innerHTML = n ? html : `<tr><td class="muted">Nothing matches.</td></tr>`;
   };
-  q.addEventListener("input", () => { S.q = q.value; draw(); });
+  // The table has some 23,000 links: redraw when the typing pauses, not at every key.
+  let wait;
+  q.addEventListener("input", () => { S.q = q.value; clearTimeout(wait); wait = setTimeout(draw, 180); });
   kind.addEventListener("change", () => { S.kind = kind.value; draw(); });
   imp.addEventListener("change", () => { S.implied = imp.checked; draw(); });
   sort.addEventListener("change", () => { S.sort = sort.value; draw(); });

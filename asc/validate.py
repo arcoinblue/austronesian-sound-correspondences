@@ -526,8 +526,10 @@ def validate_and_derive(t, rep: Report):
 
         attested_rule (an attested lect with no sourced inventory, assumed-unchanged): *q, *R,
         *z and *N are not carried down (listed in the lect's `_not_implied`), and a letter of the
-        reconstruction orthography is respelled in IPA (*y > j), unless the lect's own rows
-        already use that symbol for something else (IMPLIED_IPA, NOT_IMPLIED_IN_ATTESTED).
+        reconstruction orthography is respelled in IPA (*y > j; IMPLIED_IPA, NOT_IMPLIED_IN_ATTESTED).
+        Where the lect's own rows already have that IPA symbol, the retention joins it (Habun has
+        j from *z, and *y is j too), unless the lect writes the symbol for another sound: its
+        rows have both y and j (YJ_PAIR), or a phoneme row places it elsewhere.
 
         assumed-unchanged (a tree that lists only changes): a parent phoneme with no
         row is retained, and one with only conditioned rows is retained elsewhere.
@@ -552,7 +554,15 @@ def validate_and_derive(t, rep: Report):
         # Symbols the lect is already written with (its own rows): a respelling must not land on one.
         taken = {r["child_phoneme"] for r in mine if r["child_phoneme"]} \
             | {s for s, row in entered.get(L, {}).items() if row["origin"] != "suppressed"}
-        targets = Counter(implied_ipa(s, inventory[P][s]) for s in inventory[P]) if attested_rule else {}
+        def own_is_ipa(s):
+            """Is s, in the lect's own rows, the sound the IPA table gives it?"""
+            if s in YJ_PAIR and set(YJ_PAIR) <= taken:
+                return False
+            row = entered.get(L, {}).get(s)
+            want = ipa_features(s)
+            return not (row and row["origin"] != "suppressed" and any(
+                row[k] and row[k] != UNKNOWN and row[k].replace(LABIALIZED, "").replace(VELARIZED, "") != w
+                for k, w in (("place", want[1]), ("manner", want[2]))))
         for sym in inventory[P]:
             stated = by_sym.get(sym, [])
             if not retention_open(mode, stated):
@@ -563,9 +573,8 @@ def validate_and_derive(t, rep: Report):
                     rec.setdefault("_not_implied", []).append(sym)
                     continue
                 child = implied_ipa(sym, inventory[P][sym])
-                # Kept as printed where the IPA symbol is in use in the lect's own rows, or
-                # two parent phonemes would be written alike.
-                if child != sym and (child in taken or targets[child] > 1):
+                # Kept as printed where the lect's own rows use the IPA symbol for another sound.
+                if child != sym and child in taken and not own_is_ipa(child):
                     rep.warn(rec["_where"], f"implied *{sym} of {rec_name(P)} is kept as {sym} in {rec['name']}: "
                                             f"its IPA symbol {child} is already used by the lect's own rows "
                                             "for another sound; respell that one in IPA")
