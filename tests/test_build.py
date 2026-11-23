@@ -186,6 +186,68 @@ class TestTreeNodes(unittest.TestCase):
 
 
 
+class TestImpliedInAttested(unittest.TestCase):
+    """The user's rule of 23 Nov 2026: an implied phoneme of an attested lect is written in
+    IPA (*y > j), and *q, *R, *z, *N are not implied into one."""
+
+    def lect(self, type_="language", rows=(("p", "f"),), parent_extra=True):
+        cols = build.TABLES["lects"]
+        def m(d):
+            if parent_extra:   # the root gets *y, *ñ and *z; pxb keeps them (one row each)
+                for s, place, manner in (("y", "palatal", "approximant"), ("ñ", "palatal", "nasal"),
+                                         ("z", "palatal", "affricate")):
+                    append("phonemes.csv", f"pxa,{s},{s},C,{place},{manner},voiced,,sourced,example2026,10,,,,,,")(d)
+                    for lect in ("pxa", "pxb"):
+                        line = next(l for l in (d / "notation_map.csv").read_text(encoding="utf-8").splitlines()
+                                    if l.startswith(f"{lect},p,"))
+                        append("notation_map.csv", line.replace(f"{lect},p,", f"{lect},{s},", 1).replace(",p,", f",{s},", 1))(d)
+                    append("correspondences.csv", f"cpar{ord(s):05x},pxb,{s},{s},elsewhere,regular,,,example2026,20,")(d)
+            buf = io.StringIO()
+            csv.writer(buf, lineterminator="").writerow(
+                [dict(id="tiny1234", name="Tinyish", type=type_, glottocode="tiny1234", parent_id="pxb",
+                      inherit="assumed-unchanged", inherit_source_id="example2026", inherit_page="1").get(c, "")
+                 for c in cols])
+            append("lects.csv", buf.getvalue())(d)
+            for i, (p, c) in enumerate(rows):
+                append("correspondences.csv", f"ctiny00000{i},tiny1234,{p},{c},elsewhere,regular,,,example2026,1,")(d)
+        return run(m, derived=True)
+
+    def implied(self, D):
+        return {r["parent_phoneme"]: r["child_phoneme"] for r in D["corrs"]
+                if r["child_lect_id"] == "tiny1234" and r["derivation"] == "implied-retention"}
+
+    def test_attested_lect(self):
+        rep, D = self.lect()
+        self.assertEqual(rep.errors, [])
+        got = self.implied(D)
+        self.assertEqual((got["y"], got["ñ"], got["t"]), ("j", "ɲ", "t"))
+        for s in ("q", "R", "z"):
+            self.assertNotIn(s, got)
+        self.assertEqual(sorted(D["lects"]["tiny1234"]["_not_implied"]), ["R", "q", "z"])
+        inv = D["inventory"]["tiny1234"]
+        self.assertNotIn("y", inv)
+        self.assertNotIn("q", inv)
+        self.assertEqual((inv["j"]["place"], inv["j"]["manner"], inv["j"]["implied"]), ("palatal", "approximant", True))
+        self.assertEqual(build.lect_json("tiny1234", D)["not_implied"], D["lects"]["tiny1234"]["_not_implied"])
+
+    def test_a_proto_language_keeps_the_letters(self):
+        rep, D = self.lect(type_="proto-language")
+        got = self.implied(D)
+        self.assertEqual((got["y"], got["ñ"], got["q"], got["z"]), ("y", "ñ", "q", "z"))
+
+    def test_a_stated_row_is_untouched(self):
+        rep, D = self.lect(rows=(("p", "f"), ("q", "q"), ("y", "y")))
+        self.assertEqual(self.implied(D).get("q"), None)
+        self.assertIn("q", D["inventory"]["tiny1234"])     # the source says so
+        self.assertIn("y", D["inventory"]["tiny1234"])
+
+    def test_no_respelling_onto_a_symbol_in_use(self):
+        """The lect's own rows write j for another sound: implied *y stays y, with a warning."""
+        rep, D = self.lect(rows=(("p", "f"), ("t", "j")))
+        self.assertEqual(self.implied(D)["y"], "y")
+        self.assertTrue(any("implied *y" in w and "is kept as y" in w for w in rep.warnings))
+
+
 class TestStrayReflex(unittest.TestCase):
     """A reflex that the lect's sourced inventory lacks still gets a page (and a warning)."""
 

@@ -326,6 +326,9 @@ def lect_full(L, D):
         "inherit_auto": bool(rec.get("inherit_auto")) or None,
         "inherit_source_id": rec["inherit_source_id"] or None,
         "inherit_page": rec["inherit_page"] or None,
+        # Parent phonemes not carried down into an attested lect (*q, *R, *z, *N): no source
+        # says what they are here.
+        "not_implied": rec.get("_not_implied", []),
         "language_id": rec["language_id"] or None,
         "dialects": sorted(k for k, v in D["lects"].items()
                            if v["type"] == "dialect" and (v["language_id"] == L or v["tree_parent_id"] == L)),

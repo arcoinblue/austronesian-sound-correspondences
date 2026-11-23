@@ -521,8 +521,13 @@ def validate_and_derive(t, rep: Report):
     for L in lects:
         visit(L)
 
-    def retentions(L, P, mode):
+    def retentions(L, P, mode, attested_rule=False):
         """The X > X rows `inherit` stands for: one per parent phoneme the lect's rows leave open.
+
+        attested_rule (an attested lect with no sourced inventory, assumed-unchanged): *q, *R,
+        *z and *N are not carried down (listed in the lect's `_not_implied`), and a letter of the
+        reconstruction orthography is respelled in IPA (*y > j), unless the lect's own rows
+        already use that symbol for something else (IMPLIED_IPA, NOT_IMPLIED_IN_ATTESTED).
 
         assumed-unchanged (a tree that lists only changes): a parent phoneme with no
         row is retained, and one with only conditioned rows is retained elsewhere.
@@ -544,10 +549,27 @@ def validate_and_derive(t, rep: Report):
         for r in mine:
             by_sym[r["parent_phoneme"]].append(r)
         out = []
+        # Symbols the lect is already written with (its own rows): a respelling must not land on one.
+        taken = {r["child_phoneme"] for r in mine if r["child_phoneme"]} \
+            | {s for s, row in entered.get(L, {}).items() if row["origin"] != "suppressed"}
+        targets = Counter(implied_ipa(s, inventory[P][s]) for s in inventory[P]) if attested_rule else {}
         for sym in inventory[P]:
             stated = by_sym.get(sym, [])
             if not retention_open(mode, stated):
                 continue
+            child = sym
+            if attested_rule:
+                if sym in NOT_IMPLIED_IN_ATTESTED:
+                    rec.setdefault("_not_implied", []).append(sym)
+                    continue
+                child = implied_ipa(sym, inventory[P][sym])
+                # Kept as printed where the IPA symbol is in use in the lect's own rows, or
+                # two parent phonemes would be written alike.
+                if child != sym and (child in taken or targets[child] > 1):
+                    rep.warn(rec["_where"], f"implied *{sym} of {rec_name(P)} is kept as {sym} in {rec['name']}: "
+                                            f"its IPA symbol {child} is already used by the lect's own rows "
+                                            "for another sound; respell that one in IPA")
+                    child = sym
             if mode == "assumed-unchanged" and rec.get("inherit_auto"):
                 note = rec["inherit_note"] or (
                     ("Retained elsewhere: the sources state this phoneme's development only under the "
@@ -563,16 +585,21 @@ def validate_and_derive(t, rep: Report):
                 note = rec["inherit_note"] or ("Unchanged: the source lists only the correspondences "
                                                "that are not identities.")
             r = {c: "" for c in TABLES["correspondences"]}
-            r.update(child_lect_id=L, parent_phoneme=sym, child_phoneme=sym, environment="elsewhere",
+            if child != sym:
+                note = note.rstrip(".") + f"; written {child}, the IPA symbol for the value of {rec_name(P)} *{sym}."
+            r.update(child_lect_id=L, parent_phoneme=sym, child_phoneme=child, environment="elsewhere",
                      status="regular", source_id=source_id, page=page, derivation=RETENTION_OF[mode],
                      conditioning="", notes=note, _where=f"lects.csv ({L}, inherit {mode})")
             r["parent_lect_id"] = P
             r["parent_phoneme_id"] = pid(P, sym)
-            r["child_phoneme_id"] = pid(L, sym)
+            r["child_phoneme_id"] = pid(L, child)
             tag = "implied" if mode == "assumed-unchanged" else "stated"
             r["id"] = "i" + hashlib.sha1(f"{L}|{sym}|{tag}".encode()).hexdigest()[:10]
             out.append(r)
         return out
+
+    def rec_name(L):
+        return lects[L]["name"]
 
     def ancestors(L):
         seen, P = [], lects[L]["parent_id"]
@@ -650,12 +677,16 @@ def validate_and_derive(t, rep: Report):
                                              "inherits the rest of its parent's phonemes as assumed-unchanged")
         mode = lects[L]["inherit"]
         if mode and P in inventory and (mode == "stated-unchanged" or "sourced" not in origins):
-            for r in retentions(L, P, mode):
+            attested_rule = (mode == "assumed-unchanged" and "sourced" not in origins
+                             and lects[L]["type"] in ("language", "dialect"))
+            for r in retentions(L, P, mode, attested_rule):
                 corrs.append(r)
                 implied_rows.append(r)
                 reflexes_by_lect[L].setdefault(r["child_phoneme"], r)
                 symbols_of[L].add(r["child_phoneme"])
-                unchanged.add((L, r["child_phoneme"]))
+                # A respelled retention (*y > j) is read as IPA, not as the parent reads the letter.
+                if r["child_phoneme"] == r["parent_phoneme"]:
+                    unchanged.add((L, r["child_phoneme"]))
         inv = {}
         if "sourced" in origins:
             # The source's list is the inventory (a suppressed ∅ row is skipped).

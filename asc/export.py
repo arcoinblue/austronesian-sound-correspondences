@@ -102,6 +102,7 @@ WARNING_KINDS = [
     (re.compile(r"is cited in notes but has no sources row"), "a work cited in notes has no sources row"),
     (re.compile(r"^reflex \S+ is not in .* sourced inventory"), "a reflex is not in the lect's sourced inventory"),
     (re.compile(r"has symbols that are not IPA"), "an attested lect has symbols that are not IPA"),
+    (re.compile(r"^implied \*\S+ of .* is kept as"), "an implied phoneme of an attested lect could not be written in IPA"),
     (re.compile(r"^source \S+ is never cited"), "a source is never cited"),
     (re.compile(r"^lect id should be its Glottocode"), "lect id is not its Glottocode"),
 ]

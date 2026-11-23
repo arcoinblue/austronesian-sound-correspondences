@@ -137,6 +137,7 @@ async function pageLect(L) {
     </dl>
     ${note ? `<div class="notice">${esc(note)}</div>` : ""}
     ${inheritNote ? `<div class="notice">${esc(inheritNote)}</div>` : ""}
+    ${(d.not_implied || []).length ? `<div class="notice">Not carried down: ${d.not_implied.map(x => phLink(d.parent_id + ":" + x)).join(", ")} of ${lectLink(d.parent_id)}. No source entered says what ${d.not_implied.length === 1 ? "it is" : "they are"} in ${esc(d.name)}, and ${d.not_implied.length === 1 ? "this letter of the reconstruction is" : "these letters of the reconstruction are"} not assumed to continue unchanged in a living language.</div>` : ""}
     ${changesView && !d.changes_only ? changesTable : ""}
     ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
     ${changesView && !d.changes_only ? "" : `<div id="inv">${inventoryHtml(L, own)}</div>`}

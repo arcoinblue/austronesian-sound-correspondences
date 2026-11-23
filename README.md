@@ -355,6 +355,7 @@ A migration reaches the sheet through **Actions → Apply a migration to the she
 - a reflex isn't in the lect's sourced inventory, or points at a suppressed phoneme
 - an attested lect has no Glottocode, or its id isn't its Glottocode
 - a `manual-add` row duplicates a generated phoneme
+- an implied phoneme of an attested lect could not be written in IPA, because the lect's own rows use that IPA symbol for another sound
 
 **Notes:**
 
@@ -376,6 +377,7 @@ The site loads a small file per lect, and a phoneme's history only when the phon
 - A reflex that a row states and the lect's inventory lacks (not in the source's own list, or suppressed by hand; the build warns about each) is not added to the inventory, but it has a page: the lect file lists it under `stray_phonemes`, its file has its ancestry, the lect page lists it under *Reflexes outside this inventory*, and its own page carries the badge *not in the inventory* and a notice. Every link to a reflex therefore opens a page; `tests/test_output_size.py` checks this on the repository's data.
 - A phoneme's file also has `implied_descendants` ({lect: [its phonemes]}): the implied retentions below the first level, which `descendants` leaves out. The table of all lects (`#/lects/?reflex=…`) shows them with the mark *implied*, so a lect or stage that keeps the sound without its source saying so reads as on its own page, not as *unentered*.
 - The count beside the lect list is of lects (those with a page of their own) that pass the filter, whether or not their group is open; in a table of all lects it also gives how many have a reflex. *Hide lects with no data* is offered only while some lect has no data to hide. Each page sets its own browser title; an address the site does not have gives *Not found*.
+- Implied inheritance into an attested lect (`language`, `dialect`; `inherit` = `assumed-unchanged`, set or automatic, and no sourced inventory): the generated X > X row is written with the IPA symbol for the parent phoneme's value where the parent's letter is reconstruction orthography (*y > j, *ñ > ɲ, *e 'central mid' > ə, *j 'palatal affricate' > d͡ʒ; the table is `IMPLIED_IPA` in `asc/schema.py`), and no row is generated for *q, *R, *z or *N (`NOT_IMPLIED_IN_ATTESTED`): the lect file lists these as `not_implied`, and the lect page says they were not carried down. A row or a sourced inventory that states one of them is untouched. Where the IPA symbol is already used by the lect's own rows for another sound (a source's j for an affricate), the letter is kept and the build warns. Proto-languages and earlier stages keep the reconstruction's letters.
 - `build/data/index.json`: what the lect list shows of each lect (name, alternate names, type, glottocode, parent, clade, coverage, status, overlapping groups); loaded on every page.
 - `build/data/segments.json`: every lect's displayed inventory (default system), one row per phoneme with its features and flags (implied, marginal); loaded only by the Segments page (`#/segments/`), which lists and searches it by lect or by segment.
 - `build/data/sources.json`: the bibliography. `build/report.txt` keeps the last report.

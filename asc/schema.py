@@ -203,6 +203,36 @@ PROTO_ORTHO = {
     "R": ("C", "alveolar", "trill", "voiced", ""),
 }
 
+# Implied inheritance into an attested lect (the user's rule of 23 Nov 2026).
+#
+# A language or dialect is written in IPA, a proto-language in its reconstruction
+# orthography. Where `inherit` = assumed-unchanged carries a parent phoneme down into an
+# attested lect with no sourced inventory, the letters below are respelled with the IPA
+# symbol for the value the parent's row gives them (*y, a palatal glide, is j), and
+# *q, *R, *z and *N are not carried down at all: what they are in a living language is
+# for a source to say, not for the build to assume.
+NOT_IMPLIED_IN_ATTESTED = {"q", "R", "z", "N"}
+# letter -> {(place, manner, voicing or None for any): IPA symbol}
+IMPLIED_IPA = {
+    "y": {("palatal", "approximant", None): "j"},
+    "ñ": {("palatal", "nasal", None): "ɲ"},
+    "e": {("central", "mid", None): "ə"},
+    "j": {("palatal", "affricate", None): "d͡ʒ", ("palatal", "plosive", None): "ɟ",
+          ("palatal", "fricative", None): "ʝ"},
+    "c": {("palatal", "affricate", None): "t͡ʃ"},
+    "S": {("retroflex", "fricative", None): "ʂ", ("postalveolar", "fricative", None): "ʃ"},
+}
+
+
+def implied_ipa(sym, rec):
+    """The IPA spelling of a parent phoneme carried down into an attested lect: the
+    symbol itself unless it is one of the letters of IMPLIED_IPA with that value."""
+    for (place, manner, voicing), ipa in IMPLIED_IPA.get(sym, {}).items():
+        if rec["place"] == place and rec["manner"] == manner and voicing in (None, rec["voicing"]):
+            return ipa
+    return sym
+
+
 # Fusion of a cluster X+Y into one reflex R is entered as two rows, one under
 # each member:  parent X, environment "_+Y"  and  parent Y, environment "X+_".
 # Where a lect writes both y and j, y is the palatal glide and j a palatal

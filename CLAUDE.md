@@ -45,6 +45,7 @@ Read this before touching the sheet, the code or the site. It lists the user's s
 **Inventories and inheritance**
 - Place every phoneme in the chart when place and manner can be inferred; list the rest as unclassified consonants or vowels under the chart, never in it.
 - Phonemes untouched by any stated change are inherited. An unexplained i e ə a u system keeps the PAN/PMP vowels; an unexplained i e a o u system keeps the POc vowels.
+- An attested lect (language, dialect) is written in IPA. A phoneme that is only implied into one (`assumed-unchanged`, no sourced inventory) is respelled with the IPA symbol for its value (*y > j, *ñ > ɲ, schwa *e > ə), and *q, *R, *z and *N are never implied into one: they appear there only when a source's row or inventory states them. The lect's page lists what was not carried down. (23 Nov 2026; `IMPLIED_IPA` and `NOT_IMPLIED_IN_ATTESTED` in `asc/schema.py`.)
 - Every lect needs a way to be shown: rows, or `inherit` with `inherit_source_id` and `inherit_page`, or a sourced inventory. A lect with none of these is hidden by "Hide lects with no data".
 - If a source describes allophones, they go in the `allophones` tab for that phoneme. `build.py --check` warns when a note describes realisations and no row exists.
 
