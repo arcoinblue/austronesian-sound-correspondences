@@ -11,7 +11,7 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 253 |  |
 | lects | 1027 | 255 dialect, 33 earlier-stage, 3 group, 455 language, 6 linkage, 275 proto-language |
 | phonemes | 4498 |  |
-| correspondences | 12082 | plus 12228 implied and 3374 stated retentions generated from lects.inherit |
+| correspondences | 12082 | plus 11850 implied and 3374 stated retentions generated from lects.inherit |
 | notation_map | 557 |  |
 | allophones | 979 |  |
 | decisions | 184 | 72 confirmed, 84 open, 28 reverted |
@@ -21,7 +21,7 @@ Inventories: edited 28, empty 19, reverse-generated 798, sourced 182.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 304 warning(s), 1139 note(s).
+`build.py --check`: 0 error(s), 328 warning(s), 1139 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -29,6 +29,7 @@ Inventories: edited 28, empty 19, reverse-generated 798, sourced 182.
 | a work cited in notes has no sources row | 74 |
 | a source is never cited | 52 |
 | a reflex is not in the lect's sourced inventory | 28 |
+| an implied phoneme of an attested lect could not be written in IPA | 24 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
 
