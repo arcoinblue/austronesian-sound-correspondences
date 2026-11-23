@@ -20,3 +20,13 @@ Ross, Malcolm & Åshild Næss. 2007. An Oceanic origin for Äiwoo, the language 
 ## Decisions (open)
 
 - `temotu-tree`, `temotu-composed`.
+
+
+## Applied
+
+2026-11-23 07:45 UTC, by the push-batch workflow.
+- sources: sheet rows 236-248
+- lects: sheet rows 990-1008
+- correspondences: sheet rows 11282-11876
+- notation_map: sheet rows 538-542
+- decisions: sheet rows 162-173

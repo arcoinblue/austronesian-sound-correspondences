@@ -5,3 +5,10 @@ François, Alexandre, Sébastien Lacrampe, Michael Franjieh & Stefan Schnell (ed
 ## Scope
 
 - A sources row for the introduction (standing for the volume) recording what was read; no data rows (decision `francoisetal2015-scope`).
+
+
+## Applied
+
+2026-11-23 07:45 UTC, by the push-batch workflow.
+- sources: sheet rows 236-248
+- decisions: sheet rows 162-173

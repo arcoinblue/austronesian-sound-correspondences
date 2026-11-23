@@ -10,3 +10,10 @@ François, Alexandre. 2009. The languages of Vanikoro: Three lexicons and one gr
 ## Not entered
 
 - Table 2 (lexical innovations), Table 4 (Teanu b : Lovono m : Tanema b, no POc etymon), Tables 5-14 (lexicon and grammar).
+
+
+## Applied
+
+2026-11-23 07:45 UTC, by the push-batch workflow.
+- sources: sheet rows 236-248
+- correspondences: sheet rows 11282-11876

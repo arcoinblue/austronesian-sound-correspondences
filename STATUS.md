@@ -8,26 +8,26 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 234 |  |
-| lects | 988 | 247 dialect, 33 earlier-stage, 8 group, 442 language, 258 proto-language |
+| sources | 247 |  |
+| lects | 1007 | 253 dialect, 33 earlier-stage, 8 group, 450 language, 263 proto-language |
 | phonemes | 4475 |  |
-| correspondences | 11280 | plus 10557 implied and 3326 stated retentions generated from lects.inherit |
-| notation_map | 536 |  |
-| allophones | 975 |  |
-| decisions | 160 | 67 confirmed, 65 open, 28 reverted |
+| correspondences | 11875 | plus 10794 implied and 3374 stated retentions generated from lects.inherit |
+| notation_map | 541 |  |
+| allophones | 976 |  |
+| decisions | 172 | 67 confirmed, 77 open, 28 reverted |
 
-Lects by `inherit`: (blank) 229, assumed-unchanged 525, stated-unchanged 234.
-Inventories: edited 28, empty 16, reverse-generated 763, sourced 181.
+Lects by `inherit`: (blank) 232, assumed-unchanged 536, stated-unchanged 239.
+Inventories: edited 28, empty 17, reverse-generated 781, sourced 181.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 292 warning(s), 1042 note(s).
+`build.py --check`: 0 error(s), 296 warning(s), 1120 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 134 |
-| a work cited in notes has no sources row | 66 |
-| a source is never cited | 50 |
+| no glottocode | 136 |
+| a work cited in notes has no sources row | 65 |
+| a source is never cited | 53 |
 | a reflex is not in the lect's sourced inventory | 28 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -103,6 +103,18 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `jackson1983-tree` | Jackson's Figure 4 (p. 231) is a Trukic tree with five unnamed intermediate nodes defined by the rules of Table 18 (ULI first; then PUA; then WOL; then CRL-STW… | Not entered: all eight languages stay directly under PCK, as in Bender et al. (2003a), whose Figure 1 (adapted from Jackson) is also not entered as nodes. Jack… |  |  |
 | `ross1996-strata` | Ross (1996) assigns Yapese vocabulary to five strata: Sets A and B (non-Oceanic, stated against PMP), Set C (inherited, POc), Sets D and UW (Nuclear Micronesia… | Set C only, as POc > Yapese rows with stratum 'Set C (inherited)', Yapese under POc. Sets A, B, D and UW are described in the lect notes, not entered: A and B … |  |  |
 | `ross1996-symbols` | Ross transcribes Yapese in a comparative orthography (n. 3). What are c, y and the superscript glottal stop? | c kept as c (the Yapese ch affricate; Ross gives no phonetic value, so it is not turned into an IPA affricate); y = j; fˀ, vˀ as printed (glottalised); Ross's … | 1 |  |
+| `barlowross2025-tree` | Barlow & Ross (2025) propose Proto-Tomoip-New Ireland, with Tomoip and Proto-New Ireland as coordinate branches; Ross (1988) derived Tomoip from New Ireland. A… | No: Tomoip is entered under POc with POc > Tomoip rows (Table 3). No New Ireland language and no Western Oceanic or Meso-Melanesian node is in the data, so a P… |  |  |
+| `barlowross2025-table1` | Table 1 (p. 332) prints the final-vowel header as -a -e -e -i -u. | Read as -a -e -i -o -u: the cells match Table 2 that way (*aCi > a, e, i; *aCo > a, o; *iCo > u). |  |  |
+| `bril2020-pnnc` | Bril (2020) gives the reflexes with an intermediate Proto-North New Caledonian (PNNC, after Ozanne-Rivierre 1995), where PNC *k > *c, *q > *k, *ṯ > *t (Ext. no… | No: the rows are restated against PNC as the data has it (Ozanne-Rivierre 1992), and the northern languages stay under PNC; Nemi, Jawe, Pije and Fwâi, which PN… |  |  |
+| `bril2020-vowels` | Bril's vowel and diphthong correspondences (Tableaux 1-3: *u > i, e; *ai > e, ɛ, ɨ, i; *au, *ua, *ia > ɔ in Zuanga-Yuanga): enter them? | Not entered: PNC has no vowels in the data (its inventory is consonants only), so vowel rows against it would fail the inventory check. |  |  |
+| `cf2015-table6` | Charpentier & François (2015) Table 6 gives PPn consonant reflexes for eleven French Polynesian varieties, with 'x/y' for two reflexes. How are they entered? | Restated against each lect's parent in the data (Proto-East Polynesian Distal, Proto-Far Eastern Polynesian or Proto-Tahitic). A cell that only repeats a refle… |  |  |
+| `francoisetal2015-scope` | The languages of Vanuatu: Unity and diversity (2015) was read for this project. Is anything entered from it? | Only a sources row. Its phonological remarks are incidental (Garde on Sa f and [t] > [c] before high vowels; Budd's Bierebo reflexes of individual POc verbs) a… |  |  |
+| `lackeyboerger2021-q` | Lackey & Boerger (2021: 389-390) suggest that Proto-Temotu lenited *q to a fricative (x or χ) that later languages lost or restored to k, g. Enter it? | Not as a row (stated as 'perhaps'): it is in the Proto-Temotu notes, and *q is kept in PTm. |  |  |
+| `lynch2002h-table3` | Lynch (2002h) Table 3 gives sample reflexes of the POc labials and labiovelars in eleven languages. Which are entered? | None for now. Mota, the one column not yet covered, cannot be restated against PNCV, whose inventory in the data has no labials (PNCV has neither consonant row… |  |  |
+| `lynch2004-q` | Lynch (2004) lists sporadic overt reflexes of POc *q in Southern Vanuatu (Table 6) and occasional reflexes of *R in Vanuatu (Table 8). How are they entered? | As sporadic rows on the languages, with the parent phoneme of the lect's own parent (*q and *R are kept in PSV, Proto-Erromango, Proto-Tanna and PNCV in the da… |  |  |
+| `ross2011-kw` | Ross (2011) reconstructs a marginal POc *kʷ (already in the POc inventory from Ross et al. 2023) and a tentative *gʷ. Which reflexes are entered? | POc *kʷ > PCP *kʷ, PPn *k, PMc *k, PNCV *k (stated for the groups), and Rotuman ʔ and Bali-Vitu k from the cognate sets. *gʷ is not added to the POc inventory:… |  |  |
+| `temotu-tree` | How are the Temotu languages placed? Ross & Næss (2007): Temotu > RSC, Utupua-Vanikoro (> Utupua, Buma, Vano, Tanema, no Vanikoro node). Lackey & Boerger (2021… | By the rule for competing classifications: Proto-Temotu (POc) > Proto-Reefs-Santa Cruz and Proto-Utupua, which both have; Teanu, Lovono and Tanema directly und… |  |  |
+| `temotu-composed` | Ross & Næss's Table 2 states POc > language. How is it restated against the new nodes, and where it disagrees with Lackey & Boerger (2021)? | Each cell is restated against the lect's parent: PTm (*r, *l > *l; *s, *c, *j > *s), PRSC (Lackey & Boerger's Table 2) and Proto-Utupua; a cell that the parent… | 124 |  |
 
 <!-- END GENERATED -->
 

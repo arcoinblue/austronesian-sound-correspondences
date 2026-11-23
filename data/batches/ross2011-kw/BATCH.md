@@ -14,3 +14,11 @@ Ross, Malcolm. 2011. Proto-Oceanic *kʷ. *Oceanic Linguistics* 50(1). 25-49. Gen
 ## Decisions (open)
 
 - `ross2011-kw`.
+
+
+## Applied
+
+2026-11-23 07:45 UTC, by the push-batch workflow.
+- sources: sheet rows 236-248
+- correspondences: sheet rows 11282-11876
+- decisions: sheet rows 162-173

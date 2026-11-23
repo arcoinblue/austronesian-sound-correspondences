@@ -13,3 +13,11 @@ Lynch, John. 2002h. The Proto-Oceanic labiovelars: Some new observations. *Ocean
 ## Decisions (open)
 
 - `lynch2002h-table3`.
+
+
+## Applied
+
+2026-11-23 07:45 UTC, by the push-batch workflow.
+- sources: sheet rows 236-248
+- allophones: sheet rows 977-977
+- decisions: sheet rows 162-173

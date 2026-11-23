@@ -17,3 +17,12 @@ Barlow, Russell & Malcolm Ross. 2025. The position of Tomoip in the Oceanic fami
 ## Decisions (open)
 
 - `barlowross2025-tree`, `barlowross2025-table1`.
+
+
+## Applied
+
+2026-11-23 07:45 UTC, by the push-batch workflow.
+- sources: sheet rows 236-248
+- lects: sheet rows 990-1008
+- correspondences: sheet rows 11282-11876
+- decisions: sheet rows 162-173
