@@ -12,7 +12,7 @@ Read this before touching the sheet, the code or the site. It lists the user's s
 
 ## 2. Where the data lives
 
-- The Google Sheet is the only source of truth. An edit to `cldf/*.csv` is overwritten by the next hourly sync. Small edits go into the sheet; bulk rows go through `data/incoming/<batch>/` in a PR.
+- The Google Sheet is the only source of truth. An edit to `cldf/*.csv` is overwritten by the next sync (scheduled three times an hour, but GitHub often delays or skips scheduled runs: after a sheet edit, run *Sync from Google Sheets* by hand and check that it ran). Small edits go into the sheet; bulk rows go through `data/incoming/<batch>/` in a PR.
 - A new column or tab: merge the code that accepts it first, then change the sheet. In the other order the hourly sync fails until the PR is merged.
 - Read the `decisions` tab before starting. The user confirms or reverts decisions there; a reverted decision is an instruction, an open one is not permission to act.
 - Never retype IPA by hand into a tool call for more than a few cells. Generate the rows in Python, NFC-normalised.

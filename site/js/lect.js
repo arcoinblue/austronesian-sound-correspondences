@@ -72,7 +72,7 @@ function inventoryHtml(L, phonemes) {
     ${O.length ? `<h2>Other</h2><p>${O.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}`;
 }
 
-async function pageLect(L) {
+async function pageLect(L, params) {
   // A tree node with no page: a language with a representative opens that dialect.
   const node = LECTS[L];
   if (node?.node_only) {
@@ -162,10 +162,13 @@ async function pageLect(L) {
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
     app.querySelectorAll(".tabs button").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-selected", String(x === b)); });
     const sys = d.systems.find(x => x.name === b.dataset.tab);
+    setQuery({ system: sys ? sys.name : "" });   // #/lects/pan/?system=Blust opens on that tab
     app.querySelector("#inv").innerHTML = sys
       ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol opens the matching ${esc(d.default_label)} phoneme with this system's tab.</p>`
         + (sys.phonemes.some(p => p.class === "V") ? "" : `<div class="notice">${esc(sys.name)}'s reconstruction is compared for consonants only: the source gives no vowels for it.</div>`)
         + inventoryHtml(L, sys.phonemes)
       : inventoryHtml(L, own);
   }));
+  const wantSystem = params && params.get("system");
+  if (wantSystem) [...app.querySelectorAll(".tabs button")].find(b => b.dataset.tab === wantSystem)?.click();
 }

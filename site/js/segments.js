@@ -80,11 +80,15 @@ async function pageSegments(params) {
       .map(r => ({ ...r, p: r.p.filter(p => S.implied || !p[7].includes("i")) })).filter(r => r.p.length);
     app.querySelectorAll("#sview button").forEach(b => b.classList.toggle("on", b.dataset.v === S.view));
     sort.hidden = S.view !== "segment";
+    setQuery({ q: S.q, view: S.view === "lect" ? "" : S.view, kind: S.kind === "all" ? "" : S.kind });
+    // A search that names a segment or features is about segments: lect names are searched
+    // only when nothing matches it as a segment (y is the phoneme, not every lect with a y in its name).
+    const anySegHit = words.length > 0 && lects.some(r => r.p.some(segHit));
     let html = "", n = 0;
     if (S.view === "lect") {
       html = `<tr><th>Lect</th><th>Consonants</th><th>Vowels</th><th>Other</th></tr>`;
       for (const r of lects) {
-        const lh = lectHit(r.l), hits = new Set(r.p.filter(segHit));
+        const lh = !anySegHit && lectHit(r.l), hits = new Set(r.p.filter(segHit));
         if (words.length && !lh && !hits.size) continue;
         n++;
         const cell = cls => r.p.filter(p => cls === "O" ? p[2] !== "C" && p[2] !== "V" : p[2] === cls)
@@ -105,7 +109,7 @@ async function pageSegments(params) {
         g.p = g.at.find(([, p]) => segFeatures(p) === top)[1];
       }
       let list = Object.values(segs);
-      const anySeg = list.some(g => g.at.some(([, p]) => segHit(p)));
+      const anySeg = anySegHit;
       if (words.length) list = list.map(g => ({ ...g, at: g.at.filter(([L, p]) => anySeg ? segHit(p) : lectHit(L)) }))
         .filter(g => g.at.length);
       list.sort(S.sort === "chart" ? (a, b) => byKey(a.p, b.p) : (a, b) => b.at.length - a.at.length || byKey(a.p, b.p));

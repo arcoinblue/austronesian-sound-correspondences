@@ -145,6 +145,19 @@ function rowNote(r, limit = 140) {
   return printed + (printed && r.notes ? " " : "") + (r.notes ? fold(r.notes, limit) : "");
 }
 
+// Keep a page's own state (a filter, a view, a tab) in the address, so the page can be linked
+// and reloaded as it stands. The address is replaced, not added to history, and the page is
+// not drawn again. An empty value drops the key.
+function setQuery(pairs) {
+  const [path, query] = location.hash.replace(/^#/, "").split("?");
+  const p = new URLSearchParams(query || "");
+  for (const [k, v] of Object.entries(pairs)) v ? p.set(k, v) : p.delete(k);
+  const s = p.toString(), h = (path || "/lects/") + (s ? "?" + s : "");
+  if ("#" + h === location.hash) return;
+  history.replaceState(null, "", "#" + h);
+  if (typeof shownHash !== "undefined" && shownHash !== null) shownHash = h;
+}
+
 function tabsHtml(names, on) {
   return `<div class="tabs" role="tablist">${names.map(n =>
     `<button role="tab" data-tab="${esc(n.key)}" aria-selected="${n.key === on}" class="${n.key === on ? "on" : ""}">${esc(n.label)}</button>`).join("")}</div>`;
