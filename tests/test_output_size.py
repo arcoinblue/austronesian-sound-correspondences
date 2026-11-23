@@ -47,6 +47,51 @@ class TestOutputSize(unittest.TestCase):
             for ph in self.files[L]["phonemes"]:
                 self.assertNotIn("descendants", ph, L)
 
+    def lect_files(self):
+        return {k: v for k, v in self.files.items()
+                if "/" not in k and k not in ("index.json", "sources.json", "segments.json")}
+
+    def test_every_reflex_has_a_page(self):
+        """Every row's reflex is linked, so it needs a phoneme file: in the inventory, or among
+        the lect's stray_phonemes (a reflex the sourced inventory lacks). On 23 Nov 2026, 25
+        reflexes had none and 422 links gave Not found."""
+        pages = {(v["id"], p["ipa"]): p["file"] for v in self.lect_files().values()
+                 for p in v["phonemes"] + v["stray_phonemes"]}
+        missing = set()
+        for k, v in self.files.items():
+            if "/" not in k:
+                continue
+            for r in v.get("descendants", []) + v.get("alt_descendants", []):
+                lect, _, sym = (r.get("child") or "").partition(":")
+                if sym and sym != "∅" and (lect, sym) not in pages:
+                    missing.add(r["child"])
+        self.assertEqual(sorted(missing), [])
+        for f in pages.values():
+            self.assertIn(f, self.files)
+
+    def test_stray_phonemes_stay_out_of_the_inventory(self):
+        for L, v in self.lect_files().items():
+            own = {p["ipa"] for p in v["phonemes"]}
+            for p in v["stray_phonemes"]:
+                self.assertNotIn(p["ipa"], own, L)
+                self.assertIn(p["origin"], ("outside-inventory", "suppressed"), L)
+                self.assertTrue(self.files[p["file"]]["ancestry_graph"]["edges"], p["id"])
+
+    def test_implied_descendants_fill_the_table_of_all_lects(self):
+        """The implied retentions that `descendants` leaves out below the first level are kept
+        by lect, each naming a phoneme of that lect, and never repeat a listed row."""
+        lects = self.lect_files()
+        t = next(p for p in lects["pan.json"]["phonemes"] if p["ipa"] == "t")
+        det = self.files[t["file"]]
+        self.assertTrue(det["implied_descendants"])
+        listed = {r.get("child") for r in det["descendants"]}
+        for L, pids in det["implied_descendants"].items():
+            own = {p["id"] for p in lects[L + ".json"]["phonemes"]}
+            for p in pids:
+                self.assertIn(p, own)
+            self.assertFalse(set(pids) & {r.get("child") for r in det["descendants"]
+                                         if r.get("child_lect_id") == L and r.get("derivation") == "implied-retention"})
+
     def test_report_sizes(self):
         big = sorted(((size(v), k) for k, v in self.files.items()), reverse=True)[:3]
         lect = max((size(v), k) for k, v in self.files.items() if "/" not in k and k not in ("index.json", "sources.json", "segments.json"))

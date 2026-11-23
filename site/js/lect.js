@@ -146,6 +146,8 @@ async function pageLect(L) {
       ${d.phonemes.some(x => x.implied) ? "Grey = implied: not mentioned by the source, taken as kept from the parent." : ""}
       ${d.phonemes.some(x => x.status) ? "In parentheses = marginal (loans only, or an allophone the source lists as a sound of the language) or doubtful." : ""}
       ${d.phonemes.some(x => x.allophones?.length) ? "Hover a symbol for its allophones; its page lists them with sources." : ""}</p>` : ""}
+    ${(d.stray_phonemes || []).length ? `<h3>Reflexes outside this inventory</h3>
+      <p class="muted">Given as reflexes by correspondence rows, but not in the inventory above: ${d.stray_phonemes.map(p => `<span class="chart stray">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}
     ${d.changes_only ? changesTable : ""}
     ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
