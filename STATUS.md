@@ -8,26 +8,26 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 247 |  |
-| lects | 1015 | 253 dialect, 33 earlier-stage, 3 group, 450 language, 5 linkage, 271 proto-language |
+| sources | 248 |  |
+| lects | 1020 | 253 dialect, 33 earlier-stage, 3 group, 450 language, 6 linkage, 275 proto-language |
 | phonemes | 4475 |  |
-| correspondences | 11901 | plus 12010 implied and 3374 stated retentions generated from lects.inherit |
-| notation_map | 553 |  |
+| correspondences | 11901 | plus 12111 implied and 3374 stated retentions generated from lects.inherit |
+| notation_map | 557 |  |
 | allophones | 976 |  |
-| decisions | 176 | 71 confirmed, 77 open, 28 reverted |
+| decisions | 177 | 72 confirmed, 77 open, 28 reverted |
 
-Lects by `inherit`: (blank) 169, assumed-unchanged 565, assumed-unchanged (automatic, fewer than 13 phonemes known) 42, stated-unchanged 239.
-Inventories: edited 28, empty 17, reverse-generated 789, sourced 181.
+Lects by `inherit`: (blank) 170, assumed-unchanged 569, assumed-unchanged (automatic, fewer than 13 phonemes known) 42, stated-unchanged 239.
+Inventories: edited 28, empty 18, reverse-generated 793, sourced 181.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 296 warning(s), 1117 note(s).
+`build.py --check`: 0 error(s), 302 warning(s), 1117 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 136 |
-| a work cited in notes has no sources row | 65 |
-| a source is never cited | 53 |
+| a work cited in notes has no sources row | 70 |
+| a source is never cited | 54 |
 | a reflex is not in the lect's sourced inventory | 28 |
 | an attested lect has symbols that are not IPA | 8 |
 | repeats the fusion row at … | 6 |
@@ -138,6 +138,7 @@ Hand-kept. Collected from the handoffs of 2026-11-20 (09:20 to 15:00). The Googl
 - Reverted decisions carried out on 23 Nov 2026 (`tools/batch_scripts/reverts_2026_11_23/`), with what is left: `wolff-vowels` not done (Wolff 2010 not read directly; the PDFs were not reachable); `yeh-puyuma-tree`: the three nodes below Proto-Nuclear Puyuma have no rows of their own, and Yeh's pp. 193-194 should be re-read for their innovations (Katripulr and Kasavakan share **v and perhaps **f, Tables 4.30-4.31); `ge-overlap`: the Peripheral Babar shared changes (overlapping sets) stay on the languages, and Glottolog's Wetar-Galolen (weta1247) may fit pwetgal; `pmal-shared`: Iban *a > æ / _C# now also covers the *ə merged into *a at Proto-Malayic; `pn-tree`: Marck's Proto-Central East Polynesian, Proto-Marquesic and Proto-Nuclear Marquesic have no daughters in the main tree.
 - Five sources of 23 Nov 2026 (batches `blust1984-mussau`, `ross1996-yapese`, `ho1982-hienghene`, `francois2005-vowels`, `jackson1983-trukic`; scripts in `tools/batch_scripts/new_sources_2026_11_23/`): Ross 1996 Sets A, B, D, UW and E (`ross1996-strata`); Haudricourt & Ozanne-Rivierre 1982 palatal rows, *R and vowels of Table 3.3.4 and the conditions of §3.3 (`ho1982-composition`); François 2005 Table 1 inventories, §§4.3, 5 and 6; Jackson 1983 Figure 4 nodes (`jackson1983-tree`), rule (7), §§3.3.2-3.3.3 and chapter 4; Blust 1984 irregular reflexes attested once and the canonical changes.
 - Ten sources of 23 Nov 2026, second set (batches `lynch2004-q`, `ross2011-kw`, `lynch2002h-labiovelars`, `charpentierfrancois2015-polynesia`, `barlowross2025-tomoip`, `bril2020-nc`, `rossnaess2007-temotu`, `lackeyboerger2021-temotu`, `francois2009-vanikoro`, `francoisetal2015-vanuatu`; scripts in `tools/batch_scripts/new_sources_2026_11_23b/`): Lynch 2002h Table 3 for Mota (waits for PNCV consonants) and the other columns (`lynch2002h-table3`); Ross 2011 *gʷ and the Southeast Solomonic and Papuan Tip reflexes (`ross2011-kw`); Barlow & Ross 2025 Proto-Tomoip-New Ireland (`barlowross2025-tree`); Bril 2020 vowels and PNNC (`bril2020-vowels`, `bril2020-pnnc`); Charpentier & François 2015 Pa'umotu dialects; Ross & Næss 2007 cells superseded by Lackey & Boerger 2021 (`temotu-composed`); Nalögo and Noipä; the Santa Cruz node; Sa (Garde 2015).
+- Ten sources of 23 Nov 2026, third set (batches `lynch2019a-linguolabial`, `lynch2005b-nese`, `lynchbrotchie2010-tirax`, `lynch2003b-loyalties`, `lynch2003a-lvd`, `lynch2022-o`, `biggs1965-rotuman`, `nc-north-1993-1995`; scripts in `tools/batch_scripts/new_sources_2026_11_23c/`; migration `tools/batch_scripts/smith2023_nodes/`): not entered are Ozanne-Rivierre 1995 (Proto-North and Appendices 1-6, `ozannerivierre1995-north`, with `bril2020-pnnc`), Rivierre 1993 (tones, `rivierre1993-tones`), the Santo languages known from Tryon's wordlists and Tape (`lynch2019a-scope`, `lynchbrotchie2010-tirax`), the Loyalties vowels (PNC has no vowels), Biggs's Set I and PEO (`biggs1965-sets`), Lynch's six-vowel POc (`lynch2022-poc-vowels`), and Ross et al. 2023 Appendix A (a list of data sources).
 - Papora, Taokas, Basay: Shibata 2025 gives no separate reflexes.
 - About 50 works cited in notes have no sources row (Hughes 2020a, Edwards 2015, Marck 1977, Brown 2001, Harrison 1978, Wolff 1982, ...): see the warnings above. Their details come from the citing sources' reference lists.
 - `locator` is empty: table, figure and section references are still in the notes.
