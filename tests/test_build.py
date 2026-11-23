@@ -274,6 +274,60 @@ class TestAncestryRegularOnly(unittest.TestCase):
         code = src + f"\nconsole.log(JSON.stringify(ancRegularOnly({json.dumps(graph)}, {json.dumps(here)})));"
         return json.loads(subprocess.run([node, "-e", code], capture_output=True, text=True, check=True).stdout)
 
+    def call(self, expr, graph, stages):
+        """Run one of the pure helpers on a graph whose phonemes are 'lect:symbol'."""
+        import json, shutil, subprocess
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node is not installed")
+        src = (ROOT / "site" / "js" / "ancsplit.js").read_text(encoding="utf-8")
+        code = (src + f"\nconst g = {json.dumps(graph)}, stages = {json.dumps(stages)};"
+                "const lectOf = p => p.split(':')[0], bare = p => p.split(':')[1];"
+                f"console.log(JSON.stringify({expr}));")
+        return json.loads(subprocess.run([node, "-e", code], capture_output=True, text=True, check=True).stdout)
+
+    def chain(self):
+        """a:t, a:d > b:t > c:t > d:t > e:k: nothing changes at c and d."""
+        e = lambda i, p, c, **kw: dict(correspondence_id=i, parent=p, child=c, environment="elsewhere", status="regular", **kw)
+        return ({"nodes": ["e:k", "d:t", "c:t", "b:t", "a:t", "a:d"],
+                 "edges": [e("1", "a:t", "b:t"), e("2", "a:d", "b:t"), e("3", "b:t", "c:t"),
+                           e("4", "c:t", "d:t", derivation="implied-retention"), e("5", "d:t", "e:k")]},
+                ["a", "b", "c", "d", "e"])
+
+    def test_fold_takes_out_the_unchanged_stages(self):
+        g, stages = self.chain()
+        out = self.call("ancFold(g, stages, lectOf, bare)", g, stages)
+        self.assertEqual(sorted(out["g"]["nodes"]), ["a:d", "a:t", "b:t", "e:k"])
+        self.assertEqual([(x["parent"], x["child"]) for x in out["g"]["edges"]],
+                         [("a:t", "b:t"), ("a:d", "b:t"), ("b:t", "e:k")])
+        self.assertEqual([(f["after"], f["lects"], f["implied"]) for f in out["folds"]], [("b", ["c", "d"], 1)])
+
+    def test_fold_keeps_a_stage_with_a_merger_a_condition_or_a_change(self):
+        g, stages = self.chain()
+        g["edges"][2]["environment"] = "_#"          # b:t > c:t only word-finally
+        out = self.call("ancFold(g, stages, lectOf, bare)", g, stages)
+        self.assertEqual([f["lects"] for f in out["folds"]], [["d"]])
+        g, stages = self.chain()
+        g["edges"][3]["status"] = "sporadic"
+        out = self.call("ancFold(g, stages, lectOf, bare)", g, stages)
+        self.assertEqual([f["lects"] for f in out["folds"]], [["c"]])
+
+    def test_fold_moves_a_fused_member_to_the_phoneme_it_continues(self):
+        e = lambda i, p, c, **kw: dict(correspondence_id=i, parent=p, child=c, environment="elsewhere", status="regular", **kw)
+        f = lambda partner: {"members": ["b:n", "b:d"], "partner_correspondence_id": partner}
+        g = {"nodes": ["c:dr", "b:n", "b:d", "a:n", "a:d"],
+             "edges": [e("1", "a:n", "b:n"), e("2", "a:d", "b:d"), e("3", "b:n", "c:dr", fusion=f("4")),
+                       e("4", "b:d", "c:dr", fusion=f("3"))]}
+        out = self.call("ancFold(g, stages, lectOf, bare)", g, ["a", "b", "c"])
+        self.assertEqual([x["fusion"]["members"] for x in out["g"]["edges"]], [["a:n", "a:d"], ["a:n", "a:d"]])
+        self.assertEqual([x["parent"] for x in out["g"]["edges"]], ["a:n", "a:d"])
+
+    def test_from_a_stage_leaves_out_what_is_above_it(self):
+        g, stages = self.chain()
+        out = self.call("ancFrom(g, stages, lectOf, 'c')", g, stages)
+        self.assertEqual(sorted(out["nodes"]), ["c:t", "d:t", "e:k"])
+        self.assertEqual([x["correspondence_id"] for x in out["edges"]], ["4", "5"])
+
     def test_drops_sporadic_steps_and_what_hangs_on_them(self):
         e = lambda i, p, c, st="regular", **kw: dict(correspondence_id=i, parent=p, child=c, status=st, **kw)
         g = {"nodes": ["x:k", "p:t", "p:l", "q:t", "q:r"],
