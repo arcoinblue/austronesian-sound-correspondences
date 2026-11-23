@@ -1,0 +1,134 @@
+id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes,system,via_source_id,via_page,via_note,conditioning,evidence_total,derivation,variety,stratum,lexical_scope,examples,source_form,as_printed,locator,decision
+ptm-rn-1,ptm,r,l,elsewhere,regular,,,rossnaess2007,471-472,"POc *r and *l merged as *l, a Temotu innovation (pp. 471-472); the shared special reflexes before *u (y in Asuboa and Tanibili) and Asuboa n for both point to one phoneme. Word-final reflexes behave differently (n. 17).",,,,,,,,,,,,,"*r, *l > PTm *l","(22), (27)",
+ptm-rn-2,ptm,r,r,_#,regular,,,rossnaess2007,464,"Proto-Temotu kept at least final *-p, *-m, *-s, *-r, *-R and *-k, reflected in Vanikoro followed by an added vowel (p. 464).",,,,,,,,,,,,,PTm retained final *-r,§2.2,
+putupua-rn-3,putupua,r,∅,_#,regular,,,rossnaess2007,473,"Loss of word-final *-r, *-s, *-q and *-R, retained in Vanikoro: a shared innovation of Utupua (p. 473).",,,,,,,,,,,,,Utupua loss of final *-r,§2.4.2.3,
+putupua-rn-4,putupua,s,∅,_#,regular,,,rossnaess2007,473,"Loss of word-final *-r, *-s, *-q and *-R, retained in Vanikoro: a shared innovation of Utupua (p. 473).",,,,,,,,,,,,,Utupua loss of final *-s,§2.4.2.3,
+putupua-rn-5,putupua,q,∅,_#,regular,,,rossnaess2007,473,"Loss of word-final *-r, *-s, *-q and *-R, retained in Vanikoro: a shared innovation of Utupua (p. 473).",,,,,,,,,,,,,Utupua loss of final *-q,§2.4.2.3,
+putupua-rn-6,putupua,R,∅,_#,regular,,,rossnaess2007,473,"Loss of word-final *-r, *-s, *-q and *-R, retained in Vanikoro: a shared innovation of Utupua (p. 473).",,,,,,,,,,,,,Utupua loss of final *-R,§2.4.2.3,
+putupua-rn-7,putupua,R,∅,elsewhere,regular,,,rossnaess2007,473,"Complete loss of POc *R, also a shared innovation (p. 473). Table 2 has Asuboa l, Ø for *R, which this does not cover (decision temotu-composed).",,,,,,,,,,,,,complete loss of *R,§2.4.2.3,
+puv-rn-8,puv,q,∅,elsewhere,regular,,,rossnaess2007,473,"Defines Utupua-Vanikoro phonologically, 'but this is not strong evidence, as the same loss occurs in the Santa Cruz languages' (p. 473).",,,,,,,,,,,,,UV loss of nonfinal *q,§2.4.2.2,
+putupua-rn-9,putupua,q,∅,elsewhere,regular,,,rossnaess2007,473,"Ross & Næss's Utupua-Vanikoro loss of nonfinal *q (p. 473), entered on Proto-Utupua as Utupua-Vanikoro is not in the main tree.",,,,,,,,,,,,,UV loss of nonfinal *q,§2.4.2.2,
+ayiw1239-rn-10,ayiw1239,k,k,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,verbs (fortis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+ayiw1239-rn-11,ayiw1239,k,∅,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,non-verbs (lenis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+nang1262-rn-12,nang1262,k,k,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,verbs (fortis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+nang1262-rn-13,nang1262,k,∅,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,non-verbs (lenis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+ayiw1239-rn-14,ayiw1239,q,k,elsewhere,regular,,,rossnaess2007,463,"Two reflexes; *q, like *k, splits into k and zero (p. 466).",,,,,unknown,,composed,,,,,,"*q > Äiwoo k, Ø",Table 2,temotu-composed
+ayiw1239-rn-15,ayiw1239,q,∅,elsewhere,regular,,,rossnaess2007,463,"Two reflexes; *q, like *k, splits into k and zero (p. 466).",,,,,unknown,,composed,,,,,,"*q > Äiwoo k, Ø",Table 2,temotu-composed
+natu1246-rn-16,natu1246,q,∅,elsewhere,regular,,,rossnaess2007,463,Lost also initially (Table 2).,,,,,,,composed,,,,,,*q > Ø,Table 2,temotu-composed
+natu1246-rn-17,natu1246,ŋ,n,_i,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*ŋ/_*i > n,Table 2,temotu-composed
+natu1246-rn-18,natu1246,mʷ,m,elsewhere,regular,,,rossnaess2007,463,Äiwoo keeps mʷ.,,,,,,,composed,,,,,,*mʷ > m,Table 2,temotu-composed
+natu1246-rn-19,natu1246,v,∅,_o,regular,,,rossnaess2007,463,*p becomes zero before *u in Äiwoo and before *u or *o in Natügu and Nagu (p. 467); the loss before *u is entered on Proto-Reefs-Santa Cruz.,,,,,,,composed,,,,,,"*p/_*u, o > Ø",Table 2,temotu-composed
+nang1262-rn-20,nang1262,q,∅,elsewhere,regular,,,rossnaess2007,463,Lost also initially (Table 2).,,,,,,,composed,,,,,,*q > Ø,Table 2,temotu-composed
+nang1262-rn-21,nang1262,ŋ,n,_i,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*ŋ/_*i > n,Table 2,temotu-composed
+nang1262-rn-22,nang1262,mʷ,m,elsewhere,regular,,,rossnaess2007,463,Äiwoo keeps mʷ.,,,,,,,composed,,,,,,*mʷ > m,Table 2,temotu-composed
+nang1262-rn-23,nang1262,v,∅,_o,regular,,,rossnaess2007,463,*p becomes zero before *u in Äiwoo and before *u or *o in Natügu and Nagu (p. 467); the loss before *u is entered on Proto-Reefs-Santa Cruz.,,,,,,,composed,,,,,,"*p/_*u, o > Ø",Table 2,temotu-composed
+natu1246-rn-24,natu1246,t,l,#_,sporadic,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)). In parentheses in Table 2: less common than the reflex outside them.",,,,,,,composed,,,non-verbs (lenis),,,*t/*#_ > Natügu t (l),Table 2,temotu-composed
+ayiw1239-rn-25,ayiw1239,t,∅,V_V,disputed,,,rossnaess2007,463,"Table 2 has Äiwoo Ø against Natügu and Nagu l; the examples are nouns with the fossilised article, and Lackey & Boerger (2021: 374) give Äiwoo reflexes with l and s. Not explained.",,,,,,,composed,,,,,,*t/V_V > Äiwoo Ø,Table 2,temotu-composed
+amba1266-rn-26,amba1266,p,v,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,"*p > Nebao v (h, Ø)",Table 2,temotu-composed
+amba1266-rn-27,amba1266,p,h,elsewhere,sporadic,,,rossnaess2007,463,In parentheses in Table 2: less common than the reflex outside them.,,,,,,,composed,,,,,,"*p > Nebao v (h, Ø)",Table 2,temotu-composed
+amba1266-rn-28,amba1266,p,∅,elsewhere,sporadic,,,rossnaess2007,463,In parentheses in Table 2: less common than the reflex outside them.,,,,,,,composed,,,,,,"*p > Nebao v (h, Ø)",Table 2,temotu-composed
+asum1237-rn-29,asum1237,p,v,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,"*p > Asuboa v (p, Ø)",Table 2,temotu-composed
+asum1237-rn-30,asum1237,p,p,elsewhere,sporadic,,,rossnaess2007,463,In parentheses in Table 2: less common than the reflex outside them.,,,,,,,composed,,,,,,"*p > Asuboa v (p, Ø)",Table 2,temotu-composed
+asum1237-rn-31,asum1237,p,∅,elsewhere,sporadic,,,rossnaess2007,463,In parentheses in Table 2: less common than the reflex outside them.,,,,,,,composed,,,,,,"*p > Asuboa v (p, Ø)",Table 2,temotu-composed
+asum1237-rn-32,asum1237,p,∅,"_u, _o",regular,,,rossnaess2007,463,"Printed w with the note that it may be the transition between an unrounded and a rounded vowel, i.e. phonemic Ø (Table 2, ‡).",,,,,,,composed,,,,,w,"*p/_*u, o > Asuboa w‡",Table 2,temotu-composed
+tani1255-rn-33,tani1255,p,p,_ə#,regular,,,rossnaess2007,463,p before the word-final vowel sequence -io from PUV *-ə: lenition blocked (p. 468).,,,,,,,composed,,,,,,"*p > Tanibili v, p",Table 2,temotu-composed
+tani1255-rn-34,tani1255,p,v,elsewhere,regular,,,rossnaess2007,463,v is the default reflex (p. 468).,,,,,,,composed,,,,,,"*p > Tanibili v, p",Table 2,temotu-composed
+tani1255-rn-35,tani1255,p,∅,_u,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*p/_*u > Tanibili Ø,Table 2,temotu-composed
+amba1266-rn-36,amba1266,w,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*w > Ø,Table 2,temotu-composed
+asum1237-rn-37,asum1237,w,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*w > Ø,Table 2,temotu-composed
+tani1255-rn-38,tani1255,w,∅,elsewhere,regular,,,rossnaess2007,463,"Tanibili also w‡, phonemically Ø (Table 2).",,,,,,,composed,,,,,,*w > Ø,Table 2,temotu-composed
+amba1266-rn-39,amba1266,pʷ,vʷ,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*pʷ > Nebao vʷ,Table 2,temotu-composed
+asum1237-rn-40,asum1237,pʷ,w,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*pʷ > Asuboa w,Table 2,temotu-composed
+tani1255-rn-41,tani1255,pʷ,p,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*pʷ > Tanibili p,Table 2,temotu-composed
+tani1255-rn-42,tani1255,bʷ,b,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*bw > Tanibili b,Table 2,temotu-composed
+asum1237-rn-43,asum1237,mʷ,m,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*mʷ > Asuboa m,Table 2,temotu-composed
+amba1266-rn-44,amba1266,t,r,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,non-verbs (lenis),,,*t/*#_ > Nebao r (t),Table 2,temotu-composed
+amba1266-rn-45,amba1266,t,t,#_,sporadic,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)). In parentheses in Table 2: less common than the reflex outside them.",,,,,,,composed,,,verbs (fortis),,,*t/*#_ > Nebao r (t),Table 2,temotu-composed
+amba1266-rn-46,amba1266,t,r,V_V,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*t/V_V > Nebao r, t",Table 2,temotu-composed
+amba1266-rn-47,amba1266,t,t,V_V,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*t/V_V > Nebao r, t",Table 2,temotu-composed
+amba1266-rn-48,amba1266,t,r,"_u, _i",regular,,,rossnaess2007,463,"Row printed '*t/_*u, i' below a row '*t/_*u'.",,,,,unknown,,composed,,,,,,"*t/_*u, i > Nebao r, t",Table 2,temotu-composed
+amba1266-rn-49,amba1266,t,t,"_u, _i",regular,,,rossnaess2007,463,"Row printed '*t/_*u, i' below a row '*t/_*u'.",,,,,unknown,,composed,,,,,,"*t/_*u, i > Nebao r, t",Table 2,temotu-composed
+asum1237-rn-50,asum1237,t,j,_u,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,y,*t/_*u > Asuboa y,Table 2,temotu-composed
+asum1237-rn-51,asum1237,t,s,"_u, _i",regular,,,rossnaess2007,463,"Row printed '*t/_*u, i' below a row '*t/_*u' (Asuboa y).",,,,,,,composed,,,,,,"*t/_*u, i > Asuboa s",Table 2,temotu-composed
+asum1237-rn-52,asum1237,t,d,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*t/V_V > Asuboa d,Table 2,temotu-composed
+tani1255-rn-53,tani1255,t,s,_u,regular,,,rossnaess2007,463,Tanibili *t (p. 470): s before present-day -u.,,,,,,,composed,,,,,,*t/_*u > Tanibili s,Table 2,temotu-composed
+tani1255-rn-54,tani1255,t,kʷ,_o,regular,,,rossnaess2007,463,"Tanibili *t (p. 470): kʷ morpheme-initially before *-o (*topu, *tolu).",,,,,,,composed,,,,,,"*t > Tanibili t, r, kʷ",Table 2,temotu-composed
+tani1255-rn-55,tani1255,t,t,elsewhere,regular,,,rossnaess2007,463,"Tanibili *t (p. 470): t and r are the fortis and lenis reflexes, unpredictably.",,,,,unknown,,composed,,,,,,"*t > Tanibili t, r, kʷ",Table 2,temotu-composed
+tani1255-rn-56,tani1255,t,r,elsewhere,regular,,,rossnaess2007,463,"Tanibili *t (p. 470): t and r are the fortis and lenis reflexes, unpredictably.",,,,,unknown,,composed,,,,,,"*t > Tanibili t, r, kʷ",Table 2,temotu-composed
+tani1255-rn-57,tani1255,t,∅,elsewhere,sporadic,,,rossnaess2007,463,Tanibili *t (p. 470): zero in ami- 'father' and me-me 'die' only.,,,,,unknown,,composed,,,,,,"*t/V_V > Tanibili t, r, kʷ, Ø",Table 2,temotu-composed
+tani1255-rn-58,tani1255,d,d͡ʒ,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,j,*d > Tanibili j,Table 2,temotu-composed
+asum1237-rn-59,asum1237,l,l,elsewhere,regular,,,rossnaess2007,463,PTm *l from POc *r and *l; Asuboa n for both shows they were one phoneme (p. 471).,,,,,unknown,,composed,,,,,,"*r > Asuboa l, n, Ø; *l > n, Ø",Table 2,temotu-composed
+asum1237-rn-60,asum1237,l,n,elsewhere,regular,,,rossnaess2007,463,PTm *l from POc *r and *l; Asuboa n for both shows they were one phoneme (p. 471).,,,,,unknown,,composed,,,,,,"*r > Asuboa l, n, Ø; *l > n, Ø",Table 2,temotu-composed
+asum1237-rn-61,asum1237,l,∅,elsewhere,regular,,,rossnaess2007,463,PTm *l from POc *r and *l; Asuboa n for both shows they were one phoneme (p. 471).,,,,,unknown,,composed,,,,,,"*r > Asuboa l, n, Ø; *l > n, Ø",Table 2,temotu-composed
+amba1266-rn-62,amba1266,l,∅,elsewhere,sporadic,,,rossnaess2007,463,In parentheses in Table 2: less common than the reflex outside them.,,,,,,,composed,,,,,,"*r, *l > l (Ø)",Table 2,temotu-composed
+tani1255-rn-63,tani1255,l,∅,elsewhere,sporadic,,,rossnaess2007,463,In parentheses in Table 2: less common than the reflex outside them.,,,,,,,composed,,,,,,"*r, *l > l (Ø)",Table 2,temotu-composed
+amba1266-rn-64,amba1266,l,∅,_u,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*r/_*u > Nebao l, Ø",Table 2,temotu-composed
+asum1237-rn-65,asum1237,l,j,_u,regular,,,rossnaess2007,463,The special reflex before *u shared by *r and *l (p. 471).,,,,,,,composed,,,,,y,"*r, *l/_*u > Asuboa y",Table 2,temotu-composed
+asum1237-rn-66,asum1237,l,∅,_u,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*r/_*u > Asuboa y, Ø",Table 2,temotu-composed
+tani1255-rn-67,tani1255,l,j,_u,regular,,,rossnaess2007,463,The special reflex before *u shared by *r and *l (p. 471).,,,,,,,composed,,,,,y,"*r, *l/_*u > Tanibili y",Table 2,temotu-composed
+asum1237-rn-68,asum1237,dr,d,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*dr > Asuboa d, j",Table 2,temotu-composed
+asum1237-rn-69,asum1237,dr,d͡ʒ,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,j,"*dr > Asuboa d, j",Table 2,temotu-composed
+tani1255-rn-70,tani1255,dr,d͡ʒ,_i,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,j,*dr > Tanibili j/_i,Table 2,temotu-composed
+asum1237-rn-71,asum1237,s,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*s > Asuboa Ø, s",Table 2,temotu-composed
+asum1237-rn-72,asum1237,s,s,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*s > Asuboa Ø, s",Table 2,temotu-composed
+tani1255-rn-73,tani1255,s,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*s > Tanibili Ø,Table 2,temotu-composed
+asum1237-rn-74,asum1237,ñ,n,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*ñ > Asuboa n, y",Table 2,temotu-composed
+asum1237-rn-75,asum1237,ñ,j,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,y,"*ñ > Asuboa n, y",Table 2,temotu-composed
+amba1266-rn-76,amba1266,k,∅,#_,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*#_ > Nebao Ø,Table 2,temotu-composed
+asum1237-rn-77,asum1237,k,k,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,verbs (fortis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+asum1237-rn-78,asum1237,k,∅,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,non-verbs (lenis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+asum1237-rn-79,asum1237,k,∅,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*V_V > Ø,Table 2,temotu-composed
+tani1255-rn-80,tani1255,k,k,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,verbs (fortis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+tani1255-rn-81,tani1255,k,∅,#_,regular,,,rossnaess2007,463,"Fortis and lenis reflexes of the initial stop: verbs have the fortis, non-verbs usually the lenis one (Ross & Næss 2007: 469-470, (19)).",,,,,lexical,,composed,,,non-verbs (lenis),,,"*k/*#_ > k, Ø",Table 2,temotu-composed
+tani1255-rn-82,tani1255,k,∅,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*V_V > Ø,Table 2,temotu-composed
+asum1237-rn-83,asum1237,k,∅,_#,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*k/_*# > Asuboa Ø, s",Table 2,temotu-composed
+asum1237-rn-84,asum1237,k,s,_#,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*k/_*# > Asuboa Ø, s",Table 2,temotu-composed
+tani1255-rn-85,tani1255,k,∅,_#,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*k/_*# > Tanibili Ø, y",Table 2,temotu-composed
+tani1255-rn-86,tani1255,k,j,_#,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,y,"*k/_*# > Tanibili Ø, y",Table 2,temotu-composed
+amba1266-rn-87,amba1266,ŋ,n,_i,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*ŋ/_*i > Nebao n,Table 2,temotu-composed
+tean1237-rn-88,tean1237,p,v,elsewhere,regular,,,rossnaess2007,463,v is the default reflex; p for verbs initially (fortis) and before final -ie in Vano (pp. 468-469).,,,,,unknown,,composed,,,,,,"*p > v, p",Table 2,temotu-composed
+tean1237-rn-89,tean1237,p,p,elsewhere,regular,,,rossnaess2007,463,"Fortis reflex: verbs initially (p. 469, (19)).",,,,,unknown,,composed,,,,,,"*p > v, p",Table 2,temotu-composed
+tean1237-rn-90,tean1237,p,∅,_u,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*p/_*u > Ø,Table 2,temotu-composed
+tean1237-rn-91,tean1237,w,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*w > Ø, w",Table 2,temotu-composed
+tean1237-rn-92,tean1237,w,w,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*w > Ø, w",Table 2,temotu-composed
+tean1237-rn-93,tean1237,pʷ,p,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*pʷ > p,Table 2,temotu-composed
+tean1237-rn-94,tean1237,mʷ,m,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*mʷ > m,Table 2,temotu-composed
+tean1237-rn-95,tean1237,k,∅,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*V_V > Ø,Table 2,temotu-composed
+tean1237-rn-96,tean1237,q,∅,elsewhere,regular,,,rossnaess2007,463,Final *-q was kept long enough to take the added vowel (p. 465).,,,,,,,composed,,,,,,*q > Ø,Table 2,temotu-composed
+tean1237-rn-97,tean1237,s,r,_#,regular,,,rossnaess2007,463,Followed by the added vowel (p. 464: *manipis > Buma meñeviro).,,,,,,,composed,,,,,,*s/_*# > r,Table 2,temotu-composed
+vano1237-rn-98,vano1237,p,v,elsewhere,regular,,,rossnaess2007,463,v is the default reflex; p for verbs initially (fortis) and before final -ie in Vano (pp. 468-469).,,,,,unknown,,composed,,,,,,"*p > v, p",Table 2,temotu-composed
+vano1237-rn-99,vano1237,p,p,elsewhere,regular,,,rossnaess2007,463,"Fortis reflex: verbs initially (p. 469, (19)).",,,,,unknown,,composed,,,,,,"*p > v, p",Table 2,temotu-composed
+vano1237-rn-100,vano1237,p,∅,_u,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*p/_*u > Ø,Table 2,temotu-composed
+vano1237-rn-101,vano1237,w,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*w > Ø, w",Table 2,temotu-composed
+vano1237-rn-102,vano1237,w,w,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*w > Ø, w",Table 2,temotu-composed
+vano1237-rn-103,vano1237,pʷ,p,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*pʷ > p,Table 2,temotu-composed
+vano1237-rn-104,vano1237,mʷ,m,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*mʷ > m,Table 2,temotu-composed
+vano1237-rn-105,vano1237,k,∅,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*V_V > Ø,Table 2,temotu-composed
+vano1237-rn-106,vano1237,q,∅,elsewhere,regular,,,rossnaess2007,463,Final *-q was kept long enough to take the added vowel (p. 465).,,,,,,,composed,,,,,,*q > Ø,Table 2,temotu-composed
+vano1237-rn-107,vano1237,s,r,_#,regular,,,rossnaess2007,463,Followed by the added vowel (p. 464: *manipis > Buma meñeviro).,,,,,,,composed,,,,,,*s/_*# > r,Table 2,temotu-composed
+tane1237-rn-108,tane1237,p,v,elsewhere,regular,,,rossnaess2007,463,v is the default reflex; p for verbs initially (fortis) and before final -ie in Vano (pp. 468-469).,,,,,unknown,,composed,,,,,,"*p > v, p",Table 2,temotu-composed
+tane1237-rn-109,tane1237,p,p,elsewhere,regular,,,rossnaess2007,463,"Fortis reflex: verbs initially (p. 469, (19)).",,,,,unknown,,composed,,,,,,"*p > v, p",Table 2,temotu-composed
+tane1237-rn-110,tane1237,p,∅,_u,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*p/_*u > Ø,Table 2,temotu-composed
+tane1237-rn-111,tane1237,w,∅,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*w > Ø,Table 2,temotu-composed
+tane1237-rn-112,tane1237,pʷ,b,elsewhere,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*pʷ > b,Table 2,temotu-composed
+tane1237-rn-113,tane1237,k,∅,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*V_V > Ø,Table 2,temotu-composed
+tane1237-rn-114,tane1237,q,∅,elsewhere,regular,,,rossnaess2007,463,Final *-q was kept long enough to take the added vowel (p. 465).,,,,,,,composed,,,,,,*q > Ø,Table 2,temotu-composed
+tane1237-rn-115,tane1237,s,r,_#,regular,,,rossnaess2007,463,Followed by the added vowel (p. 464: *manipis > Buma meñeviro).,,,,,,,composed,,,,,,*s/_*# > r,Table 2,temotu-composed
+tean1237-rn-116,tean1237,p,∅,_#,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*p/_*# > Buma Ø,Table 2,temotu-composed
+tane1237-rn-117,tane1237,p,v,_#,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*p/_*# > Tanema v,Table 2,temotu-composed
+tean1237-rn-118,tean1237,t,s,_u,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*t/_*u > Buma s, k",Table 2,temotu-composed
+tean1237-rn-119,tean1237,t,k,_u,regular,,,rossnaess2007,463,François (2009: 6) explains k as velarisation before u.,,,,,unknown,,composed,,,,,,"*t/_*u > Buma s, k",Table 2,temotu-composed
+tane1237-rn-120,tane1237,t,s,_u,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*t/_*u > Tanema s,Table 2,temotu-composed
+vano1237-rn-121,vano1237,t,s,"_u, _i",regular,,,rossnaess2007,463,"Row printed '*t/_*u, i'.",,,,,,,composed,,,,,,"*t/_*u, i > Vano s",Table 2,temotu-composed
+vano1237-rn-122,vano1237,t,l,#_,regular,,,rossnaess2007,463,"Nouns reflecting *t have initial l-, verbs t- (Table 2, ††).",,,,,lexical,,composed,,,nouns,,,"*t/*#_ > Vano l, t",Table 2,temotu-composed
+vano1237-rn-123,vano1237,t,t,#_,regular,,,rossnaess2007,463,"Nouns reflecting *t have initial l-, verbs t- (Table 2, ††).",,,,,lexical,,composed,,,verbs,,,"*t/*#_ > Vano l, t",Table 2,temotu-composed
+vano1237-rn-124,vano1237,t,l,V_V,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*t/V_V > Vano l,Table 2,temotu-composed
+tane1237-rn-125,tane1237,t,∅,#_,regular,,,rossnaess2007,463,"Two reflexes; p. 469 says Tanema has no lenis reflex of *t-, but Table 2 has Ø, t, and François (2009: 9) gives Tanema Ø as the lenis reflex.",,,,,unknown,,composed,,,,,,"*t/*#_ > Tanema Ø, t",Table 2,temotu-composed
+tane1237-rn-126,tane1237,t,t,#_,regular,,,rossnaess2007,463,"Two reflexes; p. 469 says Tanema has no lenis reflex of *t-, but Table 2 has Ø, t, and François (2009: 9) gives Tanema Ø as the lenis reflex.",,,,,unknown,,composed,,,,,,"*t/*#_ > Tanema Ø, t",Table 2,temotu-composed
+vano1237-rn-127,vano1237,l,r,_u,regular,,,rossnaess2007,463,Against l for *l/_*u: probably too little data (p. 472).,,,,,,,composed,,,,,,*r/_*u > Vano r,Table 2,temotu-composed
+tean1237-rn-128,tean1237,k,∅,#_,regular,,,rossnaess2007,463,,,,,,,,composed,,,,,,*k/*#_ > Buma Ø,Table 2,temotu-composed
+tean1237-rn-129,tean1237,ŋ,ɡ,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,g,"*ŋ > Buma ŋ, g",Table 2,temotu-composed
+tean1237-rn-130,tean1237,ŋ,ŋ,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*ŋ > Buma ŋ, g",Table 2,temotu-composed
+tane1237-rn-131,tane1237,s,s,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*s > Tanema s, d, c",Table 2,temotu-composed
+tane1237-rn-132,tane1237,s,d,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*s > Tanema s, d, c",Table 2,temotu-composed
+tane1237-rn-133,tane1237,s,c,elsewhere,regular,,,rossnaess2007,463,,,,,,unknown,,composed,,,,,,"*s > Tanema s, d, c",Table 2,temotu-composed
