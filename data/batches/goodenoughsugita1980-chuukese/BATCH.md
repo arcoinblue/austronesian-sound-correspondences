@@ -18,3 +18,12 @@ Goodenough, Ward H. & Hiroshi Sugita. 1980. *Trukese-English dictionary* (Memoir
 - The denasalised m and ŋ between vowels ('approaches a bilabial flap', 'approaches a velar flap', p. xv-xvi): in the phoneme notes, no IPA symbol.
 - The Hall Islands l and the Mortlockese vowels (twelve 'if that is indeed their number', p. xi; the extra letters of p. xvii); Puluwatese h and ŕ (p. xvii: ŕ, the retroflex continuant, is r in Elbert's dictionary, the values of r and ŕ being 'exactly opposite').
 - Puluwatese dialect forms (maah, maha, mha 'eye', p. xii).
+
+
+## Applied
+
+2026-11-24 23:35 UTC, by the push-batch workflow.
+- sources: sheet rows 267-271
+- phonemes: sheet rows 4705-4840
+- allophones: sheet rows 1082-1168
+- decisions: sheet rows 204-207

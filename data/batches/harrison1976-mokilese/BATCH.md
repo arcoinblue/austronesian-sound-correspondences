@@ -13,3 +13,11 @@ Mokilese (`moki1238`) has the inventory of Harrison (1984), which is the grammar
 
 - The prothetic vowels and nasal dissimilation of former initial geminates (§1.3.2.7): historical, not allophony.
 - Glide insertion and formation (§1.5), vowel reduction (§1.7), excrescent vowels (§1.8): morphophonemics.
+
+
+## Applied
+
+2026-11-24 23:35 UTC, by the push-batch workflow.
+- sources: sheet rows 267-271
+- phonemes: sheet rows 4705-4840
+- allophones: sheet rows 1082-1168

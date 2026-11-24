@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 265 |  |
+| sources | 270 |  |
 | lects | 1143 | 277 dialect, 33 earlier-stage, 14 group, 530 language, 9 linkage, 280 proto-language |
-| phonemes | 4703 |  |
+| phonemes | 4839 |  |
 | correspondences | 16724 | plus 12157 implied and 3370 stated retentions generated from lects.inherit |
 | notation_map | 594 |  |
-| allophones | 1080 |  |
-| decisions | 202 | 134 confirmed, 10 open, 58 reverted |
+| allophones | 1167 |  |
+| decisions | 206 | 134 confirmed, 14 open, 58 reverted |
 
 Lects by `inherit`: (blank) 265, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
-Inventories: edited 28, empty 41, reverse-generated 887, sourced 187.
+Inventories: edited 28, empty 41, reverse-generated 884, sourced 190.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 338 warning(s), 1886 note(s).
+`build.py --check`: 0 error(s), 345 warning(s), 1888 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 142 |
-| a work cited in notes has no sources row | 72 |
-| a source is never cited | 54 |
-| a reflex is not in the lect's sourced inventory | 34 |
+| a work cited in notes has no sources row | 71 |
+| a source is never cited | 53 |
+| a reflex is not in the lect's sourced inventory | 43 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 6 |
 | an attested lect has symbols that are not IPA | 3 |
@@ -50,6 +50,10 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross1988-composition` | Ross (1988) states the North New Guinea languages' consonant reflexes through intermediate reconstructions (PSCH, PHG, PNHG, PMK, PSHG, PHBU, Proto Buang, PNg,… | Languages only (the user's choice of 24 November 2026: hold back the intermediate nodes), each under POc with tree_parent nng (North New Guinea Linkage), its r… | 3482 |  |
 | `ross1988-lects` | How are Ross's (1988) North New Guinea language names matched to Glottolog and to lects? | By Ross's own identifications (§§5.2-5.4 lists, Appendix A) and Glottolog 5.4 names: Silisili = Middle Watut, Sirak = Nafi, Yalu = Aribwaung, Kaiwa = Iwal, Buk… |  |  |
 | `sohnbender1973-schwa` | Sohn & Bender (1973: 17, 19) write the Ulithian mid vowel ė as /ə/ but class it as a mid front rounded vowel (Table II, Figure 4); its usual long realisation i… | Keep ə (the symbol of the source and of the sheet's inventory); the classification is in the note. |  |  |
+| `goodenoughsugita1980-symbols` | Goodenough & Sugita (1980: xiv-xvii) describe Chuukese ch as 'usually retroflex', w as an unrounded bilabial glide (rounded only next to back rounded vowels) a… | ʈ͡ʂ for ch (as Woleaian and Pohnpeian; the alveo-palatal and alveolar variants are allophones); w and pʷ, mʷ as in the other Micronesian inventories, with the … |  |  |
+| `jensen1977-symbols` | Which IPA symbols for Jensen's (1977) Yapese ch, b d g j and glottalized consonants? | ch = ʈ (Jensen's 'retroflexed stop'; [ʈ͡ʂ] as an allophone); b d g j = β ð ɣ ʐ, their usual fricative values, with the stops after nasals as allophones; glotta… |  |  |
+| `jensen1977-vowels` | Jensen (1977: 13-22) gives eight short and eight long Yapese vowels by height (high, mid, lower-mid, low) and backness (front, central, back). Which IPA symbol… | Short i e ë ö o ä a u = i e ɛ ɵ ɔ æ ɑ u; long ii ee ea oe oo ae aa uu = iː eː ɛː ɵː ɔː æː ɑː uː. |  |  |
+| `rehg1981-e` | Rehg (1981: 40-41) has two contrasting mid front vowels in the northern dialect, /e/ and /ɛ/, both written e; Rehg (1984: 283-285), the sourced inventory, has … | Both: ɛ and ɛː are added from Rehg (1981) beside Rehg's (1984) e; Rehg's 1984 allophone rows stay. |  |  |
 
 <!-- END GENERATED -->
 

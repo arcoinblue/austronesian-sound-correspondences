@@ -17,3 +17,11 @@ Jensen, John Thayer (with John Baptist Iou, Raphael Defeg & Leo David Pugram). 1
 
 - §2.4 (morphemes) and §2.5 (morphophonemics: vowel reduction and loss of final short vowels, sound changes, dialects); the scan ends in chapter 2.
 - The uncertain quality of non-final short vowels (§2.3.2.1), which Jensen treats under morphophonemics.
+
+
+## Applied
+
+2026-11-24 23:35 UTC, by the push-batch workflow.
+- phonemes: sheet rows 4705-4840
+- allophones: sheet rows 1082-1168
+- decisions: sheet rows 204-207

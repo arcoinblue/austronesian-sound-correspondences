@@ -15,3 +15,12 @@ Pohnpeian (`pohn1238`) has the sourced inventory and the vowel allophones of Reh
 - The vowel centralisation rules (pp. 43-46): already in the sheet from Rehg (1984).
 - The Kiti dialect (§2.6.7): no /e/ : /ɛ/ contrast and oa for northern e in many words; Kiti is not a lect (decision `rehg1984-dialects`), and its e allophony is in the sheet from Rehg (1984).
 - Glide insertion, prothetic vowels, nasal assimilation and the other rules of §2.9 (morphophonemics).
+
+
+## Applied
+
+2026-11-24 23:35 UTC, by the push-batch workflow.
+- sources: sheet rows 267-271
+- phonemes: sheet rows 4705-4840
+- allophones: sheet rows 1082-1168
+- decisions: sheet rows 204-207

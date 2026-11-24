@@ -16,3 +16,11 @@ Good, Elaine M. & Weldis Welley. 1989. A preliminary grammar sketch, text, and v
 
 - The insignificant initial glottal stop (p. 4); stress, intonation, word-final releases and transitional vowels, which the authors leave for further research (p. 6).
 - The other two papers of the volume (syntax).
+
+
+## Applied
+
+2026-11-24 23:35 UTC, by the push-batch workflow.
+- sources: sheet rows 267-271
+- phonemes: sheet rows 4705-4840
+- allophones: sheet rows 1082-1168

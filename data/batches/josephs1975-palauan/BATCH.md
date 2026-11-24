@@ -11,3 +11,10 @@ Palauan (`pala1344`) keeps the inventory of Blust (2009: 308). Josephs's allopho
 - Josephs's phonemic long vowels ii, uu, ee, oo ([iy], [uw], [ey], [ow], p. 23), which Blust (2009: 308), following Dyen, writes with the glides y and w; and the long l (ll, p. 15).
 - Vowel reduction to schwa (pp. 20-21; morphophonemic in Josephs's terms, ə is a phoneme in Blust's inventory), the schwa release after final clusters (p. 22) and the vowel clusters (pp. 24-32).
 - The glottal stop at the start of words in isolation (pp. 10-11) and the ng that some words have only before a pause (p. 14).
+
+
+## Applied
+
+2026-11-24 23:35 UTC, by the push-batch workflow.
+- sources: sheet rows 267-271
+- allophones: sheet rows 1082-1168
