@@ -21,17 +21,17 @@ Inventories: edited 28, empty 36, reverse-generated 803, sourced 182.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 325 warning(s), 1055 note(s).
+`build.py --check`: 0 error(s), 326 warning(s), 1054 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 138 |
-| a work cited in notes has no sources row | 74 |
+| a work cited in notes has no sources row | 76 |
 | a source is never cited | 52 |
 | no page number for the citation | 26 |
 | a reflex is not in the lect's sourced inventory | 25 |
 | repeats the fusion row at … | 6 |
-| an attested lect has symbols that are not IPA | 4 |
+| an attested lect has symbols that are not IPA | 3 |
 
 ## Open decisions
 
