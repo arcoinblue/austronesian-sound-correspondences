@@ -1,0 +1,13 @@
+lect_id,phoneme,system,allophone,environment,source_id,page,notes,via_source_id,via_page,via_note
+naur1243,b,,β,V_V (often),hughes2020b,26,Intervocalic voiced stops tend to be lenited: /bʲ/ as [βʲ].,,,
+naur1243,bʷ,,βˠ,V_V (often),hughes2020b,26,Intervocalic voiced stops tend to be lenited: /bˠ/ as [βˠ].,,,
+naur1243,ɡ,,ɣ,V_V (often),hughes2020b,26,Intervocalic voiced stops tend to be lenited: /g/ as [ɣ].,,,
+naur1243,r,,ɹ̥̌,speaker variation,hughes2020b,23,"A partly or fully devoiced, fricated variant with reduced or no trilling; its frequency varies from speaker to speaker.",,,
+naur1243,ř,,ɹ̥̌,speaker variation,hughes2020b,23,"A partly or fully devoiced, fricated variant with reduced or no trilling; its frequency varies from speaker to speaker.",,,
+naur1243,r,,ɾ,variable,hughes2020b,93,Sometimes realised as a flap.,,,
+naur1243,ɑ,,ɐ,"after palatalised consonants, ʝ, j and i",hughes2020b,109,Hughes's /a/ (Blumenfeld's ɑ): height assimilation.,,,
+naur1243,ɑ,,ɐ,open syllables (free variation),hughes2020b,"109, 114",Hughes's /a/ (Blumenfeld's ɑ); [ɐ] commonly in shorter tokens.,,,
+naur1243,ɑ,,ɐ,before coda ř,hughes2020b,115,"Hughes's /a/ (Blumenfeld's ɑ): /gař/ [gɐř] 'go, travel by' vs /gar/ [gar] 'copy'.",,,
+naur1243,u,,ɨ,free or conditioned variant,hughes2020b,115,"[ɨ] is unpredictable where it reflects /ɨ/, but a free variant or conditioned allophone of /u/ elsewhere.",,,
+naur1243,i,,ɪ̆,reduced syllables,hughes2020b,117,Phonetically shortened [ĭ] or [ɪ̆] in reduced tokens.,,,
+naur1243,e,,ə,reduced syllables,hughes2020b,117,Phonetically shortened [ĕ] or [ə] in reduced syllables.,,,

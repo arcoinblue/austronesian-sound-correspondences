@@ -1,0 +1,9 @@
+lect_id,phoneme,system,allophone,environment,source_id,page,notes,via_source_id,via_page,via_note
+pck,a,,æ,"_(C){i,e}",jackson1984,262,"'Apparently' (p. 262); printed á [æ], é [ə], ó [ɔ].",,,
+pck,a,,ə,_(C)u,jackson1984,262,"'Apparently' (p. 262); printed á [æ], é [ə], ó [ɔ].",,,
+pck,a,,ɔ,_(C)o,jackson1984,262,"'Apparently' (p. 262); printed á [æ], é [ə], ó [ɔ].",,,
+pck,i,,i̥,phrase-finally,jackson1984,262,"Phrase-final vowel devoicing, which Jackson reconstructs for PTK (p. 262).",,,
+pck,e,,e̥,phrase-finally,jackson1984,262,"Phrase-final vowel devoicing, which Jackson reconstructs for PTK (p. 262).",,,
+pck,a,,ḁ,phrase-finally,jackson1984,262,"Phrase-final vowel devoicing, which Jackson reconstructs for PTK (p. 262).",,,
+pck,o,,o̥,phrase-finally,jackson1984,262,"Phrase-final vowel devoicing, which Jackson reconstructs for PTK (p. 262).",,,
+pck,u,,u̥,phrase-finally,jackson1984,262,"Phrase-final vowel devoicing, which Jackson reconstructs for PTK (p. 262).",,,
