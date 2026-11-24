@@ -14,3 +14,12 @@ Tawerilmang, Anthony F. & Ho-min Sohn. 1984. Proto-Oceanic reflexes in Woleaian.
 - The synchronic rules SR 1-6, 8 (semivowel insertion, a-rounding, a-raising, i-assimilation, lengthening): morphophonemic, not allophones of one phoneme.
 - *e u > əə, *keu > xoo and other single forms; the Appendix cognate list.
 - The Woleai Atoll dialect (Glottolog nucl1479, Nuclear Woleaian) is not split from Woleaian; the rows go on wole1240 with the earlier Woleaian rows.
+
+
+## Applied
+
+2026-11-24 13:31 UTC, by the push-batch workflow.
+- sources: sheet rows 255-259
+- phonemes: sheet rows 4536-4616
+- correspondences: sheet rows 12419-12784
+- allophones: sheet rows 981-1026

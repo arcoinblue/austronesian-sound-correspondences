@@ -15,3 +15,13 @@ Jackson, Frederick Henry. 1984. Reflexes of Proto-Oceanic in the Trukic language
 - POC *nj > ∅ (four forms, p. 269): POc *j corresponds to PMc *s and *Z, and *Z is lost before PPC.
 - Long vowels and compensatory lengthening (p. 262): no column; Jackson's PTK *T is not distinguished from *t.
 - Single exceptions (*uŋa > *umwa; *kula is entered with *sakulaya).
+
+
+## Applied
+
+2026-11-24 13:31 UTC, by the push-batch workflow.
+- sources: sheet rows 255-259
+- correspondences: sheet rows 12419-12784
+- notation_map: sheet rows 564-564
+- allophones: sheet rows 981-1026
+- decisions: sheet rows 188-193

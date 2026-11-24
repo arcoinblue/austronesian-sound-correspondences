@@ -13,3 +13,13 @@ Rehg, Kenneth L. 1984. On the history of Ponapean phonology. In Byron W. Bender 
 - Changes above PPON in Bender et al.'s chain (notes): *? > ∅, *R, *p > ∅ and *m > mʷ before round vowels, final consonant deletion (§3.1; five transitive verbs keep the consonant).
 - *ŋk > k (three forms), which conflicts with PMc *x (note on the *k row).
 - Exceptions attested once; compensatory lengthening and the synchronic rules of §3.2 (no segment rows); the cognate list.
+
+
+## Applied
+
+2026-11-24 13:31 UTC, by the push-batch workflow.
+- sources: sheet rows 255-259
+- phonemes: sheet rows 4536-4616
+- correspondences: sheet rows 12419-12784
+- allophones: sheet rows 981-1026
+- decisions: sheet rows 188-193

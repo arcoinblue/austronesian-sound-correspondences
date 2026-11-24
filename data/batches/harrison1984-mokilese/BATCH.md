@@ -12,3 +12,12 @@ Harrison, Sheldon P. 1984. Mokilese reflexes of Proto-Oceanic. In Byron W. Bende
 
 - Changes above PPON (notes): *? > ∅, *R, *p > ∅ and *m > mʷ before round vowels, final consonant loss.
 - *ŋk > k (conflicts with PMc *x; note); the grade alternations of §3.1 other than *mp > p; reflexes of *e (three cognates); *o > ɔ, i, u and other single forms.
+
+
+## Applied
+
+2026-11-24 13:31 UTC, by the push-batch workflow.
+- sources: sheet rows 255-259
+- phonemes: sheet rows 4536-4616
+- correspondences: sheet rows 12419-12784
+- allophones: sheet rows 981-1026

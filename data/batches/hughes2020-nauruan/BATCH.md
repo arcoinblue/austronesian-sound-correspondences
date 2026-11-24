@@ -14,3 +14,12 @@ Hughes, Kevin. 2020b. The synchronic and diachronic phonology of Nauruan: Toward
 - Cr10iv (*t > tʃ / __i: the t continues pre-Nauruan geminates), Cr14i and Cr5i (POc *R, *q: lost in PMc), Cr24vii (*Vː > V).
 - Tables 4.1.6-4.1.7 (other Micronesian languages, adapted from Bender et al. 2003a); the classification (§§4.2-4.4): Hughes places Nauruan in nuclear Micronesian, probably outside Central Micronesian with Kosraean, but calls this preliminary (pp. 169-170; 2020a), which is what the tree already has.
 - Stress, syllable structure and loanword phonology (ch. 2-3); the comparative appendix.
+
+
+## Applied
+
+2026-11-24 13:31 UTC, by the push-batch workflow.
+- sources: sheet rows 255-259
+- correspondences: sheet rows 12419-12784
+- allophones: sheet rows 981-1026
+- decisions: sheet rows 188-193

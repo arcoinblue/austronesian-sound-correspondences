@@ -8,28 +8,28 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 253 |  |
+| sources | 258 |  |
 | lects | 1049 | 259 dialect, 33 earlier-stage, 14 group, 455 language, 9 linkage, 279 proto-language |
-| phonemes | 4534 |  |
-| correspondences | 12417 | plus 12000 implied and 3370 stated retentions generated from lects.inherit |
-| notation_map | 562 |  |
-| allophones | 979 |  |
-| decisions | 186 | 129 confirmed, 57 reverted |
+| phonemes | 4615 |  |
+| correspondences | 12783 | plus 11995 implied and 3370 stated retentions generated from lects.inherit |
+| notation_map | 563 |  |
+| allophones | 1025 |  |
+| decisions | 192 | 129 confirmed, 6 open, 57 reverted |
 
 Lects by `inherit`: (blank) 179, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 49, stated-unchanged 239.
-Inventories: edited 28, empty 36, reverse-generated 803, sourced 182.
+Inventories: edited 28, empty 36, reverse-generated 800, sourced 185.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 327 warning(s), 1054 note(s).
+`build.py --check`: 0 error(s), 324 warning(s), 1119 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 138 |
-| a work cited in notes has no sources row | 77 |
+| a work cited in notes has no sources row | 73 |
 | a source is never cited | 52 |
 | no page number for the citation | 26 |
-| a reflex is not in the lect's sourced inventory | 25 |
+| a reflex is not in the lect's sourced inventory | 26 |
 | repeats the fusion row at … | 6 |
 | an attested lect has symbols that are not IPA | 3 |
 
@@ -37,7 +37,14 @@ Inventories: edited 28, empty 36, reverse-generated 803, sourced 182.
 
 From the `decisions` tab. Confirm or revert one by changing its `status` in the sheet.
 
-None.
+| id | Question | Reading taken | Rows | Comments |
+|---|---|---|---|---|
+| `hughes2020-composition` | How are Hughes's (2020b) Nauruan correspondences (Tables 4.1.2-4.1.5) and his dated changes (Table 4.1.8) entered? | End-to-end as PMc > Nauruan rows, one per correspondence set row (Cr1i ...) with a PMc source; the stages (Old Nauruan, Pre-Nauruan 1-3) and the changes of Tab… | 70 |  |
+| `hughes2020-symbols` | Hughes's (2020b) Nauruan inventory differs from Blumenfeld's (2022a), which is the sourced one. How are his reflexes written? | With Blumenfeld's symbols (the user's choice of 24 November 2026), Hughes's in source_form: pʲ, bʲ, mʲ, mːʲ = p, b, m; pˠ, bˠ, mˠ, mːˠ = pʷ, bʷ, mʷ; tʃ, dʒ = t… |  |  |
+| `jackson1984-composition` | Jackson (1984) states PTK reflexes of POC (Table 2). How are they entered? | As PPC > PCK rows composed through the POc > PMc > ... > PPC rows of Bender et al. (2003a), with the POC statement in as_printed. A change Bender et al. place … | 28 |  |
+| `jackson1984-central-vowel` | PTK *ú (high central unrounded vowel, p. 262): a PCK phoneme? | Added as PCK *ɨ, with *u > *ɨ next to a non-round vowel and *i > *ɨ before *u, both regular: Jackson calls it allophonic in pre-Trukese but distinctive in PTK.… | 2 |  |
+| `mc1984-composition` | Rehg (1984), Harrison (1984) and Tawerilmang & Sohn (1984) state Pohnpeian, Mokilese and Woleaian reflexes of POC. How are they entered? | As rows of the language against its immediate ancestor (PPON or PCK), composed through the POc > PMc > ... rows of Bender et al. (2003a), with the POC statemen… | 114 |  |
+| `rehg1984-dialects` | Rehg (1984: 281-282) describes the Kiti dialect (Glottolog kiti1240) and Ngatikese (Ngatik; Glottolog ngat1248, 'Ngatik Men's Creole', a separate language ther… | Not added: Rehg gives only the Kiti vowel allophony (from Garvin) and the Ngatikese r [x], entered as allophone rows of Pohnpeian with the dialect in the envir… |  |  |
 
 <!-- END GENERATED -->
 
