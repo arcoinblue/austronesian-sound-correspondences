@@ -16,8 +16,8 @@ RECONSTRUCTED = {"proto-language", "earlier-stage"}
 # its members (lects.tree_parent) under it.
 GROUP = "group"
 # A linkage (Southern Oceanic, the Paiwan linkages of Chuang 2024, Barito-Basap): a group that
-# is not an established subgroup. Handled as a group everywhere; the lect tree shows it in
-# italics, below the established lects and subgroups beside it.
+# has no proto-language. Handled as a group everywhere. (The lect tree's italics are for
+# alternative nodes, groupings that only some classification proposes: lects.alt_parents.)
 LINKAGE = "linkage"
 GROUP_TYPES = {GROUP, LINKAGE}
 # A lect with fewer phonemes known than this inherits the rest from its immediate ancestor

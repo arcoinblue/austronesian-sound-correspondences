@@ -160,8 +160,11 @@ details.steps summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .steps .here { color: var(--accent); font-weight: 700; }
 
 table.lects .clade { font-weight: 600; }
-/* A linkage or a proposed daughter: not an established subgroup. */
-table.lects tr.unest td.nm a, table.lects tr.unest td.nm .clade, table.lects tr.unest td.nm .node { font-style: italic; }
+/* An alternative node (a grouping that only some classification proposes), and the line that heads
+   the further members a classification gives an established node. */
+table.lects tr.unest td.nm > a, table.lects tr.unest td.nm > .clade, table.lects tr.unest td.nm > .node, table.lects tr.prophead td.nm { font-style: italic; }
+table.lects td.nm .prop { font-style: normal; font-size: 12.5px; margin-left: 4px; }
+table.lects tr.prophead td.nm .prop { font-style: italic; margin-left: 0; }
 table.lects .twist { display: inline-block; width: 20px; padding: 0; border: 0; background: none; font: inherit;
   color: var(--muted); cursor: pointer; text-align: left; font-size: 15px; line-height: 1; }
 table.lects button.twist:hover { color: var(--fg); }
@@ -177,8 +180,8 @@ table.lects td.nw, table.lects td.cov { white-space: nowrap; }
 @media (max-width: 900px) {
   table.lects .gc, table.refs .nt { display: none; }
   table.refs td.ref { max-width: none; }
-  /* "proposed daughter (Robinson & Lobel 2013)" goes on a line of its own under the name. */
-  table.lects tr.alt td.nm .muted { display: block; padding-left: 20px; }
+  /* "proposed grouping (Li 1981)" goes on a line of its own under the name. */
+  table.lects tr.unest:not(.prophead) td.nm .prop { display: block; padding-left: 20px; margin-left: 0; }
 }
 @media (max-width: 640px) {
   table.lects .ty, table.refs .kd { display: none; }

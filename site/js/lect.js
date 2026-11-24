@@ -164,7 +164,7 @@ async function pageLect(L, params) {
     const sys = d.systems.find(x => x.name === b.dataset.tab);
     setQuery({ system: sys ? sys.name : "" });   // #/lects/pan/?system=Blust opens on that tab
     app.querySelector("#inv").innerHTML = sys
-      ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol opens the matching ${esc(d.default_label)} phoneme with this system's tab.</p>`
+      ? `<p class="muted">${esc(sys.name)}'s phonemes, as entered in the notation table. A symbol with a descent of its own opens its own page; any other opens the matching ${esc(d.default_label)} phoneme.</p>`
         + (sys.phonemes.some(p => p.class === "V") ? "" : `<div class="notice">${esc(sys.name)}'s reconstruction is compared for consonants only: the source gives no vowels for it.</div>`)
         + inventoryHtml(L, sys.phonemes)
       : inventoryHtml(L, own);

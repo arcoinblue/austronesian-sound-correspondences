@@ -975,7 +975,7 @@ class TestSiteFiles(unittest.TestCase):
     def test_index_carries_only_what_the_list_shows(self):
         rep, D = run(derived=True)
         rows = build.site_files(D)["index.json"]["lects"]
-        self.assertTrue(all(set(r) <= set(build.INDEX_FIELDS) | {"overlap_groups"} for r in rows))
+        self.assertTrue(all(set(r) <= set(build.INDEX_FIELDS) | {"overlap_groups", "alt_parents", "o"} for r in rows))
 
 
 class TestVowelDefault(unittest.TestCase):
@@ -1171,3 +1171,62 @@ class TestAllophones(unittest.TestCase):
         self.assertTrue(any("exam1234:k describe allophones" in w for w in rep.warnings))
         rep = run()
         self.assertFalse(any("describe allophones" in w for w in rep.warnings))
+
+
+class TestTreeOrder(unittest.TestCase):
+    """asc/geo.py: sisters in the lect tree run by geography (the user's instruction of 24 Nov 2026)."""
+
+    def test_regions_run_from_taiwan_to_polynesia(self):
+        from asc.geo import region, REGIONS
+        places = [("Taiwan", 24.5, 121.3), ("Philippines", 16.5, 121.0), ("Borneo", 2.5, 113.5),
+                  ("Sumatra and the mainland", 0.5, 100.5), ("Java to Sumbawa", -7.5, 110.5), ("Sulawesi", -2.0, 120.5),
+                  ("Lesser Sundas and central Maluku", -9.5, 124.5), ("Halmahera and Cenderawasih Bay", 1.0, 128.0),
+                  ("New Guinea, the Bismarcks and the north-west Solomons", -5.5, 147.0),
+                  ("South-east Solomons", -9.5, 160.5), ("Micronesia", 7.0, 152.0),
+                  ("North and central Vanuatu", -15.5, 167.2), ("Southern Vanuatu", -19.5, 169.4),
+                  ("New Caledonia", -21.3, 165.5), ("Fiji and Rotuma", -17.8, 178.0), ("Polynesia", 21.0, -157.5)]
+        got = [region(lat, lon) for _, lat, lon in places]
+        self.assertEqual([REGIONS[i] for i in got], [name for name, _, _ in places])
+        self.assertEqual(got, sorted(got))
+        # Spot checks at the edges: Orchid Island, Sabah, the Malay Peninsula, Aru, Yapen, Rennell, Tuvalu.
+        for name, lat, lon in [("Taiwan", 22.05, 121.55), ("Borneo", 5.5, 117.0), ("Sumatra and the mainland", 4.0, 102.0),
+                               ("Lesser Sundas and central Maluku", -6.0, 134.5),
+                               ("Halmahera and Cenderawasih Bay", -1.8, 136.2), ("South-east Solomons", -11.6, 160.3),
+                               ("Polynesia", -8.5, 179.2), ("Polynesia", -41.0, 174.0)]:
+            self.assertEqual(REGIONS[region(lat, lon)], name, (lat, lon))
+
+    def test_sisters_by_region_then_north_to_south(self):
+        from asc.geo import tree_order
+        def L(name, type="language", parent="root", coords=None, **kw):
+            return dict(name=name, type=type, parent_id=parent, tree_parent_id=kw.get("tree_parent", parent),
+                        coordinates=coords, glottocode=kw.get("glottocode", ""), alt_parent_list=kw.get("alt", []))
+        lects = {
+            "root": L("Proto-Root", "proto-language", parent=""),
+            "tonga": L("Tongan", coords=[-21.2, -175.2]),
+            "paiwan": L("Paiwan", coords=[22.4, 120.8]),
+            "atayal": L("Atayal", coords=[24.6, 121.3]),
+            "grp": L("Proto-Group", "proto-language"),
+            "tagalog": L("Tagalog", parent="grp", coords=[14.6, 121.0]),
+            "iban": L("Iban", parent="grp", coords=[1.5, 112.0]),
+            "cebuano": L("Cebuano", parent="grp", coords=[10.3, 123.9]),
+            "nowhere": L("Aaa", coords=None),
+            "byref": L("Javanese", glottocode="java1254"),
+        }
+        o = tree_order(lects, reference={"java1254": (-7.3, 110.0)})
+        order = sorted(["tonga", "paiwan", "atayal", "grp", "nowhere", "byref"], key=o.get)
+        # Taiwan north to south; the group where most of its lects are (the Philippines); Java from the
+        # reference coordinates; Polynesia; a lect with no place last, whatever its name.
+        self.assertEqual(order, ["atayal", "paiwan", "grp", "byref", "tonga", "nowhere"])
+        self.assertEqual(sorted(["tagalog", "iban", "cebuano"], key=o.get), ["tagalog", "cebuano", "iban"])
+
+    def test_index_carries_the_order(self):
+        rep, D = run(lambda d: None, derived=True)
+        rows = build.index_json(D)["lects"]
+        self.assertEqual(sorted(r["o"] for r in rows), list(range(len(rows))))
+
+    def test_tree_script_lists_alternative_nodes_last_and_labels_them(self):
+        js = (ROOT / "site" / "js" / "lects.js").read_text(encoding="utf-8")
+        self.assertIn("proposed grouping (", js)
+        self.assertNotIn("proposed daughter", js)
+        self.assertIn("isAlt(x) - isAlt(y) || (x.o ?? 1e9) - (y.o ?? 1e9)", js)
+        self.assertIn('id="showalt"', js)

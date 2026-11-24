@@ -533,6 +533,19 @@ async function pagePhoneme(L, uid) {
       wireMore();
       return;
     }
+    if (sp.separate) {
+      // A phoneme of another reconstruction with a descent of its own (Blust's *ñ, whose
+      // etyma Shibata divides between *N and *n): a page of its own, so that a change stated
+      // against it leads to that phoneme and not to a counterpart's page.
+      const det = await phonemeData(ph);
+      const full = det.system_phonemes.find(p => p.id === sp.id) || sp;
+      app.innerHTML = `<div class="crumb"><a href="#/lects/">Lects</a> › ${lectLink(L)}</div>
+        <h1><span class="ipa">${esc(sym(sp.id))}</span> <span class="muted" style="font-size:16px">in ${lectLink(L)}, ${esc(wantSystem)}</span></h1>
+        <div class="notice">A phoneme of ${esc(wantSystem)}'s reconstruction. In the ${esc(d.default_label)} system it corresponds to ${full.counterparts.map(c => phLink(c)).join(", ")}; the changes that sources state against ${esc(wantSystem)}'s ${esc(sym(sp.id))} are listed here.</div>
+        ${systemPanel(wantSystem, [full], d)}`;
+      wireMore();
+      return;
+    }
     if (!sp.separate && sp.ipa !== ph.ipa) {
       // Spelled differently from its counterpart (Blust's *c, under *s), with no descent
       // of its own: a page that says so, with the counterpart's descent.
