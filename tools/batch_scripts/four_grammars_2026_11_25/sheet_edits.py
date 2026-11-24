@@ -84,7 +84,7 @@ ULI = [
     ("e", "e", "V", "front", "mid", "", "unrounded", "17-18", "Mid front unrounded (Table II)."),
     ("ə", "ė", "V", "central", "mid", "", "unrounded", "17-18", "Written ė; /ə/ in Table II, where it stands in the front rounded column (round in the feature matrix, Figure 4, p. 19); its long realisation is close to French e (p. 27). Entered as ə (decision sohnbender1973-schwa)."),
     ("o", "o", "V", "back", "mid", "", "rounded", "17-18", "Mid back rounded (Table II)."),
-    ("æ", "à", "V", "front", "open", "", "unrounded", "17-18", "Written à (a with a dot above); low front unrounded (Table II)."),
+    ("æ", "ȧ", "V", "front", "open", "", "unrounded", "17-18", "Written ȧ (a with a dot above); low front unrounded (Table II)."),
     ("a", "a", "V", "central", "open", "", "unrounded", "17-18", "Low vowel in the back unrounded column of Table II; fronted and retracted variants (pp. 26-27, 33)."),
     ("ɔ", "ȯ", "V", "back", "open", "", "rounded", "17-18", "Written ȯ; low back rounded (Table II)."),
     ("u", "u", "V", "back", "close", "", "rounded", "17-18", "High back rounded (Table II)."),
@@ -92,7 +92,7 @@ ULI = [
 ULV = "Long vowels are geminate in base forms; short and long contrast, though many surface length differences come from compensatory lengthening (p. 36)."
 for ipa, sym, pl, mn, rd in [("iː", "ii", "front", "close", "unrounded"), ("eː", "ee", "front", "mid", "unrounded"),
                              ("əː", "ėė", "central", "mid", "unrounded"), ("oː", "oo", "back", "mid", "rounded"),
-                             ("æː", "àà", "front", "open", "unrounded"), ("aː", "aa", "central", "open", "unrounded"),
+                             ("æː", "ȧȧ", "front", "open", "unrounded"), ("aː", "aa", "central", "open", "unrounded"),
                              ("ɔː", "ȯȯ", "back", "open", "rounded"), ("uː", "uu", "back", "close", "rounded")]:
     extra = " No ė : ėė pair is given (p. 36); the long mid-central vowels of p. 27 are [ə:] and a rarer, more rounded quality." if ipa == "əː" else ""
     ULI.append((ipa, sym, "V", pl, mn, "", rd, "36", ULV + extra))
@@ -149,7 +149,7 @@ for key, env, src, page, note in AL:
 lx = rows("lects")
 lidx = {r["id"]: i + 2 for i, r in enumerate(lx)}
 out[f"lects!J{lidx['pulu1242']}"] = [[N("IPA, with the inventory of Elbert (1974: 1-11): c = t͡ʃ, ŕ = r (trill), r = ɻ, ng = ŋ, pw = pʷ, mw = mʷ, y = j; vowels ú = ɨ, é = ə, á = æ, ó = ɔ; doubled letters for long consonants and vowels. The rows of Bender et al. (2003a) were entered in IPA from their comparative transcription (R = ɻ).")]]
-out[f"lects!J{lidx['ulit1238']}"] = [[N("IPA, with the inventory of Sohn & Bender (1973: 17-18): b = βʷ, d = ð, ṁ = mʷ, g = ŋ, y = j; vowels à = æ, ȯ = ɔ, ė = ə; doubled letters for long (geminate) segments. The rows of Bender et al. (2003a) were entered in IPA from their comparative transcription.")]]
+out[f"lects!J{lidx['ulit1238']}"] = [[N("IPA, with the inventory of Sohn & Bender (1973: 17-18): b = βʷ, d = ð, ṁ = mʷ, g = ŋ, y = j; vowels ȧ = æ, ȯ = ɔ, ė = ə; doubled letters for long (geminate) segments. The rows of Bender et al. (2003a) were entered in IPA from their comparative transcription.")]]
 out[f"lects!J{lidx['pulo1240']}"] = [[N("IPA, with the inventory of Oda (1977: 9): d = ð, y = j, ɨ written as in the source; doubled letters for geminate consonants and vowels. The d of Bender et al. (2003a) and the θ of Jackson (1983, 1984) are written ð (decision oda1977-pua-rows). Single k and pʷ are fricatives (Oda's PR 4); Jackson's rows with x and βʷ keep his symbols.")]]
 
 # Woleaian notes: append the Sohn (1975) sentence to K.
