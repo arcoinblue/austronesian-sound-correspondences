@@ -21,12 +21,12 @@ Inventories: edited 28, empty 36, reverse-generated 800, sourced 185.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 324 warning(s), 1119 note(s).
+`build.py --check`: 0 error(s), 325 warning(s), 1119 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 138 |
-| a work cited in notes has no sources row | 73 |
+| a work cited in notes has no sources row | 74 |
 | a source is never cited | 52 |
 | no page number for the citation | 26 |
 | a reflex is not in the lect's sourced inventory | 26 |
