@@ -16,6 +16,7 @@ Read this before touching the sheet, the code or the site. It lists the user's s
 - A new column or tab: merge the code that accepts it first, then change the sheet. In the other order the hourly sync fails until the PR is merged.
 - Read the `decisions` tab before starting. The user confirms or reverts decisions there; a reverted decision is an instruction, an open one is not permission to act.
 - Never retype IPA by hand into a tool call for more than a few cells. Generate the rows in Python, NFC-normalised.
+- The Google Sheets connector writes values as if typed: a page range such as `1-4` or `2, 4` becomes a date, and a leading `'` is swallowed. Prefix such cells with `'` (`'1-4`, `''quoted text'`), then diff the next sync against what you meant to write (25 Nov 2026: 30 page cells became dates).
 - Before writing a cell, find its row by key in `cldf/` (sheet row = CSV line number, header = row 1) and read column A of that row in the sheet first. On 24 Nov 2026 an edit meant for PMc (row 19) went into Kosraean (row 20).
 
 ## 3. Access (do not report these as blockers before trying)
