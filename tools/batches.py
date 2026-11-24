@@ -305,10 +305,12 @@ def cmd_apply(args, sheet=None):
         start = len(recs) + 2
         end = start + len(rows) - 1
         last = col_letter(len(header))
-        below = sheet.values(f"{t}!A{start}:{last}{end}")
+        grid = tabs[t]["gridProperties"]["rowCount"]
+        # Only rows that exist can be read: a tab whose last row is the last data row has no rows below it,
+        # and asking for a range past the grid is an API error (push-batch of 24 Nov 2026).
+        below = sheet.values(f"{t}!A{start}:{last}{min(end, grid)}") if start <= grid else []
         if any(any(c.strip() for c in r) for r in below):
             sys.exit(f"tab {t}: rows {start}-{end} are not empty; the sheet changed since the sync. Nothing written.")
-        grid = tabs[t]["gridProperties"]["rowCount"]
         if end > grid:
             sheet.add_rows(tabs[t]["sheetId"], end - grid + 100)
         data.append({"range": f"{t}!A{start}:{last}{end}",
