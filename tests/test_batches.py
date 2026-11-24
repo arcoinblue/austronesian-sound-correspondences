@@ -20,13 +20,17 @@ FIXTURE = ROOT / "tests" / "fixtures" / "example"
 class FakeSheet:
     """The sheet as the fixture tables, one record per sheet row."""
 
-    def __init__(self, cldf):
+    def __init__(self, cldf, full=False):
         self.cldf = Path(cldf)
         self.writes = []
         self.grown = []
+        self.full = full  # each tab's grid ends at its last data row, as after a migration
+
+    def rows(self, tab):
+        return len(batches.read_records(self.cldf / f"{tab}.csv")[1]) + 1 if self.full else 50
 
     def tabs(self):
-        return {t: {"sheetId": i, "gridProperties": {"rowCount": 50}} for i, t in enumerate(build.TABLES)}
+        return {t: {"sheetId": i, "gridProperties": {"rowCount": self.rows(t)}} for i, t in enumerate(build.TABLES)}
 
     def values(self, rng):
         tab, cells = rng.split("!")
@@ -34,6 +38,9 @@ class FakeSheet:
         if cells == "1:1":
             return [header]
         start = int(cells.split(":")[0].lstrip("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        end = int(cells.split(":")[1].lstrip("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        if max(start, end) > self.rows(tab):
+            raise AssertionError(f"range {rng} exceeds grid limits (max rows {self.rows(tab)})")
         return [r for r in recs[start - 2:]]
 
     def add_rows(self, sheet_num, n):
@@ -109,6 +116,14 @@ class TestBatches(unittest.TestCase):
         sheet2 = FakeSheet(self.cldf)
         self.assertEqual(batches.cmd_apply(self.args(), sheet=sheet2), 0)
         self.assertEqual(sheet2.writes, [])
+
+    def test_apply_to_a_full_grid_adds_rows_first(self):
+        # A tab with no empty rows below the data: nothing past the grid is read, rows are added, then written.
+        self.good_batch()
+        sheet = FakeSheet(self.cldf, full=True)
+        self.assertEqual(batches.cmd_apply(self.args(), sheet=sheet), 0)
+        self.assertTrue(sheet.grown, "no rows were added to the full tabs")
+        self.assertTrue(any(d["range"].startswith("sources!") for d in sheet.writes))
 
     def test_verify_fails_if_rows_did_not_arrive(self):
         self.good_batch()
