@@ -1,0 +1,11 @@
+lect_id,phoneme,system,allophone,environment,source_id,page,notes,via_source_id,via_page,via_note
+ulit1238,u,,y,"after ð, s, l, m, unless a labiovelar consonant, n, mʷ or w follows",sohnbender1973,70,"PR 51: 'The high back vowel becomes fronted ([ü]) after the given consonants if not followed by velarised consonants, n, ṁ, w': dudu 'breast' [düüd], suru 'house-pillar' [süür] (p. 70).",,,
+ulit1238,p,,pʰ,_# (before a pause),sohnbender1973,73,"PR 55: p, t, c, k are 'slightly aspirated' before a pause (p. 73); otherwise unaspirated (PR 12, p. 22).",,,
+ulit1238,t,,tʰ,_# (before a pause),sohnbender1973,73,"PR 55: p, t, c, k are 'slightly aspirated' before a pause (p. 73); otherwise unaspirated (PR 12, p. 22).",,,
+ulit1238,c,,cʰ,_# (before a pause),sohnbender1973,73,"PR 55: p, t, c, k are 'slightly aspirated' before a pause (p. 73); otherwise unaspirated (PR 12, p. 22).",,,
+ulit1238,k,,kʰ,_# (before a pause),sohnbender1973,73,"PR 55: p, t, c, k are 'slightly aspirated' before a pause (p. 73); otherwise unaspirated (PR 12, p. 22).",,,
+ulit1238,x,,x̟,"before a consonant, a pause, or i, e, æ, ə, u",sohnbender1973,73,"PR 57: x is 'fronted' before a consonant, a pause or a front or high vowel, 'slightly voiced' after a pause before ə, and has an offglide before i, e, æ (p. 73).",,,
+ulit1238,o,,o̥,word-finally after x,sohnbender1973,"24, 31","Final vowels are dropped, except single back vowels after x, which are devoiced: base buraxo 'smoke', bulaxa 'taro' end in voiceless [o], [a] (pp. 24, 31; PR 40, p. 61).",,,
+ulit1238,a,,ḁ,word-finally after x,sohnbender1973,"24, 31","Final vowels are dropped, except single back vowels after x, which are devoiced: base buraxo 'smoke', bulaxa 'taro' end in voiceless [o], [a] (pp. 24, 31; PR 40, p. 61).",,,
+ulit1238,u,,u̥,word-finally after x,sohnbender1973,"24, 31","Final vowels are dropped, except single back vowels after x, which are devoiced: base buraxo 'smoke', bulaxa 'taro' end in voiceless [o], [a] (pp. 24, 31; PR 40, p. 61).",,,
+ulit1238,a,,ɑ,conditioned by the following syllable (retracted unless a front vowel follows),sohnbender1973,"26-27, 33","A fronted [a] and a retracted [ɑ] contrast on the surface before a final consonant, but are 'conditioned variants of a' in base forms: fronted before a front vowel (i, e, æ, ə) in the next syllable, retracted elsewhere (pp. 26-27, 33; PR 32).",,,
