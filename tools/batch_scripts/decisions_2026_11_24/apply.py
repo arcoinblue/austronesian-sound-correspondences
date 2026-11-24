@@ -105,17 +105,18 @@ decided("pazeh-j-final", "both rows are kept, as before, and each final row now 
 
 # ---------------------------------------------------------------- 3. Rennellese and Bellona
 ren, bel = lect("renn1242"), lect("mung1270")
+# The sheet row renn1242 stays in place as the language node (the migration tool cannot append a key
+# the sheet already has); the dialect is a new row, mung1271, and takes the rows.
 old_ren = {k: v for k, v in ren.items() if not k.startswith("_")}
 n_ren = rekey_lect("renn1242", "mung1271")
-T.set(ren, id="mung1271", type="dialect", glottocode="mung1271", iso639_3="", language_id="renn1242",
-      alt_names="Munggava;Ren")
-note(ren, f"Since {DATE} the Rennellese dialect (Glottolog's Munggava, mung1271) of Rennell-Bellona; before, this "
-          "lect had the language's id and code, renn1242.")
-add_lect(id="renn1242", name="Rennell-Bellona", alt_names="Rennellese-Bellonese", type="language",
-         glottocode="renn1242", iso639_3=old_ren["iso639_3"], parent_id=old_ren["parent_id"],
-         alt_parents=old_ren["alt_parents"], region=old_ren["region"],
-         notes="Language node with no rows of its own (Glottolog's Rennell-Bellona): its dialects Rennellese "
-               "(Munggava) and Bellona (Mungiki) carry Marck's (2000) rows Ren and Bel (decision ren-bel).")
+add_lect(**{**old_ren, "id": "mung1271", "type": "dialect", "glottocode": "mung1271", "iso639_3": "",
+            "language_id": "renn1242", "alt_names": "Munggava;Ren",
+            "notes": old_ren["notes"] + f" Since {DATE} the Rennellese dialect (Glottolog's Munggava, mung1271) of "
+                     "Rennell-Bellona; before, this lect had the language's id and code, renn1242."})
+T.set(ren, name="Rennell-Bellona", alt_names="Rennellese-Bellonese", inherit="", inherit_source_id="", inherit_page="",
+      inherit_note="", latitude="", longitude="",
+      notes="Language node with no rows of its own (Glottolog's Rennell-Bellona): its dialects Rennellese "
+            "(Munggava) and Bellona (Mungiki) carry Marck's (2000) rows Ren and Bel (decision ren-bel).")
 assert bel["language_id"] == "renn1242"
 decided("ren-bel", "Rennellese is the dialect Munggava (mung1271) and Bellona the dialect Mungiki (mung1270), both "
                    "under a new language node Rennell-Bellona (renn1242); the Rennellese lect and its rows now have the id mung1271.",
@@ -324,11 +325,20 @@ VAL = {"z": dict(ipa="d", source_symbol="z", place="alveolar", manner="plosive",
        "d": dict(ipa="ɮ", source_symbol="d", place="alveolar", manner="lateral-fricative", voicing="voiced",
                  notes="Shibata's (2025: 73, n. 14) value, ɮ. Lin (2022: 56, Table 4.1) reconstructs a stop *d here "
                        "(decision lin-amis).")}
-for r in T.rows(PH):
-    if r["lect_id"] in AMIS and r["ipa"] in VAL:
-        old = r["ipa"]
-        T.set(r, **VAL[old])
-        n_amis += 1
+# The sheet's (lect, d) row stays in place and takes the new *d (Lin's *z); the (lect, z) row becomes *ɮ
+# (Lin's *d). Done this way because the migration tool cannot append a key the sheet already has.
+for A_ in sorted(AMIS):
+    rz, rd = T.rows(PH, lect_id=A_, ipa="z"), T.rows(PH, lect_id=A_, ipa="d")
+    if rz and rd:
+        keep_z = {k: rz[0][k] for k in ("source_id", "page", "origin", "status", "via_source_id", "via_page", "via_note")}
+        keep_d = {k: rd[0][k] for k in keep_z}
+        T.set(rd[0], **{**keep_z, **VAL["z"]})
+        T.set(rz[0], **{**keep_d, **VAL["d"]})
+        n_amis += 2
+    else:
+        for r in rz + rd:
+            T.set(r, **VAL[r["ipa"]])
+            n_amis += 1
 for tab, col in ((NM, "phoneme"), (AL, "phoneme")):
     for r in T.rows(tab):
         if r["lect_id"] in AMIS and r[col] in REN:

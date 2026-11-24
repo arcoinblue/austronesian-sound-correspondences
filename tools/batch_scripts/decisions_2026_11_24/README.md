@@ -4,7 +4,7 @@ The decisions the user reverted or commented on in the sheet's `decisions` tab o
 
     python3 tools/batch_scripts/decisions_2026_11_24/apply.py SRC OUT
 
-`SRC` is `cldf/` with the sheet's `decisions` tab of that day; copy `OUT/*.csv` to `cldf/`. The sheet gets the same edits from the workflow *Apply a migration to the sheet* (branch of this PR, `allow_append` on, `max_deletions` 24: one lects row, 22 phonemes rows and one allophones row change their key, which the tool does as delete and append).
+`SRC` is `cldf/` with the sheet's `decisions` tab of that day; copy `OUT/*.csv` to `cldf/`. The sheet gets the same edits from the workflow *Apply a migration to the sheet* (branch of this PR, `allow_append` on, `max_deletions` 22: 21 phonemes rows and one allophones row change their key, which the tool does as delete and append).
 
 | Decision | What the script does |
 |---|---|
