@@ -17,3 +17,12 @@ Sheet edit, **done on 24 Nov 2026 at 23:35 KST**: `lects` row `pmc` (row 20), co
 - Table 1 as a whole: it is Jackson's (1986) table in Goodenough's symbols (Jackson 1986 is entered from the original in batch `jackson1986-micronesian`). Its *j column is Bender et al.'s *Z.
 - POC *L (pp. 78-79), the etymologies, Tanapag Carolinian (Crn) and Mapia.
 - The fronting of *o after *N 'in some of the Trukic languages' (note on the raising rows).
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- sources: sheet rows 260-266
+- correspondences: sheet rows 12785-16725
+- notation_map: sheet rows 565-595
+- decisions: sheet rows 194-203

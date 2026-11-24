@@ -14,3 +14,11 @@ The Kiribati rows of Bender et al. (2003a) used the comparative transcription (b
 ## Not entered
 
 - The prosody (trimoraic feet, minimal word, Rehg's 1993 PMc accent): no segment rows.
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- sources: sheet rows 260-266
+- phonemes: sheet rows 4617-4704
+- allophones: sheet rows 1027-1081

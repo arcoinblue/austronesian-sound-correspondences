@@ -9,3 +9,9 @@ The scan in Downloads has pp. 52-316 only (two book pages per PDF page); chapter
 ## Not entered
 
 - Chapters 1-2 (not in the scan). With them, the Woleaian allophones (pp. 18-22, 27, 34-38 on voiceless vowels, by the index) could be entered from the original.
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- sources: sheet rows 260-266

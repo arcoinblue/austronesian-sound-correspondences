@@ -17,3 +17,11 @@ Jackson, Frederick H. 1986. On determining the external relationships of the Mic
 
 - Mapia (MAP): no lect in the sheet (Kubary's short wordlist; Jackson 1983).
 - The grammatical reconstructions (§§1.1-1.7: pronouns, directionals, demonstratives, classifiers, numerals, interrogatives), §3 (the Grace-Pawley, Blust and Smythe hypotheses; Table 5, POC *R in 12 items) and §4.
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- lects: sheet rows 1051-1144
+- correspondences: sheet rows 12785-16725
+- decisions: sheet rows 194-203

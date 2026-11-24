@@ -20,3 +20,12 @@ Oda, Sachiko. 1977. *The syntax of Pulo Annian: A Nuclear Micronesian language*.
 - Tobian: Oda's six cognate sets (ch. I, n. 8: Tobian x for l, s for Pulo Annian d, č for s) are dialect comparisons with no proto-language; Tobian is not a lect in the database.
 - Oda (1976a), 'Proto-Oceanic reflexes in Pulo Annian' (MS), not seen.
 - The dictionary in the appendix.
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- sources: sheet rows 260-266
+- phonemes: sheet rows 4617-4704
+- allophones: sheet rows 1027-1081
+- decisions: sheet rows 194-203

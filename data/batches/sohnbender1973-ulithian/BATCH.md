@@ -21,3 +21,12 @@ Lynch's Ulithian rows are an abstract of this grammar and are re-cited to it: th
 - The rare long mid-central [ɘ:] (pp. 27, 33-34; PR 58), which the authors derive from ayė/awu sequences, not a phoneme.
 - Dialect differences (Falalop, Fais, Mogmog, pp. 5-6): almost all in vowels and semivowels; no rules given.
 - Elbert's (1947) Ulithian-Trukese correspondences cited on p. 6 (Ulithian x : Trukese k, l : n, d : t, t : s, s : ∅).
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- sources: sheet rows 260-266
+- phonemes: sheet rows 4617-4704
+- allophones: sheet rows 1027-1081
+- decisions: sheet rows 194-203

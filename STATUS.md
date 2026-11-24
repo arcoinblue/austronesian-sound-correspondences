@@ -8,28 +8,28 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 258 |  |
-| lects | 1049 | 259 dialect, 33 earlier-stage, 14 group, 455 language, 9 linkage, 279 proto-language |
-| phonemes | 4615 |  |
-| correspondences | 12783 | plus 11995 implied and 3370 stated retentions generated from lects.inherit |
-| notation_map | 563 |  |
-| allophones | 1025 |  |
-| decisions | 192 | 134 confirmed, 58 reverted |
+| sources | 265 |  |
+| lects | 1143 | 277 dialect, 33 earlier-stage, 14 group, 530 language, 9 linkage, 280 proto-language |
+| phonemes | 4703 |  |
+| correspondences | 16724 | plus 12157 implied and 3370 stated retentions generated from lects.inherit |
+| notation_map | 594 |  |
+| allophones | 1080 |  |
+| decisions | 202 | 134 confirmed, 10 open, 58 reverted |
 
-Lects by `inherit`: (blank) 179, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 49, stated-unchanged 239.
-Inventories: edited 28, empty 36, reverse-generated 800, sourced 185.
+Lects by `inherit`: (blank) 265, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
+Inventories: edited 28, empty 41, reverse-generated 887, sourced 187.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 325 warning(s), 1113 note(s).
+`build.py --check`: 0 error(s), 347 warning(s), 1886 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 138 |
-| a work cited in notes has no sources row | 74 |
+| no glottocode | 142 |
+| a work cited in notes has no sources row | 72 |
 | a source is never cited | 52 |
+| a reflex is not in the lect's sourced inventory | 46 |
 | no page number for the citation | 26 |
-| a reflex is not in the lect's sourced inventory | 26 |
 | repeats the fusion row at … | 6 |
 | an attested lect has symbols that are not IPA | 3 |
 
@@ -37,7 +37,18 @@ Inventories: edited 28, empty 36, reverse-generated 800, sourced 185.
 
 From the `decisions` tab. Confirm or revert one by changing its `status` in the sheet.
 
-None.
+| id | Question | Reading taken | Rows | Comments |
+|---|---|---|---|---|
+| `blevinsgarrett1993-preaspiration` | Blevins & Garrett (1993) derive Ponapeic Nasal Substitution from Proto-Ponapeic geminate preaspiration (TT > hT) and later aspirate nasalisation (hT > NT). How… | As segment rows: PPON *p, *pʷ, *k, *d, *t, *c > h before the same consonant (the first half of a geminate), so PPON has an *h (canonical notation row) found on… | 22 |  |
+| `elbert1974-affricate` | Elbert (1974: 4) calls Puluwatese /c/ 'an alveolar affricate' and says school children 'often pronounce /c/ as [ts], but this may be a fad'. Which IPA symbol? | Keep t͡ʃ (the symbol of the sheet's inventory, after Lynch et al. 2002); [ts] is entered as an allophone. Elbert's remark implies that the usual value is not [… |  |  |
+| `goodenough1995-l` | Goodenough (1995) adds a PMc *L (palatalised lateral), split from *l. How is it entered? | As a phoneme of a Goodenough system on PMc (the user's choice of 24 November 2026), listed against *l (notation_map.phoneme), with Goodenough's other PMc symbo… | 12 |  |
+| `jackson1986-composition` | Jackson (1986), Table 1, states POC > PMC and the reflexes of the PMC consonants in every Micronesian language (most of them repeat Bender et al. 2003a). How a… | POC > PMC as stated. Every other row is restated against the lect's immediate parent through Bender et al.'s chain, as for mc1984-composition: Jackson's PCMC, … | 357 |  |
+| `jackson1986-nauruan` | Jackson (1986: 211) states Nauruan reflexes of POC, which he does not derive from PMC. How are they entered? | Composed to PMc > Nauruan (Nauruan's parent in the main tree), the POC > PMC > NAU path in as_printed, Nathan's symbols mapped to the sheet's (Blumenfeld 2022a… | 30 |  |
+| `jackson1986-pgmc` | Jackson (1986: 214) proposes Greater Micronesian (Nauruan + Micronesian). Add it? | As an alternative node Proto-Greater Micronesian (pgmc, no rows), like Proto-Eastern Oceanic. Sheet edits after the batch lands: alt_parents of pmc 'peoc:lynch… |  |  |
+| `oda1977-pua-rows` | Pulo-Annan now has a sourced inventory (Oda 1977: 9). Earlier rows write its reflexes in other ways: Bender et al. (2003a) d; Jackson (1983, 1984) θ ('PUA d is… | d and θ respelled ð in the sheet (the letter in source_form, Jackson's value in the notes), as Puluwatese t͡ʃ was; x, βʷ and f kept as printed, so the build wa… |  |  |
+| `ross1988-composition` | Ross (1988) states the North New Guinea languages' consonant reflexes through intermediate reconstructions (PSCH, PHG, PNHG, PMK, PSHG, PHBU, Proto Buang, PNg,… | Languages only (the user's choice of 24 November 2026: hold back the intermediate nodes), each under POc with tree_parent nng (North New Guinea Linkage), its r… | 3482 |  |
+| `ross1988-lects` | How are Ross's (1988) North New Guinea language names matched to Glottolog and to lects? | By Ross's own identifications (§§5.2-5.4 lists, Appendix A) and Glottolog 5.4 names: Silisili = Middle Watut, Sirak = Nafi, Yalu = Aribwaung, Kaiwa = Iwal, Buk… |  |  |
+| `sohnbender1973-schwa` | Sohn & Bender (1973: 17, 19) write the Ulithian mid vowel ė as /ə/ but class it as a mid front rounded vowel (Table II, Figure 4); its usual long realisation i… | Keep ə (the symbol of the source and of the sheet's inventory); the classification is in the note. |  |  |
 
 <!-- END GENERATED -->
 

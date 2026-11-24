@@ -25,3 +25,12 @@ Lynch's Puluwatese rows are an abstract of Elbert, so they are re-cited to the o
 - c ~ ɻ interchange in a few words (caw, raw 'slow'), which Elbert puts down to Trukese influence (p. 5); s ~ h in loanwords (already in the sheet).
 - Pitch, junctures and the excrescent vowels between consonants (pp. 10, 14-15); morphophonemics (chapter 2).
 - The Ulul and Pisarach dialects (data in the grammar, no phonology of their own).
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- sources: sheet rows 260-266
+- phonemes: sheet rows 4617-4704
+- allophones: sheet rows 1027-1081
+- decisions: sheet rows 194-203

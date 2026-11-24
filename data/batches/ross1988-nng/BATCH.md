@@ -26,3 +26,11 @@ Ross's revised POC paradigm (Tables 17-18, pp. 93-94) is the canonical POc ortho
 
 - Columns with no POC source (PSCH *pw, PMK *mb-, *-b- ..., the PMK *t and *c sets).
 - Vowels (Ross tabulates consonants only, p. 6), the morphosyntax of chapters 4-5, and the innovations listed in the text beyond the tables.
+
+
+## Applied
+
+2026-11-24 22:40 UTC, by the push-batch workflow.
+- lects: sheet rows 1051-1144
+- correspondences: sheet rows 12785-16725
+- decisions: sheet rows 194-203
