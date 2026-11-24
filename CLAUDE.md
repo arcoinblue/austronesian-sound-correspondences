@@ -16,10 +16,12 @@ Read this before touching the sheet, the code or the site. It lists the user's s
 - A new column or tab: merge the code that accepts it first, then change the sheet. In the other order the hourly sync fails until the PR is merged.
 - Read the `decisions` tab before starting. The user confirms or reverts decisions there; a reverted decision is an instruction, an open one is not permission to act.
 - Never retype IPA by hand into a tool call for more than a few cells. Generate the rows in Python, NFC-normalised.
+- Before writing a cell, find its row by key in `cldf/` (sheet row = CSV line number, header = row 1) and read column A of that row in the sheet first. On 24 Nov 2026 an edit meant for PMc (row 19) went into Kosraean (row 20).
 
 ## 3. Access (do not report these as blockers before trying)
 
 - GitHub: call `add_repo` with `access: "push"`. If it is refused, try once more; it has worked on the second call every time. Use `env -u GH_TOKEN gh api …` (REST only; GraphQL is blocked).
+- Merging a PR may be refused to the session (25 Nov 2026). Then leave the PR open, say so, and do no sheet edit that depends on its rows.
 - Source PDFs: `~/Downloads/austdic` and `~/Downloads` on the user's Mac (ask for folder access). `pdftotext` works there, but it drops or garbles IPA and subscripts in tables: read symbol tables from a page image. Put scratch files in the session's scratch folder, not in Downloads (the session cannot delete them afterwards).
 - The sheet: Google Sheets connector, spreadsheet id in `README.md`.
 
