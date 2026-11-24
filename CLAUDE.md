@@ -34,6 +34,7 @@ Read this before touching the sheet, the code or the site. It lists the user's s
 - Groups in the Lects tree are named after the clade (Malayo-Polynesian), not the proto-language.
 - Every dialect sits under its language node. A language with a representative dialect and no proto-language is a node that redirects to that dialect (Tsou to Duhtu). Identifiable sub-dialects get their own lects; if Glottolog has no code for them they share the dialect's code.
 - Linkages are groups with no proto-language. A subgroup that every competing classification contains goes into the main tree; the rest stay as "Proposed parents/daughters".
+- In the Lects tree, italics and "proposed grouping (source)" mark an alternative node only (one whose members are there through `alt_parents`: Atayalic, Coastal Formosan); it comes after the attested lects and established subgroups beside it, its members are in ordinary type, and the *Alternative nodes* switch hides it. Linkages are not italic. Sisters are listed by geography (Taiwan to Polynesia, north to south, west to east: `asc/geo.py`), not by name. (24 Nov 2026.)
 - Glottocodes: a proto-language takes the code of the Glottolog clade with the same membership (never its name); leave it blank and record a decision when the membership differs. Oceanic codes come from Ross et al. (2023), `reference/oceanic_metadata.csv`.
 
 **Reconstructions**

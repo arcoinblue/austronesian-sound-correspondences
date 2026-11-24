@@ -9,6 +9,7 @@ import re
 from collections import defaultdict
 
 from .schema import *  # noqa: F401,F403
+from .geo import tree_order
 
 def edge(r, include_child=True):
     e = {
@@ -408,10 +409,13 @@ INDEX_FIELDS = ("id", "name", "alt_names", "type", "glottocode", "parent_id", "c
 
 def index_json(D, lect_records=None):
     rows = []
+    order = tree_order(D["lects"])
     for L in D["lects"]:
         j = (lect_records or {}).get(L) or lect_json(L, D)
         row = {k: j[k] for k in INDEX_FIELDS if j[k] not in (None, "", [], False)}
         row["id"], row["name"] = j["id"], j["name"]
+        # Where the lect stands among its sisters in the tree: by geography (asc/geo.py).
+        row["o"] = order[L]
         groups = [g["name"] for g in j["overlap_groups"]]
         if groups:
             row["overlap_groups"] = groups
