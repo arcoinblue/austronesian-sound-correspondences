@@ -27,8 +27,12 @@ function citedBy(s, all) {
   ].filter(Boolean).join("<br>");
 }
 
-function pageSources(id) {
-  const list = id ? [SOURCES[id]].filter(Boolean) : Object.values(SOURCES);
+// sources.json (loaded by every page) has only what a citation link needs; the
+// reference list fetches the full records.
+let SOURCES_FULL;
+async function pageSources(id) {
+  if (!SOURCES_FULL) SOURCES_FULL = Object.fromEntries((await json("data/sources_full.json")).sources.map(s => [s.id, s]));
+  const list = id ? [SOURCES_FULL[id]].filter(Boolean) : Object.values(SOURCES_FULL);
   if (id && !list.length) throw new Error(`No source ${id}`);
   const rowless = list.filter(s => s.cited_by && !(s.cited_by.phonemes + s.cited_by.correspondences + s.cited_by.notation + (s.cited_by.allophones || 0) + s.cited_by.relays.length));
   const idle = rowless.length, notesOnly = rowless.filter(s => s.cited_by.notes).length;
@@ -37,7 +41,7 @@ function pageSources(id) {
   // The reference as the build wrote it, in the Unified Style Sheet for Linguistics.
   const ref = s => (s.reference || []).map(([t, i]) => i ? `<i>${esc(t)}</i>` : esc(t)).join("")
     + (s.url_or_doi ? ` <a href="${esc(/^10\./.test(s.url_or_doi) ? "https://doi.org/" + s.url_or_doi : s.url_or_doi)}" target="_blank" rel="noopener">${esc(s.url_or_doi)}</a>` : "");
-  app.innerHTML = `<div class="crumb"><a href="#/sources/">Sources</a></div><h1>${id ? esc(SOURCES[id].label || id) : "Sources"}</h1>
+  app.innerHTML = `<div class="crumb"><a href="#/sources/">Sources</a></div><h1>${id ? esc(SOURCES_FULL[id].label || id) : "Sources"}</h1>
     ${!id && idle ? `<p class="muted">${idle} of ${list.length} sources are not cited by any row yet${notesOnly ? `; ${notesOnly} of them are named in notes` : ""}.</p>` : ""}
     <div class="scroll"><table class="refs"><tr><th>Reference</th><th class="kd">Kind</th><th>Cited by</th><th class="nt">Notes</th></tr>
     ${list.map(s => `<tr><td class="ref" id="${esc(s.id)}">${ref(s)}<br><a class="muted refid" href="#/sources/${esc(s.id)}/">${esc(s.id)}</a></td>

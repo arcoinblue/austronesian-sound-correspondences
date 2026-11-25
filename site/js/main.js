@@ -37,7 +37,7 @@ async function route() {
     if ((parts.length && !["lects", "segments", "sources"].includes(parts[0]))
         || parts.length > (parts[0] === "lects" ? 3 : parts[0] === "sources" ? 2 : 1))
       throw new Error(`No page at ${path}`);
-    if (parts[0] === "sources") pageSources(parts[1] && decodeURIComponent(parts[1]));
+    if (parts[0] === "sources") await pageSources(parts[1] && decodeURIComponent(parts[1]));
     else if (parts[0] === "segments") await pageSegments(new URLSearchParams(query || ""));
     else if (parts[0] !== "lects" || parts.length === 1) await pageIndex(new URLSearchParams(query || ""));
     else if (parts.length === 2) await pageLect(decodeURIComponent(parts[1]), new URLSearchParams(query || ""));

@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import Path
 
 from .schema import *  # noqa: F401,F403
-from .derive import lect_files, index_json, sources_json
+from .derive import lect_files, index_json, sources_json, sources_full_json
 
 
 def site_files(D):
@@ -22,6 +22,7 @@ def site_files(D):
         out.update(files)
     out["index.json"] = index_json(D, lites)
     out["sources.json"] = sources_json(D)
+    out["sources_full.json"] = sources_full_json(D)
     out["segments.json"] = segments_json(D, lites)
     return out
 
@@ -75,7 +76,7 @@ def stamp_index(out_dir, files):
         return f'{m.group(1)}="{m.group(2)}?v={digest(f.read_bytes())}"' if f.is_file() else m.group(0)
     html = re.sub(r'(src|href)="((?:js/)?[\w.-]+\.(?:js|css))"', stamp, index.read_text(encoding="utf-8"))
     build = digest(json.dumps(files.get("index.json"), ensure_ascii=False, sort_keys=True).encode("utf-8")
-                   + json.dumps(files.get("sources.json"), ensure_ascii=False, sort_keys=True).encode("utf-8")
+                   + json.dumps(files.get("sources_full.json", files.get("sources.json")), ensure_ascii=False, sort_keys=True).encode("utf-8")
                    + str(len(files)).encode())
     html = html.replace("</head>", f'<meta name="asc-build" content="{build}">\n</head>', 1)
     index.write_text(html, encoding="utf-8")
