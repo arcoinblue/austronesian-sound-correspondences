@@ -14,3 +14,13 @@ Sakiyama, Osamu. 1982. The characteristics of Nguluwan from the viewpoint of lan
 
 - The Ulithian (Mogmog) vowels and consonants of pp. 107 and 111: Ulithian has the inventory of Sohn & Bender (1973).
 - §§2-3 (possessives, pronouns, tense-aspect) and the appendices.
+
+
+## Applied
+
+2026-11-25 03:32 UTC, by the push-batch workflow.
+- sources: sheet rows 279-286
+- lects: sheet rows 1148-1148
+- phonemes: sheet rows 5006-5090
+- allophones: sheet rows 1292-1309
+- decisions: sheet rows 215-220

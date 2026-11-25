@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 277 |  |
-| lects | 1146 | 279 dialect, 33 earlier-stage, 14 group, 531 language, 9 linkage, 280 proto-language |
-| phonemes | 5004 |  |
+| sources | 285 |  |
+| lects | 1147 | 280 dialect, 33 earlier-stage, 14 group, 531 language, 9 linkage, 280 proto-language |
+| phonemes | 5089 |  |
 | correspondences | 16783 | plus 12157 implied and 3370 stated retentions generated from lects.inherit |
-| notation_map | 594 |  |
-| allophones | 1290 |  |
-| decisions | 213 | 134 confirmed, 21 open, 58 reverted |
+| notation_map | 603 |  |
+| allophones | 1308 |  |
+| decisions | 219 | 134 confirmed, 27 open, 58 reverted |
 
-Lects by `inherit`: (blank) 268, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
-Inventories: edited 28, empty 42, reverse-generated 881, sourced 195.
+Lects by `inherit`: (blank) 269, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
+Inventories: edited 28, empty 42, reverse-generated 880, sourced 197.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 398 warning(s), 1897 note(s).
+`build.py --check`: 0 error(s), 402 warning(s), 1903 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 142 |
-| a reflex is not in the lect's sourced inventory | 95 |
-| a work cited in notes has no sources row | 71 |
-| a source is never cited | 53 |
+| a reflex is not in the lect's sourced inventory | 98 |
+| a work cited in notes has no sources row | 70 |
+| a source is never cited | 55 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 6 |
 | an attested lect has symbols that are not IPA | 3 |
@@ -62,6 +62,12 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `mayer2025-pck-vowels` | Mayer (2025: 72-74, Table 2.16) proposes Proto-Chuukic vowels *i *ʉ *u *e *o *æ *a *ɔ, with *e > ə, ɞ (e) in Central Chuukic, and gives cognates for them (Tabl… | Not entered: Proto-Chuukic here has the vowels it inherits from PMc, and Mayer marks the proposal as tentative ('a full-fledged analysis ... is beyond the scop… |  |  |
 | `roddy2007-symbols` | Which symbols for Roddy's (2007) Satawalese labialized-velarized consonants and affricate, and do the rows of Bender et al. (2003a) follow them? | pʷˠ, mʷˠ = pʷ, mʷ (as in the other Chuukic lects); the affricate t͡ʃ as printed. After landing, the Satawalese rows of Bender et al. (2003a) are respelled: ʈ͡ʂ… |  |  |
 | `vandenberg2014-symbols` | Which IPA for van den Berg's (2014) Hatohobeian and Sonsorolese bw, mw, pw, ü, gl and r? | bw, mw, pw = bʷ, mʷ, pʷ (her velarized [bˠ mˠ pˠ], written ʷ as in the other Chuukic lects, which describe the same sounds as labialized and velarized); ü = ɨ;… |  |  |
+| `ellis2012-symbols` | Which symbols for Ellis's (2012) Saipan Carolinian bʷˠ, mʷˠ, pʷˠː and ʈʂ͡:ʲ, and are the Carolinian rows of Bender et al. (2003a) respelled to them? | bʷˠ, mʷˠ, pʷˠː = bʷ, mʷ, pʷː (as in the other Chuukic lects); ʈʂ͡:ʲ = ʈ͡ʂː, the palatalization mark dropped (it only keeps the symbol in Woleaian's column, p. … |  |  |
+| `jacksonmarck1991-dialects` | How are the dialects of Jackson & Marck (1991) entered: the southern EL (Elle) and LN (Elle-Enne) dialects and Tanapag (Enne)? | Carolinian (caro1242) is the southern speech of Ellis's (2012) inventory, the EL dialect; LN's n is a marginal phoneme and an allophone row of l, not a lect of… |  |  |
+| `rehg1993-pmc` | What enters from Rehg's (1993) Proto-Micronesian: long vowels, t', and the prosodic rules? | Rehg's symbols as the spelling system 'Rehg' of PMc (s' = *s, s = *S, t' = *c; no *T, *Z, *y); the final short high vowel devoicing as allophones of *i, *u; st… |  |  |
+| `sakiyama1982-nguluwan` | Where does Nguluwan (Sakiyama 1982) go in the tree? | A dialect of Yapese (language_id yape1248, parent POc like Yapese), as Sakiyama 'can define it' (p. 106), with its own Glottocode ngul1236. |  |  |
+| `sakiyama1982-symbols` | Which IPA for Sakiyama's (1982) Nguluwan ch, ä, b and g? | ch = t͡ʃ (no value given; paired with j [dʒ] in the chart); ä = ɐ (the typed bracket letter is a turned a); b and g = b, ɡ (charted as voiced stops, not as the… |  |  |
+| `vitapedro2021-phonemes` | How do the analyses of Vita & Pedro (2021) that differ from van den Berg (2014) enter Sonsorolese? | Van den Berg's inventory stays. Their ʝ (voiced palatal fricative) for her j, their view that ə is phonemic (xəɣə- 'tie up' in careful speech, p. 36), the seve… |  |  |
 
 <!-- END GENERATED -->
 

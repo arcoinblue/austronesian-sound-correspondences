@@ -17,3 +17,12 @@ Jackson, Frederick H. & Jeffrey C. Marck. 1991. *Carolinian-English dictionary*.
 
 - The vowel values of p. 27 (a [a], e [ʌ], é, ó, ú): several are printed in a substitute font, and Ellis (2012) gives IPA for the same vowels.
 - Tanapag correspondences from the TAN entries: the dictionary gives no table, and the rows of Bender et al. (2003a) already cover the consonants.
+
+
+## Applied
+
+2026-11-25 03:32 UTC, by the push-batch workflow.
+- sources: sheet rows 279-286
+- phonemes: sheet rows 5006-5090
+- allophones: sheet rows 1292-1309
+- decisions: sheet rows 215-220

@@ -16,3 +16,11 @@ Vita, Vasiliki & Chelsea Pedro. 2021. Preliminary orthographic design for Ramari
 - Glide epenthesis, diphthongization before suffixes and high vowel backing before w (§§4.2, 4.3, 4.5): they insert or change sequences, not phonemes.
 - The rules they repeat from van den Berg (2014: 27, 32) (ɛ > ə before ʉ, final ɐ > ɛ, o and ʉ > u before suffixes): to be entered from van den Berg directly.
 - The project description and survey (§§1-2, 6).
+
+
+## Applied
+
+2026-11-25 03:32 UTC, by the push-batch workflow.
+- sources: sheet rows 279-286
+- allophones: sheet rows 1292-1309
+- decisions: sheet rows 215-220

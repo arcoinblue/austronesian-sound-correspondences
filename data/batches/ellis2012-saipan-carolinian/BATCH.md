@@ -17,3 +17,12 @@ Ellis, S. James. 2012. *Saipan Carolinian, one Chuukic language blended from man
 - The inventories of Woleaian, Satawalese and Puluwatese compiled from Sohn (1975), Roddy (2007) and Elbert (1972) (Tables 3-2 to 3-7): they are in the data from those sources.
 - The comparison with Jackson's (1983) 22 rules (Table 2-7) and the lexical study (§3.3).
 - Talaabog (Tanapag), which Ellis keeps out of the study (§1.2.3); its differences from SpnCRL (n for l, rh for sch, h for s, p. 9) go into the notes of `tana1281`.
+
+
+## Applied
+
+2026-11-25 03:32 UTC, by the push-batch workflow.
+- sources: sheet rows 279-286
+- phonemes: sheet rows 5006-5090
+- allophones: sheet rows 1292-1309
+- decisions: sheet rows 215-220

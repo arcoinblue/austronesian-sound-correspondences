@@ -16,3 +16,12 @@ Rehg, Kenneth L. 1993. Proto-Micronesian prosody. In Jerold A. Edmondson & Kenne
 
 - The synchronic stress and pitch of the daughter languages (§2, Table 1) and their final vowel lenition (Table 2): the devoicing rules of Woleaian and Pulo-Annan are in the data from their grammars; the others are word-final deletions already covered by the correspondences.
 - PMc long vowels (decision `rehg1993-pmc`).
+
+
+## Applied
+
+2026-11-25 03:32 UTC, by the push-batch workflow.
+- sources: sheet rows 279-286
+- notation_map: sheet rows 596-604
+- allophones: sheet rows 1292-1309
+- decisions: sheet rows 215-220
