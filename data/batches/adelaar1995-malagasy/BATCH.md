@@ -9,3 +9,10 @@ Adelaar, Alexander. 1995. Asian roots of the Malagasy: A linguistic perspective.
 ## Not entered
 
 - The loanword evidence (Malay, Javanese, South Sulawesi) and the history of the debate (§§1-3): no correspondences. Lom is not entered.
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- correspondences: sheet rows 17193-17483

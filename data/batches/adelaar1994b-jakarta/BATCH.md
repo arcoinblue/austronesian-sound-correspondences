@@ -9,3 +9,12 @@ Adelaar, K. A. 1994b. Mise au point sur l'histoire linguistique du malais jakart
 ## Not entered
 
 - The sociohistorical argument (lingua franca, Batavia, Banten letters): notes only.
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- lects: sheet rows 1157-1174
+- correspondences: sheet rows 17193-17483
+- decisions: sheet rows 228-237

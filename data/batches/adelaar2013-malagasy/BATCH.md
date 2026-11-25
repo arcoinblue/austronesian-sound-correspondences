@@ -10,3 +10,11 @@ Adelaar, Alexander. 2013. Malagasy dialect divisions: Genetic versus emblematic 
 ## Not entered
 
 - Table 6 (final tr/ts in the Betsimisaraka sources of 1603-1905), the personal prefixes, numerals, <in>, voice and lexical taxonomy (§§4.2-4.6), the lexicostatistical figures of §3: notes and decision only.
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- correspondences: sheet rows 17193-17483
+- decisions: sheet rows 228-237

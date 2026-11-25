@@ -10,3 +10,14 @@ Adelaar, K. Alexander. 1994a. The classification of the Tamanic languages. In To
 ## Not entered
 
 - PMP *D and *Z (no PMP phonemes of their own here), vowel contraction, u > i dissimilation, the final glottal stop (notes), the lexical, pronominal and morphological evidence (§§4-6), the Proto-Malayic and PSS columns of Table 1 (the PML column goes in with batch `adelaar2004-malay`).
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- lects: sheet rows 1157-1174
+- phonemes: sheet rows 5142-5258
+- correspondences: sheet rows 17193-17483
+- notation_map: sheet rows 608-610
+- decisions: sheet rows 228-237

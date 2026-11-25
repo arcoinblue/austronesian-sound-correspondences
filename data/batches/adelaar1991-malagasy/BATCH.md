@@ -10,3 +10,11 @@ Adelaar, K. A. 1991. New ideas on the early history of Malagasy. In Hein Steinha
 ## Not entered
 
 - Mahdi's Proto-Barito and Proto-East Barito as nodes; his PAN inventory; his Austronesian classification and East Austronesian substratum; Simon (1988); the classifications of Figures 2 and 4 (notes only).
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- correspondences: sheet rows 17193-17483
+- decisions: sheet rows 228-237

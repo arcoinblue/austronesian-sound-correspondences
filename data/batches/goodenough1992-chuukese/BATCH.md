@@ -10,3 +10,12 @@ Goodenough, Ward H. 1992. Gradual and quantum changes in the history of Chuukese
 ## Not entered
 
 - The loss of unstressed vowels between like or homorganic consonants (gemination, p. 98), §2.3.7 (three like vowels shortened), §2.3.8 (CVCCV bases), the combining-form classes of §2.3.9 beyond the notes, the Appendix etyma, and §3 (the gradual/quantum discussion).
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- correspondences: sheet rows 17193-17483
+- allophones: sheet rows 1336-1353
+- decisions: sheet rows 228-237

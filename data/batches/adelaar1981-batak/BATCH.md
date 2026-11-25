@@ -12,3 +12,13 @@ Adelaar, K. A. 1981. Reconstruction of Proto-Batak phonology. In Robert A. Blust
 
 - The SB loss of intervocalic *w (§8.2): it would cancel Billings & McDonnell's stated retention of *w (decision `adelaar1981-batak`).
 - Part III (PAN > PB), the PB lexical reconstructions (cited in notes), PB *(N)c and *(N)y, Karo /ö/, accent (§10), the morphophonology of each dialect beyond the allophones above, Proto-Angkola-Mandailing as a node.
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- phonemes: sheet rows 5142-5258
+- correspondences: sheet rows 17193-17483
+- allophones: sheet rows 1336-1353
+- decisions: sheet rows 228-237

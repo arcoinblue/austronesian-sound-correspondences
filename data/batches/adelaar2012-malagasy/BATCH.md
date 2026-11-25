@@ -14,3 +14,14 @@ Adelaar, Alexander. 2012. Malagasy phonological history and Bantu influence. *Oc
 
 - PSEB1 and MLG3 (stress), the paragogic vowels as reflexes (notes only), the morphophonemic alternations before suffixes (Mahdi 1988), §4 Malay d > tr in loans, §6 the *s exceptions beyond the notes, §8 etymologies, §7 contact history (notes only).
 - Ma'anyan, Samihim and Dusun Witu stay under Proto-Barito.
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- lects: sheet rows 1157-1174
+- phonemes: sheet rows 5142-5258
+- correspondences: sheet rows 17193-17483
+- notation_map: sheet rows 608-610
+- decisions: sheet rows 228-237

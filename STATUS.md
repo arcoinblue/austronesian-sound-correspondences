@@ -8,29 +8,29 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 301 |  |
-| lects | 1155 | 280 dialect, 33 earlier-stage, 14 group, 538 language, 9 linkage, 281 proto-language |
-| phonemes | 5140 |  |
-| correspondences | 17191 | plus 12157 implied and 3368 stated retentions generated from lects.inherit |
-| notation_map | 606 |  |
-| allophones | 1334 |  |
-| decisions | 226 | 134 confirmed, 34 open, 58 reverted |
+| sources | 314 |  |
+| lects | 1173 | 282 dialect, 34 earlier-stage, 14 group, 551 language, 9 linkage, 283 proto-language |
+| phonemes | 5257 |  |
+| correspondences | 17482 | plus 12444 implied and 3374 stated retentions generated from lects.inherit |
+| notation_map | 609 |  |
+| allophones | 1352 |  |
+| decisions | 236 | 134 confirmed, 44 open, 58 reverted |
 
-Lects by `inherit`: (blank) 277, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
-Inventories: edited 28, empty 42, reverse-generated 886, sourced 199.
+Lects by `inherit`: (blank) 278, assumed-unchanged 598, assumed-unchanged (automatic, fewer than 13 phonemes known) 58, stated-unchanged 239.
+Inventories: edited 37, empty 43, reverse-generated 889, sourced 204.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 410 warning(s), 1949 note(s).
+`build.py --check`: 0 error(s), 450 warning(s), 1946 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 142 |
-| a reflex is not in the lect's sourced inventory | 95 |
-| a work cited in notes has no sources row | 70 |
-| a source is never cited | 67 |
+| no glottocode | 144 |
+| a reflex is not in the lect's sourced inventory | 102 |
+| a work cited in notes has no sources row | 98 |
+| a source is never cited | 68 |
 | no page number for the citation | 26 |
-| repeats the fusion row at … | 6 |
+| repeats the fusion row at … | 8 |
 | an attested lect has symbols that are not IPA | 2 |
 | phoneme … is not in … inventory | 1 |
 | the notes of … describe allophones | 1 |
@@ -75,6 +75,16 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `mills1975-lects` | Which lects carry Mills's (1975) language groups Mass., PUS and Seko, and the Makasar dialects? | Mass. on Duri (duri1242), whose dialects Cakke and Kalosi supply most of the forms, as varieties; PUS on Glottolog's family pitu1237 and Seko on seko1241 (a fa… |  |  |
 | `mills1975-symbols` | Which IPA for Mills's (1975) daughter-language letters c, j, y, ñ, ng, q, ë? | c, ɟ, j, ɲ, ŋ, ʔ, ə: j as the voiced palatal stop, as Jukes (2020: 66) has it for Makasar; y the glide. | 15 |  |
 | `tryon2010-santo` | Tryon (2010: 289) says the Santo languages 'appear more closely related to each other than to languages from any island outside Santo and so to constitute a Sa… | No: Tryon gives no innovations, and the Santo lects of the database (Sakao, Tamambo, Araki) stay under Proto-North-Central Vanuatu. The language list goes into… |  |  |
+| `adelaar1981-batak` | How are Adelaar's (1981) Batak reconstruction and correspondences entered beside Billings & McDonnell (2024)? | Billings & McDonnell's nodes stay (pnb = Adelaar's Proto-Northern-Batak; pcsb = his Proto-Southern-Batak with Simalungun; psb = his Proto-Toba; his Proto-Angko… | 23 |  |
+| `mahdi1988-chain` | How is Mahdi's (1988) chain of changes, read in Adelaar (1991: 9), entered? | Composed onto the nodes in the database: his PAN > Proto-Barito > Proto-East Barito > PSEB columns as rows of PSEB against Proto-Barito (which carries the PMP … | 40 |  |
+| `adelaar1994a-tamanic` | How are Adelaar's (1994a) Tamanic data and classification entered? | As an earlier stage Pre-Tamanic (Glottolog's Tamanic, tama1334) under PMP, carrying Table 1's Tamanic column and the examples of §3.1, with Embaloh, Kalis (Glo… | 36 |  |
+| `adelaar1994b-jakarta` | Did Proto-Malayic keep the schwa in final closed syllables, and where does Jakarta Malay go? | Both readings are entered on Proto-Malayic: Smith's (2017a) PMP *e > *a / _C# and Adelaar's (1992) retention of *ə (read via Adelaar 1995: 340); Jakarta Malay … | 2 |  |
+| `adelaar1992-pm` | How are Adelaar's (1992) Proto-Malayic innovations entered? | As rows of Proto-Malayic (Smith's node, mala1538) against PMP, source adelaar1992 read via Adelaar (2004: 12), with the details of Adelaar (1994a: 5, Table 1) … | 17 |  |
+| `adelaar2012-pseb` | How are Adelaar's (2012) Proto-South East Barito and Proto-Malagasy placed, and his PAN etyma entered? | PSEB (Glottolog's Southeast Barito, sout2919) under Proto-Barito, with PMLG (Malagasic, mala1537) under it. PAN is restated against PMP, which Proto-Barito inh… | 35 |  |
+| `adelaar2012-dialects` | Which Malagasy varieties are entered, and with which Glottocodes? | Merina (meri1243, a dialect of Glottolog's Plateau Malagasy, plt, entered as its language node), Sakalava (saka1291; Adelaar's 2012 SSK and 2013 Sakalava of Mo… |  |  |
+| `adelaar2012-symbols` | Which IPA for the Malagasy affricates tr and ts and the paragogic vowels? | tr = ʈ͡ʂ (a retroflex affricate, Adelaar 2012: §4), ts = t͡s; Ruud's SBM final r and the Sorabe geminated r as ʈ͡ʂ, as Adelaar reads them; the paragogic (whisp… | 9 |  |
+| `adelaar2013-classification` | Is a subgrouping of the Malagasy dialects entered? | No: all lects sit directly under Proto-Malagasy. Adelaar (2013) rejects Dez's (1963) li/ti division on methodological and distributional grounds (li and ti are… | 25 |  |
+| `goodenough1992-vowels` | How are Goodenough's (1992) PMc > Chuukese vowel changes entered? | As rows of Chuukese against Proto-Chuukic (Goodenough's PTk, which keeps the PMc vowels and the central [ɨ] of *u as ɨ, as Jackson's 1984 rows have it), deriva… | 69 |  |
 
 <!-- END GENERATED -->
 

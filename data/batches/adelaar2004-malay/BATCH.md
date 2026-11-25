@@ -11,3 +11,11 @@ Adelaar, K. Alexander. 2004. Where does Malay come from? Twenty years of discuss
 
 - Innovations 3 (*z > *j) and 4 (*R > *r), and *q > *h outside final position: Smith's (2017a) Malayic lects are stated against a PM *z, *R and *q, so these rows would cut them off (decision `adelaar1992-pm`).
 - Innovations 5 and 6 (consonant clusters), the homeland discussion, Malayo-Chamic and Malayo-Sumbawan (already entered from Adelaar 2005), Collins's and Nothofer's internal classifications of Malayic (notes only).
+
+
+## Applied
+
+2026-11-25 18:02 UTC, by the push-batch workflow.
+- sources: sheet rows 303-315
+- correspondences: sheet rows 17193-17483
+- decisions: sheet rows 228-237
