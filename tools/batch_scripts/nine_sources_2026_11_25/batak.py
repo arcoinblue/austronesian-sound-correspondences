@@ -97,12 +97,14 @@ FV = ("'Final vd. stops in Si correspond to homorganic nasals in NB and homorgan
 for ph, nb, sb in (("b", "m", "p"), ("d", "n", "t"), ("ɡ", "ŋ", "k")):
     N("pnb", ph, nb, "_#", "13", FV)
     N("psb", ph, sb, "_#", "13", FV + " Toba bodari 'night' keeps an old voiced *d inside a compound.")
-    N(SIM, ph, ph, "_#", "13", FV, derivation="stated-retention")
 DI = {"ey": ("e", "§7.2.7: Si matey [matey], NB-SB mate 'dead'"), "ow": ("o", "§7.2.5: Si rantou [rantow], SB-NB ranto"),
       "uy": ("i", "§7.2.6: Si apuy, NB-SB api 'fire'; Si lanuy, other dialects lane 'swim' (unexplained e)")}
 for ph, (out, ex) in DI.items():
     for L in ("pnb", "psb"):
         N(L, ph, out, "_#", "11-12", f"PB *-{ph} is preserved only in Simalungun ({ex}).")
+N("pnb", "t", "t", "elsewhere", "13-15", "'The vl. stops /p/ and /t/ occur in all dialects in all positions' (§9.2): **telu > SB, "
+  "Si tolu, NB telu 'three'; 'I reconstruct *p and *t'. NB c for *t only before i (§9.4.1). Entered with the next row "
+  "so that the c row does not stand alone.", derivation="stated-retention")
 N("pnb", "t", "c", "_i", "15", "'Si, SB /t/ corresponds to NB /c/ before /i/': **kutiŋ 'cat' > SB, Si hutiŋ, Ka kuciŋ, "
   "Da kəciŋ; **tikep > Ka cikap (§9.4.1). Adelaar reconstructs *t 'because a development from *t to /c/ is much "
   "more common than one from *c to /t/'.")
@@ -118,9 +120,6 @@ N("pcsb", "h", "h", "_#", "14-15", "Retained in Si only: **si-ba(e)seh > Si si-b
 N("psb", "h", "∅", "_#", "14", "SB -Ø for NB, Si -h (§9.3): **pereh > SB poro, Si poroh, Ka pereh.")
 N("pcsb", "c", "s", "elsewhere", "15", "'PB *c became /s/ in both SB and Si' (§9.3.1c, §9.4.1): **racun > SB, Si "
   "rasun, NB racun; AnMa have s~c.")
-N("psb", "w", "∅", "V_V", "13", "'/w/ occurs in intervocalic position in NB and Si. The correspondence in SB is usually "
-  "Ø' (§8.2): **awak > To ak, Da awak; **sawit > To sait. Toba b between a's reflects *b, which merged with *w in NB "
-  "and Si (**kaban > To haban, Si, Da kawan).")
 N(DAI, "ə", "o", "_h#", "11", "'Da does not allow /ə/ before fin. /h/ and in monosyll. lexemes, and has /o/ instead' "
   "(§7.2.4): **taneh > Da tanoh, Ka tanəh.")
 N(DAI, "ə", "o", "in monosyllables", "11", "§7.2.4: Ka bən, Da bon 'to get dark' (**bed); Ka dəm, Da dom 'full' (§7).")
@@ -131,10 +130,12 @@ b.dec(D, "How are Adelaar's (1981) Batak reconstruction and correspondences ente
       "Billings & McDonnell's nodes stay (pnb = Adelaar's Proto-Northern-Batak; pcsb = his Proto-Southern-Batak "
       "with Simalungun; psb = his Proto-Toba; his Proto-Angkola-Mandailing is not entered, as their AM-Batak is not). "
       "Adelaar's dialect correspondences are composed onto the node that all daughters showing them share, as a "
-      "second source beside Billings & McDonnell's rows; new are *t > NB c before i and the loss of intervocalic *w "
-      "in SB. His dialect inventories go in for Dairi, Toba, Angkola, Mandailing and Simalungun (Karo keeps Woollams "
+      "second source beside Billings & McDonnell's rows; new is *t > NB c before i, entered with Adelaar's *t > t "
+      "elsewhere (§9.2). The SB loss of intervocalic *w (§8.2: To ak < **awak, Toba has no semivowels) is not entered: "
+      "it would cancel Billings & McDonnell's stated retention of *w in Toba, Angkola and Mandailing. His dialect inventories go in for Dairi, Toba, Angkola, Mandailing and Simalungun (Karo keeps Woollams "
       "2005); Toba and Angkola (h) is an allophone of /k/. Simalungun j is Adelaar's voiced palatal stop ɟ, so Billings & "
-      "McDonnell's sporadic Simalungun d͡ʒ shows as a reflex outside the inventory. Part III (PAN > PB) is not entered: Billings & "
+      "McDonnell's sporadic Simalungun d͡ʒ shows as a reflex outside the inventory; so do their Toba h (an allophone "
+      "of /k/ for Adelaar), j and w (Toba has no semivowels, §3.1). Part III (PAN > PB) is not entered: Billings & "
       "McDonnell already state PSUM > PB, and Adelaar's PAN (Dyen's) does not map onto PMP one to one (*Z > PB *d "
       "beside *z > PB *j).",
       "Rename the nodes after Adelaar (Proto-Southern-Batak for pcsb, Proto-Toba for psb); add Proto-Angkola-Mandailing; "
@@ -147,9 +148,10 @@ Adelaar, K. A. 1981. Reconstruction of Proto-Batak phonology. In Robert A. Blust
 
 - Sourced inventories (Part I charts, from the page images) for Dairi, Toba, Angkola, Mandailing and Simalungun; AnMa c marginal; Simalungun final diphthongs as ei, ou, ui (as Billings & McDonnell's rows have them).
 - Allophones: Toba and Angkola k [h], Toba s [ts], AnMa s [c], Karo h [x] and h- dropped, Dairi h- dropped, Dairi long vowels (Karo length, distinctive for Adelaar, is not entered).
-- Correspondences of Part II composed onto Billings & McDonnell's nodes (decision `adelaar1981-batak`): final voiced stops, final diphthongs, *t > NB c / _i, *ə > o, *k > h, *h, *c > s, SB loss of *w, Dairi ə > o, Toba loss of y.
+- Correspondences of Part II composed onto Billings & McDonnell's nodes (Simalungun's kept final voiced stops are left to Billings & McDonnell's stated retention) (decision `adelaar1981-batak`): final voiced stops, final diphthongs, *t > NB c / _i (with *t > t elsewhere), *ə > o, *k > h, *h, *c > s, Dairi ə > o, Toba loss of y.
 
 ## Not entered
 
+- The SB loss of intervocalic *w (§8.2): it would cancel Billings & McDonnell's stated retention of *w (decision `adelaar1981-batak`).
 - Part III (PAN > PB), the PB lexical reconstructions (cited in notes), PB *(N)c and *(N)y, Karo /ö/, accent (§10), the morphophonology of each dialect beyond the allophones above, Proto-Angkola-Mandailing as a node.
 """)
