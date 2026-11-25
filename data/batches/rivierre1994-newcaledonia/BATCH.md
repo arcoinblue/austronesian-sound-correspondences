@@ -11,3 +11,14 @@ Rivierre, Jean-Claude. 1994. Contact-induced phonological complexification in Ne
 ## Not entered
 
 - Cèmuhî tone in loans (§2), Table 2 (Far North intervocalic consonants in general), Bondé 1893/1965 (Table 3), the loan lists (§3.1.3), the Pwapwâ and Pwaamei partial systems (pp. 514-515), the spread of v-, ɣ-, f-, ɬ- and aspirates by loans (§§3.2.4-3.2.5).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- lects: sheet rows 1175-1195
+- phonemes: sheet rows 5259-5423
+- correspondences: sheet rows 17484-18388
+- allophones: sheet rows 1354-1392
+- decisions: sheet rows 238-245

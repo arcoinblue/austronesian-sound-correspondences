@@ -9,3 +9,13 @@ Bugenhagen, Robert D. 1994. Language change on Umboi Island. In Tom Dutton & Dar
 ## Not entered
 
 - Rule 6 (geminate vowel reduction) and vowel epenthesis (synchronic), the loan strata (§2.2, Table 4, Appendices 1-3), grammar (§2.3), Kovai (non-Austronesian, §3).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- phonemes: sheet rows 5259-5423
+- correspondences: sheet rows 17484-18388
+- allophones: sheet rows 1354-1392
+- decisions: sheet rows 238-245

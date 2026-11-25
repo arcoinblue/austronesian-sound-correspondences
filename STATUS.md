@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 314 |  |
-| lects | 1173 | 282 dialect, 34 earlier-stage, 14 group, 551 language, 9 linkage, 283 proto-language |
-| phonemes | 5257 |  |
-| correspondences | 17482 | plus 12444 implied and 3374 stated retentions generated from lects.inherit |
-| notation_map | 609 |  |
-| allophones | 1352 |  |
-| decisions | 236 | 134 confirmed, 44 open, 58 reverted |
+| sources | 333 |  |
+| lects | 1194 | 285 dialect, 34 earlier-stage, 15 group, 565 language, 9 linkage, 286 proto-language |
+| phonemes | 5422 |  |
+| correspondences | 18387 | plus 12461 implied and 3340 stated retentions generated from lects.inherit |
+| notation_map | 612 |  |
+| allophones | 1391 |  |
+| decisions | 244 | 134 confirmed, 52 open, 58 reverted |
 
-Lects by `inherit`: (blank) 278, assumed-unchanged 598, assumed-unchanged (automatic, fewer than 13 phonemes known) 58, stated-unchanged 239.
-Inventories: edited 37, empty 43, reverse-generated 889, sourced 204.
+Lects by `inherit`: (blank) 295, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 55, stated-unchanged 240.
+Inventories: edited 37, empty 45, reverse-generated 901, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 450 warning(s), 1946 note(s).
+`build.py --check`: 0 error(s), 458 warning(s), 1998 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 144 |
 | a reflex is not in the lect's sourced inventory | 102 |
 | a work cited in notes has no sources row | 98 |
-| a source is never cited | 68 |
+| a source is never cited | 76 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 8 |
 | an attested lect has symbols that are not IPA | 2 |
@@ -85,6 +85,14 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `adelaar2012-symbols` | Which IPA for the Malagasy affricates tr and ts and the paragogic vowels? | tr = ʈ͡ʂ (a retroflex affricate, Adelaar 2012: §4), ts = t͡s; Ruud's SBM final r and the Sorabe geminated r as ʈ͡ʂ, as Adelaar reads them; the paragogic (whisp… | 9 |  |
 | `adelaar2013-classification` | Is a subgrouping of the Malagasy dialects entered? | No: all lects sit directly under Proto-Malagasy. Adelaar (2013) rejects Dez's (1963) li/ti division on methodological and distributional grounds (li and ti are… | 25 |  |
 | `goodenough1992-vowels` | How are Goodenough's (1992) PMc > Chuukese vowel changes entered? | As rows of Chuukese against Proto-Chuukic (Goodenough's PTk, which keeps the PMc vowels and the central [ɨ] of *u as ɨ, as Jackson's 1984 rows have it), deriva… | 69 |  |
+| `bugenhagen1994-mangap` | How is Bugenhagen's (1994) Mangap-Mbula entered beside Ross's (1988) consonant rows? | Table 1 as Mangap's sourced inventory (prenasalised stops ᵐb ⁿd ᵑɡ beside oral b d ɡ, y = j); Table 3 and the voiced-stop statement (p. 51) as rows against POC… | 78 |  |
+| `harrison1994-gilbertese` | Harrison (1994: 329-333) repeats Jackson's (1983) POC > PMC > GIL consonant charts. What is entered? | Only what the rows of Bender et al. (2003a) and the other sources do not already state: the *u and *e splits, *w > Ø before round vowels (as disputed, since Ha… | 12 |  |
+| `holzknecht1994-labu` | How are Holzknecht's (1994) Markham and Lower-Markham innovations entered? | Composed onto Labu only, through PHG, PMK and PLMK (not nodes here, as for Ross 1988), with the vowel splits as irregular rows and the Bukawa loans with t as a… | 13 |  |
+| `ozannerivierre1994-fagauvea` | How are Ozanne-Rivierre's (1994) Fagauvea data entered? | Pawley's (1967) PNP > WUV table as rows of pawley1967 via this chapter; the voicing of t and k in grammatical morphemes and the irregular h in Polynesian loans… | 17 |  |
+| `reid1994-negritos` | Where do Reid's (1994) Alta and Arta go, and against what are their reflexes stated? | Northern Alta, Southern Alta (under a group Altan) and Arta under Proto-Northern Luzon, as in Reid's (2006) tree, whose primary branches include Altan and Arta… | 16 |  |
+| `rivierre1994-kone` | How are Rivierre's (1994) PNC reflexes and the Kone chart entered? | Table 4 as rows against PNC on Pwapwâ, Pwaamei and Haveke (Kone), initial position. Rivierre's *t̲, *ṭ, *c (and doubles) are the sheet's PNC *t, *ṭ, *s (Ozanne… | 38 |  |
+| `ross1994-nodes` | How are Ross's (1994) New Ireland reconstructions entered? | As three proto-language nodes, the user's choice of 26 November 2026: Proto-New Ireland under POC (Glottocode blank, its inventory (1) only; no POC > PNI rows,… | 162 |  |
+| `tryon1994-composition` | How is Tryon's (1994) Appendix 1 (POC consonants in 17 Eastern Outer Islands lects) entered? | Grace's POC symbols read as Ross's (mp = b, nt = d, ŋk = ɡ, ŋp = bʷ, ŋm = mʷ, d and r = r, nd = dr, ns = j). Each reflex is restated against the lect's parent:… | 569 |  |
 
 <!-- END GENERATED -->
 

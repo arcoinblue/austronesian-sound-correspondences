@@ -10,3 +10,12 @@ Tryon, Darrell T. 1994. Language contact and contact-induced language change in 
 ## Not entered
 
 - Cells whose POC phoneme the parent has already lost (listed in the decision); the grammatical sketches (§4), morphosyntax (§5), loans (§5.1), and the cognate percentages (Appendix 2).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- lects: sheet rows 1175-1195
+- correspondences: sheet rows 17484-18388
+- decisions: sheet rows 238-245

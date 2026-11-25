@@ -10,3 +10,12 @@ Reid, Lawrence A. 1994. Unravelling the linguistic histories of Philippine Negri
 ## Not entered
 
 - A Meso-Cordilleran node; the Alta conservative lexicon and pronouns (Tables 2-3); the loan lists (Tables 4-10, 19-21); Arta's unique forms (Table 11) and pronouns (Tables 16-17).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- lects: sheet rows 1175-1195
+- correspondences: sheet rows 17484-18388
+- decisions: sheet rows 238-245

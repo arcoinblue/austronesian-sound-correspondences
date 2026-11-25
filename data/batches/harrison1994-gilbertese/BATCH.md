@@ -9,3 +9,12 @@ Harrison, S. P. 1994. Linguistic evidence for Polynesian influence in the Gilber
 ## Not entered
 
 - The consonant charts (pp. 330-332), which repeat Jackson (1983) and the rows of Bender et al. (2003a); the loan criteria and the Polynesian loans (§4.3, Appendix A).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- correspondences: sheet rows 17484-18388
+- allophones: sheet rows 1354-1392
+- decisions: sheet rows 238-245

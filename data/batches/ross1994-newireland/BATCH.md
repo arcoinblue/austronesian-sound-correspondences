@@ -11,3 +11,15 @@ Ross, Malcolm. 1994. Areal phonological features in north central New Ireland. I
 ## Not entered
 
 - POC > PNI (not in this chapter; see Ross 1988 Tables 28-37), vowels, Kuot (Papuan, (6)), Notsi, the Tabar chain, the agglutination and vowel-reduction rules (§3.2).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- lects: sheet rows 1175-1195
+- phonemes: sheet rows 5259-5423
+- correspondences: sheet rows 17484-18388
+- notation_map: sheet rows 611-613
+- allophones: sheet rows 1354-1392
+- decisions: sheet rows 238-245

@@ -9,3 +9,13 @@ Ozanne-Rivierre, Françoise. 1994. Iaai loanwords and phonemic changes in Fagauv
 ## Not entered
 
 - PPN *h > s and *s > Ø doublets and *r > Ø in uku (§§4.2-4.3); the integration of Iaai consonants and vowels, word by word (§5.1.2); semantic fields and grammatical loans (§§5.2-5.3).
+
+
+## Applied
+
+2026-11-25 23:08 UTC, by the push-batch workflow.
+- sources: sheet rows 316-334
+- phonemes: sheet rows 5259-5423
+- correspondences: sheet rows 17484-18388
+- allophones: sheet rows 1354-1392
+- decisions: sheet rows 238-245
