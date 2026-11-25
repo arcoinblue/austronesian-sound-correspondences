@@ -1,6 +1,6 @@
 """Phase 4 acceptance: the PAn lect page loads under 100 KB of data.
 
-The lect page fetches index.json, sources.json and its own lect file; a phoneme's
+The lect page fetches index.json, sources.json (what citation links need) and its own lect file; a phoneme's
 history is fetched only when the phoneme is opened. pan.json itself must be under
 100 KB as written (compact JSON), and the three files together under 100 KB as
 served (gzip). Before phase 4 pan.json was 5.1 MB (355 KB gzipped).
@@ -18,6 +18,8 @@ sys.path.insert(0, str(ROOT))
 import build  # noqa: E402
 
 LIMIT = 100_000
+# Files that are not a lect's own file.
+SHARED = ("index.json", "sources.json", "sources_full.json", "segments.json")
 
 
 def size(obj):
@@ -42,14 +44,22 @@ class TestOutputSize(unittest.TestCase):
                    for f in ("index.json", "sources.json", "pan.json"))
         self.assertLess(sent, LIMIT)
 
+    def test_sources_json_is_only_what_links_need(self):
+        """Every page loads sources.json; the reference list loads sources_full.json.
+        On 25 Nov 2026 the full records pushed the PAn page past 100 KB."""
+        slim, full = self.files["sources.json"]["sources"], self.files["sources_full.json"]["sources"]
+        self.assertEqual([s["id"] for s in slim], [s["id"] for s in full])
+        self.assertEqual({k for s in slim for k in s}, {"id", "label", "author", "year"})
+        self.assertTrue(all("reference" in s and "cited_by" in s for s in full))
+
     def test_no_lect_file_carries_phoneme_history(self):
-        for L in (k for k in self.files if "/" not in k and k not in ("index.json", "sources.json", "segments.json")):
+        for L in (k for k in self.files if "/" not in k and k not in SHARED):
             for ph in self.files[L]["phonemes"]:
                 self.assertNotIn("descendants", ph, L)
 
     def lect_files(self):
         return {k: v for k, v in self.files.items()
-                if "/" not in k and k not in ("index.json", "sources.json", "segments.json")}
+                if "/" not in k and k not in SHARED}
 
     def test_every_reflex_has_a_page(self):
         """Every row's reflex is linked, so it needs a phoneme file: in the inventory, or among
@@ -94,7 +104,7 @@ class TestOutputSize(unittest.TestCase):
 
     def test_report_sizes(self):
         big = sorted(((size(v), k) for k, v in self.files.items()), reverse=True)[:3]
-        lect = max((size(v), k) for k, v in self.files.items() if "/" not in k and k not in ("index.json", "sources.json", "segments.json"))
+        lect = max((size(v), k) for k, v in self.files.items() if "/" not in k and k not in SHARED)
         print(f"\n  largest lect file {lect[1]} {lect[0]:,} B; index {size(self.files['index.json']):,} B; "
               f"sources {size(self.files['sources.json']):,} B; largest files {big}")
 

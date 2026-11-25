@@ -426,6 +426,17 @@ def index_json(D, lect_records=None):
     return {"lects": rows}
 
 
-def sources_json(D):
+# Every page loads sources.json for its citation links, so it holds only what a
+# link needs. The reference list (#/sources/) fetches sources_full.json. On 25 Nov
+# 2026 the full list alone was 63 KB gzipped and pushed the PAn page past 100 KB.
+SOURCE_LINK_FIELDS = ("id", "label", "author", "year")
+
+
+def sources_full_json(D):
     return {"sources": [{k: v for k, v in s.items() if not k.startswith("_")}
+                        for s in D["sources"].values()]}
+
+
+def sources_json(D):
+    return {"sources": [{k: s.get(k, "") for k in SOURCE_LINK_FIELDS}
                         for s in D["sources"].values()]}
