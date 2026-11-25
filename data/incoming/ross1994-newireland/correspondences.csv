@@ -1,0 +1,163 @@
+id,child_lect_id,parent_phoneme,child_phoneme,environment,status,blank_type,evidence_count,source_id,page,notes,system,via_source_id,via_page,via_note,conditioning,evidence_total,derivation,variety,stratum,lexical_scope,examples,source_form,as_printed,locator,decision
+c81dfb7da40,pln,mʷ,m,elsewhere,regular,,,ross1994,556,'The consonant system of Proto-Lavongai/Nalik (PLN) differs from (1) only in that PNI *mʷ has merged with *m' (p. 556).,,,,,,,,,,,,,,,ross1994-nodes
+c9b151d886c,pmad,p,∅,_u,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. (4a) 'PNI *p and *f were deleted before *u and remained as PMAD *p elsewhere' (p. 557).",,,,,,,,,,,,,,,ross1994-nodes
+c2eafd7d301,pmad,f,∅,_u,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. (4a).",,,,,,,,,,,,,,,ross1994-nodes
+c7dd6bb9969,pmad,f,p,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. (4a): the merger of PNI *p and *f, which Ross tentatively links to the absence of /f/ in an earlier stage of Kuot (p. 557).",,,,,,,,,,,,,,,ross1994-nodes
+c217da7184e,pmad,k,∅,conditions unknown,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. PMAD *k, Ø, as in Patpatar and the three daughters; no condition given.",,,,,unknown,,,,,,,,,,ross1994-nodes
+cb806735933,pmad,l,n,_#,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. (4c) 'PNI *l became *n word-finally', shared with Kuot's synchronic rule (7): *tolu > PMAD *-tun 'three', *sagafulu > *sanaun 'ten' (pp. 557-558).",,,,,,,,,,,,,,,ross1994-nodes
+c316d5b4fdd,pmad,R,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. (4b) 'PNI *R disappeared in most environments'; possibly connected with the absence of /r/ in Kuot (p. 557).",,,,,,,,,,,,,,,ross1994-nodes
+c84b19aa505,pmad,R,r,V_V,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. '*Ø; r,Ø/V_V': r or Ø between vowels; PMAD (5) has a marginal (r) (p. 557).",,,,,,,,,,,,,,,ross1994-nodes
+c562573c89f,pmad,R,∅,V_V,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. '*Ø; r,Ø/V_V'.",,,,,,,,,,,,,,,ross1994-nodes
+c6b2a0f5fc3,pmad,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*t,,ross1994-nodes
+c88e4008dba,pmad,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*b,,ross1994-nodes
+cd607b738a6,pmad,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*d,,ross1994-nodes
+c3c083c7fac,pmad,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*g,,ross1994-nodes
+c74296756e5,pmad,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*s,,ross1994-nodes
+c66c112dde8,pmad,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*m,,ross1994-nodes
+c66a866bceb,pmad,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*n,,ross1994-nodes
+c19ec961e0c,pmad,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*ŋ,,ross1994-nodes
+c4fea1a3eb3,pmad,w,w,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*w,,ross1994-nodes
+c737b2c2d5c,pmad,y,y,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. Unchanged in PMAD.",,,,,,,,,,,,,*y,,ross1994-nodes
+c0148015a4d,pmad,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. '*p; Ø/_*u'.",,,,,,,,,,,,,*p; Ø/_*u,,ross1994-nodes
+cb4ddff9369,pmad,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. '*k, Ø'.",,,,,,,,,,,,,"*k, Ø",,ross1994-nodes
+ccced3ed7d0,pmad,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: PMAD row. '*l; n/_#'.",,,,,,,,,,,,,*l; n/_#,,ross1994-nodes
+c88b794ecf2,pmad,mʷ,m,elsewhere,regular,,,ross1994,557,'As well as the change which also took place in Proto-Lavongai/Nalik (i.e. PNI *mʷ > *m)' (p. 557).,,,,,,,,,,,,,,,ross1994-nodes
+c97fe6db2f6,nali1244,p,w,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556: 'w; p/_o'.",,,,,,,,,,,,,w; p/_o,,ross1994-nodes
+c79c3d00363,nali1244,p,p,_o,regular,,,ross1994,556,"Correspondence set (2), p. 556: 'w; p/_o'.",,,,,,,,,,,,,w; p/_o,,ross1994-nodes
+c3dd326c947,nali1244,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,t,,ross1994-nodes
+c298590a268,nali1244,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,k,,ross1994-nodes
+ccbac775669,nali1244,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,b,,ross1994-nodes
+cc157071e87,nali1244,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,d,,ross1994-nodes
+c6156c540e9,nali1244,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,g,,ross1994-nodes
+ccff77e624f,nali1244,f,ɸ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556: f, [ɸ] in Nalik (p. 563); Kara taken to be the same.",,,,,,,,,,,,,f,,ross1994-nodes
+c67db2af0f0,nali1244,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,s,,ross1994-nodes
+cf8eb51975f,nali1244,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,m,,ross1994-nodes
+c938eba8690,nali1244,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,n,,ross1994-nodes
+c6c7d9ac1a7,nali1244,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,ŋ,,ross1994-nodes
+c76fd7f4337,nali1244,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,l,,ross1994-nodes
+cb48d2b2988,nali1244,R,r,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,r,,ross1994-nodes
+c48754e4d2c,nali1244,w,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,∅,,ross1994-nodes
+c815b028d7e,nali1244,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+cfb89d2edbf,kara1486,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,p,,ross1994-nodes
+cfad5a1dfe0,kara1486,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,t,,ross1994-nodes
+c30c30cd268,kara1486,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,k,,ross1994-nodes
+c399f2fbe68,kara1486,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,b,,ross1994-nodes
+c5c30d513a1,kara1486,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,d,,ross1994-nodes
+c68eba342e4,kara1486,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,g,,ross1994-nodes
+c753b8a1144,kara1486,f,ɸ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556: f, [ɸ] in Nalik (p. 563); Kara taken to be the same.",,,,,,,,,,,,,f,,ross1994-nodes
+c979ac3999f,kara1486,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,s,,ross1994-nodes
+c2115539eaf,kara1486,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,m,,ross1994-nodes
+cc82c215c1a,kara1486,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,n,,ross1994-nodes
+cfbd47b96b1,kara1486,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,ŋ,,ross1994-nodes
+c1d09d66cf1,kara1486,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,l,,ross1994-nodes
+c02c34cefb1,kara1486,R,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+cb6a36d3ad1,kara1486,w,w,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,w,,ross1994-nodes
+cf52745cfb1,kara1486,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+caf9cd7b0ba,tian1237,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,p,,ross1994-nodes
+c48fa819701,tian1237,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,t,,ross1994-nodes
+cd6ab6801ae,tian1237,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,k,,ross1994-nodes
+c811d701ddd,tian1237,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556: 'b; w/V_V'.",,,,,,,,,,,,,b; w/V_V,,ross1994-nodes
+c2b34ddabf9,tian1237,b,w,V_V,regular,,,ross1994,556,"Correspondence set (2), p. 556: 'b; w/V_V'.",,,,,,,,,,,,,b; w/V_V,,ross1994-nodes
+c32c4bc0f9a,tian1237,d,r,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,r,,ross1994-nodes
+c26c969a7c1,tian1237,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,g,,ross1994-nodes
+cca94561ba7,tian1237,f,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,∅,,ross1994-nodes
+cad5573498c,tian1237,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,s,,ross1994-nodes
+c53275c871d,tian1237,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,m,,ross1994-nodes
+cf58e21ccb6,tian1237,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,n,,ross1994-nodes
+c6b3632ddca,tian1237,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,ŋ,,ross1994-nodes
+c79531ab590,tian1237,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,l,,ross1994-nodes
+c37b0e174cd,tian1237,R,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+cf63c4d5f45,tian1237,w,w,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,w,,ross1994-nodes
+c3f2c0703b9,tian1237,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+c437458f16f,tiga1245,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,p,,ross1994-nodes
+c6b4b1c4a7e,tiga1245,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,t,,ross1994-nodes
+cbc984bedfc,tiga1245,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,k,,ross1994-nodes
+ca378cd4d75,tiga1245,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556: 'b; w/V_V'.",,,,,,,,,,,,,b; w/V_V,,ross1994-nodes
+c0982280e3b,tiga1245,b,w,V_V,regular,,,ross1994,556,"Correspondence set (2), p. 556: 'b; w/V_V'.",,,,,,,,,,,,,b; w/V_V,,ross1994-nodes
+cc2eab2112e,tiga1245,d,r,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,r,,ross1994-nodes
+c56a3f23c56,tiga1245,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,g,,ross1994-nodes
+c17e2ce6916,tiga1245,f,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,∅,,ross1994-nodes
+c7319819f08,tiga1245,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,s,,ross1994-nodes
+c3eff646622,tiga1245,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,m,,ross1994-nodes
+c31cc46cebc,tiga1245,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,n,,ross1994-nodes
+c805b472234,tiga1245,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,ŋ,,ross1994-nodes
+cbe9adc7733,tiga1245,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,l,,ross1994-nodes
+c3a1478c3c7,tiga1245,R,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,g,,ross1994-nodes
+c058d69c706,tiga1245,w,w,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,w,,ross1994-nodes
+c9bb7c669c4,tiga1245,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+c04fa8f5f8b,tung1290,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,p,,ross1994-nodes
+c4b197e08ae,tung1290,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,t,,ross1994-nodes
+c310419f787,tung1290,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,k,,ross1994-nodes
+c3820448ca0,tung1290,b,v,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,v,,ross1994-nodes
+ce15ba729b6,tung1290,d,r,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,r,,ross1994-nodes
+c8b437611bf,tung1290,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,g,,ross1994-nodes
+c1ecb8ef4c7,tung1290,f,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,∅,,ross1994-nodes
+cd282f881fc,tung1290,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,s,,ross1994-nodes
+ca89113dc62,tung1290,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,m,,ross1994-nodes
+c3ba2c6db77,tung1290,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,n,,ross1994-nodes
+c413e721d27,tung1290,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,ŋ,,ross1994-nodes
+c539594bc6c,tung1290,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,l,,ross1994-nodes
+cdc8207a268,tung1290,R,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,ŋ,,ross1994-nodes
+ce3cb9cb667,tung1290,w,w,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,w,,ross1994-nodes
+c24ecb6f519,tung1290,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (2), p. 556:",,,,,,,,,,,,,y,,ross1994-nodes
+ccdea092279,patp1243,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,p,,ross1994-nodes
+cb3dc2543aa,patp1243,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,t,,ross1994-nodes
+cae9d4bcf02,patp1243,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, Ø'.",,,,,,,,,,,,,"k, ∅",,ross1994-nodes
+c95acb3fab8,patp1243,k,∅,conditions unknown,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, Ø'.",,,,,unknown,,,,,,,,"k, ∅",,ross1994-nodes
+cf24725f2e7,patp1243,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,b,,ross1994-nodes
+c2ce2b593e2,patp1243,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,d,,ross1994-nodes
+c90ecc0e590,patp1243,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,g,,ross1994-nodes
+c48a0f43e8a,patp1243,f,h,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,h,,ross1994-nodes
+cfa1edca682,patp1243,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,s,,ross1994-nodes
+cc957b30fa7,patp1243,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,m,,ross1994-nodes
+c96fe91129b,patp1243,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,n,,ross1994-nodes
+c8fc59b41a1,patp1243,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,ŋ,,ross1994-nodes
+ce15cb79be5,patp1243,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,l,,ross1994-nodes
+cc56f256598,patp1243,R,r,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: Patpatar row.",,,,,,,,,,,,,r,,ross1994-nodes
+c54ed631c27,patp1243,w,w,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: printed u, taken to be the glide written as a vowel letter.",,,,,,,,,,,,,u,,ross1994-nodes
+cb6bc4f43c6,patp1243,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: printed i, taken to be the glide written as a vowel letter.",,,,,,,,,,,,,i,,ross1994-nodes
+c16c9ed88e9,baro1253,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'p; ∅/_u'. Stated against PNI *p (and *f); PMAD had already lost *p before *u and the daughters repeat the table's condition.",,,,,,,,,,,,,p; ∅/_u,,ross1994-nodes
+ccb9bdee682,baro1253,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 't'.",,,,,,,,,,,,,t,,ross1994-nodes
+c0a2a936b43,baro1253,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, ∅'. As in PMAD *k, Ø.",,,,,,,,,,,,,"k, ∅",,ross1994-nodes
+cb5607c8d09,baro1253,k,∅,conditions unknown,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, ∅'. As in PMAD *k, Ø.",,,,,unknown,,,,,,,,"k, ∅",,ross1994-nodes
+c9f1c8ff893,baro1253,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'b'.",,,,,,,,,,,,,b,,ross1994-nodes
+cc4b82a686d,baro1253,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'd'.",,,,,,,,,,,,,d,,ross1994-nodes
+cb61609519d,baro1253,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ɡ'.",,,,,,,,,,,,,g,,ross1994-nodes
+c358e66eefa,baro1253,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 's'.",,,,,,,,,,,,,s,,ross1994-nodes
+cebb9746f63,baro1253,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'm'.",,,,,,,,,,,,,m,,ross1994-nodes
+c45230b59ad,baro1253,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'n'.",,,,,,,,,,,,,n,,ross1994-nodes
+cefc33b526e,baro1253,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ŋ'.",,,,,,,,,,,,,ŋ,,ross1994-nodes
+c1b6750e903,baro1253,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'l; n/_#'. PMAD *l; n/_#: the word-final n is PMAD's.",,,,,,,,,,,,,l; n/_#,,ross1994-nodes
+c60e09b40d9,baro1253,r,r,V_V,regular,,,ross1994,556,"Correspondence set (3), p. 556: '∅; r,∅/V_V'. Barok repeats PMAD's 'Ø; r,Ø/V_V': PMAD's intervocalic *r stays.",,,,,,,,,,,,,"∅; r,∅/V_V",,ross1994-nodes
+c37f8e86866,baro1253,w,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: '∅'.",,,,,,,,,,,,,∅,,ross1994-nodes
+c3dc54777ec,baro1253,y,j,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'j'.",,,,,,,,,,,,,y,,ross1994-nodes
+cbd475e7c4b,mada1285,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'p; ∅/_u'. Stated against PNI *p (and *f); PMAD had already lost *p before *u and the daughters repeat the table's condition.",,,,,,,,,,,,,p; ∅/_u,,ross1994-nodes
+c2521b8a682,mada1285,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 't'.",,,,,,,,,,,,,t,,ross1994-nodes
+c2ec86d2a2b,mada1285,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, ∅'. As in PMAD *k, Ø.",,,,,,,,,,,,,"k, ∅",,ross1994-nodes
+c842485facc,mada1285,k,∅,conditions unknown,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, ∅'. As in PMAD *k, Ø.",,,,,unknown,,,,,,,,"k, ∅",,ross1994-nodes
+c76d1223005,mada1285,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'b'.",,,,,,,,,,,,,b,,ross1994-nodes
+c151aa9f59d,mada1285,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'd'.",,,,,,,,,,,,,d,,ross1994-nodes
+c987b38fb22,mada1285,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ɡ'.",,,,,,,,,,,,,g,,ross1994-nodes
+c5946122329,mada1285,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 's'.",,,,,,,,,,,,,s,,ross1994-nodes
+c473b993bd0,mada1285,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'm'.",,,,,,,,,,,,,m,,ross1994-nodes
+c96b167ab83,mada1285,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'n'.",,,,,,,,,,,,,n,,ross1994-nodes
+c35f4dd2480,mada1285,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ŋ'.",,,,,,,,,,,,,ŋ,,ross1994-nodes
+ca7d75e7b1b,mada1285,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'l; n/_#'. PMAD *l; n/_#: the word-final n is PMAD's.",,,,,,,,,,,,,l; n/_#,,ross1994-nodes
+c41ed81ce41,mada1285,r,∅,V_V,regular,,,ross1994,556,"Correspondence set (3), p. 556: '∅'. Madak and Lamasong have Ø for PNI *R everywhere, so PMAD's intervocalic *r is lost.",,,,,,,,,,,,,∅,,ross1994-nodes
+cce475df96f,mada1285,w,β,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'β'. Printed v; Ross gives v = [β] for Madak (p. 559).",,,,,,,,,,,,,v,,ross1994-nodes
+cc1e6ca5ece,mada1285,y,ɣ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ɣ'. Printed γ.",,,,,,,,,,,,,γ,,ross1994-nodes
+cb016e67c30,lamu1255,p,p,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'p; ∅/_u'. Stated against PNI *p (and *f); PMAD had already lost *p before *u and the daughters repeat the table's condition.",,,,,,,,,,,,,p; ∅/_u,,ross1994-nodes
+c2588f4e02d,lamu1255,t,t,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 't'.",,,,,,,,,,,,,t,,ross1994-nodes
+c471a6b4fe9,lamu1255,k,k,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, ∅'. As in PMAD *k, Ø.",,,,,,,,,,,,,"k, ∅",,ross1994-nodes
+c9fe097dd8d,lamu1255,k,∅,conditions unknown,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'k, ∅'. As in PMAD *k, Ø.",,,,,unknown,,,,,,,,"k, ∅",,ross1994-nodes
+c487cbbe23f,lamu1255,b,b,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'b'.",,,,,,,,,,,,,b,,ross1994-nodes
+cb1bb11b0ef,lamu1255,d,d,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'd'.",,,,,,,,,,,,,d,,ross1994-nodes
+c0ffbc8069c,lamu1255,ɡ,ɡ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ɡ'.",,,,,,,,,,,,,g,,ross1994-nodes
+c2bad0d9c75,lamu1255,s,s,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 's'.",,,,,,,,,,,,,s,,ross1994-nodes
+c41a2eeed62,lamu1255,m,m,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'm'.",,,,,,,,,,,,,m,,ross1994-nodes
+c2993f4743f,lamu1255,n,n,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'n'.",,,,,,,,,,,,,n,,ross1994-nodes
+cc21c2bb31c,lamu1255,ŋ,ŋ,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'ŋ'.",,,,,,,,,,,,,ŋ,,ross1994-nodes
+ccb1fb1eec6,lamu1255,l,l,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'l; n/_#'. PMAD *l; n/_#: the word-final n is PMAD's.",,,,,,,,,,,,,l; n/_#,,ross1994-nodes
+ca321735f44,lamu1255,r,∅,V_V,regular,,,ross1994,556,"Correspondence set (3), p. 556: '∅'. Madak and Lamasong have Ø for PNI *R everywhere, so PMAD's intervocalic *r is lost.",,,,,,,,,,,,,∅,,ross1994-nodes
+cc7e5c0b512,lamu1255,w,β,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: 'β'. Printed v; Ross gives v = [β] for Madak (p. 559).",,,,,,,,,,,,,v,,ross1994-nodes
+c65a637a455,lamu1255,y,∅,elsewhere,regular,,,ross1994,556,"Correspondence set (3), p. 556: '∅'.",,,,,,,,,,,,,∅,,ross1994-nodes
