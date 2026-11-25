@@ -14,3 +14,11 @@ Chung, Sandra. 2020. *Chamorro grammar*. Generator: `tools/batch_scripts/eight_s
 ## Not entered
 
 - §§29.2-29.6 (syllables, stress, the distribution of mid and high vowels, the two orthographies) and chapter 30. Chung's mid and high vowels are separate phonemes in near-complementary distribution (mid in stressed closed syllables), not allophones (§29.5).
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- allophones: sheet rows 1169-1291
+- decisions: sheet rows 208-214

@@ -15,3 +15,12 @@ Roddy, Kevin M. 2007. *A sketch grammar of Satawalese, the language of Satawal I
 ## Not entered
 
 - §2.6 (neighbouring inventories), syllable structure and phonotactics (§§2.4-2.5).
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- phonemes: sheet rows 4841-5005
+- allophones: sheet rows 1169-1291
+- decisions: sheet rows 208-214

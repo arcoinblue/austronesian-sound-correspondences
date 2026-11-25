@@ -12,3 +12,12 @@ Odango, Emerson Lopez. 2015. *Afféú fangani 'join together': A morphophonemic 
 
 - Goodenough & Sugita's (1980: xi, xvii) possible twelve-vowel analysis of Mortlockese, which Odango rejects for PLMRT (pp. 105-106).
 - The surface diphthongs (Figure 21), syllables and moras (§5.2.3), stress and intonation (§5.2.5).
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- lects: sheet rows 1145-1147
+- phonemes: sheet rows 4841-5005
+- allophones: sheet rows 1169-1291

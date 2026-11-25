@@ -16,3 +16,11 @@ Mayer, Clemens J. 2025. *A grammar of Woleaian*. PhD dissertation, University of
 - Mayer's inventory itself (decision `mayer2025-woleaian`) and his marginal geminates /pː mː mʷː nː fː ɾː kː wː ʃ̺ː/.
 - Table 2.14 (Woleaian consonants against PMc and POc): adapted from Bender et al. (2003a), whose rows are already entered.
 - The PCk vowel proposal (decision `mayer2025-pck-vowels`), phonotactics, stress and intonation.
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- allophones: sheet rows 1169-1291
+- decisions: sheet rows 208-214

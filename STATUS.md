@@ -8,30 +8,31 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 270 |  |
-| lects | 1143 | 277 dialect, 33 earlier-stage, 14 group, 530 language, 9 linkage, 280 proto-language |
-| phonemes | 4839 |  |
-| correspondences | 16724 | plus 12157 implied and 3370 stated retentions generated from lects.inherit |
+| sources | 277 |  |
+| lects | 1146 | 279 dialect, 33 earlier-stage, 14 group, 531 language, 9 linkage, 280 proto-language |
+| phonemes | 5004 |  |
+| correspondences | 16783 | plus 12157 implied and 3370 stated retentions generated from lects.inherit |
 | notation_map | 594 |  |
-| allophones | 1167 |  |
-| decisions | 206 | 134 confirmed, 14 open, 58 reverted |
+| allophones | 1290 |  |
+| decisions | 213 | 134 confirmed, 21 open, 58 reverted |
 
-Lects by `inherit`: (blank) 265, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
-Inventories: edited 28, empty 41, reverse-generated 884, sourced 190.
+Lects by `inherit`: (blank) 268, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
+Inventories: edited 28, empty 42, reverse-generated 881, sourced 195.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 345 warning(s), 1888 note(s).
+`build.py --check`: 0 error(s), 398 warning(s), 1897 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 142 |
+| a reflex is not in the lect's sourced inventory | 95 |
 | a work cited in notes has no sources row | 71 |
 | a source is never cited | 53 |
-| a reflex is not in the lect's sourced inventory | 43 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 6 |
 | an attested lect has symbols that are not IPA | 3 |
+| phoneme … is not in … inventory | 1 |
 | the notes of … describe allophones | 1 |
 
 ## Open decisions
@@ -54,6 +55,13 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `jensen1977-symbols` | Which IPA symbols for Jensen's (1977) Yapese ch, b d g j and glottalized consonants? | ch = ʈ (Jensen's 'retroflexed stop'; [ʈ͡ʂ] as an allophone); b d g j = β ð ɣ ʐ, their usual fricative values, with the stops after nasals as allophones; glotta… |  |  |
 | `jensen1977-vowels` | Jensen (1977: 13-22) gives eight short and eight long Yapese vowels by height (high, mid, lower-mid, low) and backness (front, central, back). Which IPA symbol… | Short i e ë ö o ä a u = i e ɛ ɵ ɔ æ ɑ u; long ii ee ea oe oo ae aa uu = iː eː ɛː ɵː ɔː æː ɑː uː. |  |  |
 | `rehg1981-e` | Rehg (1981: 40-41) has two contrasting mid front vowels in the northern dialect, /e/ and /ɛ/, both written e; Rehg (1984: 283-285), the sourced inventory, has … | Both: ɛ and ɛː are added from Rehg (1981) beside Rehg's (1984) e; Rehg's 1984 allophone rows stay. |  |  |
+| `bender2016-ipa` | Bender et al. (2016) give no IPA for Marshallese. Which IPA for their consonants and vowels? | Light, heavy, rounded = palatalized, velarized, labialized(-velarized): p b m ṃ j t n ṇ ṇw k kw ñ ñw l ḷ lw d r rw {y} {h} w = pʲ pˠ mʲ mˠ tʲ tˠ nʲ nˠ nʷ k kʷ … |  |  |
+| `chung2020-chamorro` | Chung (2020: 643-646) analyses Chamorro with six vowels /i e a u o ɒ/ and twenty consonants (b, d among them; the tap ɾ in loans; no labiovelar, /gw/ being a s… | Keep the Topping-Blust inventory; Chung's /a/ (low front) is its æ and her /ɒ/ (low back) its a, as in Topping & Dungca's /æ/ and /a/ (Chung 2020: 644); her al… |  |  |
+| `dougherty2024-vowels` | Dougherty (2024: 111-121) gives the Yapese vowels with IPA that differs from Jensen's (1977a) symbols entered here: ë/ea /æ(ː)/ (here ɛ), o/oo /o(ː)/ (here ɔ),… | Match by the Yapese spelling, which both give: ë/ea = ɛ, o/oo = ɔ, ä/ae = æ, as in the Yapese inventory (decision jensen1977-vowels); Dougherty's IPA is kept i… | 11 |  |
+| `mayer2025-woleaian` | Mayer (2025: 55-70) gives Woleaian 17 consonants, 9 marginal geminates and 8 vowels, with other symbols and values than the inventory of Tawerilmang & Sohn (19… | Keep the inventory of Tawerilmang & Sohn (1984), with Mayer's allophones entered on the phonemes the two share and his analysis noted on the lect (sheet edit),… |  |  |
+| `mayer2025-pck-vowels` | Mayer (2025: 72-74, Table 2.16) proposes Proto-Chuukic vowels *i *ʉ *u *e *o *æ *a *ɔ, with *e > ə, ɞ (e) in Central Chuukic, and gives cognates for them (Tabl… | Not entered: Proto-Chuukic here has the vowels it inherits from PMc, and Mayer marks the proposal as tentative ('a full-fledged analysis ... is beyond the scop… |  |  |
+| `roddy2007-symbols` | Which symbols for Roddy's (2007) Satawalese labialized-velarized consonants and affricate, and do the rows of Bender et al. (2003a) follow them? | pʷˠ, mʷˠ = pʷ, mʷ (as in the other Chuukic lects); the affricate t͡ʃ as printed. After landing, the Satawalese rows of Bender et al. (2003a) are respelled: ʈ͡ʂ… |  |  |
+| `vandenberg2014-symbols` | Which IPA for van den Berg's (2014) Hatohobeian and Sonsorolese bw, mw, pw, ü, gl and r? | bw, mw, pw = bʷ, mʷ, pʷ (her velarized [bˠ mˠ pˠ], written ʷ as in the other Chuukic lects, which describe the same sounds as labialized and velarized); ü = ɨ;… |  |  |
 
 <!-- END GENERATED -->
 

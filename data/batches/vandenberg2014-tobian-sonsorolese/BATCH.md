@@ -17,3 +17,13 @@ van den Berg, Esther. 2014. *Linguistic sketch of Hatohobeian and Sonsorolese: A
 
 - The correspondences Hatohobeian ts = Sonsorolese s, s = d, h = gl (pp. 19-22): they are between the two languages, not from Proto-Chuukic.
 - The morphophonology of chapter 5 and the orthography proposals of chapter 6.
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- lects: sheet rows 1145-1147
+- phonemes: sheet rows 4841-5005
+- allophones: sheet rows 1169-1291
+- decisions: sheet rows 208-214

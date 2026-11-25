@@ -16,3 +16,12 @@ Bender, Byron W., Alfred Capelle & Louise Pagotto. 2016. *Marshallese reference 
 
 - The vowel sounds in mixed environments (Tables 2-13 to 2-16: spelling of glides between consonants of different groups).
 - Initial double consonants, medial clusters and the "diphthongs" and "long" vowels (§§2.4-2.5), and the Rālik-Ratak differences, apart from the instability of {ẹ}.
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- phonemes: sheet rows 4841-5005
+- allophones: sheet rows 1169-1291
+- decisions: sheet rows 208-214

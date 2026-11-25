@@ -13,3 +13,11 @@ Dougherty, Thomas M. 2024. *The origins of Yapese glottalization*. PhD dissertat
 - Chapter 5 (the origins of the glottalized consonants: fusion, laryngeal spread, sound symbolism, loans): word-specific processes, not regular correspondences.
 - §5 of chapter 4 (stress and word shape: loss of post-tonic consonants and vowels, compensatory lengthening), and vowel length generally.
 - Chapter 2 (Yapese phonetics and phonology, Tables 4-7): the inventory stays Jensen's (1977a).
+
+
+## Applied
+
+2026-11-25 00:36 UTC, by the push-batch workflow.
+- sources: sheet rows 272-278
+- correspondences: sheet rows 16726-16784
+- decisions: sheet rows 208-214
