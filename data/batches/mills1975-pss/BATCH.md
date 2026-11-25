@@ -15,3 +15,14 @@ Mills, Roger F. 1975. The reconstruction of Proto South Sulawesi. *Archipel* 10.
 - The irregular vowel reflexes of *ə by assimilation, the doublets and the synchronic b/w, d/r rules beyond the rows above, and the morphophonemics of final -q (notes only).
 - Final *k, *r, *l, *s in PUS and Seko, and final *-k in Mdr./Seko beyond the inventory statement: Mills gives too few forms.
 - §7 morphology, §8 migration scenario (notes only), the Appendix etyma (cited as examples in notes).
+
+
+## Applied
+
+2026-11-25 05:48 UTC, by the push-batch workflow.
+- sources: sheet rows 287-302
+- lects: sheet rows 1149-1156
+- phonemes: sheet rows 5091-5141
+- correspondences: sheet rows 16785-17192
+- notation_map: sheet rows 605-607
+- decisions: sheet rows 221-227

@@ -13,3 +13,11 @@ Blust, Robert. 1991. The Greater Central Philippines hypothesis. *Oceanic Lingui
 - Proto-Philippines (Figure 2) and its developments (p. 89: Kalamian *k > ∅ and *q > k, Bilic *k > g, *s > h in Botolan Sambal and Kalamian, Tiruray final vowels and others): decision `blust1991-pph`.
 - Table 2 rows for the 22 languages that are not lects; Kapampangan and Botolan Sambal, whose parents (Proto-Central Luzon, Proto-Sambalic) already have *R > *y, so that Blust's counts cannot be composed (decision `blust1991-gcp`).
 - The 94 lexical innovations of the Appendix, the lexicostatistics of Table 4 and the language densities of Table 3.
+
+
+## Applied
+
+2026-11-25 05:48 UTC, by the push-batch workflow.
+- sources: sheet rows 287-302
+- correspondences: sheet rows 16785-17192
+- decisions: sheet rows 221-227

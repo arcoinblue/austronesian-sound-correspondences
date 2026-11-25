@@ -10,3 +10,10 @@ Tryon, Darrell. 2010. The languages of Espiritu Santo, Vanuatu. In John Bowden, 
 ## Not entered
 
 - The 30-odd Santo languages that are not lects, the Tolomako dialect of Vasi and Pialulup with /k/ > /ʔ/ (p. 287 n. 5), and the history of the classification (Tryon 1976, Clark 1985, 2009, Lynch & Crowley 2001).
+
+
+## Applied
+
+2026-11-25 05:48 UTC, by the push-batch workflow.
+- sources: sheet rows 287-302
+- decisions: sheet rows 221-227

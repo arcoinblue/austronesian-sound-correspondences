@@ -12,3 +12,11 @@ Grimes, Charles E. & Barbara D. Grimes. 1987. *Languages of South Sulawesi* (Pac
 - The lexicostatistical percentages and the families as tree nodes (decision `grimes1987-tree`).
 - Lects with no phonological data beyond the word lists: Konjo, Selayar, Campalagian, Mamuju, Pattae', Kalumpang, Mamasa, Rongkong, Toala', Pattinjo, Seko Padang, Panasuan, Lemolang, the Central Sulawesi and Muna-Buton languages. Their classification of Barang-Barang (Loa') and Wotu as Muna-Buton differs from Zobel's (2020) Southern Kaili–Wolio placement in the database.
 - Phonetic notes on Mamuju, PUS, Mamasa, Rongkong, Enrekang, Seko Tengah, Topoiyo and Rampi (pp. 96-97): in lect notes where the lect exists, otherwise not entered. Comparative word lists (Appendix E).
+
+
+## Applied
+
+2026-11-25 05:48 UTC, by the push-batch workflow.
+- sources: sheet rows 287-302
+- allophones: sheet rows 1310-1335
+- decisions: sheet rows 221-227

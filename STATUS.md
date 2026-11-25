@@ -8,27 +8,27 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 285 |  |
-| lects | 1147 | 280 dialect, 33 earlier-stage, 14 group, 531 language, 9 linkage, 280 proto-language |
-| phonemes | 5089 |  |
-| correspondences | 16783 | plus 12157 implied and 3370 stated retentions generated from lects.inherit |
-| notation_map | 603 |  |
-| allophones | 1308 |  |
-| decisions | 219 | 134 confirmed, 27 open, 58 reverted |
+| sources | 301 |  |
+| lects | 1155 | 280 dialect, 33 earlier-stage, 14 group, 538 language, 9 linkage, 281 proto-language |
+| phonemes | 5140 |  |
+| correspondences | 17191 | plus 12157 implied and 3368 stated retentions generated from lects.inherit |
+| notation_map | 606 |  |
+| allophones | 1334 |  |
+| decisions | 226 | 134 confirmed, 34 open, 58 reverted |
 
-Lects by `inherit`: (blank) 269, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
-Inventories: edited 28, empty 42, reverse-generated 880, sourced 197.
+Lects by `inherit`: (blank) 277, assumed-unchanged 582, assumed-unchanged (automatic, fewer than 13 phonemes known) 57, stated-unchanged 239.
+Inventories: edited 28, empty 42, reverse-generated 886, sourced 199.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 395 warning(s), 1903 note(s).
+`build.py --check`: 0 error(s), 410 warning(s), 1949 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 142 |
-| a reflex is not in the lect's sourced inventory | 92 |
+| a reflex is not in the lect's sourced inventory | 95 |
 | a work cited in notes has no sources row | 70 |
-| a source is never cited | 55 |
+| a source is never cited | 67 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 6 |
 | an attested lect has symbols that are not IPA | 2 |
@@ -68,6 +68,13 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `sakiyama1982-nguluwan` | Where does Nguluwan (Sakiyama 1982) go in the tree? | A dialect of Yapese (language_id yape1248, parent POc like Yapese), as Sakiyama 'can define it' (p. 106), with its own Glottocode ngul1236. |  |  |
 | `sakiyama1982-symbols` | Which IPA for Sakiyama's (1982) Nguluwan ch, ä, b and g? | ch = t͡ʃ (no value given; paired with j [dʒ] in the chart); ä = ɐ (the typed bracket letter is a turned a); b and g = b, ɡ (charted as voiced stops, not as the… |  |  |
 | `vitapedro2021-phonemes` | How do the analyses of Vita & Pedro (2021) that differ from van den Berg (2014) enter Sonsorolese? | Van den Berg's inventory stays. Their ʝ (voiced palatal fricative) for her j, their view that ə is phonemic (xəɣə- 'tie up' in careful speech, p. 36), the seve… |  |  |
+| `blust1991-pph` | Is Blust's (1991: 88) Proto-Philippines (Figure 2: p t k q b d z j g m n ñ ŋ s h l r R w y; vowels i u e a) entered? | No: there is no Proto-Philippines node. Philippine subgroups (Proto-Batanic, Proto-Northern Luzon, Proto-Central Luzon, PGCPh, Proto-Manide-Alabat) sit under P… |  |  |
+| `blust1991-gcp` | How are Blust's (1991) Greater Central Philippines members entered? | PGCPh (grea1284, already under PMP) keeps its daughters (Umiray Dumaget, Proto-Subanen, Molbog). Central Philippines, South Mangyan, Palawanic, Manobo, Danaw a… |  |  |
+| `grimes1987-tree` | Are the families of Grimes & Grimes (1987) entered as groups under Proto-South Sulawesi? | No: the seven daughters of Mills (1975) sit directly under PSS. Grimes & Grimes's Northern South Sulawesi Family (Mandar, Mamuju, PUS, Pattae', the Toraja-Sa'd… |  |  |
+| `mills1975-pss` | How is Mills's (1975) Proto-South Sulawesi placed and its PAN > PSS changes entered? | PSS under PMP, Glottocode blank (Glottolog 5.4's South Sulawesi, sout3413, has no Seko and adds Tamanic; Greater South Sulawesi adds Rampi and Badaic). Mills's… | 12 |  |
+| `mills1975-lects` | Which lects carry Mills's (1975) language groups Mass., PUS and Seko, and the Makasar dialects? | Mass. on Duri (duri1242), whose dialects Cakke and Kalosi supply most of the forms, as varieties; PUS on Glottolog's family pitu1237 and Seko on seko1241 (a fa… |  |  |
+| `mills1975-symbols` | Which IPA for Mills's (1975) daughter-language letters c, j, y, ñ, ng, q, ë? | c, ɟ, j, ɲ, ŋ, ʔ, ə: j as the voiced palatal stop, as Jukes (2020: 66) has it for Makasar; y the glide. | 15 |  |
+| `tryon2010-santo` | Tryon (2010: 289) says the Santo languages 'appear more closely related to each other than to languages from any island outside Santo and so to constitute a Sa… | No: Tryon gives no innovations, and the Santo lects of the database (Sakao, Tamambo, Araki) stay under Proto-North-Central Vanuatu. The language list goes into… |  |  |
 
 <!-- END GENERATED -->
 
