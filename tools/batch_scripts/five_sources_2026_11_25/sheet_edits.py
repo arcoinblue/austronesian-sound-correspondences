@@ -89,5 +89,5 @@ for i, r in enumerate(ph, start=2):
     if k in PH and PH[k][0] not in r["notes"]:
         out.append((f"phonemes!{col('phonemes', 'notes')}{i}", N((r["notes"] + PH[k][1]).strip()), "|".join(k)))
 
-for rng, key, v in out:
+for rng, v, key in out:
     print(f"{rng}\t{key}\t{typed(v)}")
