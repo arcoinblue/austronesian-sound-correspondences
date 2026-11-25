@@ -1,0 +1,4 @@
+lect_id,phoneme,system,symbol,source_id,page,notes,place,manner,voicing,via_source_id,via_page,via_note
+pss,,canonical,,mills1975,205-206,"Mills's (1975) symbols, with ə for his ë, ŋ for ng and ʔ for q.",,,,,,
+pss,ə,Mills,ë,mills1975,"206, 208","The pepet, used 'instead of Dyen's *e to avoid confusion with my e' (n. 4).",,,,,,
+pss,ʔ,Mills,q,mills1975,206,,,,,,,
