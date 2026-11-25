@@ -26,7 +26,10 @@ REMOVED = ROOT / "data" / "migrations" / "v3_removed_correspondences.csv"
 # East Rote and the nodes under it), Proto-West Rote-Meto (Proto-Dengga-Meto) and Proto-Ambon-Seram
 # (Proto-Nuclear Ambon-Seram), which now change *d (decision ge-identity-conflicts, reverted 23 Nov 2026).
 # They are neither generated nor valid any more.
-RETIRED = {"cc8f477b3bb", "c5c46352749", "ce2dc9c9d8a", "c2c9a6a982f", "c8b4de3bf63", "c873ea522cd", "c8a7bda0812"}
+# Also Billings & McDonnell's stated *t > t in Proto-Northern Batak (c903fdd35a7), which Adelaar's (1981) explicit
+# *t > t elsewhere and *t > c / _i (batch adelaar1981-batak, 25 Nov 2026) now cover: no longer generated.
+RETIRED = {"cc8f477b3bb", "c5c46352749", "ce2dc9c9d8a", "c2c9a6a982f", "c8b4de3bf63", "c873ea522cd", "c8a7bda0812",
+           "c903fdd35a7"}
 
 
 def removed_rows(all_rows=False):
