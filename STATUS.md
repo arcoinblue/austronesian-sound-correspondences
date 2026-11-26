@@ -9,24 +9,24 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 333 |  |
-| lects | 1200 | 293 dialect, 34 earlier-stage, 16 group, 563 language, 9 linkage, 285 proto-language |
-| phonemes | 5422 |  |
-| correspondences | 18412 | plus 12481 implied and 3419 stated retentions generated from lects.inherit |
+| lects | 1263 | 306 dialect, 34 earlier-stage, 16 group, 613 language, 9 linkage, 285 proto-language |
+| phonemes | 5423 |  |
+| correspondences | 20274 | plus 12580 implied and 3419 stated retentions generated from lects.inherit |
 | notation_map | 612 |  |
 | allophones | 1392 |  |
-| decisions | 246 | 134 confirmed, 53 open, 59 reverted |
+| decisions | 248 | 134 confirmed, 55 open, 59 reverted |
 
-Lects by `inherit`: (blank) 295, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 56, stated-unchanged 245.
-Inventories: edited 37, empty 45, reverse-generated 907, sourced 211.
+Lects by `inherit`: (blank) 350, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 64, stated-unchanged 245.
+Inventories: edited 38, empty 49, reverse-generated 965, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 463 warning(s), 1998 note(s).
+`build.py --check`: 0 error(s), 465 warning(s), 2326 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 149 |
-| a reflex is not in the lect's sourced inventory | 102 |
+| no glottocode | 150 |
+| a reflex is not in the lect's sourced inventory | 103 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 76 |
 | no page number for the citation | 26 |
@@ -94,6 +94,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `tryon1994-composition` | How is Tryon's (1994) Appendix 1 (POC consonants in 17 Eastern Outer Islands lects) entered? | Grace's POC symbols read as Ross's (mp = b, nt = d, ŋk = ɡ, ŋp = bʷ, ŋm = mʷ, d and r = r, nd = dr, ns = j). Each reflex is restated against the lect's parent:… | 569 |  |
 | `ncv-tree` | The North and Central Vanuatu lects stood in three places under Southern Oceanic: under PNCV, loose under the linkage (five Malakula languages), and in a group… | One clade North and Central Vanuatu (Proto-North-Central Vanuatu, nort3195) with two groups, Northern Vanuatu (nort3205) and Central Vanuatu (cent2269), as in … |  |  |
 | `sumatran-dialects` | The user asked (26 November 2026) for Gayo, Mentawai and Enggano to be split into dialects with their own pages under Pre-Gayo, Pre-Mentawai and Pre-Enggano. W… | Gayo: five dialects under Pre-Gayo (Bukit, Cik, Dëret, Lues, Serbejadi; Billings & McDonnell 2024: 117), each stated-unchanged apart from the two sets: *ay, *a… |  |  |
+| `ross1988-ppt` | Ross (1988) prints the Papuan Tip consonant correspondences (Tables 28-30) as POC > PPT > language, and for the Central Papuan family as POC > PPT > PCP > lang… | Against Proto-Papuan Tip (ppt), an established node already in the tree, with PPT in the sheet's Oceanic spelling (*bw bʷ, *mw mʷ, *pw pʷ, *kw kʷ, *gw ɡʷ, *g ɡ… | 1862 |  |
+| `ross1988-pt-lects` | How are Ross's (1988) Papuan Tip language names matched to Glottolog and to lects? | By Ross's own equations (Figures 7-8: Paiwa = Gapapaiwa, Kukuya = Minaveha, Gumasi = Gumawana, Kakabai = Igora; Lala = Nara, p. 190) and Glottolog 5.4 and Ross… |  |  |
 
 <!-- END GENERATED -->
 

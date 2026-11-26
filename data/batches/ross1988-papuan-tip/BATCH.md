@@ -16,3 +16,12 @@ Ross, Malcolm D. 1988. *Proto Oceanic and the Austronesian languages of western 
 - Table 30, the column POC *Ø- (PCP *y before *a).
 - Table 31 (reflexes of the PPT postposition *[i]ai): morphology.
 - Vowels (Ross tabulates consonants only).
+
+
+## Applied
+
+2026-11-26 02:54 UTC, by the push-batch workflow.
+- lects: sheet rows 1202-1264
+- phonemes: sheet rows 5424-5424
+- correspondences: sheet rows 18414-20275
+- decisions: sheet rows 248-249
