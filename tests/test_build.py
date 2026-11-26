@@ -174,16 +174,139 @@ class TestTreeNodes(unittest.TestCase):
         self.assertNotIn("tree_parent", idx["exam1234"])
         self.assertEqual(build.lect_json("dial1234", D)["represents"], "lang1234")
         self.assertNotIn("grp", build.lect_json("pxb", D)["daughters"])
-        # A tree parent under another reconstructed parent, and rows on a group, are refused.
-        rep = run(lambda d: [m(d) for m in base + [set_cells("lects.csv", "id", "exam1234", tree_parent="pxb")]])
-        self.assertError(rep, "must be a group, a language or a dialect")
+        # Rows on a group are refused.
         rep = run(lambda d: [m(d) for m in base + [append("correspondences.csv",
                                                           "cgrp0000001,grp,p,f,elsewhere,regular,,,example2026,1,")]])
         self.assertError(rep, "a group is a tree node only")
-        rep = run(lambda d: [m(d) for m in base + [lect(id="odd", name="Odd", type="group", parent_id="pxa",
-                                                       tree_parent="grp")]])
-        self.assertError(rep, "give both the same parent_id")
+        # A tree parent may stand below the lect's parent_id (26 Nov 2026): a lect whose rows are stated
+        # against PXA is listed under a group of PXB, the subgroup the classification puts it in.
+        rep, D = run(lambda d: [m(d) for m in base + [
+            lect(id="high1234", name="Highish", type="language", glottocode="high1234", parent_id="pxa",
+                 tree_parent="grp"),
+            append("correspondences.csv", "chigh000001,high1234,C,c,elsewhere,regular,,,example2026,1,")]], derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertEqual(D["lects"]["high1234"]["tree_parent_id"], "grp")
+        self.assertEqual(D["by_child"]["high1234:c"][0]["parent_phoneme_id"], "pxa:C")
+        self.assertEqual({r["id"]: r for r in build.index_json(D)["lects"]}["high1234"]["tree_parent"], "grp")
+        # ... and a reconstructed lect can be a tree parent on the same terms.
+        rep = run(lambda d: [m(d) for m in base + [
+            lect(id="high1234", name="Highish", type="language", glottocode="high1234", parent_id="pxa",
+                 tree_parent="pxb")]])
+        self.assertEqual(rep.errors, [])
+        # It may not stand elsewhere: a lect of PXB under a group that hangs from PXA.
+        rep = run(lambda d: [m(d) for m in base + [lect(id="top", name="Top Group", type="group", parent_id="pxa"),
+                                                   set_cells("lects.csv", "id", "exam1234", tree_parent="top")]])
+        self.assertError(rep, "does not stand under 'pxb'")
+        rep = run(lambda d: [m(d) for m in base + [set_cells("lects.csv", "id", "exam1234", tree_parent="exam1234")]])
+        self.assertError(rep, "tree_parent names the lect itself")
 
+
+
+def add_column(name, col):
+    """Add an optional column to a fixture table (a mutate step for run())."""
+    def m(d):
+        path = d / name
+        with path.open(encoding="utf-8") as f:
+            rows = list(csv.reader(f))
+        if col not in rows[0]:
+            rows = [rows[0] + [col]] + [r + [""] for r in rows[1:]]
+        with path.open("w", encoding="utf-8", newline="") as f:
+            csv.writer(f, lineterminator="\n").writerows(rows)
+    return m
+
+
+class TestOtherPredecessor(unittest.TestCase):
+    """correspondences.parent_lect_id (26 Nov 2026): a row may be stated against a lect other than
+    the child's parent_id: a loan stratum against its donor or the donor's ancestor (Yapese), a
+    reflex a source states against another stage. Blank, the predecessor is the lect's parent_id."""
+
+    COLS = build.TABLES["correspondences"]
+
+    def row(self, **kw):
+        buf = io.StringIO()
+        csv.writer(buf, lineterminator="").writerow([kw.get(c, "") for c in self.COLS])
+        return append("correspondences.csv", buf.getvalue())
+
+    def run_with(self, *steps):
+        return run(lambda d: [m(d) for m in (add_column("correspondences.csv", "parent_lect_id"),) + steps],
+                   derived=True)
+
+    def test_column_is_optional_and_blank_means_the_parent(self):
+        self.assertIn("parent_lect_id", build.OPTIONAL_COLUMNS["correspondences"])
+        self.assertEqual(self.COLS[-1], "parent_lect_id")       # appended: older sheets keep their columns
+        rep, D = run(derived=True)
+        self.assertEqual(rep.errors, [])
+        self.assertFalse(any(r.get("other_predecessor") for r in D["corrs"]))
+        rep2, D2 = self.run_with()
+        self.assertEqual([r["parent_phoneme_id"] for r in D["corrs"]], [r["parent_phoneme_id"] for r in D2["corrs"]])
+        # Naming the lect's own parent is the same as leaving the cell blank.
+        rep3, D3 = self.run_with(self.row(id="cown0000001", child_lect_id="samp1234", parent_phoneme="t",
+                                          child_phoneme="t", environment="_i", status="regular",
+                                          source_id="example2026", page="1", parent_lect_id="pxb"))
+        self.assertEqual(rep3.errors, [])
+        self.assertFalse(next(r for r in D3["corrs"] if r["id"] == "cown0000001")["other_predecessor"])
+
+    def test_row_against_another_lect(self):
+        base, D0 = run(derived=True)
+        rep, D = self.run_with(self.row(id="cloan000001", child_lect_id="samp1234", parent_phoneme="C",
+                                        child_phoneme="c", environment="elsewhere", status="loan-stratum",
+                                        stratum="old loans", source_id="example2026", page="70",
+                                        parent_lect_id="pxa"))
+        self.assertEqual(rep.errors, [])
+        r = next(r for r in D["corrs"] if r["id"] == "cloan000001")
+        self.assertEqual((r["parent_lect_id"], r["parent_phoneme_id"], r["other_predecessor"]), ("pxa", "pxa:C", True))
+        # It is a phoneme of the lect, listed on the donor's phoneme and on the lect's page ...
+        self.assertIn("c", D["inventory"]["samp1234"])
+        j, files = build.lect_files("samp1234", D)
+        self.assertEqual([e["correspondence_id"] for e in j["other_predecessors"]], ["cloan000001"])
+        self.assertNotIn("cloan000001", [e["correspondence_id"] for e in j["changes"]])
+        g = files[next(p["file"] for p in j["phonemes"] if p["ipa"] == "c")]["ancestry_graph"]
+        self.assertEqual((g["edges"], [e["correspondence_id"] for e in g["other"]]), ([], ["cloan000001"]))
+        _, pfiles = build.lect_files("pxa", D)
+        jp = build.lect_json("pxa", D)
+        down = pfiles[next(p["file"] for p in jp["phonemes"] if p["ipa"] == "C")]["descendants"]
+        mine = [e for e in down if e["correspondence_id"] == "cloan000001"]
+        self.assertTrue(mine and mine[0]["other_predecessor"] and mine[0]["via"] == [])
+        # ... but it is no outcome of the lect's own parent: coverage and the other rows are as before.
+        self.assertEqual(build.lect_json("samp1234", D)["coverage"], build.lect_json("samp1234", D0)["coverage"])
+        self.assertEqual(D["entered_pairs"]["samp1234"], D0["entered_pairs"]["samp1234"])
+        self.assertEqual(D["conflicts"], D0["conflicts"])
+
+    def test_inheritance_ignores_rows_against_other_lects(self):
+        """An assumed-unchanged lect still keeps its parent's *t when a loan row is stated against PXA *t."""
+        steps = (set_cells("lects.csv", "id", "samp1234", inherit="assumed-unchanged"),)
+        _, D0 = run(lambda d: [m(d) for m in steps], derived=True)
+        rep, D = self.run_with(*steps, self.row(id="cloan000002", child_lect_id="samp1234", parent_phoneme="s",
+                                                child_phoneme="s", environment="elsewhere", status="loan-stratum",
+                                                source_id="example2026", page="70", parent_lect_id="pxa"))
+        self.assertEqual(rep.errors, [])
+        implied = lambda X: sorted(r["parent_phoneme"] for r in X["corrs"]
+                                   if r["child_lect_id"] == "samp1234" and r["derivation"] == "implied-retention")
+        self.assertEqual(implied(D), implied(D0))
+
+    def test_refusals(self):
+        bad = lambda **kw: self.run_with(self.row(**{**dict(id="cbad0000001", child_lect_id="samp1234",
+                                                           parent_phoneme="p", child_phoneme="p", environment="_a",
+                                                           status="regular", source_id="example2026", page="1"), **kw}))[0]
+        self.assertTrue(any("is not in lects.csv" in e for e in bad(parent_lect_id="nope").errors))
+        self.assertTrue(any("names the lect itself" in e for e in bad(parent_lect_id="samp1234").errors))
+        # An attested lect can only be the donor of a loan stratum.
+        self.assertTrue(any("only a loan-stratum row" in e for e in bad(parent_lect_id="exam1234").errors))
+        self.assertEqual(bad(parent_lect_id="exam1234", status="loan-stratum").errors, [])
+        # The phoneme must be in that lect's inventory.
+        self.assertTrue(any("is not in pxa's inventory" in e
+                            for e in bad(parent_lect_id="pxa", parent_phoneme="ɸ", status="loan-stratum").errors))
+
+    def test_no_loop_through_loans(self):
+        """Two lects that borrow from each other do not send the descent round in circles."""
+        rep, D = self.run_with(
+            self.row(id="cloop000001", child_lect_id="samp1234", parent_phoneme="p", child_phoneme="p",
+                     environment="_i", status="loan-stratum", source_id="example2026", page="1", parent_lect_id="exam1234"),
+            self.row(id="cloop000002", child_lect_id="exam1234", parent_phoneme="p", child_phoneme="p",
+                     environment="_i", status="loan-stratum", source_id="example2026", page="1", parent_lect_id="samp1234"))
+        self.assertEqual(rep.errors, [])
+        for L in ("pxa", "pxb", "exam1234", "samp1234"):
+            build.lect_files(L, D)
 
 
 class TestImpliedInAttested(unittest.TestCase):
@@ -785,8 +908,8 @@ class TestV2Layout(unittest.TestCase):
         def m(d):
             p = d / "correspondences.csv"
             lines = p.read_text(encoding="utf-8").splitlines()
-            self.assertTrue(lines[0].endswith(",as_printed,locator,decision") and lines[1].endswith(",,,"))
-            lines[1] = lines[1][:-3] + ",*p > p,Table 3,"
+            self.assertTrue(lines[0].endswith(",as_printed,locator,decision,parent_lect_id") and lines[1].endswith(",,,,"))
+            lines[1] = lines[1][:-4] + ",*p > p,Table 3,,"
             p.write_text("\n".join(lines) + "\n", encoding="utf-8")
         rep, D = run(m, derived=True)
         self.assertEqual(rep.errors, [])
@@ -1180,7 +1303,8 @@ class TestTreeOrder(unittest.TestCase):
         from asc.geo import region, REGIONS
         places = [("Taiwan", 24.5, 121.3), ("Philippines", 16.5, 121.0), ("Borneo", 2.5, 113.5),
                   ("Sumatra and the mainland", 0.5, 100.5), ("Java to Sumbawa", -7.5, 110.5), ("Sulawesi", -2.0, 120.5),
-                  ("Lesser Sundas and central Maluku", -9.5, 124.5), ("Halmahera and Cenderawasih Bay", 1.0, 128.0),
+                  ("Lesser Sundas", -9.5, 124.5), ("Maluku", -3.3, 128.5), ("Halmahera and Cenderawasih Bay", 1.0, 128.0),
+                  ("Yap", 9.5, 138.1), ("Admiralties", -2.1, 147.0), ("Mussau", -1.4, 149.6),
                   ("New Guinea, the Bismarcks and the north-west Solomons", -5.5, 147.0),
                   ("South-east Solomons", -9.5, 160.5), ("Micronesia", 7.0, 152.0),
                   ("North and central Vanuatu", -15.5, 167.2), ("Southern Vanuatu", -19.5, 169.4),
@@ -1190,7 +1314,9 @@ class TestTreeOrder(unittest.TestCase):
         self.assertEqual(got, sorted(got))
         # Spot checks at the edges: Orchid Island, Sabah, the Malay Peninsula, Aru, Yapen, Rennell, Tuvalu.
         for name, lat, lon in [("Taiwan", 22.05, 121.55), ("Borneo", 5.5, 117.0), ("Sumatra and the mainland", 4.0, 102.0),
-                               ("Lesser Sundas and central Maluku", -6.0, 134.5),
+                               ("Maluku", -6.0, 134.5), ("Maluku", -2.0, 125.5), ("Maluku", -7.6, 131.5),
+                               ("Lesser Sundas", -7.9, 129.8), ("Yap", 8.45, 137.34), ("Micronesia", 10.0, 139.7),
+                               ("New Guinea, the Bismarcks and the north-west Solomons", -2.5, 150.2),
                                ("Halmahera and Cenderawasih Bay", -1.8, 136.2), ("South-east Solomons", -11.6, 160.3),
                                ("Polynesia", -8.5, 179.2), ("Polynesia", -41.0, 174.0)]:
             self.assertEqual(REGIONS[region(lat, lon)], name, (lat, lon))
@@ -1218,6 +1344,27 @@ class TestTreeOrder(unittest.TestCase):
         # reference coordinates; Polynesia; a lect with no place last, whatever its name.
         self.assertEqual(order, ["atayal", "paiwan", "grp", "byref", "tonga", "nowhere"])
         self.assertEqual(sorted(["tagalog", "iban", "cebuano"], key=o.get), ["tagalog", "cebuano", "iban"])
+
+    def test_user_order_of_26_nov_2026(self):
+        """Yapese, Admiralty, Mussau first under Oceanic; after Sulawesi, Bima-Lembata, Central Timor and
+        Timor-Babar (west to east), then Maluku from Sula-Buru to Aru, then SHWNG and Oceanic."""
+        from asc.geo import tree_order
+        def L(name, lat, lon, parent="root"):
+            return dict(name=name, type="language", parent_id=parent, tree_parent_id=parent,
+                        coordinates=[lat, lon], glottocode="", alt_parent_list=[])
+        lects = {"root": dict(name="Proto-Root", type="proto-language", parent_id="", tree_parent_id="",
+                              coordinates=None, glottocode="", alt_parent_list=[]),
+                 "celebic": L("Celebic", -1.5, 121.5), "ssul": L("South Sulawesi", -4.0, 119.9),
+                 "bl": L("Bima-Lembata", -9.0, 121.0), "ct": L("Central Timor", -8.9, 125.4),
+                 "tb": L("Timor-Babar", -9.05, 126.0), "sb": L("Sula-Buru", -2.9, 126.4),
+                 "as": L("Ambon-Seram", -3.3, 128.8), "stb": L("Seram-Tanimbar-Bomberai", -4.3, 132.0),
+                 "aru": L("Aru", -6.2, 134.5), "shwng": L("SHWNG", -1.5, 133.0),
+                 "yap": L("Yapese", 9.5, 138.1), "adm": L("Admiralty", -2.1, 147.1), "mus": L("Mussau", -1.4, 149.6),
+                 "ni": L("New Ireland", -3.1, 151.4), "mic": L("Micronesian", 7.0, 152.0)}
+        o = tree_order(lects, reference={})
+        self.assertEqual(sorted((k for k in lects if k != "root"), key=o.get),
+                         ["celebic", "ssul", "bl", "ct", "tb", "sb", "as", "stb", "aru", "shwng",
+                          "yap", "adm", "mus", "ni", "mic"])
 
     def test_index_carries_the_order(self):
         rep, D = run(lambda d: None, derived=True)

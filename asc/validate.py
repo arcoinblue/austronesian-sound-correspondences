@@ -208,25 +208,37 @@ def validate_and_derive(t, rep: Report):
             seen.add(cur)
             cur = lects[cur]["parent_id"]
 
-    # The tree the lect list draws: each lect under its tree_parent, which is a group (a
-    # linkage, or a subgroup with no proto-language), a language (for its dialects) or a
-    # dialect (for its sub-dialects). Blank: a dialect goes under its language_id when the
-    # two have the same parent_id; anything else under its parent_id. A tree parent sits
-    # under the same reconstructed parent as its members, so the tree and the descent agree.
-    TREE_PARENT_TYPES = GROUP_TYPES | {"language", "dialect"}
+    # The tree the lect list draws: each lect under its tree_parent. Usually that is a group
+    # (a linkage, or a subgroup with no proto-language), a language (for its dialects) or a
+    # dialect (for its sub-dialects) under the same parent_id. It may also stand lower than
+    # the lect's parent_id, and be a reconstructed lect: the classification puts the lect in
+    # a subgroup whose proto-language its rows are not stated against (Nese, stated against
+    # POc by Lynch, listed under North-Central Vanuatu > Central Vanuatu). The tree is the
+    # classification; parent_id is the predecessor of the lect's rows and the lect it inherits
+    # from. The one rule: the tree parent stands at or below the lect's parent_id, so that
+    # the lect is still drawn somewhere under the stage it descends from.
+    # Blank: a dialect goes under its language_id when the two have the same parent_id;
+    # anything else under its parent_id.
+    def stands_under(tp, P):
+        seen = set()
+        while tp and tp in lects and tp not in seen:
+            if tp == P or lects[tp]["parent_id"] == P:
+                return True
+            seen.add(tp)
+            tp = lects[tp]["tree_parent"] if lects[tp]["tree_parent"] in lects else lects[tp]["parent_id"]
+        return False
     for r in lects.values():
         w, tp = r["_where"], r["tree_parent"]
         if tp:
             if tp not in lects:
                 rep.error(w, f"tree_parent {tp!r} is not a lect")
                 tp = ""
-            elif lects[tp]["type"] not in TREE_PARENT_TYPES:
-                rep.error(w, f"tree_parent {tp!r} is a {lects[tp]['type']}; it must be a group, a language or "
-                             "a dialect (a reconstructed parent goes in parent_id)")
+            elif tp == r["id"]:
+                rep.error(w, "tree_parent names the lect itself")
                 tp = ""
-            elif lects[tp]["parent_id"] != r["parent_id"]:
-                rep.error(w, f"tree_parent {tp!r} stands under {lects[tp]['parent_id'] or 'nothing'!r}, "
-                             f"this lect under {r['parent_id'] or 'nothing'!r}; give both the same parent_id")
+            elif not stands_under(tp, r["parent_id"]):
+                rep.error(w, f"tree_parent {tp!r} does not stand under {r['parent_id'] or 'nothing'!r}, this lect's "
+                             "parent_id: a tree parent is the lect's parent_id or a node below it")
                 tp = ""
         elif r["type"] == "dialect" and r["language_id"] in lects:
             lg = lects[r["language_id"]]
@@ -238,7 +250,7 @@ def validate_and_derive(t, rep: Report):
         r["tree_parent_id"] = tp or r["parent_id"]
     for r in lects.values():
         seen, cur = {r["id"]}, r["tree_parent_id"]
-        while cur and cur in lects and lects[cur]["type"] not in RECONSTRUCTED:
+        while cur and cur in lects:
             if cur in seen:
                 rep.error(r["_where"], f"tree_parent chain loops back to {cur!r}")
                 r["tree_parent_id"] = r["parent_id"]
@@ -342,7 +354,32 @@ def validate_and_derive(t, rep: Report):
         if L not in lects:
             rep.error(w, f"child_lect_id {L!r} is not in lects.csv")
             continue
+        # The row's predecessor: the lect its parent_phoneme belongs to. Blank, it is the
+        # lect's own parent_id. A row may name another lect (correspondences.parent_lect_id):
+        # a loan stratum stated against its donor or the donor's ancestor (Yapese words from
+        # a pre-Oceanic source, against PMP), or a reflex that a source states against a
+        # stage other than the one the lect inherits from. Such a row is the lect's reflex
+        # of that lect's phoneme and nothing more: it does not count as an outcome of the
+        # lect's own parent, so inheritance and coverage leave it aside.
         P = lects[L]["parent_id"]
+        own = r.get("parent_lect_id", "").strip()
+        r["other_predecessor"] = False
+        if own and own != P:
+            if own not in lects:
+                rep.error(w, f"parent_lect_id {own!r} is not in lects.csv")
+                continue
+            if own == L:
+                rep.error(w, "parent_lect_id names the lect itself")
+                continue
+            if lects[own]["type"] in GROUP_TYPES:
+                rep.error(w, f"parent_lect_id {own!r} is a {lects[own]['type']}: it has no phonemes")
+                continue
+            if lects[own]["type"] not in RECONSTRUCTED and r["status"] != "loan-stratum":
+                rep.error(w, f"parent_lect_id {own!r} is an attested lect; only a loan-stratum row can be "
+                             "stated against one (its donor)")
+                continue
+            P = own
+            r["other_predecessor"] = True
         if not P:
             rep.error(w, f"{L} has no parent_id, so it cannot have correspondences")
             continue
@@ -441,7 +478,7 @@ def validate_and_derive(t, rep: Report):
     for r in corrs:
         if r["child_phoneme"]:
             symbols_of[r["child_lect_id"]].add(r["child_phoneme"])
-            if r["child_phoneme"] == r["parent_phoneme"] and not r["system"]:
+            if r["child_phoneme"] == r["parent_phoneme"] and not r["system"] and not r["other_predecessor"]:
                 unchanged.add((r["child_lect_id"], r["child_phoneme"]))
 
     def reading(L, s, seen=()):
@@ -480,10 +517,9 @@ def validate_and_derive(t, rep: Report):
             if cls == "other":
                 # Not a symbol the chart knows: at least say consonant or vowel,
                 # from what it continues, so it lands in the right unclassified group.
-                P = lects[L]["parent_id"]
-                votes = [inventory[P][r["parent_phoneme"]]["class"] for r in corrs
+                votes = [inventory[r["parent_lect_id"]][r["parent_phoneme"]]["class"] for r in corrs
                          if r["child_lect_id"] == L and r["child_phoneme"] == s and not r["system"]
-                         and r["parent_phoneme"] in inventory.get(P, {})]
+                         and r["parent_phoneme"] in inventory.get(r["parent_lect_id"], {})]
                 votes = [v for v in votes if v in ("C", "V")]
                 if votes:
                     cls = max(set(votes), key=votes.count)
@@ -539,7 +575,7 @@ def validate_and_derive(t, rep: Report):
         Cited to inherit_source_id / inherit_page, else to the source and page the
         lect's rows cite most."""
         rec = lects[L]
-        mine = [r for r in corrs if r["child_lect_id"] == L and not r["system"]]
+        mine = [r for r in corrs if r["child_lect_id"] == L and not r["system"] and not r.get("other_predecessor")]
         cites = Counter((r["source_id"], r["page"]) for r in mine).most_common(1)
         source_id = rec["inherit_source_id"] or (cites[0][0][0] if cites else "")
         page = rec["inherit_page"] if rec["inherit_source_id"] or rec["inherit_page"] \
@@ -639,7 +675,8 @@ def validate_and_derive(t, rep: Report):
             pairs, kind = {**{s: s for s in "iau"}, schwa(pv): schwa(vow)}, "four-vowel system i ə a u below PMP"
         else:
             return []
-        if any(r["child_lect_id"] == L and not r["system"] and r["parent_phoneme"] in pv for r in corrs):
+        if any(r["child_lect_id"] == L and not r["system"] and not r.get("other_predecessor")
+               and r["parent_phoneme"] in pv for r in corrs):
             return []   # the source states something about the vowels: no default
         cites = Counter((rows[s]["source_id"], rows[s]["page"]) for s in vow if s in rows).most_common(1)
         source_id, page = cites[0][0] if cites else ("", "")
@@ -809,9 +846,9 @@ def validate_and_derive(t, rep: Report):
         inv_p = inventory.get(r["parent_lect_id"]) or {}
         m1, m2 = FUSION_FIRST.match(r["environment"]), FUSION_SECOND.match(r["environment"])
         if m1 and m1.group(1) in inv_p:
-            key, role = (r["child_lect_id"], r["parent_phoneme"], m1.group(1), r["child_phoneme"]), "first"
+            key, role = (r["child_lect_id"], r["parent_phoneme"], m1.group(1), r["child_phoneme"], r["parent_lect_id"]), "first"
         elif m2 and m2.group(1) in inv_p:
-            key, role = (r["child_lect_id"], m2.group(1), r["parent_phoneme"], r["child_phoneme"]), "second"
+            key, role = (r["child_lect_id"], m2.group(1), r["parent_phoneme"], r["child_phoneme"], r["parent_lect_id"]), "second"
         else:
             continue
         slot = halves.setdefault(key, {})
@@ -819,8 +856,7 @@ def validate_and_derive(t, rep: Report):
             rep.warn(r["_where"], f"repeats the fusion row at {slot[role]['_where']}; ignored for the diagram")
             continue
         slot[role] = r
-    for (L, a, b, R), slot in halves.items():
-        P = lects[L]["parent_id"]
+    for (L, a, b, R, P), slot in halves.items():
         if len(slot) < 2:
             r = next(iter(slot.values()))
             other = (f"parent_phoneme {b}, environment {a}+_" if "first" in slot
@@ -1180,7 +1216,8 @@ def validate_and_derive(t, rep: Report):
         by_parent[r["parent_phoneme_id"]].append(r)
         if r["child_phoneme_id"]:
             by_child[r["child_phoneme_id"]].append(r)
-        if not r["system"] and r["parent_phoneme"] != ZERO and r["derivation"] != "implied-retention":
+        if not r["system"] and r["parent_phoneme"] != ZERO and r["derivation"] != "implied-retention" \
+                and not r.get("other_predecessor"):
             entered_pairs[r["child_lect_id"]].add(r["parent_phoneme"])
 
     # Nodes with no page: a group, and a language or dialect with no rows of its own whose

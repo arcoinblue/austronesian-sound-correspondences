@@ -2,10 +2,16 @@
 
 Sisters run roughly along the spread of the family: Taiwan, the Philippines (with Palau and
 the Marianas), Borneo, Sumatra and the mainland, Java to Sumbawa, Sulawesi, the Lesser
-Sundas and central Maluku, Halmahera and Cenderawasih Bay, New Guinea with the Bismarcks
-and the north-west Solomons, the south-east Solomons, Temotu, Micronesia, north and central
+Sundas (Sumbawa to Timor and Babar), Maluku (Sula and Buru to Aru), Halmahera and
+Cenderawasih Bay, Yap, the Admiralties, Mussau, New Guinea with the Bismarcks and the
+north-west Solomons, the south-east Solomons, Temotu, Micronesia, north and central
 Vanuatu, southern Vanuatu, New Caledonia, Fiji and Rotuma, Polynesia. Inside one region they
-run from north to south, then from west to east.
+run from north to south, then from west to east; in the Lesser Sundas, an island chain
+that runs east, from west to east first (Bima-Lembata, Central Timor, Timor-Babar).
+
+Yap, the Admiralties and Mussau are regions of their own so that the first sisters under
+Oceanic are Yapese, Admiralty and Mussau, in that order (the user's instruction of 26 Nov
+2026), ahead of the Western Oceanic linkage.
 
 A lect's place is its own coordinates (lects.latitude, lects.longitude), else Glottolog's
 for its glottocode (reference/glottolog_coordinates.csv). A node with lects under it takes
@@ -21,10 +27,13 @@ from pathlib import Path
 REFERENCE = Path(__file__).resolve().parent.parent / "reference" / "glottolog_coordinates.csv"
 
 REGIONS = ["Taiwan", "Philippines", "Palau and the Marianas", "Borneo", "Madagascar", "Sumatra and the mainland",
-           "Java to Sumbawa", "Sulawesi", "Lesser Sundas and central Maluku", "Halmahera and Cenderawasih Bay",
+           "Java to Sumbawa", "Sulawesi", "Lesser Sundas", "Maluku", "Halmahera and Cenderawasih Bay",
+           "Yap", "Admiralties", "Mussau",
            "New Guinea, the Bismarcks and the north-west Solomons", "South-east Solomons", "Temotu", "Micronesia",
            "North and central Vanuatu", "Southern Vanuatu", "New Caledonia", "Fiji and Rotuma", "Polynesia"]
 UNPLACED = len(REGIONS)
+# Regions whose sisters run from west to east first, then from north to south.
+WEST_TO_EAST = {REGIONS.index("Lesser Sundas")}
 
 
 def region(lat, lon):
@@ -52,6 +61,12 @@ def region(lat, lon):
         return r("South-east Solomons")
     if (131 <= lon <= 136 and 2 <= lat <= 9) or (144 <= lon <= 147 and 12.5 <= lat <= 21):
         return r("Palau and the Marianas")
+    if 137 <= lon <= 139 and 8 <= lat <= 10.5:
+        return r("Yap")                    # Yap and Ngulu; Ulithi and Fais, further east, are Micronesia
+    if 142.5 <= lon <= 148.6 and -3.2 <= lat <= -0.9:
+        return r("Admiralties")            # Wuvulu and the Ninigo Islands to Manus and Nauna
+    if 149.3 <= lon <= 151 and -1.9 <= lat <= -1.2:
+        return r("Mussau")                 # the St Matthias Islands; New Hanover lies south of them
     if (136 <= lon <= 178 and lat >= -0.9) or (166 <= lon <= 178 and -3 <= lat < -0.9):
         return r("Micronesia")
     if 137.5 <= lon <= 165 and -12.5 <= lat < -0.9:
@@ -65,12 +80,14 @@ def region(lat, lon):
     if 92 <= lon < 110.5 and -6.5 <= lat <= 24:
         return r("Sumatra and the mainland")
     if 124.3 <= lon <= 126.5 and -2.6 <= lat <= -1.5:
-        return r("Lesser Sundas and central Maluku")      # Sula
+        return r("Maluku")      # Sula
     if (118.6 <= lon <= 125.6 and -6.4 < lat <= 2) or (124 <= lon <= 127.3 and 1 <= lat < 5.7):
         return r("Sulawesi")
-    if (118.5 <= lon <= 135.5 and -11.6 <= lat <= -6.4) or (125.5 <= lon <= 133.9 and -6.4 < lat <= -2.6) \
+    if 118.5 <= lon < 131 and -11.6 <= lat <= -6.4:
+        return r("Lesser Sundas")          # Sumbawa and Sumba to Timor, Wetar and Babar
+    if (131 <= lon <= 135.5 and -11.6 <= lat <= -6.4) or (125.5 <= lon <= 133.9 and -6.4 < lat <= -2.6) \
             or (133.9 < lon <= 135.5 and -6.4 < lat <= -4.3):
-        return r("Lesser Sundas and central Maluku")
+        return r("Maluku")                 # Buru, Seram, Ambon and Banda; Tanimbar, Kei and Aru
     if 124 <= lon < 137.5 and -4.6 <= lat <= 3.5:
         return r("Halmahera and Cenderawasih Bay")
     return UNPLACED
@@ -140,6 +157,8 @@ def tree_order(lects, reference=None):
         here = [p for p in pts if region(*p) == reg]
         lat = sum(p[0] for p in here) / len(here)
         lon = sum((p[1] + 360 if p[1] < 0 else p[1]) for p in here) / len(here)
+        if reg in WEST_TO_EAST:
+            return (reg, round(lon, 1), -round(lat, 1), lects[L]["name"])
         return (reg, -round(lat, 1), round(lon, 1), lects[L]["name"])
 
     ranked = sorted(lects, key=key)

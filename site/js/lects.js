@@ -38,8 +38,14 @@ async function pageIndex(params) {
     }
   }
   // Lects that other classifications put under each node.
+  // A lect the tree already draws under that node (its tree parent stands below its parent_id:
+  // Nese, stated against POc and listed under North-Central Vanuatu) is not listed there twice.
+  const drawnUnder = (l, id) => { const seen = new Set(); let cur = treeParent(l);
+    while (cur && LECTS[cur] && !seen.has(cur)) { if (cur === id) return true; seen.add(cur); cur = treeParent(LECTS[cur]); }
+    return false; };
   const altKids = {};
-  for (const l of INDEX.lects) for (const a of l.alt_parents || []) (altKids[a.parent_id] ||= []).push({ lect: l, source_id: a.source_id });
+  for (const l of INDEX.lects) for (const a of l.alt_parents || [])
+    if (!drawnUnder(l, a.parent_id)) (altKids[a.parent_id] ||= []).push({ lect: l, source_id: a.source_id });
   const key = reflex || "";
   const mem = LIST_STATE[key] ||= { q: "", hideEmpty: true, open: null };
   if (!mem.open && !pivot) try {

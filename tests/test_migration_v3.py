@@ -32,9 +32,16 @@ RETIRED = {"cc8f477b3bb", "c5c46352749", "ce2dc9c9d8a", "c2c9a6a982f", "c8b4de3b
            "c903fdd35a7"}
 
 
+# Lects that were split into dialect lects on 26 Nov 2026 (Gayo, Enggano: the dialects stand under
+# Pre-Gayo and Pre-Enggano and carry the stated retentions now). Their archived rows have no lect.
+RETIRED_LECTS = {"gayo1244", "engg1245"}
+
+
 def removed_rows(all_rows=False):
     rows = list(csv.DictReader(io.StringIO(REMOVED.read_text(encoding="utf-8"))))
-    return rows if all_rows else [r for r in rows if r["id"] not in RETIRED]
+    for r in rows:
+        r.setdefault("parent_lect_id", "")      # a column added after the archive was written
+    return rows if all_rows else [r for r in rows if r["id"] not in RETIRED and r["child_lect_id"] not in RETIRED_LECTS]
 
 
 def claims(D):

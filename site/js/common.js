@@ -243,6 +243,7 @@ function envHtml(r, sole) {
   const tags = [
     r.variety && `<span class="tag" title="variety">${esc(r.variety)}</span>`,
     r.stratum && `<span class="tag" title="stratum">${esc(r.stratum)}</span>`,
+    r.other_predecessor && `<span class="tag der" title="stated against ${esc(LECTS[splitPid(r.parent)[0]]?.name || "another lect")}, which is not the stage this lect inherits from (a loan stratum against its donor, or a reflex the source states against another stage)">not its parent</span>`,
     r.lexical_scope && `<span class="tag" title="lexically restricted">${esc(r.lexical_scope)}</span>`,
     r.conditioning === "lexical" && !r.lexical_scope && `<span class="tag">lexically restricted</span>`,
     r.derivation === "composed" && `<span class="tag der" title="composed from the source's statements against an earlier stage; see notes">composed</span>`,
