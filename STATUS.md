@@ -9,19 +9,19 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 333 |  |
-| lects | 1263 | 306 dialect, 34 earlier-stage, 16 group, 613 language, 9 linkage, 285 proto-language |
+| lects | 1289 | 307 dialect, 34 earlier-stage, 16 group, 638 language, 9 linkage, 285 proto-language |
 | phonemes | 5423 |  |
-| correspondences | 20274 | plus 12580 implied and 3419 stated retentions generated from lects.inherit |
+| correspondences | 21126 | plus 12675 implied and 3419 stated retentions generated from lects.inherit |
 | notation_map | 612 |  |
 | allophones | 1392 |  |
-| decisions | 248 | 134 confirmed, 55 open, 59 reverted |
+| decisions | 250 | 134 confirmed, 57 open, 59 reverted |
 
-Lects by `inherit`: (blank) 350, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 64, stated-unchanged 245.
-Inventories: edited 38, empty 49, reverse-generated 965, sourced 211.
+Lects by `inherit`: (blank) 369, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 71, stated-unchanged 245.
+Inventories: edited 38, empty 49, reverse-generated 991, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 466 warning(s), 2326 note(s).
+`build.py --check`: 0 error(s), 466 warning(s), 2566 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -97,6 +97,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `sumatran-dialects` | The user asked (26 November 2026) for Gayo, Mentawai and Enggano to be split into dialects with their own pages under Pre-Gayo, Pre-Mentawai and Pre-Enggano. W… | Gayo: five dialects under Pre-Gayo (Bukit, Cik, Dëret, Lues, Serbejadi; Billings & McDonnell 2024: 117), each stated-unchanged apart from the two sets: *ay, *a… |  |  |
 | `ross1988-ppt` | Ross (1988) prints the Papuan Tip consonant correspondences (Tables 28-30) as POC > PPT > language, and for the Central Papuan family as POC > PPT > PCP > lang… | Against Proto-Papuan Tip (ppt), an established node already in the tree, with PPT in the sheet's Oceanic spelling (*bw bʷ, *mw mʷ, *pw pʷ, *kw kʷ, *gw ɡʷ, *g ɡ… | 1862 |  |
 | `ross1988-pt-lects` | How are Ross's (1988) Papuan Tip language names matched to Glottolog and to lects? | By Ross's own equations (Figures 7-8: Paiwa = Gapapaiwa, Kukuya = Minaveha, Gumasi = Gumawana, Kakabai = Igora; Lala = Nara, p. 190) and Glottolog 5.4 and Ross… |  |  |
+| `ross1988-nws` | Ross (1988) prints the North-West Solomonic consonant correspondences (Table 32) as POC > PNS > (PNN, PCH, PNGe, PYS) > language. Against which stage are the r… | Against POc, composed, as in the North New Guinea batch (ross1988-composition): Proto North-West Solomonic and the four lower reconstructions are not nodes in … | 852 |  |
+| `ross1988-nws-lects` | How are Ross's (1988) North-West Solomonic language names matched to Glottolog and to lects? | By Glottolog 5.4 names and alternate names: Piva = Lawunuia, Sengga = Sisiqa (the existing lect), Nduke = Duke, Kia = Zabana, Ghove = Gao, Maringe = Cheke Holo… |  |  |
 
 <!-- END GENERATED -->
 

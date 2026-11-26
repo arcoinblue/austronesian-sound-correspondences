@@ -9,3 +9,11 @@ Ross, Malcolm D. 1988. *Proto Oceanic and the Austronesian languages of western 
 
 - Proto North-West Solomonic, PNN, PCH, PNGe and PYS as nodes (their values are in `as_printed`).
 - Vowels; Table 33 (pronouns).
+
+
+## Applied
+
+2026-11-26 03:44 UTC, by the push-batch workflow.
+- lects: sheet rows 1265-1290
+- correspondences: sheet rows 20276-21127
+- decisions: sheet rows 250-251
