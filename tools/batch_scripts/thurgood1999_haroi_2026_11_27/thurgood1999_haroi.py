@@ -62,7 +62,7 @@ row("ə", "ʊ", f"_n, _r, _m {B}", "200-201", "Table 132", "*-ən, *-ər, *-əm 
     "'when the initial of the presyllable was a voiced obstruent, this open-ɔ was raised to /ʊ/' (p. 200); the "
     "examples also have the voiced obstruent as the initial of the main syllable. ",
     "ˣdrə̆n > trʊ̆n 'numb'; **dər > thʊ̆l 'bury'; **gər > khʊ̆l 'handle (knife)'; **sagər > akhʊ̆l 'drum'; "
-    "**pagəm > pəkhʊ̆m 'dove'")
+    "**pagəm > pəkhʊ̆m 'dove'; **gəm > khʊ̆m 'to cover' (Table 137)")
 
 # ---- first register: high vowels lower (Table 134, p. 203; Table 139, p. 208)
 row("i", "ei", f"_#, _ʔ {T}", "202-203", "Tables 133-134", "*i : ei",
@@ -91,7 +91,7 @@ row("ɛ", "ɨ", f"_y# {B}", "202, 207", "Tables 133, 138", "*-ɛy > *-ə̆i > -�
     REG + "Table 133: after voiced obstruents the mid vowels are 'raised: ɪ; ɨ; ʊ (u); -ɨi (+ fronted)'. ",
     "*durɛy > cərɨi 'thorn'")
 for par, pr, ex in (("ɔ", "*ɔ : ʊ", "**jɔh > sʊ̆h 'broken; spoilt'; **gɔʔ > khʊ̆ʔ 'kettle; clay pot'; *bɔh > phʊ̆h "
-                     "'fruit; egg'; **gəm > khʊ̆m 'to cover'"),
+                     "'fruit; egg'"),
                     ("ɔː", "*ɔ: : ʊ", "*dɔ:k > thʊʔ 'sit; live; stay'")):
     row(par, "ʊ", B, "202, 206", "Tables 133, 137", pr, REG + "Table 137. ", ex)
 for par, pr, ex in (("a", "*a : ɨa", "*ba > phɨa 'bring, take, carry'; *gah > khɨah 'side, direction; bank'; *blah > "
