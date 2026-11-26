@@ -254,7 +254,7 @@ FUSION_FIRST = re.compile(r"^_\+(.+)$")    # this segment comes first; group = t
 FUSION_SECOND = re.compile(r"^(.+)\+_$")   # this segment comes second; group = the first
 
 
-MODIFIERS = "ːʰʼˀ"            # length, aspiration, glottalisation: no change of chart cell
+MODIFIERS = "ːʰʱʼˀ"           # length, aspiration, breathy release, glottalisation: no change of chart cell
 SECONDARY = "ʷʲˤˠ"            # secondary articulations (ʷ picks the labialised column later)
 DENTAL, VOICELESS_RINGS = "\u032a", "\u0325\u030a"
 

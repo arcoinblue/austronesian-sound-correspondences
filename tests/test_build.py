@@ -760,6 +760,10 @@ class TestSheetRoundTrip(unittest.TestCase):
     def test_symbol_inference_reads_through_diacritics(self):
         self.assertEqual(build.ipa_features("t̪ʰ")[:3], ("C", "dental", "plosive"))
         self.assertEqual(build.ipa_features("kʷ")[:3], ("C", "velar", "plosive"))
+        # 26 Nov 2026: Acehnese dʱ and Rade bʱ, ɡʱ (Thurgood 1999) stood under "Unclassified consonants".
+        self.assertEqual(build.ipa_features("dʱ")[:4], ("C", "alveolar", "plosive", "voiced"))
+        self.assertEqual(build.ipa_features("bʱ")[:3], ("C", "bilabial", "plosive"))
+        self.assertEqual(build.ipa_features("ɡʱ")[:3], ("C", "velar", "plosive"))
         self.assertEqual(build.ipa_features("n̥")[3], "voiceless")
         self.assertEqual(build.ipa_features("X")[0], "other")
 
