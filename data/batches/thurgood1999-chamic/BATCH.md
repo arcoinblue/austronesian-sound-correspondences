@@ -34,3 +34,12 @@ Table 62; entered as printed, both rows disputed. Table 17 has Cham c̣- for pre
 **After the merge.** *Add batch to Google Sheets*; then the `sources` note of `thurgood1999` ('Not consulted
 directly') and the `lects` note of `pchamic` ('after Thurgood (1999), as listed by Adelaar') need a sheet edit; no
 script is prepared, the handoff of 26 Nov 2026 has the cells.
+
+
+## Applied
+
+2026-11-26 11:30 UTC, by the push-batch workflow.
+- lects: sheet rows 1393-1401
+- phonemes: sheet rows 5536-5572
+- correspondences: sheet rows 23484-24104
+- decisions: sheet rows 264-266

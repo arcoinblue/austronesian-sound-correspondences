@@ -26,3 +26,10 @@ Kasavakan *ʐ (Yeh's *ɖ) > h in *ɖənan 'mountain'.
 p. 127, Yeh p. 210, Goderich pp. 138, 140, 148, Chuang p. 161, Shibata (2025) Tables 3.16, 6.15, 6.16, 6.23.
 Not opened: Yeh's Tables 4.3-4.25, Goderich's Tables 4.43 and 4.45, Shibata's (2025) Tables 3.14, 3.29, 3.31 and
 the other tables of his §6.5; for these the result rests on the captions and on the rows already entered.
+
+
+## Applied
+
+2026-11-26 11:30 UTC, by the push-batch workflow.
+- correspondences: sheet rows 23484-24104
+- decisions: sheet rows 264-266
