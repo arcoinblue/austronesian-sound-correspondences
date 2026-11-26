@@ -577,7 +577,8 @@ and p. 40 of chapter 3. Every table entered was read from a page image; Tables 1
 Table 62; entered as printed, both rows disputed. Table 17 has Cham c̣- for presyllable *j-, Table 24 j-.
 
 **After the merge.** *Add batch to Google Sheets*; then the `sources` note of `thurgood1999` ('Not consulted
-directly') and the `lects` note and `inherit_source_id` of `pchamic` need a sheet edit (`sheet_edits.py`).
+directly') and the `lects` note of `pchamic` ('after Thurgood (1999), as listed by Adelaar') need a sheet edit; no
+script is prepared, the handoff of 26 Nov 2026 has the cells.
 """
 b.t["decisions"] = b.t["decisions"]
 write(BATCH, b.t, BATCH_MD)
