@@ -9,24 +9,24 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 333 |  |
-| lects | 1309 | 310 dialect, 34 earlier-stage, 16 group, 655 language, 9 linkage, 285 proto-language |
-| phonemes | 5423 |  |
-| correspondences | 22051 | plus 12674 implied and 3419 stated retentions generated from lects.inherit |
+| lects | 1345 | 317 dialect, 34 earlier-stage, 16 group, 684 language, 9 linkage, 285 proto-language |
+| phonemes | 5427 |  |
+| correspondences | 23135 | plus 12756 implied and 3419 stated retentions generated from lects.inherit |
 | notation_map | 612 |  |
 | allophones | 1392 |  |
-| decisions | 252 | 135 confirmed, 58 open, 59 reverted |
+| decisions | 254 | 135 confirmed, 60 open, 59 reverted |
 
-Lects by `inherit`: (blank) 390, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 70, stated-unchanged 245.
-Inventories: edited 38, empty 49, reverse-generated 1011, sourced 211.
+Lects by `inherit`: (blank) 421, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 245.
+Inventories: edited 39, empty 54, reverse-generated 1041, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 467 warning(s), 2801 note(s).
+`build.py --check`: 0 error(s), 473 warning(s), 2894 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 150 |
-| a reflex is not in the lect's sourced inventory | 104 |
+| no glottocode | 151 |
+| a reflex is not in the lect's sourced inventory | 109 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 76 |
 | no page number for the citation | 26 |
@@ -100,6 +100,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross1988-nws` | Ross (1988) prints the North-West Solomonic consonant correspondences (Table 32) as POC > PNS > (PNN, PCH, PNGe, PYS) > language. Against which stage are the r… | Against POc, composed, as in the North New Guinea batch (ross1988-composition): Proto North-West Solomonic and the four lower reconstructions are not nodes in … | 852 |  |
 | `ross1988-nws-lects` | How are Ross's (1988) North-West Solomonic language names matched to Glottolog and to lects? | By Glottolog 5.4 names and alternate names: Piva = Lawunuia, Sengga = Sisiqa (the existing lect), Nduke = Duke, Kia = Zabana, Ghove = Gao, Maringe = Cheke Holo… |  |  |
 | `ross1988-mm-lects` | How are Ross's (1988) Meso-Melanesian language names matched to Glottolog and to lects? | By Glottolog 5.4: Bali = Uneapa (the existing lect), Vitu = Muduapa, Tabar = Mandara, Tolai = Kuanua, Duke of York = Ramoaaina, Lavongai = Tungag, Lamasong = t… |  |  |
+| `ross1988-adm` | Ross (1988) Table 36 prints the Admiralties consonant correspondences as POC > PAd > (PWAd, PEAd) > language, with secondary oral and nasal grades, and Table 3… | Against Proto-Admiralty (padm), an established node whose phonemes are those of POc (inherit), with PWAd and PEAd held back and their values in as_printed; Mus… | 1084 |  |
+| `ross1988-adm-lects` | How are Ross's (1988) St Matthias and Admiralties language names matched to Glottolog and to lects? | By Glottolog 5.4: Tench = Tenis, Lindrou = Nyindrou, Mokoreng = Mokerang, Koro = Manus Koro (bowa1234), Kaniet = kani1282 (not Kaniet-Dempwolff). Varieties tha… |  |  |
 
 <!-- END GENERATED -->
 

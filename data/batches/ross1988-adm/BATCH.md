@@ -11,3 +11,12 @@ Ross, Malcolm D. 1988. *Proto Oceanic and the Austronesian languages of western 
 - The PAd, PWAd and PEAd rows of Tables 36 and 37 as rows of their own; PWAd and PEAd as nodes; PAd *-f-.
 - The first reflex of Sori-Harengan *q (a glyph that could not be read).
 - Vowels.
+
+
+## Applied
+
+2026-11-26 05:22 UTC, by the push-batch workflow.
+- lects: sheet rows 1311-1346
+- phonemes: sheet rows 5425-5428
+- correspondences: sheet rows 22053-23136
+- decisions: sheet rows 254-255
