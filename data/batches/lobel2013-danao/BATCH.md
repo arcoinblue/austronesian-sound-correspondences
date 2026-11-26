@@ -14,3 +14,15 @@ from clusters, so each is two rows (the second consonant becomes heavy, the firs
 Not entered: the PGCPH clusters behind Proto-Danaw *bp, *dt, *ds, *gk (the table says only 'C = voiced');
 Iranun and Maguindanaon; schwa assimilation, epenthesis, syncope (§9.4.2-9.4.4); the verb morphophonemics of
 §9.5 (Tables 9.8-9.11); the treatment of Arabic loans (pp. 287-288).
+
+
+## Applied
+
+2026-11-26 06:45 UTC, by the push-batch workflow.
+- sources: sheet rows 335-335
+- lects: sheet rows 1347-1386
+- phonemes: sheet rows 5429-5471
+- correspondences: sheet rows 23262-23374
+- notation_map: sheet rows 614-614
+- allophones: sheet rows 1394-1404
+- decisions: sheet rows 258-259

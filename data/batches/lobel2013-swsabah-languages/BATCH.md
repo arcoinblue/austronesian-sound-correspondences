@@ -19,3 +19,11 @@ Not entered: every other reflex visible in the forms; Table 11.14 (*ma- > *a-, a
 (*aw, *ay: already in), the Paitanic languages (no table gives their forms), Table 11.12 (the proto-forms).
 Varieties that appear only in the pronoun tables (Mangkak, Sonsogon, Dusun Beaufort, Kadazan Ovai Kambizaan,
 Murut Dalit, Murut Beaufort and others) are not lects.
+
+
+## Applied
+
+2026-11-26 06:45 UTC, by the push-batch workflow.
+- lects: sheet rows 1347-1386
+- correspondences: sheet rows 23262-23374
+- decisions: sheet rows 258-259

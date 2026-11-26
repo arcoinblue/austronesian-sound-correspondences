@@ -8,24 +8,24 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 333 |  |
-| lects | 1345 | 317 dialect, 34 earlier-stage, 16 group, 684 language, 9 linkage, 285 proto-language |
-| phonemes | 5427 |  |
-| correspondences | 23260 | plus 12741 implied and 3419 stated retentions generated from lects.inherit |
-| notation_map | 612 |  |
-| allophones | 1392 |  |
-| decisions | 256 | 135 confirmed, 62 open, 59 reverted |
+| sources | 334 |  |
+| lects | 1385 | 327 dialect, 34 earlier-stage, 16 group, 713 language, 9 linkage, 286 proto-language |
+| phonemes | 5470 |  |
+| correspondences | 23373 | plus 13438 implied and 3428 stated retentions generated from lects.inherit |
+| notation_map | 613 |  |
+| allophones | 1403 |  |
+| decisions | 258 | 135 confirmed, 64 open, 59 reverted |
 
-Lects by `inherit`: (blank) 421, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 245.
-Inventories: edited 39, empty 54, reverse-generated 1041, sourced 211.
+Lects by `inherit`: (blank) 424, assumed-unchanged 640, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
+Inventories: edited 39, empty 57, reverse-generated 1076, sourced 213.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 473 warning(s), 2894 note(s).
+`build.py --check`: 0 error(s), 477 warning(s), 2903 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 151 |
+| no glottocode | 155 |
 | a reflex is not in the lect's sourced inventory | 109 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 76 |
@@ -104,6 +104,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross1988-adm-lects` | How are Ross's (1988) St Matthias and Admiralties language names matched to Glottolog and to lects? | By Glottolog 5.4: Tench = Tenis, Lindrou = Nyindrou, Mokoreng = Mokerang, Koro = Manus Koro (bowa1234), Kaniet = kani1282 (not Kaniet-Dempwolff). Varieties tha… |  |  |
 | `shibata2020-dialects` | Shibata (2020) Tables 4.2-4.13 give the reflexes of every Proto-Bunun phoneme in the five dialects, and Tables 6.11 and 6.13 the same through Proto-Northern an… | Yes, as rows with the examples of Tables 4.3-4.12: Takituduh and Takibakha against Proto-Northern Bunun (Table 6.11), Takbanuað and Takivatan against Proto-Cen… | 78 |  |
 | `song2025-ch7` | Song (2025) chapter 7 (Tables 7.1-7.8) gives the evidence for Toda-Truku, Toda and Truku as changes of Proto-Toda-Truku, Proto-Toda and Proto-Truku. How are th… | On each dialect, against Song's Proto-Seediq (system Song), beside the rows of Tables 4.3-4.23. New rows: *ə > i before y, > u before w, and full assimilation … | 47 |  |
+| `lobel2013-danao` | Lobel (2013) chapter 9 (Tables 9.1-9.7): Proto-Danaw and Maranao. Which node, which predecessor, and how are the heavy consonants written and derived? | New node Proto-Danaw (pdan, dana1253) under Proto-Greater Central Philippine with Allison's (1979) inventory as Lobel prints it (Table 9.1), and Maranao (mara1… | 19 |  |
+| `lobel2013-swsabah-languages` | Lobel (2013) Tables 11.13a-c and 11.23 give forms and innovations for 35 Dusunic, Bisaya-Lotud and Murutic languages that were not lects. Which lects, which Gl… | 35 new lects under Proto-Dusunic (16), Proto-Bisaya-Lotud (4) and Proto-Murutic (15), with the level and code of the matching Glottolog languoid, and three lan… | 94 |  |
 
 <!-- END GENERATED -->
 
