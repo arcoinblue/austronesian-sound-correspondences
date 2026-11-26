@@ -9,23 +9,23 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 333 |  |
-| lects | 1194 | 285 dialect, 34 earlier-stage, 15 group, 565 language, 9 linkage, 286 proto-language |
+| lects | 1200 | 293 dialect, 34 earlier-stage, 16 group, 563 language, 9 linkage, 285 proto-language |
 | phonemes | 5422 |  |
-| correspondences | 18387 | plus 12461 implied and 3340 stated retentions generated from lects.inherit |
+| correspondences | 18412 | plus 12481 implied and 3419 stated retentions generated from lects.inherit |
 | notation_map | 612 |  |
-| allophones | 1391 |  |
-| decisions | 244 | 134 confirmed, 52 open, 58 reverted |
+| allophones | 1392 |  |
+| decisions | 246 | 134 confirmed, 53 open, 59 reverted |
 
-Lects by `inherit`: (blank) 295, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 55, stated-unchanged 240.
-Inventories: edited 37, empty 45, reverse-generated 901, sourced 211.
+Lects by `inherit`: (blank) 295, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 56, stated-unchanged 245.
+Inventories: edited 37, empty 45, reverse-generated 907, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 458 warning(s), 1998 note(s).
+`build.py --check`: 0 error(s), 463 warning(s), 1998 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 144 |
+| no glottocode | 149 |
 | a reflex is not in the lect's sourced inventory | 102 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 76 |
@@ -46,7 +46,6 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `goodenough1995-l` | Goodenough (1995) adds a PMc *L (palatalised lateral), split from *l. How is it entered? | As a phoneme of a Goodenough system on PMc (the user's choice of 24 November 2026), listed against *l (notation_map.phoneme), with Goodenough's other PMc symbo… | 12 |  |
 | `jackson1986-composition` | Jackson (1986), Table 1, states POC > PMC and the reflexes of the PMC consonants in every Micronesian language (most of them repeat Bender et al. 2003a). How a… | POC > PMC as stated. Every other row is restated against the lect's immediate parent through Bender et al.'s chain, as for mc1984-composition: Jackson's PCMC, … | 357 |  |
 | `jackson1986-nauruan` | Jackson (1986: 211) states Nauruan reflexes of POC, which he does not derive from PMC. How are they entered? | Composed to PMc > Nauruan (Nauruan's parent in the main tree), the POC > PMC > NAU path in as_printed, Nathan's symbols mapped to the sheet's (Blumenfeld 2022a… | 30 |  |
-| `jackson1986-pgmc` | Jackson (1986: 214) proposes Greater Micronesian (Nauruan + Micronesian). Add it? | As an alternative node Proto-Greater Micronesian (pgmc, no rows), like Proto-Eastern Oceanic. Sheet edits after the batch lands: alt_parents of pmc 'peoc:lynch… |  |  |
 | `oda1977-pua-rows` | Pulo-Annan now has a sourced inventory (Oda 1977: 9). Earlier rows write its reflexes in other ways: Bender et al. (2003a) d; Jackson (1983, 1984) θ ('PUA d is… | d and θ respelled ð in the sheet (the letter in source_form, Jackson's value in the notes), as Puluwatese t͡ʃ was; x, βʷ and f kept as printed, so the build wa… | 8 |  |
 | `ross1988-composition` | Ross (1988) states the North New Guinea languages' consonant reflexes through intermediate reconstructions (PSCH, PHG, PNHG, PMK, PSHG, PHBU, Proto Buang, PNg,… | Languages only (the user's choice of 24 November 2026: hold back the intermediate nodes), each under POc with tree_parent nng (North New Guinea Linkage), its r… | 3482 |  |
 | `ross1988-lects` | How are Ross's (1988) North New Guinea language names matched to Glottolog and to lects? | By Ross's own identifications (§§5.2-5.4 lists, Appendix A) and Glottolog 5.4 names: Silisili = Middle Watut, Sirak = Nafi, Yalu = Aribwaung, Kaiwa = Iwal, Buk… |  |  |
@@ -93,6 +92,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `rivierre1994-kone` | How are Rivierre's (1994) PNC reflexes and the Kone chart entered? | Table 4 as rows against PNC on Pwapwâ, Pwaamei and Haveke (Kone), initial position. Rivierre's *t̲, *ṭ, *c (and doubles) are the sheet's PNC *t, *ṭ, *s (Ozanne… | 38 |  |
 | `ross1994-nodes` | How are Ross's (1994) New Ireland reconstructions entered? | As three proto-language nodes, the user's choice of 26 November 2026: Proto-New Ireland under POC (Glottocode blank, its inventory (1) only; no POC > PNI rows,… | 162 |  |
 | `tryon1994-composition` | How is Tryon's (1994) Appendix 1 (POC consonants in 17 Eastern Outer Islands lects) entered? | Grace's POC symbols read as Ross's (mp = b, nt = d, ŋk = ɡ, ŋp = bʷ, ŋm = mʷ, d and r = r, nd = dr, ns = j). Each reflex is restated against the lect's parent:… | 569 |  |
+| `ncv-tree` | The North and Central Vanuatu lects stood in three places under Southern Oceanic: under PNCV, loose under the linkage (five Malakula languages), and in a group… | One clade North and Central Vanuatu (Proto-North-Central Vanuatu, nort3195) with two groups, Northern Vanuatu (nort3205) and Central Vanuatu (cent2269), as in … |  |  |
+| `sumatran-dialects` | The user asked (26 November 2026) for Gayo, Mentawai and Enggano to be split into dialects with their own pages under Pre-Gayo, Pre-Mentawai and Pre-Enggano. W… | Gayo: five dialects under Pre-Gayo (Bukit, Cik, Dëret, Lues, Serbejadi; Billings & McDonnell 2024: 117), each stated-unchanged apart from the two sets: *ay, *a… |  |  |
 
 <!-- END GENERATED -->
 

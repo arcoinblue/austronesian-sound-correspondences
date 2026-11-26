@@ -335,7 +335,7 @@ TABLES = {
                 + ["status"],
     "correspondences": ["id", "child_lect_id", "parent_phoneme", "child_phoneme",
                         "environment", "status", "blank_type", "evidence_count",
-                        "source_id", "page", "notes", "system"] + VIA + CORR_EXTRA,
+                        "source_id", "page", "notes", "system"] + VIA + CORR_EXTRA + ["parent_lect_id"],
     "notation_map": ["lect_id", "phoneme", "system", "symbol", "source_id", "page", "notes",
                      "place", "manner", "voicing"] + VIA,
     # How a phoneme is realised, as the source describes it: one row per allophone.
@@ -356,7 +356,7 @@ OPTIONAL_COLUMNS = {
               "inherit", "language_id", "alt_parents", "inherit_source_id", "inherit_page", "inherit_note",
               "tree_parent", "representative"],
     "phonemes": VIA + ["status"],
-    "correspondences": ["system"] + VIA + CORR_EXTRA,
+    "correspondences": ["system"] + VIA + CORR_EXTRA + ["parent_lect_id"],
     "notation_map": ["place", "manner", "voicing"] + VIA,
     "decisions": ["instructions", "comments"],
 }

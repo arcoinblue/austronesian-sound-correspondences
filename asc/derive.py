@@ -30,6 +30,8 @@ def edge(r, include_child=True):
                                     "as_printed", "locator", "decision")},
         "evidence_total": int(r["evidence_total"]) if r.get("evidence_total", "").isdigit() else None,
         "derivation": r.get("derivation") or "as-stated",
+        # Stated against a lect other than the child's parent_id (correspondences.parent_lect_id).
+        "other_predecessor": bool(r.get("other_predecessor")),
     }
     if include_child:
         e["child_lect_id"] = r["child_lect_id"]
@@ -53,6 +55,8 @@ def ancestry(phoneme_id, D, depth=0):
         return [[]]
     chains = []
     for r in rows:
+        if r.get("other_predecessor"):
+            continue
         if r.get("fusion"):
             if r["fusion"]["role"] == "second":
                 e = edge(r)
@@ -68,12 +72,18 @@ def ancestry(phoneme_id, D, depth=0):
 def ancestry_graph(phoneme_id, D):
     """The ancestry as one graph: every ancestor phoneme once, however many
     lines of descent pass through it, and one edge per correspondence row.
-    Both rows of a fusion are edges, so the two members converge on the reflex."""
+    Both rows of a fusion are edges, so the two members converge on the reflex.
+
+    The graph is the line of inheritance (each lect from its parent_id). A row stated against
+    another lect (correspondences.parent_lect_id: a loan stratum against its donor, a reflex
+    stated against a higher stage) is not followed: the phoneme's own such rows are listed
+    beside the graph, in 'other' (the page links each to its source phoneme)."""
     nodes, edges, seen, todo = [phoneme_id], [], set(), [phoneme_id]
+    other = [edge(r) for r in D["by_child"].get(phoneme_id, []) if r.get("other_predecessor")]
     while todo:
         cur = todo.pop()
         for r in D["by_child"].get(cur, []):
-            if r["id"] in seen:
+            if r["id"] in seen or r.get("other_predecessor"):
                 continue
             seen.add(r["id"])
             edges.append(edge(r))
@@ -81,7 +91,10 @@ def ancestry_graph(phoneme_id, D):
             if parent not in nodes:
                 nodes.append(parent)
                 todo.append(parent)
-    return {"nodes": nodes, "edges": edges}
+    g = {"nodes": nodes, "edges": edges}
+    if other:
+        g["other"] = other
+    return g
 
 
 def descendants(phoneme_id, D, path=(), depth=0, beyond=False, seen=None, implied=None):
@@ -118,6 +131,11 @@ def descendants(phoneme_id, D, path=(), depth=0, beyond=False, seen=None, implie
                 and r["child_phoneme_id"] not in implied.setdefault(r["child_lect_id"], []):
             implied[r["child_lect_id"]].append(r["child_phoneme_id"])
         below = beyond or row.get("competing", False)
+        # A row stated against this lect by a lect that does not inherit from it (a loan
+        # stratum) is listed, and not followed further: what the borrowed sound becomes
+        # later is on the borrowing lect's own pages.
+        if r.get("other_predecessor"):
+            continue
         if r["child_phoneme_id"] and (r["child_phoneme_id"], below) not in seen:
             seen.add((r["child_phoneme_id"], below))
             out.extend(descendants(r["child_phoneme_id"], D, path + (r["child_phoneme_id"],), depth + 1,
@@ -337,9 +355,12 @@ def lect_full(L, D):
         "alt_daughters": sorted(({"lect_id": k, "source_id": a["source_id"]} for k, v in D["lects"].items()
                                  for a in v["alt_parent_list"] if a["parent_id"] == L), key=lambda x: x["lect_id"]),
         # The rows into this lect as the source states them: the changes that define it.
-        "changes": [edge(r) for r in D["corrs"] if r["child_lect_id"] == L
+        "changes": [edge(r) for r in D["corrs"] if r["child_lect_id"] == L and not r.get("other_predecessor")
                     and r["derivation"] not in ("implied-retention", "stated-retention")
                     and (r["child_phoneme"] != r["parent_phoneme"] or r["environment"] != "elsewhere")],
+        # Rows stated against a lect other than parent_id (loan strata against their donor,
+        # reflexes a source states against another stage): listed apart on the lect's page.
+        "other_predecessors": [edge(r) for r in D["corrs"] if r["child_lect_id"] == L and r.get("other_predecessor")],
         # Each overlapping subgroup with its other members.
         "overlap_groups": [{"name": g, "members": [m for m in D["overlap"][g] if m != L]} for g in rec["overlap_list"]],
         # Sounds inserted in the daughters: they have no phoneme here to descend from.

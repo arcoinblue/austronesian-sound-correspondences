@@ -265,6 +265,20 @@ const ANC_LEGEND = `<p class="anclegend">
       <span><b class="plusk">+</b>fusion</span>
       <span class="muted">Hover a phoneme to trace its line; click it to open it.</span></p>`;
 
+// Rows stated against a lect that this one does not inherit from (correspondences.parent_lect_id):
+// a loan stratum against its donor, or a reflex a source states against another stage. They are
+// not lines of the diagram, which shows inheritance; each links to the phoneme it comes from.
+function otherPredecessorsHtml(rows, d) {
+  if (!(rows || []).length) return "";
+  return `<h3>Also from other lects</h3>
+    <p class="muted">Sources of this phoneme outside the line of inheritance from ${esc(LECTS[d.parent_id]?.name || "its parent")}: loan strata, stated against their donor or its ancestor, and reflexes that a source states against another stage.</p>
+    <div class="scroll"><table><tr><th>From</th><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th></tr>
+    ${rows.map(e => `<tr><td>${lectLink(splitPid(e.parent)[0])}</td>
+      <td>${phLink(e.parent)} &gt; <span class="ipa here">${esc(sym(e.child))}</span></td>
+      <td>${envHtml({ ...e, other_predecessor: false })}</td><td>${badge(e.status)}</td><td>${evidence(e)}</td><td>${cite(e)}</td></tr>`).join("")}
+    </table></div>`;
+}
+
 // Every step of the ancestry, with its condition and source, oldest stage first.
 function ancStepsHtml(g, herePid, order) {
   const lectOf = p => splitPid(p)[0];
@@ -613,7 +627,9 @@ async function pagePhoneme(L, uid) {
     <h2>Ancestry</h2>
     ${det.ancestry_graph.edges.length
       ? `<div class="ancblock">${ancestryBlock(det.ancestry_graph, ph.id, { regular: ancPref("asc-anc-regular") === "1", fold: { "1": true, "0": false }[ancPref("asc-anc-fold")] })}</div>`
+      : (det.ancestry_graph.other || []).length ? ""
       : `<p class="muted">${d.parent_id ? "No correspondence entered for this phoneme yet." : "Root proto-language: no ancestor."}</p>`}
+    ${otherPredecessorsHtml(det.ancestry_graph.other, d)}
     ${ancestorPids.length ? `<p>Same ancestor across the family: ${ancestorPids.map(p =>
         `<a href="#/lects/?reflex=${encodeURIComponent(p)}">all reflexes of <span class="ipa">${esc(sym(p))}</span> (${esc(LECTS[splitPid(p)[0]].name)})</a>`).join(" · ")}</p>` : ""}
 

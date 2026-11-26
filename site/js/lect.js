@@ -107,6 +107,14 @@ async function pageLect(L, params) {
     ${d.changes.map(r => `<tr><td>${r.parent ? phLink(r.parent) : ""} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
       <td>${envHtml(r)}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : "";
 
+  // Rows stated against a lect other than the parent (loan strata, reflexes stated against another stage).
+  const others = d.other_predecessors || [];
+  const otherTable = others.length ? `<h2>Stated against other lects</h2>
+    <p class="muted">Rows of ${esc(d.name)} whose predecessor is not ${esc(LECTS[d.parent_id]?.name || "its parent")}: loan strata, stated against their donor or its ancestor, and reflexes that a source states against another stage. They are not part of what ${esc(d.name)} inherits.</p>
+    <div class="scroll"><table><tr><th>From</th><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
+    ${others.map(r => `<tr><td>${lectLink(splitPid(r.parent)[0])}</td><td>${phLink(r.parent)} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
+      <td>${envHtml({ ...r, other_predecessor: false })}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : "";
+
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a>${ancestors ? " › " + ancestors : ""}</div>
     <h1>${esc(d.name)} ${badge(d.index_status === "changes-only" ? "changes-only" : d.inventory_status)}</h1>
@@ -119,11 +127,11 @@ async function pageLect(L, params) {
       <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
       ${d.represents ? `<dt>Represents</dt><dd>${esc(LECTS[d.represents]?.name || d.represents)} <span class="muted">(the language's entry opens this dialect)</span></dd>`
         : d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
-      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : LECTS[d.tree_parent]?.type === "linkage" ? ' <span class="muted">(a linkage: not an established subgroup, no proto-language)</span>' : ""}</dd>` : ""}
+      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : LECTS[d.tree_parent]?.type === "linkage" ? ' <span class="muted">(a linkage: not an established subgroup, no proto-language)</span>' : ""}${LECTS[d.tree_parent] && LECTS[d.tree_parent].parent_id !== d.parent_id && d.tree_parent !== d.parent_id ? ` <span class="muted">(its place in the classification; its rows are stated against ${esc(LECTS[d.parent_id]?.name || "its nearest ancestor")}, from which it inherits here)</span>` : ""}</dd>` : ""}
       ${d.dialects.length ? `<dt>Dialects</dt><dd>${d.dialects.map(lectLink).join(", ")}</dd>` : ""}
       ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
       ${d.alt_parents.length ? `<dt>Proposed parents</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
-        <br><span class="muted" style="font-size:12.5px">The tree and the correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
+        <br><span class="muted" style="font-size:12.5px">The correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
       ${d.alt_daughters.length ? `<dt>Proposed daughters</dt><dd>${d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join(", ")}</dd>` : ""}
       ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
         <br><span class="muted" style="font-size:12.5px">Overlapping subgroups: they cut across the tree and are not nodes of it.</span></dd>` : ""}
@@ -150,6 +158,7 @@ async function pageLect(L, params) {
     ${(d.stray_phonemes || []).length ? `<h3>Reflexes outside this inventory</h3>
       <p class="muted">Given as reflexes by correspondence rows, but not in the inventory above: ${d.stray_phonemes.map(p => `<span class="chart stray">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}
     ${d.changes_only ? changesTable : ""}
+    ${otherTable}
     ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
       <div class="scroll"><table><tr><th>Daughter lect</th><th>Inserted</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
