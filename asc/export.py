@@ -29,18 +29,29 @@ def site_files(D):
 
 def segments_json(D, lites):
     """Every lect's inventory as its page shows it (the default system's
-    phonemes), for the Segments page: [ipa, url id, class, place, manner,
-    voicing, rounding, flags], flags "i" implied, "m" marginal or doubtful."""
-    out = []
+    phonemes), for the Segments page. The same phoneme recurs in hundreds of
+    lects, so each distinct [ipa, url id, class, place, manner, voicing,
+    rounding] is written once in "seg", and a lect's "p" lists indexes into it:
+    a bare index, or [index, flags] with flags "i" implied, "m" marginal or
+    doubtful. (On 26 Nov 2026 the file with every row written out passed
+    1.5 MB and the deploy failed.)"""
+    seg, where, out = [], {}, []
     for L in D["lects"]:
         lite = lites[L]
         ds = lite.get("default_system")
-        rows = [[p["ipa"], p["url_id"], p["class"], p["place"], p["manner"], p["voicing"], p["rounding"],
-                 ("i" if p.get("implied") else "") + ("m" if p.get("status") else "")]
-                for p in lite["phonemes"] if not (ds and ds in p.get("absent_from", []))]
+        rows = []
+        for p in lite["phonemes"]:
+            if ds and ds in p.get("absent_from", []):
+                continue
+            key = (p["ipa"], p["url_id"], p["class"], p["place"], p["manner"], p["voicing"], p["rounding"])
+            if key not in where:
+                where[key] = len(seg)
+                seg.append(list(key))
+            flags = ("i" if p.get("implied") else "") + ("m" if p.get("status") else "")
+            rows.append([where[key], flags] if flags else where[key])
         if rows:
             out.append({"l": L, "st": lite.get("inventory_status", ""), "p": rows})
-    return {"lects": out}
+    return {"seg": seg, "lects": out}
 
 
 def write_site(D, out_dir, site_dir):

@@ -42,7 +42,9 @@ function segLink(L, p, hit) {
 }
 
 async function pageSegments(params) {
-  const data = await json("data/segments.json");
+  const raw = await json("data/segments.json");
+  // Each distinct phoneme is written once in raw.seg; a lect lists indexes, or [index, flags].
+  const data = { lects: raw.lects.map(r => ({ ...r, p: r.p.map(x => Array.isArray(x) ? [...raw.seg[x[0]], x[1]] : [...raw.seg[x], ""]) })) };
   const S = SEG_STATE;
   for (const k of ["q", "view", "kind"]) if (params.get(k)) S[k] = params.get(k);
   app.innerHTML = `<h1>Segments</h1>

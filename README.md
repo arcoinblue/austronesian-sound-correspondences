@@ -386,7 +386,7 @@ The site loads a small file per lect, and a phoneme's history only when the phon
 - The ancestry section has a box *Regular changes only* where the history has sporadic, borrowed or doubtful steps: it hides them and the lines that reach the phoneme only through them. The choice is kept across pages.
 - On the Segments page a search that matches a segment or feature words is not also matched against lect names.
 - `build/data/index.json`: what the lect list shows of each lect (name, alternate names, type, glottocode, parent, clade, coverage, status, overlapping groups); loaded on every page.
-- `build/data/segments.json`: every lect's displayed inventory (default system), one row per phoneme with its features and flags (implied, marginal); loaded only by the Segments page (`#/segments/`), which lists and searches it by lect or by segment. Its search ignores tie bars (tʃ finds t͡ʃ) and reads a typed ? as ʔ.
+- `build/data/segments.json`: every lect's displayed inventory (default system), each distinct phoneme with its features written once (`seg`) and each lect listing indexes into it, with flags (implied, marginal) where they apply; loaded only by the Segments page (`#/segments/`), which lists and searches it by lect or by segment. Its search ignores tie bars (tʃ finds t͡ʃ) and reads a typed ? as ʔ.
 - `build/data/sources.json`: what a citation link needs (id, label, author, year), loaded by every page; `build/data/sources_full.json`: the full bibliography with `reference` and `cited_by`, fetched only by the Sources page. `build/report.txt` keeps the last report.
 
 ### Marks in the charts
