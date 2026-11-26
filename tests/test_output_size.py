@@ -85,7 +85,10 @@ class TestOutputSize(unittest.TestCase):
             for p in v["stray_phonemes"]:
                 self.assertNotIn(p["ipa"], own, L)
                 self.assertIn(p["origin"], ("outside-inventory", "suppressed"), L)
-                self.assertTrue(self.files[p["file"]]["ancestry_graph"]["edges"], p["id"])
+                # every row of a stray phoneme may be stated against another lect than the
+                # lect's parent (Amis r of Ross 1992, against PAn): then they are in 'other'
+                g = self.files[p["file"]]["ancestry_graph"]
+                self.assertTrue(g["edges"] or g.get("other"), p["id"])
 
     def test_implied_descendants_fill_the_table_of_all_lects(self):
         """The implied retentions that `descendants` leaves out below the first level are kept
