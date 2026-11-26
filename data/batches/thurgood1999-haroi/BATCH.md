@@ -10,3 +10,10 @@ assimilation of Table 135). The register is written in the environment by its Pr
 
 **Also.** Three decisions raised in the handoffs of 27 November 2026 that were not in the sheet:
 `fijian-nodes-representative`, `chart-diphthongs`, `thurgood1999-tones`.
+
+
+## Applied
+
+2026-11-26 23:48 UTC, by the push-batch workflow.
+- correspondences: sheet rows 26211-26229
+- decisions: sheet rows 274-277

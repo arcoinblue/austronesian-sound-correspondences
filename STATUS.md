@@ -11,17 +11,17 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 335 |  |
 | lects | 1443 | 366 dialect, 34 earlier-stage, 16 group, 732 language, 9 linkage, 286 proto-language |
 | phonemes | 5571 |  |
-| correspondences | 26209 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
+| correspondences | 26228 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
 | allophones | 1415 |  |
-| decisions | 272 | 136 confirmed, 77 open, 59 reverted |
+| decisions | 276 | 136 confirmed, 81 open, 59 reverted |
 
 Lects by `inherit`: (blank) 469, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
 Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 518 warning(s), 3060 note(s).
+`build.py --check`: 0 error(s), 518 warning(s), 3071 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -119,6 +119,10 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `audit-s1-not-entered` | Gap audit of 26 November 2026, §1: Walworth (2014) and Li (1985) have no rows. Are their tables entered? | Not in this batch. Walworth (2014): Tables 1, 4, 7, 10, 11 and 12 are taken or adapted from Marck (2000: 24-26, 45, 132-134), whose rows are entered from the o… |  |  |
 | `thurgood1999-table58` | Thurgood (1999), second pass (the rime tables 56, 58, 62, 71, 82-88, Haroi register, Tsat tones): what is entered? | Table 58 only: the reflexes of long *-u:- before *-ŋ and *-ʔ in Rade, Jarai, Chru, Northern Roglai, Tsat, Western Cham and Phan Rang Cham (17 rows), and Chru *… | 18 |  |
 | `thurgood1999-rimes` | Thurgood (1999), second pass, second part: what is entered from the rime tables 62, 71 and 82-88, and how are the short and long vowels of Rade, Jarai and Cham… | The vowel of each rime, for the Proto-Chamic vowels that had no rows: long *a: by final (Table 62, seven languages), *ə by final (Table 71, eight languages), *… | 163 |  |
+| `thurgood1999-haroi` | Thurgood (1999), chapter 8, Haroi vowels and restructured register (pp. 197-209): what is entered? | The vowel splits of Table 133 and the pre-Haroi changes of *ə (Tables 130-132), as conditioned rows on Haroi (19 rows): *ə by final and register; *i > ei, e an… | 19 |  |
+| `fijian-nodes-representative` | Fijian, Lauan, Lomaiviti, Namosi-Naitasiri-Serua (languages) and Kadavu (dialect) are nodes without rows and without a representative (batch geraghty1983-commu… | None chosen: Geraghty (1983) gives no communalect that status, and the standing rule (a language with a representative dialect and no proto-language redirects … |  |  |
+| `chart-diphthongs` | Diphthongs given as reflexes (Acehnese ɯə, uə; Haroi ɨa, ei, ou) have no cell in the vowel chart and are listed under 'Unclassified vowels'. Is that how they a… | Yes for now: the standing rule lists what cannot be placed under the chart. No code was changed. |  |  |
+| `thurgood1999-tones` | Thurgood (1999), chapter 8: the tones of Tsat (Tables 145-154) and Phan Rang Cham, and the registers of Western Cham. Are they entered? | Not entered and not read. Tones and registers are not phonemes in this database, and a row cannot write a tone on a segment. The Haroi register is entered only… |  |  |
 
 <!-- END GENERATED -->
 
