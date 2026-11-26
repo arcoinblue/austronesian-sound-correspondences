@@ -9,24 +9,24 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 333 |  |
-| lects | 1289 | 307 dialect, 34 earlier-stage, 16 group, 638 language, 9 linkage, 285 proto-language |
+| lects | 1309 | 310 dialect, 34 earlier-stage, 16 group, 655 language, 9 linkage, 285 proto-language |
 | phonemes | 5423 |  |
-| correspondences | 21126 | plus 12675 implied and 3419 stated retentions generated from lects.inherit |
+| correspondences | 22051 | plus 12674 implied and 3419 stated retentions generated from lects.inherit |
 | notation_map | 612 |  |
 | allophones | 1392 |  |
-| decisions | 250 | 134 confirmed, 57 open, 59 reverted |
+| decisions | 252 | 135 confirmed, 58 open, 59 reverted |
 
-Lects by `inherit`: (blank) 369, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 71, stated-unchanged 245.
-Inventories: edited 38, empty 49, reverse-generated 991, sourced 211.
+Lects by `inherit`: (blank) 390, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 70, stated-unchanged 245.
+Inventories: edited 38, empty 49, reverse-generated 1011, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 466 warning(s), 2566 note(s).
+`build.py --check`: 0 error(s), 467 warning(s), 2801 note(s).
 
 | Warnings | Count |
 |---|---|
 | no glottocode | 150 |
-| a reflex is not in the lect's sourced inventory | 103 |
+| a reflex is not in the lect's sourced inventory | 104 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 76 |
 | no page number for the citation | 26 |
@@ -99,6 +99,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross1988-pt-lects` | How are Ross's (1988) Papuan Tip language names matched to Glottolog and to lects? | By Ross's own equations (Figures 7-8: Paiwa = Gapapaiwa, Kukuya = Minaveha, Gumasi = Gumawana, Kakabai = Igora; Lala = Nara, p. 190) and Glottolog 5.4 and Ross… |  |  |
 | `ross1988-nws` | Ross (1988) prints the North-West Solomonic consonant correspondences (Table 32) as POC > PNS > (PNN, PCH, PNGe, PYS) > language. Against which stage are the r… | Against POc, composed, as in the North New Guinea batch (ross1988-composition): Proto North-West Solomonic and the four lower reconstructions are not nodes in … | 852 |  |
 | `ross1988-nws-lects` | How are Ross's (1988) North-West Solomonic language names matched to Glottolog and to lects? | By Glottolog 5.4 names and alternate names: Piva = Lawunuia, Sengga = Sisiqa (the existing lect), Nduke = Duke, Kia = Zabana, Ghove = Gao, Maringe = Cheke Holo… |  |  |
+| `ross1988-mm-lects` | How are Ross's (1988) Meso-Melanesian language names matched to Glottolog and to lects? | By Glottolog 5.4: Bali = Uneapa (the existing lect), Vitu = Muduapa, Tabar = Mandara, Tolai = Kuanua, Duke of York = Ramoaaina, Lavongai = Tungag, Lamasong = t… |  |  |
 
 <!-- END GENERATED -->
 

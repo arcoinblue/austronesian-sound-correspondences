@@ -9,3 +9,11 @@ Ross, Malcolm D. 1988. *Proto Oceanic and the Austronesian languages of western 
 
 - The POC > PWZ, PLN, PTAB, PMAD, PNS rows of the table; PWZ and PTAB as nodes.
 - Vowels; Table 35 (pronouns).
+
+
+## Applied
+
+2026-11-26 04:32 UTC, by the push-batch workflow.
+- lects: sheet rows 1291-1310
+- correspondences: sheet rows 21128-22052
+- decisions: sheet rows 252-253
