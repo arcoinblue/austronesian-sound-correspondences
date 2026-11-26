@@ -31,3 +31,11 @@ Entered: two new lects, Shark Bay and Tolomako, with 12 rows from Lynch (2005b: 
 
 The rows are stated against POc (`parent_id` `poc`, `tree_parent` `northern-vanuatu`), as for Nese. Environment
 `_[i,e,a]` is Lynch's apicolabializing environment, as in the Nese and Sakao rows.
+
+
+## Applied
+
+2026-11-26 10:16 UTC, by the push-batch workflow.
+- lects: sheet rows 1391-1392
+- correspondences: sheet rows 23472-23483
+- decisions: sheet rows 263-263

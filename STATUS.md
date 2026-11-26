@@ -9,19 +9,19 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 335 |  |
-| lects | 1389 | 328 dialect, 34 earlier-stage, 16 group, 716 language, 9 linkage, 286 proto-language |
+| lects | 1391 | 328 dialect, 34 earlier-stage, 16 group, 718 language, 9 linkage, 286 proto-language |
 | phonemes | 5534 |  |
-| correspondences | 23470 | plus 13528 implied and 3410 stated retentions generated from lects.inherit |
+| correspondences | 23482 | plus 13576 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
 | allophones | 1415 |  |
-| decisions | 261 | 135 confirmed, 67 open, 59 reverted |
+| decisions | 262 | 135 confirmed, 68 open, 59 reverted |
 
-Lects by `inherit`: (blank) 424, assumed-unchanged 644, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
-Inventories: edited 39, empty 57, reverse-generated 1078, sourced 215.
+Lects by `inherit`: (blank) 424, assumed-unchanged 646, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
+Inventories: edited 39, empty 57, reverse-generated 1080, sourced 215.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 483 warning(s), 2915 note(s).
+`build.py --check`: 0 error(s), 483 warning(s), 2916 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -109,6 +109,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `smith2017a-small-tables` | Smith (2017a): the tables that illustrate single changes with lexemes, and the inventories of the language sketches (gap audit of 26 November 2026). What is en… | Only what the rows of batch smith2017-borneo did not yet say. New lects from tables with a variety that was not a lect: Aoheng (aohe1238, Tables 44-48), Punan … | 67 |  |
 | `smith2023-2025-tables` | Smith (2023) Tables 6-7 and Smith (2025) Table 7, and the other tables of the gap audit of 26 November 2026 read with them (Robinson & Lobel 2013 Tables 4, 10;… | Only the cells that were not yet rows. Miri *jʰ > s and *ɡʰ > k (Smith 2023, Table 6). Begak *ɡ > ɡ and ɡk after schwa, and *R > ∅ between vowels (Smith 2023, … | 27 |  |
 | `as2024-historical-chapters` | Adelaar & Schapper (2024), the historical chapters 2, 7, 8, 9, 10, 12, 13 and 36 (gap audit of 26 November 2026): what is entered from their tables? | Three rows: Long Terawan Berawan *bʰ > pp, *dʰ > t͡ʃ, *jʰ > t͡ʃ (Smith 2024, Table 8.1). The other tables summarise works whose rows are already in (PAn > PMP … | 3 |  |
+| `oceanic-small-tables` | The smaller Oceanic tables of the gap audit of 26 November 2026 (Jackson 1983 Tables 22, 25, 29; Jackson 1986 Table 5; Hughes 2020a Table 3; Hughes 2020b Table… | Two new lects, Shark Bay (lore1244) and Tolomako (tolo1255), with the reflexes of POc *m, *b, *p from Lynch (2005b: 400, Table 3): 12 rows, stated against POc,… | 12 |  |
 
 <!-- END GENERATED -->
 
