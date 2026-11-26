@@ -21,7 +21,7 @@ Inventories: edited 38, empty 49, reverse-generated 965, sourced 211.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 465 warning(s), 2326 note(s).
+`build.py --check`: 0 error(s), 466 warning(s), 2326 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -34,6 +34,7 @@ Inventories: edited 38, empty 49, reverse-generated 965, sourced 211.
 | an attested lect has symbols that are not IPA | 2 |
 | phoneme … is not in … inventory | 1 |
 | the notes of … describe allophones | 1 |
+| representative is set, but the language has rows of its own | 1 |
 
 ## Open decisions
 
