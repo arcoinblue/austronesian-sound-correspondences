@@ -29,3 +29,10 @@ lects hang under Grimes & Edwards's nodes.
 
 After the merge, two source notes in the sheet say that no sound correspondences are entered from Smith (2023) and
 Smith (2025); `sheet_edits.py` beside the script has the new text.
+
+
+## Applied
+
+2026-11-26 08:59 UTC, by the push-batch workflow.
+- correspondences: sheet rows 23442-23468
+- decisions: sheet rows 261-261
