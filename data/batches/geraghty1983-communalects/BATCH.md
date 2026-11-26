@@ -15,3 +15,11 @@ Table 1 (pp. 21-22) and §2.3 (pp. 24-38) at 105 dpi, the abbreviations (pp. xx-
 - Not entered: Table 16 (percentages), Table 17 (changes shared by pairs), the examples and conditions of chapters
   3-4, PEO *R, the vowel length of the reflexes other than ā.
 - 23 lects have no Glottocode (Glottolog 5.4 has no languoid of the name).
+
+
+## Applied
+
+2026-11-26 20:46 UTC, by the push-batch workflow.
+- lects: sheet rows 1402-1444
+- correspondences: sheet rows 24105-26047
+- decisions: sheet rows 267-272

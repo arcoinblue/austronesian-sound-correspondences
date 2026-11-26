@@ -9,26 +9,26 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 335 |  |
-| lects | 1400 | 328 dialect, 34 earlier-stage, 16 group, 727 language, 9 linkage, 286 proto-language |
+| lects | 1443 | 366 dialect, 34 earlier-stage, 16 group, 732 language, 9 linkage, 286 proto-language |
 | phonemes | 5571 |  |
-| correspondences | 24103 | plus 13626 implied and 3410 stated retentions generated from lects.inherit |
+| correspondences | 26046 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
 | allophones | 1415 |  |
-| decisions | 265 | 136 confirmed, 70 open, 59 reverted |
+| decisions | 271 | 136 confirmed, 76 open, 59 reverted |
 
-Lects by `inherit`: (blank) 424, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
-Inventories: edited 39, empty 57, reverse-generated 1088, sourced 216.
+Lects by `inherit`: (blank) 469, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
+Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 483 warning(s), 2918 note(s).
+`build.py --check`: 0 error(s), 518 warning(s), 3059 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 156 |
-| a reflex is not in the lect's sourced inventory | 116 |
+| no glottocode | 180 |
+| a reflex is not in the lect's sourced inventory | 129 |
 | a work cited in notes has no sources row | 98 |
-| a source is never cited | 74 |
+| a source is never cited | 72 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 8 |
 | an attested lect has symbols that are not IPA | 2 |
@@ -112,6 +112,12 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `oceanic-small-tables` | The smaller Oceanic tables of the gap audit of 26 November 2026 (Jackson 1983 Tables 22, 25, 29; Jackson 1986 Table 5; Hughes 2020a Table 3; Hughes 2020b Table… | Two new lects, Shark Bay (lore1244) and Tolomako (tolo1255), with the reflexes of POc *m, *b, *p from Lynch (2005b: 400, Table 3): 12 rows, stated against POc,… | 12 |  |
 | `formosan-leftovers` | The Formosan leftovers of the gap audit of 26 November 2026 (Lin 2022 Tables 4.3-4.38, 7.1-7.5; Shibata 2020 Table 5.6; Tseng 2023 Tables 3.2.x, 4.2.x, 6.4; Ye… | Two sporadic rows from Yeh (2024: 210): Katripulr *-s > -t in 'to catch' and Kasavakan *ɖ (here *ʐ) > h in 'mountain'. Nothing else. Lin's Tables 4.3-4.23 illu… | 2 |  |
 | `thurgood1999-chamic` | Thurgood (1999), chapters 5 and 6: what is entered for Proto-Chamic and its nine daughters, and what becomes of the Proto-Chamic rows read through Adelaar (200… | A sourced Proto-Chamic inventory (28 consonants, 9 vowels, in Thurgood's symbols) and the daughters' reflexes from the summary tables: consonants in full (pres… | 619 |  |
+| `geraghty1983-communalects-rows` | Geraghty (1983) Table 15 states the reflexes of Proto-Eastern Oceanic, which is not a node. Against what are the 38 communalects stated, and which lects carry … | Against Proto-Central Pacific (the user's comment on decision geraghty1983-communalects: 'listing them under PCP'), composed: PEO *nt, *nr, *ŋk, *q, *mw are PC… | 1605 |  |
+| `lynch2002h-table3-rows` | Lynch (2002h) Table 3 (p. 315): which cells are entered now that the PDF is at hand and a row can name its predecessor? | The cells that were not rows: Mota (all seven columns; nine rows), Loniu *bw, *pw and medial and final *mw, Manam and Dobu *pw > p, Nemi's cross-over reflexes … | 25 |  |
+| `ross1992-table2` | Ross (1992) Table 2 (decision ross1992-tables, reverted by the user): how are its PAn phonemes and its phonetic symbols entered? | As rows of source ross1992 on eight lects (Proto-Atayal, Saisiyat, Thao, Proto-Bunun, Proto-Amis-Sakizaya for Ross's Amis, Proto-Rukai, Proto-Puyuma, Proto-Pai… | 246 |  |
+| `ross2012-table4` | Ross (2012) Table 4 (pp. 1274-1275), all PAn consonants in 20 Formosan languages: what is entered beside the rows of the language sources and of Ross (2015)? | Only the cells of lects that had no row at all for the phoneme: Taokas (*b, *q, *j, *m, *n, *L, *l), Papora (*p, *b, *t, *q, *j, *m, *n, *L, *l, *R), Hoanya (t… | 49 |  |
+| `audit-s1-not-entered` | Gap audit of 26 November 2026, §1: Walworth (2014) and Li (1985) have no rows. Are their tables entered? | Not in this batch. Walworth (2014): Tables 1, 4, 7, 10, 11 and 12 are taken or adapted from Marck (2000: 24-26, 45, 132-134), whose rows are entered from the o… |  |  |
+| `thurgood1999-table58` | Thurgood (1999), second pass (the rime tables 56, 58, 62, 71, 82-88, Haroi register, Tsat tones): what is entered? | Table 58 only: the reflexes of long *-u:- before *-ŋ and *-ʔ in Rade, Jarai, Chru, Northern Roglai, Tsat, Western Cham and Phan Rang Cham (17 rows), and Chru *… | 18 |  |
 
 <!-- END GENERATED -->
 
