@@ -18,3 +18,11 @@ pages and several are images with no text layer.
 | 13 (Zobel), Tables 13.7-13.8: *z, *d, *j, *R in CMP | a summary; the lects have rows from Grimes & Edwards (2026). Compared for five of the 21 only (see the decision) |
 | 36 (C. Grimes), Table 36.1: consonants of Buru, Asilulu, South Nuaulu | not entered: consonants only, and Asilulu is not a lect |
 | 36, Tables 36.2-36.3: VV sequences, final consonants | lexeme tables for lects that have rows from Grimes & Edwards (2026); not compared word by word |
+
+
+## Applied
+
+2026-11-26 09:29 UTC, by the push-batch workflow.
+- sources: sheet rows 336-336
+- correspondences: sheet rows 23469-23471
+- decisions: sheet rows 262-262

@@ -8,20 +8,20 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 334 |  |
+| sources | 335 |  |
 | lects | 1389 | 328 dialect, 34 earlier-stage, 16 group, 716 language, 9 linkage, 286 proto-language |
 | phonemes | 5534 |  |
-| correspondences | 23467 | plus 13528 implied and 3412 stated retentions generated from lects.inherit |
+| correspondences | 23470 | plus 13528 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
 | allophones | 1415 |  |
-| decisions | 260 | 135 confirmed, 66 open, 59 reverted |
+| decisions | 261 | 135 confirmed, 67 open, 59 reverted |
 
 Lects by `inherit`: (blank) 424, assumed-unchanged 644, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
 Inventories: edited 39, empty 57, reverse-generated 1078, sourced 215.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 483 warning(s), 2914 note(s).
+`build.py --check`: 0 error(s), 483 warning(s), 2915 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -108,6 +108,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `lobel2013-swsabah-languages` | Lobel (2013) Tables 11.13a-c and 11.23 give forms and innovations for 35 Dusunic, Bisaya-Lotud and Murutic languages that were not lects. Which lects, which Gl… | 35 new lects under Proto-Dusunic (16), Proto-Bisaya-Lotud (4) and Proto-Murutic (15), with the level and code of the matching Glottolog languoid, and three lan… | 94 |  |
 | `smith2017a-small-tables` | Smith (2017a): the tables that illustrate single changes with lexemes, and the inventories of the language sketches (gap audit of 26 November 2026). What is en… | Only what the rows of batch smith2017-borneo did not yet say. New lects from tables with a variety that was not a lect: Aoheng (aohe1238, Tables 44-48), Punan … | 67 |  |
 | `smith2023-2025-tables` | Smith (2023) Tables 6-7 and Smith (2025) Table 7, and the other tables of the gap audit of 26 November 2026 read with them (Robinson & Lobel 2013 Tables 4, 10;… | Only the cells that were not yet rows. Miri *jʰ > s and *ɡʰ > k (Smith 2023, Table 6). Begak *ɡ > ɡ and ɡk after schwa, and *R > ∅ between vowels (Smith 2023, … | 27 |  |
+| `as2024-historical-chapters` | Adelaar & Schapper (2024), the historical chapters 2, 7, 8, 9, 10, 12, 13 and 36 (gap audit of 26 November 2026): what is entered from their tables? | Three rows: Long Terawan Berawan *bʰ > pp, *dʰ > t͡ʃ, *jʰ > t͡ʃ (Smith 2024, Table 8.1). The other tables summarise works whose rows are already in (PAn > PMP … | 3 |  |
 
 <!-- END GENERATED -->
 
