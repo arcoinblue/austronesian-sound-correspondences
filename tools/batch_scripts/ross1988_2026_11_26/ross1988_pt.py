@@ -135,11 +135,11 @@ for specs, page, block in D.T30_BLOCKS:
 # POC > PPT (p. 196, innovations A-G, and the POC and PPT rows of Table 28)
 PPT = [
     ("p", "p", "fortis grade", "D. POC *p split into (fortis) PPT *p and (lenis) PPT *v, with all languages agreeing on "
-     "their reflex of POC *p in a given item. PPT *v occurs far more often than PPT *p."),
+     "their reflex of POC *p in a given item. PPT *v occurs far more often than PPT *p"),
     ("p", "v", "lenis grade", "D. POC *p split into (fortis) PPT *p and (lenis) PPT *v"),
-    ("R", "r", "elsewhere", "A. POC *r and *R merged as PPT *r."),
-    ("dr", "d", "elsewhere", "B. POC *d and *dr merged as PPT *d."),
-    ("c", "s", "elsewhere", "C. POC *s and *c merged as PPT *s."),
+    ("R", "r", "elsewhere", "A. POC *r and *R merged as PPT *r"),
+    ("dr", "d", "elsewhere", "B. POC *d and *dr merged as PPT *d"),
+    ("c", "s", "elsewhere", "C. POC *s and *c merged as PPT *s"),
 ]
 for par, child, env, printed in PPT:
     b.corr("ppt", par, child, env, "196", "The grade of a given item is not predictable (p. 196)." if "grade" in env
