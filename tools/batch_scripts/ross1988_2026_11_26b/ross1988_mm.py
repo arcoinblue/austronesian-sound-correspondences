@@ -15,6 +15,7 @@ b = Batch(S)
 G, OLD = glottolog(), existing_lects()
 LID = {n: v[0] for n, v in T.LECTS.items()}
 PNAME = {"mʷ": "mw", "ɡ": "g"}
+NODE_NAME = {"pln": "Proto-Lavongai/Nalik", "pmad": "Proto-Madak"}
 
 # lects with rows already: keep their symbols for Ross's v and f; lects with a sourced inventory likewise
 have = {}
@@ -114,7 +115,7 @@ for name, (lid, nm, alt, dia, group) in T.LECTS.items():
         iso639_3="" if dia else g["ISO639P3code"], parent_id=node or "poc",
         tree_parent="" if (dia or node) else "mm", language_id=dia, latitude=g["Latitude"], longitude=g["Longitude"],
         notes=f"Meso-Melanesian cluster: {group} (Ross 1988: 258-264). Consonant reflexes from Table 34 of Ross "
-              f"(1988: 266-268), " + (f"stated against {node} where Ross's value for it is one phoneme, the rest "
+              f"(1988: 266-268), " + (f"stated against {NODE_NAME[node]} where Ross's value for it is one phoneme, the rest "
                                       "against POC" if node else
                                       "composed from POC through his intermediate reconstructions, which are not "
                                       "nodes here") +
