@@ -37,3 +37,13 @@ paper's §3 beside its §4.
 
 After the merge the build warns for reflexes outside the two new sourced inventories (Hliboi d͡ʒ; Kelai aj, aw, aːe̯,
 j and others). They are listed in decision `smith2017a-small-tables`.
+
+
+## Applied
+
+2026-11-26 07:39 UTC, by the push-batch workflow.
+- lects: sheet rows 1387-1390
+- phonemes: sheet rows 5472-5535
+- correspondences: sheet rows 23375-23441
+- allophones: sheet rows 1405-1416
+- decisions: sheet rows 260-260

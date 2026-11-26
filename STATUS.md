@@ -9,24 +9,24 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | Table | Rows | |
 |---|---|---|
 | sources | 334 |  |
-| lects | 1385 | 327 dialect, 34 earlier-stage, 16 group, 713 language, 9 linkage, 286 proto-language |
-| phonemes | 5470 |  |
-| correspondences | 23373 | plus 13438 implied and 3428 stated retentions generated from lects.inherit |
+| lects | 1389 | 328 dialect, 34 earlier-stage, 16 group, 716 language, 9 linkage, 286 proto-language |
+| phonemes | 5534 |  |
+| correspondences | 23440 | plus 13528 implied and 3415 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
-| allophones | 1403 |  |
-| decisions | 258 | 135 confirmed, 64 open, 59 reverted |
+| allophones | 1415 |  |
+| decisions | 259 | 135 confirmed, 65 open, 59 reverted |
 
-Lects by `inherit`: (blank) 424, assumed-unchanged 640, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
-Inventories: edited 39, empty 57, reverse-generated 1076, sourced 213.
+Lects by `inherit`: (blank) 424, assumed-unchanged 644, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 246.
+Inventories: edited 39, empty 57, reverse-generated 1078, sourced 215.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 477 warning(s), 2903 note(s).
+`build.py --check`: 0 error(s), 485 warning(s), 2913 note(s).
 
 | Warnings | Count |
 |---|---|
-| no glottocode | 155 |
-| a reflex is not in the lect's sourced inventory | 109 |
+| no glottocode | 156 |
+| a reflex is not in the lect's sourced inventory | 116 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 76 |
 | no page number for the citation | 26 |
@@ -106,6 +106,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `song2025-ch7` | Song (2025) chapter 7 (Tables 7.1-7.8) gives the evidence for Toda-Truku, Toda and Truku as changes of Proto-Toda-Truku, Proto-Toda and Proto-Truku. How are th… | On each dialect, against Song's Proto-Seediq (system Song), beside the rows of Tables 4.3-4.23. New rows: *ə > i before y, > u before w, and full assimilation … | 47 |  |
 | `lobel2013-danao` | Lobel (2013) chapter 9 (Tables 9.1-9.7): Proto-Danaw and Maranao. Which node, which predecessor, and how are the heavy consonants written and derived? | New node Proto-Danaw (pdan, dana1253) under Proto-Greater Central Philippine with Allison's (1979) inventory as Lobel prints it (Table 9.1), and Maranao (mara1… | 19 |  |
 | `lobel2013-swsabah-languages` | Lobel (2013) Tables 11.13a-c and 11.23 give forms and innovations for 35 Dusunic, Bisaya-Lotud and Murutic languages that were not lects. Which lects, which Gl… | 35 new lects under Proto-Dusunic (16), Proto-Bisaya-Lotud (4) and Proto-Murutic (15), with the level and code of the matching Glottolog languoid, and three lan… | 94 |  |
+| `smith2017a-small-tables` | Smith (2017a): the tables that illustrate single changes with lexemes, and the inventories of the language sketches (gap audit of 26 November 2026). What is en… | Only what the rows of batch smith2017-borneo did not yet say. New lects from tables with a variety that was not a lect: Aoheng (aohe1238, Tables 44-48), Punan … | 67 |  |
 
 <!-- END GENERATED -->
 
