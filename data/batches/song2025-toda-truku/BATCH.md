@@ -10,3 +10,10 @@ Toda-Truku, Toda and Truku subgroups, entered on the dialects against his Proto-
 
 Not entered: changes already in from chapter 4 (*g > w in Toda, *c > s and palatalization in Truku); loss of
 *rə-; Truku *aw > u; lexical innovations (Tables 7.4, 7.9, 7.10).
+
+
+## Applied
+
+2026-11-26 06:05 UTC, by the push-batch workflow.
+- correspondences: sheet rows 23137-23261
+- decisions: sheet rows 256-257

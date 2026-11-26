@@ -11,10 +11,10 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 333 |  |
 | lects | 1345 | 317 dialect, 34 earlier-stage, 16 group, 684 language, 9 linkage, 285 proto-language |
 | phonemes | 5427 |  |
-| correspondences | 23135 | plus 12756 implied and 3419 stated retentions generated from lects.inherit |
+| correspondences | 23260 | plus 12741 implied and 3419 stated retentions generated from lects.inherit |
 | notation_map | 612 |  |
 | allophones | 1392 |  |
-| decisions | 254 | 135 confirmed, 60 open, 59 reverted |
+| decisions | 256 | 135 confirmed, 62 open, 59 reverted |
 
 Lects by `inherit`: (blank) 421, assumed-unchanged 604, assumed-unchanged (automatic, fewer than 13 phonemes known) 75, stated-unchanged 245.
 Inventories: edited 39, empty 54, reverse-generated 1041, sourced 211.
@@ -102,6 +102,8 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross1988-mm-lects` | How are Ross's (1988) Meso-Melanesian language names matched to Glottolog and to lects? | By Glottolog 5.4: Bali = Uneapa (the existing lect), Vitu = Muduapa, Tabar = Mandara, Tolai = Kuanua, Duke of York = Ramoaaina, Lavongai = Tungag, Lamasong = t… |  |  |
 | `ross1988-adm` | Ross (1988) Table 36 prints the Admiralties consonant correspondences as POC > PAd > (PWAd, PEAd) > language, with secondary oral and nasal grades, and Table 3… | Against Proto-Admiralty (padm), an established node whose phonemes are those of POc (inherit), with PWAd and PEAd held back and their values in as_printed; Mus… | 1084 |  |
 | `ross1988-adm-lects` | How are Ross's (1988) St Matthias and Admiralties language names matched to Glottolog and to lects? | By Glottolog 5.4: Tench = Tenis, Lindrou = Nyindrou, Mokoreng = Mokerang, Koro = Manus Koro (bowa1234), Kaniet = kani1282 (not Kaniet-Dempwolff). Varieties tha… |  |  |
+| `shibata2020-dialects` | Shibata (2020) Tables 4.2-4.13 give the reflexes of every Proto-Bunun phoneme in the five dialects, and Tables 6.11 and 6.13 the same through Proto-Northern an… | Yes, as rows with the examples of Tables 4.3-4.12: Takituduh and Takibakha against Proto-Northern Bunun (Table 6.11), Takbanuað and Takivatan against Proto-Cen… | 78 |  |
+| `song2025-ch7` | Song (2025) chapter 7 (Tables 7.1-7.8) gives the evidence for Toda-Truku, Toda and Truku as changes of Proto-Toda-Truku, Proto-Toda and Proto-Truku. How are th… | On each dialect, against Song's Proto-Seediq (system Song), beside the rows of Tables 4.3-4.23. New rows: *ə > i before y, > u before w, and full assimilation … | 47 |  |
 
 <!-- END GENERATED -->
 

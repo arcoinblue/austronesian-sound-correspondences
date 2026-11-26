@@ -8,3 +8,10 @@ Proto-Northern Bunun), Takbanuað, Takivatan (against Proto-Central Bunun) and I
 with the tables' examples; decision `shibata2020-dialects` (open).
 
 Not entered: *b, *d and the Isbukun changes (already in); the diphthongs of Table 4.13.
+
+
+## Applied
+
+2026-11-26 06:05 UTC, by the push-batch workflow.
+- correspondences: sheet rows 23137-23261
+- decisions: sheet rows 256-257
