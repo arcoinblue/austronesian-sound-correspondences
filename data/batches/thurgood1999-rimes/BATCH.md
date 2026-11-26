@@ -8,3 +8,10 @@ Thurgood (1999), Tables 62 (p. 124), 71 (p. 130), 85 (p. 144), 86 (p. 145): the 
 
 **Not entered.** The short-*a rows of Table 62; Tables 82-84, 87, 88 (word lists; summary lines repeat Tables 58 and
 62); Table 56; Haroi register (Tables 128-140); Tsat tones (Tables 145-154). See the decision.
+
+
+## Applied
+
+2026-11-26 23:01 UTC, by the push-batch workflow.
+- correspondences: sheet rows 26048-26210
+- decisions: sheet rows 273-273

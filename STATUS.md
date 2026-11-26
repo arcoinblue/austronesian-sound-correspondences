@@ -11,17 +11,17 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | sources | 335 |  |
 | lects | 1443 | 366 dialect, 34 earlier-stage, 16 group, 732 language, 9 linkage, 286 proto-language |
 | phonemes | 5571 |  |
-| correspondences | 26046 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
+| correspondences | 26209 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
 | allophones | 1415 |  |
-| decisions | 271 | 136 confirmed, 76 open, 59 reverted |
+| decisions | 272 | 136 confirmed, 77 open, 59 reverted |
 
 Lects by `inherit`: (blank) 469, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
 Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 518 warning(s), 3059 note(s).
+`build.py --check`: 0 error(s), 518 warning(s), 3060 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -118,6 +118,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `ross2012-table4` | Ross (2012) Table 4 (pp. 1274-1275), all PAn consonants in 20 Formosan languages: what is entered beside the rows of the language sources and of Ross (2015)? | Only the cells of lects that had no row at all for the phoneme: Taokas (*b, *q, *j, *m, *n, *L, *l), Papora (*p, *b, *t, *q, *j, *m, *n, *L, *l, *R), Hoanya (t… | 49 |  |
 | `audit-s1-not-entered` | Gap audit of 26 November 2026, §1: Walworth (2014) and Li (1985) have no rows. Are their tables entered? | Not in this batch. Walworth (2014): Tables 1, 4, 7, 10, 11 and 12 are taken or adapted from Marck (2000: 24-26, 45, 132-134), whose rows are entered from the o… |  |  |
 | `thurgood1999-table58` | Thurgood (1999), second pass (the rime tables 56, 58, 62, 71, 82-88, Haroi register, Tsat tones): what is entered? | Table 58 only: the reflexes of long *-u:- before *-ŋ and *-ʔ in Rade, Jarai, Chru, Northern Roglai, Tsat, Western Cham and Phan Rang Cham (17 rows), and Chru *… | 18 |  |
+| `thurgood1999-rimes` | Thurgood (1999), second pass, second part: what is entered from the rime tables 62, 71 and 82-88, and how are the short and long vowels of Rade, Jarai and Cham… | The vowel of each rime, for the Proto-Chamic vowels that had no rows: long *a: by final (Table 62, seven languages), *ə by final (Table 71, eight languages), *… | 163 |  |
 
 <!-- END GENERATED -->
 
