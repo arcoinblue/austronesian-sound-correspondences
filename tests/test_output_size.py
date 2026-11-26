@@ -124,4 +124,11 @@ class TestSegmentsSize(unittest.TestCase):
             from asc.export import site_files
             seg = site_files(D)["segments.json"]
         self.assertTrue(seg["lects"])
-        self.assertLess(len(json.dumps(seg, ensure_ascii=False, separators=(",", ":")).encode()), 1_500_000)
+        # each distinct phoneme once; every lect row resolves to one (26 Nov 2026: the file passed 1.5 MB)
+        self.assertEqual(len({tuple(s) for s in seg["seg"]}), len(seg["seg"]))
+        for r in seg["lects"]:
+            for x in r["p"]:
+                i, flags = x if isinstance(x, list) else (x, "")
+                self.assertEqual(len(seg["seg"][i]), 7)
+                self.assertTrue(isinstance(x, int) or flags in ("i", "m", "im"), r["l"])
+        self.assertLess(len(json.dumps(seg, ensure_ascii=False, separators=(",", ":")).encode()), 500_000)

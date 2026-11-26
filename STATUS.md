@@ -165,3 +165,4 @@ Hand-kept.
 
 - "TEMP import" 1-12 in Google Drive can be deleted.
 - Branches `layout-v2-phase1`, `batches-to-sheet`, `e2e-batch-test`, `push-batch-fix`, `phase3-inherit-decisions` can be deleted on GitHub.
+- Formosan dialect tables, 26 Nov 2026 (batches `song2025-toda-truku`, `shibata2020-dialects`; script in `tools/batch_scripts/formosan_dialects_2026_11_26/`): Song (2025) ch. 7: the loss of *rə-, Truku *aw > u and the lexical innovations (Tables 7.4, 7.9, 7.10); Toda-Truku, Toda and Truku as proto-languages (`song2025-ch7`). Shibata (2020): the diphthongs of Table 4.13; Table 5.6 (apparent sporadic changes in Takituduh and Takibakha) was not read. Chuang (2024) Tables 5.6-5.16 repeat the reflexes of his Tables 4.5-4.23 (already in) and add no rows; his Table 5.15 prints Qapedang r for *r where Table 4.17 and the text (p. 145) have ɾ. Chuang's Table 6.1 (PAn in Proto-Rukai, Proto-Paiwan, Proto-Puyuma) is not compared with the rows of Li (1977) and Ting (1978).
