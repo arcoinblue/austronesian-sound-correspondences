@@ -329,6 +329,11 @@ table("dh", ["dh", "dh", "th", "th", "th", "th", "th", "ṭh", "ṭh"], ALL, "el
 table("gh", [None, "gh", "kh", "kh", "kh", "kh", "kh", "ḳh", "ḳh"], ALL, "elsewhere", "85", "Table 29", N29)
 row(AC, "gh", "kh", "elsewhere", "85", "Table 29", N29 + " Printed with a question mark ('kh- ?').",
     status="disputed", form="kh- ?")
+# no reflex printed ('---'): typed blanks, so that the PC symbol is not implied into the lect
+for lect, par in ((AC, "bh"), (TS, "bh"), (HA, "bh"), (NR, "kh")):
+    b.corr(lect, PCSYM.get(par, par), "", "elsewhere", "85", N29 + " The table has '---' here: no reflex is given.",
+           blank_type="not-attested", derivation="as-stated", decision=D, locator="Table 29",
+           as_printed=f"*{par} : ---")
 N32 = ("Table 32, 'Reflexes of PC glottalized obstruent' (p. 91): 'retained as such in the modern languages, except "
        "for the reflexes of *ʔj- in Tsat and Chru'. One column for 'W. & PR Cham'.")
 AG = (" 'In Acehnese, the reflexes of glottalized obstruents in disyllables or in onset clusters seem to be the "
@@ -503,6 +508,7 @@ for lect in (RA, JA, CH, NR, WC):
         N63 + (" Chru ˣ-a:u in loans." if lect == CH else ""), "-au")
 two(TS, "a", "w", None, "u", "114, 125", "Tables 52, 63", N63 + " Printed '-a:u; -au'.", "-a:u; -au")
 # *-uy
+two(AC, "u", "y", "u", None, "114, 125", "Tables 52, 63", N63 + " The high vowel is not lowered before the glide (-ui).", "-ui")
 for lect in (AC, RA, JA, CH, NR, TS, WC):
     two(lect, "u", "y", None, "i", "114, 125", "Tables 52, 63", N63, "-ui")
 
