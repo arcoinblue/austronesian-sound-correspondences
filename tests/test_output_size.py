@@ -19,7 +19,7 @@ import build  # noqa: E402
 
 LIMIT = 100_000
 # Files that are not a lect's own file.
-SHARED = ("index.json", "sources.json", "sources_full.json", "segments.json")
+SHARED = ("index.json", "sources.json", "sources_full.json", "segments.json", "map.json")
 
 
 def size(obj):

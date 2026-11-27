@@ -246,3 +246,26 @@ details.morelects { display: inline; }
 details.morelects summary { display: inline; cursor: pointer; color: var(--accent); margin-left: 4px; }
 details.morelects[open] summary { display: none; }
 details.morelects[open]::before { content: ", "; }
+
+/* The map over the lect list (js/map.js). The sea is the tinted ground, the land the page's own. */
+#map { margin: 12px 0 0; }
+.mapwrap { position: relative; height: 400px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  background: var(--accent-soft); }
+.mapwrap canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.mapbtns { position: absolute; top: 8px; right: 8px; display: flex; flex-direction: column; border: 1px solid var(--line);
+  border-radius: 6px; overflow: hidden; }
+.mapbtns button { font: inherit; font-size: 16px; line-height: 1; width: 30px; height: 30px; border: 0;
+  border-bottom: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer; }
+.mapbtns button:last-child { border-bottom: 0; }
+.mapbtns button:hover { background: var(--soft); }
+.maptip, .mappop { position: absolute; background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+  font-size: 13px; box-shadow: 0 2px 8px rgba(0, 0, 0, .15); }
+.maptip { padding: 2px 8px; pointer-events: none; white-space: nowrap; }
+.mappop { padding: 6px 10px; max-height: 220px; max-width: 260px; overflow-y: auto; }
+.mappop a { display: block; padding: 1px 0; }
+.mappop .muted { font-size: 12px; }
+.mapnote { font-size: 12.5px; margin: 6px 0 0; }
+.mapkey { display: inline-block; width: 9px; height: 9px; border-radius: 50%; vertical-align: baseline; }
+.mapkey.own { background: var(--accent); }
+.mapkey.glot { border: 1.5px solid var(--accent); background: var(--bg); }
+@media (max-width: 640px) { .mapwrap { height: 300px; } }
