@@ -8,6 +8,7 @@
 //   #/lects/<lect>/<ph>/     page 2 (phoneme)
 //   #/segments/[?q=…]        every lect's phonemes, searchable
 //   #/sources/ and #/sources/<id>/
+//   #/about/                 what the site is and how to cite it
 
 // Where each list page was scrolled to, so that coming back to a list (from a
 // lect, say) returns to the same place. Other pages open at the top.
@@ -21,7 +22,7 @@ function setTitle() {
   const h = app.querySelector("h1");
   if (!h) { document.title = SITE_TITLE; return; }
   const c = h.cloneNode(true);
-  c.querySelectorAll(".badge").forEach(b => b.remove());
+  c.querySelectorAll(".mark").forEach(b => b.remove());
   const t = c.textContent.replace(/\s+/g, " ").trim();
   document.title = t && t !== "Lects" ? `${t} · ${SITE_TITLE}` : SITE_TITLE;
 }
@@ -34,10 +35,11 @@ async function route() {
   const parts = path.split("/").filter(Boolean);
   try {
     // An address the site does not have (#/foo/, #/lects/pan/_S/extra/) says so.
-    if ((parts.length && !["lects", "segments", "sources"].includes(parts[0]))
+    if ((parts.length && !["lects", "segments", "sources", "about"].includes(parts[0]))
         || parts.length > (parts[0] === "lects" ? 3 : parts[0] === "sources" ? 2 : 1))
       throw new Error(`No page at ${path}`);
-    if (parts[0] === "sources") await pageSources(parts[1] && decodeURIComponent(parts[1]));
+    if (parts[0] === "about") pageAbout();
+    else if (parts[0] === "sources") await pageSources(parts[1] && decodeURIComponent(parts[1]));
     else if (parts[0] === "segments") await pageSegments(new URLSearchParams(query || ""));
     else if (parts[0] !== "lects" || parts.length === 1) await pageIndex(new URLSearchParams(query || ""));
     else if (parts.length === 2) await pageLect(decodeURIComponent(parts[1]), new URLSearchParams(query || ""));

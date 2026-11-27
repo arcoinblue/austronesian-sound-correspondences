@@ -33,13 +33,26 @@ const typeLabel = t => t === "proto-language" ? "proto-language" : label(t);
 // A correspondence found only in loanwords is stored as loan-stratum and shown as "borrowed".
 const statusLabel = s => s === "loan-stratum" ? "borrowed" : String(s || "").replace(/-/g, " ");
 
-// The words a badge shows; the data's own value stays in its class.
-const BADGE_WORDS = { "outside-inventory": "not in the inventory" };
-const badge = s => s ? `<span class="badge b-${esc(s)}">${esc(BADGE_WORDS[s] || statusLabel(s))}</span>` : "";
+// A mark beside a row or a name says only what is out of the ordinary: a regular reflex and a
+// sourced inventory are the expected case and get none. The words are the reader's, not the
+// sheet's; the data's own value stays in the class.
+const QUIET = new Set(["regular", "sourced"]);
+const BADGE_WORDS = { "outside-inventory": "not in the inventory", "reverse-generated": "inferred",
+  generated: "inferred", edited: "corrected by hand", "manual-add": "added by hand",
+  "placed-by-hand": "placed by hand", suppressed: "removed by hand", "changes-only": "changes only" };
+const badge = s => s && !QUIET.has(s) ? `<span class="mark m-${esc(s)}">${esc(BADGE_WORDS[s] || statusLabel(s))}</span>` : "";
+
+// Notes are written for the people who keep the sheet. What only they need (the name of the
+// decision a row rests on, the column a printed form is kept in) is left out of the page.
+const DECISION = /[;,]?\s*\bdecisions? [a-z0-9]+(?:-[a-z0-9]+)+(?:, [a-z0-9]+(?:-[a-z0-9]+)+)*(?:, reverted[^;)]*)?(?:, \d+ \w+ \d{4})?/g;
+function tidy(text) {
+  return String(text ?? "").replace(DECISION, "").replace(/;? ?the rime as printed is in as_printed\./g, ".")
+    .replace(/\(\s*[;,]?\s*\)/g, "").replace(/\(\s*[;,]\s*/g, "(").replace(/\s+([.,;)])/g, "$1").replace(/\s{2,}/g, " ").trim();
+}
 
 // A long note is cut at a word boundary and opened with a "more" button.
 function fold(text, limit = 180) {
-  const t = String(text ?? "");
+  const t = tidy(text);
   if (t.length <= limit + 40) return esc(t);
   let cut = t.lastIndexOf(" ", limit);
   if (cut < limit * 0.6) cut = limit;
@@ -119,6 +132,12 @@ function lectLink(id) {
   return href ? `<a href="${href}">${name}</a>` : `<span class="node" title="a node of the tree, with no page of its own">${name}</span>`;
 }
 
+// A long list (Proto-Oceanic has some 180 daughters) shows its first items; the rest open in place.
+function foldList(items, keep = 12) {
+  if (items.length <= keep + 3) return items.join(", ");
+  return `${items.slice(0, keep).join(", ")}<details class="morelects"><summary>and ${items.length - keep} more</summary>${items.slice(keep).join(", ")}</details>`;
+}
+
 // The node the lect list draws a lect under: its tree parent (a group, a language for a
 // dialect, a dialect for a sub-dialect), else its nearest reconstructed ancestor.
 const treeParent = l => l.tree_parent || l.parent_id;
@@ -140,9 +159,15 @@ function cite(r) {
 }
 
 // A correspondence row's notes, with the source's own statement first when it was kept.
-function rowNote(r, limit = 140) {
+// A row restated against the lect's immediate parent says so in a sentence that is the same on
+// every such row; the "restated" mark carries it, so the sentence is not printed again.
+const RESTATED = [/Stated in the source against [^;]*; restated here against [^.]*\.\s*/g,
+  /Stated against [^;]*; restated against the immediate parent through the rows of .*?\(\d{4}[a-z]?\)\.\s*/g];
+function rowNote(r, limit = 200) {
+  let notes = r.notes || "";
+  if (r.derivation === "composed") for (const re of RESTATED) notes = notes.replace(re, "");
   const printed = r.as_printed ? `<span class="printed" title="the source's statement as printed">As printed: ${esc(r.as_printed)}.</span>` : "";
-  return printed + (printed && r.notes ? " " : "") + (r.notes ? fold(r.notes, limit) : "");
+  return printed + (printed && notes.trim() ? " " : "") + (notes.trim() ? fold(notes, limit) : "");
 }
 
 // Keep a page's own state (a filter, a view, a tab) in the address, so the page can be linked
@@ -176,7 +201,7 @@ function coverage(c, status) {
   // An inventory from a source, with nothing yet stated about where its phonemes come from.
   if (!c.stated && !c.implied && status === "sourced") return `<span class="muted" title="the source gives an inventory; no correspondences entered yet">inventory only</span>`;
   if (!c.stated && !c.implied) return `<span class="muted" title="no correspondences entered">no data</span>`;
-  return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes ${c.stated === 1 ? "has" : "have"} an outcome stated by the source${c.implied ? `; ${c.implied} more ${c.implied === 1 ? "is an implied retention" : "are implied retentions"}` : ""}">${c.stated}/${c.parent_size}${c.implied ? ` <span class="muted">+${c.implied} implied</span>` : ""}</span>`;
+  return `<span title="${c.stated} of the parent's ${c.parent_size} phonemes ${c.stated === 1 ? "has" : "have"} an outcome stated by the source${c.implied ? `; ${c.implied} more ${c.implied === 1 ? "is" : "are"} taken as unchanged, because the source lists only the changes` : ""}">${c.stated} of ${c.parent_size}${c.implied ? ` <span class="muted">· ${c.implied} implied</span>` : ""}</span>`;
 }
 
 function coverageText(d) {
@@ -239,20 +264,30 @@ function envHtml(r, sole) {
   const env = r.fusion
     ? `<span class="fusion" title="entered as ${esc(r.environment)}">${fusionLabel(r.fusion)} fuse</span>`
     : sole && sole.has(r) ? ""
-    : r.environment === "conditions unknown" ? `<span class="muted">conditions unknown</span>` : `<code>${esc(r.environment)}</code>`;
+    : r.environment === "conditions unknown" ? `<span class="muted">conditions unknown</span>` : `<span class="env">${esc(r.environment)}</span>`;
   const tags = [
     r.variety && `<span class="tag" title="variety">${esc(r.variety)}</span>`,
     r.stratum && `<span class="tag" title="stratum">${esc(r.stratum)}</span>`,
-    r.other_predecessor && `<span class="tag der" title="stated against ${esc(LECTS[splitPid(r.parent)[0]]?.name || "another lect")}, which is not the stage this lect inherits from (a loan stratum against its donor, or a reflex the source states against another stage)">not its parent</span>`,
+    r.other_predecessor && `<span class="tag der" title="stated against ${esc(LECTS[splitPid(r.parent)[0]]?.name || "another lect")}, which is not the stage this lect inherits from (a loan stratum against its donor, or a reflex the source states against another stage)">against another stage</span>`,
     r.lexical_scope && `<span class="tag" title="lexically restricted">${esc(r.lexical_scope)}</span>`,
     r.conditioning === "lexical" && !r.lexical_scope && `<span class="tag">lexically restricted</span>`,
     r.split && `<span class="tag" title="the source gives ${r.split} regular reflexes in this environment and no condition that tells them apart">one of ${r.split}, no condition stated</span>`,
-    r.derivation === "composed" && `<span class="tag der" title="composed from the source's statements against an earlier stage; see notes">composed</span>`,
+    r.derivation === "composed" && `<span class="tag der" title="The source states this against an earlier stage; it is restated here against the stage this lect inherits from">restated</span>`,
     r.derivation === "implied-retention" && `<span class="tag der" title="not mentioned by a source that lists only the changes: taken as retained">implied</span>`,
-    r.derivation === "stated-retention" && `<span class="tag der" title="the source says that what it does not list is unchanged">unchanged per source</span>`,
+    r.derivation === "stated-retention" && `<span class="tag der" title="the source says that what it does not list is unchanged">unchanged, as the source says</span>`,
     r.source_form && `<span class="muted" title="as printed in the source">printed ${esc(r.source_form)}</span>`,
   ].filter(Boolean);
   return env + (tags.length ? (env ? " " : "") + tags.join(" ") : "");
+}
+
+// The condition of a row with everything that qualifies it: the environment, a mark when the
+// reflex is not regular, the number of supporting cognate sets, and the note on a line under it.
+// A blank reflex says why in the reflex cell, so it gets no mark here.
+function condCell(r, sole, note = "") {
+  const ev = evidence(r);
+  const bits = [envHtml(r, sole), badge(r.child ? r.status : ""),
+    ev && `<span class="muted ev" title="supporting cognate sets">${ev} ${ev === "1" ? "set" : "sets"}</span>`].filter(Boolean).join(" ");
+  return bits + (note ? `<div class="rownote">${note}</div>` : "");
 }
 
 // "12 of 94" where the source gives both numbers.

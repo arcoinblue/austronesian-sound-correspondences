@@ -3,8 +3,9 @@
 
 function cellLink(L, p) {
   const title = p.system ? `${p.system} reconstruction`
-    : [p.source_symbol && `source: ${p.source_symbol}`, `origin: ${p.origin}`,
-       p.origin === "generated" && `chart position: ${p.placement === "hand" ? "set by hand" : "inferred from the symbol"}`,
+    : [p.source_symbol && `in the source: ${p.source_symbol}`,
+       p.origin === "generated" && "inferred from the correspondences", p.origin === "manual-add" && "added by hand",
+       p.origin === "generated" && `chart position ${p.placement === "hand" ? "set by hand" : "read off the symbol"}`,
        p.origin !== "sourced" && p.reason,
        p.status === "marginal" && "marginal phoneme", p.status === "dubious" && "doubtful proto-phoneme",
        p.implied && "implied: carried down unchanged, not mentioned by the source",
@@ -81,14 +82,14 @@ function pageNode(L) {
   const kind = { group: "subgroup with no proto-language entered", linkage: "linkage" }[n.type] || n.type;
   app.innerHTML = `
     <div class="crumb"><a href="#/lects/">Lects</a>${ancestorsOf(L).map(a => " › " + lectLink(a)).join("")}</div>
-    <h1>${esc(n.name)} <span class="badge">node</span></h1>
+    <h1>${esc(n.name)}</h1>
+    <p class="subline">${esc(kind)}</p>
     <dl class="info">
       ${n.alt_names?.length ? `<dt>Also</dt><dd>${n.alt_names.map(esc).join(", ")}</dd>` : ""}
-      <dt>Type</dt><dd>${esc(kind)}</dd>
       ${n.glottocode ? `<dt>Glottocode</dt><dd><a href="https://glottolog.org/resource/languoid/id/${esc(n.glottocode)}" target="_blank" rel="noopener">${esc(n.glottocode)}</a></dd>` : ""}
       ${up ? `<dt>Listed under</dt><dd>${lectLink(up)}</dd>` : ""}
     </dl>
-    <p class="notice">${esc(n.name)} is a node of the lect tree with no rows of its own: the data is on its members.</p>
+    <p class="lede">${esc(n.name)} has no data of its own; it is on its members.</p>
     <h2>Members</h2>
     ${members.length ? `<ul>${members.map(m => `<li>${lectLink(m.id)} <span class="muted">${esc(m.type)}</span></li>`).join("")}</ul>` : `<p class="muted">None entered.</p>`}
     <p><a href="#/lects/?q=${encodeURIComponent(n.name)}">Show in the lect list</a></p>`;
@@ -105,91 +106,108 @@ async function pageLect(L, params) {
   const systemTabs = systemTabsOf(d, d.systems.map(x => x.name));
   const own = d.phonemes.filter(p => inDefault(d, p));
   const ancestors = d.ancestors.map(lectLink).join(" › ");
+  const P = LECTS[d.parent_id]?.name || "its parent";
+  const from = ids => ids.map(x => srcLink(x)).join("; ");
+  // What the inventory rests on, in a sentence under the name.
   const statusNote = {
-    "reverse-generated": "No source gives this inventory. It is the set of distinct reflexes in the correspondence data, and may miss loan phonemes or include allophones.",
-    "edited": "Reverse-generated from the correspondence data, then corrected by hand. Every change is listed below.",
+    "sourced": d.inventory_sources.length ? `Inventory from ${from(d.inventory_sources)}.` : "",
+    "reverse-generated": `No source states this inventory. It is inferred from the correspondences${d.correspondence_sources.length ? ` in ${from(d.correspondence_sources)}` : ""}, so it may miss loan phonemes or include allophones.`,
+    "edited": `No source states this inventory. It is inferred from the correspondences${d.correspondence_sources.length ? ` in ${from(d.correspondence_sources)}` : ""} and corrected by hand; the corrections are listed below.`,
     "empty": "No inventory yet: no source gives one and no correspondences have been entered.",
-  }[d.inventory_status];
+  }[d.inventory_status] || "";
   const proto = isProto(L);
   // A node defined by a few changes is not an inventory: show the changes instead of a chart.
   const changesView = d.changes_only || (proto && d.inventory_status !== "sourced" && own.length <= 2 && d.changes.length);
   const note = d.changes_only && d.inherit_auto
-    ? `Fewer than 13 phonemes of ${d.name} are known from the sources entered, so the phonemes of ${LECTS[d.parent_id]?.name || "its parent"} that they do not mention are taken as retained; they are shown in grey and marked implied.`
+    ? `Fewer than 13 phonemes of ${esc(d.name)} are known from the sources entered. The phonemes of ${esc(P)} that they do not mention are taken as unchanged and shown in grey.`
     : d.changes_only
-    ? `The source lists only the changes that define ${d.name}. The phonemes of ${LECTS[d.parent_id]?.name || "its parent"} that it does not mention are taken as retained; they are shown in grey and marked implied.`
-    : d.index_status === "empty" ? `No correspondences entered: the sources used give no data for ${d.name}.`
-    : changesView ? `The source gives only the changes that define ${d.name}, so its inventory is not known. The table lists those changes; it is not a phoneme inventory.`
+    ? `The source lists only the changes that define ${esc(d.name)}. The phonemes of ${esc(P)} that it does not mention are taken as unchanged and shown in grey.`
+    : d.index_status === "empty" ? `No correspondences entered: the sources used give no data for ${esc(d.name)}.`
+    : changesView ? `The source gives only the changes that define ${esc(d.name)}, so its inventory is not known. The table lists those changes; it is not a phoneme inventory.`
     : statusNote;
   // A source that says what it does not list is unchanged (it tabulates only the nontrivial sets).
   const inheritNote = d.inherit === "stated-unchanged"
-    ? `${SOURCES[d.inherit_source_id]?.label || "The source"}${d.inherit_page ? ": " + d.inherit_page : ""} lists only the correspondences that are not identities, so a phoneme of ${LECTS[d.parent_id]?.name || "its parent"} with no other row here is unchanged. Those rows are marked "unchanged per source".`
+    ? `${srcLink(d.inherit_source_id, d.inherit_page) || "The source"} lists only the correspondences that are not identities, so a phoneme of ${esc(P)} with no other row here is unchanged.`
     : "";
+  const notImplied = (d.not_implied || []).length
+    ? `Not carried down from ${lectLink(d.parent_id)}: ${d.not_implied.map(x => phLink(d.parent_id + ":" + x)).join(", ")}. No source entered says what ${d.not_implied.length === 1 ? "it is" : "they are"} in ${esc(d.name)}, and ${d.not_implied.length === 1 ? "a letter" : "letters"} of a reconstruction ${d.not_implied.length === 1 ? "is" : "are"} not assumed to continue unchanged in a living language.`
+    : "";
+  const rowsHead = first => `<tr>${first}<th>Change</th><th>Environment</th><th>Source</th></tr>`;
+  const change = r => `${r.parent ? phLink(r.parent) : ""} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}`;
   const changesTable = d.changes.length ? `<h2>Changes defining this ${proto ? "node" : "lect"}</h2>
-    <div class="scroll"><table><tr><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
-    ${d.changes.map(r => `<tr><td>${r.parent ? phLink(r.parent) : ""} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td>${envHtml(r)}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : "";
+    <div class="scroll"><table class="rows">${rowsHead("")}
+    ${d.changes.map(r => `<tr><td>${change(r)}</td><td>${condCell(r, null, rowNote(r))}</td><td>${cite(r)}</td></tr>`).join("")}</table></div>` : "";
 
   // Rows stated against a lect other than the parent (loan strata, reflexes stated against another stage).
   const others = d.other_predecessors || [];
   const otherTable = others.length ? `<h2>Stated against other lects</h2>
-    <p class="muted">Rows of ${esc(d.name)} whose predecessor is not ${esc(LECTS[d.parent_id]?.name || "its parent")}: loan strata, stated against their donor or its ancestor, and reflexes that a source states against another stage. They are not part of what ${esc(d.name)} inherits.</p>
-    <div class="scroll"><table><tr><th>From</th><th>Change</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
-    ${others.map(r => `<tr><td>${lectLink(splitPid(r.parent)[0])}</td><td>${phLink(r.parent)} &gt; ${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>
-      <td>${envHtml({ ...r, other_predecessor: false })}</td><td>${badge(r.status || r.blank_type)}</td><td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : "";
+    <p class="muted">Loan strata, stated against their donor or its ancestor, and reflexes that a source states against a stage other than ${esc(P)}. They are not part of what ${esc(d.name)} inherits.</p>
+    <div class="scroll"><table class="rows">${rowsHead("<th>From</th>")}
+    ${others.map(r => `<tr><td>${lectLink(splitPid(r.parent)[0])}</td><td>${change(r)}</td>
+      <td>${condCell({ ...r, other_predecessor: false }, null, rowNote(r))}</td><td>${cite(r)}</td></tr>`).join("")}</table></div>` : "";
+
+  // The path from the root, cut in the middle when it is long; the whole of it is under Details.
+  const anc = d.ancestors;
+  const crumb = anc.length > 4
+    ? `${lectLink(anc[0])} › <span title="${esc(anc.slice(1, -2).map(a => LECTS[a]?.name || a).join(" › "))}">…</span> › ${anc.slice(-2).map(lectLink).join(" › ")}`
+    : ancestors;
+  const subline = [typeLabel(d.type), d.subgroup_path.length > 1 && esc(d.subgroup_path[d.subgroup_path.length - 1]),
+    d.glottocode && `Glottolog <a href="https://glottolog.org/resource/languoid/id/${esc(d.glottocode)}" target="_blank" rel="noopener">${esc(d.glottocode)}</a>`,
+    d.iso639_3 && `ISO 639-3 ${esc(d.iso639_3)}`].filter(Boolean).join(" · ");
+  const lede = [note, inheritNote].filter(Boolean).join(" ");
+  const legend = [
+    "Each symbol opens the history of that phoneme; hover it for the symbol the source prints.",
+    d.phonemes.some(x => x.origin !== "sourced") && "A dotted underline marks a phoneme inferred from the correspondences and placed in the chart from its symbol; a double underline, one placed by hand; a solid underline, one added by hand (hover for the reason).",
+    (d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote))) && "Italic: the source gives no place or manner, so the position is read off the symbol.",
+    d.phonemes.some(x => x.implied) && "Grey: not mentioned by the source and taken as kept from the parent.",
+    d.phonemes.some(x => x.status) && "In parentheses: marginal (loans only, or an allophone the source lists as a sound of the language) or doubtful.",
+    d.phonemes.some(x => x.allophones?.length) && "Hover a symbol for its allophones; its page lists them with sources.",
+  ].filter(Boolean).join(" ");
 
   app.innerHTML = `
-    <div class="crumb"><a href="#/lects/">Lects</a>${ancestors ? " › " + ancestors : ""}</div>
-    <h1>${esc(d.name)} ${badge(d.index_status === "changes-only" ? "changes-only" : d.inventory_status)}</h1>
-    <dl class="info">
-      ${d.alt_names.length ? `<dt>Also</dt><dd>${esc(d.alt_names.join(", "))}</dd>` : ""}
-      <dt>Type</dt><dd>${typeLabel(d.type)}</dd>
-      ${d.glottocode ? `<dt>Glottocode</dt><dd><a href="https://glottolog.org/resource/languoid/id/${esc(d.glottocode)}" target="_blank" rel="noopener">${esc(d.glottocode)}</a></dd>` : ""}
-      ${d.iso639_3 ? `<dt>ISO 639-3</dt><dd>${esc(d.iso639_3)}</dd>` : ""}
-      ${d.subgroup_path.length ? `<dt>Subgroup</dt><dd>${esc(d.subgroup_path.join(" > "))}</dd>` : ""}
-      <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
-      ${d.represents ? `<dt>Represents</dt><dd>${esc(LECTS[d.represents]?.name || d.represents)} <span class="muted">(the language's entry opens this dialect)</span></dd>`
-        : d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
-      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : LECTS[d.tree_parent]?.type === "linkage" ? ' <span class="muted">(a linkage: not an established subgroup, no proto-language)</span>' : ""}${LECTS[d.tree_parent] && LECTS[d.tree_parent].parent_id !== d.parent_id && d.tree_parent !== d.parent_id ? ` <span class="muted">(its place in the classification; its rows are stated against ${esc(LECTS[d.parent_id]?.name || "its nearest ancestor")}, from which it inherits here)</span>` : ""}</dd>` : ""}
-      ${d.dialects.length ? `<dt>Dialects</dt><dd>${d.dialects.map(lectLink).join(", ")}</dd>` : ""}
-      ${d.daughters.length ? `<dt>Daughters</dt><dd>${d.daughters.map(lectLink).join(", ")}</dd>` : ""}
-      ${d.alt_parents.length ? `<dt>Proposed parents</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
-        <br><span class="muted" style="font-size:12.5px">The correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
-      ${d.alt_daughters.length ? `<dt>Proposed daughters</dt><dd>${d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join(", ")}</dd>` : ""}
-      ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
-        <br><span class="muted" style="font-size:12.5px">Overlapping subgroups: they cut across the tree and are not nodes of it.</span></dd>` : ""}
-      ${d.region ? `<dt>Region</dt><dd>${esc(d.region)}</dd>` : ""}
-      ${d.coordinates ? `<dt>Coordinates</dt><dd><a href="https://www.openstreetmap.org/?mlat=${d.coordinates[0]}&mlon=${d.coordinates[1]}#map=8/${d.coordinates[0]}/${d.coordinates[1]}" target="_blank" rel="noopener">${d.coordinates[0]}, ${d.coordinates[1]}</a></dd>` : ""}
-      <dt>Coverage</dt><dd>${coverageText(d)}</dd>
-      <dt>Inventory source</dt><dd>${d.inventory_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
-      <dt>Correspondences</dt><dd>${d.correspondence_sources.map(s => srcLink(s)).join("; ") || '<span class="muted">none</span>'}</dd>
-      ${d.orthography_note ? `<dt>Orthography</dt><dd>${fold(d.orthography_note, 320)}</dd>` : ""}
-      ${d.notes ? `<dt>Notes</dt><dd>${fold(d.notes, 320)}</dd>` : ""}
-    </dl>
-    ${note ? `<div class="notice">${esc(note)}</div>` : ""}
-    ${inheritNote ? `<div class="notice">${esc(inheritNote)}</div>` : ""}
-    ${(d.not_implied || []).length ? `<div class="notice">Not carried down: ${d.not_implied.map(x => phLink(d.parent_id + ":" + x)).join(", ")} of ${lectLink(d.parent_id)}. No source entered says what ${d.not_implied.length === 1 ? "it is" : "they are"} in ${esc(d.name)}, and ${d.not_implied.length === 1 ? "this letter of the reconstruction is" : "these letters of the reconstruction are"} not assumed to continue unchanged in a living language.</div>` : ""}
+    <div class="crumb"><a href="#/lects/">Lects</a>${crumb ? " › " + crumb : ""}</div>
+    <h1>${esc(d.name)}</h1>
+    <p class="subline">${subline}</p>
+    ${lede ? `<p class="lede">${lede}</p>` : ""}
+    ${notImplied ? `<p class="lede small">${notImplied}</p>` : ""}
     ${changesView && !d.changes_only ? changesTable : ""}
     ${d.systems.length ? `<h2>Reconstruction system</h2>${tabsHtml(systemTabs, "")}` : ""}
     ${changesView && !d.changes_only ? "" : `<div id="inv">${inventoryHtml(L, own)}</div>`}
-    ${d.phonemes.length ? `<p class="legend">Click a symbol for its history. Hover for the source's own symbol.
-      ${d.phonemes.some(x => x.origin !== "sourced") ? "Dotted underline = generated from the correspondences and placed in the chart from its symbol; double underline = placed by hand; solid = added by hand (hover for the reason)." : ""}
-      ${d.phonemes.some(x => x.origin !== "generated" && inferredNote(x)) || d.systems.some(y => y.phonemes.some(inferredNote)) ? "Italic = the source gives no place or manner, so the position is read off the symbol." : ""}
-      ${d.phonemes.some(x => x.implied) ? "Grey = implied: not mentioned by the source, taken as kept from the parent." : ""}
-      ${d.phonemes.some(x => x.status) ? "In parentheses = marginal (loans only, or an allophone the source lists as a sound of the language) or doubtful." : ""}
-      ${d.phonemes.some(x => x.allophones?.length) ? "Hover a symbol for its allophones; its page lists them with sources." : ""}</p>` : ""}
+    ${d.phonemes.length ? `<details class="about"><summary>How to read ${changesView && !d.changes_only ? "the symbols" : "these charts"}</summary><p class="muted">${legend}</p></details>` : ""}
     ${(d.stray_phonemes || []).length ? `<h3>Reflexes outside this inventory</h3>
       <p class="muted">Given as reflexes by correspondence rows, but not in the inventory above: ${d.stray_phonemes.map(p => `<span class="chart stray">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}
     ${d.changes_only ? changesTable : ""}
     ${otherTable}
+    <h2>Details</h2>
+    <dl class="info">
+      ${d.alt_names.length ? `<dt>Also called</dt><dd>${esc(d.alt_names.join(", "))}</dd>` : ""}
+      ${d.subgroup_path.length ? `<dt>Subgroup</dt><dd>${esc(d.subgroup_path.join(" › "))}</dd>` : ""}
+      <dt>Nearest ancestor</dt><dd>${d.parent_id ? lectLink(d.parent_id) : '<span class="muted">none (root)</span>'}</dd>
+      ${d.represents ? `<dt>Represents</dt><dd>${esc(LECTS[d.represents]?.name || d.represents)} <span class="muted">(the language's entry opens this dialect)</span></dd>`
+        : d.language_id ? `<dt>Dialect of</dt><dd>${lectLink(d.language_id)}</dd>` : ""}
+      ${d.tree_parent && d.tree_parent !== d.language_id && !d.represents ? `<dt>Listed under</dt><dd>${lectLink(d.tree_parent)}${LECTS[d.tree_parent]?.type === "group" ? ' <span class="muted">(a group with no proto-language)</span>' : LECTS[d.tree_parent]?.type === "linkage" ? ' <span class="muted">(a linkage: not an established subgroup, no proto-language)</span>' : ""}${LECTS[d.tree_parent] && LECTS[d.tree_parent].parent_id !== d.parent_id && d.tree_parent !== d.parent_id ? ` <span class="muted">(its place in the classification; its rows are stated against ${esc(LECTS[d.parent_id]?.name || "its nearest ancestor")}, from which it inherits here)</span>` : ""}</dd>` : ""}
+      ${d.dialects.length ? `<dt>Dialects</dt><dd>${foldList(d.dialects.map(lectLink))}</dd>` : ""}
+      ${d.daughters.length ? `<dt>Daughters</dt><dd>${foldList(d.daughters.map(lectLink))}</dd>` : ""}
+      ${d.alt_parents.length ? `<dt>Proposed parents</dt><dd>${d.alt_parents.map(a => `under ${lectLink(a.parent_id)} <span class="muted">(${srcLink(a.source_id)})</span>`).join("<br>")}
+        <br><span class="muted small">The correspondences follow the nearest ancestor above; this is a competing hypothesis.</span></dd>` : ""}
+      ${d.alt_daughters.length ? `<dt>Proposed daughters</dt><dd>${foldList(d.alt_daughters.map(a => `${lectLink(a.lect_id)} <span class="muted">(${srcLink(a.source_id)})</span>`))}</dd>` : ""}
+      ${d.overlap_groups.length ? `<dt>Also grouped in</dt><dd>${d.overlap_groups.map(g => `<b>${esc(g.name)}</b>${g.members.length ? ` <span class="muted">with</span> ${g.members.map(lectLink).join(", ")}` : ""}`).join("<br>")}
+        <br><span class="muted small">Overlapping subgroups: they cut across the tree and are not nodes of it.</span></dd>` : ""}
+      ${d.region ? `<dt>Region</dt><dd>${esc(d.region)}</dd>` : ""}
+      ${d.coordinates ? `<dt>Location</dt><dd><a href="https://www.openstreetmap.org/?mlat=${d.coordinates[0]}&mlon=${d.coordinates[1]}#map=8/${d.coordinates[0]}/${d.coordinates[1]}" target="_blank" rel="noopener">${d.coordinates[0]}, ${d.coordinates[1]}</a></dd>` : ""}
+      <dt>Coverage</dt><dd>${coverageText(d)}</dd>
+      <dt>Inventory from</dt><dd>${from(d.inventory_sources) || '<span class="muted">no source</span>'}</dd>
+      <dt>Correspondences from</dt><dd>${from(d.correspondence_sources) || '<span class="muted">none entered</span>'}</dd>
+      ${d.orthography_note ? `<dt>Orthography</dt><dd>${fold(d.orthography_note, 320)}</dd>` : ""}
+      ${d.notes ? `<dt>Notes</dt><dd>${fold(d.notes, 320)}</dd>` : ""}
+    </dl>
     ${d.insertions.length ? `<h2>Sounds inserted in daughter lects</h2>
       <p class="muted">These have no phoneme of ${esc(d.name)} to descend from.</p>
-      <div class="scroll"><table><tr><th>Daughter lect</th><th>Inserted</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>
-      ${d.insertions.map(r => `<tr><td>${lectLink(r.child_lect_id)}</td><td>${phLink(r.child)}</td><td>${envHtml(r)}</td><td>${badge(r.status)}</td>
-        <td>${evidence(r)}</td><td>${cite(r)}</td><td>${rowNote(r)}</td></tr>`).join("")}</table></div>` : ""}
-    ${d.inventory_diff.length ? `<h2>Hand edits to the generated inventory</h2>
-      <table><tr><th>Change</th><th>Phoneme</th><th>Reason</th><th>Source</th></tr>
-      ${d.inventory_diff.map(x => `<tr><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}</td>
-        <td class="ipa">${esc(x.ipa)}</td><td>${fold(x.reason)}</td><td>${srcLink(x.source_id)}</td></tr>`).join("")}</table>` : ""}`;
+      <div class="scroll"><table class="rows"><tr><th>Daughter lect</th><th>Inserted</th><th>Environment</th><th>Source</th></tr>
+      ${d.insertions.map(r => `<tr><td>${lectLink(r.child_lect_id)}</td><td>${phLink(r.child)}</td><td>${condCell(r, null, rowNote(r))}</td><td>${cite(r)}</td></tr>`).join("")}</table></div>` : ""}
+    ${d.inventory_diff.length ? `<h2>Corrections by hand</h2>
+      <table class="rows"><tr><th>Phoneme</th><th>Correction</th><th>Source</th></tr>
+      ${d.inventory_diff.map(x => `<tr><td class="ipa">${esc(x.ipa)}</td><td>${badge({ add: "manual-add", place: "placed-by-hand" }[x.op] || "suppressed")}${x.reason ? `<div class="rownote">${fold(x.reason)}</div>` : ""}</td><td>${srcLink(x.source_id)}</td></tr>`).join("")}</table>` : ""}`;
   app.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
     app.querySelectorAll(".tabs button").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-selected", String(x === b)); });
     const sys = d.systems.find(x => x.name === b.dataset.tab);

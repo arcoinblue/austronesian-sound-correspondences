@@ -12,7 +12,9 @@
   --accent: #2357a6; --accent-soft: #e4ecf8;
   --ok: #1f7a4d; --ok-soft: #e1f2e9; --warn: #9a5b00; --warn-soft: #f8ecd6;
   --bad: #a3322b; --bad-soft: #f7e2df;
+  --edge: #8f8b82;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --ipa: "ASC IPA", "Charis SIL", "Doulos SIL", "Gentium Plus", "Noto Serif", Georgia, serif;
 }
 @media (prefers-color-scheme: dark) {
@@ -20,60 +22,68 @@
     --bg: #171716; --fg: #e8e6e1; --muted: #9b978e; --line: #3a3833; --soft: #22211f;
     --accent: #8db4f0; --accent-soft: #233149;
     --ok: #7fd3a6; --ok-soft: #1d3328; --warn: #f0c070; --warn-soft: #3a2e19;
-    --bad: #f0958c; --bad-soft: #3d2220;
+    --bad: #f0958c; --bad-soft: #3d2220; --edge: #77736a;
   }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg);
-  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+/* Text is set in the face the symbols need (Charis SIL, shipped as "ASC IPA"), so a name, a
+   sentence and a phoneme sit in one line without a change of face. The sans is for what is
+   operated and not read: the header, controls, column heads, labels and legends. */
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16.5px/1.55 var(--ipa); }
+.top nav, .crumb, .controls, .tabs, .foot, .legend, .anclegend, .anccontrol, .ancleft, .anckey, .mapmodes, .maplegend,
+.mapnote, .subline, .bibmeta, .info dt, th, summary, button, input, select, label.mergetoggle, .maptip, .mappop,
+table.lects .count, table.lects td.ty, table.lects td.gc, table.lects td.cov, .anctree figcaption
+  { font-family: var(--ui); }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 code { font-family: var(--mono); font-size: .9em; }
 .top { display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap;
   padding: 14px 24px; border-bottom: 1px solid var(--line); }
-.brand { font-weight: 650; color: var(--fg); }
+.brand { font-weight: 700; font-size: 18px; color: var(--fg); }
+.top nav { font-size: 14.5px; }
 .top nav a { margin-right: 14px; }
 main { max-width: 1080px; margin: 0 auto; padding: 20px 24px 48px; }
-.foot { max-width: 1080px; margin: 0 auto; padding: 0 24px 32px; color: var(--muted); font-size: 13px; }
-h1 { font-size: 26px; margin: 4px 0 4px; font-weight: 650; }
-h2 { font-size: 17px; margin: 28px 0 8px; font-weight: 650; }
+.foot { max-width: 1080px; margin: 0 auto; padding: 16px 24px 32px; color: var(--muted); font-size: 13px;
+  border-top: 1px solid var(--line); }
+h1 { font-size: 32px; line-height: 1.2; margin: 6px 0 4px; font-weight: 700; }
+h2 { font-size: 21px; margin: 32px 0 8px; font-weight: 700; }
 /* No text-transform anywhere a symbol can appear: s and S are different phonemes. */
-h3 { font-size: 14.5px; margin: 18px 0 6px; color: var(--muted); font-weight: 650; }
+h3 { font-size: 17px; margin: 22px 0 6px; font-weight: 700; }
 .muted { color: var(--muted); }
 .crumb { color: var(--muted); font-size: 13px; }
-.ipa { font-family: var(--ipa); font-size: 1.12em; text-transform: none; letter-spacing: normal; }
+.ipa { font-family: var(--ipa); font-size: 1.08em; text-transform: none; letter-spacing: normal; }
 
-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; }
 th, td { border-bottom: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
-th { font-weight: 600; color: var(--muted); font-size: 12.5px; background: var(--soft); }
+th { font-weight: 600; color: var(--muted); font-size: 12.5px; border-bottom-color: var(--fg); vertical-align: bottom; }
 tr.group td { background: var(--soft); font-weight: 600; font-size: 13px; padding-top: 10px; }
 tr.dim td { color: var(--muted); }
 .scroll { overflow-x: auto; }
 
 .controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 12px 0; }
-input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--line);
+input[type=search] { font-size: 14.5px; padding: 6px 10px; border: 1px solid var(--edge);
   border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 240px; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .seg button { font: inherit; font-size: 13px; padding: 5px 12px; border: 0; background: var(--bg);
   color: var(--fg); cursor: pointer; }
 .seg button.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 
-.badge { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px;
-  border-radius: 999px; background: var(--soft); color: var(--muted); white-space: nowrap; }
-.b-sourced, .b-regular { background: var(--ok-soft); color: var(--ok); }
-.b-reverse-generated, .b-edited, .b-partial, .b-sporadic, .b-loan-stratum, .b-generated, .b-manual-add
-  { background: var(--warn-soft); color: var(--warn); }
-.b-disputed, .b-suppressed { background: var(--bad-soft); color: var(--bad); }
+/* A mark names what is out of the ordinary (sporadic, borrowed, inferred); the ordinary case has
+   none. Words, not coloured pills: only a disputed or removed item takes a colour. */
+.mark { font-style: italic; color: var(--muted); font-size: .94em; white-space: nowrap; }
+.mark.m-disputed, .mark.m-suppressed, .mark.m-dubious { color: var(--bad); }
+h1 .mark { font-size: 16px; font-weight: 400; }
 .blank { color: var(--muted); font-style: italic; }
 
-.info { display: grid; grid-template-columns: max-content 1fr; gap: 4px 18px; margin: 12px 0 4px; font-size: 14px; }
-.info dt { color: var(--muted); }
+.info { display: grid; grid-template-columns: max-content 1fr; gap: 5px 20px; margin: 12px 0 4px; font-size: 15.5px; }
+.info dt { color: var(--muted); font-size: 13px; padding-top: 3px; }
 .info dd { margin: 0; }
 
 .chart td, .chart th { text-align: center; border: 1px solid var(--line); min-width: 54px; }
 .chart th { white-space: nowrap; }
 .chart th.row { text-align: left; }
-.chart td a { display: inline-block; padding: 1px 6px; border-radius: 4px; font-family: var(--ipa); font-size: 18px; }
+.chart th { background: var(--soft); border-bottom-color: var(--line); vertical-align: middle; }
+.chart td a { display: inline-block; padding: 1px 6px; border-radius: 4px; font-family: var(--ipa); font-size: 20px; color: var(--fg); }
 .chart td a:hover { background: var(--accent-soft); text-decoration: none; }
 .chart td a.o-generated { border-bottom: 2px dotted var(--warn); }
 .chart td a.o-manual-add { border-bottom: 2px solid var(--warn); }
@@ -91,8 +101,13 @@ input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--l
 .descent .meta { display: block; }
 .fusion { font-size: 13px; white-space: nowrap; }
 
-.notice { border: 1px solid var(--warn); background: var(--warn-soft); color: var(--warn);
-  border-radius: 8px; padding: 8px 12px; font-size: 13.5px; margin: 10px 0; }
+.notice, .lede { margin: 12px 0; max-width: 44em; }
+.lede.small, .small { font-size: 14.5px; }
+.lede.small { color: var(--muted); }
+.subline { margin: 0 0 4px; color: var(--muted); font-size: 14px; }
+h1 .hin { font-size: 21px; font-weight: 400; }
+.prose { max-width: 42em; }
+.prose .citation { padding-left: 2em; text-indent: -2em; }
 
 @media (max-width: 640px) {
   main, .top, .foot { padding-left: 16px; padding-right: 16px; }
@@ -108,7 +123,6 @@ input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--l
 .vianote { font-size: 12px; }
 .unclassified { margin-top: 8px; }
 .chart td a.o-generated.hand { border-bottom: 3px double var(--warn); }
-.b-placed-by-hand { background: var(--warn-soft); color: var(--warn); }
 /* Merged for lects: one lect cell over its reflexes; the lines of a group are
    ruled lightly, and a bar left of the reflexes groups them as in a rule. */
 .descentbox tr.gin td { border-bottom-style: dotted; }
@@ -131,7 +145,8 @@ svg.anc rect.chip { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
 svg.anc a:hover rect.chip { fill: var(--accent-soft); stroke: var(--accent); }
 svg.anc rect.chip.here { fill: var(--accent); stroke: var(--accent); }
 svg.anc text.node { font-family: var(--ipa); font-size: 18px; text-anchor: middle; }
-svg.anc a text.node { fill: var(--accent); }
+svg.anc a text.node { fill: var(--fg); }
+svg.anc text.stage, svg.anc text.env, svg.anc text.sys, svg.anc text.foldmark, svg.anc text.plus { font-family: var(--ui); }
 svg.anc text.node.here { font-weight: 700; fill: var(--bg); }
 svg.anc text.sys { font-size: 9.5px; fill: var(--muted); text-anchor: middle; }
 svg.anc text.env { font-size: 10.5px; fill: var(--fg); text-anchor: middle; }
@@ -192,14 +207,18 @@ table.lects .twist.after { color: var(--muted); font-size: 12px; cursor: default
 .anckey { font-size: 12.5px; color: var(--muted); margin: 0 0 4px; display: flex; flex-wrap: wrap; gap: 2px 16px; }
 .anckey b { color: var(--fg); font-weight: 600; margin-right: 3px; }
 
-table.refs td.ref { max-width: 520px; line-height: 1.5; padding-left: 2em; text-indent: -1.4em; }
-table.refs .refid { font-size: 12px; }
+/* The reference list: a bibliography with a hanging indent, and under each work one small line
+   that says what it is used for. */
+ol.bib { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--fg); max-width: 52em; }
+ol.bib > li { padding: 9px 0 9px; border-bottom: 1px solid var(--line); }
+.bibentry { padding-left: 2em; text-indent: -2em; margin: 0; overflow-wrap: anywhere; }
+p.bibentry { max-width: 50em; margin: 10px 0 14px; }
+.bibmeta { padding-left: 2em; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+ol.bib > li.idle .bibentry { color: var(--muted); }
 table.othersys { width: auto; margin: 4px 0; }
-.b-changes-only { background: var(--accent-soft); color: var(--accent); }
-.b-empty { background: var(--soft); color: var(--muted); }
 .chart a.implied { color: var(--muted); }
-.tag { display: inline-block; font-size: 11.5px; padding: 0 6px; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); white-space: nowrap; }
-.tag.der { border-style: dashed; }
+.tag { font-style: italic; font-size: .94em; color: var(--muted); }
+.tag + .tag::before, .env + .tag::before, .mark + .tag::before, .tag + .mark::before { content: "· "; font-style: normal; }
 
 /* Segments page */
 .seg-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
@@ -210,7 +229,7 @@ table.othersys { width: auto; margin: 4px 0; }
 /* A fixed name column: long names (Proto-Southeast Solomons Outlier-East Polynesian) wrap,
    and the symbols get the room. */
 table.segs td.nm { white-space: normal; width: 13em; }
-table.segs td.ipa a { display: inline-block; padding: 0 3px; border-radius: 4px; }
+table.segs td.ipa a { display: inline-block; padding: 0 3px; border-radius: 4px; color: var(--fg); }
 table.segs a.implied { color: var(--muted); }
 table.segs a.unc { text-decoration: underline wavy var(--muted); text-underline-offset: 3px; }
 table.segs a.hit { background: var(--accent-soft); outline: 1px solid var(--accent); }
@@ -283,3 +302,41 @@ details.about { margin: 8px 0 12px; font-size: 14px; }
 details.about summary { cursor: pointer; color: var(--accent); width: max-content; }
 details.about p { margin: 6px 0 0; }
 .cite-also { display: block; }
+
+/* Rows of correspondences: lect, reflex, condition, source. What qualifies a row (a mark, the
+   number of cognate sets, the note) is in the condition cell, the note on a line of its own. */
+table.rows td:last-child { width: 26%; font-size: 14.5px; }
+table.rows .env { white-space: normal; }
+.ev { font-size: .92em; white-space: nowrap; }
+.env + .ev::before, .mark + .ev::before, .tag + .ev::before { content: "· "; }
+.rownote { color: var(--muted); font-size: 14px; line-height: 1.45; margin-top: 3px; max-width: 46em; }
+.descenthead { font-family: var(--ui); font-size: 13.5px; }
+.ancleft { font-size: 13.5px; margin: 6px 0; }
+details.ancopts, details.anchelp { margin: 4px 0; font-size: 13.5px; }
+details.anchelp .anclegend { margin-top: 6px; }
+details.about summary { padding: 3px 0; }
+/* A phone: each reflex is a block, the lect's name once over its reflexes, the source under them. */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  h1 { font-size: 27px; }
+  .descentbox table.flat, .descentbox table.flat tbody { display: block; }
+  .descentbox table.flat tr { display: grid; grid-template-columns: max-content 1fr; column-gap: 12px; border-bottom: 1px solid var(--line); padding: 6px 0; }
+  .descentbox table.flat tr:first-child, label.mergetoggle { display: none; }
+  .descentbox table.flat td { border: 0; padding: 1px 0; }
+  .descentbox table.flat td:first-child { grid-column: 1 / -1; font-weight: 700; }
+  .descentbox table.flat tr.rep td:first-child { display: none; }
+  .descentbox table.flat td:first-child .muted { font-weight: 400; }
+  .descentbox table.flat td:last-child { grid-column: 1 / -1; width: auto; font-size: 13.5px; color: var(--muted); }
+  table.othersys, table.othersys tbody { display: block; }
+  table.othersys tr { display: grid; grid-template-columns: max-content 1fr; column-gap: 12px; border-bottom: 1px solid var(--line); padding: 6px 0; }
+  table.othersys tr:first-child { display: none; }
+  table.othersys td { border: 0; padding: 1px 0; }
+  table.othersys td:first-child { grid-column: 1 / -1; font-family: var(--ui); font-size: 12.5px; color: var(--muted); }
+  table.othersys td:last-child { grid-column: 1 / -1; font-size: 14px; }
+  .info { grid-template-columns: 1fr; gap: 0; }
+  .info dd { margin-bottom: 8px; }
+}
+table.rows th:first-child { width: 22%; }
+table.rows th:nth-child(2) { width: 11%; }
+table.rows th:last-child { width: 24%; }
+table.othersys td:first-child { white-space: nowrap; }

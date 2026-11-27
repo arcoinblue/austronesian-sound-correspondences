@@ -161,7 +161,7 @@ async function pageIndex(params) {
           .filter((x, i, a) => a.indexOf(x) === i).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = l.node_only ? (l.representative ? `<span class="muted">see ${lectLink(l.representative)}</span>` : "")
-        : coverage(l.coverage, l.index_status) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");
+        : coverage(l.coverage, l.index_status);
       return `<td class="nw ty">${typeLabel(l.type)}</td>
         <td class="gc">${l.glottocode ? `<a href="https://glottolog.org/resource/languoid/id/${esc(l.glottocode)}" target="_blank" rel="noopener">${esc(l.glottocode)}</a>` : ""}</td>
         ${tree ? "" : `<td>${l.parent_id ? lectLink(l.parent_id) : ""}</td>`}<td class="${pivot ? "" : "cov"}">${mid}</td>`;
