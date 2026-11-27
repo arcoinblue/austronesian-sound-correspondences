@@ -8,21 +8,21 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 | Table | Rows | |
 |---|---|---|
-| sources | 335 |  |
-| lects | 1443 | 366 dialect, 34 earlier-stage, 16 group, 732 language, 9 linkage, 286 proto-language |
-| phonemes | 5571 |  |
+| sources | 336 |  |
+| lects | 1444 | 366 dialect, 34 earlier-stage, 16 group, 733 language, 9 linkage, 286 proto-language |
+| phonemes | 5604 |  |
 | correspondences | 26230 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
-| allophones | 1415 |  |
-| decisions | 279 | 136 confirmed, 84 open, 59 reverted |
+| allophones | 1418 |  |
+| decisions | 280 | 136 confirmed, 85 open, 59 reverted |
 
-Lects by `inherit`: (blank) 469, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
-Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
+Lects by `inherit`: (blank) 470, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
+Inventories: edited 39, empty 62, reverse-generated 1126, sourced 217.
 Unconditioned splits (several regular reflexes in one environment, one source, no condition): 894 groups.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 577 warning(s), 3962 note(s).
+`build.py --check`: 0 error(s), 577 warning(s), 3964 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -128,6 +128,7 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `audit-grade-column` | Ross's consonant grades (fortis, lenis, secondary nasal) and POC positions are written inside the environment (about 1,590 and 740 rows, 53 spellings of the gr… | Not moved. A grade column would make the grades searchable and cut the number of distinct environments, but it does not resolve the unconditioned splits (most … |  |  |
 | `audit-dialects-under-proto` | 96 dialects stand directly under a proto-language, with no language node and no earlier stage (the four Manggarai dialects under Proto-Manggarai, the Meto dial… | Left as entered from the classification trees (mostly Grimes & Edwards 2026). |  |  |
 | `audit-unused-columns` | Three columns have never been used: lects.competes_with, allophones.system and decisions.instructions (which is not a column of this tab; the answers are writt… | Kept: the build and the site handle all three. |  |  |
+| `garde2015-sa` | Sa (Garde 2015) is added to carry out the reverted decision francoisetal2015-scope. Where does it stand, and how are Garde's labiovelars, f and the long vowels… | Under Proto-North-Central Vanuatu, listed under Central Vanuatu (Garde 2015: 119), with a sourced inventory and no correspondence rows and no inherit (the chap… |  |  |
 
 ## Reverted decisions not yet carried out
 

@@ -11,3 +11,13 @@ Entered: 1 source, 1 lect (Sa, saaa1241), 33 phonemes (19 consonants, 7 short an
 Not entered: any reflex of POc or PNCV (none is stated outside the numerals of Table 7, which compares PNCV, Raga and Sa
 numerals word by word); the change f > p of the other dialects as a row (no predecessor phoneme is named); the dialects.
 Budd's Bierebo reflexes of POc verbs (the same volume) are still not entered: Bierebo is not a lect.
+
+
+## Applied
+
+2026-11-27 02:54 UTC, by the push-batch workflow.
+- sources: sheet rows 337-337
+- lects: sheet rows 1445-1445
+- phonemes: sheet rows 5573-5605
+- allophones: sheet rows 1417-1419
+- decisions: sheet rows 281-281
