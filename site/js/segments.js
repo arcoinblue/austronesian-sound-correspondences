@@ -96,7 +96,7 @@ async function pageSegments(params) {
         const cell = cls => r.p.filter(p => cls === "O" ? p[2] !== "C" && p[2] !== "V" : p[2] === cls)
           .sort(byKey).map(p => segLink(r.l, p, hits.has(p))).join(" ");
         const st = { "reverse-generated": "from the correspondences", edited: "from the correspondences, edited by hand" }[r.st];
-        html += `<tr><td class="nm">${lectLink(r.l)}${st ? ` <span class="muted small" title="No source gives this inventory: ${esc(st)}">${r.st === "edited" ? "edited" : "derived"}</span>` : ""}</td>
+        html += `<tr><td class="nm">${lectLink(r.l)}${st ? ` <span class="muted small" title="No source gives this inventory: ${esc(st)}">${r.st === "edited" ? "corrected" : "inferred"}</span>` : ""}</td>
           <td class="ipa">${cell("C")}</td><td class="ipa">${cell("V")}</td><td class="ipa">${cell("O")}</td></tr>`;
       }
       app.querySelector("#scount").textContent = `${n} of ${lects.length} lects`;

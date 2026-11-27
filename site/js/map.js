@@ -291,7 +291,7 @@ async function lectMap(box, mem) {
     note.innerHTML = `${pts.length} lect${pts.length === 1 ? "" : "s"} with a known place${pts.length < all.length ? ` (of ${all.length})` : ""}: `
       + (mode ? `a filled mark is at the lect's own coordinates (${own}), an outlined one at Glottolog's place for its Glottocode (${glot}). `
         : `<span class="mapkey own"></span> the lect's own coordinates (${own}), <span class="mapkey glot"></span> Glottolog's place for its Glottocode (${glot}). `)
-      + `Click a point to open the lect; where several lie together, a list opens. Drag to move; zoom with the buttons, a double click, a pinch, or Ctrl/⌘ and the wheel. Reconstructed stages have no place.`;
+      + `<span title="Click a point to open the lect; where several lie together, a list opens. Drag to move; zoom with the buttons, a double click, a pinch, or Ctrl/⌘ and the wheel.">Reconstructed stages have no place.</span>`;
     // The legend: every daughter of the node with a point, in the tree's order, with the
     // number of its lects now shown; then the grey ones.
     legend.hidden = !mode;
