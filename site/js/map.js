@@ -16,11 +16,14 @@ const MAP_X = lon => lon < 0 ? lon + 360 : lon;
 // Eight hues (one set for light, one for dark surfaces) by five shapes: daughters are numbered
 // in the tree's order (by geography), the hue changes from one to the next and the shape after
 // every eight, so neighbours differ in hue and no two daughters share both. The numbering is
-// over all the node's daughters with a point, whatever the filter shows.
+// over all the node's daughters with a point, whatever the filter shows. A daughter that is a
+// single language (Thao, Chamorro, Yapese) gets no mark of its own: such languages share one,
+// "etc." (the user's instruction of 27 Nov 2026).
 const MAP_MODES = [["pan", "Taiwan"], ["pmp", "Malayo-Polynesian"], ["poc", "Oceanic"]];
 const MAP_NESTED = { pan: "pmp", pmp: "poc" };
 const MAP_HUES = { light: ["#257de0", "#f47230", "#00b894", "#f2a600", "#ee7fac", "#008a17", "#6a4ce2", "#ec4647"],
   dark: ["#338ced", "#e76624", "#00a888", "#d28e05", "#e24d8b", "#0aac23", "#9887ef", "#eb6263"] };
+const MAP_ETC = "~etc";
 const MAP_SHAPES = ["circle", "square", "diamond", "up", "down"];
 // The outline of a shape of "radius" r about (x, y), as [x, y] corners (null: a circle).
 function mapShape(kind, x, y, r) {
@@ -74,7 +77,8 @@ async function lectMap(box, mem) {
 
   // mode: the node whose daughters are coloured ("" for none). styles: {daughter id: {i, shape}}.
   // hot: the daughter picked out in the legend (the others are drawn faint); pinned by a click.
-  let mode = "", styles = {}, hot = null, pinned = null;
+  // etc: the daughters that are single languages; they share one mark, in the text colour.
+  let mode = "", styles = {}, hot = null, pinned = null, etc = [];
   try { mode = localStorage.getItem("asc-mapcolour") || ""; } catch (e) {}
   if (!modes.some(([id]) => id === mode)) mode = "";
   const daughterOf = (id, node) => {
@@ -87,19 +91,29 @@ async function lectMap(box, mem) {
     }
     return null;
   };
-  const groupName = g => LECTS[g].clade || LECTS[g].name.replace(/^(Proto|Pre)-(?=\S)/, "");
+  const groupName = g => g === MAP_ETC ? "etc." : LECTS[g].clade || LECTS[g].name.replace(/^(Proto|Pre)-(?=\S)/, "");
   const setMode = m => {
     mode = m; styles = {}; hot = pinned = null;
-    for (const p of all) p.grp = mode ? daughterOf(p.id, mode) : null;
-    const ds = [...new Set(all.map(p => p.grp).filter(g => g && g !== MAP_NESTED[mode]))]
+    etc = [];
+    for (const p of all) {
+      const d = mode ? daughterOf(p.id, mode) : null;
+      // A daughter that is itself a language or a dialect is no subgroup.
+      const single = d && ["language", "dialect"].includes(LECTS[d].type);
+      if (single && !etc.includes(d)) etc.push(d);
+      p.grp = single ? MAP_ETC : d;
+    }
+    const ds = [...new Set(all.map(p => p.grp).filter(g => g && g !== MAP_ETC && g !== MAP_NESTED[mode]))]
       .sort((a, b) => (LECTS[a].o ?? 1e9) - (LECTS[b].o ?? 1e9));
     ds.forEach((g, i) => { styles[g] = { i: i % 8, shape: MAP_SHAPES[Math.floor(i / 8) % MAP_SHAPES.length] }; });
+    if (etc.length) styles[MAP_ETC] = { etc: true, shape: "circle" };
+    etc.sort((a, b) => (LECTS[a].o ?? 1e9) - (LECTS[b].o ?? 1e9));
     box.querySelectorAll(".mapmodes button").forEach(b => b.classList.toggle("on", b.dataset.m === mode));
   };
-  const colourOf = g => MAP_HUES[mapDark() ? "dark" : "light"][styles[g].i];
+  const colourOf = g => styles[g].etc ? "var(--fg)" : MAP_HUES[mapDark() ? "dark" : "light"][styles[g].i];
   const swatch = (g, glot) => {
     const c = g && styles[g] ? colourOf(g) : "var(--muted)", sh = mapShape(g && styles[g] ? styles[g].shape : "circle", 7, 7, 4.2);
-    const paint = glot ? `fill="var(--bg)" stroke="${c}" stroke-width="1.5"` : `fill="${c}"${g && styles[g] ? "" : ' fill-opacity=".55"'}`;
+    // In a style, not in attributes: an attribute does not take var().
+    const paint = `style="${glot ? `fill:var(--bg);stroke:${c};stroke-width:1.5` : `fill:${c}${g && styles[g] ? "" : ";fill-opacity:.55"}`}"`;
     return `<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">${sh ? `<polygon points="${sh.map(q => q.join(",")).join(" ")}" ${paint}/>` : `<circle cx="7" cy="7" r="4.2" ${paint}/>`}</svg>`;
   };
 
@@ -144,7 +158,7 @@ async function lectMap(box, mem) {
       const x = sx(p.x), y = sy(p.y);
       if (x < -8 || y < -8 || x > W + 8 || y > H + 8) continue;
       const st = mode ? styles[p.grp] : null, grey = mode && !st;
-      const c = st ? MAP_HUES[dark ? "dark" : "light"][st.i] : grey ? muted : accent;
+      const c = st ? (st.etc ? fg : MAP_HUES[dark ? "dark" : "light"][st.i]) : grey ? muted : accent;
       const sh = mapShape(st ? st.shape : "circle", x, y, grey ? r - 1 : r);
       ctx.beginPath();
       if (sh) { sh.forEach((q, i) => i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.closePath(); }
@@ -286,7 +300,7 @@ async function lectMap(box, mem) {
     for (const p of pts) n[p.grp || ""] = (n[p.grp || ""] || 0) + 1;
     const nested = MAP_NESTED[mode], outside = n[""] || 0;
     legend.innerHTML = `<span class="muted">${esc(LECTS[mode].clade || groupName(mode))}:</span> `
-      + Object.keys(styles).map(g => `<button type="button" class="mapleg${pinned === g ? " on" : ""}${n[g] ? "" : " none"}" data-g="${esc(g)}" aria-pressed="${pinned === g}" title="Show only ${esc(groupName(g))} in colour">${swatch(g)} ${esc(groupName(g))} <span class="muted">${n[g] || 0}</span></button>`).join("")
+      + Object.keys(styles).map(g => `<button type="button" class="mapleg${pinned === g ? " on" : ""}${n[g] ? "" : " none"}" data-g="${esc(g)}" aria-pressed="${pinned === g}" title="${g === MAP_ETC ? "Single languages, not subgroups: " + esc(etc.map(d => LECTS[d].name).join(", ")) : "Show only " + esc(groupName(g)) + " in colour"}">${swatch(g)} ${esc(groupName(g))} <span class="muted">${n[g] || 0}</span></button>`).join("")
       + (nested && n[nested] ? `<span class="mapleg plain">${swatch(null)} ${esc(groupName(nested))} <span class="muted">${n[nested]}</span></span>` : "")
       + (outside ? `<span class="mapleg plain">${swatch(null)} outside ${esc(LECTS[mode].clade || groupName(mode))} <span class="muted">${outside}</span></span>` : "");
   };
