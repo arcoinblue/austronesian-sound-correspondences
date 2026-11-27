@@ -269,3 +269,11 @@ details.morelects[open]::before { content: ", "; }
 .mapkey.own { background: var(--accent); }
 .mapkey.glot { border: 1.5px solid var(--accent); background: var(--bg); }
 @media (max-width: 640px) { .mapwrap { height: 300px; } }
+.mapmodes { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 0 0 8px; font-size: 13px; }
+.maplegend { display: flex; flex-wrap: wrap; gap: 2px 4px; align-items: center; font-size: 12.5px; margin: 6px 0 0; }
+.mapleg { font: inherit; display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px 1px 4px; border: 1px solid transparent;
+  border-radius: 12px; background: none; color: var(--fg); white-space: nowrap; }
+button.mapleg { cursor: pointer; }
+button.mapleg:hover, button.mapleg.on { border-color: var(--line); background: var(--soft); }
+.mapleg.none { opacity: .45; }
+.mappop a svg { vertical-align: -2px; }

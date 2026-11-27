@@ -9,6 +9,29 @@
 const MAP_Y = lat => -Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)) * 180 / Math.PI;
 const MAP_X = lon => lon < 0 ? lon + 360 : lon;
 
+// Colouring by subgroup. A mode colours the lects under one node by the daughter of that node
+// they stand under in the tree (Taiwan: the daughters of Austronesian; then those of
+// Malayo-Polynesian, and of Oceanic); the lects outside it are grey, and so is the daughter
+// that has a mode of its own (Malayo-Polynesian in the first, Oceanic in the second).
+// Eight hues (one set for light, one for dark surfaces) by five shapes: daughters are numbered
+// in the tree's order (by geography), the hue changes from one to the next and the shape after
+// every eight, so neighbours differ in hue and no two daughters share both. The numbering is
+// over all the node's daughters with a point, whatever the filter shows.
+const MAP_MODES = [["pan", "Taiwan"], ["pmp", "Malayo-Polynesian"], ["poc", "Oceanic"]];
+const MAP_NESTED = { pan: "pmp", pmp: "poc" };
+const MAP_HUES = { light: ["#257de0", "#f47230", "#00b894", "#f2a600", "#ee7fac", "#008a17", "#6a4ce2", "#ec4647"],
+  dark: ["#338ced", "#e76624", "#00a888", "#d28e05", "#e24d8b", "#0aac23", "#9887ef", "#eb6263"] };
+const MAP_SHAPES = ["circle", "square", "diamond", "up", "down"];
+// The outline of a shape of "radius" r about (x, y), as [x, y] corners (null: a circle).
+function mapShape(kind, x, y, r) {
+  if (kind === "square") { const h = r * 0.86; return [[x - h, y - h], [x + h, y - h], [x + h, y + h], [x - h, y + h]]; }
+  if (kind === "diamond") { const h = r * 1.2; return [[x, y - h], [x + h, y], [x, y + h], [x - h, y]]; }
+  if (kind === "up") { const h = r * 1.15; return [[x, y - h], [x + h, y + h * 0.8], [x - h, y + h * 0.8]]; }
+  if (kind === "down") { const h = r * 1.15; return [[x, y + h], [x + h, y - h * 0.8], [x - h, y - h * 0.8]]; }
+  return null;
+}
+const mapDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+
 let LAND_PATH = null;
 async function landPath() {
   if (LAND_PATH) return LAND_PATH;
@@ -27,12 +50,17 @@ async function landPath() {
 // open. Returns { show(ids, refit) }: draw the points of these lects only (a Set of lect ids,
 // or null for all), and with refit move the view to hold them.
 async function lectMap(box, mem) {
-  box.innerHTML = `<div class="mapwrap"><canvas role="img" aria-label="Map of the lects with a known place. The same lects are listed, with links, in the table below."></canvas>
+  const modes = MAP_MODES.filter(([id]) => LECTS[id]);
+  box.innerHTML = `${modes.length ? `<div class="mapmodes"><span class="muted">Colour by subgroup</span>
+      <span class="seg" role="group" aria-label="Colour by subgroup"><button type="button" data-m="">Off</button>${modes.map(([id, name]) => `<button type="button" data-m="${id}">${name}</button>`).join("")}</span></div>` : ""}
+    <div class="mapwrap"><canvas role="img" aria-label="Map of the lects with a known place. The same lects are listed, with links, in the table below."></canvas>
       <div class="mapbtns"><button type="button" data-z="in" aria-label="Zoom in" title="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out" title="Zoom out">−</button><button type="button" data-z="fit" aria-label="Show all points" title="Show all points">⤢</button></div>
       <div class="maptip" hidden></div><div class="mappop" hidden></div></div>
+    <div class="maplegend" hidden></div>
     <p class="muted mapnote"></p>`;
   const wrap = box.querySelector(".mapwrap"), cv = wrap.querySelector("canvas"), ctx = cv.getContext("2d");
   const tip = wrap.querySelector(".maptip"), pop = wrap.querySelector(".mappop"), note = box.querySelector(".mapnote");
+  const legend = box.querySelector(".maplegend");
   note.textContent = "Loading the map…";
   let all, land;
   try { [{ points: all }, land] = await Promise.all([json("data/map.json"), landPath()]); }
@@ -44,6 +72,37 @@ async function lectMap(box, mem) {
   let fresh = !mem.view;
   let pts = all, W = 0, H = 0, view = mem.view || null;   // view: { cx, cy, k } (k: pixels per degree of longitude)
 
+  // mode: the node whose daughters are coloured ("" for none). styles: {daughter id: {i, shape}}.
+  // hot: the daughter picked out in the legend (the others are drawn faint); pinned by a click.
+  let mode = "", styles = {}, hot = null, pinned = null;
+  try { mode = localStorage.getItem("asc-mapcolour") || ""; } catch (e) {}
+  if (!modes.some(([id]) => id === mode)) mode = "";
+  const daughterOf = (id, node) => {
+    const seen = new Set();
+    for (let cur = id; cur && LECTS[cur] && !seen.has(cur);) {
+      seen.add(cur);
+      const up = treeParent(LECTS[cur]);
+      if (up === node) return cur;
+      cur = up;
+    }
+    return null;
+  };
+  const groupName = g => LECTS[g].clade || LECTS[g].name.replace(/^(Proto|Pre)-(?=\S)/, "");
+  const setMode = m => {
+    mode = m; styles = {}; hot = pinned = null;
+    for (const p of all) p.grp = mode ? daughterOf(p.id, mode) : null;
+    const ds = [...new Set(all.map(p => p.grp).filter(g => g && g !== MAP_NESTED[mode]))]
+      .sort((a, b) => (LECTS[a].o ?? 1e9) - (LECTS[b].o ?? 1e9));
+    ds.forEach((g, i) => { styles[g] = { i: i % 8, shape: MAP_SHAPES[Math.floor(i / 8) % MAP_SHAPES.length] }; });
+    box.querySelectorAll(".mapmodes button").forEach(b => b.classList.toggle("on", b.dataset.m === mode));
+  };
+  const colourOf = g => MAP_HUES[mapDark() ? "dark" : "light"][styles[g].i];
+  const swatch = (g, glot) => {
+    const c = g && styles[g] ? colourOf(g) : "var(--muted)", sh = mapShape(g && styles[g] ? styles[g].shape : "circle", 7, 7, 4.2);
+    const paint = glot ? `fill="var(--bg)" stroke="${c}" stroke-width="1.5"` : `fill="${c}"${g && styles[g] ? "" : ' fill-opacity=".55"'}`;
+    return `<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">${sh ? `<polygon points="${sh.map(q => q.join(",")).join(" ")}" ${paint}/>` : `<circle cx="7" cy="7" r="4.2" ${paint}/>`}</svg>`;
+  };
+
   const sx = x => (x - view.cx) * view.k + W / 2, sy = y => (y - view.cy) * view.k + H / 2;
   const KMAX = 150;     // past this the coastline (simplified to 0.04°) is all corners
   const kmin = () => Math.min(W / 250, H / 110);
@@ -53,8 +112,8 @@ async function lectMap(box, mem) {
     view.cy = Math.max(MAP_Y(40), Math.min(MAP_Y(-55), view.cy));
     mem.view = view;
   };
-  const fit = () => {
-    const ps = pts.length ? pts : all;
+  const fit = only => {
+    const ps = only && only.length ? only : pts.length ? pts : all;
     if (!ps.length) { view = { cx: 150, cy: 5, k: W / 230 }; return clamp(); }
     let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
     for (const p of ps) { x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y); }
@@ -78,16 +137,23 @@ async function lectMap(box, mem) {
     ctx.fillStyle = bg; ctx.strokeStyle = line; ctx.lineWidth = 1 / view.k; ctx.lineJoin = "round";
     ctx.fill(land); ctx.stroke(land);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const r = view.k > 40 ? 4.5 : 3.5, seen = [];
-    // Glottolog's places first, so that a lect's own coordinates are drawn over them.
-    for (const pass of [true, false]) for (const p of pts) {
-      if (p.g !== pass) continue;
+    const r = view.k > 40 ? 5 : 4, seen = [], muted = css("--muted"), dark = mapDark();
+    // Grey points first, then the coloured; in each, Glottolog's places under the lects' own.
+    const rank = p => (mode && p.grp && styles[p.grp] ? 2 : 0) + (p.g ? 0 : 1);
+    for (const p of [...pts].sort((a, b) => rank(a) - rank(b))) {
       const x = sx(p.x), y = sy(p.y);
       if (x < -8 || y < -8 || x > W + 8 || y > H + 8) continue;
-      ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
-      ctx.fillStyle = p.g ? bg : accent; ctx.strokeStyle = p.g ? accent : bg; ctx.lineWidth = p.g ? 1.4 : 1;
+      const st = mode ? styles[p.grp] : null, grey = mode && !st;
+      const c = st ? MAP_HUES[dark ? "dark" : "light"][st.i] : grey ? muted : accent;
+      const sh = mapShape(st ? st.shape : "circle", x, y, grey ? r - 1 : r);
+      ctx.beginPath();
+      if (sh) { sh.forEach((q, i) => i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.closePath(); }
+      else ctx.arc(x, y, grey ? r - 1 : r, 0, 2 * Math.PI);
+      ctx.globalAlpha = (hot && p.grp !== hot) ? 0.15 : grey ? 0.55 : 1;
+      ctx.fillStyle = p.g ? bg : c; ctx.strokeStyle = p.g ? c : bg; ctx.lineWidth = p.g ? 1.5 : 1;
       ctx.fill(); ctx.stroke();
-      seen.push([x, y, p]);
+      ctx.globalAlpha = 1;
+      if (!hot || p.grp === hot) seen.push([x, y, p]);
     }
     // Names, once few enough points are in view to read them; a name that would run over
     // another is left out (its point still answers the pointer).
@@ -142,7 +208,8 @@ async function lectMap(box, mem) {
       const hit = near(mx, my, 8);
       cv.style.cursor = hit.length ? "pointer" : "grab";
       if (hit.length && pop.hidden) {
-        tip.textContent = hit.length === 1 ? hit[0].name : `${hit[0].name} and ${hit.length - 1} more`;
+        const grp = mode && hit[0].grp ? ` · ${groupName(hit[0].grp)}` : "";
+        tip.textContent = hit.length === 1 ? hit[0].name + grp : `${hit[0].name} and ${hit.length - 1} more${hit.every(p => p.grp === hit[0].grp) ? grp : ""}`;
         place(tip, mx, my);
       } else tip.hidden = true;
       return;
@@ -172,7 +239,7 @@ async function lectMap(box, mem) {
       // Several lects at one place (the dialects of a language placed by its Glottocode,
       // neighbouring villages): a list to choose from.
       tip.hidden = true;
-      pop.innerHTML = `<div class="muted">${hit.length} lects here</div>` + hit.map(p => `<a href="${lectHref(p.id)}">${esc(p.name)}</a>`).join("");
+      pop.innerHTML = `<div class="muted">${hit.length} lects here</div>` + hit.map(p => `<a href="${lectHref(p.id)}">${mode ? swatch(p.grp, p.g) + " " : ""}${esc(p.name)}</a>`).join("");
       place(pop, mx, my);
     }
   };
@@ -208,9 +275,41 @@ async function lectMap(box, mem) {
   const caption = () => {
     const own = pts.filter(p => !p.g).length, glot = pts.length - own;
     note.innerHTML = `${pts.length} lect${pts.length === 1 ? "" : "s"} with a known place${pts.length < all.length ? ` (of ${all.length})` : ""}: `
-      + `<span class="mapkey own"></span> the lect's own coordinates (${own}), <span class="mapkey glot"></span> Glottolog's place for its Glottocode (${glot}). `
+      + (mode ? `a filled mark is at the lect's own coordinates (${own}), an outlined one at Glottolog's place for its Glottocode (${glot}). `
+        : `<span class="mapkey own"></span> the lect's own coordinates (${own}), <span class="mapkey glot"></span> Glottolog's place for its Glottocode (${glot}). `)
       + `Click a point to open the lect; where several lie together, a list opens. Drag to move; zoom with the buttons, a double click, a pinch, or Ctrl/⌘ and the wheel. Reconstructed stages have no place.`;
+    // The legend: every daughter of the node with a point, in the tree's order, with the
+    // number of its lects now shown; then the grey ones.
+    legend.hidden = !mode;
+    if (!mode) { legend.innerHTML = ""; return; }
+    const n = {};
+    for (const p of pts) n[p.grp || ""] = (n[p.grp || ""] || 0) + 1;
+    const nested = MAP_NESTED[mode], outside = n[""] || 0;
+    legend.innerHTML = `<span class="muted">${esc(LECTS[mode].clade || groupName(mode))}:</span> `
+      + Object.keys(styles).map(g => `<button type="button" class="mapleg${pinned === g ? " on" : ""}${n[g] ? "" : " none"}" data-g="${esc(g)}" aria-pressed="${pinned === g}" title="Show only ${esc(groupName(g))} in colour">${swatch(g)} ${esc(groupName(g))} <span class="muted">${n[g] || 0}</span></button>`).join("")
+      + (nested && n[nested] ? `<span class="mapleg plain">${swatch(null)} ${esc(groupName(nested))} <span class="muted">${n[nested]}</span></span>` : "")
+      + (outside ? `<span class="mapleg plain">${swatch(null)} outside ${esc(LECTS[mode].clade || groupName(mode))} <span class="muted">${outside}</span></span>` : "");
   };
+  legend.addEventListener("pointerover", e => { const g = e.target.closest("button.mapleg")?.dataset.g; if (g && hot !== g) { hot = g; draw(); } });
+  legend.addEventListener("pointerleave", () => { if (hot !== pinned) { hot = pinned; draw(); } });
+  legend.addEventListener("click", e => {
+    const g = e.target.closest("button.mapleg")?.dataset.g;
+    if (!g) return;
+    pinned = hot = pinned === g ? null : g;
+    caption(); draw();
+  });
+  box.querySelector(".mapmodes")?.addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (!b || b.dataset.m === mode) return;
+    setMode(b.dataset.m);
+    try { localStorage.setItem("asc-mapcolour", mode); } catch (err) {}
+    closePop(); tip.hidden = true; caption();
+    // The view moves to the lects now in colour (Taiwan is a speck on the whole map).
+    const col = pts.filter(p => styles[p.grp]);
+    if (W && mode && col.length) fit(col);
+    draw();
+  });
+  setMode(mode);
   caption(); size();
   return {
     show(ids, refit) {
