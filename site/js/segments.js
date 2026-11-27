@@ -54,7 +54,7 @@ async function pageSegments(params) {
     <div class="controls">
       <input id="sq" type="search" placeholder="Segment, features or lect" aria-label="Search segments, features or lects" autocomplete="off">
       <span class="seg-toggle" id="sview"><button data-v="lect">By lect</button><button data-v="segment">By segment</button></span>
-      <select id="skind"><option value="all">All lects</option><option value="proto">Reconstructed only</option><option value="attested">Attested only</option></select>
+      <select id="skind" aria-label="Which lects"><option value="all">All lects</option><option value="proto">Reconstructed only</option><option value="attested">Attested only</option></select>
       <label title="Phonemes a changes-only source does not mention, taken as kept from the parent"><input id="simp" type="checkbox"> implied phonemes</label>
       <select id="ssort" title="Order of the segments"><option value="count">most lects first</option><option value="chart">chart order</option></select>
       <span id="scount" class="muted"></span>

@@ -48,6 +48,10 @@ def validate_and_derive(t, rep: Report):
         if r["source_id"] and r["source_id"] not in sources:
             rep.error(w, f"source_id {r['source_id']!r} is not in sources.csv")
         r["rows"] = []
+        r.setdefault("applied", "")
+        # A reverted decision is an instruction: `applied` says when it was carried out.
+        if r["status"] == "reverted" and not r["applied"]:
+            rep.warn(w, "a reverted decision is not marked as carried out (applied is blank)")
         decisions[r["id"]] = r
 
     def check_via(w, r):
@@ -462,6 +466,25 @@ def validate_and_derive(t, rep: Report):
             rep.error(r["_where"], f"duplicate correspondence id {r['id']!r} "
                                    f"(also {seen_ids[r['id']]})")
         seen_ids[r["id"]] = r["_where"]
+
+    # Several regular reflexes of one phoneme in one environment, from one source, with no
+    # condition: the source gives no way to tell them apart. The rows say so on the site
+    # (`split`), and the build counts the groups; nothing is changed in the rows.
+    splits = defaultdict(list)
+    for r in corrs:
+        if (r["status"] == "regular" and r["child_phoneme"] and not r["lexical_scope"]
+                and r["conditioning"] not in ("unknown", "lexical") and r["environment"] != ENV_UNKNOWN):
+            splits[(r["child_lect_id"], r["parent_phoneme_id"], r["environment"], r["variety"], r["stratum"],
+                    r["source_id"], r["via_source_id"])].append(r)
+    unmarked_splits = 0
+    for key, rows in splits.items():
+        n = len({r["child_phoneme"] for r in rows})
+        if n > 1:
+            unmarked_splits += 1
+            for r in rows:
+                r["split"] = n
+            rep.note(rows[0]["_where"], f"{key[0]}: {n} regular reflexes of {key[1]} in {key[2]!r} "
+                                        f"({key[5]}) with no condition: shown as an unconditioned split")
 
     # --- inventories, resolved top-down so a generated parent exists before its children
     inventory = {}   # lect -> sym -> phoneme dict
@@ -1267,7 +1290,7 @@ def validate_and_derive(t, rep: Report):
             rep.note(d["_where"], f"open decision {d['id']}: {d['question']}"
                                   + (f" ({len(d['rows'])} row(s))" if d["rows"] else ""))
     return {
-        "decisions": decisions,
+        "decisions": decisions, "unmarked_splits": unmarked_splits,
         "sources": sources, "lects": lects, "inventory": inventory, "inv_status": inv_status,
         "stray": {L: v for L, v in stray.items() if v},
         "corrs": corrs, "by_parent": by_parent, "by_child": by_child, "notation": notation,

@@ -213,6 +213,12 @@
           {
             "name": "inherit_note",
             "datatype": "string"
+          },
+          {
+            "name": "tree_parent"
+          },
+          {
+            "name": "representative"
           }
         ],
         "primaryKey": [
@@ -449,6 +455,9 @@
           {
             "name": "decision",
             "datatype": "string"
+          },
+          {
+            "name": "parent_lect_id"
           }
         ],
         "foreignKeys": [
@@ -474,6 +483,9 @@
               ]
             }
           }
+        ],
+        "primaryKey": [
+          "id"
         ]
       }
     },
@@ -564,6 +576,47 @@
       }
     },
     {
+      "url": "allophones.csv",
+      "dc:description": "How a phoneme is realised, as the source describes it: one row per allophone.",
+      "tableSchema": {
+        "columns": [
+          {
+            "name": "lect_id"
+          },
+          {
+            "name": "phoneme"
+          },
+          {
+            "name": "system"
+          },
+          {
+            "name": "allophone"
+          },
+          {
+            "name": "environment"
+          },
+          {
+            "name": "source_id"
+          },
+          {
+            "name": "page"
+          },
+          {
+            "name": "notes"
+          },
+          {
+            "name": "via_source_id"
+          },
+          {
+            "name": "via_page"
+          },
+          {
+            "name": "via_note"
+          }
+        ]
+      }
+    },
+    {
       "url": "decisions.csv",
       "dc:description": "Readings taken during data entry that wait for (or have) the user's confirmation; correspondences.decision points here.",
       "tableSchema": {
@@ -589,6 +642,9 @@
             "datatype": "string"
           },
           {
+            "name": "instructions"
+          },
+          {
             "name": "status",
             "datatype": "string"
           },
@@ -603,6 +659,12 @@
           {
             "name": "notes",
             "datatype": "string"
+          },
+          {
+            "name": "comments"
+          },
+          {
+            "name": "applied"
           }
         ],
         "primaryKey": [

@@ -72,12 +72,34 @@ function inventoryHtml(L, phonemes) {
     ${O.length ? `<h2>Other</h2><p>${O.map(p => `<span class="chart">${cellLink(L, p)}</span>`).join(" ")}</p>` : ""}`;
 }
 
+// A node of the tree that has no data of its own (a linkage, an agreed subgroup, a language
+// whose dialects carry the rows): what it is, where it stands, and its members.
+function pageNode(L) {
+  const n = LECTS[L];
+  const members = INDEX.lects.filter(l => treeParent(l) === L).sort((a, b) => (a.o ?? 0) - (b.o ?? 0));
+  const up = treeParent(n);
+  const kind = { group: "subgroup with no proto-language entered", linkage: "linkage" }[n.type] || n.type;
+  app.innerHTML = `
+    <div class="crumb"><a href="#/lects/">Lects</a>${ancestorsOf(L).map(a => " › " + lectLink(a)).join("")}</div>
+    <h1>${esc(n.name)} <span class="badge">node</span></h1>
+    <dl class="info">
+      ${n.alt_names?.length ? `<dt>Also</dt><dd>${n.alt_names.map(esc).join(", ")}</dd>` : ""}
+      <dt>Type</dt><dd>${esc(kind)}</dd>
+      ${n.glottocode ? `<dt>Glottocode</dt><dd><a href="https://glottolog.org/resource/languoid/id/${esc(n.glottocode)}" target="_blank" rel="noopener">${esc(n.glottocode)}</a></dd>` : ""}
+      ${up ? `<dt>Listed under</dt><dd>${lectLink(up)}</dd>` : ""}
+    </dl>
+    <p class="notice">${esc(n.name)} is a node of the lect tree with no rows of its own: the data is on its members.</p>
+    <h2>Members</h2>
+    ${members.length ? `<ul>${members.map(m => `<li>${lectLink(m.id)} <span class="muted">${esc(m.type)}</span></li>`).join("")}</ul>` : `<p class="muted">None entered.</p>`}
+    <p><a href="#/lects/?q=${encodeURIComponent(n.name)}">Show in the lect list</a></p>`;
+}
+
 async function pageLect(L, params) {
   // A tree node with no page: a language with a representative opens that dialect.
   const node = LECTS[L];
   if (node?.node_only) {
     if (node.representative) { location.replace(`#/lects/${encodeURIComponent(node.representative)}/`); return; }
-    throw new Error(`${node.name} is a node of the lect tree, with no page of its own: its members are listed under it in the lect list.`);
+    return pageNode(L);
   }
   const d = await lectData(L);
   const systemTabs = systemTabsOf(d, d.systems.map(x => x.name));
