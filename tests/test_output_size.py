@@ -19,7 +19,7 @@ import build  # noqa: E402
 
 LIMIT = 100_000
 # Files that are not a lect's own file.
-SHARED = ("index.json", "sources.json", "sources_full.json", "segments.json")
+SHARED = ("index.json", "sources.json", "sources_full.json", "segments.json", "map.json")
 
 
 def size(obj):
@@ -110,6 +110,34 @@ class TestOutputSize(unittest.TestCase):
         lect = max((size(v), k) for k, v in self.files.items() if "/" not in k and k not in SHARED)
         print(f"\n  largest lect file {lect[1]} {lect[0]:,} B; index {size(self.files['index.json']):,} B; "
               f"sources {size(self.files['sources.json']):,} B; largest files {big}")
+
+    def test_map_file(self):
+        """map.json (the Lects map): a point for attested lects with a page only, each inside
+        the window of site/land.json, and the two files small enough to load with the list."""
+        index = {l["id"]: l for l in self.files["index.json"]["lects"]}
+        points = self.files["map.json"]["points"]
+        self.assertTrue(points)
+        self.assertEqual(len({p[0] for p in points}), len(points))
+        for p in points:
+            l = index[p[0]]
+            self.assertIn(l["type"], ("language", "dialect"), p[0])
+            self.assertFalse(l.get("node_only"), p[0])
+            self.assertIn(len(p), (3, 4), p[0])
+            self.assertTrue(-52 <= p[1] <= 35 and (p[2] >= 30 or p[2] <= -100), p)
+        # a lect's own coordinates are used as they are; Glottolog's are marked
+        own = {r["id"]: r for r in self.files.values() if isinstance(r, dict) and r.get("coordinates")}
+        for p in points:
+            self.assertEqual(len(p) == 3, p[0] in own, p[0])
+            if p[0] in own:
+                self.assertEqual(p[1:3], list(own[p[0]]["coordinates"]), p[0])
+        self.assertLess(size(self.files["map.json"]), 60_000)
+        land = json.loads((ROOT / "site" / "land.json").read_text(encoding="utf-8"))
+        self.assertTrue(all(len(r) >= 6 and len(r) % 2 == 0 for r in land["rings"]))
+        self.assertLess((ROOT / "site" / "land.json").stat().st_size, 250_000)
+
+    def test_map_script_is_loaded_before_the_list(self):
+        html = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        self.assertLess(html.index("js/map.js"), html.index("js/lects.js"))
 
 
 if __name__ == "__main__":

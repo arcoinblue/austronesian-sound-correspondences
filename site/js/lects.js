@@ -56,6 +56,9 @@ async function pageIndex(params) {
   try { state.view = localStorage.getItem("asc-view") === "flat" ? "flat" : "tree"; } catch (e) {}
   // Alternative nodes (groupings that only some classification proposes) can be hidden.
   try { state.alt = localStorage.getItem("asc-alt") !== "0"; } catch (e) {}
+  // The map over the full list (not over a reflex table) can be put away.
+  state.map = !pivot;
+  try { if (localStorage.getItem("asc-map") === "0") state.map = false; } catch (e) {}
   // The address can carry the filter, the view and the reflex table's box (?q=tetun&view=flat&only=1).
   if (params.get("q") !== null) state.q = params.get("q");
   if (params.get("view")) state.view = params.get("view") === "flat" ? "flat" : "tree";
@@ -95,7 +98,8 @@ async function pageIndex(params) {
     ${pivot ? `<div class="crumb"><a href="#/lects/">All lects</a> › reflexes of ${phLink(reflex)}</div>
       <h1>Reflexes of <span class="ipa">${esc(sym(reflex))}</span> <span class="muted" style="font-size:16px">${esc(LECTS[pivot.lect].name)}</span></h1>
       <p class="muted">Each descendant lect's reflex, through every intermediate stage. Lects outside ${esc(LECTS[pivot.lect].name)} are hidden.</p>`
-      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Sister nodes are listed by geography, roughly from Taiwan to Polynesia, and from north to south within a region. An alternative node, a grouping that only some classification proposes, is in italics and marked "proposed grouping", after the lects and established subgroups beside it; the lects it would contain are listed under it and keep their place in the tree.</p>`}
+      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Sister nodes are listed by geography, roughly from Taiwan to Polynesia, and from north to south within a region. An alternative node, a grouping that only some classification proposes, is in italics and marked "proposed grouping", after the lects and established subgroups beside it; the lects it would contain are listed under it and keep their place in the tree.</p>
+      <div id="map"></div>`}
     <div class="controls">
       <input type="search" id="q" placeholder="Filter names and alternate names" aria-label="Filter">
       <span class="seg" role="group" aria-label="View">
@@ -103,11 +107,26 @@ async function pageIndex(params) {
       </span>
       <span class="treeonly"><button class="more" id="openall">Expand all</button> <button class="more" id="closeall">Collapse</button></span>
       <label class="muted" id="hideemptybox" style="font-size:13px"><input type="checkbox" id="hideempty" checked> Hide lects with no data</label>
+      ${pivot ? "" : `<label class="muted" style="font-size:13px" title="The map of the lects with a known place, above the list"><input type="checkbox" id="showmap" role="switch"> Map</label>`}
       <label class="muted treeonly" style="font-size:13px" title="Groupings that only some classification proposes (in italics, marked 'proposed grouping')"><input type="checkbox" id="showalt" role="switch"> Alternative nodes</label>
       ${pivot ? `<label class="muted" style="font-size:13px" title="Hide the lects, and the groups, that have no reflex of this phoneme entered or implied"><input type="checkbox" id="onlyreflex"> Only lects with a reflex</label>` : ""}
       <span class="muted" id="count"></span>
     </div>
     <div class="scroll"><table id="t" class="lects"></table></div>`;
+
+  // The map shows the lects the list would show: those that pass the filter and the box.
+  // It is loaded when first shown; a change of the filter moves it to the lects left.
+  let map = null, mapQ = null;
+  const drawMap = shownIds => {
+    const box = app.querySelector("#map");
+    if (!box) return;
+    box.hidden = !state.map;
+    if (!state.map) return;
+    const refit = mapQ !== null && mapQ !== state.q;
+    mapQ = state.q;
+    if (!map) map = lectMap(box, mem);
+    map.then(m => { if (box.isConnected) m.show(shownIds, refit); });
+  };
 
   const draw = () => {
     app.querySelectorAll(".seg button").forEach(b => b.classList.toggle("on", b.dataset.v === state.view));
@@ -150,7 +169,8 @@ async function pageIndex(params) {
     // linkage; Tsou, which opens Duhtu) is not counted.
     const isLect = l => !l.node_only;
     const lectsAll = pool.filter(isLect).length;
-    const shown = pool.filter(l => isLect(l) && (!q || hit(l)) && visible(l)).length;
+    const shownLects = pool.filter(l => isLect(l) && (!q || hit(l)) && visible(l)), shown = shownLects.length;
+    if (!pivot) drawMap(shown === lectsAll ? null : new Set(shownLects.map(l => l.id)));
     let body = "";
     if (!tree) {
       const rows = pool.filter(l => hit(l) && visible(l) && !l.node_only).sort((a, b) => a.name.localeCompare(b.name));
@@ -236,6 +256,11 @@ async function pageIndex(params) {
   const showalt = app.querySelector("#showalt");
   showalt.checked = state.alt;
   showalt.addEventListener("change", e => { state.alt = e.target.checked; try { localStorage.setItem("asc-alt", state.alt ? "1" : "0"); } catch (err) {} draw(); });
+  const showmap = app.querySelector("#showmap");
+  if (showmap) {
+    showmap.checked = state.map;
+    showmap.addEventListener("change", e => { state.map = e.target.checked; try { localStorage.setItem("asc-map", state.map ? "1" : "0"); } catch (err) {} draw(); });
+  }
   const only = app.querySelector("#onlyreflex");
   if (only) { only.checked = state.only; only.addEventListener("change", e => { state.only = e.target.checked; draw(); }); }
   app.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {

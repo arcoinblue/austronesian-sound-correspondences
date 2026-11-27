@@ -10,6 +10,7 @@ from pathlib import Path
 
 from .schema import *  # noqa: F401,F403
 from .derive import lect_files, index_json, sources_json, sources_full_json
+from .geo import reference_coordinates
 
 
 def site_files(D):
@@ -24,7 +25,27 @@ def site_files(D):
     out["sources.json"] = sources_json(D)
     out["sources_full.json"] = sources_full_json(D)
     out["segments.json"] = segments_json(D, lites)
+    out["map.json"] = map_json(D, lites)
     return out
+
+
+def map_json(D, lites, reference=None):
+    """Where the lects are spoken, for the map over the lect list (fetched by that page only).
+
+    "points" has one [lect id, latitude, longitude] for every attested lect with a page of
+    its own and a known place: its own coordinates (lects.latitude, lects.longitude), else
+    Glottolog's for its glottocode (reference/glottolog_coordinates.csv), and then a fourth
+    item 1 marks the place as Glottolog's. Reconstructed stages and tree nodes have no place."""
+    reference = reference_coordinates() if reference is None else reference
+    points = []
+    for L, rec in D["lects"].items():
+        if rec["type"] not in ("language", "dialect") or lites[L].get("node_only"):
+            continue
+        if rec.get("coordinates"):
+            points.append([L, *rec["coordinates"]])
+        elif rec.get("glottocode") in reference:
+            points.append([L, *reference[rec["glottocode"]], 1])
+    return {"points": points}
 
 
 def segments_json(D, lites):
