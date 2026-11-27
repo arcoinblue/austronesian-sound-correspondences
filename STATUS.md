@@ -14,14 +14,14 @@ The state of the Austronesian Sound Correspondences database. The generated part
 | correspondences | 26230 | plus 13567 implied and 3410 stated retentions generated from lects.inherit |
 | notation_map | 613 |  |
 | allophones | 1415 |  |
-| decisions | 276 | 136 confirmed, 81 open, 59 reverted |
+| decisions | 279 | 136 confirmed, 84 open, 59 reverted |
 
 Lects by `inherit`: (blank) 469, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
 Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 518 warning(s), 3065 note(s).
+`build.py --check`: 0 error(s), 518 warning(s), 3068 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -123,6 +123,9 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `fijian-nodes-representative` | Fijian, Lauan, Lomaiviti, Namosi-Naitasiri-Serua (languages) and Kadavu (dialect) are nodes without rows and without a representative (batch geraghty1983-commu… | None chosen: Geraghty (1983) gives no communalect that status, and the standing rule (a language with a representative dialect and no proto-language redirects … |  |  |
 | `chart-diphthongs` | Diphthongs given as reflexes (Acehnese ɯə, uə; Haroi ɨa, ei, ou) have no cell in the vowel chart and are listed under 'Unclassified vowels'. Is that how they a… | Yes for now: the standing rule lists what cannot be placed under the chart. No code was changed. |  |  |
 | `thurgood1999-tones` | Thurgood (1999), chapter 8: the tones of Tsat (Tables 145-154) and Phan Rang Cham, and the registers of Western Cham. Are they entered? | Not entered and not read. Tones and registers are not phonemes in this database, and a row cannot write a tone on a segment. The Haroi register is entered only… |  |  |
+| `audit-grade-column` | Ross's consonant grades (fortis, lenis, secondary nasal) and POC positions are written inside the environment (about 1,590 and 740 rows, 53 spellings of the gr… | Not moved. A grade column would make the grades searchable and cut the number of distinct environments, but it does not resolve the unconditioned splits (most … |  |  |
+| `audit-dialects-under-proto` | 96 dialects stand directly under a proto-language, with no language node and no earlier stage (the four Manggarai dialects under Proto-Manggarai, the Meto dial… | Left as entered from the classification trees (mostly Grimes & Edwards 2026). |  |  |
+| `audit-unused-columns` | Three columns have never been used: lects.competes_with, allophones.system and decisions.instructions (which is not a column of this tab; the answers are writt… | Kept: the build and the site handle all three. |  |  |
 
 <!-- END GENERATED -->
 
