@@ -1,10 +1,10 @@
 # Austronesian Sound Correspondence Dictionary — data
 
-The data is entered in the Google Sheet (see *Editing in Google Sheets*), which is synced into five CSV tables in `cldf/`, plus a `decisions` table. `build.py` checks them, derives everything else, and writes one JSON file per lect for the site. `STATUS.md` says where things stand: table sizes, check results, open decisions, and what is still to enter or to code.
+The data is entered in the Google Sheet (see *Editing in Google Sheets*), which is synced into seven CSV tables in `cldf/` (six of data, and `decisions`). `build.py` checks them, derives everything else, and writes one JSON file per lect for the site. `STATUS.md` says where things stand: table sizes, check results, open decisions, and what is still to enter or to code.
 
 ```
 cldf/
-  cldf-metadata.json     CSVW/CLDF description of the five tables
+  cldf-metadata.json     CSVW/CLDF description of the tables (kept in step by tools/make_metadata.py)
   sources.csv            citations
   lects.csv              languages, dialects, proto-languages
   phonemes.csv           hand-entered phonemes only (sourced / manual-add / suppressed)
@@ -305,7 +305,8 @@ A reading taken during data entry that the user has still to confirm: how a tabl
 | `status` | yes | `open` · `confirmed` · `reverted` |
 | `source_id`, `page` | | where the question arises |
 | `notes` | | |
-| `comments` | | optional: the user's comments on the decision (last column of the tab), free text; read by the next session with `instructions`, and shown beside open decisions in `STATUS.md` |
+| `comments` | | optional: the user's comments on the decision, free text; read by the next session with `instructions`, and shown beside open decisions in `STATUS.md` |
+| `applied` | | *optional last column (27 Nov 2026).* For a `reverted` decision: the date on which the reversal was carried out in the data (`2026-11-23`), with a word on what was done if that helps. Blank on a reverted decision means the work is still owed: the build warns, and `STATUS.md` lists it under *Reverted decisions not yet carried out*. |
 
 ---
 
@@ -386,6 +387,11 @@ The site loads a small file per lect, and a phoneme's history only when the phon
 - The ancestry section opens with the history in one line (the regular line of descent, without the stages where nothing changes: *Proto-Central Pacific \*t, \*d, \*j > Proto-Polynesian \*t > Hawaiian k*). *Fold unchanged stages* takes out every stage in which each phoneme of the history continues one earlier phoneme unchanged (one parent, the same symbol, no condition, no fusion, nothing sporadic); the stage above a folded run is marked *⋯ n stages unchanged* (hover for their names, click to show them), and the list of steps under the diagram still has every step. It is on by itself when the history has more than five stages; the reader's choice is kept. *From* starts the diagram at a later stage.
 - The ancestry section has a box *Regular changes only* where the history has sporadic, borrowed or doubtful steps: it hides them and the lines that reach the phoneme only through them. The choice is kept across pages.
 - On the Segments page a search that matches a segment or feature words is not also matched against lect names.
+- A tree node with no data of its own (a linkage, an agreed subgroup, a language whose dialects carry the rows and that has no `representative`) has a short page: its type, Glottocode, the node it is listed under, and its members as links (`pageNode` in `site/js/lect.js`). Links to such a node open that page.
+- Several `regular` reflexes of one phoneme in one environment, from one source, with no condition (`conditioning` blank, no `lexical_scope`) are an *unconditioned split*: each row carries `split` (the number of reflexes) and the tag *one of n, no condition stated*; the build notes each group and `STATUS.md` counts them. Nothing in the rows is changed. Set `conditioning` `unknown` (or enter the condition) to settle one.
+- In a descent table, rows that make the same statement (same lect, reflex, environment, status and tags) from different sources are one line with every citation; the table of all lects prints a repeated line once. A descent table is built for what is shown: the deeper rows are added when *Show deeper rows* is pressed, and only one layout (merged for lects, or a line per row) is in the page at a time.
+- On a screen narrower than 640 px the ancestry diagram shortens the stage names (P- for Proto-, cut at 16 letters; the full name is the link's title).
+- The lect list has its filter and switches first; the explanation is folded under *How to read this list*, and the map follows.
 - `build/data/index.json`: what the lect list shows of each lect (name, alternate names, type, glottocode, parent, clade, coverage, status, overlapping groups); loaded on every page.
 - `build/data/segments.json`: every lect's displayed inventory (default system), each distinct phoneme with its features written once (`seg`) and each lect listing indexes into it, with flags (implied, marginal) where they apply; loaded only by the Segments page (`#/segments/`), which lists and searches it by lect or by segment. Its search ignores tie bars (tʃ finds t͡ʃ) and reads a typed ? as ʔ.
 - `build/data/map.json`: `points`, one `[lect id, latitude, longitude]` per mapped lect, with a fourth item `1` when the place is Glottolog's and not the lect's own; loaded only by the lect list.
@@ -416,7 +422,7 @@ Then open http://localhost:8765.
 
 ## Editing in Google Sheets
 
-The data is entered in the Google Sheet [Austronesian Sound Correspondences — data](https://docs.google.com/spreadsheets/d/1mzL8wYSb73PeuJShX-Xor7y6iIFDS991F9CV2AZD7mk/edit). It has one tab per table (`sources`, `lects`, `phonemes`, `correspondences`, `notation_map`, `decisions`), with the same headers, dropdowns for every fixed vocabulary, and every cell set to plain text. **The sheet is the source of truth: direct edits to `cldf/*.csv` are overwritten by the next sync.**
+The data is entered in the Google Sheet [Austronesian Sound Correspondences — data](https://docs.google.com/spreadsheets/d/1mzL8wYSb73PeuJShX-Xor7y6iIFDS991F9CV2AZD7mk/edit). It has one tab per table (`sources`, `lects`, `phonemes`, `correspondences`, `notation_map`, `allophones`, `decisions`), with the same headers, dropdowns for every fixed vocabulary, and every cell set to plain text. **The sheet is the source of truth: direct edits to `cldf/*.csv` are overwritten by the next sync.**
 
 - `.github/workflows/sync-sheet.yml` runs every hour, or immediately from **Actions → Sync from Google Sheets → Run workflow**.
 - It downloads the sheet (`tools/sync_sheet.py`), runs `build.py --check --status STATUS.md`, and, if the data passes and anything changed, commits `cldf/` and `STATUS.md` and redeploys the site.
@@ -458,4 +464,4 @@ Every push to `main` runs `.github/workflows/pages.yml`: the tests run, then `bu
 - Generated phonemes are not stored. Only `manual-add` and `suppressed` rows are, so rerunning the build can't overwrite hand edits.
 - `inventory_status` is derived rather than entered (see above).
 - A `rounding` column was added so vowels can be charted.
-- `pycldf` isn't required yet; the build uses only the standard library. `cldf-metadata.json` is in place so `pycldf`/`cldf validate` can read the dataset later, and ABVD/ACD `forms`/`cognates` tables can be added beside it.
+- `pycldf` isn't required yet; the build uses only the standard library. `cldf-metadata.json` describes every table and column (`python3 tools/make_metadata.py` after a schema change; a test compares it with `asc/schema.py`) and is in place so `pycldf`/`cldf validate` can read the dataset later, and ABVD/ACD `forms`/`cognates` tables can be added beside it.

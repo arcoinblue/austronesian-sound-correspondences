@@ -174,6 +174,8 @@ def status_md(t, D, rep, counts=None):
     inv = Counter(D["inv_status"].values())
     out += ["", "Lects by `inherit`: " + ", ".join(f"{k} {v}" for k, v in sorted(inh.items())) + ".",
             "Inventories: " + ", ".join(f"{k} {v}" for k, v in sorted(inv.items())) + ".",
+            f"Unconditioned splits (several regular reflexes in one environment, one source, no condition): "
+            f"{D.get('unmarked_splits', 0)} groups.",
             "", "## Checks", "",
             f"`build.py --check`: {len(rep.errors)} error(s), {len(rep.warnings)} warning(s), "
             f"{len(rep.notes)} note(s).", ""]
@@ -192,6 +194,16 @@ def status_md(t, D, rep, counts=None):
         out += [f"| `{d['id']}` | {_cell(d['question'])} | {_cell(d['chosen_reading'])} | {len(d['rows']) or ''} "
                 f"| {_cell(d.get('comments', ''))} |"
                 for d in opened]
+    else:
+        out.append("None.")
+    owed = [d for d in D["decisions"].values() if d["status"] == "reverted" and not d.get("applied")]
+    out += ["", "## Reverted decisions not yet carried out", "",
+            "A reverted decision is an instruction. When it has been carried out, write the date in its "
+            "`applied` cell.", ""]
+    if owed:
+        out += ["| id | Question | To do (the alternative, and the comments) |", "|---|---|---|"]
+        out += [f"| `{d['id']}` | {_cell(d['question'])} | "
+                f"{_cell('; '.join(x for x in (d['alternatives'], d.get('comments', '')) if x))} |" for d in owed]
     else:
         out.append("None.")
     out += ["", STATUS_END]

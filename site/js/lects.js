@@ -98,8 +98,7 @@ async function pageIndex(params) {
     ${pivot ? `<div class="crumb"><a href="#/lects/">All lects</a> › reflexes of ${phLink(reflex)}</div>
       <h1>Reflexes of <span class="ipa">${esc(sym(reflex))}</span> <span class="muted" style="font-size:16px">${esc(LECTS[pivot.lect].name)}</span></h1>
       <p class="muted">Each descendant lect's reflex, through every intermediate stage. Lects outside ${esc(LECTS[pivot.lect].name)} are hidden.</p>`
-      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Sister nodes are listed by geography, roughly from Taiwan to Polynesia, and from north to south within a region. An alternative node, a grouping that only some classification proposes, is in italics and marked "proposed grouping", after the lects and established subgroups beside it; the lects it would contain are listed under it and keep their place in the tree.</p>
-      <div id="map"></div>`}
+      : `<h1>Lects</h1><p class="muted">Every language and reconstructed stage in the database, by subgroup.</p>`}
     <div class="controls">
       <input type="search" id="q" placeholder="Filter names and alternate names" aria-label="Filter">
       <span class="seg" role="group" aria-label="View">
@@ -112,6 +111,8 @@ async function pageIndex(params) {
       ${pivot ? `<label class="muted" style="font-size:13px" title="Hide the lects, and the groups, that have no reflex of this phoneme entered or implied"><input type="checkbox" id="onlyreflex"> Only lects with a reflex</label>` : ""}
       <span class="muted" id="count"></span>
     </div>
+    ${pivot ? "" : `<details class="about"><summary>How to read this list</summary><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Sister nodes are listed by geography, roughly from Taiwan to Polynesia, and from north to south within a region. An alternative node, a grouping that only some classification proposes, is in italics and marked "proposed grouping", after the lects and established subgroups beside it; the lects it would contain are listed under it and keep their place in the tree.</p></details>
+      <div id="map"></div>`}
     <div class="scroll"><table id="t" class="lects"></table></div>`;
 
   // The map shows the lects the list would show: those that pass the filter and the box.
@@ -156,7 +157,8 @@ async function pageIndex(params) {
           .map(c => `${phLink(c)} <span class="tag der" title="not mentioned by a source that lists only the changes: taken as retained">implied</span>`);
         mid = rs.length || imp.length ? rs.map(r => r.child
           ? `${phLink(r.child)} ${sole.has(r) ? "" : `<span class="muted">/ ${r.fusion ? fusionLabel(r.fusion) + " fuse" : esc(r.environment)}</span> `}${badge(r.status)}${r.via.length ? ` <span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}${r.alt_via ? ` <span class="muted">from ${esc(LECTS[splitPid(r.parent)[0]]?.name || "")} ${esc(sym(r.parent))}</span>` : ""}`
-          : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).concat(imp).join("<br>")
+          : `<span class="blank">no reflex</span> <span class="muted">/ ${esc(r.environment)}</span> ${badge(r.blank_type)}`).concat(imp)
+          .filter((x, i, a) => a.indexOf(x) === i).join("<br>")
           : `<span class="blank">unentered</span>`;
       } else mid = l.node_only ? (l.representative ? `<span class="muted">see ${lectLink(l.representative)}</span>` : "")
         : coverage(l.coverage, l.index_status) + ({ "changes-only": " " + badge("changes-only"), empty: "", generated: "" }[l.index_status] ?? "");

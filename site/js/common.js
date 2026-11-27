@@ -110,7 +110,7 @@ function phLink(pid, text) {
 // for a tree node with no page (a group such as a linkage; Babuza, whose dialects have the rows).
 function lectHref(id) {
   const l = LECTS[id];
-  if (l?.node_only) return l.representative ? `#/lects/${encodeURIComponent(l.representative)}/` : null;
+  if (l?.node_only && l.representative) return `#/lects/${encodeURIComponent(l.representative)}/`;
   return `#/lects/${esc(id)}/`;
 }
 
@@ -246,6 +246,7 @@ function envHtml(r, sole) {
     r.other_predecessor && `<span class="tag der" title="stated against ${esc(LECTS[splitPid(r.parent)[0]]?.name || "another lect")}, which is not the stage this lect inherits from (a loan stratum against its donor, or a reflex the source states against another stage)">not its parent</span>`,
     r.lexical_scope && `<span class="tag" title="lexically restricted">${esc(r.lexical_scope)}</span>`,
     r.conditioning === "lexical" && !r.lexical_scope && `<span class="tag">lexically restricted</span>`,
+    r.split && `<span class="tag" title="the source gives ${r.split} regular reflexes in this environment and no condition that tells them apart">one of ${r.split}, no condition stated</span>`,
     r.derivation === "composed" && `<span class="tag der" title="composed from the source's statements against an earlier stage; see notes">composed</span>`,
     r.derivation === "implied-retention" && `<span class="tag der" title="not mentioned by a source that lists only the changes: taken as retained">implied</span>`,
     r.derivation === "stated-retention" && `<span class="tag der" title="the source says that what it does not list is unchanged">unchanged per source</span>`,

@@ -46,6 +46,11 @@ async function route() {
     app.innerHTML = `<h1>Not found</h1><p class="muted">${esc(e.message)}</p><p><a href="#/lects/">Back to all lects</a></p>`;
   }
   setTitle();
+  document.querySelectorAll(".top nav a").forEach(a => {
+    const on = a.getAttribute("href") === `#/${parts[0] || "lects"}/`;
+    a.classList.toggle("on", on);
+    if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
   const list = parts.length <= 1 || (parts[0] === "sources" && !parts[1]);
   window.scrollTo(0, list ? SCROLL[hash] || 0 : 0);
 }

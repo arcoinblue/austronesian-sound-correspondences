@@ -33,6 +33,8 @@ def edge(r, include_child=True):
         # Stated against a lect other than the child's parent_id (correspondences.parent_lect_id).
         "other_predecessor": bool(r.get("other_predecessor")),
     }
+    if r.get("split"):
+        e["split"] = r["split"]   # one of n regular reflexes in this environment, no condition stated
     if include_child:
         e["child_lect_id"] = r["child_lect_id"]
         e["child"] = r["child_phoneme_id"]

@@ -119,7 +119,16 @@ function ancestryHtml(g, herePid, opt = {}) {
   // opt.folds: runs of unchanged stages taken out of the graph (ancFold), noted under the stage above each.
   const foldAfter = Object.fromEntries((opt.folds || []).map(f => [f.after, f]));
   const foldText = f => `⋯ ${f.lects.length} stage${f.lects.length === 1 ? "" : "s"} unchanged`;
-  const LEFT = Math.max(Math.min(210, 24 + Math.max(...stages.map(l => (LECTS[l]?.name || l).length)) * 6.7),
+  // On a narrow screen the stage names are shortened (P- for Proto-, cut at 16 letters; the
+  // full name is the link's title), so the phonemes are in view without scrolling sideways.
+  const narrow = window.innerWidth < 640;
+  const stageName = l => {
+    const full = LECTS[l]?.name || l;
+    if (!narrow) return full;
+    const short = full.replace(/^Proto-/, "P-");
+    return short.length > 16 ? short.slice(0, 15) + "…" : short;
+  };
+  const LEFT = Math.max(Math.min(narrow ? 124 : 210, 24 + Math.max(...stages.map(l => stageName(l).length)) * 6.7),
     ...(opt.folds || []).map(f => 22 + foldText(f).length * 6.2));
   const rowY = [];
   stages.forEach((l, i) => { rowY.push(i ? rowY[i - 1] + [FULL, SHORT, SHORT + 20][quiet[i]] : TOP); });
@@ -243,7 +252,7 @@ function ancestryHtml(g, herePid, opt = {}) {
   const bands = stages.map((l, i) => {
     const y0 = i ? (rowY[i - 1] + rowY[i]) / 2 : 0, y1 = i < stages.length - 1 ? (rowY[i] + rowY[i + 1]) / 2 : H;
     return `${i % 2 ? `<rect class="band" x="0" y="${y0}" width="${W}" height="${y1 - y0}"/>` : ""}
-      <a href="#/lects/${esc(l)}/"><text class="stage${l === hereLect ? " here" : ""}" x="8" y="${rowY[i] + 4}">${esc(LECTS[l]?.name || l)}</text></a>${foldAfter[l]
+      <a href="#/lects/${esc(l)}/"><text class="stage${l === hereLect ? " here" : ""}" x="8" y="${rowY[i] + 4}">${narrow ? `<title>${esc(LECTS[l]?.name || l)}</title>` : ""}${esc(stageName(l))}</text></a>${foldAfter[l]
         ? `<text class="foldmark" x="8" y="${rowY[i] + 21}" tabindex="0" role="button"><title>${esc(`Unchanged through ${foldAfter[l].lects.map(x => LECTS[x]?.name || x).join(", ")}${foldAfter[l].implied ? ` (${foldAfter[l].implied} by implication: not mentioned by a source that lists only the changes)` : ""}. Click to show every stage.`)}</title>${esc(foldText(foldAfter[l]))}</text>` : ""}`;
   }).join("");
   const svg = `<svg class="anc" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Ancestry diagram">
@@ -380,6 +389,9 @@ function nodeSym(pid, herePid) {
 
 // Descent rows. Past the first level of the tree a row is listed only where
 // sources or reconstructions disagree about that stage; the button shows the rest.
+// The table builders of the descent boxes on the page, so that a box can be drawn again
+// with its deeper rows or in the other layout. Emptied when a page is drawn.
+const DESCENT = [];
 function descentHtml(rows, daughters) {
   if (!rows.length) return `<p class="muted">${daughters ? "No descendant reflexes entered." : "No daughter lects in the database."}</p>`;
   // Below a competing reconstruction nothing is listed: those reflexes are on its own pages.
@@ -390,18 +402,37 @@ function descentHtml(rows, daughters) {
   // Rows of one lect, reached the same way: one group, shown merged or one row each.
   const gkey = r => [r.child_lect_id, r.via.join(">"), deep(r) ? 1 : 0, r.competing ? 1 : 0].join("\u0001");
   const sole = soleRows(rows, gkey);
+  // The same statement made by more than one source is one line with every citation.
+  const stKey = r => [gkey(r), r.child || "", r.blank_type || "", r.fusion ? fusionText(r.fusion) : r.environment, r.status || "",
+    r.variety, r.stratum, r.lexical_scope, r.derivation, r.conflict ? 1 : 0, r.other_predecessor ? 1 : 0, r.split || ""].join("\u0002");
+  const firstOf = new Map(), also = new Map();
+  for (const r of rows) {
+    const k = stKey(r);
+    if (!firstOf.has(k)) { firstOf.set(k, r); also.set(r, []); } else also.get(firstOf.get(k)).push(r);
+  }
+  const allRows = [...firstOf.values()];
+  const citeAll = r => cite(r) + also.get(r).map(o => `<span class="cite-also">${cite(o)}</span>`).join("");
+  const noteAll = r => [...new Set([r, ...also.get(r)].map(o => rowNote(o)).filter(Boolean))].join("<br>");
+  const multi = (() => { const n = {}; return allRows.some(r => (n[gkey(r)] = (n[gkey(r)] || 0) + 1) > 1); })();
+  const hidden = allRows.filter(deep).length;
+  const shownDeep = allRows.filter(r => r.via.length && r.conflict).length;
+  const head = `<tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>`;
+  // The table is built for what is shown: without the deeper rows until they are asked for,
+  // and in one layout (merged for lects, or a line per row), not both.
+  const table = (withDeep, mergedMode) => {
+  const rows = withDeep ? allRows : allRows.filter(r => !deep(r));
   const groups = new Map();
   for (const r of rows) { const k = gkey(r); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
   const cls = r => [r.via.length || r.derivation === "implied-retention" ? "dim" : "", deep(r) ? "deep" : ""].filter(Boolean);
   const lectTd = (r, span) => `<td${span > 1 ? ` rowspan="${span}"` : ""}>${lectLink(r.child_lect_id)}${r.competing ? ` <span class="badge b-disputed" title="One of two or more competing reconstructions of this stage; its own reflexes are on its pages">competing</span>` : ""}${r.via.length ? `<br><span class="muted">via ${r.via.map(v => esc(sym(v))).join(" → ")}</span>` : ""}</td>`;
   const reflexTd = (r, span, brk, end) => `<td${span > 1 ? ` rowspan="${span}"` : ""}${brk ? ` class="brk${end ? " gend" : ""}"` : ""}>${r.child ? phLink(r.child) : `<span class="blank">${label(r.blank_type)}</span>`}</td>`;
   // srcTd: the source cell, or "" where a cell above spans this line.
-  const rest = (r, srcTd = `<td>${cite(r)}</td>`) => `<td>${envHtml(r, sole)}</td>
+  const rest = (r, srcTd = `<td>${citeAll(r)}</td>`) => `<td>${envHtml(r, sole)}</td>
       <td>${r.child ? badge(r.status) : badge(r.blank_type)}</td>
       <td>${evidence(r)}</td>
       ${srcTd}
-      <td>${rowNote(r)}</td>`;
-  const flat = rows.map(r => `<tr class="${cls(r).join(" ")}">${lectTd(r, 1)}${reflexTd(r, 1)}${rest(r)}</tr>`).join("");
+      <td>${noteAll(r)}</td>`;
+  if (!mergedMode || !multi) return `<table>${head}${rows.map(r => `<tr class="${cls(r).join(" ")}">${lectTd(r, 1)}${reflexTd(r, 1)}${rest(r)}</tr>`).join("")}</table>`;
   // Merged: the lect once, then its reflexes, each source's together, the conditioned
   // ones before the elsewhere one, as in a rule; a reflex repeated on adjacent lines
   // is written once.
@@ -415,7 +446,7 @@ function descentHtml(rows, daughters) {
     // source, with a reflex or a citation repeated on adjacent lines written once.
     const sameSrc = (a, b) => a.source_id === b.source_id;
     const same = (a, b) => sameSrc(a, b) && a.child === b.child && (a.child || a.blank_type === b.blank_type);
-    const sameCite = (a, b) => sameSrc(a, b) && cite(a) === cite(b);
+    const sameCite = (a, b) => sameSrc(a, b) && citeAll(a) === citeAll(b);
     const runAt = (i, eq) => {
       if (i && eq(lines[i - 1], lines[i])) return 0;
       let n = 1; while (i + n < lines.length && eq(lines[i + n], lines[i])) n++;
@@ -427,20 +458,19 @@ function descentHtml(rows, daughters) {
       const span = runAt(i, same), cspan = runAt(i, sameCite);
       const inBlock = i < lines.length - 1 && sameSrc(lines[i + 1], r);
       const c = cls(r).concat(lines.length > 1 ? [i ? "gc" : "g0", inBlock ? "gin" : ""] : []).filter(Boolean);
-      const srcTd = cspan ? `<td${cspan > 1 ? ` rowspan="${cspan}"` : ""}${cspan > 1 ? endCls(i, cspan) : ""}>${cite(r)}</td>` : "";
+      const srcTd = cspan ? `<td${cspan > 1 ? ` rowspan="${cspan}"` : ""}${cspan > 1 ? endCls(i, cspan) : ""}>${citeAll(r)}</td>` : "";
       merged += `<tr class="${c.join(" ")}">${i ? "" : lectTd(r, lines.length).replace("<td", '<td class="gend"')}${span ? reflexTd(r, span, blockLen(r) > 1, endCls(i, span) !== "") : ""}${rest(r, srcTd)}</tr>`;
     });
   }
-  const multi = [...groups.values()].some(g => g.length > 1);
-  const hidden = rows.filter(deep).length;
-  const shownDeep = rows.filter(r => r.via.length && r.conflict).length;
-  const head = `<tr><th>Daughter lect</th><th>Reflex</th><th>Environment</th><th>Status</th><th>Evidence</th><th>Source</th><th>Notes</th></tr>`;
-  return `<div class="descentbox">
+  return `<table>${head}${merged}</table>`;
+  };
+  const id = DESCENT.push(table) - 1;
+  return `<div class="descentbox" data-descent="${id}">
     ${hidden || shownDeep || multi ? `<p class="muted">${hidden || shownDeep ? "Reflexes one level down the tree." : ""}${shownDeep ? ` ${shownDeep} deeper row(s) are listed because sources or reconstructions disagree there.` : ""}
       ${hidden ? `<button class="more" data-n="${hidden}">Show ${hidden} deeper row(s)</button>` : ""}
       ${multi ? `<label class="mergetoggle"><input type="checkbox" class="mergelects"${mergeLects() ? " checked" : ""}> Merge for lects</label>` : ""}</p>` : ""}
-    <div class="scroll">${multi ? `<table class="t-merged">${head}${merged}</table><table class="t-flat">${head}${flat}</table>` : `<table>${head}${flat}</table>`}</div>
-    ${descentLegend(rows)}</div>`;
+    <div class="scroll">${table(false, mergeLects())}</div>
+    ${descentLegend(allRows)}</div>`;
 }
 
 // What the grey and italic text in a descent table mean, when the table has any.
@@ -525,6 +555,7 @@ function systemPanel(sys, sps, d) {
 }
 
 async function pagePhoneme(L, uid) {
+  DESCENT.length = 0;
   const d = await lectData(L);
   // "_D@Ross" asks for Ross's *D: open its default counterpart with Ross's tab.
   const raw = decodeURIComponent(uid);
@@ -665,16 +696,23 @@ async function pagePhoneme(L, uid) {
   wireMore();
 }
 
+function redrawDescent(box) {
+  const table = DESCENT[+box.dataset.descent];
+  if (table) box.querySelector(".scroll").innerHTML = table(box.classList.contains("all"), mergeLects());
+}
+
 function wireMore() {
   document.body.classList.toggle("unmerged", !mergeLects());
   app.querySelectorAll("input.mergelects").forEach(c => c.addEventListener("change", () => {
     const on = mergeLects(c.checked);
     document.body.classList.toggle("unmerged", !on);
     app.querySelectorAll("input.mergelects").forEach(x => { x.checked = on; });
+    app.querySelectorAll(".descentbox[data-descent]").forEach(redrawDescent);
   }));
   app.querySelectorAll("button.more").forEach(b => b.addEventListener("click", () => {
     const box = b.closest(".descentbox");
     const open = box.classList.toggle("all");
+    redrawDescent(box);
     b.textContent = open ? "Hide deeper rows" : `Show ${b.dataset.n} deeper row(s)`;
   }));
 }

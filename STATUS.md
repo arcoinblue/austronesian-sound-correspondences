@@ -18,10 +18,11 @@ The state of the Austronesian Sound Correspondences database. The generated part
 
 Lects by `inherit`: (blank) 469, assumed-unchanged 655, assumed-unchanged (automatic, fewer than 13 phonemes known) 73, stated-unchanged 246.
 Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
+Unconditioned splits (several regular reflexes in one environment, one source, no condition): 894 groups.
 
 ## Checks
 
-`build.py --check`: 0 error(s), 518 warning(s), 3065 note(s).
+`build.py --check`: 0 error(s), 577 warning(s), 3959 note(s).
 
 | Warnings | Count |
 |---|---|
@@ -29,6 +30,7 @@ Inventories: edited 39, empty 62, reverse-generated 1126, sourced 216.
 | a reflex is not in the lect's sourced inventory | 129 |
 | a work cited in notes has no sources row | 98 |
 | a source is never cited | 72 |
+| a reverted decision is not marked as carried out … | 59 |
 | no page number for the citation | 26 |
 | repeats the fusion row at … | 8 |
 | an attested lect has symbols that are not IPA | 2 |
@@ -124,6 +126,72 @@ From the `decisions` tab. Confirm or revert one by changing its `status` in the 
 | `chart-diphthongs` | Diphthongs given as reflexes (Acehnese ɯə, uə; Haroi ɨa, ei, ou) have no cell in the vowel chart and are listed under 'Unclassified vowels'. Is that how they a… | Yes for now: the standing rule lists what cannot be placed under the chart. No code was changed. |  |  |
 | `thurgood1999-tones` | Thurgood (1999), chapter 8: the tones of Tsat (Tables 145-154) and Phan Rang Cham, and the registers of Western Cham. Are they entered? | Not entered and not read. Tones and registers are not phonemes in this database, and a row cannot write a tone on a segment. The Haroi register is entered only… |  |  |
 
+## Reverted decisions not yet carried out
+
+A reverted decision is an instruction. When it has been carried out, write the date in its `applied` cell.
+
+| id | Question | To do (the alternative, and the comments) |
+|---|---|---|
+| `mc-unchained-cells` | Two Micronesian cells cannot be chained: PCK *x (the PPC row has r and ∅, PCK only ∅) and Pohnpeian *ñ (the PPON row has ∅ and n, Pohnpeian only ∅). | Omitted, with a note on each lect (the reading before 21 November 2026). |
+| `atayal-original` | Which work is the original of the Proto-Atayal reconstruction? | Goderich (2020) only. (the reading before 23 November 2026) |
+| `wolff-vowels` | The Wolff system has no vowel rows: Shibata's Table 2.16 has none. | Before 23 November 2026: Consonants only; the site says Wolff's vowels are not compared. Other alternatives then: Take Wolff's vowels from Wolff 2010 directly. |
+| `ksr-s-before-i` | Lee & Wang: POc *s lost before *i. Bender et al. have *s > s / _i. | Regular (the reading before 21 November 2026); or sporadic. |
+| `ge-overlap` | Overlapping subgroups (Wetar-Galolen, Nuclear Wetar-Atauro; the Peripheral Babar shared changes). | Entered on the member lects (overlap_groups). (the reading before 23 November 2026) |
+| `ge-celebic` | Grimes & Edwards's Celebic changes. | Not re-entered on pcel (the reading before 21 November 2026). |
+| `ge-identity-conflicts` | Four identity rows were added at a node because a daughter states a change from that phoneme, but the node itself states a change for it: Proto-Nuclear Rote *d… | Both kept: the stated change and the identity, as two elsewhere reflexes. (the reading before 23 November 2026) |
+| `ngorek-nj` | Ngorek reflex of *nj: Table 8 (p. 64) has nc, Table 11 (p. 67) nj. | Not entered. (the reading before 23 November 2026); Note the inconsistency of the source |
+| `punan-internal` | Punan internal subgrouping (Figures 28-29, pp. 122-124). | a Punan Tubu-Bah node and an 'other Punan' node |
+| `landdayak-tables` | Land Dayak Tables 50-51 (pp. 141-142). | enter Table 51 with '/' read as 'or'; add a Bidayuh (super)lect (bida1240); follow Table 51 and add notes from Table 52; keep the rest |
+| `pmal-shared` | Proto-Malayic changes: Smith gives none. | No Proto-Malayic rows; every change is entered on each lect. The reflexes shared by all seven lects of Tables 59-60 (*-q > h, *-b > p, *-d, *-j > t, *-j- > d, … |
+| `malayic-glottal` | Malayic cells such as 'aʔ; a', 'u; (uʔ)', 'r; ʔ' (Tables 59-60): Smith ties final glottal stops to particular lexemes (Figures 60-61, p. 196). | aʔ as the regular reflex of *-a, as Table 60 lists it first |
+| `malayic-phonetic` | Table 60 prints some vowels phonetically: Seberuang ow, ey; Iban ʊu̯, ɪi̯, ʊə̯, ɪə̯; Mualang oə̯, ɛə̯. The text calls these allophonic (pp. 185-186: /kutu/ [ku… | the printed phonetic forms |
+| `malayic-r` | Malayic *R: Tables 59 prints ɣ (Keninjal, Seberuang, Mualang) and ɹˠ (Seberuang, final), but Figure 56 (p. 185) gives these as phonetic values of /r/. | ɣ as printed |
+| `kayanic-held` | Kayanic and Kayan-Murik-Merap: intermediate stages above the microgroups Kayan, Murik-Merap and Segai-Modang. | enter Proto-Kayanic and Proto-Kayan-Murik-Merap as nodes |
+| `pazeh-j-final` | Pazeh reflex of PAN *j word-finally: d (Blust 2013: 578) or t̪ (the row from Blust 1999b via Shibata 2025)? | Keep only one of the two.; Both are correct, since Blust (1999) notes that the contrast is preserved despite final devoicing, as a place contrast; thus phonemi… |
+| `pn-tree` | Which Polynesian tree goes in parent_id: Marck (2000), Walworth (2014) or Wilson (2021)? | Marck's (Figure 1.2, p. 3), the only one with regular sound changes at each node (Table 2.2). Walworth's tree (no Proto-Marquesic or Proto-Tahitic; 2014: 268) … |
+| `marck-diffused` | Marck's diffused changes (lexical diffusion, with residue): PCE *f > *w before *a(a)h, the Nuclear Marquesic low-vowel assimilation, the Kapingamarangi final-v… | Sporadic with conditions. |
+| `ren-bel` | Table 2.2 has rows Bel and Ren; Table 1.6 has only 'Ren Rennellese and Bellona'. | Ren = Rennellese = Munggava (mung1271) and Bel = Bellona = Mungiki (mung1270) |
+| `cha-y` | Chamorro y: Topping's y is [dz], and Blust respells final -ai, -ao, -ui as -ay, -aw, -uy, taking [dz] and final [j] as one phoneme (2000: 85). | One phoneme d͡z (printed y); PMP *y > d͡z in all positions, final *-ay included. (the reading before 23 November 2026) |
+| `lynch-parents` | Lynch states South Efate, Naman and Nese against POc. PNCV is in the sheet (from François 2011). What is their parent? | Under PNCV (Glottolog's North and Central Vanuatu includes all three), composed through PNCV rows that the sheet does not yet have.; add Central Vanuatu as the… |
+| `sef-dialects` | South Efate: Lynch's data are Erakor (Thieberger); Clark (1985) reports other reflexes for Eton and Epau. | Separate dialect lects for Erakor, Eton and Epau. |
+| `neluz-parent` | Where does Proto-Northeastern Luzon attach? | parent Proto-Northern Luzon, restating R&L's PMP rows against Reid's inventory |
+| `neluz-internal` | Robinson & Lobel's internal tree of Northeastern Luzon | nodes for Casiguran-Nagtipunan and Pahanan-Paranan |
+| `himes-r-y` | Himes's Sinauna, Kapampangan and Sambalic rules for *R, after Proto-Central Luzon *R > *y | a separate Proto-Central Luzon *R; mark as conditioned or sporadic, depending on the case |
+| `puyuma-ting` | Ting's (1978) Puyuma tree (via Teng 2008: 5): Nanwang against a subgroup of the other five, which further divides into Pinaski-Ulivelivek, Rikavung and Kasavak… | A node for the non-Nanwang subgroup carrying the spirantization. |
+| `yeh-puyuma-tree` | Should Yeh’s Puyuma subgroups (fig. 6.1: Proto-Nuclear Puyuma > Proto-Alripay-Mulivelivek, Proto-Likavung-Tamalrakaw, Proto-Katripulr-Kasavakan) be entered as … | Not entered. Yeh’s Table 4.26 states every dialect’s reflexes against Proto-Puyuma, so the rows are entered against ppuy, as Ting’s are (decision puyuma-ting).… |
+| `yeh-ting-inventories` | Yeh’s 2023-2024 inventories are now the sourced inventories of Katripulr, Likavung and Kasavakan. Ting’s (1978) rows b > v (all three) and ɖ > ʐ (Kasavakan) de… | Ting’s rows are kept as they are; they now give 4 warnings (reflex outside the sourced inventory). (the reading before 23 November 2026) |
+| `saaroa-inventory-pan` | Saaroa (saar1237): whose inventory? | Pan’s (2012) Lha’alua inventory replaces the Tsuchida (1976)-via-Shibata one; Tsuchida’s β is restated as Pan’s v in the correspondence rows (notes say so). (t… |
+| `thao-f` | Thao: Shibata (2025) gives ɸ~f; Blust (2003: 30) says labiodental [f]. | The inventory now follows Blust: f. The PAn *b row is restated as b > f. (the reading before 23 November 2026) |
+| `chen-paiwan-dialects` | Chen (2006) describes Northern (Sandimen), Central (Piuma) and Southern (Mudan, Shimen) Paiwan. How to enter them? | Three dialect lects under ppai (paiwan-north, paiwan-central, paiwan-south) with Chen’s inventories and the changes of his Tables 2.4 and 7.4. Southern *k > ʔ … |
+| `lin-amis` | Lin (2022) read directly. Shibata’s Proto-Amis (pami) is Lin’s Proto-Amis-Sakizaya; Lin’s subgroups are entered as nodes under it. | Keep Shibata’s values as the default inventory and record Lin’s in notes; or enter Lin’s subgroups only in lect notes.; add Lin's values in the notes while kee… |
+| `chuang-paiwan-dialects` | Chuang’s (2024) sixteen Paiwan dialects are entered as separate lects under Proto-Paiwan. His Timur (三地門) may be Chang’s (2006) Santi (Stimur village), and his… | Kept apart; the linkages are entered as overlap groups, not nodes. (the reading before 23 November 2026) |
+| `li-bunun-dialects` | Li’s (1988) five Bunun dialects: which lects? | Takituduh and Takbanuað (no glottocodes) and Takibakha (taki1252) added under Proto-Bunun; Isbukun and Takivatan get Li’s rows. All five are stated-unchanged a… |
+| `li-plains` | Li (2003) on the four coastal plains languages: whose claims, and the subgroup? | The three innovations Li takes from Tsuchida (1982: 9-10) and the Taokas-Babuza *p change are cited to Tsuchida via Li; *ŋ > n (from Li 1985), the *C and *S ro… |
+| `li-favorlang` | Li’s (2005) Favorlang reflexes: where? | On Babuza (babu1240), each row labelled Favorlang, as the earlier rows are. His two PAN *S (Dahl’s *S1 > s, *S2 > ø) are two rows with conditions unknown; *p >… |
+| `rau-mstbon` | Rau (2000), sound change in progress in Mstbon Squliq: how? | Before 23 November 2026: On Squliq (sqol1237) with variety ‘Mstbon (Ruiyan)’: -p > -k, -m > -ŋ, -l > -n as regular rows (lexical diffusion in the notes), the n… |
+| `pas-nunusaku` | Proto-Ambon-Seram: does Glottolog’s Nunusaku (nunu1252) correspond? | No glottocode: Glottolog’s Nunusaku includes Salas, which Grimes & Edwards (2026: 436) list after the Ambon-Seram tree as of uncertain classification (here dir… |
+| `lobel-pgcph` | Proto-Greater Central Philippine: node, rows and glottocode? | New node pgcph under PMP (user's choice of 22 Nov 2026: nodes with Lobel's rows). Rows only for what Lobel states in passing: *q > *ʔ, *R > *ɡ, *j > *d, *h kep… |
+| `lobel-umiray` | Umiray Dumaget: where? | Directly under PMP: Lobel finds no evidence for Greater Central Philippine and leaves four possibilities open (§7.9). Himes's placement in GCPh is an alt_paren… |
+| `lobel-swsabah` | Southwest Sabah: which nodes? | Proto-Southwest Sabah (sout3154) under PMP with the four PMP > PSWSAB changes of §11.1.2 (h > ∅, *a > ə / _#, *R > h / [aiu]_[auə], *R > ɡ / ə_). Below it Prot… |
+| `smith-barito` | Barito (Smith 2017a: 168-182): node? | No node: Smith finds no phonological innovation of quality for Proto-Barito (pp. 170-171) and calls Barito a linkage (§2.7.4-2.7.5). The ten lects of Tables 56… |
+| `lrc2002-readings` | Symbols in the Lynch et al. (2002) sketches whose IPA value is not stated or is ambiguous. | d͡ʒ for j; keep /~/ as printed; q for k̠; enter long vowels for all or none.; enter long vowels when the source says length is phonemic; nasalization/homorgani… |
+| `lrc2002-subgroups` | Ch. 5 names subgroup-defining sound changes: Proto Admiralties *R > *y before high vowels, lost elsewhere (p. 99); Southeast Solomonic merger of POc *l and *R … | Add the three proto-languages with these changes and inherit assumed-unchanged; or add the linkages as groups. |
+| `shwng-nodes` | Which of Kamholz's SHWNG subgroups (Table 14.1) to enter as proto-languages? | Before 23 November 2026: Only those defined by sound changes and needed for a lect: Proto-Yaur-Yerisiam (*ŋ > ∅) and Proto-Raja Ampat–South Halmahera (*R > ∅),… |
+| `ross1992-tables` | Ross (1992) was read directly (22 November 2026). Should its Table 2 (Formosan evidence: Proto-Atayal, Saisiyat, Thao, Proto-Bunun, Amis, Proto-Tsou, Proto-Ruk… | Enter Table 2 as a system 'Ross 1992' on PAn with rows for the nine Formosan lects; or map it to the Ross (2015) phonemes and add the rows as a second source.;… |
+| `geraghty1986-ppn` | Geraghty (1986) gives the PPn reflex of every PCP phoneme. Should Proto-Polynesian now go under PCP? | Before 23 November 2026: Not yet: decision ppn-parent (open) keeps PPn under POc. PPn is listed under PCP as a proposed daughter (alt_parents pcp:geraghty1986)… |
+| `blust1984-grades` | Blust (1984) lists several reflexes of POc *p, *k, *nt, *s and *ns in Mussau and then treats the minority ones as consonant-grade 'cross-over' (pp. 179-180). H… | Enter the cross-over reflexes as sporadic; or leave them out, as Table 3 does.; mark as sporadic |
+| `francois2005-hybridization` | How are François's (2005) charts of vowel hybridization (Appendix 1, pp. 490-491) entered? | Fusion pairs (*V1 + *V2 > V'); rows against POc on a Torres-Banks node; Table 1 vowel inventories as sourced phonemes (they would leave the consonants unsource… |
+| `jackson1983-tree` | Jackson's Figure 4 (p. 231) is a Trukic tree with five unnamed intermediate nodes defined by the rules of Table 18 (ULI first; then PUA; then WOL; then CRL-STW… | Add the nodes, with the rules Figure 4 places on each (1, 14-, 15- on the node above PUA; 14*, 15*, 17* above WOL; 12+, 14+, 15+, 17 above CRL-STW; 12, 14, 15 … |
+| `barlowross2025-tree` | Barlow & Ross (2025) propose Proto-Tomoip-New Ireland, with Tomoip and Proto-New Ireland as coordinate branches; Ross (1988) derived Tomoip from New Ireland. A… | Add Proto-Tomoip-New Ireland (and Proto-New Ireland) under POc with the split rows of Tables 4-5, and Tomoip under it. |
+| `bril2020-pnnc` | Bril (2020) gives the reflexes with an intermediate Proto-North New Caledonian (PNNC, after Ozanne-Rivierre 1995), where PNC *k > *c, *q > *k, *ṯ > *t (Ext. no… | Add PNNC under PNC with the four changes of Tableau 7 and move the northern lects under it; add Paimboa Zuanga (gon) as a lect with the pa-bo rows. |
+| `bril2020-vowels` | Bril's vowel and diphthong correspondences (Tableaux 1-3: *u > i, e; *ai > e, ɛ, ɨ, i; *au, *ua, *ia > ɔ in Zuanga-Yuanga): enter them? | Give PNC its POc vowels (inherit) and enter Tableaux 1-2 as rows. |
+| `francoisetal2015-scope` | The languages of Vanuatu: Unity and diversity (2015) was read for this project. Is anything entered from it? | Add Sa (saaa1241) with the allophone [c] of /t/ before high vowels and a note on f. |
+| `lynch2002h-table3` | Lynch (2002h) Table 3 gives sample reflexes of the POc labials and labiovelars in eleven languages. Which are entered? | Add Lynch's crossover reflexes (Nemi ᵐbʷ for *bʷ, mʷ for *mʷ; Pohnpeian pʷ for *b) as sporadic rows; add a Proto-Eastern Oceanic node with fortis *p and lenis … |
+| `rivierre1993-tones` | Rivierre (1993) derives the high tone of Cèmuhî, Paicî, Drubea, Numèè and Kwênyii from aspirated consonants (from PNC geminates). Is it entered? | Enter the geminate rows with the tone in the note. |
+| `ozannerivierre1995-north` | Ozanne-Rivierre (1995) reconstructs Proto-North (Bril's PNNC) with *k > *c, *q > *k, *t > alveolar *t and *s > *t, aspirates from PNC geminates, and the subgro… | Add Proto-North and the Figure 1 subgroups, restating the northern rows. |
+| `rehg1984-dialects` | Rehg (1984: 281-282) describes the Kiti dialect (Glottolog kiti1240) and Ngatikese (Ngatik; Glottolog ngat1248, 'Ngatik Men's Creole', a separate language ther… | Kiti and Ngatikese as dialects (tree_parent pohn1238) with their own rows; the Main dialect (Glottolog pona1249) as the representative dialect of Pohnpeian. |
+| `jackson1986-pgmc` | Jackson (1986: 214) proposes Greater Micronesian (Nauruan + Micronesian). Add it? | A note on Nauruan only.; No need to add the alternative Greater Micronesian node |
+
 <!-- END GENERATED -->
 
 ## Not yet entered
@@ -165,15 +233,16 @@ Hand-kept. Collected from the handoffs of 2026-11-20 (09:20 to 15:00). The Googl
 - Formosan leftovers of the gap audit (batch `formosan-leftovers`, 26 Nov 2026): two sporadic rows from Yeh (2024: 210). Lin (2022) Tables 4.3-4.38 and 7.1-7.5, Shibata (2020) Table 5.6, Goderich (2020) Tables 4.42-4.50, Shibata (2025) Tables 3.14-3.31 and 6.15-6.31 and Chuang (2024) Table 6.1 add no rows (`BATCH.md`); Tseng's Table 6.4 (Taokas, Saisiyat) waits for Ross (2012).
 - Papora, Taokas, Basay: Shibata 2025 gives no separate reflexes.
 - About 50 works cited in notes have no sources row (Edwards 2015, Marck 1977, Brown 2001, Harrison 1978, Wolff 1982, ...): see the warnings above. Their details come from the citing sources' reference lists.
-- `locator` is empty: table, figure and section references are still in the notes.
+- `locator` is filled on about 71% of the correspondence rows; about 1,600 older rows still give the table or section only in `notes`.
 
 ## Code to-do
 
 Hand-kept.
 
-- One environment per row (split the 132 comma-separated environments).
+- One environment per row: 341 distinct environments are lists (about 1,320 rows; audit of 27 November 2026).
+- Ross's consonant grades and POC positions are written inside `environment` (about 1,590 and 740 rows): a `grade` column is proposed (decision `audit-grade-column`).
 - ISO 639-3, coordinates and alternate names from a pinned Glottolog CLDF release by glottocode.
-- The largest phoneme files (PAn *N 530 KB, *a and *s 250 KB) carry every deeper descendant row; they could load those rows only when "show deeper rows" is pressed.
+- The largest phoneme files (PAn *N 1.8 MB, 190 KB gzipped; *a and *n 1.35 MB) carry every deeper descendant row. Since 27 November 2026 the page builds the deeper rows only when asked; the file is still fetched whole and could be split.
 - Show decisions on the site (a row's `decision`, with its status).
 - Diphthongs as their own class (the Sumatran ones are vowels with `unknown` height and backness).
 - Vowel length (Nauruan and Kosraean long vs short).
