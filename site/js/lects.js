@@ -53,7 +53,15 @@ async function pageIndex(params) {
     if (Array.isArray(saved)) mem.open = new Set(saved);
   } catch (e) {}
   const state = { q: mem.q, view: "tree", hideEmpty: mem.hideEmpty, only: !!mem.only, alt: true };
-  try { state.view = localStorage.getItem("asc-view") === "flat" ? "flat" : "tree"; } catch (e) {}
+  // Three views of the full list: the tree, the lects by name, and the tree drawn as a graph
+  // (js/graph.js). A reflex table has the first two.
+  const views = pivot ? ["tree", "flat"] : ["tree", "flat", "graph"];
+  try { const v = localStorage.getItem("asc-view"); if (views.includes(v)) state.view = v; } catch (e) {}
+  // In the graph the proposed groupings and the overlapping groups are off until asked for.
+  state.prop = state.over = false;
+  try { state.prop = localStorage.getItem("asc-graph-prop") === "1"; state.over = localStorage.getItem("asc-graph-over") === "1"; } catch (e) {}
+  // The branch the graph is cut down to: the map's *Colour by subgroup* choice ("" for the whole tree).
+  state.branch = "";
   // Alternative nodes (groupings that only some classification proposes) can be hidden.
   try { state.alt = localStorage.getItem("asc-alt") !== "0"; } catch (e) {}
   // The map over the full list (not over a reflex table) can be put away.
@@ -61,7 +69,7 @@ async function pageIndex(params) {
   try { if (localStorage.getItem("asc-map") === "0") state.map = false; } catch (e) {}
   // The address can carry the filter, the view and the reflex table's box (?q=tetun&view=flat&only=1).
   if (params.get("q") !== null) state.q = params.get("q");
-  if (params.get("view")) state.view = params.get("view") === "flat" ? "flat" : "tree";
+  if (params.get("view")) state.view = views.includes(params.get("view")) ? params.get("view") : "tree";
   if (pivot && params.get("only")) state.only = params.get("only") === "1";
 
   // The tree: daughters under their nearest ancestor. In a reflex table the
@@ -88,7 +96,7 @@ async function pageIndex(params) {
   }
   const remember = () => {
     mem.q = state.q; mem.hideEmpty = state.hideEmpty; mem.only = state.only;
-    setQuery({ q: state.q, view: state.view === "flat" ? "flat" : "", only: pivot && state.only ? "1" : "" });
+    setQuery({ q: state.q, view: state.view === "tree" ? "" : state.view, only: pivot && state.only ? "1" : "" });
     if (!pivot) try { localStorage.setItem("asc-open", JSON.stringify([...open])); } catch (e) {}
   };
   // The clades above a lect, shown when the pointer rests on its name.
@@ -102,17 +110,21 @@ async function pageIndex(params) {
     <div class="controls">
       <input type="search" id="q" placeholder="Filter names and alternate names" aria-label="Filter">
       <span class="seg" role="group" aria-label="View">
-        <button data-v="tree">Tree</button><button data-v="flat">A–Z</button>
+        <button data-v="tree">Tree</button><button data-v="flat">A–Z</button>${pivot ? "" : `<button data-v="graph">Graph</button>`}
       </span>
-      <span class="treeonly"><button class="more" id="openall">Expand all</button> <button class="more" id="closeall">Collapse</button></span>
+      <span class="treeish"><button class="more" id="openall">Expand all</button> <button class="more" id="closeall">Collapse</button></span>
       <label class="muted" id="hideemptybox" style="font-size:13px"><input type="checkbox" id="hideempty" checked> Hide lects with no data</label>
       ${pivot ? "" : `<label class="muted" style="font-size:13px" title="The map of the lects with a known place, above the list"><input type="checkbox" id="showmap" role="switch"> Map</label>`}
       <label class="muted treeonly" style="font-size:13px" title="Groupings that only some classification proposes (in italics, marked 'proposed grouping')"><input type="checkbox" id="showalt" role="switch"> Alternative nodes</label>
+      ${pivot ? "" : `<label class="muted graphonly" style="font-size:13px" title="Groupings that only some classification proposes: each drawn once, with a dashed tie to the lects it would contain"><input type="checkbox" id="showprop" role="switch"> Proposed groupings</label>
+      <label class="muted graphonly" style="font-size:13px" title="Groups that overlap the tree's (Li's Northern group, Torres-Banks): a bar beside their members"><input type="checkbox" id="showover" role="switch"> Overlapping groups</label>`}
       ${pivot ? `<label class="muted" style="font-size:13px" title="Hide the lects, and the groups, that have no reflex of this phoneme entered or implied"><input type="checkbox" id="onlyreflex"> Only lects with a reflex</label>` : ""}
       <span class="muted" id="count"></span>
     </div>
-    ${pivot ? "" : `<details class="about"><summary>How to read this list</summary><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Sister nodes are listed by geography, roughly from Taiwan to Polynesia, and from north to south within a region. An alternative node, a grouping that only some classification proposes, is in italics and marked "proposed grouping", after the lects and established subgroups beside it; the lects it would contain are listed under it and keep their place in the tree.</p></details>
-      <div id="map"></div>`}
+    ${pivot ? "" : `<details class="about"><summary>How to read this list</summary><p class="muted">Every language and reconstructed stage in the database. Groups are named after the clade and headed by its proto-language; click an arrow to open or close one. Names are given without Proto- and Pre-; the Type column and each lect's page give the full name. A group name in bold with no link (a linkage, a subgroup with no proto-language entered, a language whose dialects carry the data) has no page of its own; dialects are listed under their language. Sister nodes are listed by geography, roughly from Taiwan to Polynesia, and from north to south within a region. An alternative node, a grouping that only some classification proposes, is in italics and marked "proposed grouping", after the lects and established subgroups beside it; the lects it would contain are listed under it and keep their place in the tree.</p>
+      <p class="muted"><i>Graph</i> draws the same tree from left to right. A double line joins a linkage to its members. Click a mark to open or close its group (with Shift, everything under it) and a name to open its page; the lects under the node the pointer is on are picked out on the map. With <i>Colour by subgroup</i> set on the map, only that branch is drawn (Taiwan without Malayo-Polynesian, Malayo-Polynesian without Oceanic), and a click on the branch left out moves to it. In Taiwan sisters stand in the list's order; from Malayo-Polynesian down they are ordered by distance from Taiwan, a group by the median distance of its lects. <i>Proposed groupings</i> draws each alternative node once, with a dashed tie to its members; <i>Overlapping groups</i> draws a bar beside the members of a group that cuts across the tree.</p></details>
+      <div id="map"></div>
+      <div id="graph" class="graph" hidden></div>`}
     <div class="scroll"><table id="t" class="lects"></table></div>`;
 
   // The map shows the lects the list would show: those that pass the filter and the box.
@@ -125,14 +137,35 @@ async function pageIndex(params) {
     if (!state.map) return;
     const refit = mapQ !== null && mapQ !== state.q;
     mapQ = state.q;
-    if (!map) map = lectMap(box, mem);
+    box.classList.toggle("stick", state.view === "graph");
+    if (!map) map = lectMap(box, mem, { onMode: m => { const was = state.branch; state.branch = m; if (was !== m && state.view === "graph") draw(); } });
     map.then(m => { if (box.isConnected) m.show(shownIds, refit); });
+  };
+  // The graph (the third view): made when first shown. It orders sisters by the places in
+  // map.json, picks out on the map the lects under the node the pointer is on, and a click
+  // on the branch it leaves out (Malayo-Polynesian under Taiwan) moves the map's choice there.
+  let graph = null;
+  const under = l => { const ids = new Set(); const go = x => { ids.add(x.id); (kids[x.id] || []).forEach(go); };
+    isAlt(l) ? altKids[l.id].forEach(a => go(a.lect)) : go(l); return ids; };
+  const drawGraph = (shows, q, hit) => {
+    const box = app.querySelector("#graph");
+    if (!graph) {
+      graph = lectGraph(box, { kids, altKids, isAlt, open, onToggle: () => draw(),
+        onHover: l => { if (state.map && map) map.then(m => m.light(under(l))); },
+        onStub: id => { if (map) map.then(m => m.choose(id)); } });
+      json("data/map.json").then(d => { if (box.isConnected) graph.setPoints(d.points); }).catch(() => {});
+    }
+    const root = state.map && LECTS[state.branch] ? state.branch : "";
+    graph.draw({ root, stub: root ? MAP_NESTED[root] || null : null, shows, q, hit, alt: state.prop, over: state.over });
   };
 
   const draw = () => {
     app.querySelectorAll(".seg button").forEach(b => b.classList.toggle("on", b.dataset.v === state.view));
-    const tree = state.view === "tree";
+    const tree = state.view === "tree", asGraph = state.view === "graph";
     app.querySelectorAll(".treeonly").forEach(x => { x.hidden = !tree; });
+    app.querySelectorAll(".treeish").forEach(x => { x.hidden = !tree && !asGraph; });
+    app.querySelectorAll(".graphonly").forEach(x => { x.hidden = !asGraph; });
+    if (!pivot) { app.querySelector("#graph").hidden = !asGraph; app.querySelector(".scroll").hidden = asGraph; }
     const q = state.q.toLowerCase();
     const hit = l => !q || [l.name, ...(l.alt_names || []), ...(l.overlap_groups || [])].some(n => n.toLowerCase().includes(q));
     // A lect with no rows and no daughters with rows says nothing yet.
@@ -174,7 +207,11 @@ async function pageIndex(params) {
     const shownLects = pool.filter(l => isLect(l) && (!q || hit(l)) && visible(l)), shown = shownLects.length;
     if (!pivot) drawMap(shown === lectsAll ? null : new Set(shownLects.map(l => l.id)));
     let body = "";
-    if (!tree) {
+    if (asGraph) {
+      // As in the tree, a filter keeps the matches and the ancestors that lead to them.
+      const has = l => hit(l) || (kids[l.id] || []).some(has);
+      drawGraph(l => !((q && !has(l)) || !visible(l)), q, hit);
+    } else if (!tree) {
       const rows = pool.filter(l => hit(l) && visible(l) && !l.node_only).sort((a, b) => a.name.localeCompare(b.name));
       body = rows.map(l => `<tr><td>${lectLink(l.id)}</td>${cells(l)}</tr>`).join("");
     } else {
@@ -258,6 +295,12 @@ async function pageIndex(params) {
   const showalt = app.querySelector("#showalt");
   showalt.checked = state.alt;
   showalt.addEventListener("change", e => { state.alt = e.target.checked; try { localStorage.setItem("asc-alt", state.alt ? "1" : "0"); } catch (err) {} draw(); });
+  for (const [id, k, store] of [["showprop", "prop", "asc-graph-prop"], ["showover", "over", "asc-graph-over"]]) {
+    const box = app.querySelector("#" + id);
+    if (!box) continue;
+    box.checked = state[k];
+    box.addEventListener("change", e => { state[k] = e.target.checked; try { localStorage.setItem(store, state[k] ? "1" : "0"); } catch (err) {} draw(); });
+  }
   const showmap = app.querySelector("#showmap");
   if (showmap) {
     showmap.checked = state.map;

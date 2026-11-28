@@ -139,6 +139,18 @@ class TestOutputSize(unittest.TestCase):
         html = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
         self.assertLess(html.index("js/map.js"), html.index("js/lects.js"))
 
+    def test_graph_script_is_loaded_between_the_map_and_the_list(self):
+        # The list calls lectGraph (js/graph.js), which uses the map's MAP_X.
+        html = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        self.assertLess(html.index("js/map.js"), html.index("js/graph.js"))
+        self.assertLess(html.index("js/graph.js"), html.index("js/lects.js"))
+        js = (ROOT / "site" / "js" / "graph.js").read_text(encoding="utf-8")
+        self.assertIn("function lectGraph(", js)
+        lects = (ROOT / "site" / "js" / "lects.js").read_text(encoding="utf-8")
+        self.assertIn('data-v="graph"', lects)
+        # Proposed groupings and overlapping groups are off until the reader asks for them.
+        self.assertIn("state.prop = state.over = false", lects)
+
 
 if __name__ == "__main__":
     unittest.main()
