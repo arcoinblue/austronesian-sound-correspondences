@@ -51,8 +51,11 @@ async function landPath() {
 
 // box: the element the map goes into. mem: an object that keeps the view while the site is
 // open. Returns { show(ids, refit) }: draw the points of these lects only (a Set of lect ids,
-// or null for all), and with refit move the view to hold them.
-async function lectMap(box, mem) {
+// or null for all), and with refit move the view to hold them; light(ids): pick out these
+// lects among the points shown (the others are drawn faint; null for none), as the graph does
+// for the node under the pointer; choose(mode): what a click on a *Colour by subgroup* button
+// does. hooks.onMode(mode) is called after the mode is first set and after every change.
+async function lectMap(box, mem, hooks = {}) {
   const modes = MAP_MODES.filter(([id]) => LECTS[id]);
   box.innerHTML = `${modes.length ? `<div class="mapmodes"><span class="muted">Colour by subgroup</span>
       <span class="seg" role="group" aria-label="Colour by subgroup"><button type="button" data-m="">Off</button>${modes.map(([id, name]) => `<button type="button" data-m="${id}">${name}</button>`).join("")}</span></div>` : ""}
@@ -78,7 +81,7 @@ async function lectMap(box, mem) {
   // mode: the node whose daughters are coloured ("" for none). styles: {daughter id: {i, shape}}.
   // hot: the daughter picked out in the legend (the others are drawn faint); pinned by a click.
   // etc: the daughters that are single languages; they share one mark, in the text colour.
-  let mode = "", styles = {}, hot = null, pinned = null, etc = [];
+  let mode = "", styles = {}, hot = null, pinned = null, etc = [], lit = null;
   try { mode = localStorage.getItem("asc-mapcolour") || ""; } catch (e) {}
   if (!modes.some(([id]) => id === mode)) mode = "";
   const daughterOf = (id, node) => {
@@ -153,21 +156,22 @@ async function lectMap(box, mem) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const r = view.k > 40 ? 5 : 4, seen = [], muted = css("--muted"), dark = mapDark();
     // Grey points first, then the coloured; in each, Glottolog's places under the lects' own.
-    const rank = p => (mode && p.grp && styles[p.grp] ? 2 : 0) + (p.g ? 0 : 1);
+    const rank = p => (lit && lit.has(p.id) ? 4 : 0) + (mode && p.grp && styles[p.grp] ? 2 : 0) + (p.g ? 0 : 1);
     for (const p of [...pts].sort((a, b) => rank(a) - rank(b))) {
       const x = sx(p.x), y = sy(p.y);
       if (x < -8 || y < -8 || x > W + 8 || y > H + 8) continue;
       const st = mode ? styles[p.grp] : null, grey = mode && !st;
       const c = st ? (st.etc ? fg : MAP_HUES[dark ? "dark" : "light"][st.i]) : grey ? muted : accent;
-      const sh = mapShape(st ? st.shape : "circle", x, y, grey ? r - 1 : r);
+      const on = lit && lit.has(p.id), off = lit && !on, rr = on ? r + 1 : grey ? r - 1 : r;
+      const sh = mapShape(st ? st.shape : "circle", x, y, rr);
       ctx.beginPath();
       if (sh) { sh.forEach((q, i) => i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.closePath(); }
-      else ctx.arc(x, y, grey ? r - 1 : r, 0, 2 * Math.PI);
-      ctx.globalAlpha = (hot && p.grp !== hot) ? 0.15 : grey ? 0.55 : 1;
+      else ctx.arc(x, y, rr, 0, 2 * Math.PI);
+      ctx.globalAlpha = (hot && p.grp !== hot) || off ? 0.15 : grey && !on ? 0.55 : 1;
       ctx.fillStyle = p.g ? bg : c; ctx.strokeStyle = p.g ? c : bg; ctx.lineWidth = p.g ? 1.5 : 1;
       ctx.fill(); ctx.stroke();
       ctx.globalAlpha = 1;
-      if (!hot || p.grp === hot) seen.push([x, y, p]);
+      if ((!hot || p.grp === hot) && !off) seen.push([x, y, p]);
     }
     // Names, once few enough points are in view to read them; a name that would run over
     // another is left out (its point still answers the pointer).
@@ -312,20 +316,25 @@ async function lectMap(box, mem) {
     pinned = hot = pinned === g ? null : g;
     caption(); draw();
   });
-  box.querySelector(".mapmodes")?.addEventListener("click", e => {
-    const b = e.target.closest("button");
-    if (!b || b.dataset.m === mode) return;
-    setMode(b.dataset.m);
+  const choose = m => {
+    if (m === mode || (m && !modes.some(([id]) => id === m))) return;
+    setMode(m); lit = null;
     try { localStorage.setItem("asc-mapcolour", mode); } catch (err) {}
     closePop(); tip.hidden = true; caption();
     // The view moves to the lects now in colour (Taiwan is a speck on the whole map).
     const col = pts.filter(p => styles[p.grp]);
     if (W && mode && col.length) fit(col);
     draw();
-  });
+    hooks.onMode?.(mode);
+  };
+  box.querySelector(".mapmodes")?.addEventListener("click", e => { const b = e.target.closest("button"); if (b) choose(b.dataset.m); });
+  cv.addEventListener("pointerenter", () => { if (lit) { lit = null; draw(); } });
   setMode(mode);
   caption(); size();
+  hooks.onMode?.(mode);
   return {
+    choose,
+    light(ids) { lit = ids && ids.size ? ids : null; draw(); },
     show(ids, refit) {
       pts = ids ? all.filter(p => ids.has(p.id)) : all;
       closePop(); tip.hidden = true; caption();

@@ -340,3 +340,47 @@ table.rows th:first-child { width: 22%; }
 table.rows th:nth-child(2) { width: 11%; }
 table.rows th:last-child { width: 24%; }
 table.othersys td:first-child { white-space: nowrap; }
+
+/* The lect list as a graph (js/graph.js). The tree is in the text colour; the ties of the
+   proposed groupings and the bars of the overlapping groups each take one colour. */
+.graph { margin: 10px 0 0; }
+.gkey { display: flex; flex-wrap: wrap; gap: 2px 16px; font: 12.5px var(--ui); color: var(--muted); margin: 0 0 6px; }
+.gkey span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.gscroll { overflow-x: auto; }
+.gscroll svg { display: block; }
+.gscroll text { font-size: 13px; fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 3.5px; stroke-linejoin: round; }
+.gscroll a text { fill: var(--accent); }
+.gscroll a:hover text { text-decoration: underline; }
+.gscroll text.gin, .gscroll text.gclosed { font-weight: 600; font-size: 12.5px; }
+.gscroll text.gcnt { font: 11px var(--ui); fill: var(--muted); }
+.ge { fill: none; stroke: var(--edge); stroke-width: 1.15; }
+.ge.ghi { stroke: var(--fg); stroke-width: 1.9; }
+.geo { fill: none; stroke: var(--edge); stroke-width: 4.4; }
+.gei { fill: none; stroke: var(--bg); stroke-width: 1.7; }
+.geo.ghi { stroke: var(--fg); }
+.gbox { fill: transparent; }
+.gn.gon .gbox { fill: var(--soft); }
+.gn.ggroup .gtw, .gn.gstub { cursor: pointer; }
+.gm { fill: var(--fg); stroke: none; }
+.gm.gopen { fill: var(--bg); stroke: var(--fg); stroke-width: 1.3; }
+.gm.gdia { fill: var(--muted); }
+.gm.gprop { fill: var(--bg); stroke: var(--warn); stroke-width: 1.3; stroke-dasharray: 2.2 1.6; }
+.gn.gdial text { font-size: 12.5px; }
+.gn.gpropn text, .gn.gpropn a text { font-style: italic; fill: var(--warn); }
+.gn.gstub text, .gn.gstub .gm, .gn.gdim text, .gn.gdim a text { fill: var(--muted); }
+.gn.ghit text:not(.gcnt) { stroke: var(--accent-soft); stroke-width: 6px; }
+.gal { fill: none; stroke: var(--warn); stroke-width: 1.15; stroke-dasharray: 4 3; opacity: .8; }
+.gal.gfar { stroke-dasharray: 1.5 3; }
+.gad { fill: var(--warn); }
+svg.gfocus .gal:not(.ghi), svg.gfocus .gad:not(.ghi) { opacity: .15; }
+.gal.ghi { stroke-width: 1.9; opacity: 1; }
+.gob { stroke: var(--ok); stroke-width: 1; fill: none; opacity: .75; }
+.gos { stroke: var(--ok); stroke-width: 3.2; stroke-linecap: round; }
+.gol { stroke: var(--ok); stroke-width: .8; stroke-dasharray: 1 4; opacity: .45; }
+.gscroll text.got { font: italic 11.5px var(--ui); fill: var(--ok); }
+/* Over the graph the map stays in sight while the page scrolls. */
+#map.stick { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 6px 0; border-bottom: 1px solid var(--line); }
+#map.stick .mapwrap { height: 270px; }
+#map.stick .mapnote { display: none; }
+#map.stick .maplegend { max-height: 46px; overflow-y: auto; }
+@media (max-width: 640px) { #map.stick .mapwrap { height: 180px; } #map.stick .maplegend { display: none; } }
